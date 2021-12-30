@@ -189,16 +189,18 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = 
 {   ammo="Ginsen",
-    head="Flam. Zucchetto +2",
-    body="Sulevia's Plate. +2",
-    hands="Flam. Manopolas +2",
-    legs="Sulev. Cuisses +2",
-    feet="Sulev. Leggings +2",
+
+head="Sakpata's Helm",
+body="Sakpata's Plate",
+hands="Sakpata's Gauntlets",
+legs="Sakpata's Cuisses",
+feet="Sulev. Leggings +2",
+neck="Fotia Gorget",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
-    right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+left_ring="Beithir Ring",
     right_ring="Petrov Ring",
     back="Atheling Mantle",
 
@@ -239,19 +241,19 @@ function init_gear_sets()
  
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
     sets.precast.WS['Savage Blade'] = 
-{       ammo="Ginsen",
-    head="Flam. Zucchetto +2",
-    body="Sulevia's Plate. +2",
-    hands="Flam. Manopolas +2",
-    legs="Sulev. Cuisses +2",
-    feet="Sulev. Leggings +2",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Thrud Earring",
-    right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Petrov Ring",
-    back="Atheling Mantle",
+{       ammo="Coiste Bodhar",
+head="Sakpata's Helm",
+body="Sakpata's Plate",
+hands="Sakpata's Gauntlets",
+legs="Sakpata's Cuisses",
+feet="Sulev. Leggings +2",
+neck="Fotia Gorget",
+waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+left_ear="Thrud Earring",
+right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+left_ring="Beithir Ring",
+right_ring="Moonbeam Ring",
+back="Atheling Mantle",
 
 }
 
@@ -259,36 +261,35 @@ function init_gear_sets()
    sets.precast.WS['Chant du Cygne'] = 
 {	
     ammo="Ginsen",
-    head="Ynglinga Sallet",
-    body={ name="Valorous Mail", augments={'Accuracy+22 Attack+22','Weapon Skill Acc.+10','DEX+3','Accuracy+6',}},
+    head="Sakpata's Helm",
+    body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs="Sulev. Cuisses +2",
+    legs="Sakpata's Cuisses",
     feet="Sulev. Leggings +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Brutal Earring",
     right_ear="Telos Earring",
-    left_ring="Rajas Ring",
-    right_ring="Regal Ring",
-    back={ name="Rudianos's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}},
+    left_ring="Petrov Ring",
+    right_ring="Beithir Ring",
+    back="Atheling Mantle",
 }
 	
     --Stat Modifier: WS damage + 30/31%   2211DMG maxaggro
     sets.precast.WS['Atonement'] = 
 {
 	ammo="Iron Gobbet",
-    head={ name="Odyssean Helm", augments={'Attack+25','Weapon skill damage +5%','Accuracy+2',}},   				
-    body="Phorcys Korazin",                                                                   							
-    hands={ name="Odyssean Gauntlets", augments={'Weapon skill damage +5%','VIT+4','Accuracy+11','Attack+14',}},	
-    legs={ name="Odyssean Cuisses", augments={'MND+1','AGI+5','Weapon skill damage +6%','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
-    feet="Sulevia's Leggings +2",																						
+    head="Sakpata's Helm",
+body="Sakpata's Plate",
+hands="Sakpata's Gauntlets",
+legs="Sakpata's Cuisses",
+feet="Sulev. Leggings +2",																				
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Cryptic Earring",
+    left_ear="Thrud Earring",
     right_ear="Ishvara Earring",																					
     left_ring="Apeile Ring",
     right_ring="Apeile Ring +1",
-    back={ name="Rudianos's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}},
 }
            
     ------------------------------------------------------------------------------------------------
@@ -887,21 +888,22 @@ function init_gear_sets()
     --------------------------------------
      
     sets.engaged = --1124 / 1264 avec enlight up
-{       main="Naegling",
-    
-    ammo="Coiste Bodhar",
-    head="Flam. Zucchetto +2",
-    body="Flamma Korazin +2",
-    hands="Sulev. Gauntlets +1",
-    legs="Sulev. Cuisses +2",
-    feet="Flam. Gambieras +2",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Petrov Ring",
-    back="Atheling Mantle",
+{   
+    main="Naegling",
+    sub="Blurred Shield +1",
+ammo="Coiste Bodhar",
+head="Flam. Zucchetto +2",
+body="Sakpata's Plate",
+hands="Sakpata's Gauntlets",
+legs="Sakpata's Cuisses",
+feet="Sakpata's Leggings",
+neck={ name="Vim Torque +1", augments={'Path: A',}},
+waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+left_ear="Brutal Earring",
+right_ear="Telos Earring",
+left_ring="Patricius Ring",
+right_ring="Petrov Ring",
+back="Atheling Mantle",
 
 }
  

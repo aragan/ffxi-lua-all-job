@@ -29,7 +29,7 @@ function job_setup()
 
     define_roll_values()
 end
-
+include('organizer-lib')
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------

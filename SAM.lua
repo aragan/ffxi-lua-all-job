@@ -379,16 +379,19 @@ function init_gear_sets()
     
     -- Defense sets
     sets.defense.PDT = {
-        --head="Otronif Mask +1",
-        neck="Agitator's Collar",
-   	    body="Tartarus Platemail",
-        --hands="Otronif Gloves +1",
-        ring1="Dark Ring",
-        ring2="Defending Ring",
-    	back=Smertrios.TP,
-        waist="Flume Belt +1",
-        --legs="Otronif Brais +1",
-        --feet="Otronif Boots +1"
+        ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear="Infused Earring",
+    left_ring="Purity Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
     }
     
     sets.defense.Reraise = set_combine(sets.defense.PDT, {
@@ -456,7 +459,19 @@ function init_gear_sets()
         feet="Kendatsuba Sune-ate +1"
     })
 
-    sets.engaged.PDT = set_combine(sets.engaged.Acc, {
+    sets.engaged.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear="Infused Earring",
+    left_ring="Purity Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
 
     })
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {

@@ -53,7 +53,6 @@ function org.export_set()
             item="Holy Water",
             ammo="Orichalc. Bullet",
             item="Panacea",
-            
         item="Icarus Wing",
         item="Bean Daifuku +1",
         item="Grape Daifuku +1",

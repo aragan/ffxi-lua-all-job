@@ -77,7 +77,7 @@ function user_unload()
     send_command('unbind !`')
 end
 
-
+include('organizer-lib')
 -- Define sets and vars used by this job file.
 function init_gear_sets()
     --------------------------------------
@@ -87,9 +87,7 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {head="Nahtirah Hat",ear2="Loquac. Earring",
-        hands="Gendewitha Gages",ring1="Prolix Ring",
-        back="Swith Cape +1",waist="Witful Belt",legs="Orvail Pants +1",feet="Chelona Boots +1"}
+    sets.precast.FC = {ring1="Prolix Ring",}
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},

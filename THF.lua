@@ -22,7 +22,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 end
-
+    include('organizer-lib')
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
@@ -113,12 +113,16 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {ammo="Yamarang",
-        head="Mummu Bonnet +1",
-        body="Passion Jacket",hands="Pillager's Armlets +1",ring1="Asklepian Ring",
-        back="Iximulew Cape",waist="Caudata Belt",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
+    head="Mummu Bonnet +1",
+    body="Gleti's Cuirass",
+    legs="Dashing Subligar",}
 
     -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {body="Passion Jacket",}
+    sets.precast.Waltz['Healing Waltz'] = {ammo="Yamarang",
+    head="Mummu Bonnet +1",
+    body="Gleti's Cuirass",
+    legs="Dashing Subligar",
+    }
 
 
     -- Fast cast sets for spells
@@ -328,24 +332,34 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.Evasion = {
-        head="Pillager's Bonnet +1",neck="Ej Necklace",
-        body="Qaaxo Harness",hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Beeline Ring",
-        back="Canny Cape",waist="Flume Belt",legs="Kaabnax Trousers",feet="Iuitl Gaiters +1"}
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Gleti's Cuirass",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Reiki Yotai",
+        left_ear="Tuisto Earring",
+        left_ring="Defending Ring",
+        right_ring="Moonbeam Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    }
 
     sets.defense.PDT = {
-    ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
-    body="Nyame Mail",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Purity Ring",
-    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Gleti's Cuirass",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Reiki Yotai",
+        left_ear="Tuisto Earring",
+        left_ring="Defending Ring",
+        right_ring="Moonbeam Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    }
 
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
@@ -371,8 +385,7 @@ function init_gear_sets()
     sub="Tauret",
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands="Malignance Gloves",
+    body="Gleti's Cuirass",    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Asperity Necklace",
@@ -387,8 +400,7 @@ function init_gear_sets()
     sub="Gleti's Knife",
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands="Malignance Gloves",
+    body="Gleti's Cuirass",    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Asperity Necklace",
@@ -410,23 +422,32 @@ function init_gear_sets()
         body="Thaumas Coat",hands="Pillager's Armlets +1",ring1="Rajas Ring",ring2="Epona's Ring",
         back="Atheling Mantle",waist="Patentia Sash",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
 
-    sets.engaged.Evasion = {ammo="Thew Bomblet",
-        head="Felistris Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Qaaxo Harness",hands="Pillager's Armlets +1",ring1="Beeline Ring",ring2="Epona's Ring",
-        back="Canny Cape",waist="Patentia Sash",legs="Kaabnax Trousers",feet="Qaaxo Leggings"}
-    sets.engaged.Acc.Evasion = {ammo="Honed Tathlum",
-        head="Whirlpool Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Pillager's Vest +1",hands="Pillager's Armlets +1",ring1="Beeline Ring",ring2="Epona's Ring",
-        back="Canny Cape",waist="Hurch'lan Sash",legs="Kaabnax Trousers",feet="Qaaxo Leggings"}
+    sets.engaged.Evasion = {
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Gleti's Cuirass",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Reiki Yotai",
+        left_ear="Tuisto Earring",
+        left_ring="Defending Ring",
+        right_ring="Moonbeam Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
-    sets.engaged.PDT = {ammo="Thew Bomblet",
-        head="Felistris Mask",neck="Twilight Torque",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Iuitl Vest",hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Epona's Ring",
-        back="Iximulew Cape",waist="Patentia Sash",legs="Iuitl Tights",feet="Qaaxo Leggings"}
-    sets.engaged.Acc.PDT = {ammo="Honed Tathlum",
-        head="Whirlpool Mask",neck="Twilight Torque",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Iuitl Vest",hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Epona's Ring",
-        back="Canny Cape",waist="Hurch'lan Sash",legs="Iuitl Tights",feet="Qaaxo Leggings"}
+
+    }
+    sets.engaged.Acc.Evasion = {
+
+    }
+
+    sets.engaged.PDT = {
+        
+    }
+    sets.engaged.Acc.PDT = {
+        
+    }
 
 end
 

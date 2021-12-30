@@ -470,12 +470,19 @@ function init_gear_sets()
         back={ name="Cichol's Mantle", augments={'DEX+15','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      })
      sets.engaged.Acc = set_combine(sets.engaged.Mid, {
-         ammo="Ginsen",
-         body="Sakpata's Plate",
-         ear1="Telos Earring",
-         hands="Sakpata's Gauntlets",
-         legs="Sakpata's Cuisses"
-        --  back="Grounded Mantle +1",
+        ammo="Seething Bomblet",
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck="Sanctity Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Flamma Ring",
+        back={ name="Cichol's Mantle", augments={'DEX+15','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      })
 
      sets.engaged.PDT = set_combine(sets.engaged, sets.Defensive)
