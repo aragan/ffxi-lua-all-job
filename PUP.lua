@@ -325,8 +325,7 @@ function init_gear_sets()
     sets.precast.JA["Maintenance"] = set_combine(sets.precast.JA["Repair"], { hands="Foire Dastanas +3",})
 
     sets.precast.JA.Maneuver = {
-        main={ name="Midnights", augments={'Pet: Attack+25','Pet: Accuracy+25','Pet: Damage taken -3%',}},
-        neck = "Bfn. Collar +1",
+        
         body = "Karagoz Farsetto +1",
         hands="Foire Dastanas +3",
         back = "Visucius's Mantle",
