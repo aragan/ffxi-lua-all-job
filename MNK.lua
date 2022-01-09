@@ -107,15 +107,21 @@ function get_sets()
 	}
 						
 	
-	sets.TP.Hybrid = { }
+	sets.TP.Hybrid = { 
+		body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+
+	}
 	
 
 	sets.TP.DT = { 
         main="Godhands",
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+    body="Nyame Mail",
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},

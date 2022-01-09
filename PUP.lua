@@ -899,10 +899,12 @@ function init_gear_sets()
         WSNoFTP is the default weaponskill set used
     ]]
     sets.midcast.Pet.WSNoFTP = {main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
-    head={ name="Herculean Helm", augments={'Pet: "Dbl. Atk."+3','Pet: VIT+15',}},
-    body={ name="Herculean Vest", augments={'Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: VIT+12',}},
-    hands="Mpaca's Gloves",feet="Mpaca's Boots",waist="Incarnation Sash",
-    legs={ name="Herculean Trousers", augments={'Pet: Accuracy+26 Pet: Rng. Acc.+26','Pet: VIT+15','Pet: Attack+1 Pet: Rng.Atk.+1','Pet: "Mag.Atk.Bns."+11',}},
+    head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    hands="Mpaca's Gloves",
+    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    feet="Mpaca's Boots",
+    waist="Incarnation Sash",
     left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
     left_ear="Kyrene's Earring",right_ear="Domes. Earring",
     
@@ -917,7 +919,7 @@ function init_gear_sets()
          
         main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
         head="Karagoz Capello +1",
-        hands="Mpaca's Gloves",feet="Mpaca's Boots",
+        hands="Mpaca's Gloves",
         legs={ name="Herculean Trousers", augments={'Pet: "Mag.Atk.Bns."+18','Pet: "Store TP"+7','Pet: DEX+12','Pet: Attack+14 Pet: Rng.Atk.+14',}},
         feet="Mpaca's Boots",
         right_ear="Enmerkar Earring",
@@ -931,10 +933,12 @@ function init_gear_sets()
         Used by default if no modifier is found
     ]]
     sets.midcast.Pet.WS = {main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
-    head={ name="Herculean Helm", augments={'Pet: "Dbl. Atk."+3','Pet: VIT+15',}},
-    body={ name="Herculean Vest", augments={'Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: VIT+12',}},
-    hands="Mpaca's Gloves",feet="Mpaca's Boots",waist="Incarnation Sash",
-    legs={ name="Herculean Trousers", augments={'Pet: Accuracy+26 Pet: Rng. Acc.+26','Pet: VIT+15','Pet: Attack+1 Pet: Rng.Atk.+1','Pet: "Mag.Atk.Bns."+11',}},
+    head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    hands="Mpaca's Gloves",
+    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    feet="Mpaca's Boots",
+    waist="Incarnation Sash",
     left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
     left_ear="Kyrene's Earring",right_ear="Domes. Earring",
     
@@ -950,9 +954,7 @@ function init_gear_sets()
         sets.midcast.Pet.WSNoFTP,
         {
             
-            head={ name="Herculean Helm", augments={'Pet: "Dbl. Atk."+3','Pet: VIT+15',}},
-            body={ name="Herculean Vest", augments={'Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: VIT+12',}},
-        legs={ name="Herculean Trousers", augments={'Pet: Accuracy+26 Pet: Rng. Acc.+26','Pet: VIT+15','Pet: Attack+1 Pet: Rng.Atk.+1','Pet: "Mag.Atk.Bns."+11',}},
+           
          
         }
     )
@@ -963,7 +965,6 @@ function init_gear_sets()
 
     -- Armor Piercer, Armor Shatterer
     sets.midcast.Pet.WS["DEX"] = set_combine(sets.midcast.Pet.WSNoFTP, {
-        legs={ name="Herculean Trousers", augments={'Pet: "Mag.Atk.Bns."+18','Pet: "Store TP"+7','Pet: DEX+12','Pet: Attack+14 Pet: Rng.Atk.+14',}},
         }
     )
 
@@ -972,8 +973,6 @@ function init_gear_sets()
         set_combine(
         sets.midcast.Pet.WSFTP,
         {
-            legs={ name="Herculean Trousers", augments={'Pet: "Mag.Atk.Bns."+18','Pet: "Store TP"+7','Pet: DEX+12','Pet: Attack+14 Pet: Rng.Atk.+14',}},
-            feet={ name="Herculean Boots", augments={'Pet: Accuracy+22 Pet: Rng. Acc.+22','Pet: DEX+13','Pet: Attack+4 Pet: Rng.Atk.+4','Pet: "Mag.Atk.Bns."+15',}},            
             head = Empy_Karagoz.Head_PTPBonus
         }
     )
