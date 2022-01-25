@@ -299,7 +299,7 @@ function init_gear_sets()
     }
 
     -------------------------------------Kiting
-    sets.Kiting = {feet = "Hermes' Sandals"}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
 
     -------------------------------------JA
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck = "Magoraga Beads", body = "Passion Jacket"})
@@ -472,8 +472,8 @@ function init_gear_sets()
     range="Animator P +1",
     ammo="Automat. Oil +3",
     head="Malignance Chapeau",
-    body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
-    hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Dbl. Atk."+5','Pet: INT+4',}},
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Shulmanu Collar",
@@ -496,7 +496,7 @@ function init_gear_sets()
     ammo="Automat. Oil +3",
     head="Malignance Chapeau",
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
-    hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Dbl. Atk."+5','Pet: INT+4',}},
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Shulmanu Collar",
@@ -514,7 +514,20 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.engaged.Master.TP = {
-       -- Add your set here
+        range="Animator P +1",
+        ammo="Automat. Oil +3",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Shulmanu Collar",
+        waist="Klouskap Sash +1",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
 
     -------------------------------------DT
