@@ -456,18 +456,18 @@ function init_gear_sets()
      }
      sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
+        head="Hjarrandi Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Sakpata's Leggings",
+        legs="Sakpata's Cuisses",
+        feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Schere Earring",
-        right_ear="Telos Earring",
+        right_ear="Cessance Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+15','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+        back="Atheling Mantle",
      })
      sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Seething Bomblet",
@@ -761,11 +761,11 @@ end
 function select_default_macro_book()
     -- Default macro set/book
 	if player.sub_job == 'DNC' then
-		set_macro_page(2, 8)
+		set_macro_page(6, 2)
 	elseif player.sub_job == 'SAM' then
-		set_macro_page(1, 8)
+		set_macro_page(6, 2)
 	else
-		set_macro_page(1, 8)
+		set_macro_page(6, 2)
 	end
 end
 

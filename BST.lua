@@ -35,6 +35,7 @@ function get_sets()
 
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
+	include('organizer-lib')
 end
 
 function job_setup()
@@ -1174,8 +1175,8 @@ function init_gear_sets()
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
 			
 	sets.engaged.MedAcc = {
-			main="Aymur",
-			head="Anwig Salade",
+		main="Dolichenus",
+		head="Anwig Salade",
 			ring2="Shadow Ring",
 			neck="Adad Amulet",
 			ear2="Handler's Earring +1",
@@ -1191,9 +1192,11 @@ function init_gear_sets()
 			ear1="Enmerkar Earring",}
 			
 	sets.engaged.MedAccHaste = {
+		main="Dolichenus",
 		}
 			
 	sets.engaged.HighAcc = {
+		main="Dolichenus",
 			ammo="Jukukik Feather",
 			head="Yaoyotl Helm",
 			neck="Iqabi Necklace",
