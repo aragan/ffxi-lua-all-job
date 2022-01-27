@@ -373,7 +373,8 @@ function init_gear_sets()
     right_ear="Hecate's Earring",
     left_ring="Jhakri Ring",
     right_ring="Stikini Ring +1",
-    back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},}
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
 
     sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,
         {main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
@@ -390,8 +391,7 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ring="Jhakri Ring",
         right_ring="Stikini Ring +1",
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},})
-    
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},})  
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
         {ring1="Aquasoul Ring"})
 
@@ -417,8 +417,7 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
-    }
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},    }
 
     -- Breath Spells --
     
@@ -514,29 +513,29 @@ function init_gear_sets()
     -- Defense sets
     sets.defense.PDT = {
         main="Naegling",
-    sub="Sakpata's Sword",
-    ammo="Amar Cluster",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Svelt. Gouriz +1",
-    left_ear="Infused Earring",
-    right_ear="Eabani Earring",
-    left_ring="Vengeful Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+        sub="Sakpata's Sword",
+        ammo="Amar Cluster",
+        head="Malignance Chapeau",
+        body="Nyame Mail",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring="Defending Ring",
+        right_ring="Vengeful Ring",
+        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
     }
     
     sets.defense.MDT = { 
         main="Naegling",
         sub="Sakpata's Sword",
-        ammo="Amar Cluster",
-        head="Nyame Helm",
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands="Malignance Gloves",
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet={ name="Hippo. Socks +1", augments={'Path: A',}},
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -549,8 +548,11 @@ function init_gear_sets()
 }
     
 
-    sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet={ name="Hippo. Socks +1", augments={'Path: A',}},}
+    sets.Kiting = {
+        ammo="Staunch Tathlum +1",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    
+}
 
     -- Engaged sets
 
