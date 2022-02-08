@@ -33,7 +33,6 @@ function get_sets()
 	Idle_ind = 1			
 	
 	sets.Idle.Standard = {
-            main="Godhands",
     ammo="Ginsen",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -50,7 +49,6 @@ function get_sets()
 	 }
 						  
 	sets.Idle.DT = { 
-            main="Godhands",
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -69,7 +67,6 @@ function get_sets()
 	
 	--TP Sets--
 	sets.TP = {
-            main="Godhands",
     ammo="Ginsen",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -90,7 +87,6 @@ function get_sets()
 	TP_ind = 1
 	
 	sets.TP.Standard = { 
-        main="Godhands",
     ammo="Ginsen",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -117,7 +113,6 @@ function get_sets()
 	
 
 	sets.TP.DT = { 
-        main="Godhands",
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Nyame Mail",
@@ -137,7 +132,7 @@ function get_sets()
 	
 		--Weaponskill Sets--
 	sets.WS = {
-        main="Godhands",
+       
     ammo="Knobkierrie",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -161,7 +156,6 @@ function get_sets()
 	sets.WS.RagingFist = { }
 		
 	sets.WS.ShijinSpiral = { 
-        main="Godhands",
     ammo="Falcon Eye",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
