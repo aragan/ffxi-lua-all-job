@@ -168,8 +168,8 @@ function init_gear_sets()
     waist="Audumbla Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Kishar Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Kishar Ring",
     back="Moonlight Cape",
 
 }
@@ -828,8 +828,8 @@ back="Moonlight Cape",
     waist="Creed Baudrier",
     left_ear="Tuisto Earring",
     right_ear="Cryptic Earring",
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
     
