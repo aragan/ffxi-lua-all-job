@@ -186,7 +186,7 @@ function init_gear_sets()
      sets.precast.WS = {
        
         ammo="Knobkierrie",
-        head="Sakpata's Helm",
+        head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
@@ -209,21 +209,53 @@ function init_gear_sets()
      })
     
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
-        neck="Fotia Gorget",
-         back=Cichols.VIT,
-        waist="Fotia Belt",
+        sub="Utu Grip",
+    ammo="Knobkierrie",
+    head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Thrud Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Niqmaddu Ring",
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Upheaval'].Mid = set_combine(sets.precast.WS['Upheaval'], {
-        head="Stinger Helm +1",
-         back=Cichols.VIT,
+        sub="Utu Grip",
+    ammo="Knobkierrie",
+    head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Thrud Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Niqmaddu Ring",
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
  
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
-        ammo="Knobkierrie",
-    	body="Hjarrandi Breastplate",
-        neck="Breeze Gorget",
-        waist="Sailfi Belt +1",
-        feet=Valorous.Feet.WS
+        sub="Utu Grip",
+        ammo="Yetshila +1",
+        head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sulev. Leggings +2",
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear="Schere Earring",
+        left_ring="Beithir Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
      -- RESOLUTION
      -- 86-100% STR
@@ -419,7 +451,7 @@ function init_gear_sets()
      -- Engaged set, assumes Liberator
      sets.engaged = {
        
-        ammo="Knobkierrie",
+        ammo="Coiste Bodhar",
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
@@ -435,7 +467,7 @@ function init_gear_sets()
      }
      sets.engaged.Mid = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
-         ammo="Knobkierrie",
+         ammo="Coiste Bodhar",
          neck={ name="Vim Torque +1", augments={'Path: A',}},
          ear1="Schere Earring",
          ear2="Brutal Earring",
@@ -449,7 +481,7 @@ function init_gear_sets()
     	 --body="Flamma Korazin +2"
      })
      sets.engaged.Acc = set_combine(sets.engaged.Mid, {
-        ammo="Knobkierrie",
+        ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
