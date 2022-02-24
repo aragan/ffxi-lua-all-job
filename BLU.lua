@@ -373,7 +373,8 @@ function init_gear_sets()
     right_ear="Hecate's Earring",
     left_ring="Jhakri Ring",
     right_ring="Stikini Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},}
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
 
     sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,
         {main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
@@ -390,8 +391,7 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ring="Jhakri Ring",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},})
-    
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},})  
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
         {ring1="Aquasoul Ring"})
 
@@ -417,8 +417,7 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},    }
 
     -- Breath Spells --
     
@@ -505,8 +504,7 @@ function init_gear_sets()
     sets.idle.PDT = {
     }
 
-    sets.idle.Town = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet={ name="Hippo. Socks +1", augments={'Path: A',}},}
+    sets.idle.Town = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
 
     sets.idle.Learning = set_combine(sets.idle, sets.Learning)
 
@@ -525,31 +523,33 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Infused Earring",
         right_ear="Eabani Earring",
-        left_ring="Warden's Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring="Vengeful Ring",
         back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
     }
     
     sets.defense.MDT = { 
         main="Naegling",
-        sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
-        ammo="Coiste Bodhar",
+        sub="Sakpata's Sword",
+        ammo="Amar Cluster",
         head="Malignance Chapeau",
-        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
-        legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Malignance Boots",
-        neck="Asperity Necklace",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
-        right_ear="Cessance Earring",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring="Defending Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
-        body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
-        left_ring="Shadow Ring",
-        right_ring="Warden's Ring",
 }
     
 
-    sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    sets.Kiting = {
+        ammo="Staunch Tathlum +1",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     
 }
 
@@ -597,21 +597,8 @@ function init_gear_sets()
     back="Atheling Mantle",}
     
 
-    sets.engaged.Refresh = {
-        sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
-        ammo="Coiste Bodhar",
-        head="Malignance Chapeau",
-        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
-        legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
-        feet="Malignance Boots",
-        neck="Asperity Necklace",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
-        right_ear="Cessance Earring",
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
-        body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
-        left_ring="Shadow Ring",
-        right_ring="Warden's Ring",
+    sets.engaged.Refresh = {main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+    sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
 
     }
 

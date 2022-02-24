@@ -684,22 +684,8 @@ function init_gear_sets()
 	-- value for your idle set is.  Another simple way around this is to simply make a macro to equip the gear before the fight starts.
 	
 	sets.engaged = {
-		main="Grioavolr",
-		sub="Niobid Strap",
-		ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",
-		body={ name="Witching Robe", augments={'MP+50','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Refresh"+1',}},
-		hands="Amalric Gages",
-		legs={ name="Amalric Slops", augments={'MP+60','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-		feet="Psycloth Boots",
-		neck="Sanctity Necklace",
-		feet="Psycloth boots",
-		waist="Yamabuki-no-Obi",
 		
-		right_ear="Loquac. Earring",
-		left_ring="Mephitas's Ring +1",
-		right_ring="Sangoma Ring",
-		back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10',}},}
+    }
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
