@@ -114,7 +114,7 @@ function init_gear_sets()
      sets.precast.JA['Blood Rage'] = { body="Boii Lorica +1" }
      sets.precast.JA['Provoke'] = set_combine(sets.TreasureHunter, { hands="Pummeler's Mufflers +1"})
      sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3", hands="Agoge Calligae", back=Cichols.TP, feet="Agoge Calligae"}
-     sets.precast.JA['Warcry'] = { head="Agoge Mask"}
+     sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
      sets.precast.JA['Mighty Strikes'] = { head="Agoge Mufflers"}
      sets.precast.JA['Retaliation'] = { hands="Pummeler's Mufflers +1", feet="Ravager's Calligae +2"}
      sets.precast.JA['Aggressor'] = { head="Pummeler's Mask +1", body="Agoge Lorica"}
@@ -314,14 +314,14 @@ function init_gear_sets()
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS['Impulse Drive'], {
         
     ammo="Knobkierrie",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
+    head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+        body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sulev. Leggings +2",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Thrud Earring",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist="Sailfi Belt +1",
+        left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
     right_ring="Beithir Ring",
@@ -457,7 +457,7 @@ function init_gear_sets()
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
@@ -468,7 +468,7 @@ function init_gear_sets()
      sets.engaged.Mid = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
          ammo="Coiste Bodhar",
-         neck={ name="Vim Torque +1", augments={'Path: A',}},
+         neck={ name="War. Beads +2", augments={'Path: A',}},
          ear1="Schere Earring",
          ear2="Brutal Earring",
          --hands="Flamma Manopolas +2",
@@ -772,11 +772,11 @@ end
 function select_default_macro_book()
     -- Default macro set/book
 	if player.sub_job == 'DNC' then
-		set_macro_page(2, 8)
+		set_macro_page(6, 2)
 	elseif player.sub_job == 'SAM' then
-		set_macro_page(1, 8)
+		set_macro_page(6, 2)
 	else
-		set_macro_page(1, 8)
+		set_macro_page(6, 2)
 	end
 end
 

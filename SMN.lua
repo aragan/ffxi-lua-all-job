@@ -156,13 +156,18 @@ function init_gear_sets()
 
     -- Pact delay reduction gear
     sets.precast.BloodPactWard = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs={ name="Glyphic Spats +1", augments={'Increases Sp. "Blood Pact" accuracy',}},
     feet={ name="Glyph. Pigaches +1", augments={'Inc. Sp. "Blood Pact" magic crit. dmg.',}},
-    right_ear="Evans Earring",}
+    neck="Incanter's Torque",
+    waist="Lucidity Sash",
+    right_ear="Evans Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Fervor Ring",
+}
 
     sets.precast.BloodPactRage = sets.precast.BloodPactWard
 
@@ -171,7 +176,7 @@ function init_gear_sets()
     sets.precast.FC = {
     main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     neck="Caller's Pendant",
@@ -238,23 +243,23 @@ function init_gear_sets()
     
     sets.midcast.Pet.BloodPactWard = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs={ name="Glyphic Spats +1", augments={'Increases Sp. "Blood Pact" accuracy',}},
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-    neck="Caller's Pendant",
-    waist="Cimmerian Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Gifted Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
+    neck="Incanter's Torque",
+    waist="Lucidity Sash",
+    left_ear="Rimeice Earring",
+    right_ear="C. Palug Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Fervor Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     sets.midcast.Pet.DebuffBloodPactWard = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head="Tali'ah Turban +2",
     body="Tali'ah Manteel +1",
     hands="Tali'ah Gages +1",
@@ -272,31 +277,31 @@ function init_gear_sets()
     
     sets.midcast.Pet.PhysicalBloodPactRage = {main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
     sub="Elan Strap +1",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Helios Band", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +2','Blood Pact Dmg.+6',}},
     body={ name="Helios Jacket", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}},
     hands={ name="Helios Gloves", augments={'Pet: Attack+30 Pet: Rng.Atk.+30','Pet: Crit.hit rate +3','Blood Pact Dmg.+6',}},
-    legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
+    legs={ name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}},
     feet={ name="Helios Boots", augments={'Pet: Attack+24 Pet: Rng.Atk.+24','Pet: Crit.hit rate +4','Blood Pact Dmg.+2',}},
-    neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
     left_ear="Gifted Earring",
     right_ear="Esper Earring",
     left_ring="Varar Ring +1",
-    right_ring="Varar Ring +1",
+    right_ring="C. Palug Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = sets.midcast.Pet.PhysicalBloodPactRage
 
     sets.midcast.Pet.MagicalBloodPactRage = {main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
     sub="Elan Strap +1",
-    ammo="Sancus Sachet",
-    head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    ammo="Sancus Sachet +1",
+    head="C. Palug Crown",
     body={ name="Helios Jacket", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}},
     hands={ name="Merlinic Dastanas", augments={'Pet: "Mag.Atk.Bns."+22','Blood Pact Dmg.+6','Pet: DEX+9',}},
     legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-    neck="Adad Amulet",
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Kobo Obi",
     left_ear="Gifted Earring",
     right_ear="Esper Earring",
@@ -329,7 +334,7 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -345,7 +350,7 @@ function init_gear_sets()
 
     sets.idle.PDT = {main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -381,7 +386,7 @@ function init_gear_sets()
     
     sets.idle.Avatar = {main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -397,7 +402,7 @@ function init_gear_sets()
 
     sets.idle.PDT.Avatar = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
     sub="Elan Strap +1",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     body="Shomonjijoe +1",
     hands={ name="Apogee Mitts", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
@@ -418,7 +423,7 @@ function init_gear_sets()
 
     sets.idle.Town = {main="Contemplator +1",
     sub="Elan Strap +1",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body="Shomonjijoe +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -455,7 +460,7 @@ function init_gear_sets()
     -- Defense sets
     sets.defense.PDT = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
     sub="Elan Strap +1",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     body="Shomonjijoe +1",
     hands={ name="Apogee Mitts", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
@@ -472,7 +477,7 @@ function init_gear_sets()
     sets.defense.MDT = {
         main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -498,7 +503,7 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {main="Contemplator +1",
     sub="Vox Grip",
-    ammo="Sancus Sachet",
+    ammo="Sancus Sachet +1",
     head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
     body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
