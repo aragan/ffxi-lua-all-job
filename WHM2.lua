@@ -3,142 +3,451 @@
 -------------------------------------------------------------------------------------------------------------------
 
 -- Initialization function for this job file.
-function get_sets()    
+function get_sets()
+    mote_include_version = 2
+    
     -- Load and initialize the include file.
-    include('Sel-Include.lua')
+    include('Mote-Include.lua')
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
-	state.Buff['Divine Caress'] = buffactive['Divine Caress'] or false
-	
-	state.AutoCaress = M(true, 'Auto Caress Mode')
-	state.Gambanteinn = M(false, 'Gambanteinn Cursna Mode')
-	state.BlockLowDevotion = M(true, 'Block Low Devotion')
-	
-	autows = 'Mystic Boon'
-	autofood = 'Miso Ramen'
-	
-	state.ElementalMode = M{['description'] = 'Elemental Mode','Light','Dark','Fire','Ice','Wind','Earth','Lightning','Water',}
+end
 
-	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode","AutoBuffMode",},{"Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","ElementalMode","CastingMode","TreasureMode",})
+-------------------------------------------------------------------------------------------------------------------
+-- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Setup vars that are user-dependent.  Can override this function in a sidecar file.
+function user_setup()
+    state.OffenseMode:options('None', 'Normal')
+    state.CastingMode:options('Normal', 'Resistant')
+    state.IdleMode:options('Normal', 'PDT')
+
+    select_default_macro_book()
+end
+
+-- Define sets and vars used by this job file.
+function init_gear_sets()
+    --------------------------------------
+    -- Start defining the sets
+    --------------------------------------
+
+    -- Precast Sets
+
+    -- Fast cast sets for spells
+    sets.precast.FC = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Incantor Stone",
+        body="Helios Jacket",
+        hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+        legs="Aya. Cosciales +1",
+        neck="Orunmila's Torque",
+        waist="Witful Belt",
+        left_ear="Mendi. Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
+        
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {neck="Nicander's Necklace",})
+
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {
+        legs="Orison Pantaloons +2"
+
+})
+
+    sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
+
+    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Incantor Stone",
+        body="Helios Jacket",
+        hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+        legs="Aya. Cosciales +1",
+        neck="Orunmila's Torque",
+        waist="Witful Belt",
+        left_ear="Mendi. Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+    })
+    sets.precast.FC.Curaga = sets.precast.FC.Cure
+    sets.precast.FC.CureSolace = sets.precast.FC.Cure
+    -- CureMelee spell map should default back to Healing Magic.
+    
+    -- Precast sets to enhance JAs
+    sets.precast.JA.Benediction = {body="Piety Briault"}
+
+    -- Waltz set (chr and vit)
+    sets.precast.Waltz = {
+        head="Nahtirah Hat",ear1="Roundel Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",
+        back="Refraction Cape",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    
+    
+    -- Weaponskill sets
+
+    -- Default set for any weaponskill that isn't any more specifically defined
+    gear.default.weaponskill_neck = "Asperity Necklace"
+    gear.default.weaponskill_waist = ""
+    sets.precast.WS = {
+        head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        back="Refraction Cape",waist=gear.ElementalBelt,legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    
+    sets.precast.WS['Flash Nova'] = {
+        head="Nahtirah Hat",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Hecate's Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
+        back="Toro Cape",waist="Thunder Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    
+
+    -- Midcast Sets
+    
+    sets.midcast.FastRecast = {
+     
+        
+    }
+    
+    -- Cure sets
+    gear.default.obi_waist = "Goading Belt"
+    gear.default.obi_back = "Mending Cape"
+
+    sets.midcast.CureSolace = {
+        
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Impatiens",
+        head={ name="Vanya Hood", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        body={ name="Vanya Robe", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+        legs={ name="Vanya Slops", augments={'MND+3','Spell interruption rate down +1%',}},
+        feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        neck="Nodens Gorget",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Nourish. Earring +1",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
+
+    sets.midcast.Cure = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Impatiens",
+        head={ name="Vanya Hood", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        body={ name="Vanya Robe", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+        legs={ name="Vanya Slops", augments={'MND+3','Spell interruption rate down +1%',}},
+        feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        neck="Nodens Gorget",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Nourish. Earring +1",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},}
+
+    sets.midcast.Curaga = { 
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Impatiens",
+        head={ name="Vanya Hood", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        body={ name="Vanya Robe", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+        legs={ name="Vanya Slops", augments={'MND+3','Spell interruption rate down +1%',}},
+        feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        neck="Nodens Gorget",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Nourish. Earring +1",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
+
+    sets.midcast.CureMelee = { main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+    sub="Sors Shield",
+    ammo="Impatiens",
+    head={ name="Vanya Hood", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+    body={ name="Vanya Robe", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+    hands={ name="Kaykaus Cuffs", augments={'MP+60','"Conserve MP"+6','"Fast Cast"+3',}},
+    legs={ name="Vanya Slops", augments={'MND+3','Spell interruption rate down +1%',}},
+    feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+    neck="Nodens Gorget",
+    waist="Fucho-no-Obi",
+    left_ear="Mendi. Earring",
+    right_ear="Nourish. Earring +1",
+    left_ring="Prolix Ring",
+    right_ring="Kishar Ring",
+    back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},}
+
+    sets.midcast.Cursna = {main="Beneficus",sub="Genbu's Shield",
+        head="Orison Cap +2",neck="Malison Medallion",
+        body="Orison Bliaud +2",hands="Hieros Mittens",ring1="Ephedra Ring",ring2="Sirona's Ring",
+        back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
+
+    sets.midcast.StatusRemoval = {
+        head="Orison Cap +2",legs="Orison Pantaloons +2"}
+
+    -- 110 total Enhancing Magic Skill; caps even without Light Arts
+    sets.midcast['Enhancing Magic'] = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+    waist="Olympus Sash",
+    right_ring="Stikini Ring",
+    back="Twilight Cape",
+}
+
+    sets.midcast.Stoneskin = {
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        ammo="Pemphredo Tathlum",
+        hands="Inyan. Dastanas +1",
+        neck="Nodens Gorget",
+        waist="Cascade Belt",
+        left_ear="Andoaa Earring",
+        right_ring="Stikini Ring",
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+
+    sets.midcast.Auspice = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+    waist="Olympus Sash",
+    right_ring="Stikini Ring",
+    back="Twilight Cape",
+    }
+
+    sets.midcast.BarElement = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+    waist="Olympus Sash",
+    right_ring="Stikini Ring",
+    back="Twilight Cape",
+}
+
+    sets.midcast.Regen = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+    waist="Olympus Sash",
+    right_ring="Stikini Ring",
+    back="Twilight Cape",
+    }
+
+    sets.midcast.Protectra = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+        waist="Olympus Sash",
+        right_ring="Stikini Ring",
+        back="Twilight Cape",
+    }
+
+    sets.midcast.Shellra = {
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+        waist="Olympus Sash",
+        right_ring="Stikini Ring",
+        back="Twilight Cape",
+}
+
+
+    sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Genbu's Shield",
+        head="Nahtirah Hat",neck="Colossus's Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
+        back="Refraction Cape",waist=gear.ElementalObi,legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
+
+    sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Genbu's Shield",
+        head="Nahtirah Hat",neck="Aesir Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Strendu Ring",ring2="Sangoma Ring",
+        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+
+    -- Custom spell classes
+    sets.midcast.MndEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
+        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Aquasoul Ring",ring2="Sangoma Ring",
+        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+
+    sets.midcast.IntEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
+        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Icesoul Ring",ring2="Sangoma Ring",
+        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+
+    
+    -- Sets to return to when not performing an action.
+    
+    -- Resting sets
+    sets.resting = {main=gear.Staff.HMP, 
+        body="Gendewitha Bliaut",hands="Serpentes Cuffs",
+        waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
+    
+
+    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
+    sets.idle = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub="Sors Shield",
+        ammo="Homiliary",
+        head="Inyanga Tiara +2",
+        body="Ayanmo Corazza +1",
+        hands="Inyan. Dastanas +2",
+        legs="Assid. Pants +1",
+        feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Ethereal Earring",
+        left_ring="Defending Ring",
+        right_ring="Prolix Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+    }
+
+    sets.idle.PDT = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub={ name="Genbu's Shield", augments={'"Cure" potency +2%','"Cure" spellcasting time -5%',}},
+        ammo="Staunch Tathlum",
+        head="Aya. Zucchetto +1",
+        body="Ayanmo Corazza +1",
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
+
+    sets.idle.Town = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sub="Sors Shield",
+    ammo="Incantor Stone",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Annoint. Kalasiris",
+    hands="Inyan. Dastanas +1",
+    legs="Assid. Pants +1",
+    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Fucho-no-Obi",
+    left_ear="Andoaa Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring="Inyanga Ring",
+    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    
+    sets.idle.Weak = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sub="Sors Shield",
+    ammo="Incantor Stone",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Annoint. Kalasiris",
+    hands="Inyan. Dastanas +1",
+    legs="Assid. Pants +1",
+    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Fucho-no-Obi",
+    left_ear="Andoaa Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring="Inyanga Ring",
+    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    
+    -- Defense sets
+
+    sets.defense.PDT = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+    sub={ name="Genbu's Shield", augments={'"Cure" potency +2%','"Cure" spellcasting time -5%',}},
+    ammo="Staunch Tathlum",
+    head="Aya. Zucchetto +1",
+    body="Ayanmo Corazza +1",
+    hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+    legs="Aya. Cosciales +1",
+    feet="Aya. Gambieras +1",
+    neck="Loricate Torque +1",
+    waist="Fucho-no-Obi",
+    left_ring="Defending Ring",
+    right_ring="Fortified Ring",
+    back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
+
+    sets.defense.MDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sub="Sors Shield",
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Warder's Charm +1",
+    waist="Fucho-no-Obi",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring="Archon Ring",
+    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+
+    sets.Kiting = {feet="Herald's Gaiters"}
+
+    sets.latent_refresh = {waist="Fucho-no-obi"}
+
+    -- Engaged sets
+
+    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
+    -- sets if more refined versions aren't defined.
+    -- If you create a set with both offense and defense modes, the offense mode should be first.
+    -- EG: sets.engaged.Dagger.Accuracy.Evasion
+    
+    -- Basic set for if no TP weapon is defined.
+    sets.engaged = {
+        head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
+        body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
+        back="Umbra Cape",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+
+
+    -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
+    sets.buff['Divine Caress'] = {hands="Orison Mitts +2",back="Mending Cape"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
+
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
-
-function job_filtered_action(spell, eventArgs)
-
-end
-
-function job_pretarget(spell, spellMap, eventArgs)
-
-end
-
-function job_precast(spell, spellMap, eventArgs)
-
-	if spell.action_type == 'Magic' then
-		if spellMap == 'Cure' or spellMap == 'Curaga' then
-			gear.default.obi_waist = gear.obi_cure_waist
-			gear.default.obi_back = gear.obi_cure_back
-		elseif spell.english == 'Holy II' then
-			gear.default.obi_waist = gear.obi_high_nuke_waist
-		elseif spell.english == 'Holy' or (spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble') then
-			gear.default.obi_waist = gear.obi_nuke_waist
-			gear.default.obi_back = gear.obi_nuke_back
-		elseif spellMap == 'StatusRemoval' and not (spell.english == "Erase" or spell.english == "Esuna" or spell.english == "Sacrifice") then
-			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if abil_recasts[32] < latency and not silent_check_amnesia() and state.AutoCaress.value then
-				eventArgs.cancel = true
-				windower.chat.input('/ja "Divine Caress" <me>')
-				windower.chat.input:schedule(1,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				return
-			end
-		end
-	elseif spell.type == 'JobAbility' then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if spell.english == 'Devotion' and state.BlockLowDevotion.value and abil_recasts[28] < latency and player.hpp < 50 then
-			eventArgs.cancel = true
-			add_to_chat(123,'Abort: Blocking Devotion under 50% HP to prevent inefficient use.')
-		end
-	end
-		
-        if state.CastingMode.value == 'Proc' then
-            classes.CustomClass = 'Proc'
-        end
-end
-
-function job_post_precast(spell, spellMap, eventArgs)
-	if spell.type == 'WeaponSkill' then
-		local WSset = standardize_set(get_precast_set(spell, spellMap))
-		
-		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
-			-- Replace Moonshade Earring if we're at cap TP
-			if sets.MaxTP and get_effective_player_tp(spell, WSset) > 3200 then
-				equip(sets.MaxTP[spell.english] or sets.MaxTP)
-			end
-		end
-	end
-end
-
-function job_post_midcast(spell, spellMap, eventArgs)
-    -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
-    if spellMap == 'StatusRemoval' then
-		if state.Buff['Divine Caress'] then
-			equip(sets.buff['Divine Caress'])
-		end
-		if spell.english == 'Cursna' then
-			if (player.sub_job == 'NIN' or player.sub_job == 'DNC') and sets.midcast.DWCursna then
-				equip(sets.midcast.DWCursna)
-			elseif state.Gambanteinn.value and item_available('Gambanteinn') then
-				equip({main="Gambanteinn"})
-			end
-		end
-		
-	elseif spellMap == 'BarElement' then
-		if (buffactive['Light Arts'] or buffactive['Addendum: White']) and sets.midcast.BarElement and sets.midcast.BarElement.LightArts then
-			equip(sets.midcast.BarElement.LightArts)
-		end
-    elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' and spell.english ~= 'Impact' then
-        if state.MagicBurstMode.value ~= 'Off' then equip(sets.MagicBurst) end
-		if spell.element == world.weather_element or spell.element == world.day_element then
-			if state.CastingMode.value == 'Fodder' then
-				if spell.element == world.day_element then
-					if item_available('Zodiac Ring') then
-						sets.ZodiacRing = {ring2="Zodiac Ring"}
-						equip(sets.ZodiacRing)
-					end
-				end
-			end
-		end
-		
-		if spell.element and sets.element[spell.element] then
-			equip(sets.element[spell.element])
-		end
+function job_precast(spell, action, spellMap, eventArgs)
+    if spell.english == "Paralyna" and buffactive.Paralyzed then
+        -- no gear swaps if we're paralyzed, to avoid blinking while trying to remove it.
+        eventArgs.handled = true
     end
-	
+    
+    if spell.skill == 'Healing Magic' then
+        gear.default.obi_back = "Mending Cape"
+    else
+        gear.default.obi_back = "Toro Cape"
+    end
 end
 
-function job_aftercast(spell, spellMap, eventArgs)
-    if not spell.interrupted then
-        if state.UseCustomTimers.value and spell.english == 'Sleep' or spell.english == 'Sleepga' then
-            send_command('@timers c "'..spell.english..' ['..spell.target.name..']" 60 down spells/00220.png')
-        elseif spell.skill == 'Elemental Magic' and state.MagicBurstMode.value == 'Single' then
-            state.MagicBurstMode:reset()
-			if state.DisplayMode.value then update_job_states()	end
-        end
+
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
+    if spellMap == 'StatusRemoval' and buffactive['Divine Caress'] then
+        equip(sets.buff['Divine Caress'])
     end
 end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if stateField == 'Offense Mode' then
+        if newValue == 'Normal' then
+            disable('main','sub','range')
+        else
+            enable('main','sub','range')
+        end
+    end
+end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -147,67 +456,46 @@ end
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)
     if spell.action_type == 'Magic' then
-		if default_spell_map == 'Curaga' then
-			if world.weather_element == 'Light' then
-				return 'LightWeatherCuraga'
-			elseif world.day_element == 'Light' then
-				return 'LightDayCuraga'	
-			end
-		elseif default_spell_map == 'Cure' then
-			if state.Weapons.value ~= 'None' then
-				if state.Buff['Afflatus Solace'] then
-					if world.weather_element == 'Light' then
-						return '"MeleeLightWeatherCureSolace'
-					elseif world.day_element == 'Light' then
-						return 'MeleeLightDayCureSolace'
-					else
-						return "MeleeCureSolace"
-					end
-				elseif world.weather_element == 'Light' then
-					return 'MeleeLightWeatherCure'
-				elseif world.day_element == 'Light' then
-					return 'MeleeLightDayCure'
-				else
-					return 'MeleeCure'
-				end
-			elseif state.Buff['Afflatus Solace'] then
-				if world.weather_element == 'Light' then
-					return 'LightWeatherCureSolace'
-				elseif world.day_element == 'Light' then
-					return 'LightDayCureSolace'
-				else
-					return "CureSolace"
-				end
-			elseif world.weather_element == 'Light' then
-                return 'LightWeatherCure'
-			elseif world.day_element == 'Light' then
-                return 'LightDayCure'
-			end
-		elseif spell.skill == "Enfeebling Magic" then
-			if spell.english:startswith('Dia') then
-				return "Dia"
-            elseif spell.type == "WhiteMagic" or spell.english:startswith('Frazzle') or spell.english:startswith('Distract') then
-                return 'MndEnfeebles'
+        if (default_spell_map == 'Cure' or default_spell_map == 'Curaga') and player.status == 'Engaged' then
+            return "CureMelee"
+        elseif default_spell_map == 'Cure' and state.Buff['Afflatus Solace'] then
+            return "CureSolace"
+        elseif spell.skill == "Enfeebling Magic" then
+            if spell.type == "WhiteMagic" then
+                return "MndEnfeebles"
             else
-                return 'IntEnfeebles'
+                return "IntEnfeebles"
             end
         end
     end
 end
 
 
-function job_customize_idle_set(idleSet)
-
-    if player.mpp < 51 and (state.IdleMode.value == 'Normal' or state.IdleMode.value == 'Sphere') and state.DefenseMode.value == 'None' then
+function customize_idle_set(idleSet)
+    if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
-	
     return idleSet
 end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-	if cmdParams[1] == 'user' then check_arts() end
+    if cmdParams[1] == 'user' and not areas.Cities:contains(world.area) then
+        local needsArts = 
+            player.sub_job:lower() == 'sch' and
+            not buffactive['Light Arts'] and
+            not buffactive['Addendum: White'] and
+            not buffactive['Dark Arts'] and
+            not buffactive['Addendum: Black']
+            
+        if not buffactive['Afflatus Solace'] and not buffactive['Afflatus Misery'] then
+            if needsArts then
+                send_command('@input /ja "Afflatus Solace" <me>;wait 1.2;input /ja "Light Arts" <me>')
+            else
+                send_command('@input /ja "Afflatus Solace" <me>')
+            end
+        end
+    end
 end
 
 
@@ -217,322 +505,13 @@ function display_current_job_state(eventArgs)
     eventArgs.handled = true
 end
 
-    -- Allow jobs to override this code
-function job_self_command(commandArgs, eventArgs)
-    if commandArgs[1]:lower() == 'smartcure' then
-		eventArgs.handled = true
-		local cureTarget = '<t>'
-		local missingHP
-		local spell_recasts = windower.ffxi.get_spell_recasts()
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
 
-		-- If curing ourself, get our exact missing HP
-		if player.target.type == "SELF" or player.target.type == 'MONSTER' or player.target.type == 'NONE' then
-			missingHP = player.max_hp - player.hp
-			cureTarget = '<me>'
-		elseif player.target.status:contains('Dead') then
-			windower.chat.input('/ma "Arise" '..cureTarget..'')
-			return
-		-- If curing someone in our alliance, we can estimate their missing HP
-		elseif player.target.isallymember then
-			local target = find_player_in_alliance(player.target.name)
-			local est_max_hp = target.hp / (target.hpp/100)
-			missingHP = math.floor(est_max_hp - target.hp)
-		else
-			if player.target.hpp > 94 then
-				if spell_recasts[1] < spell_latency then
-					windower.chat.input('/ma "Cure" <t>')
-				elseif spell_recasts[2] < spell_latency then
-					windower.chat.input('/ma "Cure II" <t>')
-				else
-					add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-				end
-			elseif player.target.hpp > 84 then
-				if spell_recasts[2] < spell_latency then
-					windower.chat.input('/ma "Cure II" <t>')
-				elseif spell_recasts[3] < spell_latency then
-					windower.chat.input('/ma "Cure III" <t>')
-				elseif spell_recasts[1] < spell_latency then
-					windower.chat.input('/ma "Cure" <t>')
-				else
-					add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-				end
-			elseif player.target.hpp > 55 then
-				if spell_recasts[3] < spell_latency then
-					windower.chat.input('/ma "Cure III" <t>')
-				elseif spell_recasts[4] < spell_latency then
-					windower.chat.input('/ma "Cure IV" <t>')
-				elseif spell_recasts[5] < spell_latency then
-					windower.chat.input('/ma "Cure V" <t>')
-				else
-					add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-				end
-			elseif player.target.hpp > 25 then
-				if spell_recasts[5] < spell_latency then
-					windower.chat.input('/ma "Cure V" <t>')
-				elseif spell_recasts[4] < spell_latency then
-					windower.chat.input('/ma "Cure IV" <t>')
-				elseif spell_recasts[6] < spell_latency then
-					windower.chat.input('/ma "Cure VI" <t>')
-				elseif spell_recasts[3] < spell_latency then
-					windower.chat.input('/ma "Cure III" <t>')
-				else
-					add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-				end
-			else
-				if spell_recasts[6] < spell_latency then
-					windower.chat.input('/ma "Cure VI" <t>')
-				elseif spell_recasts[5] < spell_latency then
-					windower.chat.input('/ma "Cure V" <t>')
-				elseif spell_recasts[4] < spell_latency then
-					windower.chat.input('/ma "Cure IV" <t>')
-				elseif spell_recasts[3] < spell_latency then
-					windower.chat.input('/ma "Cure III" <t>')
-				else
-					add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-				end
-			end
-			return
-		end
-		
-		if missingHP < 250 then
-			if spell_recasts[1] < spell_latency then
-				windower.chat.input('/ma "Cure" '..cureTarget..'')
-			elseif spell_recasts[2] < spell_latency then
-				windower.chat.input('/ma "Cure II" '..cureTarget..'')
-			else
-				add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-			end
-		elseif missingHP < 400 then
-			if spell_recasts[2] < spell_latency then
-				windower.chat.input('/ma "Cure II" '..cureTarget..'')
-			elseif spell_recasts[3] < spell_latency then
-				windower.chat.input('/ma "Cure III" '..cureTarget..'')
-			elseif spell_recasts[1] < spell_latency then
-				windower.chat.input('/ma "Cure" '..cureTarget..'')
-			else
-				add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-			end
-		elseif missingHP < 900 then
-			if spell_recasts[3] < spell_latency then
-				windower.chat.input('/ma "Cure III" '..cureTarget..'')
-			elseif spell_recasts[4] < spell_latency then
-				windower.chat.input('/ma "Cure IV" '..cureTarget..'')
-			elseif spell_recasts[5] < spell_latency then
-				windower.chat.input('/ma "Cure V" '..cureTarget..'')
-			else
-				add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-			end
-		elseif missingHP < 1400 then
-			if spell_recasts[5] < spell_latency then
-				windower.chat.input('/ma "Cure V" '..cureTarget..'')
-			elseif spell_recasts[4] < spell_latency then
-				windower.chat.input('/ma "Cure IV" '..cureTarget..'')
-			elseif spell_recasts[6] < spell_latency then
-				windower.chat.input('/ma "Cure VI" '..cureTarget..'')
-			elseif spell_recasts[3] < spell_latency then
-				windower.chat.input('/ma "Cure III" '..cureTarget..'')
-			else
-				add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-			end
-		else
-			if spell_recasts[6] < spell_latency then
-				windower.chat.input('/ma "Cure VI" '..cureTarget..'')
-			elseif spell_recasts[5] < spell_latency then
-				windower.chat.input('/ma "Cure V" '..cureTarget..'')
-			elseif spell_recasts[4] < spell_latency then
-				windower.chat.input('/ma "Cure IV" '..cureTarget..'')
-			elseif spell_recasts[3] < spell_latency then
-				windower.chat.input('/ma "Cure III" '..cureTarget..'')
-			else
-				add_to_chat(123,'Abort: Appropriate cures are on cooldown.')
-			end
-		end
-	elseif commandArgs[1]:lower() == 'elemental' then
-		handle_elemental(commandArgs)
-		eventArgs.handled = true	
-	end
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    -- Default macro set/book
+    set_macro_page(4, 14)
 end
 
-function job_tick()
-	if check_arts() then return true end
-	if check_buff() then return true end
-	if check_buffup() then return true end
-	return false
-end
-
-function check_arts()
-	if buffup ~= '' or (not areas.Cities:contains(world.area) and ((state.AutoArts.value and player.in_combat) or state.AutoBuffMode.value)) then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-
-		if abil_recasts[29] < latency and not state.Buff['Afflatus Solace'] and not state.Buff['Afflatus Misery'] then
-			send_command('@input /ja "Afflatus Solace" <me>')
-			tickdelay = os.clock() + 1
-			return true
-
-		elseif player.sub_job == 'SCH' and not arts_active() and abil_recasts[228] < latency then
-			send_command('@input /ja "Light Arts" <me>')
-			tickdelay = os.clock() + 1
-			return true
-		end
-		
-	end
-
-	return false
-end
-
-function handle_elemental(cmdParams)
-    -- cmdParams[1] == 'elemental'
-    -- cmdParams[2] == ability to use
-
-    if not cmdParams[2] then
-        add_to_chat(123,'Error: No elemental command given.')
-        return
-    end
-    local command = cmdParams[2]:lower()
-
-	if command == 'nuke' or command == 'smallnuke' then
-		local spell_recasts = windower.ffxi.get_spell_recasts()
-	
-		if command == 'nuke' and state.ElementalMode.value == 'Light' then
-			local tiers = {'Holy II','Holy','Banish III','Banish II','Banish'}
-			for k in ipairs(tiers) do
-				if spell_recasts[get_spell_table_by_name(tiers[k]).id] < spell_latency and actual_cost(get_spell_table_by_name(tiers[k])) < player.mp then
-					windower.chat.input('/ma "'..tiers[k]..'" <t>')
-					return
-				end
-			end
-		else
-			local tiers = {' II',''}
-			for k in ipairs(tiers) do
-				if spell_recasts[get_spell_table_by_name(elements.nuke[state.ElementalMode.value]..''..tiers[k]..'').id] < spell_latency and actual_cost(get_spell_table_by_name(elements.nuke[state.ElementalMode.value]..''..tiers[k]..'')) < player.mp then
-					windower.chat.input('/ma "'..elements.nuke[state.ElementalMode.value]..''..tiers[k]..'" <t>')
-					return
-				end
-			end
-		end
-		add_to_chat(123,'Abort: All '..elements.nuke[state.ElementalMode.value]..' nukes on cooldown or or not enough MP.')
-		
-	elseif command:contains('tier') then
-		local spell_recasts = windower.ffxi.get_spell_recasts()
-		local tierlist = {['tier1']='',['tier2']=' II',['tier3']=' III',['tier4']=' IV',['tier5']=' V',['tier6']=' VI'}
-		
-		windower.chat.input('/ma "'..elements.nuke[state.ElementalMode.value]..tierlist[command]..'" <t>')
-		
-	elseif command == 'ara' then
-		windower.chat.input('/ma "'..elements.nukera[state.ElementalMode.value]..'ra" <t>')
-		
-	elseif command == 'aga' then
-		windower.chat.input('/ma "'..elements.nukega[state.ElementalMode.value]..'ga" <t>')
-		
-	elseif command == 'helix' then
-		windower.chat.input('/ma "'..elements.helix[state.ElementalMode.value]..'helix" <t>')
-	
-	elseif command == 'enfeeble' then
-		windower.chat.input('/ma "'..elements.enfeeble[state.ElementalMode.value]..'" <t>')
-	
-	elseif command == 'bardsong' then
-		windower.chat.input('/ma "'..elements.threnody[state.ElementalMode.value]..' Threnody" <t>')
-		
-	elseif command == 'spikes' then
-		windower.chat.input('/ma "'..elements.spikes[state.ElementalMode.value]..' Spikes" <me>')
-		
-	elseif command == 'enspell' then
-			windower.chat.input('/ma "En'..elements.enspell[state.ElementalMode.value]..'" <me>')
-	
-	--Leave out target, let shortcuts auto-determine it.
-	elseif command == 'weather' then
-		if player.sub_job == 'RDM' then
-			windower.chat.input('/ma "Phalanx" <me>')
-		else
-			local spell_recasts = windower.ffxi.get_spell_recasts()
-			if (player.target.type == 'SELF' or not player.target.in_party) and buffactive[elements.storm_of[state.ElementalMode.value]] and not buffactive['Klimaform'] and spell_recasts[287] < spell_latency then
-				windower.chat.input('/ma "Klimaform" <me>')
-			else
-				windower.chat.input('/ma "'..elements.storm_of[state.ElementalMode.value]..'"')
-			end
-		end
-		
-    else
-        add_to_chat(123,'Unrecognized elemental command.')
-    end
-end
-
-function check_buff()
-	if state.AutoBuffMode.value and not areas.Cities:contains(world.area) then
-		local spell_recasts = windower.ffxi.get_spell_recasts()
-		for i in pairs(buff_spell_lists['Auto']) do
-			if not buffactive[buff_spell_lists['Auto'][i].Buff] and (buff_spell_lists['Auto'][i].When == 'Always' or (buff_spell_lists['Auto'][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists['Auto'][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists['Auto'][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists['Auto'][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists['Auto'][i].SpellID] < latency and silent_can_use(buff_spell_lists['Auto'][i].SpellID) then
-				windower.chat.input('/ma "'..buff_spell_lists['Auto'][i].Name..'" <me>')
-				tickdelay = os.clock() + 2
-				return true
-			end
-		end
-	else
-		return false
-	end
-end
-
-function check_buffup()
-	if buffup ~= '' then
-		local needsbuff = false
-		for i in pairs(buff_spell_lists[buffup]) do
-			if not buffactive[buff_spell_lists[buffup][i].Buff] and silent_can_use(buff_spell_lists[buffup][i].SpellID) then
-				needsbuff = true
-				break
-			end
-		end
-	
-		if not needsbuff then
-			add_to_chat(217, 'All '..buffup..' buffs are up!')
-			buffup = ''
-			return false
-		end
-		
-		local spell_recasts = windower.ffxi.get_spell_recasts()
-		
-		for i in pairs(buff_spell_lists[buffup]) do
-			if not buffactive[buff_spell_lists[buffup][i].Buff] and silent_can_use(buff_spell_lists[buffup][i].SpellID) and spell_recasts[buff_spell_lists[buffup][i].SpellID] < latency then
-				windower.chat.input('/ma "'..buff_spell_lists[buffup][i].Name..'" <me>')
-				tickdelay = os.clock() + 2
-				return true
-			end
-		end
-		
-		return false
-	else
-		return false
-	end
-end
-
-buff_spell_lists = {
-	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Reraise IV',		Buff='Reraise',		SpellID=848,	When='Always'},
-		{Name='Haste',			Buff='Haste',		SpellID=57,		When='Always'},
-		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Always'},
-		{Name='Refresh',		Buff='Refresh',		SpellID=109,	When='Always'},
-		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		When='Always'},
-	},
-	
-	Default = {
-		{Name='Reraise IV',		Buff='Reraise',		SpellID=848,	Reapply=false},
-		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=false},
-		{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		Reapply=false},
-		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
-		{Name='Blink',			Buff='Blink',		SpellID=53,		Reapply=false},
-		{Name='Regen IV',		Buff='Regen',		SpellID=477,	Reapply=false},
-		{Name='Phalanx',		Buff='Phalanx',		SpellID=106,	Reapply=false},
-		{Name='Boost-MND',		Buff='MND Boost',	SpellID=484,	Reapply=false},
-		{Name='Shellra V',		Buff='Shell',		SpellID=134,	Reapply=false},
-		{Name='Protectra V',	Buff='Protect',		SpellID=129,	Reapply=false},
-		{Name='Barthundra',		Buff='Barthunder',	SpellID=70,		Reapply=false},
-		{Name='Barparalyzra',	Buff='Barparalyze',	SpellID=88,		Reapply=false},
-	},
-	Melee = {
-		{Name='Reraise IV',		Buff='Reraise',		SpellID=848,	Reapply=false},
-		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=false},
-		{Name='Boost-STR',		Buff='STR Boost',	SpellID=479,	Reapply=false},
-		{Name='Shellra V',		Buff='Shell',		SpellID=134,	Reapply=false},
-		{Name='Protectra V',	Buff='Protect',		SpellID=129,	Reapply=false},
-		{Name='Auspice',		Buff='Auspice',		SpellID=96,		Reapply=false},
-	},
-}
