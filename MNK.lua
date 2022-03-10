@@ -290,11 +290,20 @@ function init_gear_sets()
         body="Hesychast's Cyclas",hands="Hesychast's Gloves +1",ring1="K'ayres Ring",ring2="Meridian Ring",
         back="Shadow Mantle",waist="Black Belt",legs="Hesychast's Hose +1",feet="Hesychast's Gaiters +1"}
 
-    sets.defense.MDT = {ammo="Demonry Stone",
-        head="Uk'uxkaj Cap",neck="Twilight Torque",
-        body="Otronif Harness +1",hands="Anchorite's Gloves +1",ring1="Defending Ring",ring2="Shadow Ring",
-        back="Engulfer Cape",waist="Black Belt",legs="Qaaxo Tights",feet="Daihanshi Habaki"}
-
+    sets.defense.MDT = {		ammo="Amar Cluster",
+	head="Hiza. Somen +2",
+	body="Mpaca's Doublet",
+	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
+	legs="Hiza. Hizayoroi +2",
+	feet="Hiza. Sune-Ate +2",
+	waist="Isa Belt",
+	right_ear="Cryptic Earring",
+	left_ring="Niqmaddu Ring",
+	right_ring="Defending Ring",
+	neck="Anu Torque",
+    left_ear="Dominance Earring",
+    back="Tantalic Cape",
+	}
     sets.Kiting = {feet="Herald's Gaiters"}
 
     sets.ExtraRegen = {head="Ocelomeh Headpiece +1"}
@@ -324,19 +333,19 @@ function init_gear_sets()
 
     }
     sets.engaged.SomeAcc = {
-        ammo="Mantoptera Eye",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Moonbeam Nodowa",
-        waist="Moonbow Belt",
-        left_ear="Mache Earring +1",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+		ammo="Amar Cluster",
+		head="Hiza. Somen +2",
+		body="Mpaca's Doublet",
+		hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
+		legs="Hiza. Hizayoroi +2",
+		feet="Hiza. Sune-Ate +2",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Isa Belt",
+		left_ear="Sherida Earring",
+		right_ear="Cryptic Earring",
+		left_ring="Niqmaddu Ring",
+		right_ring="Defending Ring",
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
 
     }
     sets.engaged.Acc = {
@@ -364,14 +373,26 @@ function init_gear_sets()
     -- Defensive melee hybrid sets
     sets.engaged.PDT = {    head="Hiza. Somen +2",
 }
-    sets.engaged.SomeAcc.PDT = {ammo="Honed Tathlum",
-        head="Whirlpool Mask",neck="Ej Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Qaaxo Harness",hands="Hesychast's Gloves +1",ring1="Patricius Ring",ring2="Epona's Ring",
-        back="Atheling Mantle",waist="Anguinus Belt",legs="Hesychast's Hose +1",feet="Anchorite's Gaiters +1"}
-    sets.engaged.Acc.PDT = {ammo="Honed Tathlum",
-        head="Whirlpool Mask",neck="Twilight Torque",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Otronif Harness +1",hands="Otronif Gloves",ring1="Patricius Ring",ring2="Epona's Ring",
-        back="Letalis Mantle",waist="Anguinus Belt",legs="Qaaxo Tights",feet="Qaaxo Leggings"}
+    sets.engaged.SomeAcc.PDT = {  neck="Anu Torque",
+    left_ear="Dominance Earring",
+    back="Tantalic Cape",
+		
+	}
+    sets.engaged.Acc.PDT = {	ammo="Amar Cluster",
+	head="Hiza. Somen +2",
+	body="Mpaca's Doublet",
+	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
+	legs="Hiza. Hizayoroi +2",
+	feet="Hiza. Sune-Ate +2",
+	waist="Isa Belt",
+	right_ear="Cryptic Earring",
+	left_ring="Niqmaddu Ring",
+	right_ring="Defending Ring",
+	neck="Anu Torque",
+    left_ear="Dominance Earring",
+    back="Tantalic Cape",
+		
+	}
     sets.engaged.Counter = {
 		ammo="Amar Cluster",
 		head="Hiza. Somen +2",
@@ -389,18 +410,19 @@ function init_gear_sets()
 		
 	}
     sets.engaged.Acc.Counter = {ammo="Amar Cluster",
-    head="Hiza. Somen +2",
-    body="Mpaca's Doublet",
-    hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
-    legs="Hiza. Hizayoroi +2",
-    feet="Hiza. Sune-Ate +2",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Isa Belt",
-    left_ear="Sherida Earring",
-    right_ear="Cryptic Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Defending Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},}
+	head="Hiza. Somen +2",
+	body="Mpaca's Doublet",
+	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
+	legs="Hiza. Hizayoroi +2",
+	feet="Hiza. Sune-Ate +2",
+	waist="Isa Belt",
+	right_ear="Cryptic Earring",
+	left_ring="Niqmaddu Ring",
+	right_ring="Defending Ring",
+	neck="Anu Torque",
+    left_ear="Dominance Earring",
+    back="Tantalic Cape",
+}
 
 
     -- Hundred Fists/Impetus melee set mods
@@ -415,14 +437,8 @@ function init_gear_sets()
 
 
     -- Footwork combat form
-    sets.engaged.Footwork = {ammo="Thew Bomblet",
-        head="Felistris Mask",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Qaaxo Harness",hands="Hesychast's Gloves +1",ring1="Rajas Ring",ring2="Epona's Ring",
-        back="Atheling Mantle",waist="Windbuffet Belt",legs="Hesychast's Hose +1",feet="Anchorite's Gaiters +1"}
-    sets.engaged.Footwork.Acc = {ammo="Honed Tathlum",
-        head="Whirlpool Mask",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Otronif Harness +1",hands="Hesychast's Gloves +1",ring1="Rajas Ring",ring2="Epona's Ring",
-        back="Letalis Mantle",waist="Anguinus Belt",legs="Hesychast's Hose +1",feet="Anchorite's Gaiters +1"}
+    sets.engaged.Footwork = {}
+    sets.engaged.Footwork.Acc = {}
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Tantra Cyclas +2"}
