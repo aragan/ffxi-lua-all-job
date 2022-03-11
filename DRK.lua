@@ -131,11 +131,11 @@ function init_gear_sets()
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sakpata's Leggings",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Ishvara Earring",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
         left_ring="Beithir Ring",
         right_ring="Niqmaddu Ring",
@@ -155,11 +155,11 @@ function init_gear_sets()
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sakpata's Leggings",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Ishvara Earring",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
         left_ring="Beithir Ring",
         right_ring="Niqmaddu Ring",
@@ -171,7 +171,7 @@ function init_gear_sets()
         head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Sakpata's Leggings",
     left_ring="Regal Ring"
 })
@@ -187,7 +187,7 @@ sets.precast.WS['Insurgency'] = {
     feet="Sakpata's Leggings",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
     left_ring="Beithir Ring",
     right_ring="Niqmaddu Ring",
@@ -208,11 +208,11 @@ sets.precast.WS['Insurgency'] = {
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sakpata's Leggings",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Ishvara Earring",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
         left_ring="Beithir Ring",
         right_ring="Niqmaddu Ring",
@@ -223,7 +223,7 @@ sets.precast.WS['Insurgency'] = {
     sets.precast.WS['Cross Reaper'].Max = set_combine(sets.precast.WS['Catastrophe'], {head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Sakpata's Leggings",
     left_ring="Regal Ring"})
   
@@ -292,7 +292,8 @@ sets.precast.WS['Insurgency'] = {
     sets.midcast.Cure = {}
       
       
-    sets.midcast['Dread Spikes'] = {ammo="Egoist's Tathlum",
+    sets.midcast['Dread Spikes'] = {
+        ammo="Egoist's Tathlum",
     head="Sakpata's Helm",
     body="Heathen's Cuirass +1",
     hands="Sakpata's Gauntlets",
@@ -308,12 +309,13 @@ sets.precast.WS['Insurgency'] = {
 }
       
       
-    sets.midcast['Dark Magic'] = {ammo="Pemphredo Tathlum",
-    head={ name="Fall. Burgeonet +3", augments={'Enhances "Dark Seal" effect',}},
-    body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
-    hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+    sets.midcast['Dark Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Sakpata's Helm",
+        body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
+    hands="Sakpata's Gauntlets",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Rat. Sollerets +1",
+    feet="Sakpata's Leggings",
     neck="Erra Pendant",
     waist="Casso Sash",
     left_ear="Malignance Earring",
@@ -396,60 +398,62 @@ sets.precast.WS['Insurgency'] = {
     -- Idle sets
     sets.idle = {
         
-    head={ name="Valorous Mask", augments={'Accuracy+16','MND+13','"Refresh"+2','Accuracy+16 Attack+16','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
-    body="Chozor. Coselete",
-    hands={ name="Valorous Mitts", augments={'"Fast Cast"+5','AGI+6','"Refresh"+2','Accuracy+4 Attack+4','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
-    legs="Sulev. Cuisses +2",
-    feet={ name="Amm Greaves", augments={'HP+50','VIT+10','Accuracy+15','Damage taken-2%',}},
-    neck="Coatl Gorget +1",
-    waist="Flume Belt +1",
+    ammo="Staunch Tathlum +1",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
-    right_ring="Karieyh Ring +1",
-    back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}},
+    right_ring="Defending Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+
 }
   
-    sets.idle.Town = {ammo="Aurgelmir Orb +1",
-    head="Ratri Sallet +1",
-    body="Sacro Breastplate",
-    hands="Rat. Gadlings +1",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Rat. Sollerets +1",
-       neck="Fotia Gorget",
+    sets.idle.Town = {
+        ammo="Staunch Tathlum +1",
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Carmine Cuisses +1",
+        feet="Sakpata's Leggings",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Infused Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Infused Earring",
-    right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Karieyh Ring +1",
-    back={ name="Ankou's Mantle", augments={'VIT+20','MaxAccuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}},
 }
   
     sets.idle.Field = set_combine(sets.idle, {
         
         
-    head={ name="Valorous Mask", augments={'Accuracy+16','MND+13','"Refresh"+2','Accuracy+16 Attack+16','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
-    body="Sacro Breastplate",
-    hands={ name="Valorous Mitts", augments={'"Fast Cast"+5','AGI+6','"Refresh"+2','Accuracy+4 Attack+4','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
-    legs="Sulev. Cuisses +2",
-    feet={ name="Amm Greaves", augments={'HP+50','VIT+10','Accuracy+15','Damage taken-2%',}},
-    neck="Coatl Gorget +1",
-    waist="Flume Belt +1",
-    left_ear="Infused Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Karieyh Ring +1",
-    back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}},
+        ammo="Staunch Tathlum +1",
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Infused Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 })
     sets.idle.Regen = set_combine(sets.idle.Field, {})
       
     sets.idle.Weak = sets.idle
       
     sets.idle.Refresh = set_combine(sets.idle, {
-    head={ name="Valorous Mask", augments={'MaxAccuracy+16','MND+13','"Refresh"+2','MaxAccuracy+16 Attack+16','Mag. MaxAcc.+19 "Mag.Atk.Bns."+19',}},
-    body="Chozor. Coselete",
-    hands={ name="Valorous Mitts", augments={'"Fast Cast"+5','AGI+6','"Refresh"+2','MaxAccuracy+4 Attack+4','Mag. MaxAcc.+11 "Mag.Atk.Bns."+11',}},
+   
     left_ring="Stikini Ring +1",
     })
   
@@ -478,25 +482,27 @@ sets.precast.WS['Insurgency'] = {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
     sets.defense.HP = {
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonlight Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        ammo="Coiste Bodhar",
+        head="Hjarrandi Helm",
+        body="Heath. Cuirass +1",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Moonbeam Ring",
+        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
       
     sets.defense.MDT = {
         head="Sulevia's mask +1",neck="Warder's Charm +1",ear1="Odnowa Earring",ear2="Odnowa Earring +1",
         body="Souveran cuirass",hands="Souveran handschuhs +1",ring1="Moonbeam Ring",ring2="Moonbeam Ring",
-        back="Moonbeam cape",waist="Gold Moogle Belt",legs="Souveran diechlings +1",feet="Souveran Schuhs +1"}
+        back="Moonbeam cape",waist="Gold Moogle Belt",legs="Souveran diechlings +1",feet="Souveran Schuhs +1"
+    }
   
         sets.Kiting = {legs="Carmine Cuisses +1",
     }
@@ -506,7 +512,7 @@ sets.precast.WS['Insurgency'] = {
       
     sets.engaged ={
         sub="Utu Grip",
-        ammo="Knobkierrie",
+        ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
@@ -527,7 +533,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear="Dedition Earring",
@@ -557,7 +563,7 @@ sets.precast.WS['Insurgency'] = {
     hands={ name="Emi. Gauntlets +1", augments={'HP+65','DEX+12','MaxAccuracy+20',}},
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Abyssal Beads +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
@@ -585,7 +591,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Brutal Earring",
     right_ear="Dedition Earring",
@@ -599,7 +605,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -615,7 +621,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -631,7 +637,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -653,7 +659,7 @@ sets.precast.WS['Insurgency'] = {
         ammo="Ginsen",
         head="Flamma Zucchetto +2",
         body="Hjarrandi Breast.",
-        neck="Abyssal Bead Necklace +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
         hands="Flamma Manopolas +2",
         ear1="Dedition Earring",
         ear2="Telos Earring",
@@ -665,7 +671,7 @@ sets.precast.WS['Insurgency'] = {
         feet="Flam. Gambieras +2",
     })
     sets.engaged.Liberator.MidAcc.AM3 = set_combine(sets.engaged.Liberator.AM3, {
-        neck="Abyssal Bead Necklace +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
         ear1="Cessance Earring",
         ---legs=Odyssean.Legs.TP,
     })
@@ -701,7 +707,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Schere Earring",
     right_ear="Dedition Earring",
@@ -733,7 +739,6 @@ sets.precast.WS['Insurgency'] = {
     sets.engaged.Apocalypse.MidAcc = set_combine(sets.engaged.MidAcc, {
         ear1="Cessance Earring",
         ear2="Telos Earring",
-        ring2="Regal Ring",
         hands="Sulevia's Gauntlets +2",
         ---back=Ankou.DA
     })
@@ -765,7 +770,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Schere Earring",
     right_ear="Dedition Earring",
@@ -796,7 +801,7 @@ sets.precast.WS['Insurgency'] = {
     sets.engaged.GreatSword.Mid = set_combine(sets.engaged.Mid, {})
     sets.engaged.GreatSword.Acc = set_combine(sets.engaged.Acc, {
         body="Flamma Korazin +2",
-        legs="Ignominy Flanchard +3",
+       
     })
   
     sets.engaged.GreatSword.PDT = ({ammo="Coiste Bodhar",
@@ -805,7 +810,7 @@ sets.precast.WS['Insurgency'] = {
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck="Fotia Gorget",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Brutal Earring",
     right_ear="Dedition Earring",
