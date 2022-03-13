@@ -354,11 +354,11 @@ function init_gear_sets()
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs="Hiza. Hizayoroi +2",
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Epona's Ring",
@@ -374,7 +374,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Schere Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Epona's Ring",
@@ -390,7 +390,7 @@ function init_gear_sets()
     feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
+    left_ear="Schere Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
@@ -405,7 +405,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Epona's Ring",
@@ -417,14 +417,14 @@ function init_gear_sets()
         set_combine(
         sets.precast.WS, {
         
-            head="Mpaca's Cap",
+            head="Malignance Chapeau",
             body="Tali'ah Manteel +2",
-            hands="Mpaca's Gloves",
+            hands="Malignance Gloves",
             legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
             feet="Mpaca's Boots",
             neck="Fotia Gorget",
             waist="Fotia Belt",
-            left_ear="Ishvara Earring",
+            left_ear="Schere Earring",
             right_ear="Telos Earring",
             left_ring="Niqmaddu Ring",
             right_ring="Epona's Ring",
@@ -469,20 +469,20 @@ function init_gear_sets()
         Hybrid Mode = Normal
     ]]
     sets.engaged.Master = {
-    range="Animator P +1",
-    ammo="Automat. Oil +3",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+        range="Animator P +1",
+        ammo="Automat. Oil +3",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Lissome Necklace",
+        waist="Moonbow Belt",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
 
     -------------------------------------Acc
@@ -491,7 +491,6 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.engaged.Master.Acc = {
-     main="Godhands",
     range="Animator P +1",
     ammo="Automat. Oil +3",
     head="Malignance Chapeau",
@@ -566,21 +565,20 @@ function init_gear_sets()
     ]]
     sets.engaged.MasterPet = {
     
-        main={ name="Xiucoatl", augments={'Path: C',}},
         range="Animator P +1",
     ammo="Automat. Oil +3",
-    head="Malignance Chapeau",
+    head="Heyoka Cap",
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    legs="Heyoka Subligar",
+    feet="Mpaca's Boots",
     neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    waist="Moonbow Belt",
+    left_ear="Crep. Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Epona's Ring",
+    right_ring="Niqmaddu Ring",
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
 
     -------------------------------------Acc
@@ -588,21 +586,21 @@ function init_gear_sets()
         Offense Mode = MasterPet
         Hybrid Mode = Acc
     ]]
-    sets.engaged.MasterPet.Acc = {main={ name="Xiucoatl", augments={'Path: C',}},
+    sets.engaged.MasterPet.Acc = {
         range="Animator P +1",
     ammo="Automat. Oil +3",
     head="Malignance Chapeau",
-    body="Mpaca's Doublet",
-    hands="Mpaca's Gloves",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
+    neck="Lissome Necklace",
+    waist="Moonbow Belt",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    left_ring="Epona's Ring",
+    right_ring="Niqmaddu Ring",
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
 
     -------------------------------------TP
@@ -611,7 +609,6 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.engaged.MasterPet.TP = {
-        main={ name="Xiucoatl", augments={'Path: C',}},
         range="Animator P +1",
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
@@ -642,7 +639,6 @@ function init_gear_sets()
         Hybrid Mode = Regen
     ]]
     sets.engaged.MasterPet.Regen = {
-        main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
         range="Animator P +1",
         head="Mpaca's Cap",
         body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -724,7 +720,6 @@ function init_gear_sets()
         Idle Mode = MasterDT
     ]]
     sets.idle.Pet.MasterDT = {
-        main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
     range="Animator P +1",
     ammo="Automat. Oil +3",
     head={ name="Herculean Helm", augments={'Pet: Mag. Acc.+14','Pet: "Dbl. Atk."+4','Pet: INT+3','Pet: Attack+6 Pet: Rng.Atk.+6','Pet: "Mag.Atk.Bns."+6',}},
@@ -784,7 +779,7 @@ function init_gear_sets()
         Idle Mode = Idle
         Hybrid Mode = Normal
     ]]
-    sets.idle.Pet.Engaged = {main={ name="Condemners", augments={'Pet: "Store TP"+9','Accuracy+21','Pet: Accuracy+18 Pet: Rng. Acc.+18','DMG:+7',}},
+    sets.idle.Pet.Engaged = {
            range="Animator P +1",
           head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
          body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -805,7 +800,8 @@ function init_gear_sets()
         Idle Mode = Idle
         Hybrid Mode = Acc
     ]]
-    sets.idle.Pet.Engaged.Acc = {main={ name="Xiucoatl", augments={'Path: C',}},
+    sets.idle.Pet.Engaged.Acc = {
+        main={ name="Xiucoatl", augments={'Path: C',}},
     range="Animator P +1",
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -866,7 +862,8 @@ function init_gear_sets()
         Idle Mode = Idle
         Hybrid Mode = Regen
     ]]
-    sets.idle.Pet.Engaged.Regen = {   main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
+    sets.idle.Pet.Engaged.Regen = {  
+         main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
     range="Animator P +1",
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -910,7 +907,7 @@ function init_gear_sets()
     --[[
         WSNoFTP is the default weaponskill set used
     ]]
-    sets.midcast.Pet.WSNoFTP = {main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
+    sets.midcast.Pet.WSNoFTP = {
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Mpaca's Gloves",
@@ -929,7 +926,6 @@ function init_gear_sets()
     ]]
     sets.midcast.Pet.WSFTP = {
          
-        main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
         head="Karagoz Capello +1",
         hands="Mpaca's Gloves",
         legs={ name="Herculean Trousers", augments={'Pet: "Mag.Atk.Bns."+18','Pet: "Store TP"+7','Pet: DEX+12','Pet: Attack+14 Pet: Rng.Atk.+14',}},
@@ -944,7 +940,7 @@ function init_gear_sets()
         Base Weapon Skill Set
         Used by default if no modifier is found
     ]]
-    sets.midcast.Pet.WS = {main={ name="Xiucoatl", augments={'Path: C',}},range="Animator P +1",
+    sets.midcast.Pet.WS = {
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Mpaca's Gloves",
@@ -1062,13 +1058,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(9, 5)
+        set_macro_page(2, 9)
     elseif player.sub_job == "NIN" then
-        set_macro_page(9, 5)
+        set_macro_page(2, 9)
     elseif player.sub_job == "DNC" then
-        set_macro_page(9, 5)
+        set_macro_page(2, 9)
     else
-        set_macro_page(9, 5)
+        set_macro_page(1, 9)
     end
 end
 
