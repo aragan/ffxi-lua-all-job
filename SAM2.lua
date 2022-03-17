@@ -317,7 +317,14 @@ function init_gear_sets()
         waist="Soil Belt",
     })
     
-    sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {waist="Light Belt"})
+    sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
+           --head="Flamma Zucchetto +2",
+           neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
+           right_ring="Niqmaddu Ring",
+
+   feet="Flamma Gambieras +2",
+
+    })
     
     sets.precast.WS['Tachi: Gekko'] = set_combine(sets.precast.WS, {neck="Aqua Gorget",waist="Windbuffet Belt +1"})
     
@@ -409,8 +416,19 @@ function init_gear_sets()
     })
     
     sets.defense.MDT = set_combine(sets.defense.PDT, {
-         neck="Twilight Torque",
-    	back=Smertrios.TP,
+        ammo="Staunch Tathlum",
+        head="Flam. Zucchetto +2",
+        body="Wakido Domaru +3",
+        hands="Wakido Kote +3",
+        legs={ name="Ryuo Hakama +1", augments={'Accuracy+25','"Store TP"+5','Phys. dmg. taken -4',}},
+        feet="Flam. Gambieras +2",
+        neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Digni. Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+4','"Zanshin"+5','"Store TP"+2','Meditate eff. dur. +5',}},
     })
     
     sets.Kiting = {feet="Danzo Sune-ate"}
@@ -429,7 +447,7 @@ function init_gear_sets()
     sets.engaged = {
         main={ name="Dojikiri Yasutsuna", augments={'Path: A',}},
         sub="Utu Grip",
-        ammo="Knobkierrie",
+        ammo="Ginsen",
         head="Flam. Zucchetto +2",
         body="Hiza. Haramaki +2",
         hands="Wakido Kote +3",
@@ -445,24 +463,23 @@ function init_gear_sets()
     }
     
     sets.engaged.Mid = set_combine(sets.engaged, {
-   main="Shining One",
-        ammo="Coiste Bodhar",
-    head="Flam. Zucchetto +2",
-    body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-    hands="Flam. Manopolas +2",
-    legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
-    feet="Flam. Gambieras +2",
-    neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Petrov Ring",
-    back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        ammo="Staunch Tathlum",
+        head="Flam. Zucchetto +2",
+        body="Wakido Domaru +3",
+        hands="Wakido Kote +3",
+        legs={ name="Ryuo Hakama +1", augments={'Accuracy+25','"Store TP"+5','Phys. dmg. taken -4',}},
+        feet="Flam. Gambieras +2",
+        neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Digni. Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+4','"Zanshin"+5','"Store TP"+2','Meditate eff. dur. +5',}},
     })
 
     sets.engaged.Acc = set_combine(sets.engaged.Mid, { 
-        ammo="Knobkierrie",
+        ammo="Ginsen",
         head="Flam. Zucchetto +2",
         body="Wakido Domaru +3",
         hands="Wakido Kote +3",
@@ -470,10 +487,10 @@ function init_gear_sets()
         feet="Wakido Sune. +3",
         neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
-        left_ear="Telos Earring",
-        right_ear="Digni. Earring",
-        left_ring="Flamma Ring",
-        right_ring="Regal Ring",
+        left_ear="Digni. Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Ilabrat Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
@@ -493,9 +510,19 @@ function init_gear_sets()
 
     })
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {
-        --neck="Agitator's Collar",
-   	    body="Tartarus Platemail",
-        ring2="Defending Ring"
+        ammo="Staunch Tathlum",
+        head="Flam. Zucchetto +2",
+        body="Wakido Domaru +3",
+        hands="Wakido Kote +3",
+        legs={ name="Ryuo Hakama +1", augments={'Accuracy+25','"Store TP"+5','Phys. dmg. taken -4',}},
+        feet="Flam. Gambieras +2",
+        neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Digni. Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+4','"Zanshin"+5','"Store TP"+2','Meditate eff. dur. +5',}},
     })
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Mid.PDT, {
 
