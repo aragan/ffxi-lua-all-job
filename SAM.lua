@@ -37,7 +37,7 @@ function job_setup()
     get_combat_form()
     --get_combat_weapon()
     update_melee_groups()
-    
+    send_command('wait 2;input /lockstyleset 200')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')

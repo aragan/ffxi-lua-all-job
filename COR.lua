@@ -26,7 +26,7 @@ function job_setup()
     state.LuzafRing = M(false, "Luzaf's Ring")
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
-
+    send_command('wait 2;input /lockstyleset 200')
     define_roll_values()
 end
 include('organizer-lib')
@@ -80,7 +80,7 @@ function init_gear_sets()
     
     sets.precast.CorsairRoll = {range={ name="Compensator", augments={'DMG:+9','Rng.Acc.+9','Rng.Atk.+9',}},
     head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-    left_ring="Luzaf's Ring",
+    hands="Chasseur's Gants +1",
     right_ring="Barataria Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
     

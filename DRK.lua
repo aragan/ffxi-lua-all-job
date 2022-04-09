@@ -14,7 +14,7 @@ end
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-  
+    send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
   

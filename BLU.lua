@@ -18,7 +18,7 @@ function job_setup()
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
-    
+    send_command('wait 2;input /lockstyleset 200')
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
 
 

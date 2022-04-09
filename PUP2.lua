@@ -162,7 +162,7 @@ function user_setup()
     state.CustomGearLock = M(false, "Custom Gear Lock")
     --Example customGearLock = T{"head", "waist"}
     customGearLock = T{}
-    send_command('wait 2;input /lockstyleset 200')
+
     send_command("bind !f7 gs c cycle PetModeCycle")
     send_command("bind ^f7 gs c cycleback PetModeCycle")
     send_command("bind !f8 gs c cycle PetStyleCycle")
@@ -446,7 +446,6 @@ function init_gear_sets()
         Idle Mode = MasterDT
     ]]
     sets.idle.MasterDT = {
-        main={ name="Xiucoatl", augments={'Path: C',}},
         range="Animator P +1",
         ammo="Automat. Oil +3",
         head="Nyame Helm",
@@ -749,7 +748,6 @@ function init_gear_sets()
         F10 if Physical Defense Mode = PetDT
     ]]
     sets.pet.EmergencyDT = {
-        main={ name="Midnights", augments={'Pet: Attack+25','Pet: Accuracy+25','Pet: Damage taken -3%',}},
         range="Animator P +1",
         ammo="Automat. Oil +3",
         head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
@@ -801,7 +799,6 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.idle.Pet.Engaged.Acc = {
-        main={ name="Xiucoatl", augments={'Path: C',}},
     range="Animator P +1",
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -821,7 +818,6 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.idle.Pet.Engaged.TP = {
-        main={ name="Xiucoatl", augments={'Path: C',}},
         range="Animator P +1",
         head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -841,7 +837,6 @@ function init_gear_sets()
         Hybrid Mode = DT
     ]]
     sets.idle.Pet.Engaged.DT = {
-        main={ name="Xiucoatl", augments={'Path: C',}},
     range="Animator P +1",
     ammo="Automat. Oil +3",
     head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
@@ -863,7 +858,6 @@ function init_gear_sets()
         Hybrid Mode = Regen
     ]]
     sets.idle.Pet.Engaged.Regen = {  
-         main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
     range="Animator P +1",
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -885,7 +879,6 @@ function init_gear_sets()
     ]]
     sets.idle.Pet.Engaged.Ranged ={
 
-        main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
         range="Animator P +1",
         head="Mpaca's Cap",
         body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -1036,7 +1029,6 @@ function init_gear_sets()
     sets.defense.PetMDT = set_combine(sets.pet.EmergencyDT, {
 
 
-    main={ name="Midnights", augments={'Pet: Attack+25','Pet: Accuracy+25','Pet: Damage taken -3%',}},
     range="Animator P +1",
     ammo="Automat. Oil +3",
     head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},

@@ -41,7 +41,7 @@ end
 function job_setup()
 	state.Buff['Killer Instinct'] = buffactive['Killer Instinct'] or false
 	state.Buff.Doomed = buffactive.doomed or false
-
+	send_command('wait 2;input /lockstyleset 200')
 	get_combat_form()
 end
 
@@ -157,7 +157,10 @@ function init_gear_sets()
 		
 		sets.precast.JA.Tame = {head="Totemic Helm +1",ear1="Tamer's Earring",legs="Stout Kecks"}
 		
-		sets.precast.JA.Spur = {main={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},feet="Nukumi Ocreae +1",back="Artio's Mantle"}
+		sets.precast.JA.Spur = {main={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
+		sub={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
+		feet="Nukumi Ocreae +1",back="Artio's Mantle"
+	}
 
         sets.precast.JA['Feral Howl'] = {
 				ammo="Plumose Sachet",
@@ -1062,7 +1065,7 @@ function init_gear_sets()
 	sets.defense.Killer = {
 		
 		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-    sub="Skullrender",
+    sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
     ammo="Voluspa Tathlum",
     head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
     body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},

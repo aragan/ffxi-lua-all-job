@@ -38,7 +38,7 @@ function user_setup()
     update_combat_form()
     update_melee_groups()
     send_command('bind != gs c toggle CapacityMode')
-
+    send_command('wait 2;input /lockstyleset 200')
     select_default_macro_book()
 end
 

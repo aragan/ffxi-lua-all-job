@@ -16,6 +16,7 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
+    send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -44,7 +45,6 @@ function user_setup()
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    
     war_sj = player.sub_job == 'WAR' or false
     state.drain = M(false)
     
@@ -53,7 +53,6 @@ function user_setup()
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
-    
     select_default_macro_book()
 end
  
@@ -275,7 +274,7 @@ function init_gear_sets()
          legs="Sakpata's Cuisses",
     	 body="Sakpata's Plate'",
          waist="Fotia Belt",
-         feet="Flamma Gambieras +2"
+         feet="Flamma Gambieras +2",
          back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
      })
@@ -795,7 +794,7 @@ function job_state_change(stateField, newValue, oldValue)
     --        send_command('gs equip sets.cool;wait 1.2;input /lockstyle on;wait 1.2;gs c update user')
     --        --send_command('wait 1.2;gs c update user')
     --    else
-    --        send_command('@input /lockstyle off')
+    --        send_command('@input /lockstyle yes')
     --    end
     --end
 end

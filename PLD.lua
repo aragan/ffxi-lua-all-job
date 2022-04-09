@@ -30,6 +30,7 @@ function user_setup()
     state.BreathDefenseModes = 'Turtle'
     send_command('bind f12 gs c cycle MagicalDefense')
  	send_command('bind ^= gs c activate MDT')
+    send_command('wait 2;input /lockstyleset 200')
     select_default_macro_book()
 end
 
@@ -329,7 +330,6 @@ feet="Sulev. Leggings +2",
 	sets.midcast['Enhancing Magic'] =
 {    
     main={ name="Brilliance", augments={'Shield skill +1','Divine magic skill +5','Enmity+3','DMG:+3',}},
-    sub={ name="Ajax +1", augments={'Path: A',}},
     ammo="Staunch Tathlum +1",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     body="Shab. Cuirass +1",
@@ -496,7 +496,6 @@ feet="Sulev. Leggings +2",
 
     sets.midcast.Protect = set_combine(sets.self_healing.DT, {
         main={ name="Brilliance", augments={'Shield skill +1','Divine magic skill +5','Enmity+3','DMG:+3',}},
-        sub={ name="Ajax +1", augments={'Path: A',}},
      head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     neck="Enhancing Torque",
@@ -509,7 +508,6 @@ feet="Sulev. Leggings +2",
 })
     sets.midcast.Shell = set_combine(sets.self_healing.DT, {
         main={ name="Brilliance", augments={'Shield skill +1','Divine magic skill +5','Enmity+3','DMG:+3',}},
-        sub={ name="Ajax +1", augments={'Path: A',}},
      head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     neck="Enhancing Torque",
@@ -836,7 +834,7 @@ back="Moonlight Cape",
     sets.defense.PD = 
 {    
     main="Burtgang",
-    ammo="Eluder's Sachet",
+    ammo="Iron Gobbet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
@@ -846,7 +844,7 @@ back="Moonlight Cape",
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring="Warden's Ring",
     right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
@@ -883,7 +881,9 @@ back="Moonlight Cape",
     sets.defense.MDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
     sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
      
-    sets.Kiting = {legs="Carmine Cuisses +1",waist="Flume Belt +1",
+    sets.Kiting = {
+        
+        legs="Carmine Cuisses +1",left_ring="Defending Ring",
 }
 
  
@@ -894,6 +894,12 @@ back="Moonlight Cape",
      
     sets.engaged = --1124 / 1264 avec enlight up
 {   
+
+
+}
+ 
+    sets.engaged.Acc = --1179 / 1315 avec enlight up
+{
     main="Naegling",
     sub="Blurred Shield +1",
 ammo="Coiste Bodhar",
@@ -909,26 +915,6 @@ right_ear="Telos Earring",
 left_ring="Patricius Ring",
 right_ring="Petrov Ring",
 back="Atheling Mantle",
-
-}
- 
-    sets.engaged.Acc = --1179 / 1315 avec enlight up
-{
-    main="Naegling",
-
-    ammo="Coiste Bodhar",
-    head="Flam. Zucchetto +2",
-    body="Flamma Korazin +2",
-    hands="Sulev. Gauntlets +1",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Flam. Gambieras +2",
-    neck="Asperity Necklace",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Petrov Ring",
-    back="Atheling Mantle",
 }
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -1114,7 +1100,7 @@ function select_default_macro_book()
 	elseif player.sub_job == 'WAR' then
         set_macro_page(2, 1)	
 	elseif player.sub_job == 'BLU' then
-        set_macro_page(2, 1)	
+        set_macro_page(2, 3)	
     else
         set_macro_page(2, 1)
     end

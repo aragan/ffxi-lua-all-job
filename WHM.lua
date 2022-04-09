@@ -25,6 +25,9 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
+
+    send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
 end
@@ -38,6 +41,8 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
+    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+
     sets.precast.FC = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Incantor Stone",
@@ -85,14 +90,28 @@ function init_gear_sets()
     gear.default.weaponskill_neck = "Asperity Necklace"
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
-        head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Refraction Cape",waist=gear.ElementalBelt,legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+        main="Maxentius",
+        sub="Ammurapi Shield",
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Imbodla Necklace",
+        waist="Luminary Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Rufescent Ring",
+        right_ring="Freke Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     
     sets.precast.WS['Flash Nova'] = {
         head="Nahtirah Hat",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Hecate's Earring",
         body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
-        back="Toro Cape",waist="Thunder Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+        back="Toro Cape",waist="Thunder Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"
+    }
     
 
     -- Midcast Sets
@@ -100,7 +119,8 @@ function init_gear_sets()
     sets.midcast.FastRecast = {
         head="Nahtirah Hat",ear2="Loquacious Earring",
         body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Prolix Ring",
-        back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+        back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"
+    }
     
     -- Cure sets
     gear.default.obi_waist = "Goading Belt"
@@ -195,7 +215,8 @@ function init_gear_sets()
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
 
-    sets.midcast.Regen = {main="Bolelabunga",sub="Genbu's Shield",
+    sets.midcast.Regen = {
+        main="Bolelabunga",sub="Genbu's Shield",
         body="Piety Briault",hands="Orison Mitts +2",
         legs="Theophany Pantaloons"}
 
@@ -204,53 +225,52 @@ function init_gear_sets()
     sets.midcast.Shellra = {ring1="Sheltered Ring",legs="Piety Pantaloons"}
 
 
-    sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Genbu's Shield",
-        head="Nahtirah Hat",neck="Colossus's Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
-        back="Refraction Cape",waist=gear.ElementalObi,legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
+    sets.midcast['Divine Magic'] = {
+  
+        
+    }
 
-    sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Genbu's Shield",
-        head="Nahtirah Hat",neck="Aesir Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Strendu Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast['Dark Magic'] = {
+   
+        
+    }
 
     -- Custom spell classes
-    sets.midcast.MndEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Aquasoul Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast.MndEnfeebles = {
+      
+    }
 
-    sets.midcast.IntEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Icesoul Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast.IntEnfeebles = {
+        
+    }
 
     
     -- Sets to return to when not performing an action.
     
     -- Resting sets
     sets.resting = {main=gear.Staff.HMP, 
-        body="Gendewitha Bliaut",hands="Serpentes Cuffs",
-        waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
+  
+    
+    }
     
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
         main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Sors Shield",
-    ammo="Incantor Stone",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Annoint. Kalasiris",
-    hands="Inyan. Dastanas +1",
-    legs="Assid. Pants +1",
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    left_ear="Andoaa Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Inyanga Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+        sub="Sors Shield",
+        ammo="Incantor Stone",
+        head="Befouled Crown",
+        body="Annoint. Kalasiris",
+        hands="Inyan. Dastanas +2",
+        legs="Assid. Pants +1",
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Fucho-no-Obi",
+        left_ear="Andoaa Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Defending Ring",
+        right_ring="Inyanga Ring",
+        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
     }
 
     sets.idle.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
@@ -348,9 +368,24 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Umbra Cape",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+        main="Maxentius",
+        sub="Ammurapi Shield",
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Lissome Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Brutal Earring",
+        right_ear="Telos Earring",
+        left_ring="Hetairoi Ring",
+        right_ring="Petrov Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        
+    
+    }
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
@@ -373,6 +408,10 @@ function job_precast(spell, action, spellMap, eventArgs)
         gear.default.obi_back = "Mending Cape"
     else
         gear.default.obi_back = "Toro Cape"
+    end
+       -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
+       if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
     end
 end
 
@@ -463,6 +502,6 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    set_macro_page(4, 14)
+    set_macro_page(5, 1)
 end
 
