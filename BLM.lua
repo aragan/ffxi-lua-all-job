@@ -554,7 +554,7 @@ function init_gear_sets()
 	-- remember to alter the refresh sets (Ctrl+F to find them)
 
     sets.idle = {
-        main="Contemplator +1",
+        
         body="Jhakri Robe +2",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",

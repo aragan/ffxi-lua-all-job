@@ -525,7 +525,21 @@ function init_gear_sets()
         back={ name="Takaha Mantle", augments={'STR+4','"Zanshin"+5','"Store TP"+2','Meditate eff. dur. +5',}},
     })
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Mid.PDT, {
-
+        main={ name="Dojikiri Yasutsuna", augments={'Path: A',}},
+        sub="Utu Grip",
+        ammo="Ginsen",
+        head="Nyame Helm",
+        body="Wakido Domaru +3",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Telos Earring",
+        right_ear="Digni. Earring",
+        left_ring="Flamma Ring",
+        right_ring="Patricius Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
     
     sets.engaged.Amanomurakumo = set_combine(sets.engaged, {

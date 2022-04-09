@@ -289,7 +289,7 @@ function init_gear_sets()
         body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Tuilha Cape",waist="Hierarch Belt",legs="Bokwus Slops",feet="Hagondes Sabots"}
 
-    sets.Kiting = {feet="Herald's Gaiters +1"}
+    sets.Kiting = {feet="Herald's Gaiters"}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 

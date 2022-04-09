@@ -318,37 +318,37 @@ function init_gear_sets()
         back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
 }
 
-    sets.idle.Town = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Sors Shield",
-    ammo="Incantor Stone",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Annoint. Kalasiris",
-    hands="Inyan. Dastanas +1",
-    legs="Assid. Pants +1",
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    left_ear="Andoaa Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Inyanga Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    sets.idle.Town = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub={ name="Genbu's Shield", augments={'"Cure" potency +2%','"Cure" spellcasting time -5%',}},
+        ammo="Staunch Tathlum",
+        head="Aya. Zucchetto +1",
+        body="Ayanmo Corazza +1",
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
     
-    sets.idle.Weak = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Sors Shield",
-    ammo="Incantor Stone",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Annoint. Kalasiris",
-    hands="Inyan. Dastanas +1",
-    legs="Assid. Pants +1",
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    left_ear="Andoaa Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Inyanga Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    sets.idle.Weak = {
+        main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
+        sub={ name="Genbu's Shield", augments={'"Cure" potency +2%','"Cure" spellcasting time -5%',}},
+        ammo="Staunch Tathlum",
+        head="Aya. Zucchetto +1",
+        body="Ayanmo Corazza +1",
+        hands={ name="Chironic Gloves", augments={'"Mag.Atk.Bns."+16','Spell interruption rate down -10%','CHR+14',}},
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
     
     -- Defense sets
 
@@ -368,21 +368,23 @@ function init_gear_sets()
     back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
 }
 
-    sets.defense.MDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Sors Shield",
-    ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist="Fucho-no-Obi",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Archon Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    sets.defense.MDT = {
+        main="Terra's Staff",
+        sub="Umbra Strap",
+        ammo="Staunch Tathlum",
+        head="Inyanga Tiara +2",
+        body="Ayanmo Corazza +1",
+        hands="Inyan. Dastanas +2",
+        legs="Aya. Cosciales +1",
+        feet="Aya. Gambieras +1",
+        neck="Loricate Torque +1",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Ethereal Earring",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Damage taken-5%',}},
+}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
