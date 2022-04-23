@@ -466,7 +466,7 @@ function init_gear_sets()
         Hybrid Mode = Normal
     ]]
     sets.engaged.Master = {
-    
+        range="Neo Animator",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -479,7 +479,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -------------------------------------Acc
@@ -488,9 +488,9 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.engaged.Master.Acc = {
- 
+        range="Neo Animator",
         ammo="Automat. Oil +3",
-        head="Malignance Chapeau",
+        head="Hiza. Somen +2",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
@@ -498,10 +498,10 @@ function init_gear_sets()
         neck="Lissome Necklace",
         waist="Moonbow Belt",
         left_ear="Cessance Earring",
-        right_ear="Telos Earring",
+        right_ear="Mache Earring +1",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -------------------------------------TP
@@ -511,19 +511,20 @@ function init_gear_sets()
     ]]
     sets.engaged.Master.TP = {
     
+        range="Neo Animator",
         ammo="Automat. Oil +3",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Shulmanu Collar",
-        waist="Klouskap Sash +1",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
-        left_ring="Thurandaut Ring",
+        head="Hiza. Somen +2",
+        body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        neck="Asperity Necklace",
+        waist="Moonbow Belt",
+        left_ear="Cessance Earring",
+        right_ear="Mache Earring +1",
+        left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -------------------------------------DT
@@ -929,15 +930,7 @@ function init_gear_sets()
         WSNoFTP is the default weaponskill set used
     ]]
     sets.midcast.Pet.WSNoFTP = {
-    head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    hands="Mpaca's Gloves",
-    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    feet="Mpaca's Boots",
-    waist="Incarnation Sash",
-    left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-    left_ear="Kyrene's Earring",right_ear="Domes. Earring",
-    
+
     
     }
 
