@@ -128,11 +128,11 @@ function init_gear_sets()
     sets.precast.WS = {
         sub="Utu Grip",
         ammo="Knobkierrie",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
+        head="Ratri Sallet",
+        body="Ratri Plate",
+        hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sakpata's Leggings",
+        feet="Sulev. Leggings +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -156,11 +156,11 @@ function init_gear_sets()
     sets.precast.WS['Catastrophe'] = {
         sub="Utu Grip",
         ammo="Knobkierrie",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
+        head="Ratri Sallet",
+        body="Ratri Plate",
+        hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sakpata's Leggings",
+        feet="Sulev. Leggings +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -170,11 +170,8 @@ function init_gear_sets()
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
-    sets.precast.WS['Catastrophe'].MaxAcc = set_combine(sets.precast.WS['Catastrophe'], {left_ring="Regal Ring"})
-    sets.precast.WS['Catastrophe'].Max = set_combine(sets.precast.WS['Catastrophe'], {
-
-        
-})
+    sets.precast.WS['Catastrophe'].MaxAcc = set_combine(sets.precast.WS['Catastrophe'], {})
+    sets.precast.WS['Catastrophe'].Max = set_combine(sets.precast.WS['Catastrophe'], {})
   
   
 sets.precast.WS['Insurgency'] = {
@@ -194,11 +191,8 @@ sets.precast.WS['Insurgency'] = {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
-    sets.precast.WS['Insurgency'].MaxAcc = set_combine(sets.precast.WS['Insurgency'], {left_ring="Regal Ring"})
-    sets.precast.WS['Insurgency'].Max = set_combine(sets.precast.WS['Insurgency'], {head="Sakpata's Helm",
-
-    
-})
+    sets.precast.WS['Insurgency'].MaxAcc = set_combine(sets.precast.WS['Insurgency'], {})
+    sets.precast.WS['Insurgency'].Max = set_combine(sets.precast.WS['Insurgency'], {head="Sakpata's Helm",})
   
     sets.precast.WS['Cross Reaper'] = {
         sub="Utu Grip",
@@ -218,34 +212,76 @@ sets.precast.WS['Insurgency'] = {
 }
   
     sets.precast.WS['Cross Reaper'].MaxAcc = set_combine(sets.precast.WS['Catastrophe'], {})
-    sets.precast.WS['Cross Reaper'].Max = set_combine(sets.precast.WS['Catastrophe'], {
-
-})
+    sets.precast.WS['Cross Reaper'].Max = set_combine(sets.precast.WS['Catastrophe'], {})
   
+sets.precast.WS['Quietus'] = {
+    sub="Utu Grip",
+    ammo="Knobkierrie",
+    head="Ratri Sallet",
+    body="Ratri Plate",
+    hands="Ratri Gadlings",
+    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    feet="Sulev. Leggings +2",
+    neck="Fotia Gorget",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+    right_ear="Thrud Earring",
+    left_ring="Beithir Ring",
+    right_ring="Niqmaddu Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+} 
+
+sets.precast.WS['Entropy '] = {
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Hjarrandi Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    feet="Flam. Gambieras +2",
+    neck="Fotia Gorget",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Schere Earring",
+    right_ear="Cessance Earring",
+    left_ring="Beithir Ring",
+    right_ring="Niqmaddu Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+} 
           
-    sets.precast.WS['Resolution'] = {ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Sakpata's Helm",
+    sets.precast.WS['Resolution'] = {
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+    feet="Flam. Gambieras +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-    right_ear="Lugra Earring +1",
+    right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Regal Ring",
+    right_ring="Beithir Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 }
   
-    sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'], {
-        
-    })
+    sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'], {})
+    sets.precast.WS['Resolution'].Max = set_combine(sets.precast.WS['Resolution'], {})
       
-    sets.precast.WS['Resolution'].Max = set_combine(sets.precast.WS['Resolution'], {
-        
-    })
-      
+    sets.precast.WS['Ground Strike'] = {
+        sub="Utu Grip",
+        ammo="Knobkierrie",
+        head="Ratri Sallet",
+        body="Ratri Plate",
+        hands="Ratri Gadlings",
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Sulev. Leggings +2",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ring="Beithir Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    } 
   
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
     sets.precast.WS['Scourge'].MaxAcc = set_combine(sets.precast.WS['Torcleaver'], {})
@@ -354,7 +390,7 @@ sets.precast.WS['Insurgency'] = {
       
     sets.midcast['Elemental Magic'] = {
         ammo="Pemphredo Tathlum", 
-        head="Ratri Sallet +1", -- 45 macc
+        head="Ratri Sallet", -- 45 macc
         neck="Eddy Necklace", -- 11 matk
         ear1="Malignance Earring",
         ear2="Friomisi Earring", -- 10 matk
