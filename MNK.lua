@@ -98,7 +98,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
         feet="Malignance Boots",
         neck="Fotia Gorget",
@@ -124,7 +124,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Fotia Gorget",
@@ -350,7 +350,7 @@ function init_gear_sets()
         ammo="Ginsen",
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Moonbeam Nodowa",
@@ -642,15 +642,15 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'DNC' then
-        set_macro_page(8, 1)
+        set_macro_page(2, 2)
     elseif player.sub_job == 'NIN' then
-        set_macro_page(2, 1)
+        set_macro_page(2, 2)
     elseif player.sub_job == 'THF' then
-        set_macro_page(4, 1)
+        set_macro_page(2, 2)
     elseif player.sub_job == 'RUN' then
-        set_macro_page(1, 1)
+        set_macro_page(2, 2)
     else
-        set_macro_page(3, 1)
+        set_macro_page(2, 2)
     end
 end
 

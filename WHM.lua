@@ -270,8 +270,8 @@ function init_gear_sets()
         right_ear="Etiolation Earring",
         left_ring="Defending Ring",
         right_ring="Inyanga Ring",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
-    }
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    
 
     sets.idle.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",

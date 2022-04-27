@@ -29,6 +29,7 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('organizer-lib')
 end
 
 
@@ -117,7 +118,6 @@ function init_gear_sets()
 
     sets.precast.FC.BardSong = { main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-
     head="Fili Calot +1",
     body="Fili Hongreline +1",
     hands="Inyan. Dastanas +1",
@@ -141,10 +141,9 @@ function init_gear_sets()
     sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions"}
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {range="Gjallarhorn",
-        head="Nahtirah Hat",
-        body="Passion Jacket",hands="Buremte Gloves",
-        back="Kumbira Cape",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    sets.precast.Waltz = {
+        
+    }
     
        
     -- Weaponskill sets
@@ -152,8 +151,7 @@ function init_gear_sets()
     sets.precast.WS = {}
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, 
-{main="Tauret",
+    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,{ 
     range="Linos",
     head="Blistering Sallet +1",
     neck="Fotia Gorget",
@@ -166,11 +164,10 @@ function init_gear_sets()
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1"
+    feet="Lustra. Leggings +1",
 })
 
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,
-    {main="Tauret",
+    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,{
     range="Linos",
     head="Blistering Sallet +1",
     neck="Fotia Gorget",
@@ -183,11 +180,10 @@ function init_gear_sets()
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1"
+    feet="Lustra. Leggings +1",
 })
 
-    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,
-    {main="Tauret",
+    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,{
     range="Linos",
     head="Blistering Sallet +1",
     neck="Fotia Gorget",
@@ -200,7 +196,7 @@ function init_gear_sets()
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1"
+    feet="Lustra. Leggings +1",
 })
     
     
@@ -229,7 +225,8 @@ function init_gear_sets()
     
 
     -- For song buffs (duration and AF3 set bonus)
-    sets.midcast.SongEffect = {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sets.midcast.SongEffect = {
+        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head="Fili Calot +1",
     body="Fili Hongreline +1",
@@ -245,15 +242,19 @@ function init_gear_sets()
     back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},}
 
     -- For song defbuffs (duration primary, accuracy secondary)
-    sets.midcast.SongDebuff = {main="Lehbrailg +2",sub="Mephitis Grip",range="Gjallarhorn",
+    sets.midcast.SongDebuff = {
+        main="Lehbrailg +2",sub="Mephitis Grip",range="Gjallarhorn",
         head="Brioso Roundlet +1",neck="Aoidos' Matinee",ear1="Psystorm Earring",ear2="Lifestorm Earring",
         body="Aoidos' Hongreline +2",hands="Aoidos' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +1"}
+        back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +1"
+    }
 
     -- For song defbuffs (accuracy primary, duration secondary)
-    sets.midcast.ResistantSongDebuff = {sub="Mephitis Grip",range="Gjallarhorn",
+    sets.midcast.ResistantSongDebuff = {
+        sub="Mephitis Grip",range="Gjallarhorn",
        ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Kumbira Cape",waist="Demonry Sash",legs="Brioso Cannions +1",feet="Bokwus Boots"}
+        back="Kumbira Cape",waist="Demonry Sash",legs="Brioso Cannions +1",feet="Bokwus Boots"
+    }
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {ear2="Loquacious Earring",
@@ -270,7 +271,7 @@ function init_gear_sets()
         }
 
     -- Other general spells and classes.
-    sets.midcast.Cure = {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sets.midcast.Cure = {
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -280,7 +281,8 @@ function init_gear_sets()
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring",
     right_ring="Kishar Ring",
-    back="Solemnity Cape",}
+    back="Solemnity Cape",
+}
         
     sets.midcast.Curaga = sets.midcast.Cure
         
@@ -342,7 +344,8 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        
+     main="Tauret",
+    sub="Gleti's Knife",
     head="Nyame Helm",
     body="Ayanmo Corazza +2",
     hands="Nyame Gauntlets",
@@ -361,7 +364,6 @@ function init_gear_sets()
     sets.engaged.Dagger = {
         main="Tauret",
         sub="Gleti's Knife",
-        
         head="Nyame Helm",
         body="Ayanmo Corazza +2",
         hands="Nyame Gauntlets",
@@ -380,7 +382,6 @@ function init_gear_sets()
     sets.engaged.DW = {
         main="Tauret",
         sub="Gleti's Knife",
-        
         head="Nyame Helm",
         body="Ayanmo Corazza +2",
         hands="Nyame Gauntlets",

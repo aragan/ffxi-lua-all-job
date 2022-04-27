@@ -671,18 +671,19 @@ function init_gear_sets()
 
     sets.midcast.Pet.Cure = {
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-        feet={ name="Pitre Babouches +2", augments={'Enhances "Role Reversal" effect',}},    }
+    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},    }
 
     sets.midcast.Pet["Healing Magic"] = {
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-        feet={ name="Pitre Babouches +2", augments={'Enhances "Role Reversal" effect',}},    }
+    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},    }
 
     sets.midcast.Pet["Elemental Magic"] = {
+
         head={ name="Herculean Helm", augments={'Pet: "Mag.Atk.Bns."+26','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2',}},
         body={ name="Herculean Vest", augments={'Pet: "Mag.Atk.Bns."+25','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: AGI+10',}},
         hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-        feet={ name="Pitre Babouches +2", augments={'Enhances "Role Reversal" effect',}},
+    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
         neck="Adad Amulet",
         waist="Ukko Sash",
         left_ear="Kyrene's Earring",
@@ -710,7 +711,7 @@ function init_gear_sets()
         body={ name="Herculean Vest", augments={'Pet: "Mag.Atk.Bns."+25','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: AGI+10',}},
         hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-        feet={ name="Pitre Babouches +2", augments={'Enhances "Role Reversal" effect',}},
+    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
         neck="Adad Amulet",
         waist="Ukko Sash",
         left_ear="Kyrene's Earring",
@@ -1011,16 +1012,16 @@ function init_gear_sets()
     sets.idle.Town = {
         main="Tauret",
         ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Hermes' Sandals +1",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Eschan Stone",
+        waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Odnowa Earring",
-        left_ring="Purity Ring",
+        left_ring="Warden's Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
@@ -1071,13 +1072,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     elseif player.sub_job == "NIN" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     elseif player.sub_job == "DNC" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     else
-        set_macro_page(1, 9)
+        set_macro_page(9, 2)
     end
 end
 

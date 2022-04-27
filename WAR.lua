@@ -26,8 +26,8 @@ function job_setup()
     state.Buff.Retaliation = buffactive.retaliation or false
     
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
-    gsList = S{'Macbain', 'Kaquljaan', 'Nativus Halberd'}
-    war_sub_weapons = S{"Sangarius", "Usonmunku", "Perun", "Tanmogayi +1", "Reikiko", "Digirbalag"}
+    gsList = S{'Macbain', 'Nandaka', 'Nativus Halberd'}
+    war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun", "Tanmogayi +1", "Reikiko", "Digirbalag"}
 
     get_combat_form()
     get_combat_weapon()
@@ -37,7 +37,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Counter')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
@@ -450,6 +450,8 @@ function init_gear_sets()
  
      sets.Kiting = {feet="Hermes' Sandals +1"}
  
+     sets.Terror = {feet="Founder's Greaves"}
+
      sets.Reraise = {head="Nyame Helm",body="Nyame Mail"}
 
      -- Defensive sets to combine with various weapon-specific sets below
@@ -484,8 +486,8 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back="Atheling Mantle",
-     }
+        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    }
      sets.engaged.Mid = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
          ammo="Coiste Bodhar",
@@ -514,8 +516,14 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Moonbeam Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
+
+     sets.engaged.Counter = set_combine(sets.engaged, {
+        ammo="Amar Cluster",
+    left_ear="Genmei Earring",
+    right_ear="Cryptic Earring",
+    })
 
      sets.engaged.PDT = set_combine(sets.engaged, sets.Defensive)
      sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, sets.Defensive)
@@ -534,7 +542,7 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Petrov Ring",
-    back="Atheling Mantle",
+    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
      sets.engaged.OneHand = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
@@ -712,6 +720,7 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+
     
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)

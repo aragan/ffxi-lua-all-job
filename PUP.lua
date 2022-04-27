@@ -493,7 +493,7 @@ function init_gear_sets()
     sets.engaged.Master.Acc = {
         range="Neo Animator",
         ammo="Automat. Oil +3",
-        head="Malignance Chapeau",
+        head="Hiza. Somen +2",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
@@ -501,7 +501,7 @@ function init_gear_sets()
         neck="Lissome Necklace",
         waist="Moonbow Belt",
         left_ear="Cessance Earring",
-        right_ear="Telos Earring",
+        right_ear="Mache Earring +1",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -997,16 +997,16 @@ function init_gear_sets()
     sets.idle.Town = {
         main="Tauret",
         ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Hermes' Sandals +1",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Eschan Stone",
+        waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Odnowa Earring",
-        left_ring="Purity Ring",
+        left_ring="Warden's Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
@@ -1058,13 +1058,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     elseif player.sub_job == "NIN" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     elseif player.sub_job == "DNC" then
-        set_macro_page(2, 9)
+        set_macro_page(9, 2)
     else
-        set_macro_page(1, 9)
+        set_macro_page(9, 2)
     end
 end
 
