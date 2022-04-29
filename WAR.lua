@@ -351,11 +351,8 @@ function init_gear_sets()
      -- Sword WS's
      -- SANGUINE BLADE
      -- 50% MND / 50% STR Darkness Elemental
-     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
-         ear1="Friomisi Earring",
-         hands="Odyssean Gauntlets",
-         legs="Limbo Trousers",
-     })
+     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {})
+
      sets.precast.WS['Sanguine Blade'].Mid = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Mid)
      sets.precast.WS['Sanguine Blade'].Acc = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Acc)
 
@@ -377,9 +374,9 @@ function init_gear_sets()
         right_ring="Stikini Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      })
-     sets.precast.WS.Requiescat.Mid = set_combine(sets.precast.WS.Requiscat, sets.precast.WS.Mid)
-     sets.precast.WS.Requiescat.Acc = set_combine(sets.precast.WS.Requiscat, sets.precast.WS.Acc)
-     
+
+
+
      -- Resting sets
      sets.resting = {
          --head="Baghere Salade",
@@ -486,7 +483,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
      sets.engaged.Mid = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
@@ -516,7 +513,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Moonbeam Ring",
         right_ring="Niqmaddu Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
      sets.engaged.Counter = set_combine(sets.engaged, {
@@ -542,7 +539,7 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Petrov Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
      sets.engaged.OneHand = set_combine(sets.engaged, {
          head="Hjarrandi Helm",
