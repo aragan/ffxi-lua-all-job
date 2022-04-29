@@ -1,8 +1,9 @@
 attuner flameholder manajammer ii iv speedloader ii  magniping i ii  turbu charger i ii coller ii auto-repair kit iv  optic fiber i ii
-every kill 500k if drop give 15 mill this offer in UNM
+every kill 500k if drop give 10 mill this offer in UNM
 /yell ambuscade vd LFM cor(roll) free run
 t1 1 nm 8 mill t2 1 nm 10 mill t3 1 nm 15 mill t4 20 mill
 aset set ody
+aset setlist
 ispy Odyssey
 craft repeat 90
 craft support
@@ -298,12 +299,21 @@ if cmd == 'stop' then
 		enterReisen()
 
 
+Pre-entry Enhancing Magic
+Naturalists Roll Embolden Protect - Shell - Regen - Haste
 
+Post-entry
+SAM - Chaso Roll
+RUN Embolden - SCH Accession - Perpetuance - Phalanxx on RUN
+SCH & COR Coordinate Wildcard for Tabula Rasa
 
 
 Alpluachra  Bucca   Puca
 /checkparam
 
+hand to hand delay martal art calculator
+
+ (280 + 96 - x) * (1024 - 256 - 448) / 1024 = (480 + 96) * 0.2 
 
 Does anyone have anything better than (cheaper or faster):
 Det > Scis > Liq > Imp > Grav > Dist > Dark = 45 spirit - 56,600 gil
