@@ -61,11 +61,11 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana')
     state.HybridMode:options('Normal', 'PDT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
-    state.PhysicalDefenseMode:options('PDT')
+    state.PhysicalDefenseMode:options('PDT', 'TreasureHunter')
     state.MagicalDefenseMode:options('MDT')
 
     select_default_macro_book()
@@ -362,6 +362,24 @@ function init_gear_sets()
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
+    sets.defense.TreasureHunter = {
+        main={ name="Heishi Shorinken", augments={'Path: A',}},
+        sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+        ammo="Per. Lucky Egg",
+        head="Malignance Chapeau",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+        legs="Malignance Tights",
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck="Moonbeam Nodowa",
+        waist="Chaac Belt",
+        left_ear="Telos Earring",
+        right_ear="Cessance Earring",
+        left_ring="Ilabrat Ring",
+        right_ring="Epona's Ring",
+        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+         }
+
     sets.defense.MDT = set_combine(sets.defense.PDT, {
    ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
@@ -382,8 +400,7 @@ function init_gear_sets()
     sets.NightMovement = {feet="Hachiya Kyahan +2"}
 
     sets.Organizer = {
-        grip="Pearlsack",
-        waist="Linkpearl",
+
     }
 
     -- Normal melee group without buffs
@@ -415,6 +432,30 @@ function init_gear_sets()
         ring1="Regal Ring",
         waist="Olseni Belt",
     })
+        sets.engaged.Sword = set_combine(sets.engaged, {
+            main="Naegling",
+            sub="Gleti's Knife",
+        })
+        sets.engaged.GK = set_combine(sets.engaged, {
+            main="Kiikanemitsu",
+            sub="Alber Strap",
+        })
+        sets.engaged.Club = set_combine(sets.engaged, {
+            main="Warp Cudgel",
+            sub="Gleti's Knife",
+        })
+        sets.engaged.Staff = set_combine(sets.engaged, {
+            main="Profane Staff",
+            sub="Alber Strap",
+        })
+        sets.engaged.Katana = set_combine(sets.engaged, {
+            main="Debahocho +1",
+            sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+        })
+        sets.engaged.Dagger = set_combine(sets.engaged, {
+            main="Gleti's Knife",
+            sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+        })
 
     -- set for fooling around without dual wield
     -- using this as weak / proc set now
@@ -1421,12 +1462,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'DNC' then
-        set_macro_page(2, 2)
+        set_macro_page(6, 3)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(2, 1)
+        set_macro_page(6, 3)
     elseif player.sub_job == 'RUN' then
-        set_macro_page(2, 9)
+        set_macro_page(6, 3)
     else
-        set_macro_page(2, 2)
+        set_macro_page(6, 3)
     end
 end
