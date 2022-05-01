@@ -1,0 +1,6136 @@
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Corsair's Roll" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+input /ja "Double-Up" <me>
+wait 5
+
+/echo [skillup]

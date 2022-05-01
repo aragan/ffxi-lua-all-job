@@ -1,0 +1,4 @@
+input \/\/tr drop add 
+wait .2;
+input \/\/tr drop add 
+wait .2;

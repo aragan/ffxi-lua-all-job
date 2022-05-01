@@ -1,0 +1,65 @@
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+input /item "Wind Cluster" <me>
+wait 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

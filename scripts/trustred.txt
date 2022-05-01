@@ -1,0 +1,4 @@
+
+input /ma "Lion II" <me>
+wait 6
+input /ma "Nanaa Mihgo" <me>

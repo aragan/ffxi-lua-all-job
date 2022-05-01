@@ -1,0 +1,9832 @@
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3
+input /ma "Indi-DEX" <me>
+wait 6
+input /ma "Indi-Regen" <me>
+wait 3
+input /ma "Indi-Refresh" <me>
+wait 6
+input /ma "Indi-Haste" <me>
+wait 3

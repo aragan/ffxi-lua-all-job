@@ -1,0 +1,2 @@
+command input //sparks buy Targe
+wait 3

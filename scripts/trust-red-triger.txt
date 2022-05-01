@@ -1,0 +1,9 @@
+input /ma "Curilla" <me>
+wait 6
+input /ma "Ayame" <me>
+wait 6
+input /ma "Shikaree Z" <me>
+wait 6
+input /ma "Apururu (UC)" <me>
+wait 6
+input /ma "Karaha-Baruha" <me>

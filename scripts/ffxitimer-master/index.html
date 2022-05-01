@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        
+        <title>FFXI Crafting Timer</title>
+        <script language="Javascript" type="text/javascript" src="scripts/crafttimer.js"></script>
+    <script src="scripts/jquery.js"></script>
+        <style type="text/css">
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 8.5pt;
+                background-color: white;
+            }
+
+            p.info {
+                color: navy;
+            }
+
+            table {
+                font-family: Arial, sans-serif;
+                font-size: 8.5pt;
+            }
+
+            .Firesday {
+                color: #DD0000;
+            }
+            .Earthsday {
+                color: #AAAA00;
+            }
+            .Watersday {
+                color: #0000DD;
+            }
+            .Windsday {
+                color: #00AA22;
+            }
+            .Iceday {
+                color: #7799FF;
+            }
+            .Lightningday {
+                color: #AA00AA;
+            }
+            .Lightsday {
+                color: #AAAAAA;
+            }
+            .Darksday {
+                color: #333333;
+            }
+
+            .FullMoon {
+                color: #0000FF;
+            }
+            .NewMoon {
+                color: #FF0000;
+            }
+
+            .WXC {}
+            .FQM {}
+            .WXG {}
+            .WNG {}
+            .LQM {}
+            .WNC {}
+
+            .Fire {
+                color: #DD0000;
+            }
+            .Earth {
+                color: #AAAA00;
+            }
+            .Water {
+                color: #0000DD;
+            }
+            .Wind {
+                color: #00AA22;
+            }
+            .Ice {
+                color: #7799FF;
+            }
+            .Lightning {
+                color: #AA00AA;
+            }
+            .Light {
+                color: #AAAAAA;
+            }
+            .Dark {
+                color: #333333;
+            }
+            .None {
+                color: dark;
+            }
+
+            div.leftBlock {
+                position: absolute;
+                width: 68%;
+                left: 1%;
+                margin-top: 10px;
+            }
+
+            div.rightBlock {
+                position: absolute;
+
+                width: 30%;
+                right: 1%;
+                margin-top: -55px;
+            }
+
+            .section {
+                border: 1px solid blue;
+                padding: 2px;
+                margin: 2px;
+            }
+
+            #entryInput {
+                /*text-align: right;*/
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            #vanadielTimeInput {
+                /*text-align: right;*/
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            #calendarLinesInput {
+                text-align: right;
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            .goButton {
+                text-align: right;
+            }
+
+            #craftInputTable td {
+                text-align: center;
+            }
+
+            input.text {
+              text-align: right;
+            }
+
+            #calendar {
+            }
+
+            #calendar th {
+                text-align: left;
+            }
+
+            #calendar td {
+                padding-right: 8px;
+            }
+
+            #Details {
+            }
+
+            #Details2 p {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                height: 6em;
+                padding: 2px;
+            }
+
+            .dayInfoLabel {
+                font-weight: bold;
+            }
+
+            .calendarLine {
+                cursor: hand;
+            }
+        </style>
+        <!--[if !IE]-->
+        <style type="text/css">
+            div.rightBlock {
+
+                position: fixed;
+            }
+        </style>
+        <!--[endif]-->
+    </head>
+
+    <body onload="printPageNow(); craftDetailsDetails();" cz-shortcut-listen="true">
+        <h1><span style="text-decoration: line-through">lokyst's</span> Begbie's FFXI Crafting Timer</h1>
+
+        <!--<p>-->
+            <!--<a href="http://ffxi.lokyst.net/index.html">Back to the Main Page</a>.-->
+        <!--</p>-->
+
+        <!-- Begin left block -->
+        <div class="leftBlock">
+
+            <!-- Begin crafting information block -->
+            <div class="section">
+                <p class="info">1. Choose the crystal, enter the recipe cap and your current skill level with gear ( DO NOT INCLUDE SUPPORT ) and click <b>Calculate Difficulty</b>.</p>
+                <form name="craftInput" action="" onsubmit="printPage(); return false;">
+                    <table id="craftInputTable">
+                        <tbody><tr>
+                            <th>Crystal</th>
+                            <th>Recipe Cap</th>
+                            <th> - </th>
+                            <th>Skill Level</th>
+                            <th> = </th>
+                            <th>Base Difficulty</th>
+                            <th>
+                        </th></tr>
+                        <tr>
+                            <td>
+                                <select name="crystal">
+                                    <option value="fire">Fire</option>
+                                    <option value="earth">Earth</option>
+                                    <option value="water">Water</option>
+                                    <option value="wind">Wind</option>
+                                    <option value="ice">Ice</option>
+                                    <option value="lightning">Lightning</option>
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </td>
+                            <td><input class="text" name="skillCap" size="5" value="0"></td>
+                            <td>-</td>
+                            <td><input class="text" name="skillLevel" size="5" value="0"></td>
+                            <td>=</td>
+                            <td><span id="baseDifficulty">-30.00</span></td>
+                            <td><input type="submit" onclick="printPage(); return false;" value="Calculate Difficulty"></td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+
+            <div class="section">
+                <p class="info">2. Choose between Vana'diel or Earth time, enter the year, month, day (and time) and click <b>Generate Calendar</b>.
+                </p>
+                <form name="Timer" action="" onsubmit="printPage(); return false;">
+                    <table>
+                        <tbody><tr>
+                            <th>Date Entry</th>
+                            <th width="50"><input name="DateEntryMode" type="hidden" value="earth"></th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Day</th>
+                            <th>Hour</th>
+                            <th>Min</th>
+                            <th>Sec</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="radioEntryType" value="earth" onclick="dateModeChange(); printPage();" checked="checked">Earth</td>
+                            <td></td>
+                            <td><input class="text" name="DateYear" size="5" value="957"></td>
+                            <td><input class="text" name="DateMonth" size="2" value="2"></td>
+                            <td><input class="text" name="DateDay" size="2" value="1"></td>
+                            <td><input class="text" name="DateHours" size="2" value="00"></td>
+                            <td><input class="text" name="DateMinutes" size="2" value="00"></td>
+                            <td><input class="text" name="DateSeconds" size="2" value="00"></td>
+                            <td><input type="button" onclick="printPageNow(); return false;" value="Use Current Time"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="radioEntryType" value="vanadiel" onclick="dateModeChange(); printPage();">Vana'diel</td>
+                            <td colspan="7">
+                            </td><td><input type="submit" onclick="printPage(); return false;" value="Generate Calendar"></td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <p class="info">3. Click on a day in the calendar table below to see detailed information about your chances of obtaining a skill up and your chances of a successful synth in the section on the right.</p>
+
+                <form name="setLines" action="" onsubmit="printPage(); return false;">
+
+                        <select name="day" onchange="printPage(); return false;">
+                          <option value="all">All days</option>
+                          <option value="Firesday">Firesday</option>
+                          <option value="Earthsday">Earthsday</option>
+                          <option value="Watersday">Watersday</option>
+                          <option value="Windsday">Windsday</option>
+                          <option value="Iceday">Iceday</option>
+                          <option value="Lightningday">Lightningday</option>
+                          <option value="Lightsday">Lightsday</option>
+                          <option value="Darksday">Darksday</option>
+                        </select>
+                        <select name="moon" onchange="printPage(); return false;">
+                          <option value="all">All moons</option>
+                          <option value="NewMoon">New Moon</option>
+                          <option value="FullMoon">Full Moon</option>
+                          <option value="WXC">Waxing Crescent</option>
+                          <option value="FQM">First Quarter</option>
+                          <option value="WXG">Waxing Gibbous</option>
+                          <option value="WNG">Waning Gibbous</option>
+                          <option value="LQM">Last Quarter</option>
+                          <option value="WNC">Waning Crescent</option>
+                        </select>
+                        <!--
+                        <select name="timePeriod" onchange="printPage(); return false;">
+                          <option value="all">All periods</option>
+                          <option value="0">0:00-0:29</option>
+                          <option value="1">0:30-0:59</option>
+                          <option value="2">1:00-1:29</option>
+                          <option value="3">1:30-1:59</option>
+                          <option value="4">2:00-2:29</option>
+                          <option value="5">2:30-2:59</option>
+                          <option value="6">3:00-3:29</option>
+                          <option value="7">3:30-3:59</option>
+                          <option value="8">4:00-4:29</option>
+                          <option value="9">4:30-4:59</option>
+                          <option value="10">5:00-5:29</option>
+                          <option value="11">5:30-5:59</option>
+                          <option value="12">6:00-6:29</option>
+                          <option value="13">6:30-6:59</option>
+                          <option value="14">7:00-7:29</option>
+                          <option value="15">7:30-7:59</option>
+                          <option value="16">8:00-8:29</option>
+                          <option value="17">8:30-8:59</option>
+                          <option value="18">9:00-9:29</option>
+                          <option value="19">9:30-9:59</option>
+                          <option value="20">10:00-10:29</option>
+                          <option value="21">10:30-10:59</option>
+                          <option value="22">11:00-11:29</option>
+                          <option value="23">11:30-11:59</option>
+                          <option value="24">12:00-12:29</option>
+                          <option value="25">12:30-12:59</option>
+                          <option value="26">13:00-13:29</option>
+                          <option value="27">13:30-13:59</option>
+                          <option value="28">14:00-14:29</option>
+                          <option value="29">14:30-14:59</option>
+                          <option value="30">15:00-15:29</option>
+                          <option value="31">15:30-15:59</option>
+                          <option value="32">16:00-16:29</option>
+                          <option value="33">16:30-16:59</option>
+                          <option value="34">17:00-17:29</option>
+                          <option value="35">17:30-17:59</option>
+                          <option value="36">18:00-18:29</option>
+                          <option value="37">18:30-18:59</option>
+                          <option value="38">19:00-19:29</option>
+                          <option value="39">19:30-19:59</option>
+                          <option value="40">20:00-20:29</option>
+                          <option value="41">20:30-20:59</option>
+                          <option value="42">21:00-21:29</option>
+                          <option value="43">21:30-21:59</option>
+                          <option value="44">22:00-22:29</option>
+                          <option value="45">22:30-22:59</option>
+                          <option value="46">23:00-23:29</option>
+                          <option value="47">23:30-23:59</option>
+                        </select>
+                        <br/>
+                        -->
+                        &nbsp; Number of lines to display:
+                        <input class="text" name="DayCount" size="3" value="10">
+                        <input type="submit" onclick="printPage(); return false;" value="Set">
+                </form>
+
+                <!-- Begin calendar block -->
+                <div id="calendar"><table><tbody><tr><th></th><th>Day</th><th>Begins</th><th>Ends</th><th colspan="2">Moon</th><th colspan="3">Difficulty Range</th></tr><tr class="calendarLine" onclick="setTimer(1474995312000); craftDetails(2,71); craftDetailsDetails();"><td>0</td><td class="Watersday">Watersday</td><td>Sep 27,  12:55:12</td><td>Sep 27,  13:52:48</td><td align="right"><span class="WXG">71%</span></td><td><span class="WXG">WXG</span></td><td align="right">-32.92</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-29.92</td></tr><tr class="calendarLine" onclick="setTimer(1474998768000); craftDetails(3,74); craftDetailsDetails();"><td>1</td><td class="Windsday">Windsday</td><td>Sep 27,  13:52:48</td><td>Sep 27,  14:50:24</td><td align="right"><span class="WXG">74%</span></td><td><span class="WXG">WXG</span></td><td align="right">-33.98</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-30.98</td></tr><tr class="calendarLine" onclick="setTimer(1475002224000); craftDetails(4,76); craftDetailsDetails();"><td>2</td><td class="Iceday">Iceday</td><td>Sep 27,  14:50:24</td><td>Sep 27,  15:48:00</td><td align="right"><span class="WXG">76%</span></td><td><span class="WXG">WXG</span></td><td align="right">-32.02</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-29.02</td></tr><tr class="calendarLine" onclick="setTimer(1475005680000); craftDetails(5,79); craftDetailsDetails();"><td>3</td><td class="Lightningday">Lightningday</td><td>Sep 27,  15:48:00</td><td>Sep 27,  16:45:36</td><td align="right"><span class="WXG">79%</span></td><td><span class="WXG">WXG</span></td><td align="right">-33.08</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-30.08</td></tr><tr class="calendarLine" onclick="setTimer(1475009136000); craftDetails(6,81); craftDetailsDetails();"><td>4</td><td class="Lightsday">Lightsday</td><td>Sep 27,  16:45:36</td><td>Sep 27,  17:43:12</td><td align="right"><span class="WXG">81%</span></td><td><span class="WXG">WXG</span></td><td align="right">-34.12</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-31.12</td></tr><tr class="calendarLine" onclick="setTimer(1475012592000); craftDetails(7,83); craftDetailsDetails();"><td>5</td><td class="Darksday">Darksday</td><td>Sep 27,  17:43:12</td><td>Sep 27,  18:40:48</td><td align="right"><span class="WXG">83%</span></td><td><span class="WXG">WXG</span></td><td align="right">-32.16</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-29.16</td></tr><tr class="calendarLine" onclick="setTimer(1475016048000); craftDetails(0,86); craftDetailsDetails();"><td>6</td><td class="Firesday">Firesday</td><td>Sep 27,  18:40:48</td><td>Sep 27,  19:38:24</td><td align="right"><span class="WXG">86%</span></td><td><span class="WXG">WXG</span></td><td align="right">-33.22</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-30.22</td></tr><tr class="calendarLine" onclick="setTimer(1475019504000); craftDetails(1,88); craftDetailsDetails();"><td>7</td><td class="Earthsday">Earthsday</td><td>Sep 27,  19:38:24</td><td>Sep 27,  20:36:00</td><td align="right"><span class="WXG">88%</span></td><td><span class="WXG">WXG</span></td><td align="right">-33.26</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-30.26</td></tr><tr class="calendarLine" onclick="setTimer(1475022960000); craftDetails(2,90); craftDetailsDetails();"><td>8</td><td class="Watersday">Watersday</td><td>Sep 27,  20:36:00</td><td>Sep 27,  21:33:36</td><td align="right"><span class="FullMoon">90%</span></td><td><span class="FullMoon">FM</span></td><td align="right">-33.30</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-30.30</td></tr><tr class="calendarLine" onclick="setTimer(1475026416000); craftDetails(3,93); craftDetailsDetails();"><td>9</td><td class="Windsday">Windsday</td><td>Sep 27,  21:33:36</td><td>Sep 27,  22:31:12</td><td align="right"><span class="FullMoon">93%</span></td><td><span class="FullMoon">FM</span></td><td align="right">-34.36</td><td align="center"> &nbsp; � &nbsp;</td><td align="right">-31.36</td></tr></tbody></table></div>
+                <!-- End calendar block -->
+            </div>
+
+        </div>
+        <!-- End left block -->
+
+        <!-- Begin right block -->
+        <div class="rightBlock">
+
+            <!-- Begin difficulty breakdown table -->
+            <div class="section">
+                <p class="info">4. Click on the values in the table to see a description of your chances of obtaining a skill up and your chances of a successful synth in the section below. <a target="_blank" href="http://ffxiclopedia.wikia.com/wiki/Crafting_Skill_Ups">More information.</a></p>
+
+                <!-- Begin day information block -->
+                <p>
+                <span class="dayInfoLabel">Vana'diel&nbsp;Time:&nbsp;</span><span id="vTime"><span class="Watersday">Watersday</span>:  1259-11-23  12:27:05</span><br>
+                <span class="dayInfoLabel">Earth&nbsp;Time:&nbsp;</span><span id="eTime">Tuesday, Sep 27, 2016 13:25:05</span><br>
+                <span class="dayInfoLabel">Moon&nbsp;Phase:&nbsp;</span><span id="mPhase"></span>
+                </p>
+
+                <!-- End day information block -->
+
+                <div id="Details"><table><tbody><tr><th width="25%"></th><th width="25%" align="center" class="Wind">South-East</th><th width="25%" align="center" class="None">Other</th><th width="25%" align="center" class="Ice">East</th></tr><tr><td>Adv. Support</td><td align="center" onclick="craftDetailsDetails(-999);">-32.92</td><td align="center" onclick="craftDetailsDetails(-999);">-32.42</td><td align="center" onclick="craftDetailsDetails(-999);">-31.92</td></tr><tr><td>Free Support</td><td align="center" onclick="craftDetailsDetails(-999);">-31.92</td><td align="center" onclick="craftDetailsDetails(-999);">-31.42</td><td align="center" onclick="craftDetailsDetails(-999);">-30.92</td></tr><tr><td>No Support</td><td align="center" onclick="craftDetailsDetails(-999);">-30.92</td><td align="center" onclick="craftDetailsDetails(-999);">-30.42</td><td align="center" onclick="craftDetailsDetails(-999);">-29.92</td></tr></tbody></table></div>
+
+                <!-- Begin difficulty explanation -->
+                <div id="Details2"><p></p></div>
+                <!-- End difficulty explanation -->
+
+            </div>
+            <!-- End difficulty breakdown table -->
+            <div class="section">
+                <table style="border-collapse: collapse; border-width: 1px; border-style: solid; font-size:10.5pt; border-color: #3c6a95;" width="" cellpadding="3" align="center">
+                    <tbody><tr>
+                        <th style="border-width: 1px border-color: #3c6a95; background-color: #a6dbfd;"> <strong class="selflink">Recipes</strong>
+                        </th></tr>
+                    <tr align="center">
+                        <td style="border-style: solid; border-width: 1px; border-color: #3c6a95"> <a href="https://www.bg-wiki.com/bg/Woodworking" target="_blank" title="Woodworking">Woodworking</a> | <a href="https://www.bg-wiki.com/bg/Smithing" target="_blank" title="Smithing">Smithing</a> | <a href="https://www.bg-wiki.com/bg/Goldsmithing" target="_blank" title="Goldsmithing">Goldsmithing</a> | <a href="https://www.bg-wiki.com/bg/Clothcraft" target="_blank" title="Clothcraft">Clothcraft</a><br><a href="https://www.bg-wiki.com/bg/Leathercraft" target="_blank" title="Leathercraft">Leathercraft</a> | <a href="https://www.bg-wiki.com/bg/Bonecraft" target="_blank" title="Bonecraft">Bonecraft</a> | <a href="https://www.bg-wiki.com/bg/Alchemy" target="_blank" title="Alchemy">Alchemy</a> | <a href="https://www.bg-wiki.com/bg/Cooking" target="_blank" title="Cooking">Cooking</a>
+                        </td></tr>
+                    </tbody></table>
+            </div>
+            <div class="section" align=""><button id="toggleNotes">Hide/Show Notes</button>
+         <div id="notes" style="display:none;"> <br><b>Nasomi Notes</b>
+          <br><br>
+HQ% Chance by tier (from DarkStar code):
+<pre>
+    0-10 skill  = T0 = .015 = 1.5% hq
+    11-30 skill = T1 = .1   = 10% hq
+    31-50 skill = T2 = .3   = 30% hq
+    51+ skill   = T3 = .5   = 50% hq
+</pre>
+HQ% Chance mods (from DarkStar code):
+<pre>
+    //new moon +33% of base rate bonus to hq chance
+    //full moon -33%
+    //corresponding/weakday/lightsday -33%
+    //opposing/darksday +33%
+    if(chance > 0)
+    {
+    chance *= 1.0 - (MoonPhase - 50)/150;
+    if (crystalElement == WeekDay)
+    chance *= 1.0 - (.33);
+    else if (strongElement[crystalElement] == WeekDay)
+    chance *= 1.0 + (.33);
+    else if (strongElement[WeekDay] == crystalElement)
+    chance *= 1.0 - (.33);
+    else if (WeekDay == LIGHTSDAY)
+    chance *= 1.0 - (.33);
+    else if (WeekDay == DARKSDAY)
+    chance *= 1.0 + (.33);
+    }
+                </pre></div>
+                <!--<img src="./scripts/compass.gif" align="middle" alt="North=Dark, North-East=Light, East=Ice, South-East=Wind, South=Earth, South-West=Lightning, West=Water, North-West=Fire. Fire &gt; Ice &gt; Wind &gt; Earth &gt; Lightning &gt; Water &gt; Fire. Dark &#8596; Light">-->
+            </div>
+
+
+            <!-- Begin compass image -->
+            <p class="section" align="center">
+                <img src="scripts/compass.gif" align="middle" alt="North=Dark, North-East=Light, East=Ice, South-East=Wind, South=Earth, South-West=Lightning, West=Water, North-West=Fire. Fire &gt; Ice &gt; Wind &gt; Earth &gt; Lightning &gt; Water &gt; Fire. Dark &#8596; Light">
+            </p>
+            <!-- End compass image -->
+
+        </div>
+        <!-- End right block -->
+
+        <script>
+            $( "#toggleNotes" ).click(function() {
+                $( "#notes" ).toggle( "slow", function() {
+                    // Animation complete.
+                });
+            });
+
+        </script>
+
+</body></html>
+
+

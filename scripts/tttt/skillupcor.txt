@@ -1,0 +1,11 @@
+input /ja "Corsair's Roll" <me>
+wait 120
+input /ja "Double-Up" <me>
+wait 125
+input /ja "Double-Up" <me>
+wait 128
+input /ja "Double-Up" <me>
+wait 130
+input /ja "Double-Up" <me>
+wait 135
+/echo [skillup]

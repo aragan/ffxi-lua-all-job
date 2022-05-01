@@ -1,0 +1,10 @@
+
+input /ma "Selh'teus" <me>
+wait 6
+input /ma "Koru-Moru" <me>
+wait 6
+input /ma "Joachim" <me>
+wait 6
+input /ma "Yoran-Oran (UC)" <me>
+wait 6
+input /ma "Lilisette II" <me>
