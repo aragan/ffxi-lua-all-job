@@ -991,14 +991,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
         end
-        -- Gavialis Helm rule
-        if is_sc_element_today(spell) then
-            if wsList:contains(spell.english) then
-                -- do nothing
-            else
-                equip(sets.WSDayBonus)
-            end
-        end
         -- Lugra Earring for some WS
         if LugraWSList:contains(spell.english) then
             if world.time >= (17*60) or world.time <= (7*60) then
