@@ -433,28 +433,28 @@ function init_gear_sets()
         waist="Olseni Belt",
     })
         sets.engaged.Sword = set_combine(sets.engaged, {
-            main="Naegling",
-            sub="Gleti's Knife",
+            main="Onion Sword",
+            sub=empty,
         })
         sets.engaged.GK = set_combine(sets.engaged, {
-            main="Kiikanemitsu",
-            sub="Alber Strap",
+            main="Uchigatana",
+            sub=empty,
         })
         sets.engaged.Club = set_combine(sets.engaged, {
-            main="Warp Cudgel",
-            sub="Gleti's Knife",
+            main="Caduceus",
+            sub=empty,
         })
         sets.engaged.Staff = set_combine(sets.engaged, {
             main="Profane Staff",
-            sub="Alber Strap",
+            sub=empty,
         })
         sets.engaged.Katana = set_combine(sets.engaged, {
             main="Debahocho +1",
-            sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+            sub=empty,
         })
         sets.engaged.Dagger = set_combine(sets.engaged, {
-            main="Gleti's Knife",
-            sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+            main="Onion Dagger",
+            sub=empty,
         })
 
     -- set for fooling around without dual wield
