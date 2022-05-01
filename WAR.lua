@@ -186,7 +186,7 @@ function init_gear_sets()
        
         ammo="Knobkierrie",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-        body="Sakpata's Plate",
+    body="Pumm. Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sulev. Leggings +2",
@@ -244,7 +244,7 @@ function init_gear_sets()
         sub="Utu Grip",
         ammo="Yetshila +1",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-        body="Sakpata's Plate",
+    body="Pumm. Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sulev. Leggings +2",
@@ -282,7 +282,7 @@ function init_gear_sets()
         sub="Utu Grip",
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Sakpata's Helm",
-        body="Sakpata's Plate",
+    body="Pumm. Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
@@ -320,8 +320,8 @@ function init_gear_sets()
         
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    body="Pumm. Lorica +3",
+        hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sulev. Leggings +2",
     neck="Fotia Gorget",
@@ -336,7 +336,7 @@ function init_gear_sets()
         
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-        body="Sakpata's Plate",
+    body="Pumm. Lorica +3",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sulev. Leggings +2",
@@ -351,7 +351,7 @@ function init_gear_sets()
      -- Sword WS's
      -- SANGUINE BLADE
      -- 50% MND / 50% STR Darkness Elemental
-     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {})
+     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {body="Pumm. Lorica +3",})
 
      sets.precast.WS['Sanguine Blade'].Mid = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Mid)
      sets.precast.WS['Sanguine Blade'].Acc = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Acc)
@@ -362,7 +362,7 @@ function init_gear_sets()
       
         ammo="Knobkierrie",
         head="Sakpata's Helm",
-        body="Sakpata's Plate",
+    body="Pumm. Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
