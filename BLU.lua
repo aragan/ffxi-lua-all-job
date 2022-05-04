@@ -267,7 +267,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
+    left_ring="Epaminondas's Ring",
     right_ring="Ilabrat Ring",
     back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 }
@@ -284,26 +284,27 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
     })
 
     sets.precast.WS['Sanguine Blade'] = {
     
-    ammo="Ginsen",
-    head="Malignance Chapeau",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-    feet="Malignance Boots",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Telos Earring",
-    right_ear="Ishvara Earring",
-    left_ring="Ilabrat Ring",
-    right_ring="Epona's Ring",
-    back="Atheling Mantle",}
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body="Jhakri Robe +2",
+        hands="Jhakri Cuffs +2",
+        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+        feet="Jhakri Pigaches +2",
+        neck="Baetyl Pendant",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",
+        back="Twilight Cape",
+}
     
     
     -- Midcast Sets
@@ -317,7 +318,7 @@ function init_gear_sets()
         hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +2",
         feet="Jhakri Pigaches +2",
-        neck="Eddy Necklace",
+        neck="Baetyl Pendant",
         waist="Eschan Stone",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
@@ -376,7 +377,7 @@ function init_gear_sets()
     hands="Jhakri Cuffs +2",
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
-    neck="Eddy Necklace",
+    neck="Baetyl Pendant",
     waist="Eschan Stone",
     left_ear="Friomisi Earring",
     right_ear="Hecate's Earring",
@@ -394,8 +395,8 @@ function init_gear_sets()
         hands="Jhakri Cuffs +2",
         legs="Jhakri Slops +2",
         feet="Jhakri Pigaches +2",
-        neck="Sanctity Necklace",
-        waist="Eschan Stone",
+        neck="Baetyl Pendant",
+         waist="Eschan Stone",
         left_ear="Crep. Earring",
         right_ear="Digni. Earring",
         left_ring="Jhakri Ring",
@@ -430,9 +431,9 @@ function init_gear_sets()
 
     -- Breath Spells --
     
-    sets.midcast['Blue Magic'].Breath = {
+    sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical)
 
-    }
+    
 
     -- Other Types --
     
@@ -443,6 +444,7 @@ function init_gear_sets()
         main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Mirage Stole +2",
         waist="Gishdubar Sash",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
@@ -453,6 +455,7 @@ function init_gear_sets()
         main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Mirage Stole +2",
             waist="Gishdubar Sash",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
@@ -464,6 +467,7 @@ function init_gear_sets()
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Mirage Stole +2",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
@@ -475,6 +479,8 @@ function init_gear_sets()
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Mirage Stole +2",
+        legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
@@ -509,7 +515,7 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
 
     -- Gear for learning spells: +skill and AF hands.
-    sets.Learning = {ammo="Mavi Tathlum",hands="Assimilator's Bazubands"}
+    sets.Learning = {ammo="Mavi Tathlum",hands="Assimilator's Bazubands", neck="Mirage Stole +2",}
         --head="Luhlaza Keffiyeh",  
         --body="Assimilator's Jubbah",hands="Assimilator's Bazubands +1",
         --back="Cornflower Cape",legs="Mavi Tayt +2",feet="Luhlaza Charuqs"}
