@@ -524,7 +524,7 @@ function init_gear_sets()
     
     sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical)
 
-    }
+    
 
     -- Other Types --
     
@@ -592,13 +592,29 @@ function init_gear_sets()
     sets.midcast.Shell = {ring1="Sheltered Ring"}
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
     
+    sets.midcast.phalanx = {
+        sub="Sakpata's Sword",
+        ammo="Sapience Orb",
+        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+        body="Pinga Tunic",
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        feet="Jhakri Pigaches +2",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 
+}
     
     
     -- Sets to return to when not performing an action.
 
     -- Gear for learning spells: +skill and AF hands.
-    sets.Learning = {ammo="Mavi Tathlum",hands="Assimilator's Bazubands"}
+    sets.Learning = {ammo="Mavi Tathlum",hands="Assimilator's Bazubands", neck="Mirage Stole +2",}
         --head="Luhlaza Keffiyeh",  
         --body="Assimilator's Jubbah",hands="Assimilator's Bazubands +1",
         --back="Cornflower Cape",legs="Mavi Tayt +2",feet="Luhlaza Charuqs"}
