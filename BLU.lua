@@ -109,7 +109,7 @@ function job_setup()
 
     -- Magical spells with a Vit stat mod (on top of Int)
     blue_magic_maps.MagicalVit = S{
-        'Thermal Pulse'
+        'Tenebral Crush'
     }
 
     -- Magical spells with a Dex stat mod (on top of Int)
@@ -215,7 +215,7 @@ function init_gear_sets()
     sets.buff.Convergence = {head="Luhlaza Keffiyeh"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah"}
-    sets.buff.Efflux = {legs="Mavi Tayt +2"}
+    sets.buff.Efflux = {legs="Hashishin Tayt +1",}
 
     
     -- Precast Sets
@@ -257,8 +257,8 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-    ammo="Mantoptera Eye",
-    head="Malignance Chapeau",
+        ammo="Ginsen",
+        head="Malignance Chapeau",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
     legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
@@ -275,7 +275,9 @@ function init_gear_sets()
     sets.precast.WS.acc = set_combine(sets.precast.WS, {})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {head="Jhakri Coronal +2",
+    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
+    head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
     legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
@@ -305,6 +307,43 @@ function init_gear_sets()
         right_ring="Archon Ring",
         back="Twilight Cape",
 }
+
+sets.precast.WS['Chant du Cygne'] = {
+    
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body="Gleti's Cuirass",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Mache Earring +1",
+    right_ear="Odr Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Epona's Ring",
+    back="Atheling Mantle",
+}
+
+
+sets.precast.WS['Expiacion'] = {
+    
+    ammo="Ginsen",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Jhakri Cuffs +2",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+    feet="Gleti's Boots",
+    neck="Caro Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Beithir Ring",
+    back="Atheling Mantle",
+}
+
+
     
     
     -- Midcast Sets
@@ -329,15 +368,37 @@ function init_gear_sets()
     
     -- Physical Spells --
     
-    sets.midcast['Blue Magic'].Physical = {ammo="Mavi Tathlum",
-        head="Whirlpool Mask",neck="Ej Necklace",ear1="Heartseeker Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Buremte Gloves",ring1="Rajas Ring",ring2="Spiral Ring",
-        back="Cornflower Cape",waist="Caudata Belt",legs="Nahtirah Trousers",feet="Qaaxo Leggings"}
+    sets.midcast['Blue Magic'].Physical = {
+        ammo="Ginsen",
+        head="Gleti's Mask",
+        body="Gleti's Cuirass",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Gleti's Boots",
+        neck="Caro Necklace",
+        waist="Prosilio Belt +1",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Shukuyu Ring",
+        right_ring="Ilabrat Ring",
+        back="Atheling Mantle",
+    }
 
-    sets.midcast['Blue Magic'].PhysicalAcc = {ammo="Jukukik Feather",
-        head="Whirlpool Mask",neck="Ej Necklace",ear1="Heartseeker Earring",ear2="Steelflash Earring",
-        body="Luhlaza Jubbah",hands="Buremte Gloves",ring1="Rajas Ring",ring2="Patricius Ring",
-        back="Letalis Mantle",waist="Hurch'lan Sash",legs="Manibozho Brais",feet="Qaaxo Leggings"}
+    sets.midcast['Blue Magic'].PhysicalAcc = {
+        ammo="Inlamvuyeso",
+        head="Gleti's Mask",
+        body="Gleti's Cuirass",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Gleti's Boots",
+        neck="Mirage Stole +2",
+        waist="Olseni Belt",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
 
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
         {body="Iuitl Vest",hands="Assimilator's Bazubands +1"})
@@ -401,14 +462,29 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ring="Jhakri Ring",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},})  
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })  
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
         {ring1="Aquasoul Ring"})
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical)
 
     sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical,
-        {ring1="Spiral Ring"})
+        {
+            ammo="Pemphredo Tathlum",
+            head="Pixie Hairpin +1",
+            body="Jhakri Robe +2",
+            hands="Jhakri Cuffs +2",
+            legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+                legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+            neck="Baetyl Pendant",
+            waist="Hachirin-no-Obi",
+            left_ear="Hermetic Earring",
+            right_ear="Friomisi Earring",
+            left_ring="Archon Ring",
+            right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},     
+    })
 
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
 
@@ -445,29 +521,34 @@ function init_gear_sets()
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
+        legs="Hashishin Tayt +1",
         waist="Gishdubar Sash",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-    back="Solemnity Cape",}
+    back="Solemnity Cape",
+}
 
     sets.midcast['Blue Magic'].Healing = {
         main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
+        legs="Hashishin Tayt +1",
             waist="Gishdubar Sash",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-    back="Solemnity Cape",}
+    back="Solemnity Cape",
+}
 
     sets.midcast['Blue Magic'].SkillBasedBuff = {
-        main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+        ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
+        legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",

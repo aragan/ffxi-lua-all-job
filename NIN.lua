@@ -191,7 +191,7 @@ function init_gear_sets()
     --------------------------------------
     -- Utility Sets for rules below
     --------------------------------------
-    sets.TreasureHunter = { head="White rarab cap +1", waist="Chaac Belt", legs=HercLegs.TH }
+    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt", legs=HercLegs.TH }
     sets.CapacityMantle = { back="Mecistopins Mantle" }
     sets.WSDayBonus     = {  }
     -- sets.WSBack         = { back="Trepidity Mantle" }
