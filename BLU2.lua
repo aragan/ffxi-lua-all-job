@@ -411,31 +411,35 @@ function init_gear_sets()
     }
 
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Iuitl Vest",hands="Assimilator's Bazubands +1"})
+        {hands="Assimilator's Bazubands +1"})
 
     sets.midcast['Blue Magic'].PhysicalDex = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ammo="Jukukik Feather",body="Iuitl Vest",hands="Assimilator's Bazubands +1",
-         waist="Chaac Belt",legs="Manibozho Brais"})
+        {
+            
+        })
 
     sets.midcast['Blue Magic'].PhysicalVit = set_combine(sets.midcast['Blue Magic'].Physical,
         {
             })
 
     sets.midcast['Blue Magic'].PhysicalAgi = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Vanir Cotehardie",hands="Iuitl Wristbands",ring2="Stormsoul Ring",
-         waist="Chaac Belt",feet="Iuitl Gaiters +1"})
+        {
+            
+        })
 
     sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ear1="Psystorm Earring",body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",
-         ring2="Icesoul Ring",back="Toro Cape",feet="Hagondes Sabots"})
+        {
+            
+        })
 
     sets.midcast['Blue Magic'].PhysicalMnd = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ear1="Lifestorm Earring",body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",
-         ring2="Aquasoul Ring",back="Refraction Cape"})
+        {
+    })
 
     sets.midcast['Blue Magic'].PhysicalChr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",back="Refraction Cape",
-         waist="Chaac Belt"})
+        {
+            
+        })
 
     sets.midcast['Blue Magic'].PhysicalHP = set_combine(sets.midcast['Blue Magic'].Physical)
 
