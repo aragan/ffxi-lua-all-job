@@ -745,19 +745,19 @@ function init_gear_sets()
     sets.engaged.DW.Acc = {
 
         
-    ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
-    body={ name=" Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
-    feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Reiki Yotai",
-    left_ear="Telos Earring",
-    right_ear="Cessance Earring",
-    left_ring="Petrov Ring",
-    right_ring="Epona's Ring",
-    back="Atheling Mantle",
+        ammo="Coiste Bodhar",
+        head="Malignance Chapeau",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Asperity Necklace",
+        waist="Reiki Yotai",
+        left_ear="Dedition Earring",
+        right_ear="Suppanomimi",
+        left_ring="Chirich Ring +1",
+        right_ring="Epona's Ring",
+        back="Atheling Mantle",
     }
 
     sets.engaged.DW.Refresh = {
