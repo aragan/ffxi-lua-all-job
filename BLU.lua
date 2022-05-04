@@ -686,15 +686,15 @@ sets.precast.WS['Expiacion'] = {
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Asperity Necklace",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
-        right_ear="Cessance Earring",
-        left_ring="Petrov Ring",
+        waist="Reiki Yotai",
+        left_ear="Dedition Earring",
+        right_ear="Suppanomimi",
+        left_ring="Chirich Ring +1",
         right_ring="Epona's Ring",
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+        back="Atheling Mantle",
     
     }
     
@@ -704,15 +704,16 @@ sets.precast.WS['Expiacion'] = {
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Asperity Necklace",
     waist="Reiki Yotai",
-    left_ear="Telos Earring",
-    right_ear="Cessance Earring",
-    left_ring="Petrov Ring",
+    left_ear="Dedition Earring",
+    right_ear="Suppanomimi",
+    left_ring="Chirich Ring +1",
     right_ring="Epona's Ring",
-    back="Atheling Mantle",}
+    back="Atheling Mantle",
+}
     
 
     sets.engaged.Refresh = {
