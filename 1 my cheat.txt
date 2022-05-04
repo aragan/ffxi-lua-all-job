@@ -1,23 +1,23 @@
 attuner flameholder manajammer ii iv speedloader ii  magniping i ii  turbu charger i ii coller ii auto-repair kit iv  optic fiber i ii
 every kill 500k if drop give 10 mill this offer in UNM
-/yell ambuscade vd LFM cor(roll) free run
+hi ody seg A 5k seg point and 150 Lustreless Scale every run and rank up u want join ?
 t1 1 nm 8 mill t2 1 nm 10 mill t3 1 nm 15 mill t4 20 mill
 aset set ody
 aset setlist
 ispy Odyssey
 craft repeat 90
 craft support
-
+/targetnpc
 odyssey seg c farm u join ?
 odyssey seg c farm LFM brd whm dd tank 2/6 
-ongo 0V clear u need it ?
+/itemsearch "Etched Memory"
 //repeater command input /yell odyssey V0  clear All Boss /UNM/Eschas equip Abj. buy
 repeater delay 60
 Xevioso Kalunga Arebati ngai
      /yell odyssey V0  Kalunga clear mind going in 5 min buy
 /tell whereisdi /
 pls all come take new pearl linkshell in mhura
-//acon equipset
+acon equipset
 hi ambu u join spam vd ?
 u have geo or whm and make some gils with clear bumba ?
  VD LFM tank dd rema cor brd whm/blm 2@ fast run spam
@@ -307,6 +307,12 @@ SAM - Chaso Roll
 RUN Embolden - SCH Accession - Perpetuance - Phalanxx on RUN
 SCH & COR Coordinate Wildcard for Tabula Rasa
 
+red proc trust R
+ongelouts sword
+Curilla SWORD
+halver polerm
+Shikaree Z  polerm
+Zeid GS
 
 Alpluachra  Bucca   Puca
 /checkparam
