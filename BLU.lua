@@ -278,7 +278,7 @@ function init_gear_sets()
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
     feet="Jhakri Pigaches +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -524,7 +524,14 @@ function init_gear_sets()
         waist="Austerity Belt",feet="Chelona Boots +1"}
     
     -- Idle sets
-    sets.idle = {}
+    sets.idle = {
+        body="Jhakri Robe +2",
+        neck="Sanctity Necklace",
+        waist="Fucho-no-Obi",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+
+    }
 
     sets.idle.PDT = {
     }

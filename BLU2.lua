@@ -441,7 +441,8 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
 
     sets.midcast['Blue Magic'].MagicAccuracy = {
-     
+        main="Naegling",
+        sub="Sakpata's Sword",
         ammo="Pemphredo Tathlum",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -533,7 +534,13 @@ function init_gear_sets()
         waist="Austerity Belt",feet="Chelona Boots +1"}
     
     -- Idle sets
-    sets.idle = {}
+    sets.idle = {
+        body="Jhakri Robe +2",
+        neck="Sanctity Necklace",
+        waist="Fucho-no-Obi",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+    }
 
     sets.idle.PDT = {
     }

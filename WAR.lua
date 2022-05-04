@@ -195,7 +195,7 @@ function init_gear_sets()
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
-        right_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      }
 
@@ -211,7 +211,7 @@ function init_gear_sets()
         sub="Utu Grip",
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    body="Pumm. Lorica +3",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     feet="Sulev. Leggings +2",
@@ -227,7 +227,7 @@ function init_gear_sets()
         sub="Utu Grip",
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    body="Pumm. Lorica +3",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     feet="Sulev. Leggings +2",
@@ -252,7 +252,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear="Schere Earring",
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -329,7 +329,7 @@ function init_gear_sets()
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Beithir Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS['Impulse Drive'], {
@@ -345,13 +345,28 @@ function init_gear_sets()
         left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Beithir Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
      -- Sword WS's
      -- SANGUINE BLADE
      -- 50% MND / 50% STR Darkness Elemental
-     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {body="Pumm. Lorica +3",})
+     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+    head="Pixie Hairpin +1",
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck="Baetyl Pendant",
+    waist="Hachirin-no-Obi",
+    left_ear="Friomisi Earring",
+    right_ear="Thrud Earring",
+    left_ring="Archon Ring",
+    right_ring="Epaminondas's Ring",    
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+    })
 
      sets.precast.WS['Sanguine Blade'].Mid = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Mid)
      sets.precast.WS['Sanguine Blade'].Acc = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Acc)
@@ -371,9 +386,25 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Brutal Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Stikini Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      })
+
+     sets.precast.WS.Cataclysm = {
+        ammo="Knobkierrie",
+        head="Pixie Hairpin +1",
+        body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+        feet="Sulev. Leggings +2",
+        neck="Baetyl Pendant",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Thrud Earring",
+        left_ring="Archon Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    }
 
 
 
@@ -479,7 +510,7 @@ function init_gear_sets()
         feet="Sakpata's Leggings",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Cessance Earring",
+        left_ear="Schere Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
