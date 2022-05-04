@@ -198,7 +198,7 @@ manuve fire light thunder
 set tp
 ws tp
 -----------
-virva
+virava
 
 pup ve/ss
 
@@ -274,7 +274,17 @@ baraera  take care curse full attack
 SHINRYU HTBM
 DD BRD GEO WHM COR
 BARPARLYZA carol dark 
-in normal dd whm and trust whm ulmia cor 
+in normal dd/nin whm and trust whm ulmia tank arcela2  whm 2
+IN d vd DD2 COR BRD WHM GEO
+
+PLAN 2
+
+THF BRD COR WHM w/ Monbereaux and Sylvie/Ygnas. 
+After buffs w/ N/T you can sleep Shinryu, debuff a bit,
+ moving char into position then just zerg em down w/ savage and rudras, whatever you fancy.
+
+COR: Chaos/Samurai
+BRD: Honor March, Blade Madrigal, Valor Minuet V, Dark Carol, Herculean Etude 
 ==============
 Divine Interference VD
 
@@ -282,7 +292,11 @@ no enffebeing nm / no skillchain
 spam SB
 DD TANK COR WHM BRD
 mnk war tank whm brd cor
+============
+odin HTNM
+in nm 50% do silence him
 
+SOLO /NIN SHADOW UP 
 ============
 
 yakshi
