@@ -98,12 +98,13 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-        head="Whirlpool Mask",
-        body="Iuitl Vest",hands="Iuitl Wristbands",
-        legs="Nahtirah Trousers",feet="Iuitl Gaiters +1"}
+
+    }
         
     -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {}
+    sets.precast.Waltz['Healing Waltz'] = {
+
+    }
 
     -- Fast cast sets for spells
     
@@ -116,7 +117,7 @@ function init_gear_sets()
     right_ring="Kishar Ring",
 }
 
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket",})
 
 
     sets.precast.RA = {
@@ -143,77 +144,122 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Ilabrat Ring",
-        right_ring="Petrov Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Evisceration'] = sets.precast.WS
-
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {legs="Nahtirah Trousers"})
-
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {head="Malignance Chapeau",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs={ name="Herculean Trousers", augments={'Rng.Acc.+10','Weapon skill damage +2%','AGI+4','Rng.Atk.+10',}},
-    feet={ name="Lanun Bottes +2", augments={'Enhances "Wild Card" effect',}},
+    sets.precast.WS['Evisceration'] = sets.precast.WS, {
+        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs="Mummu Kecks +2",
+    feet="Mummu Gamash. +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
-    left_ring="Epona's Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},})
+    left_ear="Odr Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Mummu Ring",
+    right_ring="Epona's Ring",
+    back="Atheling Mantle",
+    })
 
-    sets.precast.WS['Last Stand'] = {range="Fomalhaut",
-    ammo="Chrono Bullet",
-    head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+        head="Meghanada Visor +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
-    legs={ name="Herculean Trousers", augments={'Rng.Acc.+10','Weapon skill damage +2%','AGI+4','Rng.Atk.+10',}},
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Friomisi Earring",
+    legs="Meg. Chausses +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Caro Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",
-    right_ring="Cacoethic Ring",
+    left_ring="Shukuyu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    }
+    })
 
-    sets.precast.WS['Last Stand'].Acc = {main="Naegling",
-    sub="Tauret",
-    range="Fomalhaut",
-    ammo="Chrono Bullet",
-    head="Pixie Hairpin +1",
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        hands="Meg. Gloves +2",
+        legs="Nyame Flanchard",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Dingir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    })
+
+    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Meg. Gloves +2",
+        legs="Meg. Chausses +2",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Telos Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Shukuyu Ring",
+        right_ring="Rufescent Ring",
+        back="Atheling Mantle",
+})
+
+    sets.precast.WS['Last Stand'] = {
+    head="Meghanada Visor +2",
     body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
-    hands={ name="Herculean Gloves", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Crit. hit damage +3%','STR+8','"Mag.Atk.Bns."+10',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+13 "Mag.Atk.Bns."+13','Crit. hit damage +1%','Mag. Acc.+11','"Mag.Atk.Bns."+7',}},
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
-    neck="Sanctity Necklace",
-    waist="Svelt. Gouriz +1",
-    left_ear="Friomisi Earring",
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Archon Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    }
+
+    sets.precast.WS['Last Stand'].Acc = {
+    head="Meghanada Visor +2",
+    body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Dingir Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
 
-    sets.precast.WS['Wildfire'] = {main="Naegling",sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head="Pixie Hairpin +1",
+    sets.precast.WS['Wildfire'] = {
+        head="Nyame Helm",
+        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        hands="Meg. Gloves +2",
+        legs="Nyame Flanchard",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Dingir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+}
+
+    
+    sets.precast.WS['Leaden Salute'] = {main="Naegling",sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head="Pixie Hairpin +1",
     body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},neck="Sanctity Necklace",waist="Svelt. Gouriz +1",left_ear="Friomisi Earring",right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",right_ring="Archon Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-}
-    sets.precast.WS['Wildfire'].Brew = {main="Naegling",
-    sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-    body="Meg. Cuirie +2",hands="Meg. Gloves +2",legs={ name="Herculean Trousers", augments={'Rng.Acc.+10','Weapon skill damage +2%','AGI+4','Rng.Atk.+10',}},feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Sanctity Necklace",waist="Eschan Stone",left_ear="Friomisi Earring",right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",right_ring="Cacoethic Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-}
-    
-    sets.precast.WS['Leaden Salute'] = sets.precast.WS['Wildfire']
-    
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},neck="Sanctity Necklace",waist="Svelt. Gouriz +1",left_ear="Friomisi Earring",right_ear="Hecate's Earring",
+    left_ring="Dingir Ring",right_ring="Epaminondas's Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
@@ -230,53 +276,49 @@ function init_gear_sets()
     sets.midcast.Utsusemi = sets.midcast.FastRecast
 
     sets.midcast.CorsairShot = {
-    range="Fomalhaut",
-    ammo="Chrono Bullet",
-    head="Malignance Chapeau",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Dingir Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        head="Nyame Helm",
+        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        hands="Meg. Gloves +2",
+        legs="Nyame Flanchard",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Dingir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
     sets.midcast.CorsairShot.Acc = {
-    range="Molybdosis",
-    ammo="Orichalc. Bullet",
-    head="Malignance Chapeau",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Dingir Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        head="Nyame Helm",
+        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        hands="Meg. Gloves +2",
+        legs="Nyame Flanchard",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Dingir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
     sets.midcast.CorsairShot['Light Shot'] = {
     
-    head="Malignance Chapeau",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Dingir Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        head="Malignance Chapeau",
+        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Digni. Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
     sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot['Light Shot']
@@ -288,7 +330,7 @@ function init_gear_sets()
     ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
     body="Mummu Jacket +2",
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Ikenga's Trousers",
     feet="Malignance Boots",
     neck="Iskur Gorget",
@@ -372,9 +414,8 @@ function init_gear_sets()
     sets.engaged.Melee = {main="Naegling",
     sub="Demers. Degen +1",
     range="Anarchy +1",
-    
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
@@ -384,14 +425,13 @@ function init_gear_sets()
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Atheling Mantle",
     }
     sets.engaged.Acc = {main="Naegling",
     sub="Tauret",
     range="Anarchy +1",
-    
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
@@ -401,7 +441,7 @@ function init_gear_sets()
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Atheling Mantle",
     }
     sets.engaged.Melee.DW = {
     
@@ -416,7 +456,7 @@ function init_gear_sets()
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Atheling Mantle",
 }
     
     sets.engaged.Acc.DW = {
@@ -444,8 +484,8 @@ function init_gear_sets()
     range="Molybdosis",
     ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Asperity Necklace",
