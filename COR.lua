@@ -162,7 +162,7 @@ function init_gear_sets()
     left_ring="Mummu Ring",
     right_ring="Epona's Ring",
     back="Atheling Mantle",
-    })
+    }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Meghanada Visor +2",
@@ -326,8 +326,6 @@ function init_gear_sets()
 
     -- Ranged gear
     sets.midcast.RA = {
-    range="Molybdosis",
-    ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
     body="Mummu Jacket +2",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -429,7 +427,6 @@ function init_gear_sets()
     }
     sets.engaged.Acc = {main="Naegling",
     sub="Tauret",
-    range="Anarchy +1",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
@@ -479,10 +476,6 @@ function init_gear_sets()
 
 
     sets.engaged.Ranged = {
-    main="Naegling",
-    sub="Tauret",
-    range="Molybdosis",
-    ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
