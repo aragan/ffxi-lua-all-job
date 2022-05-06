@@ -81,7 +81,7 @@ function init_gear_sets()
     sets.precast.CorsairRoll = {
     head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
     hands="Chasseur's Gants +1",
-    right_ring="Barataria Ring",
+    neck="Regal Necklace",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
@@ -143,7 +143,7 @@ function init_gear_sets()
         neck="Sanctity Necklace",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
-        left_ring="Ilabrat Ring",
+        left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
@@ -160,7 +160,7 @@ function init_gear_sets()
     left_ear="Odr Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Mummu Ring",
-    right_ring="Epona's Ring",
+    right_ring="Regal Ring",
     back="Atheling Mantle",
     }
 
@@ -174,7 +174,7 @@ function init_gear_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Shukuyu Ring",
+    left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     })
@@ -204,7 +204,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Telos Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Shukuyu Ring",
+        left_ring="Regal Ring",
         right_ring="Rufescent Ring",
         back="Atheling Mantle",
 })
@@ -219,7 +219,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",
+    left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
@@ -234,7 +234,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",
+    left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }

@@ -522,9 +522,7 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
         
     -- Mod set for trivial mobs (Skadi+1)
-    sets.engaged.Mod = {main="Tauret",
-    sub="Aeneas",
-        back="Atheling Mantle",}
+    sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
 
     -- Mod set for trivial mobs (Thaumas)
     sets.engaged.Mod2 = {ammo="Thew Bomblet",
