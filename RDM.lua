@@ -244,6 +244,25 @@ function init_gear_sets()
 		right_ring="Epaminondas's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
+
+	sets.precast.WS['Evisceration'] = {
+		
+		ammo="Yetshila +1",
+		head="Malignance Chapeau",
+		body="Ayanmo Corazza +2",
+		hands="Jhakri Cuffs +2",
+		legs="Jhakri Slops +2",
+		feet="Malignance Boots",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear="Mache Earring +1",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Rufescent Ring",
+		right_ring="Epaminondas's Ring",
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
+	
+
 	
     -- Midcast Sets
     
@@ -287,53 +306,43 @@ function init_gear_sets()
 		
     sets.midcast['Enhancing Magic'] = {
 
-		ammo="Regal Gem",
-		head={ name="Telchine Cap", augments={'Enh. Mag. eff. dur. +9',}},
-		body="Vitiation Tabard +3",
-		hands="Atrophy Gloves +3",
-		legs="Telchine Braconi",
-		feet="Leth. Houseaux +1",
+		head="Befouled Crown",
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		left_ear="Andoaa Earring",
-		right_ear="Regal Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back="Ghostfyre cape",}
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	}
 		
 	sets.midcast['Enhancing Magic'].SelfDuration = {
 
-		ammo="Regal Gem",
-		head={ name="Telchine Cap", augments={'Enh. Mag. eff. dur. +9',}},
-		body="Vitiation Tabard +3",
-		hands="Atrophy Gloves +3",
-		legs="Telchine Braconi",
-		feet="Leth. Houseaux +1",
+		head="Befouled Crown",
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		left_ear="Andoaa Earring",
-		right_ear="Regal Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back="Ghostfyre cape",
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 	}
 
 	sets.midcast['Enhancing Magic'].Skill = {
 
 		
-		ammo="Regal Gem",
 		head="Befouled Crown",
-		body="Vitiation Tabard +3",
-		hands="Vitiation Gloves +3",
-		legs="Atrophy Tights +3",
-		feet="Leth. Houseaux +1",
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		left_ear="Andoaa Earring",
-		right_ear="Regal Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back="Ghostfyre Cape",}
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	}
 	
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Skill, {})
 		
@@ -357,19 +366,16 @@ function init_gear_sets()
 	sets.midcast.Aquaveil = {
 
 		
-		ammo="Regal Gem",
-		head="Chironic Hat",
-		body="Vitiation Tabard +3",
-		hands="Vitiation Gloves +3",
-		legs="Atrophy Tights +3",
-		feet="Leth. Houseaux +1",
+		head="Befouled Crown",
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		left_ear="Andoaa Earring",
-		right_ear="Regal Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back="Ghostfyre Cape",}
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	}
 	
     sets.midcast['Enfeebling Magic'] = {
 
