@@ -178,9 +178,8 @@ function init_gear_sets()
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
-        -- head="Rao Kabuto",
     })
-    sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         feet="Flamma Gambieras +2",
     })
     
@@ -203,7 +202,7 @@ function init_gear_sets()
     sets.precast.WS['Namas Arrow'].Mid = set_combine(sets.precast.WS['Namas Arrow'], {
         body="Kyujutsugi",
     })
-    sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'].Mid, {
+    sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {
         ring2="Hajduk Ring"
     })
     
@@ -240,10 +239,40 @@ function init_gear_sets()
         left_ring="Mujin Band",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'].Mid, {
+    sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'], {
         ammo="Knobkierrie",
         feet="Flamma Gambieras +2",
     })
+
+    sets.precast.WS['Tachi: Kaiten'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head="Mpaca's Cap",
+        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Wakido Haidate +2",
+        feet={ name="Sak. Sune-Ate +3", augments={'Enhances "Meikyo Shisui" effect',}},
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+
+    sets.precast.WS['Tachi: Kaiten'].Mid = set_combine(sets.precast.WS['Tachi: Kaiten'], {
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
+        feet="Nyame Sollerets",
+        left_ring="Mujin Band",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+
+    sets.precast.WS['Tachi: Kaiten'].Acc = set_combine(sets.precast.WS['Tachi: Kaiten'], {
+        feet="Flamma Gambieras +2",
+
+    })
+
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
@@ -266,7 +295,7 @@ function init_gear_sets()
         left_ring="Mujin Band",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'].Mid, {
+    sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
         feet="Flamma Gambieras +2",
     })
     
@@ -292,7 +321,7 @@ function init_gear_sets()
         left_ring="Mujin Band",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'].Mid, {})
+    sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'], {})
 
     sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS['Tachi: Shoha'], {
         neck="Samurai's Nodowa +2",
@@ -305,7 +334,7 @@ function init_gear_sets()
         left_ring="Mujin Band",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'].Mid, {
+    sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'], {
 
     })
     
