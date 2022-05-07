@@ -246,6 +246,25 @@ sets.precast.WS['Entropy '] = {
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 } 
+
+sets.precast.WS['Infernal Scythe'] = {    ammo="Knobkierrie",
+head="Pixie Hairpin +1",
+body="Ratri Plate",
+hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+feet="Sulev. Leggings +2",
+neck="Baetyl Pendant",
+waist="Orpheus's Sash",
+left_ear="Friomisi Earring",
+right_ear="Malignance Earring",
+left_ring="Archon Ring",
+right_ring="Epaminondas's Ring",
+back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+}
+sets.precast.WS['Infernal Scythe'].MaxAcc = set_combine(sets.precast.WS['Torcleaver'], {})
+sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver'], {
+    
+})
           
     sets.precast.WS['Resolution'] = {
     ammo="Coiste Bodhar",

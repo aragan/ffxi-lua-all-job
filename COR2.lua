@@ -186,7 +186,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Baetyl Pendant",
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",

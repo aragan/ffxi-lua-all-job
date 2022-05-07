@@ -253,7 +253,6 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Fudo'].Mid = set_combine(sets.precast.WS['Tachi: Fudo'], {
         head="Valorous Mask",
         ammo="Knobkierrie",
-        --waist="Light Belt"
     })
     sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'].Mid, {
         ammo="Knobkierrie",
