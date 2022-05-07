@@ -34,7 +34,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
+    state.OffenseMode:options('None', 'Normal', 'Enspell')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Town')
 	state.CastingMode:options('Normal', 'Burst')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
@@ -143,7 +143,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     sets.precast.WS['Sanguine Blade'] = {
@@ -159,7 +159,7 @@ function init_gear_sets()
 		right_ear="Hecate's Earring",
 		left_ring="Archon Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     sets.precast.WS['Savage Blade'] = {
@@ -192,7 +192,7 @@ function init_gear_sets()
 			right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 			left_ring="Freke Ring",
 			right_ring="Epaminondas's Ring",
-			back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
 
 
@@ -209,7 +209,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 		
 	sets.precast.WS['Death Blossom'] = {
@@ -242,7 +242,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Epaminondas's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	
     -- Midcast Sets
@@ -407,7 +407,7 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 
 	sets.midcast['Enfeebling Magic'].Potency = {    
 
@@ -424,7 +424,7 @@ function init_gear_sets()
 		right_ear="Gwati Earring",
 		left_ring="Kishar Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
     
 	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {hands="Lethargy Gantherots +1"})
@@ -485,7 +485,7 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 
     --sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
@@ -513,7 +513,7 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 	
 	sets.midcast['Stun'] = {
 
@@ -530,7 +530,8 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	
     -- Sets for special buff conditions on spells
         
@@ -554,7 +555,7 @@ function init_gear_sets()
 		head="Viti. Chapeau +3",
 		body="Jhakri Robe +2",
 		hands={ name="Merlinic Dastanas", augments={'Pet: DEX+3','AGI+5','"Refresh"+1','Accuracy+16 Attack+16',}},
-		legs={ name="Lengo Pants", augments={'INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Refresh"+1',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet={ name="Merlinic Crackows", augments={'Accuracy+1 Attack+1','"Cure" spellcasting time -2%','"Refresh"+1',}},
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
@@ -696,6 +697,22 @@ function init_gear_sets()
     back="Atheling Mantle",
     }
 
+	sets.engaged.Enspell = {
+		range="Ullr",
+		head="Umuthi Hat",
+		body="Malignance Tabard",
+		hands="Aya. Manopolas +2",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Sanctity Necklace",
+		waist="Orpheus's Sash",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		}
+
 	sets.engaged.Haste_43 = {
 		ammo="Ginsen",
 		head="Aya. Zucchetto +2",
@@ -709,7 +726,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 	
 	sets.engaged.Haste_30 = {
 		
@@ -726,7 +743,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 		
     sets.engaged.Defense = {
       
@@ -743,7 +760,8 @@ function init_gear_sets()
 		right_ear="Suppanomimi",
 		left_ring="Petrov Ring",
 		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}}
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 
 	sets.Adoulin = {body="Councilor's Garb",}
 
