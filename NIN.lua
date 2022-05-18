@@ -820,7 +820,7 @@ function init_gear_sets()
     -- BLADE: SHUN
     sets.Shun = {
     
-        ammo="C. Palug Stone",
+        ammo="Aurgelmir Orb +1",
         head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
