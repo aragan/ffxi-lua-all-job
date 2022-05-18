@@ -468,15 +468,15 @@ function init_gear_sets()
     sets.engaged.Master = {
         range="Neo Animator",
         ammo="Automat. Oil +3",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Lissome Necklace",
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        body="Mpaca's Doublet",
+        hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+        legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Telos Earring",
+        left_ear="Telos Earring",
+        right_ear="Mache Earring +1",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -490,17 +490,17 @@ function init_gear_sets()
     sets.engaged.Master.Acc = {
         range="Neo Animator",
         ammo="Automat. Oil +3",
-        head="Hiza. Somen +2",
+        head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck="Lissome Necklace",
+        neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
-        left_ear="Cessance Earring",
+        left_ear="Digni. Earring",
         right_ear="Mache Earring +1",
-        left_ring="Epona's Ring",
-        right_ring="Niqmaddu Ring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
@@ -510,21 +510,20 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.engaged.Master.TP = {
-    
-        range="Neo Animator",
-        ammo="Automat. Oil +3",
-        head="Hiza. Somen +2",
-        body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        neck="Asperity Necklace",
-        waist="Moonbow Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Mache Earring +1",
-        left_ring="Epona's Ring",
-        right_ring="Niqmaddu Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    range="Neo Animator",
+    ammo="Automat. Oil +3",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+    legs="Mpaca's Hose",
+    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+    neck="Shulmanu Collar",
+    waist="Moonbow Belt +1",
+    left_ear="Digni. Earring",
+    right_ear="Schere Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -------------------------------------DT
@@ -532,7 +531,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = DT
     ]]
-    sets.engaged.Master.DT = {   ammo="Staunch Tathlum +1",
+    sets.engaged.Master.DT = {  
     head="Malignance Chapeau",
     legs="Malignance Tights",
     feet="Malignance Boots",

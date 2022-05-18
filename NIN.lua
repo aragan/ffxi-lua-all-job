@@ -420,7 +420,7 @@ function init_gear_sets()
     sets.engaged = {
 
         ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
@@ -664,8 +664,8 @@ function init_gear_sets()
         feet="Hizamaru Sune-ate +2" 
     })
     sets.engaged.Mid.Haste_30 = set_combine(sets.engaged.Haste_30, {  ammo="Coiste Bodhar",
-        head="Adhemar Bonnet ",
-        ear2="Cessance Earring",
+    head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+    ear2="Cessance Earring",
         ring1="Ilabrat Ring",
     })
     sets.engaged.Acc.Haste_30 = set_combine(sets.engaged.Mid.Haste_30, {  ammo="Coiste Bodhar",
@@ -690,6 +690,7 @@ function init_gear_sets()
     sets.engaged.Haste_15 = set_combine(sets.engaged.Haste_30, {  ammo="Coiste Bodhar",
         left_ear="Eabani Earring",
         right_ear="Suppanomimi",
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Adhemar Jacket +1",
         ring1="Epona's Ring",
         feet="Hizamaru Sune-ate +2",
