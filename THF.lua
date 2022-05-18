@@ -167,15 +167,15 @@ function init_gear_sets()
         ammo="C. Palug Stone",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Meg. Chausses +2",
+    feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear="Ishvara Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Beithir Ring",
+    right_ring="Regal Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
 
@@ -184,26 +184,26 @@ function init_gear_sets()
         ammo="C. Palug Stone",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Meg. Chausses +2",
+    feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear="Ishvara Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Beithir Ring",
+    right_ring="Regal Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
     })
-    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {head="Felistris Mask",waist=gear.ElementalBelt})
+    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {})
     sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Qirmiz Tathlum"})
     sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Qirmiz Tathlum"})
     sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Qirmiz Tathlum"})
 
     sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {})
     sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {ammo="Honed Tathlum", back="Letalis Mantle"})
-    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {waist=gear.ElementalBelt})
+    sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
     sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Qirmiz Tathlum"})
     sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Qirmiz Tathlum"})
     sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Qirmiz Tathlum"})
@@ -212,7 +212,7 @@ function init_gear_sets()
         ammo="Yetshila +1",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
-        hands="Mummu Wrists +2",
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
         feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
         neck="Fotia Gorget",
@@ -220,14 +220,14 @@ function init_gear_sets()
         left_ear="Sherida Earring",
         right_ear="Odr Earring",
         left_ring="Ilabrat Ring",
-        right_ring="Mummu Ring",
+        right_ring="Regal Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         ammo="Yetshila +1",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
-        hands="Mummu Wrists +2",
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
         feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
         neck="Fotia Gorget",
@@ -235,10 +235,10 @@ function init_gear_sets()
         left_ear="Sherida Earring",
         right_ear="Odr Earring",
         left_ring="Ilabrat Ring",
-        right_ring="Mummu Ring",
+        right_ring="Regal Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
     })
-    sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {back="Kayapa Cape",waist=gear.ElementalBelt})
+    sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
     sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
     sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
     sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
@@ -247,34 +247,19 @@ function init_gear_sets()
         ammo="Yetshila +1",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
-    hands="Mummu Wrists +2",
+    hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     neck="Caro Necklace",
     waist="Grunfeld Rope",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Odr Earring",
-    left_ring="Ilabrat Ring",
-    right_ring="Mummu Ring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {
-        ammo="Voluspa Tathlum",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Meg. Gloves +2",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Mummu Ring",
-        right_ring="Beithir Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-
-    })
-    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"], {back="Kayapa Cape",waist=gear.ElementalBelt})
+    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
+    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS[})
     sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Qirmiz Tathlum",
         body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
     sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Qirmiz Tathlum",
@@ -309,8 +294,8 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Ilabrat Ring",
-    right_ring="Beithir Ring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
     })
@@ -324,37 +309,22 @@ function init_gear_sets()
 
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Mummu Wrists +2",
-        legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-        feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-        neck="Caro Necklace",
-        waist="Grunfeld Rope",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Odr Earring",
-        left_ring="Ilabrat Ring",
-        right_ring="Mummu Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}}, 
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    neck="Caro Necklace",
+    waist="Grunfeld Rope",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Odr Earring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
     })
-    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {
-        ammo="Voluspa Tathlum",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Meg. Gloves +2",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Mummu Ring",
-        right_ring="Beithir Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-
-    })
-    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {back="Kayapa Cape",waist=gear.ElementalBelt})
+    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
+    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
     sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Qirmiz Tathlum",
         body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
     sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Qirmiz Tathlum",
@@ -364,16 +334,16 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = {ammo="Pemphredo Tathlum",
     head={ name="Herculean Helm", augments={'Pet: Mag. Acc.+14','Pet: "Dbl. Atk."+4','Pet: INT+3','Pet: Attack+6 Pet: Rng.Atk.+6','Pet: "Mag.Atk.Bns."+6',}},
-    body="Mummu Jacket +2",
-    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},
+    body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
+    hands="Meg. Gloves +2",
     legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+16','Weapon skill damage +3%','MND+6',}},
-    neck="Sanctity Necklace",
+    neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Mummu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
@@ -492,33 +462,35 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {
-    ammo="Coiste Bodhar",
+    ammo="Aurgelmir Orb +1",
     head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Meg. Chausses +2",
+    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Asperity Necklace",
     waist="Reiki Yotai",
     left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
+    right_ear="Dedition Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
     back="Atheling Mantle",
 }
-    sets.engaged.Acc = {main="Tauret",
+    sets.engaged.Acc = {
+    main="Tauret",
     sub="Gleti's Knife",
-    ammo="Coiste Bodhar",
+    ammo="Aurgelmir Orb +1",
     head="Malignance Chapeau",
-    body="Gleti's Cuirass",    hands="Malignance Gloves",
+    body="Gleti's Cuirass",    
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
+    neck="Lissome Necklace",
     waist="Reiki Yotai",
     left_ear="Sherida Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
-    right_ring="Petrov Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
         
     -- Mod set for trivial mobs (Skadi+1)
