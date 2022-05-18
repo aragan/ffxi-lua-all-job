@@ -574,7 +574,7 @@ function init_gear_sets()
         body="Hjarrandi Breast.",
         hands="Sakpata's Gauntlets",
         legs="Jokushu Haidate",
-        feet="Flam. Gambieras +2",
+        feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Cessance Earring",
@@ -604,7 +604,7 @@ function init_gear_sets()
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    feet="Pumm. Calligae +3",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
     left_ear="Suppanomimi",
@@ -648,11 +648,11 @@ function init_gear_sets()
      })
      sets.engaged.OneHand.Mid.PDT = set_combine(sets.engaged.OneHand.Mid, sets.Defensive)
 
-     sets.engaged.GreatSword = set_combine(sets.engaged, {
+     sets.engaged.GreatSword = set_combine(sets.engaged, {        feet="Pumm. Calligae +3",
          ear1="Schere Earring",
          ear2="Brutal Earring",
      })
-     sets.engaged.GreatSword.Mid = set_combine(sets.engaged.Mid, {
+     sets.engaged.GreatSword.Mid = set_combine(sets.engaged.Mid, {        feet="Pumm. Calligae +3",
          ear1="Telos Earring",
          --back="Grounded Mantle +1"
          --ring2="K'ayres RIng"
