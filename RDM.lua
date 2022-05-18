@@ -114,7 +114,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
      
-	    ammo="Ginsen",
+            ammo="Aurgelmir Orb +1",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
@@ -164,7 +164,7 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = {
 		
-	    ammo="Ginsen",
+            ammo="Aurgelmir Orb +1",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
@@ -213,7 +213,7 @@ function init_gear_sets()
     }
 		
 	sets.precast.WS['Death Blossom'] = {
-	    ammo="Ginsen",
+            ammo="Aurgelmir Orb +1",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
@@ -571,7 +571,6 @@ function init_gear_sets()
 		feet={ name="Merlinic Crackows", augments={'Accuracy+1 Attack+1','"Cure" spellcasting time -2%','"Refresh"+1',}},
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
-
 		left_ring="Dark Ring",
 		right_ring="Defending Ring",
 		back="Solemnity Cape",}
@@ -687,7 +686,7 @@ function init_gear_sets()
     -- Normal melee group
 	
     sets.engaged = {
-		ammo="Coiste Bodhar",
+                ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -703,7 +702,7 @@ function init_gear_sets()
     }
 
 	sets.engaged.DW = {
-		ammo="Coiste Bodhar",
+                ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",
@@ -719,7 +718,7 @@ function init_gear_sets()
 		}
 
 		sets.engaged.Acc = {
-			ammo="Ginsen",
+	                ammo="Aurgelmir Orb +1",
 			head="Malignance Chapeau",
 			body="Malignance Tabard",
 			hands="Malignance Gloves",
@@ -751,7 +750,7 @@ function init_gear_sets()
 		}
 
 	sets.engaged.Haste_43 = {
-		ammo="Coiste Bodhar",
+                ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -769,7 +768,7 @@ function init_gear_sets()
 	sets.engaged.Haste_30 = {
 		
 		
-		ammo="Coiste Bodhar",
+                ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -787,7 +786,7 @@ function init_gear_sets()
     sets.engaged.Defense = {
       
 		
-		ammo="Ginsen",
+                ammo="Aurgelmir Orb +1",
 		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 		body="Ayanmo Corazza +2",
 		hands="Aya. Manopolas +2",
