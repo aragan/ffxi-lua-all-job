@@ -21,7 +21,7 @@ function user_setup()
     options.CastingModes = {'Normal', 'DT'} 
     options.IdleModes = {'Normal',}
     options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PD', 'HPBOOST', 'Enmity', 'HP'}
+    options.PhysicalDefenseModes = {'PD', 'HPBOOST', 'Enmity', 'HP', 'DEF'}
     options.MagicalDefenseModes = {'MDT' ,'Turtle','ResistCharm'}
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
@@ -901,6 +901,24 @@ sets.defense.HP = set_combine(sets.defense.HPBOOST, {
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
 })
+
+sets.defense.DEF = {
+    main="Burtgang",
+    sub="Ochain",
+    ammo="Iron Gobbet",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Paguroidea Ring",
+    right_ring="Provocare Ring",
+    back="Moonlight Cape",
+}
 
 --Doom/RR",
      

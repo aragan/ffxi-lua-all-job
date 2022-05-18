@@ -30,7 +30,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder')
+    state.OffenseMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder', 'Mod')
     state.WeaponskillMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder')
     state.HybridMode:options('Normal', 'PDT', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
@@ -97,7 +97,7 @@ function init_gear_sets()
     sets.precast.WS = {
         ammo="Knobkierrie",
         head="Malignance Chapeau",
-        body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
         feet="Malignance Boots",
@@ -123,7 +123,7 @@ function init_gear_sets()
     sets.precast.WS['Raging Fists']    = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -277,8 +277,8 @@ function init_gear_sets()
         right_ring="Defending Ring",
     }
 
-    sets.idle.Town = {feet="Herald's Gaiters"
-        
+    sets.idle.Town = {
+        feet="Hermes' Sandals +1",        
     }
     
     sets.idle.Weak = {
@@ -332,8 +332,8 @@ function init_gear_sets()
     right_ear="Mache Earring +1",
     left_ring="Ilabrat Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
-	}
+    back="Moonlight Cape",
+}
     sets.Kiting = {feet="Herald's Gaiters"}
 
     sets.ExtraRegen = {head="Ocelomeh Headpiece +1"}
@@ -349,7 +349,7 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Ginsen",
         head="Malignance Chapeau",
-        body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
@@ -359,7 +359,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Ilabrat Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+        back="Atheling Mantle",
 
     }
     sets.engaged.SomeAcc = {
@@ -375,7 +375,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+        back="Atheling Mantle",
 
     }
     sets.engaged.Acc = {
@@ -390,7 +390,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+        back="Atheling Mantle",
     }
     sets.engaged.Mod = {
         ammo="Coiste Bodhar",
@@ -405,7 +405,24 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+        back="Atheling Mantle",
+
+    }
+
+    sets.engaged.Fodder = {
+        ammo="Coiste Bodhar",
+		head="Hiza. Somen +2",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck="Moonbeam Nodowa",
+        waist="Moonbow Belt +1",
+        left_ear="Sherida Earring",
+        right_ear="Schere Earring",
+        left_ring="Epona's Ring",
+        right_ring="Niqmaddu Ring",
+        back="Atheling Mantle",
 
     }
 
@@ -421,22 +438,22 @@ function init_gear_sets()
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+    back="Atheling Mantle",
 }
-    sets.engaged.SomeAcc.PDT = {           main={ name="Godhands", augments={'Path: A',}},
+    sets.engaged.SomeAcc.PDT = {          
     ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
-    body="Hiza. Haramaki +2",
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body="Mpaca's Doublet",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Mpaca's Hose",
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    feet="Mpaca's Boots",
     neck="Moonbeam Nodowa",
-    waist="Moonbow Belt",
-    left_ear="Brutal Earring",
+    waist="Moonbow Belt +1",
+    left_ear="Schere Earring",
     right_ear="Mache Earring +1",
-    left_ring="Niqmaddu Ring",
-    right_ring="Petrov Ring",
-    back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+    left_ring="Epona's Ring",
+    right_ring="Niqmaddu Ring",
+    back="Atheling Mantle",
 
 		
 	}
@@ -453,7 +470,7 @@ function init_gear_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Petrov Ring",
-    back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+    back="Atheling Mantle",
 		
 	}
     sets.engaged.Counter = {

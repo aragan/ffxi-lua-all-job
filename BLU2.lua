@@ -359,8 +359,7 @@ function init_gear_sets()
     }
         
     sets.midcast['Blue Magic'] = {  
-        main="Maxentius",
-        sub="Bunzi's Rod",
+
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
@@ -446,8 +445,7 @@ function init_gear_sets()
 
     -- Magical Spells --
     
-    sets.midcast['Blue Magic'].Magical = {    main="Maxentius",
-    sub="Bunzi's Rod",
+    sets.midcast['Blue Magic'].Magical = {  
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
@@ -464,8 +462,7 @@ function init_gear_sets()
 }
 
     sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,
-        {main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
@@ -481,15 +478,15 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })  
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
-        {ring1="Aquasoul Ring"})
+        {
+        })
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical)
 
     sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical,
         {
             
-            main="Maxentius",
-            sub="Bunzi's Rod",
+
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Jhakri Robe +2",
@@ -508,8 +505,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
 
     sets.midcast['Blue Magic'].MagicAccuracy = {
-        main="Naegling",
-        sub="Sakpata's Sword",
+
         ammo="Pemphredo Tathlum",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -537,8 +533,6 @@ function init_gear_sets()
         
     sets.midcast['Blue Magic']['White Wind'] = {
 
-        main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
         legs="Hashishin Tayt +1",
@@ -551,8 +545,7 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].Healing = {
 
-        main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
         legs="Hashishin Tayt +1",
@@ -565,8 +558,7 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].SkillBasedBuff = {
 
-        ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
@@ -578,8 +570,7 @@ function init_gear_sets()
 }
 
     sets.midcast['Blue Magic'].Buff = {
-        ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Mirage Stole +2",
@@ -597,8 +588,7 @@ function init_gear_sets()
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
     
     sets.midcast.phalanx = {
-        sub="Sakpata's Sword",
-        ammo="Sapience Orb",
+
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
         body="Pinga Tunic",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -737,13 +727,36 @@ function init_gear_sets()
     
 
     sets.engaged.Refresh = {
-        main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-    sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Asperity Necklace",
+        waist="Reiki Yotai",
+        left_ear="Eabani Earring",
+        right_ear="Suppanomimi",
+        left_ring="Defending Ring",
+        right_ring="Epona's Ring",
+        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
 
     }
 
     sets.engaged.DW = {
-
+        ammo="Coiste Bodhar",
+        head="Malignance Chapeau",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Asperity Necklace",
+        waist="Reiki Yotai",
+        left_ear="Dedition Earring",
+        right_ear="Suppanomimi",
+        left_ring="Chirich Ring +1",
+        right_ring="Epona's Ring",
+        back="Atheling Mantle",
     }
 
     sets.engaged.DW.Acc = {
@@ -765,6 +778,19 @@ function init_gear_sets()
     }
 
     sets.engaged.DW.Refresh = {
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Asperity Necklace",
+        waist="Reiki Yotai",
+        left_ear="Eabani Earring",
+        right_ear="Suppanomimi",
+        left_ring="Defending Ring",
+        right_ring="Epona's Ring",
+        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
     }
 
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)

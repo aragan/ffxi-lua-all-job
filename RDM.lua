@@ -34,7 +34,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Enspell')
+    state.OffenseMode:options('None', 'Normal', 'Enspell', 'DW', 'ACC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Town')
 	state.CastingMode:options('Normal', 'Burst')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
@@ -269,40 +269,46 @@ function init_gear_sets()
     sets.midcast.FastRecast = {}
 
     sets.midcast.Cure = {
-        head="Gendewitha Caubeen +1",
+		ammo="Staunch Tathlum +1",
+		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+		body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		neck="Incanter's Torque",
-		ear1="Mendicant's Earring",
-		ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",
-		hands="Telchine Gloves",
-		ring1="Dark Ring",
-		ring2="Defending Ring",
-        back="Solemnity Cape",
-		waist="Flume Belt +1",
-		legs="Atrophy Tights +3",
-		feet="Medium's Sabots"}
+		waist="Luminary Sash",
+		left_ear="Halasz Earring",
+		right_ear="Mendi. Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back="Solemnity Cape",
+	}
 
     sets.midcast.Cursna = {
-        head="Gendewitha Caubeen +1",
-		neck="Malison Medallion",
-		ear1="Roundel Earring",
-		ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		hands="Serpentes Cuffs",
 		ring1="Ephedra Ring",
 		ring2="Ephedra Ring",
-        back="Ghostfyre Cape",
-		waist="Witful Belt",
-		legs="Atrophy Tights +3",
-		feet="Gendewitha Galoshes"}
+ 
+	}
         
     sets.midcast.Curaga = sets.midcast.Cure
 	
     sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {
-		ring1="Dark Ring",
-		ring2="Kunaji Ring",
-		hands="Buremte gloves",
-		waist="Gishdubar Sash"})
+		ammo="Staunch Tathlum +1",
+		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+		body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+		neck="Incanter's Torque",
+		waist="Luminary Sash",
+		left_ear="Halasz Earring",
+		right_ear="Mendi. Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back="Solemnity Cape",
+	})
 		
     sets.midcast['Enhancing Magic'] = {
 
@@ -565,8 +571,7 @@ function init_gear_sets()
 		feet={ name="Merlinic Crackows", augments={'Accuracy+1 Attack+1','"Cure" spellcasting time -2%','"Refresh"+1',}},
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
-		left_ear="Merman's Earring",
-		right_ear="Merman's Earring",
+
 		left_ring="Dark Ring",
 		right_ring="Defending Ring",
 		back="Solemnity Cape",}
@@ -594,13 +599,11 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",
-		hands={ name="Buremte Gloves", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
 		legs="Aya. Cosciales +2",
 		feet="Aya. Gambieras +2",
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
-		left_ear="Merman's Earring",
-		right_ear="Merman's Earring",
+
 		left_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -4%',}},
 		right_ring="Defending Ring",
 		back="Solemnity Cape",}
@@ -611,13 +614,10 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",
-		hands={ name="Buremte Gloves", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
 		legs="Aya. Cosciales +2",
 		feet="Aya. Gambieras +2",
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
-		left_ear="Merman's Earring",
-		right_ear="Merman's Earring",
 		left_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -4%',}},
 		right_ring="Defending Ring",
 		back="Solemnity Cape",} 
@@ -628,16 +628,15 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Aya. Zucchetto +2",
 		body="Ayanmo Corazza +2",
-		hands={ name="Buremte Gloves", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
 		legs="Aya. Cosciales +2",
 		feet="Aya. Gambieras +2",
 		neck="Loricate Torque +1",
 		waist="Flume Belt +1",
-		left_ear="Merman's Earring",
 		right_ear="Merman's Earring",
 		left_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -4%',}},
 		right_ring="Defending Ring",
-		back="Solemnity Cape",}
+		back="Solemnity Cape",
+	}
     
     
     -- Defense sets
@@ -657,7 +656,7 @@ function init_gear_sets()
 		waist="Flume Belt +1",
 		legs="Ayanmo Cosciales +2",
 		feet="Ayanmo Gambieras +1"}
-
+ 
     sets.defense.MDT = {
 		
 		
@@ -688,22 +687,54 @@ function init_gear_sets()
     -- Normal melee group
 	
     sets.engaged = {
-    ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Aya. Manopolas +2",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Anu Torque",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
-    left_ring="Hetairoi Ring",
-    right_ring="Petrov Ring",
-    back="Atheling Mantle",
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Anu Torque",
+		waist="Reiki Yotai",
+		left_ear="Sherida Earring",
+		right_ear="Suppanomimi",
+		left_ring="Hetairoi Ring",
+		right_ring="Petrov Ring",
+		back="Atheling Mantle",
     }
 
-	sets.engaged.Enspell = {
+	sets.engaged.DW = {
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Aya. Manopolas +2",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Anu Torque",
+		waist="Reiki Yotai",
+		left_ear="Suppanomimi",
+		right_ear="Eabani Earring",
+		left_ring="Hetairoi Ring",
+		right_ring="Petrov Ring",
+		back="Atheling Mantle",
+		}
+
+		sets.engaged.Acc = {
+			ammo="Ginsen",
+			head="Malignance Chapeau",
+			body="Malignance Tabard",
+			hands="Malignance Gloves",
+			legs="Malignance Tights",
+			feet="Malignance Boots",
+			neck="Anu Torque",
+			waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+			left_ear="Sherida Earring",
+			right_ear="Cessance Earring",
+			left_ring="Chirich Ring +1",
+			right_ring="Chirich Ring +1",
+			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		}
+
+	sets.engaged.Enspell = {   ammo=empty,
 		range="Ullr",
 		head="Umuthi Hat",
 		body="Malignance Tabard",
@@ -720,36 +751,38 @@ function init_gear_sets()
 		}
 
 	sets.engaged.Haste_43 = {
-		ammo="Ginsen",
-		head="Aya. Zucchetto +2",
-		body="Ayanmo Corazza +2",
-		hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-		legs={ name="Taeon Tights", augments={'Accuracy+22','"Triple Atk."+2','STR+9',}},
-		feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		neck="Anu Torque",
 		waist="Reiki Yotai",
-		left_ear="Suppanomimi",
-		right_ear="Sherida Earring",
-		left_ring="Petrov Ring",
-		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
+		left_ear="Sherida Earring",
+		right_ear="Suppanomimi",
+		left_ring="Hetairoi Ring",
+		right_ring="Petrov Ring",
+		back="Atheling Mantle",
+	}
 	
 	sets.engaged.Haste_30 = {
 		
 		
-		ammo="Ginsen",
-		head="Aya. Zucchetto +2",
-		body="Ayanmo Corazza +2",
-		hands={ name="Taeon Gloves", augments={'Accuracy+21','"Dual Wield"+4','Weapon skill damage +2%',}},
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
-		neck="Lissome Necklace",
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Anu Torque",
 		waist="Reiki Yotai",
-		left_ear="Suppanomimi",
-		right_ear="Sherida Earring",
-		left_ring="Petrov Ring",
-		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
+		left_ear="Sherida Earring",
+		right_ear="Suppanomimi",
+		left_ring="Hetairoi Ring",
+		right_ring="Petrov Ring",
+		back="Atheling Mantle",
+	}
 		
     sets.engaged.Defense = {
       
@@ -757,7 +790,7 @@ function init_gear_sets()
 		ammo="Ginsen",
 		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 		body="Ayanmo Corazza +2",
-		hands="Aya. Manopolas +1",
+		hands="Aya. Manopolas +2",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet={ name="Taeon Boots", augments={'Accuracy+23','"Triple Atk."+2','Crit. hit damage +2%',}},
 		neck="Lissome Necklace",
@@ -765,8 +798,6 @@ function init_gear_sets()
 		left_ear="Cessance Earring",
 		right_ear="Suppanomimi",
 		left_ring="Petrov Ring",
-		right_ring="Rajas Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 
 	sets.Adoulin = {body="Councilor's Garb",}
@@ -1023,6 +1054,22 @@ end)
 function display_current_job_state(eventArgs)
     display_current_caster_state()
     eventArgs.handled = true
+end
+
+function midcast(spell)
+    if spell.name == 'Utsusemi: Ichi' and overwrite then
+        send_command('cancel Copy Image|Copy Image (2)')
+    end
+end
+ 
+function aftercast(spell)
+    if not spell.interrupted then
+        if spell.name == 'Utsusemi: Ichi' then
+            overwrite = false
+        elseif spell.name == 'Utsusemi: Ni' then
+            overwrite = true
+        end
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
