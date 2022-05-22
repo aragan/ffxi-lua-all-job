@@ -393,7 +393,7 @@ function init_gear_sets()
       
         ammo="Knobkierrie",
         head="Sakpata's Helm",
-    body="Pumm. Lorica +3",
+        body="Pumm. Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
@@ -441,7 +441,7 @@ function init_gear_sets()
          ring1="Niqmaddu Ring",
          waist="Sailfi Belt +1",
          legs="Sakpata's Cuisses",
-         feet="Hermes' Sandals +1"
+         feet="Hermes' Sandals +1",
      }
      
      sets.idle.Field = set_combine(sets.idle.Town, {
@@ -454,7 +454,7 @@ function init_gear_sets()
          neck="Sanctity Necklace",
          ring1="Paguroidea Ring",
          ring2="Defending Ring",
-         feet="Hermes' Sandals +1"
+         feet="Hermes' Sandals +1",
      })
      sets.idle.Regen = set_combine(sets.idle.Field, {
         neck="Sanctity Necklace",
@@ -465,6 +465,8 @@ function init_gear_sets()
      sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
         body="Twilight Mail",
+        back="Moonlight Cape",
+
      })
 
      -- Defense sets
@@ -512,12 +514,16 @@ function init_gear_sets()
          hands="Sakpata's Gauntlets",
          legs="Sakpata's Cuisses", -- 5% haste
          feet="Sakpata's Leggings", -- 3% haste
-         neck={ name="Warder's Charm +1", augments={'Path: A',}},
+         neck={ name="War. Beads +2", augments={'Path: A',}},
          ring2="Defending Ring",
          waist="Sailfi Belt +1",
      }
      sets.Defensive_Acc = set_combine(sets.Defensive, {
          neck="Warrior's Bead Necklace +2",
+         left_ear="Digni. Earring",
+         right_ear="Mache Earring +1",
+         left_ring="Chirich Ring +1",
+         right_ring="Chirich Ring +1",
      })
  
      -- Engaged set, assumes Liberator
@@ -535,7 +541,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+7','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
      sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
@@ -550,7 +556,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+7','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
      sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
@@ -581,7 +587,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+7','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
 
     sets.engaged.hybridtp = set_combine(sets.engaged.hybrid, {
@@ -627,7 +633,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+10','Accuracy+27 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+7','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
      sets.engaged.OneHand = set_combine(sets.engaged, {

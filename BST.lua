@@ -142,14 +142,16 @@ end
 -- BST gearsets
 function init_gear_sets()
 	-- PRECAST SETS
-        sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +1"}
+        sets.precast.JA['Killer Instinct'] = {    head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+}
 		
 		sets.precast.JA['Bestial Loyalty'] = {
-				hands={ name="Ankusa Gloves +1", augments={'Enhances "Beast Affinity" effect',}},
+				hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
 				body="Mirke Wardecors",
 				feet="Adaman Sollerets",
 				head="Acro Helm",
-				legs={ name="Acro Breeches", augments={'"Call Beast" ability delay -4',}},}
+				legs={ name="Acro Breeches", augments={'"Call Beast" ability delay -4',}},
+			}
 		
 		sets.precast.JA['Call Beast'] = sets.precast.JA['Bestial Loyalty']
 		
@@ -182,14 +184,14 @@ function init_gear_sets()
     ammo="Pet Food Theta",
     body={ name="An. Jackcoat +2", augments={'Enhances "Feral Howl" effect',}},
     legs={ name="Ankusa Trousers +2", augments={'Enhances "Familiar" effect',}},
-    feet={ name="Ankusa Gaiters +1", augments={'Enhances "Beast Healer" effect',}},
+    feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
 
 	
 	
 	sets.precast.JA.Charm = {
 				ammo="Tsar's Egg",
-				head="Ankusa Helm +1",
+    head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 				neck="Shulmanu Collar",
 				ear1="Enmerkar Earring",
 				ear2="Handler's Earring +1",
@@ -1445,13 +1447,13 @@ function init_gear_sets()
 			
 	sets.engaged.PetTank.MedAcc = set_combine(sets.engaged.MedAcc, {
 			head="Anwig Salade",
-			hands="Ankusa Gloves +1",
+    hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
 			back="Oneiros Cappa",
 			legs="Nukumi Quijotes +1"})
 			
 	sets.engaged.PetTank.MedAccHaste = set_combine(sets.engaged.MedAccHaste, {
 			head="Anwig Salade",
-			hands="Ankusa Gloves +1",
+                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
 			back="Oneiros Cappa",
 			legs="Nukumi Quijotes +1"})
 			
@@ -1507,13 +1509,13 @@ function init_gear_sets()
 			
 	sets.engaged.DW.PetTank.MedAcc = set_combine(sets.engaged.DW.MedAcc, {
 			head="Anwig Salade",
-			hands="Ankusa Gloves +1",
+                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
 			back="Oneiros Cappa",
 			legs="Nukumi Quijotes +1"})
 			
 	sets.engaged.DW.PetTank.MedAccHaste = set_combine(sets.engaged.DW.MedAccHaste, {
 			head="Anwig Salade",
-			hands="Ankusa Gloves +1",
+                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
 			back="Oneiros Cappa",
 			legs="Nukumi Quijotes +1"})
 			
