@@ -1139,21 +1139,20 @@ function init_gear_sets()
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
 			
 	sets.engaged.MedAcc = {
-		main="Dolichenus",
-		head="Anwig Salade",
-			ring2="Shadow Ring",
-			neck="Adad Amulet",
-			ear2="Handler's Earring +1",
-			ammo="Demonry Core",
-			body="Totemic Jackcoat +3",
-			hands={ name="Acro Gauntlets", augments={'Pet: DEF+20','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-			legs={ name="Acro Breeches", augments={'Pet: Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-			feet={ name="Acro Leggings", augments={'Pet: DEF+25','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-			ring1="Thurandaut Ring",
-			sub="Beatific Shield +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},
-			waist="Isa Belt",
-			ear1="Enmerkar Earring",}
+		ammo="Paeapua",
+		head="Malignance Chapeau",
+		body="Tali'ah Manteel +2",
+		hands="Malignance Gloves",
+		legs="Meg. Chausses +2",
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Sherida Earring",
+		left_ring="Hetairoi Ring",
+		right_ring="Epona's Ring",
+		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+		}
 			
 	sets.engaged.MedAccHaste = {
 		main="Dolichenus",
@@ -1247,8 +1246,7 @@ function init_gear_sets()
 			}
 			
 	sets.engaged.DW.Shield = {
-			main="Blurred Axe +1",
-			sub="Adapa Shield",
+		
 			ammo="Staunch Tathlum",
 			head="Skormoth Mask",
 			body={ name="Valorous Mail", augments={'Enmity+1','CHR+15','Quadruple Attack +3','Accuracy+13 Attack+13',}},
@@ -1266,21 +1264,20 @@ function init_gear_sets()
 		-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
 		
 	sets.engaged.DW.MedAcc = {
-			main="Izizoeksi",
-    sub={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
-    ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-    hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    legs={ name="Ankusa Trousers +1", augments={'Enhances "Familiar" effect',}},
-    feet="Tali'ah Crackows +2",
-    neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
-    left_ear="Enmerkar Earring",
-    right_ear="Domes. Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
+		ammo="Paeapua",
+		head="Malignance Chapeau",
+		body="Tali'ah Manteel +2",
+		hands="Malignance Gloves",
+		legs="Meg. Chausses +2",
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Anu Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Sherida Earring",
+		left_ring="Hetairoi Ring",
+		right_ring="Epona's Ring",
+		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+}
 			
 	sets.engaged.DW.MedAccHaste = {
 			main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
@@ -1314,7 +1311,8 @@ function init_gear_sets()
 			right_ear="Eabani Earring",
 			left_ring="Rajas Ring",
 			right_ring="Varar Ring +1 +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}},}
+			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}},
+		}
 			
 	sets.engaged.DW.HighAccHaste = {
 			main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
