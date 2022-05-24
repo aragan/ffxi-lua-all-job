@@ -418,18 +418,19 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.Evasion = {
-        ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
-        body="Gleti's Cuirass",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Reiki Yotai",
-        left_ear="Tuisto Earring",
+        ammo="Yamarang",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
         left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+        right_ring="Vengeful Ring",
+        back="Moonlight Cape",
     }
 
     sets.defense.PDT = {
