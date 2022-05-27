@@ -185,7 +185,6 @@ function init_gear_sets()
 				feet="Scamp's Sollerets"}
 
 		sets.precast.JA.Reward = {
-				main="Mdomo Axe +1",
     ammo="Pet Food Theta",
     body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
     legs={ name="Ankusa Trousers +1", augments={'Enhances "Familiar" effect',}},
@@ -242,7 +241,6 @@ function init_gear_sets()
 	-- VIOLENT FLOURISH
 	sets.precast.Flourish1 = {}
 	sets.precast.Flourish1['Violent Flourish'] = {
-				main="Tri-edge",
 				ammo="Ginsen",
 				head="Tali'ah Turban +2",
 				body="Tali'ah Manteel +2",
@@ -741,7 +739,6 @@ function init_gear_sets()
 }
 			
 	sets.midcast.Pet.Killer = {
-		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},	
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		sub="Kaidate",
 		range="Killer Shortbow",
@@ -814,13 +811,7 @@ function init_gear_sets()
 	sets.midcast.Pet.ReadyRecast = {
 		legs="Gleti's Breeches",
 	} 
-			--main="Charmer's Merlin",legs="Desultor Tassets",body="Tali'ah Manteel +2",feet="Totemic Gaiters +3",neck="Shulmanu Collar"}
-			--main={name="Aymur",priority=15},ear2="Hija Earring",ring2="Varar Ring +1 +1",head="Emicho Coronet +1",body={ name="Valorous Mail", augments={'Pet: Accuracy+27 Pet: Rng. Acc.+27','Pet: "Store TP"+1','Pet: DEX+14','Pet: Attack+13 Pet: Rng.Atk.+13',priority=12}},legs="Desultor Tassets",feet={name="Tot. Gaiters +3",priority=13},hands={name="Nukumi Manoplas +1",priority=11},ammo="Demonry Core",neck="Shulmanu Collar",waist="Incarnation Sash",ear1="Enmerkar Earring",sub={name="Charmer's Merlin",priority=14},ring1="Thurandaut Ring",back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
-	
-	-- poop2
-		-- main="Aymur",sub="Charmer's Merlin",legs="Desultor Tassets",body="Tali'ah Manteel +2",feet="Totemic Gaiters +3",neck="Shulmanu Collar"} 
-		
-		-- main="Charmer's Merlin",legs="Desultor Tassets",body="Tali'ah Manteel +2",feet="Totemic Gaiters +3",neck="Shulmanu Collar"}
+
 
         -- RESTING
         sets.resting = {		body="Meg. Cuirie +2",
@@ -930,7 +921,7 @@ function init_gear_sets()
 			
 	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
 
-	sets.idle.Pet = set_combine(sets.idle, { main="Glyph Axe",
+	sets.idle.Pet = set_combine(sets.idle, { 
 		head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
@@ -1466,7 +1457,6 @@ function init_gear_sets()
 			hands="Regimen Mittens"})
 
 sets.buff['Killer Instinct'] = {
-main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
 head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 body="Nukumi Gausape +1",
 
