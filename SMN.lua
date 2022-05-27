@@ -130,8 +130,8 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT')
-
+    state.IdleMode:options('Normal', 'PDT', 'Regen')
+    state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
     gear.perp_staff = {name=""}
     
     select_default_macro_book()
@@ -296,7 +296,7 @@ function init_gear_sets()
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head="C. Palug Crown",
-    body={ name="Helios Jacket", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}},
+    body="Con. Doublet +2",
     hands={ name="Merlinic Dastanas", augments={'Blood Pact Dmg.+10','Pet: "Mag.Atk.Bns."+3',}},
     legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
@@ -368,6 +368,24 @@ function init_gear_sets()
     right_ring="Varar Ring +1",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
+    sets.idle.Regen = {
+        main="Contemplator +1",
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head="Beckoner's Horn +1",
+        body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+        hands="Baayami Cuffs",
+        legs="Baayami Slops",
+        feet="Baayami Sabots",
+        neck="Empath Necklace",
+        waist="Isa Belt",
+        left_ear="Enmerkar Earring",
+        right_ear="Evans Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+    }
+
     -- perp costs:
     -- spirits: 7
     -- carby: 11 (5 with mitts)
@@ -419,6 +437,24 @@ function init_gear_sets()
         right_ear="Enmerkar Earring",
         left_ring="Thurandaut Ring",
         right_ring="Varar Ring +1",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
+    sets.idle.Regen.Avatar = {
+        main="Contemplator +1",
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head="Beckoner's Horn +1",
+        body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+        hands="Baayami Cuffs",
+        legs="Baayami Slops",
+        feet="Baayami Sabots",
+        neck="Empath Necklace",
+        waist="Isa Belt",
+        left_ear="Enmerkar Earring",
+        right_ear="Evans Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
         back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
 
@@ -504,6 +540,24 @@ function init_gear_sets()
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
 
+    sets.defense.Regen = {
+        main="Contemplator +1",
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head="Beckoner's Horn +1",
+        body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+        hands="Baayami Cuffs",
+        legs="Baayami Slops",
+        feet="Baayami Sabots",
+        neck="Empath Necklace",
+        waist="Isa Belt",
+        left_ear="Enmerkar Earring",
+        right_ear="Evans Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
     sets.Kiting = {feet="Herald's Gaiters"}
     
     sets.latent_refresh = {waist="Fucho-no-obi"}
@@ -514,21 +568,23 @@ function init_gear_sets()
     --------------------------------------
     
     -- Normal melee group
-    sets.engaged = {main="Contemplator +1",
-    sub="Vox Grip",
-    ammo="Sancus Sachet +1",
-    head={ name="Glyphic Horn +1", augments={'Enhances "Astral Flow" effect',}},
-    body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
-    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Assiduity Pants +1",
-    feet={ name="Glyph. Pigaches +3", augments={'Inc. Sp. "Blood Pact" magic crit. dmg.',}},
-    neck="Caller's Pendant",
-    waist="Fucho-no-Obi",
-    left_ear="Enmerkar Earring",
-    right_ear="Evans Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
+    sets.engaged = {
+        main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
+        sub="Alber Strap",
+        ammo="Sancus Sachet +1",
+        head="Nyame Helm",
+        body="Tali'ah Manteel +2",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Shulmanu Collar",
+        waist="Klouskap Sash +1",
+        left_ear="Mache Earring +1",
+        right_ear="Mache Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
 end
 
 -------------------------------------------------------------------------------------------------------------------

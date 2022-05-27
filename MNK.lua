@@ -347,25 +347,25 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {
-        ammo="Ginsen",
-        head="Malignance Chapeau",
-        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body="Bhikku Cyclas +1",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Moonbeam Nodowa",
-        waist="Cetl Belt",
-        left_ear="Telos Earring",
+        waist="Moonbow Belt +1",
+        left_ear="Sherida Earring",
         right_ear="Mache Earring +1",
-        left_ring="Ilabrat Ring",
+        left_ring="Hetairoi Ring",
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
 
     }
     sets.engaged.SomeAcc = {
-        ammo="Falcon Eye",
+        ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        body="Bhikku Cyclas +1",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Mpaca's Hose",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -373,8 +373,8 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Brutal Earring",
         right_ear="Sherida Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Petrov Ring",
+        left_ring="Hetairoi Ring",
+        right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
 
     }
