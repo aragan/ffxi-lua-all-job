@@ -62,20 +62,28 @@ function init_gear_sets()
     sets.precast.JA['Mantra'] = {feet="Hesychast's Gaiters +1"}
 
     sets.precast.JA['Chi Blast'] = {
-        head="Melee Crown +2",
-        body="Otronif Harness +1",hands="Hesychast's Gloves +1",
-        back="Tuilha Cape",legs="Hesychast's Hose +1",feet="Anchorite's Gaiters +1"}
+}
 
-    sets.precast.JA['Chakra'] = {ammo="Iron Gobbet",
-        head="Felistris Mask",
-        body="Anchorite's Cyclas +1",hands="Hesychast's Gloves +1",ring1="Spiral Ring",
-        back="Iximulew Cape",waist="Caudata Belt",legs="Qaaxo Tights",feet="Thurandaut Boots +1"}
+    sets.precast.JA['Chakra'] = {
+        ammo="Iron Gobbet",
+        head="Genmei Kabuto",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        left_ear={ name="Handler's Earring +1", augments={'Path: A',}},
+        right_ear="Tuisto Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Regal Ring",
+        back="Moonlight Cape",
+    }
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {ammo="Sonia's Plectrum",
-        head="Felistris Mask",
-        body="Otronif Harness +1",hands="Hesychast's Gloves +1",ring1="Spiral Ring",
-        back="Iximulew Cape",waist="Caudata Belt",legs="Qaaxo Tights",feet="Otronif Boots +1"}
+    sets.precast.Waltz = {
+        body="Passion Jacket",
+        legs="Dashing Subligar",
+    }
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
@@ -87,16 +95,25 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     
-    sets.precast.FC = {ammo="Impatiens",head="Haruspex hat",ear2="Loquacious Earring",hands="Thaumas Gloves"}
+    sets.precast.FC = {    ammo="Sapience Orb",
+    neck="Baetyl Pendant",
+    left_ear="Loquac. Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Rahab Ring",
+    right_ring="Prolix Ring",
+}
 
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",
+    body="Passion Jacket",
+
+})
 
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head="Malignance Chapeau",
+        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
@@ -106,13 +123,13 @@ function init_gear_sets()
         left_ear="Ishvara Earring",
         right_ear="Telos Earring",
         left_ring="Ilabrat Ring",
-        right_ring="Niqmaddu Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 
     }
-    sets.precast.WSAcc = {ammo="Honed Tathlum",body="Manibozho Jerkin",back="Letalis Mantle",feet="Qaaxo Leggings"}
-    sets.precast.WSMod = {ammo="Tantra Tathlum",head="Felistris Mask",legs="Hesychast's Hose +1",feet="Daihanshi Habaki"}
-    sets.precast.MaxTP = {ear1="Bladeborn Earring",ear2="Steelflash Earring"}
+    sets.precast.WSAcc = {}
+    sets.precast.WSMod = {}
+    sets.precast.MaxTP = {}
     sets.precast.WS.Acc = set_combine(sets.precast.WS, sets.precast.WSAcc)
     sets.precast.WS.Mod = set_combine(sets.precast.WS, sets.precast.WSMod)
 
@@ -144,7 +161,7 @@ function init_gear_sets()
     legs="Hiza. Hizayoroi +2",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
-    waist="Moonbow Belt",
+    waist="Moonbow Belt +1",
     left_ear="Schere Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Hetairoi Ring",
@@ -167,7 +184,7 @@ function init_gear_sets()
     legs="Hiza. Hizayoroi +2",
     feet="Malignance Boots",
     neck="Fotia Gorget",
-    waist="Moonbow Belt",
+    waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Begrudging Ring",
@@ -201,7 +218,7 @@ function init_gear_sets()
     legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
-    waist="Moonbow Belt",
+    waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Hetairoi Ring",
@@ -234,9 +251,19 @@ function init_gear_sets()
 
 
     sets.precast.WS['Cataclysm'] = {
-        head="Wayfarer Circlet",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="Wayfarer Robe",hands="Otronif Gloves",ring1="Acumen Ring",ring2="Demon's Ring",
-        back="Toro Cape",waist="Thunder Belt",legs="Nahtirah Trousers",feet="Qaaxo Leggings"
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
+        hands="Nyame Gauntlets",
+        legs="Hiza. Hizayoroi +2",
+        feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Archon Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
     }
     
     
@@ -263,7 +290,7 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-        ammo="Ginsen",
+        ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -271,10 +298,12 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Moonbow Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Telos Earring",
+        left_ear="Odnowa Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Chirich Ring +1",
         right_ring="Defending Ring",
+        back="Moonlight Cape",
+
     }
 
     sets.idle.Town = {
@@ -320,23 +349,31 @@ function init_gear_sets()
         
     }
 
-    sets.defense.MDT = {	      ammo="Ginsen",
-    head="Malignance Chapeau",
-    body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Moonbeam Nodowa",
-    waist="Cetl Belt",
-    left_ear="Telos Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Ilabrat Ring",
-    right_ring="Niqmaddu Ring",
-    back="Moonlight Cape",
+    sets.defense.MDT = {	      
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Archon Ring",
+        right_ring="Epaminondas's Ring",
+        back="Moonlight Cape",
 }
     sets.Kiting = {feet="Herald's Gaiters"}
 
-    sets.ExtraRegen = {head="Ocelomeh Headpiece +1"}
+    sets.ExtraRegen = {    head={ name="Rao Kabuto", augments={'VIT+10','Attack+20','"Counter"+3',}},
+    body="Hiza. Haramaki +2",
+    hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    left_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+}
 
     -- Engaged sets
 
@@ -379,14 +416,14 @@ function init_gear_sets()
 
     }
     sets.engaged.Acc = {
-        ammo="Amar Cluster",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        ammo="Falcon Eye",
+        body="Bhikku Cyclas +1",
 		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
+        left_ear="Mache Earring +1",
         right_ear="Mache Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
@@ -433,7 +470,7 @@ function init_gear_sets()
     legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
-    waist="Moonbow Belt",
+    waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
@@ -465,7 +502,7 @@ function init_gear_sets()
     legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
-    waist="Moonbow Belt",
+    waist="Moonbow Belt +1",
     left_ear="Brutal Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
@@ -507,13 +544,13 @@ function init_gear_sets()
 
     -- Hundred Fists/Impetus melee set mods
     sets.engaged.HF = set_combine(sets.engaged)
-    sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Tantra Cyclas +2"})
+    sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Bhikku Cyclas +1"})
     sets.engaged.Acc.HF = set_combine(sets.engaged.Acc)
-    sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Tantra Cyclas +2"})
+    sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +1"})
     sets.engaged.Counter.HF = set_combine(sets.engaged.Counter)
-    sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Tantra Cyclas +2"})
+    sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Bhikku Cyclas +1"})
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
-    sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Tantra Cyclas +2"})
+    sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +1"})
 
 
     -- Footwork combat form
@@ -521,7 +558,7 @@ function init_gear_sets()
     sets.engaged.Footwork.Acc = {}
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
-    sets.impetus_body = {body="Tantra Cyclas +2"}
+    sets.impetus_body = {body="Bhikku Cyclas +1"}
     sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
 end
 
