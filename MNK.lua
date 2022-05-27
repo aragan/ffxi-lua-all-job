@@ -61,7 +61,11 @@ function init_gear_sets()
     sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas"}
     sets.precast.JA['Mantra'] = {feet="Hesychast's Gaiters +1"}
 
-    sets.precast.JA['Chi Blast'] = {
+    sets.precast.JA['Chi Blast'] = {head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 }
 
     sets.precast.JA['Chakra'] = {
