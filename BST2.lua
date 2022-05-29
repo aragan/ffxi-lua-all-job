@@ -514,7 +514,7 @@ function init_gear_sets()
         sets.precast.WS['Ruinator'] = set_combine(sets.precast.WS, {
 		    ammo="Coiste Bodhar",
              head={ name="Blistering Sallet +1", augments={'Path: A',}},
-            body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+            body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
             hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
          legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
             feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
@@ -620,11 +620,11 @@ function init_gear_sets()
 	-- PET SIC & READY MOVES
 	sets.midcast.Pet.WS = {
     ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Nukumi Manoplas +1",
     legs="Despair Cuisses",
-    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
+    feet="Gleti's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Sroda Earring",
@@ -635,11 +635,11 @@ function init_gear_sets()
 			
 	sets.midcast.Pet.DA = {
     ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Nukumi Manoplas +1",
     legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
+    feet="Gleti's Boots",
     neck="Shulmanu Collar",
     waist="Incarnation Sash",
     left_ear="Sroda Earring",
@@ -652,14 +652,14 @@ function init_gear_sets()
 			
     ammo="Voluspa Tathlum",
     head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+26','Pet: VIT+14','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+12 Pet: Rng.Atk.+12',}},
-    body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     hands="Nukumi Manoplas +1",
     legs={ name="Valorous Hose", augments={'Pet: "Mag.Atk.Bns."+23','Pet: INT+3','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Attack+4 Pet: Rng.Atk.+4',}},
-    feet={ name="Valorous Greaves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: DEX+7','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+6 Pet: Rng.Atk.+6',}},
+    feet="Gleti's Boots",
     neck="Adad Amulet",
     waist="Incarnation Sash",
     left_ear="Enmerkar Earring",
-    right_ear="Rimeice Earring",
+    right_ear="Crep. Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},})
@@ -691,7 +691,7 @@ function init_gear_sets()
 			--MAB
     ammo="Voluspa Tathlum",
     head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+26','Pet: VIT+14','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+12 Pet: Rng.Atk.+12',}},
-    body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     hands="Nukumi Manoplas +1",
     legs={ name="Valorous Hose", augments={'Pet: "Mag.Atk.Bns."+23','Pet: INT+3','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Attack+4 Pet: Rng.Atk.+4',}},
     feet={ name="Valorous Greaves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: DEX+7','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+6 Pet: Rng.Atk.+6',}},
@@ -719,7 +719,7 @@ function init_gear_sets()
 			})
 			
 		
-	sets.midcast.Pet.Neutral = {  head="Emicho Coronet",}
+	sets.midcast.Pet.Neutral = {  }
 	
 	sets.midcast.Pet.Favorable = {
 
@@ -854,7 +854,7 @@ function init_gear_sets()
 }
 			
 	sets.idle.MDTMaster = {		
-		head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Attack+3','Pet: "Regen"+1',}},
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
@@ -922,7 +922,7 @@ function init_gear_sets()
 	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
 
 	sets.idle.Pet = set_combine(sets.idle, { 
-		head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Attack+3','Pet: "Regen"+1',}},
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
@@ -969,7 +969,8 @@ function init_gear_sets()
 	back="Moonlight Cape",
 }
 
-    sets.defense.PetPDT = {		head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    sets.defense.PetPDT = {		
+		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Attack+3','Pet: "Regen"+1',}},
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
@@ -984,8 +985,8 @@ function init_gear_sets()
 	sets.defense.Killer = {
 		
     ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
     legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
     feet="Tali'ah Crackows +2",
@@ -999,8 +1000,8 @@ function init_gear_sets()
 	
 	sets.defense.Reraise =  {
     ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     hands="Nukumi Manoplas +1",
     legs="Despair Cuisses",
     feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
@@ -1045,7 +1046,7 @@ function init_gear_sets()
 }
 
 	sets.defense.PetMDT =  {
-			head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		    head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Attack+3','Pet: "Regen"+1',}},
 			body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 			hands="Gleti's Gauntlets",
 			legs="Tali'ah Sera. +2",
