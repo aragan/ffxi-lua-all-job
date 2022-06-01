@@ -159,7 +159,7 @@ function init_gear_sets()
 		
 		sets.precast.JA['Call Beast'] = sets.precast.JA['Bestial Loyalty']
 		
-        sets.precast.JA.Familiar = {    legs={ name="Ankusa Trousers +1", augments={'Enhances "Familiar" effect',}},
+        sets.precast.JA.Familiar = {    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
 	}
 		
 		sets.precast.JA.Tame = {head="Totemic Helm +1",ear1="Tamer's Earring",legs="Stout Kecks"}
@@ -187,7 +187,7 @@ function init_gear_sets()
 		sets.precast.JA.Reward = {
     ammo="Pet Food Theta",
     body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-    legs={ name="Ankusa Trousers +1", augments={'Enhances "Familiar" effect',}},
+    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
     feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
 
