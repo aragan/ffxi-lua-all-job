@@ -679,10 +679,10 @@ function init_gear_sets()
     sets.midcast.Pet["Elemental Magic"] = {
 
         head={ name="Herculean Helm", augments={'Pet: "Mag.Atk.Bns."+26','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2',}},
-        body={ name="Herculean Vest", augments={'Pet: "Mag.Atk.Bns."+25','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: AGI+10',}},
+      	body="Udug Jacket",
         hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
+        feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
         neck="Adad Amulet",
         waist="Ukko Sash",
         left_ear="Kyrene's Earring",
@@ -707,7 +707,7 @@ function init_gear_sets()
 
     sets.midcast.Pet["Dark Magic"] = {
         head={ name="Herculean Helm", augments={'Pet: "Mag.Atk.Bns."+26','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2',}},
-        body={ name="Herculean Vest", augments={'Pet: "Mag.Atk.Bns."+25','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2','Pet: AGI+10',}},
+	body="Udug Jacket",
         hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
         legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
     feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
