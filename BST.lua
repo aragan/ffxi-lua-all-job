@@ -887,6 +887,7 @@ function init_gear_sets()
 			
 	sets.idle.MDTMaster = {		
 		main="Izizoeksi",
+		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
@@ -1006,6 +1007,8 @@ function init_gear_sets()
 }
 
     sets.defense.PetPDT = {			main="Izizoeksi",
+	sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
+
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
 		  body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
@@ -1086,6 +1089,8 @@ function init_gear_sets()
 }
 
 	sets.defense.PetMDT =  {
+		main="Izizoeksi",
+		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
 	          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
 			  	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 			hands="Gleti's Gauntlets",
