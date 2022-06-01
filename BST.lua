@@ -660,7 +660,7 @@ function init_gear_sets()
     sub={ name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+16','Pet: Phys. dmg. taken -1%','Pet: TP Bonus+160',}},
     ammo="Voluspa Tathlum",
     head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+26','Pet: VIT+14','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+12 Pet: Rng.Atk.+12',}},
-    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    body="Udug Jacket",
     hands="Nukumi Manoplas +1",
     legs={ name="Valorous Hose", augments={'Pet: "Mag.Atk.Bns."+23','Pet: INT+3','Pet: Accuracy+5 Pet: Rng. Acc.+5','Pet: Attack+4 Pet: Rng.Atk.+4',}},
     feet="Gleti's Boots",
@@ -670,7 +670,8 @@ function init_gear_sets()
     right_ear="Crep. Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},})
+    back="Argocham. Mantle",
+})
 		
 		--	head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','System: 1 ID: 1794 Val: 12','Pet: Accuracy+10 Pet: Rng. Acc.+10',}},
 		--	body={ name="Valorous Mail", augments={'Pet: "Mag.Atk.Bns."+30','Pet: Haste+2','Pet: STR+9','Pet: Attack+7 Pet: Rng.Atk.+7',}},
@@ -695,7 +696,8 @@ function init_gear_sets()
     right_ear="Kyrene's Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},})
+    back="Argocham. Mantle",
+})
 	
 	sets.midcast.Pet.BreathReady = set_combine(sets.midcast.Pet.WS, {
 			--MAB
@@ -713,7 +715,7 @@ function init_gear_sets()
     right_ear="Rimeice Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+    back="Argocham. Mantle",
 			--MACC
 			main="Deacon Tabar",
     sub="Mdomo Axe +1",
@@ -729,7 +731,7 @@ function init_gear_sets()
     right_ear="Kyrene's Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+    back="Argocham. Mantle",
 			})
 			
 		
