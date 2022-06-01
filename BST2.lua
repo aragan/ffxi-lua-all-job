@@ -731,7 +731,7 @@ function init_gear_sets()
 	head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 	body="Nukumi Gausape +1",
 	hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-	legs={ name="Ankusa Trousers +2", augments={'Enhances "Familiar" effect',}},
+    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
 	feet="Tali'ah Crackows +2",
 	neck="Shulmanu Collar",
 	waist="Incarnation Sash",
