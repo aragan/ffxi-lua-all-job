@@ -592,6 +592,22 @@ function init_gear_sets()
 		right_ring="Epaminondas's Ring",
 }
 
+sets.precast.WS['Aeolian Edge'] = {
+    ammo="Pemphredo Tathlum",
+    head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+    body="Nyame Mail",
+    hands="Meg. Gloves +2",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
+    back="Moonlight Cape",
+}
+
 	-- Calamity, Meditate, Sekkanoki > brain > tail, leave, cb, fight > Primal Rend > tegmina > Clerrrdplerrterrr
 	--------------------------------------------------------------------------------		
 	-- tail   >  tegmi  >  sensi >  brain  >  tail  >  " "
