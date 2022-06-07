@@ -53,7 +53,7 @@ function user_setup()
         state.IdleMode:options('Normal', 'MNormal', 'MDTMaster', 'Turtle', 'MEva')
         state.RestingMode:options('Normal')
         state.PhysicalDefenseMode:options('PDT', 'PetPDT', 'Reraise', 'Killer')
-        state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT')
+        state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
 
         -- 'Out of Range' distance; WS will auto-cancel
         target_distance = 6
@@ -186,7 +186,6 @@ function init_gear_sets()
 
 		sets.precast.JA.Reward = {
 				main="Mdomo Axe +1",
-    ammo="Pet Food Theta",
     body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
     legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
     feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
@@ -627,7 +626,7 @@ function init_gear_sets()
     head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Nukumi Manoplas +1",
-    legs="Despair Cuisses",
+    legs="Tot. Trousers +1",
     feet="Gleti's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
@@ -816,20 +815,21 @@ function init_gear_sets()
 			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
 			
 	sets.midcast.Pet.Vagary = {
-			main={name="Hunahpu",priority=15},
-			ear1="Enmerkar Earring",
-			ring2="Varar Ring +1 +1",
-			head={name="Tali'ah Turban +2",priority=10},
-			body={name="Tali'ah Manteel +2",priority=14},
-			hands={name="Tali'ah Gages +2",priority=12},
-			legs={name="Tali'ah Seraweels +2",priority=13},
-			feet={name="Tali'ah Crackows +2",priority=11},
-			ammo="Demonry Core",
-			neck="Shulmanu Collar",
-			waist="Incarnation Sash",
-			ear2="Handler's Earring +1",
-			ring1="Thurandaut Ring",
-			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
+		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
+        sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
+		head="Tali'ah Turban +2",
+		body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
+		hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+	    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
+		feet="Tali'ah Crackows +2",
+		neck="Shulmanu Collar",
+		waist="Incarnation Sash",
+		left_ear="Sroda Earring",
+		right_ear="Enmerkar Earring",
+		left_ring="Varar Ring +1",
+		right_ring="Varar Ring +1",
+		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+		}
 	
 	sets.midcast.Pet.TPBonus = {hands="Nukumi Manoplas +1",}
 		
@@ -956,11 +956,11 @@ function init_gear_sets()
 
 	sets.idle.Pet = set_combine(sets.idle, { main="Glyph Axe",
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		  body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		hands="Gleti's Gauntlets",
+		  body={ name="Emicho Haubert", augments={'Pet: HP+100','Pet: INT+15','Pet: "Regen"+2',}},
+		  hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
-		neck="Shepherd's Chain",
+		neck="Empath Necklace",
 		waist="Isa Belt",
 		left_ear="Hypaspist Earring",
 		right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
@@ -973,20 +973,19 @@ function init_gear_sets()
 		-- sub="Astolfo",
 			
 	sets.idle.Pet.Engaged = set_combine(sets.idle, {
-		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-        sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-		head="Tali'ah Turban +2",
-		body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-		hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-	    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
-		feet="Tali'ah Crackows +2",
-		neck="Shulmanu Collar",
-		waist="Incarnation Sash",
-		left_ear="Sroda Earring",
-		right_ear="Enmerkar Earring",
-		left_ring="Varar Ring +1",
-		right_ring="Varar Ring +1",
-		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+		main="Izizoeksi",
+		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
+			  head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+			  body="Tot. Jackcoat +2",
+			  hands="Gleti's Gauntlets",
+			legs="Tali'ah Sera. +2",
+			feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
+			neck="Shepherd's Chain",
+			waist="Isa Belt",
+			left_ear="Hypaspist Earring",
+			right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
+			left_ring="Thurandaut Ring",
+			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 	})
         
         -- DEFENSE SETS
@@ -1010,8 +1009,8 @@ function init_gear_sets()
 	sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
 
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		  body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-		hands="Gleti's Gauntlets",
+		  body="Tot. Jackcoat +2",
+		  hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
 		neck="Shepherd's Chain",
@@ -1092,8 +1091,8 @@ function init_gear_sets()
 		main="Izizoeksi",
 		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
 	          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-			  	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-			hands="Gleti's Gauntlets",
+			  body="Tot. Jackcoat +2",
+			  hands="Gleti's Gauntlets",
 			legs="Tali'ah Sera. +2",
 			feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 			neck="Shepherd's Chain",
@@ -1102,6 +1101,21 @@ function init_gear_sets()
 			right_ear="Enmerkar Earring",
 			left_ring="Thurandaut Ring",
 			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
+}
+
+sets.defense.Petregen = {			main="Izizoeksi",
+sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
+	  head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+	  body={ name="Emicho Haubert", augments={'Pet: HP+100','Pet: INT+15','Pet: "Regen"+2',}},
+	  hands="Gleti's Gauntlets",
+	legs="Tali'ah Sera. +2",
+	feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
+    neck="Empath Necklace",
+	waist="Isa Belt",
+	left_ear="Hypaspist Earring",
+	right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
+	left_ring="Thurandaut Ring",
+	back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 }
 
 	sets.Kiting = {feet="Skadi's Jambeaux +1"}
@@ -1775,8 +1789,8 @@ if spell.type == "Monster" and not spell.interrupted then
  end
  
 	if buffactive['Unleash'] then
-                hands={ name="Valorous Mitts", augments={'Pet: Attack+30 Pet: Rng.Atk.+30','Pet: "Store TP"+10','System: 1 ID: 1792 Val: 13','Pet: Accuracy+3 Pet: Rng. Acc.+3',}}
-        end
+		hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+	end
  
 	if macc_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
  equip(sets.midcast.Pet.MaccReady)
