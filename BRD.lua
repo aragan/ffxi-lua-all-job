@@ -249,8 +249,8 @@ function init_gear_sets()
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +1"
-        neck="Aoidos' Matinee",
+        feet="Brioso Slippers +1",
+        neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
         right_ear="Musical Earring",
@@ -268,8 +268,8 @@ function init_gear_sets()
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +1"
-        neck="Aoidos' Matinee",
+        feet="Brioso Slippers +1",
+        neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
         right_ear="Musical Earring",
