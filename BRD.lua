@@ -49,7 +49,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
+    state.OffenseMode:options('None', 'Normal', 'Sword')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
 
@@ -148,7 +148,12 @@ function init_gear_sets()
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {}
+    sets.precast.WS = {
+
+
+        right_ring="Epaminondas's Ring",
+
+    }
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,{ 
@@ -160,7 +165,7 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    ring2="Begrudging Ring",
+    right_ring="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -192,7 +197,7 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    ring2="Begrudging Ring",
+    right_ring="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -324,7 +329,15 @@ function init_gear_sets()
     
     
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {}
+    sets.idle = {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
 
     sets.idle.PDT = {
        
@@ -368,55 +381,73 @@ function init_gear_sets()
     sets.engaged = {
      main="Tauret",
     sub="Gleti's Knife",
-    head="Nyame Helm",
+    head="Aya. Zucchetto +2",
     body="Ayanmo Corazza +2",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Asperity Necklace",
+    neck="Lissome Necklace",
     waist="Reiki Yotai",
-    left_ear="Eabani Earring",
-    right_ear="Digni. Earring",
-    left_ring="Petrov Ring",
-    right_ring="Moonbeam Ring",
-    back="Atheling Mantle",
+    left_ear="Suppanomimi",
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -- Sets with weapons defined.
     sets.engaged.Dagger = {
         main="Tauret",
         sub="Gleti's Knife",
-        head="Nyame Helm",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Asperity Necklace",
+        neck="Lissome Necklace",
         waist="Reiki Yotai",
-        left_ear="Eabani Earring",
-        right_ear="Digni. Earring",
-        left_ring="Petrov Ring",
-        right_ring="Moonbeam Ring",
-        back="Atheling Mantle",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -- Set if dual-wielding
     sets.engaged.DW = {
         main="Tauret",
         sub="Gleti's Knife",
-        head="Nyame Helm",
+        head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Asperity Necklace",
+        neck="Lissome Necklace",
         waist="Reiki Yotai",
-        left_ear="Eabani Earring",
-        right_ear="Digni. Earring",
-        left_ring="Petrov Ring",
-        right_ring="Moonbeam Ring",
-        back="Atheling Mantle",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+
+    sets.engaged.Sword = {
+        main="Naegling",
+        sub="Gleti's Knife",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
 end
 
 
