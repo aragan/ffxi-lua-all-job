@@ -57,7 +57,7 @@ function user_setup()
     pick_tp_weapon()
     
     -- Adjust this if using the Terpander (new +song instrument)
-    info.ExtraSongInstrument = 'Terpander'
+    info.ExtraSongInstrument = 'Daurdabla'
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 1
     
@@ -233,33 +233,55 @@ function init_gear_sets()
     hands="Inyan. Dastanas +1",
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +1",
-    neck="Aoidos' Matinee",
+    neck="Mnbw. Whistle +1",
     waist="Kobo Obi",
     left_ear="Loquac. Earring",
     right_ear="Musical Earring",
-    left_ring="Stikini Ring",
-    right_ring="Kishar Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},}
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
+}
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {
-        main="Lehbrailg +2",sub="Mephitis Grip",range="Gjallarhorn",
-        head="Brioso Roundlet +1",neck="Aoidos' Matinee",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Aoidos' Hongreline +2",hands="Aoidos' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +1"
+        range="Gjallarhorn",
+        head="Fili Calot +1",
+        body="Aoidos' Hongreline +2",
+        hands="Aoidos' Manchettes +2",    
+        legs="Inyanga Shalwar +2",
+        feet="Brioso Slippers +1"
+        neck="Aoidos' Matinee",
+        waist="Kobo Obi",
+        left_ear="Digni. Earring",
+        right_ear="Musical Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
+
     }
+
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {
-        sub="Mephitis Grip",range="Gjallarhorn",
-       ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Kumbira Cape",waist="Demonry Sash",legs="Brioso Cannions +1",feet="Bokwus Boots"
+        range="Gjallarhorn",
+        head="Fili Calot +1",
+        body="Aoidos' Hongreline +2",
+        hands="Aoidos' Manchettes +2",    
+        legs="Inyanga Shalwar +2",
+        feet="Brioso Slippers +1"
+        neck="Aoidos' Matinee",
+        waist="Kobo Obi",
+        left_ear="Digni. Earring",
+        right_ear="Musical Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
     }
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {ear2="Loquacious Earring",
         ring1="Prolix Ring",
-        back="Harmony Cape",waist="Corvax Sash",legs="Aoidos' Rhing. +2"}
+        back="Harmony Cape",legs="Aoidos' Rhing. +2"}
 
     --sets.midcast.Daurdabla = set_combine(sets.midcast.FastRecast, sets.midcast.SongRecast, {range=info.ExtraSongInstrument})
 
