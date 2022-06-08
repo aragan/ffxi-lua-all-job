@@ -37,7 +37,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Counter', 'hybrid', 'hybridtp')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'Club', 'Polearm', 'hybrid', 'hybridtp', 'Counter')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
@@ -594,11 +594,28 @@ function init_gear_sets()
         neck={ name="Vim Torque +1", augments={'Path: A',}},
     })
 
+    sets.engaged.Sword = set_combine(sets.engaged.hybrid, {
+        main="Naegling",
+        sub="Blurred Shield +1",
+    })
+
+    sets.engaged.Club = set_combine(sets.engaged.hybrid, {
+        main={ name="Loxotic Mace +1", augments={'Path: A',}},
+        sub="Blurred Shield +1",
+    })
+
+    sets.engaged.Polearm = set_combine(sets.engaged.hybrid, {
+        main="Shining One",
+        sub="Utu Grip",
+    })
+
      sets.engaged.Counter = set_combine(sets.engaged, {
         ammo="Amar Cluster",
     left_ear="Genmei Earring",
     right_ear="Cryptic Earring",
     })
+
+    
 
      sets.engaged.PDT = set_combine(sets.engaged, sets.Defensive)
      sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, sets.Defensive)
