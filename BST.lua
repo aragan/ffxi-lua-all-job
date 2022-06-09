@@ -973,13 +973,13 @@ function init_gear_sets()
 		-- sub="Astolfo",
 			
 	sets.idle.Pet.Engaged = set_combine(sets.idle, {
-		main="Izizoeksi",
-		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
-			  head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-			  body="Tot. Jackcoat +2",
-			  hands="Gleti's Gauntlets",
-			legs="Tali'ah Sera. +2",
-			feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
+		main={ name="Astolfo", augments={'VIT+11','Pet: Phys. dmg. taken -11%',}},
+		sub="Izizoeksi",
+		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		hands={ name="Taeon Gloves", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+			  legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+			  feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 			neck="Shepherd's Chain",
 			waist="Isa Belt",
 			left_ear="Hypaspist Earring",
@@ -1005,9 +1005,9 @@ function init_gear_sets()
 	back="Moonlight Cape",
 }
 
-    sets.defense.PetPDT = {			main="Izizoeksi",
-	sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
-
+    sets.defense.PetPDT = {				
+		main={ name="Astolfo", augments={'VIT+11','Pet: Phys. dmg. taken -11%',}},
+	    sub="Izizoeksi",
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
 		  body="Tot. Jackcoat +2",
 		  hands="Gleti's Gauntlets",
@@ -1045,7 +1045,7 @@ function init_gear_sets()
     head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
     hands="Nukumi Manoplas +1",
-    legs="Despair Cuisses",
+    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
     neck="Shulmanu Collar",
     waist="Incarnation Sash",
@@ -1103,8 +1103,9 @@ function init_gear_sets()
 			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 }
 
-sets.defense.Petregen = {			main="Izizoeksi",
-sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
+sets.defense.Petregen = {			
+	main={ name="Astolfo", augments={'VIT+11','Pet: Phys. dmg. taken -11%',}},
+	sub="Izizoeksi",
 	  head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
 	  body={ name="Emicho Haubert", augments={'Pet: HP+100','Pet: INT+15','Pet: "Regen"+2',}},
 	  hands="Gleti's Gauntlets",
