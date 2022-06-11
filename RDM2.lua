@@ -996,13 +996,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'BLM' then
-        set_macro_page(10, 5)
+        set_macro_page(6, 1)
     elseif player.sub_job == 'WHM' then
-        set_macro_page(10, 5)
+        set_macro_page(6, 1)
     elseif player.sub_job == 'THF' then
-        set_macro_page(10, 5)
+        set_macro_page(6, 1)
     else
-        set_macro_page(10, 5)
+        set_macro_page(6, 1)
     end
 end
 

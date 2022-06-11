@@ -639,7 +639,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Nukumi Manoplas +1",
-		legs="Tot. Trousers +1",
+		legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
 		feet="Gleti's Boots",
 		neck="Shulmanu Collar",
 		waist="Klouskap Sash +1",

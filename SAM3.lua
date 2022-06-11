@@ -676,7 +676,6 @@ function init_gear_sets()
     })
 
     sets.engaged.polearm = set_combine(sets.engaged, {
-        main="Shining One",
              ammo="Coiste Bodhar",
          head="Flam. Zucchetto +2",
          body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},

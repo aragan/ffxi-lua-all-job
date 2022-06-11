@@ -626,7 +626,7 @@ function init_gear_sets()
     head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands="Nukumi Manoplas +1",
-    legs="Tot. Trousers +1",
+    legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
     feet="Gleti's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
@@ -1790,7 +1790,7 @@ if spell.type == "Monster" and not spell.interrupted then
  end
  
 	if buffactive['Unleash'] then
-		hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+	        	hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}}
 	end
  
 	if macc_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
@@ -2074,13 +2074,13 @@ function get_combat_form()
 		
 	-- Default macro set/book
 	if player.sub_job == 'DNC' then
-		set_macro_page(9, 8)
+		set_macro_page(9, 11)
 	elseif player.sub_job == 'WAR' then
-		set_macro_page(9, 8)
+		set_macro_page(9, 11)
 	elseif player.sub_job == 'NIN' then
-		set_macro_page(9, 8)
+		set_macro_page(9, 11)
 	else
-		set_macro_page(9, 8)
+		set_macro_page(9, 11)
 	end
 	
 end
