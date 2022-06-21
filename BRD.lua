@@ -49,12 +49,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Sword')
+    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
 
-    brd_daggers = S{'Tauret', 'Gleti Knife'}
-    pick_tp_weapon()
+
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
@@ -125,7 +124,7 @@ function init_gear_sets()
     body="Fili Hongreline +1",
     hands="Inyan. Dastanas +1",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +1",
+    feet="Brioso Slippers +2",
     neck="Aoidos' Matinee",
     waist="Kobo Obi",
     left_ear="Loquac. Earring",
@@ -159,7 +158,7 @@ function init_gear_sets()
         body="Ayanmo Corazza +2",
         hands="Lustr. Mittens +1",
         ring1="Hetairoi Ring",
-        right_ring="Epaminondas's Ring",
+        ring2="Epaminondas's Ring",
         back="Intarabus's Cape",
         waist="Fotia Belt",
         legs="Lustr. Subligar +1",
@@ -173,9 +172,9 @@ function init_gear_sets()
     ear1="Moonshade Earring",
     ear2="Brutal Earring",
     body="Ayanmo Corazza +2",
-    hands="Lustr. Mittens +1",
+    hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    right_ring="Epaminondas's Ring",
+    ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -188,7 +187,7 @@ function init_gear_sets()
     ear1="Moonshade Earring",
     ear2="Brutal Earring",
     body="Ayanmo Corazza +2",
-    hands="Lustr. Mittens +1",
+    hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
     ring2="Begrudging Ring",
     back="Intarabus's Cape",
@@ -205,7 +204,7 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    right_ring="Epaminondas's Ring",
+    ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -220,7 +219,7 @@ sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    right_ring="Epaminondas's Ring",
+    ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -234,7 +233,7 @@ sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    right_ring="Epaminondas's Ring",
+    ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
@@ -250,7 +249,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     body="Ayanmo Corazza +2",
     hands="Lustr. Mittens +1",
     ring1="Hetairoi Ring",
-    right_ring="Epaminondas's Ring",
+    ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
     legs="Lustr. Subligar +1",
@@ -290,7 +289,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     body="Fili Hongreline +1",
     hands="Inyan. Dastanas +1",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +1",
+    feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
     waist="Kobo Obi",
     left_ear="Loquac. Earring",
@@ -307,7 +306,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +1",
+        feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
@@ -326,7 +325,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +1",
+        feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
@@ -432,11 +431,10 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        main="Tauret",
-    sub="Gleti's Knife",
+
     head="Aya. Zucchetto +2",
     body="Ayanmo Corazza +2",
-    hands="Nyame Gauntlets",
+    hands="Bunzi's Gloves",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Lissome Necklace",
@@ -454,24 +452,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         sub="Gleti's Knife",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Lissome Necklace",
-        waist="Reiki Yotai",
-        left_ear="Suppanomimi",
-        right_ear="Cessance Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-
-    -- Set if dual-wielding
-    sets.engaged.DW = {
-        sub="Gleti's Knife",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +2",
-        hands="Nyame Gauntlets",
+        hands="Bunzi's Gloves",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Lissome Necklace",
@@ -488,7 +469,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         sub="Gleti's Knife",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Nyame Gauntlets",
+        hands="Bunzi's Gloves",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Lissome Necklace",
@@ -578,7 +559,7 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    pick_tp_weapon()
+   
 end
 
 
@@ -737,18 +718,7 @@ end
 
 -- Examine equipment to determine what our current TP weapon is.
 function pick_tp_weapon()
-    if brd_daggers:contains(player.equipment.main) then
-        state.CombatWeapon:set('Dagger')
-        
-        if S{'NIN','DNC'}:contains(player.sub_job) and brd_daggers:contains(player.equipment.sub) then
-            state.CombatForm:set('DW')
-        else
-            state.CombatForm:reset()
-        end
-    else
-        state.CombatWeapon:reset()
-        state.CombatForm:reset()
-    end
+
 end
 
 -- Function to reset timers.
