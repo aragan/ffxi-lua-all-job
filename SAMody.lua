@@ -521,11 +521,11 @@ function init_gear_sets()
     }
     
     sets.idle.Town = {        
-        head="Rao Kabuto",
-    neck="Sanctity Necklace",
-    ring2="Paguroidea Ring",
+
     ear2="Infused Earring",
        body="Hizamaru Haramaki +2",
+       feet="Danzo Sune-Ate",
+
 
     }
     -- sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
@@ -537,7 +537,7 @@ function init_gear_sets()
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    feet="Danzo Sune-Ate",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
@@ -554,14 +554,13 @@ function init_gear_sets()
         ring2="Paguroidea Ring",
         ear2="Infused Earring",
    	    body="Hizamaru Haramaki +2",
-        feet="Danzo Sune-ate"
     })
 
     sets.idle.Sphere = set_combine(sets.idle, { })
     
     sets.idle.Weak = set_combine(sets.idle.Field, {
-        -- head="Twilight Helm",
-    	-- body="Twilight Mail"
+        head="Twilight Helm",
+    	body="Twilight Mail",
     })
     
     -- Defense sets
@@ -602,7 +601,7 @@ function init_gear_sets()
         back="Moonlight Cape",
     })
     
-    sets.Kiting = {feet="Danzo Sune-ate"}
+    sets.Kiting = {        feet="Danzo Sune-ate",}
     
     sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
     

@@ -311,7 +311,7 @@ function init_gear_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet="Danzo Sune-Ate",
     neck="Moonbeam Nodowa",
     waist="Sarissapho. Belt",
     left_ear="Telos Earring",
@@ -332,7 +332,7 @@ function init_gear_sets()
         body="Councilor's Garb",
     }
     sets.idle.Town = sets.idle
-    sets.idle.Town = set_combine(sets.idle, {
+    sets.idle.Town = set_combine(sets.idle, {    feet="Danzo Sune-Ate",
 
     })
     --sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
