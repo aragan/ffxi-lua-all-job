@@ -163,8 +163,8 @@ function init_gear_sets()
     waist="Creed Baudrier",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Kishar Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Kishar Ring",
     back="Moonlight Cape",
 }
      
@@ -213,7 +213,7 @@ neck="Fotia Gorget",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring="Beithir Ring",
-    right_ring="Petrov Ring",
+    right_ring="Epaminondas's Ring",
     back="Atheling Mantle",
 
 }
@@ -242,14 +242,56 @@ left_ring="Beithir Ring",
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
     sets.precast.WS['Sanguine Blade'] = 
 {
-
+    ammo="Pemphredo Tathlum",
+    head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Beithir Ring",
+    right_ring="Epaminondas's Ring",
+    back="Argocham. Mantle",
 }	
 	
      
     sets.precast.WS['Aeolian Edge'] = 
 {   
-
+    ammo="Pemphredo Tathlum",
+    head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Beithir Ring",
+    right_ring="Epaminondas's Ring",
+    back="Argocham. Mantle",
 }	
+
+sets.precast.WS['Cataclysm'] = 
+{   
+    ammo="Pemphredo Tathlum",
+    head="Pixie Hairpin +1",
+    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    feet="Sulev. Leggings +2",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Archon Ring",
+    right_ring="Epaminondas's Ring",
+    back="Argocham. Mantle",
+}	
+
  
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
     sets.precast.WS['Savage Blade'] = 
@@ -264,7 +306,7 @@ waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring="Beithir Ring",
-right_ring="Moonbeam Ring",
+right_ring="Epaminondas's Ring",
 back="Atheling Mantle",
 
 }
@@ -283,7 +325,7 @@ back="Atheling Mantle",
     left_ear="Brutal Earring",
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
-    right_ring="Beithir Ring",
+    right_ring="Epaminondas's Ring",
     back="Atheling Mantle",
 }
 	
@@ -887,8 +929,8 @@ back="Moonlight Cape",
     waist="Creed Baudrier",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Moonbeam Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonbeam Ring",
     back="Moonlight Cape",
  
 }
