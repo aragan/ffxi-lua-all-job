@@ -44,7 +44,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Mod')
+    state.OffenseMode:options('Normal', 'Acc', 'Mod', 'Ranger')
     state.HybridMode:options('Normal', 'Evasion', 'PDT')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
@@ -145,7 +145,10 @@ function init_gear_sets()
 
 
     -- Ranged snapshot gear
-    sets.precast.RA = {head="Aurore Beret",hands="Iuitl Wristbands",legs="Nahtirah Trousers",feet="Wurrukatte Boots"}
+    sets.precast.RA = {
+        legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        feet="Meg. Jam. +2",
+        waist="Yemaya Belt",}
 
 
     -- Weaponskill sets
@@ -354,6 +357,20 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
 
+    sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, {
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    neck="Iskur Gorget",
+    waist="Yemaya Belt",
+    left_ear="Telos Earring",
+    right_ear="Ishvara Earring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+})
 
     --------------------------------------
     -- Midcast sets
@@ -381,17 +398,37 @@ function init_gear_sets()
     left_ring="Prolix Ring",}
 
     -- Ranged gear
-    sets.midcast.RA = {range="Exalted C.bow",
-    ammo="Gashing Bolt",
-        head="Whirlpool Mask",neck="Ej Necklace",ear1="Clearview Earring",ear2="Volley Earring",
-        body="Iuitl Vest",hands="Iuitl Wristbands",ring1="Beeline Ring",ring2="Hajduk Ring",
-        back="Libeccio Mantle",waist="Aquiline Belt",legs="Nahtirah Trousers",feet="Iuitl Gaiters +1"}
+    sets.midcast.RA = {
+        range="Ullr",
+        ammo="Beryllium Arrow",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Dingir Ring",
+        right_ring="Cacoethic Ring",
+    }
 
-    sets.midcast.RA.Acc = {range="Exalted C.bow",
-    ammo="Gashing Bolt",
-        head="Pillager's Bonnet +1",neck="Ej Necklace",ear1="Clearview Earring",ear2="Volley Earring",
-        body="Iuitl Vest",hands="Buremte Gloves",ring1="Beeline Ring",ring2="Hajduk Ring",
-        back="Libeccio Mantle",waist="Aquiline Belt",legs="Thurandaut Tights +1",feet="Pillager's Poulaines +1"}
+    sets.midcast.RA.Acc = {
+        range="Ullr",
+        ammo="Beryllium Arrow",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Dingir Ring",
+        right_ring="Cacoethic Ring",
+    }
 
 
     --------------------------------------
@@ -399,7 +436,8 @@ function init_gear_sets()
     --------------------------------------
 
     -- Resting sets
-    sets.resting = {head="Ocelomeh Headpiece +1",neck="Wiglen Gorget",
+    sets.resting = {
+       
         ring1="Sheltered Ring",ring2="Paguroidea Ring"}
 
 
@@ -506,6 +544,25 @@ function init_gear_sets()
     -- Mod set for trivial mobs (Thaumas)
     sets.engaged.Mod2 = {
     }
+
+    sets.engaged.Ranger = {
+        main="Kustawi +1",
+        sub={ name="Aeneas", augments={'Path: A',}},
+        range="Ullr",
+        ammo="Beryllium Arrow",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Dingir Ring",
+        right_ring="Cacoethic Ring",
+    }
+
 
     sets.engaged.Evasion = {
         ammo="Staunch Tathlum +1",
