@@ -73,20 +73,70 @@ function init_gear_sets()
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-		head="Orion Beret +1",
-		body="Sylvan Caban +2",hands="Iuitl Wristbands",
-		waist="Impulse Belt",legs="Nahtirah Trousers",feet="Khepri Gamashes"}
+	    head="Ikenga's Hat",
+    body="Ikenga's Vest",
+    hands="Ikenga's Gloves",
+    legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    feet="Meg. Jam. +2",
+    waist="Yemaya Belt",
+	}
 
 
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
-		head="Orion beret +1",neck=gear.ElementalGorget,ear1="Vulcan's Pearl",ear2="Vulcan's Pearl",
-		body="Khepri Jacket",hands="Arcadian Bracers +1",ring1="Pyrosoul Ring",ring2="Rajas Ring",
-		back="Sylvan Chlamys",waist=gear.ElementalBelt,legs="Nahtirah Trousers",feet="Orion Socks +1" }
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Meg. Gloves +2",
+		legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Regal Ring",
+		right_ring="Epaminondas's Ring",
+		back="Atheling Mantle", 
+	}
 
-	sets.precast.WS.Acc = set_combine(sets.precast.WS, {body="Kyujutsugi",ring1="Hajduk Ring +1",
-		back="Lutian Cape",legs="Orion Braccae +1"})
+	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+	})
+
+    sets.precast.WS['Last Stand'] = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Meg. Gloves +2",
+		legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Regal Ring",
+		right_ring="Epaminondas's Ring",
+		back="Atheling Mantle", 
+	}
+
+	sets.precast.WS.Wildfire  = {
+	    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Meg. Gloves +2",
+    legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Ishvara Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Defending Ring",
+    right_ring="Ilabrat Ring",
+    back="Argocham. Mantle",
+	}
+
+	sets.precast.WS.Trueflight = set_combine(sets.precast.WS.Wildfire, {
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	})
+
+
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
@@ -107,22 +157,30 @@ function init_gear_sets()
 	-- Ranged sets
 
 	sets.midcast.RA = {
-		head="Arcadian Beret +1",neck="Ocachi Gorget",ear1="Volley earring",ear2="Tripudio Earring",
-		body="Kyujutsugi",hands="Manibozho Gloves",ring1="Paqichikaji Ring",ring2="Hajduk Ring +1",
-		back="Lutian Cape",waist="Elanid Belt",legs="Nahtirah Trousers",feet="Orion Socks +1"}
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Iskur Gorget",
+		waist="Yemaya Belt",
+		left_ear="Dedition Earring",
+		right_ear="Telos Earring",
+		left_ring="Ilabrat Ring",
+		right_ring="Regal Ring",
+	}
 	
-	sets.midcast.RA.Acc = set_combine(sets.midcast.RA,
-		{head="Orion Beret +1",neck="Ej Necklace +1",hands="Manibozho Gloves",ring2="Hajduk Ring +1",
-		back="Lutian Cape",legs="Orion Braccae +1"})
+	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
+
+	})
 
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
 
 	sets.midcast.RA.Annihilator.Acc = set_combine(sets.midcast.RA.Acc)
 
-	sets.midcast.RA.Yoichinoyumi = set_combine(sets.midcast.RA, {ear2="Clearview Earring",ring2="Rajas Ring",
-		back="Sylvan Chlamys"})
+	sets.midcast.RA.Yoichinoyumi = set_combine(sets.midcast.RA, {})
 
-	sets.midcast.RA.Yoichinoyumi.Acc = set_combine(sets.midcast.RA.Acc, {ear2="Clearview Earring"})
+	sets.midcast.RA.Yoichinoyumi.Acc = set_combine(sets.midcast.RA.Acc, {})
 	
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
@@ -131,27 +189,25 @@ function init_gear_sets()
 	-- Sets to return to when not performing an action.
 
 	-- Resting sets
-	sets.resting = {head="Ocelomeh Headpiece +1",neck="Wiglen Gorget",
+	sets.resting = {
 		ring1="Sheltered Ring",ring2="Paguroidea Ring"}
 
 	-- Idle sets
 	sets.idle = {
-		head="Arcadian Beret +1",neck="Ej Necklace +1",ear1="Vulcan's Pearl",ear2="Vulcan's Pearl",
-		body="Khepri Jacket",hands="Arcadian Bracers +1",ring1="Defending Ring",ring2="Shadow Ring",
-		back="Shadow Mantle",waist="Pya'ekue Belt +1",legs="Nahtirah Trousers",feet="Fajin Boots"}
+
+	}
 	
 	-- Defense sets
 	sets.defense.PDT = {
-		head="Whirlpool Mask",neck="Twilight Torque",
-		body="Orion Jerkin +1",hands="Orion Bracers +1",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-		back="Mollusca Mantle",waist="Flume Belt",legs="Nahtirah Trousers",feet="Orion Socks +1"}
+
+	}
 
 	sets.defense.MDT = {
-		head="Orion Beret +1",neck="Twilight Torque",
-		body="Orion Jerkin +1",hands="Orion Bracers +1",ring1="Defending Ring",ring2="Shadow Ring",
-		back="Mollusca Cape",waist="Flume Belt",legs="Nahtirah Trousers",feet="Orion Socks +1"}
+}
 
-	sets.Kiting = {feet="Fajin Boots"}
+	sets.Kiting = {
+		
+	}
 
 
 	--------------------------------------
@@ -159,14 +215,12 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.engaged = {
-		head="Whirlpool Mask",neck="Twilight Torque",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-		body="Orion Jerkin +1", hands="Arcadian Bracers +1", ring1="Defending Ring",ring2="Rajas Ring",
-		back="Shadow Mantle",waist="Flume Belt",legs="Nahtirah Trousers",feet="Orion Socks +1"}
+
+	}
 
 	sets.engaged.Acc = {
-		head="Whirlpool Mask",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-		body="Manibozho Jerkin",hands="Iuitl Wristbands",ring1="K'ayres Ring",ring2="Rajas Ring",
-		back="Letalis Mantle",waist="Windbuffet Belt",legs="Manibozho Brais",feet="Iuitl Gaiters"}
+
+	}
 
 	--------------------------------------
 	-- Custom buff sets
