@@ -136,6 +136,20 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	})
 
+	sets.precast.WS["Jishnu's Radiance"] = {		head="Nyame Helm",
+    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    body="Meg. Cuirie +2",
+    hands="Mummu Wrists +2",
+    legs="Jokushu Haidate",
+    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sherida Earring",
+    right_ear="Odr Earring",
+    left_ring="Mummu Ring",
+    right_ring="Regal Ring",
+    back="Atheling Mantle",
+	}
 
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
