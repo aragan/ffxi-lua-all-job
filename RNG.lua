@@ -96,7 +96,7 @@ function init_gear_sets()
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
 		right_ring="Epaminondas's Ring",
-		back="Atheling Mantle", 
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
@@ -114,7 +114,7 @@ function init_gear_sets()
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
 		right_ring="Epaminondas's Ring",
-		back="Atheling Mantle", 
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
 	sets.precast.WS.Wildfire  = {
@@ -127,16 +127,16 @@ function init_gear_sets()
     waist="Orpheus's Sash",
     left_ear="Ishvara Earring",
     right_ear="Friomisi Earring",
-    left_ring="Defending Ring",
+    left_ring="Epaminondas's Ring",
     right_ring="Ilabrat Ring",
-    back="Argocham. Mantle",
+    back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
 	sets.precast.WS.Trueflight = set_combine(sets.precast.WS.Wildfire, {
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	})
 
-	sets.precast.WS["Jishnu's Radiance"] = {		head="Nyame Helm",
+	sets.precast.WS["Jishnu's Radiance"] = {		
     head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
     body="Meg. Cuirie +2",
     hands="Mummu Wrists +2",
@@ -148,7 +148,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Regal Ring",
-    back="Atheling Mantle",
+    back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
 
