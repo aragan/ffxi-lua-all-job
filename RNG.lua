@@ -8,6 +8,9 @@ function get_sets()
 
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
+	autoRAmode = 0
+	send_command('bind f12 gs c auto') --Gearset update toggle--
+
 end
 
 
@@ -34,7 +37,7 @@ function user_setup()
 	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
 
 	select_default_macro_book()
-
+	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
 end
@@ -151,6 +154,51 @@ function init_gear_sets()
     back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
+	sets.precast.WS["Savage Blade"] = {	    main="Naegling",	
+		head="Meghanada Visor +2",
+		body="Meg. Cuirie +2",
+		hands="Meg. Gloves +2",
+		legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		neck="Fotia Gorget",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Ishvara Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Regal Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		}
+
+	sets.precast.WS['Aeolian Edge'] = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Meg. Gloves +2",
+		legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		neck="Baetyl Pendant",
+		waist="Orpheus's Sash",
+		left_ear="Ishvara Earring",
+		right_ear="Moonshade Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Ilabrat Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		}
+
+		sets.precast.WS.Evisceration  = {
+			head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+			body="Mummu Jacket +2",
+			hands="Mummu Wrists +2",
+			legs="Mummu Kecks +2",
+			feet="Mummu Gamash. +2",
+			neck="Fotia Gorget",
+			waist="Fotia Belt",
+			left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+			right_ear="Mache Earring +1",
+			left_ring="Mummu Ring",
+			right_ring="Regal Ring",
+			back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		}
+
 
 	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
@@ -166,7 +214,7 @@ function init_gear_sets()
 		ring1="Prolix Ring",
 		waist="Pya'ekue Belt +1",legs="Orion Braccae +1",feet="Orion Socks +1"}
 
-	sets.midcast.Utsusemi = {}
+	sets.midcast.Utsusemi = {body="Passion Jacket",neck="Magoraga Beads",}
 
 	-- Ranged sets
 
@@ -185,6 +233,18 @@ function init_gear_sets()
 	}
 	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
+		head="Meghanada Visor +2",
+		body="Meg. Cuirie +2",
+		hands="Ikenga's Gloves",
+		legs="Ikenga's Trousers",
+		feet="Meg. Jam. +2",
+		neck="Iskur Gorget",
+		waist="Eschan Stone",
+		left_ear="Telos Earring",
+		right_ear="Enervating Earring",
+		left_ring="Dingir Ring",
+		right_ring="Cacoethic Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 
 	})
 
@@ -208,19 +268,54 @@ function init_gear_sets()
 
 	-- Idle sets
 	sets.idle = {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Flume Belt +1",
+		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		right_ear="Infused Earring",
+		left_ring="Paguroidea Ring",
+		right_ring="Defending Ring",
+		back="Moonlight Cape",
 
 	}
 	
 	-- Defense sets
 	sets.defense.PDT = {
-
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Flume Belt +1",
+		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		right_ear="Infused Earring",
+		left_ring="Paguroidea Ring",
+		right_ring="Defending Ring",
+		back="Moonlight Cape",
 	}
 
 	sets.defense.MDT = {
-}
+   head="Malignance Chapeau",
+body="Malignance Tabard",
+hands="Malignance Gloves",
+legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+feet="Malignance Boots",
+neck={ name="Loricate Torque +1", augments={'Path: A',}},
+waist="Flume Belt +1",
+left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+right_ear="Infused Earring",
+left_ring="Paguroidea Ring",
+right_ring="Defending Ring",
+back="Moonlight Cape",} 
 
 	sets.Kiting = {
-		
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+
 	}
 
 
@@ -229,19 +324,45 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.engaged = {
-
+		main="Kustawi +1",
+		sub="Nusku Shield",
+		range="Fomalhaut",
+		ammo="Chrono Bullet",
+		head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs="Meg. Chausses +2",
+		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+		neck="Clotharius Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Infused Earring",
+		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
+		back="Atheling Mantle",
 	}
 
 	sets.engaged.Acc = {
-
+		head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs="Meg. Chausses +2",
+		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+		neck="Clotharius Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Infused Earring",
+		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
+		back="Atheling Mantle",
 	}
 
 	--------------------------------------
 	-- Custom buff sets
 	--------------------------------------
 
-	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {hands="Orion Bracers +1"})
-	sets.buff.Camouflage = {body="Orion Jerkin +1"}
+	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
+	sets.buff.Camouflage = {}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -356,6 +477,9 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1, 7)
+	set_macro_page(7, 1)
 end
-
+         
+function autoRA()
+		send_command('@wait 2.5; input /ra <t>')
+end

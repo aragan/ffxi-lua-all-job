@@ -342,22 +342,23 @@ function init_gear_sets()
     -- Elemental Magic sets
      
     sets.midcast['Elemental Magic'] = {
-		main="Bunzi's Rod",
-    sub="Genmei Shield",
-    ammo="Pemphredo Tathlum",
-    head="Ea Hat",
-    body="Ea Houppelande",
-    hands="Ea Cuffs",
-    legs="Ea Slops",
-    feet="Ea Pigaches",
-    neck="Mizu. Kubikazari",
-    waist="Hachirin-no-Obi",
-    left_ear="Friomisi Earring",
-    right_ear="Malignance Earring",
-    left_ring="Freke Ring",
-    right_ring="Mujin Band",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",  
+        ammo="Pemphredo Tathlum",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Mizu. Kubikazari",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Mujin Band",
+        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
 	}
+
 
     sets.midcast['Elemental Magic'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
 		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
@@ -368,7 +369,7 @@ function init_gear_sets()
     hands="Jhakri Cuffs +2",
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
-    neck="Sanctity Necklace",
+    neck="Baetyl Pendant",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
     right_ear="Friomisi Earring",
@@ -378,15 +379,40 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		ammo="Seraphic Ampulla",
-		body="Spaekona's Coat +2", 
-		right_ear="Regal Earring",
-		head={ name="Merlinic Hood", augments={'Mag. Acc.+24','"Occult Acumen"+10','INT+9',}},
-		hands={ name="Merlinic Dastanas", augments={'Mag. Acc.+20','"Occult Acumen"+11',}},
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','"Occult Acumen"+9','INT+10','"Mag.Atk.Bns."+8',}},
-		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}}})
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",  
+        ammo="Pemphredo Tathlum",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Mizu. Kubikazari",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Mujin Band",
+        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    })
 		
-    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
+    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
+        main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+        sub="Alber Strap",
+        ammo="Pemphredo Tathlum",
+        head="Jhakri Coronal +2",
+        body="Jhakri Robe +2",
+        hands="Jhakri Cuffs +2",
+        legs="Jhakri Slops +2",
+        feet="Jhakri Pigaches +2",
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Malignance Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Jhakri Ring",
+        right_ring="Freke Ring",
+        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    })
 	
     sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
 		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
@@ -407,13 +433,22 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		ammo="Seraphic Ampulla",
-		body="Spaekona's Coat +2", 
-		right_ear="Regal Earring",
-		head={ name="Merlinic Hood", augments={'Mag. Acc.+24','"Occult Acumen"+10','INT+9',}},
-		hands={ name="Merlinic Dastanas", augments={'Mag. Acc.+20','"Occult Acumen"+11',}},
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','"Occult Acumen"+9','INT+10','"Mag.Atk.Bns."+8',}},
-		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}},})
+		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+    sub="Alber Strap",
+    ammo="Pemphredo Tathlum",
+    head="Jhakri Coronal +2",
+    body="Jhakri Robe +2",
+    hands="Jhakri Cuffs +2",
+    legs="Jhakri Slops +2",
+    feet="Jhakri Pigaches +2",
+    neck="Sanctity Necklace",
+    waist="Eschan Stone",
+    left_ear="Malignance Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Jhakri Ring",
+    right_ring="Freke Ring",
+    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    })
  
     sets.midcast['Impact'] = {
 		head=empty,body="Twilight Cloak",
@@ -423,7 +458,7 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		waist="Hachirin-no-Obi",
 		left_ear="Dignitary's Earring",
-		right_ear="Barkaro. Earring",
+        right_ear="Friomisi Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},}
@@ -554,7 +589,8 @@ function init_gear_sets()
 	-- remember to alter the refresh sets (Ctrl+F to find them)
 
     sets.idle = {
-        
+        main="Contemplator +1",
+        head="Befouled Crown",
         body="Jhakri Robe +2",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
@@ -582,7 +618,7 @@ function init_gear_sets()
      
     sets.Adoulin = {body="Councilor's Garb",}
 
-    sets.MoveSpeed = {feet = "Herald's Gaiters",}
+    sets.MoveSpeed = {feet="Herald's Gaiters"}
     
     sets.TreasureHunter = {waist="Chaac Belt"}
  
@@ -737,7 +773,6 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	if spell.english == "Impact" then
         equip({head=empty,body="Twilight Cloak"})
     end
-	
 end
 
 
@@ -1018,7 +1053,7 @@ end
  
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(3, 5)
+    set_macro_page(4, 1)
 	-- Do not remove below argument or the file WILL NOT WORK PROPERLY when reloaded in an escha area--
 	if buffactive['Vorseal'] and state.VorsealMode.value == 'Normal' then
 	send_command('gs c cycle VorsealMode')
