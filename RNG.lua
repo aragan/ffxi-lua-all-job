@@ -29,7 +29,8 @@ end
 function user_setup()
 	state.RangedMode:options('Normal', 'Acc')
 	state.WeaponskillMode:options('Normal', 'Acc')
-	
+	state.OffenseMode:options('Normal', 'Acc')
+
 	gear.default.weaponskill_neck = "Ocachi Gorget"
 	gear.default.weaponskill_waist = "Elanid Belt"
 	
