@@ -1,7 +1,15 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------
+-- This lua is based off of the Kinematics template and uses Motenten globals. --
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 --[[
     Custom commands:
     
@@ -734,7 +742,8 @@ end
 function select_default_macro_book()
     set_macro_page(1, 2)
 end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 windower.raw_register_event('zone change',reset_timers)
 windower.raw_register_event('logout',reset_timers)

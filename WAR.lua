@@ -1,3 +1,10 @@
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
+
 --[[     
  === Notes ===
  this is incomplete. my war just hit 99
@@ -256,7 +263,7 @@ function init_gear_sets()
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
 
-    sets.precast.WS['Fell Cleave '] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS, {
         sub="Utu Grip",
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
@@ -272,6 +279,23 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+
+    sets.precast.WS['Armor Break'] = set_combine(sets.precast.WS, {
+        ammo="Pemphredo Tathlum",
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck="Moonlight Necklace",
+        waist="Eschan Stone",
+        left_ear="Crep. Earring",
+        right_ear="Digni. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+
      -- RESOLUTION
      -- 86-100% STR
      sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {
@@ -916,7 +940,8 @@ function job_state_change(stateField, newValue, oldValue)
     --    end
     --end
 end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function select_default_macro_book()
     -- Default macro set/book
 	if player.sub_job == 'DNC' then

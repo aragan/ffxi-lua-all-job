@@ -1,6 +1,15 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Initialization function that defines sets and variables to be used.
 -------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+-- This lua is based off of the Kinematics template and uses Motenten globals. --
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 -- Haste II has the same buff ID [33], so we have to use a toggle. 
 -- gs c toggle hastemode -- Toggles whether or not you're getting Haste II
 -- for Rune Fencer sub, you need to create two macros. One cycles runes, and gives you descrptive text in the log.
@@ -1455,7 +1464,8 @@ end
 --         return sets.DayAccAmmo
 --     end
 -- end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function update_combat_form()
     if state.Buff.Innin then
         state.CombatForm:set('Innin')

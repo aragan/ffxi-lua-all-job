@@ -176,8 +176,8 @@ function init_include()
 end
 
 if not mote_include_version or mote_include_version < current_mote_include_version then
-    add_to_chat(123,'Warning: Your job file is out of date.  Please update to the latest repository baseline.')
-    add_to_chat(123,'For details, visit https://github.com/Kinematics/GearSwap-Jobs/wiki/Upgrading')
+    add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+    add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
     rev = mote_include_version or 1
     include_path('rev' .. tostring(rev))
     include('Mote-Include')

@@ -8,10 +8,7 @@
 -----------------------------Authors of this file--------------------------------
 ------           ******************************************                ------
 ---                                                                           ---
---	  Byrne (Asura) --------------- [Author			 Primary]    --
---	  Gamergiving (Asura) --------- [movement speed conversion mechanics]    --
--- 	  Verbannt (Asura) ------------ [organization of job functions And Github updates]    --
---   
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
 
@@ -165,8 +162,14 @@ function init_gear_sets()
 		
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
     sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
-    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ear1="Barkarole earring"})
-    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {body="Heka's Kalasiris",legs="Doyen pants", back="Pahtli Cape"})
+    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {})
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        left_ear="Mendi. Earring",
+
+    })
  
     -- Midcast set for Death, Might as well only have one set, unless you plan on free-nuking death for some unexplainable reason.
 
@@ -260,10 +263,7 @@ function init_gear_sets()
 	
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
 		waist="Siegel Sash",
-		neck="Stone Gorget",
-		hands="Telchine Gloves",
-		legs="Haven hose",
-		ear2="Earthcry Earring"})
+})
  
     sets.midcast['Enfeebling Magic'] = {
         main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
@@ -1050,7 +1050,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
- 
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(4, 1)

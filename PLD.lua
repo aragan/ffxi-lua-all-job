@@ -1,4 +1,11 @@
-require 'organizer-lib'
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------- Initialization function that defines sets and variables to be used -----------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -9,6 +16,7 @@ require 'organizer-lib'
 function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
+    require 'organizer-lib'
 end
 
  
@@ -191,10 +199,9 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = 
 {   ammo="Ginsen",
-head="Sakpata's Helm",
-body="Sakpata's Plate",
-hands="Sakpata's Gauntlets",
-legs="Sakpata's Cuisses",
+body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
     neck="Fotia Gorget",
@@ -231,17 +238,17 @@ left_ring="Beithir Ring",
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
     sets.precast.WS['Sanguine Blade'] = 
 {
-    ammo="Pemphredo Tathlum",
-    head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
-    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    legs="Nyame Flanchard",
     feet="Sulev. Leggings +2",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Beithir Ring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Epaminondas's Ring",
     back="Argocham. Mantle",
 }	
@@ -249,17 +256,17 @@ left_ring="Beithir Ring",
      
     sets.precast.WS['Aeolian Edge'] = 
 {   
-    ammo="Pemphredo Tathlum",
-    head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
-    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    legs="Nyame Flanchard",
     feet="Sulev. Leggings +2",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Beithir Ring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Epaminondas's Ring",
     back="Argocham. Mantle",
 }	
@@ -502,6 +509,41 @@ feet="Sulev. Leggings +2",
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Defending Ring",
     back="Moonlight Cape",
+}
+
+
+sets.midcast.Cocoon =
+{    
+    ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Shab. Cuirass +1",
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    neck="Enhancing Torque",
+    waist="Olympus Sash",
+    right_ear="Andoaa Earring",
+    right_ring="Stikini Ring +1",
+    back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
+
+}
+
+sets.midcast.Cocoon.DT =
+{    
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+    neck="Moonlight Necklace",
+    waist="Audumbla Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+
 }
      
 -- Cure1=120; Cure2=266; Cure3=600; Cure4=1123; cure potency caps at 50/50% received caps at 32/30%. sans signet 
@@ -746,8 +788,8 @@ sets.midcast['Sheep Song'].DT =
 }
 
 sets.midcast['Frightful Roar'] = 
-{       main="Naegling",
-    ammo="Pemphredo Tathlum",
+{   main="Naegling",
+    range="Ullr",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
@@ -1297,7 +1339,8 @@ if cmdParams[1] == 'buffWatcher' then
       stopBuffWatcher()
   end
 end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 -- Curing rules
 function refine_various_spells(spell,action,spell_map,event_args)

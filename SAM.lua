@@ -1,6 +1,15 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Initialization function that defines sets and variables to be used.
 -------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+-- This lua is based off of the Kinematics template and uses Motenten globals. --
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 --Ionis Zones
 --Anahera Blade (4 hit): 52
 --Tsurumaru (4 hit): 49
@@ -1012,7 +1021,8 @@ end
 function seigan_thirdeye_active()
     return state.Buff['Seigan'] or state.Buff['Third Eye']
 end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 

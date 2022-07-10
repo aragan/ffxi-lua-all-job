@@ -1,3 +1,10 @@
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
+
 -- Original: Motenten / Modified: Arislan
 
 -------------------------------------------------------------------------------------------------------------------
@@ -746,6 +753,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     end
     if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
         equip(sets.magic_burst)
+        if spell.english == "Impact" then
+            equip(sets.midcast.Impact)
         end
     end
     if spell.skill == 'Elemental Magic' or spell.english == "Kaustra" then
@@ -1158,7 +1167,8 @@ windower.register_event('zone change',
 function select_default_macro_book()
     set_macro_page(7, 1)
 end
-
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function set_lockstyle()
     send_command('wait 2;input /lockstyleset 200')
 end

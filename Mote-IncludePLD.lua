@@ -233,8 +233,8 @@ function init_include()
 end
 
 if not mote_include_version or mote_include_version < current_mote_include_version then
-    add_to_chat(123,'Welcome to Akivatoo PLD.Lua File (from Asura)')
-    add_to_chat(123,'For details, visit https://www.ffxiah.com/forum/topic/46016/first-and-final-line-of-defense-v20/')
+    add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+    add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
     rev = mote_include_version or 1
     include_path('rev' .. tostring(rev))
     include('Mote-Include')

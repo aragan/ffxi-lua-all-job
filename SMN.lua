@@ -2,6 +2,16 @@
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------
+-- This lua is based off of the Kinematics template and uses Motenten globals. --
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
+
 -- Also, you'll need the Shortcuts addon to handle the auto-targetting of the custom pact commands.
 
 --[[
@@ -967,7 +977,8 @@ function select_default_macro_book(reset)
     if reset == 'reset' then
         -- lost pet, or tried to use pact when pet is gone
     end
-    
+    add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+    add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
     -- Default macro set/book
     set_macro_page(3, 2)
 end

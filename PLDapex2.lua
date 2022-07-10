@@ -5,6 +5,7 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------- Initialization function that defines sets and variables to be used -----------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -16,6 +17,9 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
     require 'organizer-lib'
+    add_to_chat(123,'Author Aragan PLD.Lua File (from Asura)')
+
+
 end
 
  
@@ -928,7 +932,7 @@ back="Moonlight Cape",
 }
     
     sets.defense.PD = 
-{    
+{    sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1009,9 +1013,9 @@ sets.defense.Convert = {
 sets.defense.Block = {
     sub="Ochain",
     ammo="Staunch Tathlum +1",
-    head="Sakpata's Helm",
+    head="Chev. Armet +1",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    hands="Chev. Gauntlets +1",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1019,7 +1023,7 @@ sets.defense.Block = {
     left_ear="Ethereal Earring",
     right_ear="Thureous Earring",
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Fortified Ring",
+    right_ring="Defending Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 
@@ -1036,8 +1040,14 @@ sets.defense.Block = {
     sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
      
     sets.Kiting = {
-        
-        legs="Carmine Cuisses +1",right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        head="Sakpata's Helm",
+        hands="Sakpata's Gauntlets",
+        legs="Carmine Cuisses +1",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Tuisto Earring",
+        right_ring="Paguroidea Ring",
+        back="Moonlight Cape",
+
 }
 
  
@@ -1280,7 +1290,7 @@ if cmdParams[1] == 'buffWatcher' then
   end
 end
 add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 -- Curing rules
 function refine_various_spells(spell,action,spell_map,event_args)
