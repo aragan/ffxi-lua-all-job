@@ -123,7 +123,7 @@ function init_gear_sets()
     sets.precast.FC = {
 	    ammo="Sapience Orb",
     head={ name="Merlinic Hood", augments={'Mag. Acc.+9 "Mag.Atk.Bns."+9','Magic burst dmg.+11%','Mag. Acc.+9',}},
-    body="Shango Robe",
+        body="Agwu's Robe",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
     feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
     left_ear="Etiolation Earring",
@@ -136,7 +136,7 @@ function init_gear_sets()
 	sets.precast['Impact'] = {
 	    ammo="Sapience Orb",
     head={ name="Merlinic Hood", augments={'Mag. Acc.+9 "Mag.Atk.Bns."+9','Magic burst dmg.+11%','Mag. Acc.+9',}},
-    body="Shango Robe",
+        body="Agwu's Robe",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
     feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
     left_ear="Etiolation Earring",
@@ -326,10 +326,10 @@ function init_gear_sets()
 		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
-		body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+8','Magic burst dmg.+8%','CHR+10','Mag. Acc.+4',}},
-		hands={ name="Merlinic Dastanas", augments={'Pet: "Mag.Atk.Bns."+22','Blood Pact Dmg.+6','Pet: DEX+9',}},
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+10 "Mag.Atk.Bns."+10','Magic burst dmg.+8%','"Mag.Atk.Bns."+4',}},
-		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
+        body="Shango Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
 		left_ear="Friomisi Earring",
@@ -397,20 +397,20 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
-        main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
-        sub="Alber Strap",
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",  
         ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
-        feet="Jhakri Pigaches +2",
-        neck="Sanctity Necklace",
-        waist="Eschan Stone",
-        left_ear="Malignance Earring",
-        right_ear="Friomisi Earring",
-        left_ring="Jhakri Ring",
-        right_ring="Freke Ring",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Mizu. Kubikazari",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Mujin Band",
         back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
     })
 	
@@ -433,21 +433,21 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
-    sub="Alber Strap",
-    ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",
-    body="Jhakri Robe +2",
-    hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Jhakri Ring",
-    right_ring="Freke Ring",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",  
+        ammo="Pemphredo Tathlum",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Mizu. Kubikazari",
+        waist="Hachirin-no-Obi",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Mujin Band",
+        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
     })
  
     sets.midcast['Impact'] = {
@@ -538,39 +538,11 @@ function init_gear_sets()
 -- (CTRL+F: Aspir Handling)
 
 	sets.midcast.HighMP = {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
-    sub="Alber Strap",
-    ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",
-    body="Jhakri Robe +2",
-    hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Jhakri Ring",
-    right_ring="Freke Ring",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+
     }
  
 	sets.midcast.LowMP = {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
-    sub="Alber Strap",
-    ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",
-    body="Jhakri Robe +2",
-    hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Jhakri Ring",
-    right_ring="Freke Ring",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+
     }
 		
 	
@@ -590,6 +562,7 @@ function init_gear_sets()
 
     sets.idle = {
         main="Contemplator +1",
+        sub="Alber Strap",
         head="Befouled Crown",
         body="Jhakri Robe +2",
         legs="Assid. Pants +1",
