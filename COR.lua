@@ -141,7 +141,6 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
         head="Oshosi Mask",
         body="Nyame Mail",
         hands="Meg. Gloves +2",
@@ -706,7 +705,7 @@ function do_bullet_checks(spell, spellMap, eventArgs)
         state.warned:reset()
     end
 end
-add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'Author Aragan COR.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
