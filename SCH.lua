@@ -1167,7 +1167,7 @@ windower.register_event('zone change',
 function select_default_macro_book()
     set_macro_page(7, 1)
 end
-add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+add_to_chat(159,'Author Aragan SCH.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function set_lockstyle()
     send_command('wait 2;input /lockstyleset 200')

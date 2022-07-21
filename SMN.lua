@@ -327,9 +327,10 @@ function init_gear_sets()
 
     -- Spirits cast magic spells, which can be identified in standard ways.
     
-    sets.midcast.Pet.WhiteMagic = {legs="Summoner's Spats"}
+    sets.midcast.Pet.WhiteMagic = {    legs={ name="Glyphic Spats +1", augments={'Increases Sp. "Blood Pact" accuracy',}},
+}
     
-    sets.midcast.Pet['Elemental Magic'] = set_combine(sets.midcast.Pet.BloodPactRage, {legs="Summoner's Spats"})
+    sets.midcast.Pet['Elemental Magic'] = set_combine(sets.midcast.Pet.BloodPactRage, {})
 
     sets.midcast.Pet['Elemental Magic'].Resistant = {}
     
@@ -342,7 +343,8 @@ function init_gear_sets()
     sets.resting = {main=gear.Staff.HMP,ammo="Seraphicaller",
         head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
         body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Pahtli Cape",waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
+        back="Pahtli Cape",waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"
+    }
     
     -- Idle sets
     sets.idle = {main="Contemplator +1",
@@ -503,7 +505,7 @@ function init_gear_sets()
     -- We can then use Hagondes Coat and end up with the same net MP cost, but significantly better defense.
     -- Weather is the same, but we can also use the latent on the pendant to negate the last point lost.
     sets.perp.Day = {hands="Caller's Bracers +2"}
-    sets.perp.Weather = {neck="Caller's Pendant",hands="Caller's Bracers +2"}
+    sets.perp.Weather = {neck="Caller's Pendant",}
     -- Carby: Mitts+Conv.feet = 1/tick perp.  Everything else should be +refresh
     sets.perp.Carbuncle = {
   }
@@ -511,7 +513,7 @@ function init_gear_sets()
     --sets.perp.Diabolos = {waist="Diabolos's Rope"}
     sets.perp.Alexander = sets.midcast.Pet.BloodPactWard
 
-    sets.perp.staff_and_grip = {main=gear.perp_staff,sub="Achaq Grip"}
+    sets.perp.staff_and_grip = {}
     
     -- Defense sets
     sets.defense.PDT = {
@@ -977,7 +979,7 @@ function select_default_macro_book(reset)
     if reset == 'reset' then
         -- lost pet, or tried to use pact when pet is gone
     end
-    add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+    add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
     add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
     -- Default macro set/book
     set_macro_page(3, 2)

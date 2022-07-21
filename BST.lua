@@ -2079,7 +2079,7 @@ function get_combat_form()
 	else
 		state.CombatForm:reset()
         end
-		add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
+		add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
 		add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 	-- Default macro set/book
 	if player.sub_job == 'DNC' then
