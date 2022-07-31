@@ -995,7 +995,7 @@ sets.defense.Convert = {
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +1",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    hands="Rev. Gauntlets +3",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1012,13 +1012,32 @@ sets.defense.Block = {
     ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    hands="Rev. Gauntlets +3",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Ethereal Earring",
     right_ear="Thureous Earring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Fortified Ring",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+}
+
+sets.defense.Dagger = 
+{    
+    main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
+    sub="Ochain",
+    ammo="Eluder's Sachet",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Rev. Gauntlets +3",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
@@ -1050,7 +1069,7 @@ sets.defense.Block = {
     sets.engaged = --1124 / 1264 avec enlight up
 {       main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
 sub="Ochain",
-
+hands="Rev. Gauntlets +3",
 
 }
  

@@ -29,7 +29,7 @@ function user_setup()
     options.CastingModes = {'Normal', 'DT'} 
     options.IdleModes = {'Normal',}
     options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PD', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert'}
+    options.PhysicalDefenseModes = {'PD','PDT','PDH', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert', 'Block'}
     options.MagicalDefenseModes = {'MDT' ,'Turtle','ResistCharm','Dagger'}
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
@@ -60,11 +60,10 @@ function job_setup()
  	include('caster_buffWatcher.lua')
 buffWatcher.watchList = 
 {
-                       ["Enlight"]="Enlight II",
-					   ["Enmity Boost"]="Crusade",
-                       ["Phalanx"]="Phalanx",
                        ["Protect"]="Protect V",
-                       ["Shell"]="Shell IV",							   
+                       ["Enmity Boost"]="Crusade",
+                       ["Cocoon"]="Cocoon",
+                       ["Phalanx"]="Phalanx",
 }
 include('common_info.status.lua')	
 end
@@ -80,7 +79,7 @@ function init_gear_sets()
    
     sets.precast.JA['Holy Circle'] = set_combine(sets.precast.JA['Provoke'], {feet="Rev. Leggings"})
          
-    sets.precast.JA['Shield Bash'] = set_combine(sets.precast.JA['Provoke'], {sub="Aegis", hands="Cab. Gauntlets +2", left_ear="Knightly Earring", left_ring="Guardian's Ring",right_ring="Fenian Ring"})
+    sets.precast.JA['Shield Bash'] = set_combine(sets.precast.JA['Provoke'], {sub="Aegis", hands="Cab. Gauntlets +2", left_ear="Knightly Earring"})
      
     sets.precast.JA['Intervene'] = sets.precast.JA['Shield Bash']
     
@@ -948,7 +947,7 @@ sets.defense.Dagger =
     ammo="Eluder's Sachet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    hands="Rev. Gauntlets +3",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -995,6 +994,44 @@ sets.defense.Dagger =
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+}
+
+sets.defense.PDT = 
+{
+    main="Burtgang",
+    sub="Ochain",
+    ammo="Iron Gobbet",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Thureous Earring",
+    right_ear="Ethereal Earring",
+    left_ring="Patricius Ring",
+    right_ring="Defending Ring",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+}
+
+sets.defense.PDH = 
+{
+    main="Burtgang",
+    sub="Ochain",
+    ammo="Iron Gobbet",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonbeam Ring",
+    right_ring="Fortified Ring",
+    back="Moonlight Cape",
 }
  
     sets.defense.HPBOOST = 
@@ -1058,6 +1095,23 @@ sets.defense.Convert = {
     left_ear="Tuisto Earring",
     right_ear="Ethereal Earring",
     left_ring="Defending Ring",
+    right_ring="Fortified Ring",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+}
+
+sets.defense.Block = {
+    sub="Ochain",
+    ammo="Staunch Tathlum +1",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Ethereal Earring",
+    right_ear="Thureous Earring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
