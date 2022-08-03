@@ -685,6 +685,7 @@ function init_gear_sets()
 
 
     sets.engaged.PD = set_combine(sets.engaged, {
+        head={ name="Loess Barbuta +1", augments={'Path: A',}},
         body="Mpaca's Doublet",
         legs="Mpaca's Hose",
         right_ring="Defending Ring",

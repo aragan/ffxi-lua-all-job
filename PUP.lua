@@ -290,8 +290,19 @@ function init_gear_sets()
     }
 
     -------------------------------------Midcast
-    sets.midcast = {} --Can be left empty
+    sets.midcast = {
 
+    } --Can be left empty
+
+    
+    sets.midcast.Buff = {
+        waist="Cascade Belt",
+   left_ear="Brachyura Earring",
+   right_ear="Andoaa Earring",
+   left_ring="Sheltered Ring",
+   right_ring="Stikini Ring",
+
+   }
     sets.midcast.FastRecast = {
          waist="Cascade Belt",
     left_ear="Brachyura Earring",
