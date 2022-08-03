@@ -431,8 +431,10 @@ function init_gear_sets()
     right_ring="Petrov Ring",
     back="Atheling Mantle",
     }
-    sets.engaged.Acc = {main="Naegling",
-    sub="Tauret",
+    sets.engaged.Acc = {
+        main="Tauret",
+        sub="Gleti's Knife",
+        range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
@@ -481,7 +483,7 @@ function init_gear_sets()
 }
 
 
-    sets.engaged.Ranged = {
+    sets.engaged.Ranged = {    range="Molybdosis",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
