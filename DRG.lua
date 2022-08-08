@@ -443,25 +443,27 @@ function init_gear_sets()
     }
 
 	sets.engaged.Mid = set_combine(sets.engaged, {
-  --      head="Hjarrandi Helm",
-		head="Flamma Zucchetto +2",
-        ear2="Brutal Earring",
-        neck="Dragoon's Collar +2",
-        hands="Sulevia's Gauntlets +2",
-		body=Valorous.Body.STP,
-        ring2="Flamma Ring",
-        legs="Pteroslaver Brais +3",
-        waist="Ioskeha Belt",
-		back=Brigantia.TP,
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Hjarrandi Breast.",
+        hands="Sulev. Gauntlets +2",
+        legs="Sulev. Cuisses +2",
+        feet="Flam. Gambieras +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist="Tempus Fugit +1",
+        left_ear="Sherida Earring",
+        right_ear="Brutal Earring",
+        left_ring="Petrov Ring",
+        right_ring="Niqmaddu Ring",
+        back="Atheling Mantle",
     })
 
 	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ear1="Cessance Earring",
-        neck="Dragoon's Collar +2",
         hands="Flamma Manopolas +2",
-        ring2="Regal Ring",
-		body=Valorous.Body.STP,
-        legs="Sulevia's Cuisses +2"
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},        legs="Sulevia's Cuisses +2"
     })
 
     sets.engaged.PDT = set_combine(sets.engaged, {
