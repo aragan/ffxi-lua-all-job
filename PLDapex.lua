@@ -22,13 +22,13 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    options.OffenseModes = {'Normal', 'Acc'}
+    options.OffenseModes = {'Normal', 'Acc', 'Tp'}
 	options.DefenseModes = {'Normal', 'PDT'}
     options.WeaponskillModes = {'Normal', 'Acc'}
     options.CastingModes = {'Normal', 'DT'} 
     options.IdleModes = {'Normal',}
     options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PD', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert', 'Block'}
+    options.PhysicalDefenseModes = {'PD', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert', 'Block', 'Dagger'}
     options.MagicalDefenseModes = {'MDT' ,'Turtle','ResistCharm'}
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
@@ -997,13 +997,13 @@ sets.defense.Convert = {
     body="Sakpata's Plate",
     hands="Rev. Gauntlets +3",
     legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+    feet="Rev. Leggings +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
-    left_ear="Thureous Earring",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Ethereal Earring",
     left_ring="Defending Ring",
-    right_ring="Fortified Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 
@@ -1058,6 +1058,8 @@ sets.defense.Dagger =
     sets.Kiting = {
         
         legs="Carmine Cuisses +1",right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+
 }
 
  
@@ -1090,6 +1092,25 @@ left_ring="Patricius Ring",
 right_ring="Petrov Ring",
 back="Atheling Mantle",
 }
+
+sets.engaged.Tp = --1179 / 1315 avec enlight up
+{
+
+ammo="Coiste Bodhar",
+head="Flam. Zucchetto +2",
+body="Sakpata's Plate",
+hands="Rev. Gauntlets +3",
+legs="Sakpata's Cuisses",
+feet="Sakpata's Leggings",
+neck={ name="Vim Torque +1", augments={'Path: A',}},
+waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+left_ear="Brutal Earring",
+right_ear="Telos Earring",
+left_ring="Patricius Ring",
+right_ring="Petrov Ring",
+back="Atheling Mantle",
+}
+
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------Job-specific hooks that are called to process player actions at specific points in time-----------
