@@ -86,7 +86,7 @@ function init_gear_sets()
 
     
     sets.precast.CorsairRoll = {range={ name="Compensator", augments={'DMG:+9','Rng.Acc.+9','Rng.Atk.+9',}},
-    head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
+    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     hands="Chasseur's Gants +1",
     neck="Regal Necklace",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
@@ -216,7 +216,7 @@ function init_gear_sets()
 })
 
     sets.precast.WS['Last Stand'] = {
-    head="Meghanada Visor +2",
+    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
@@ -231,7 +231,7 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Last Stand'].Acc = {
-    head="Meghanada Visor +2",
+    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
