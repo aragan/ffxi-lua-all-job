@@ -740,8 +740,8 @@ function init_gear_sets()
 			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
 
-	sets.engaged.Enspell = {   ammo=empty,
-		range="Ullr",
+	sets.engaged.Enspell = {   
+		ammo="Coiste Bodhar",
 		head="Umuthi Hat",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",
@@ -1063,7 +1063,7 @@ function display_current_job_state(eventArgs)
 end
 
 function midcast(spell)
-    if spell.name == 'Utsusemi: Ichi' and overwrite then
+    if spell.english == 'Utsusemi: Ichi' and overwrite then
         send_command('cancel Copy Image|Copy Image (2)')
     end
 end

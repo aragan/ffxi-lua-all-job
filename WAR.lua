@@ -50,7 +50,7 @@ function user_setup()
     state.CastingMode:options('Normal')
     state.IdleMode:options('Normal')
     state.RestingMode:options('Normal')
-    state.PhysicalDefenseMode:options('PDT', 'Reraise')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
     war_sj = player.sub_job == 'WAR' or false
     state.drain = M(false)
@@ -509,6 +509,24 @@ function init_gear_sets()
         right_ring="Paguroidea Ring",
         back="Moonlight Cape",
      }
+
+     sets.defense.HP = {
+        sub="Blurred Shield +1",
+        ammo="Staunch Tathlum +1",
+        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Kyrene's Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+     }
+
      sets.defense.Reraise = sets.idle.Weak
  
      sets.defense.MDT = set_combine(sets.defense.PDT, {
@@ -572,7 +590,7 @@ function init_gear_sets()
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +1",
+        legs="Pumm. Cuisses +3",
         feet="Flam. Gambieras +2",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -602,11 +620,11 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sakpata's Gauntlets",
-        legs="Jokushu Haidate",
+        hands="Sulev. Gauntlets +2",
+        legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Tempus Fugit +1",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
@@ -615,7 +633,19 @@ function init_gear_sets()
     }
 
     sets.engaged.hybridtp = set_combine(sets.engaged.hybrid, {
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Pumm. Cuisses +3",
+        feet="Flam. Gambieras +2",
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Schere Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Flamma Ring",
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
     sets.engaged.Sword = set_combine(sets.engaged.hybrid, {
@@ -708,8 +738,8 @@ function init_gear_sets()
      })
 
      sets.engaged.Reraise = set_combine(sets.engaged, {
-     	--head="Twilight Helm",neck="Twilight Torque",
-     	--body="Twilight Mail"
+     	head="Twilight Helm",
+     	body="Twilight Mail"
      })
      sets.buff.Berserk = { 
          --feet="Warrior's Calligae +2" 
