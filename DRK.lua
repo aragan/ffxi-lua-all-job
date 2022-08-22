@@ -59,7 +59,7 @@ end
   
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow')
+    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'Meva', 'PDT')
     state.WeaponskillMode:options('Normal', 'MaxAcc', 'Max')  ---Max for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
@@ -146,7 +146,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
@@ -174,7 +174,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
@@ -195,7 +195,7 @@ sets.precast.WS['Insurgency'] = {
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Beithir Ring",
+    left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
@@ -215,7 +215,7 @@ sets.precast.WS['Insurgency'] = {
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
@@ -235,7 +235,7 @@ sets.precast.WS['Quietus'] = {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Beithir Ring",
+    left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 } 
@@ -251,7 +251,7 @@ sets.precast.WS['Entropy '] = {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Schere Earring",
     right_ear="Cessance Earring",
-    left_ring="Beithir Ring",
+    left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 } 
@@ -615,6 +615,24 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     right_ring="Moonbeam Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
+
+sets.engaged.crit = set_combine(sets.engaged, {
+
+    sub="Utu Grip",
+    ammo="Yetshila +1",
+    head="Hjarrandi Helm",
+    body="Hjarrandi Breast.",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet={ name="Valorous Greaves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: DEX+7','Pet: Accuracy+2 Pet: Rng. Acc.+2','Pet: Attack+6 Pet: Rng.Atk.+6',}},
+    neck="Caro Necklace",
+    waist="Grunfeld Rope",
+    left_ear="Mache Earring +1",
+    right_ear="Mache Earring +1",
+    left_ring="Regal Ring",
+    right_ring="Shukuyu Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+})
       
     sets.engaged.MaxAcc = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -649,10 +667,10 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Haste = set_combine(sets.engaged, {
         waist="Windbuffet Belt +1"
     })
-    sets.engaged.Haste.Mid = set_combine(sets.engaged.Mid, {
+    sets.engaged.Haste.STP = set_combine(sets.engaged.STP, {
         waist="Windbuffet Belt +1"
     })
-    sets.engaged.Haste.Acc = set_combine(sets.engaged.Acc, {})
+    sets.engaged.Haste.crit = set_combine(sets.engaged.crit, {})
   
       
       
@@ -814,6 +832,18 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {
  
     })
+
+    sets.engaged.Apocalypse.crit = set_combine(sets.engaged.crit, {
+ 
+    })
+
+    sets.engaged.Apocalypse.STP = set_combine(sets.engaged.STP, {
+ 
+    })
+
+    sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
+ 
+    })
       
     -- sets.engaged.Apocalypse.AM = set_combine(sets.engaged.Apocalypse, {})
     -- sets.engaged.Apocalypse.MidAcc.AM = set_combine(sets.engaged.Apocalypse.AM, {})
@@ -826,6 +856,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
     sets.engaged.Haste.Apocalypse.MidAcc = sets.engaged.Apocalypse.MidAcc
     sets.engaged.Haste.Apocalypse.MaxAcc = sets.engaged.Apocalypse.MaxAcc
+    sets.engaged.Haste.Apocalypse.crit = sets.engaged.Apocalypse.crit
+    sets.engaged.Haste.Apocalypse.STP = sets.engaged.Apocalypse.STP
   
     -- Hybrid
     sets.engaged.Apocalypse.PDT = {ammo="Coiste Bodhar",
