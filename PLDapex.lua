@@ -302,17 +302,17 @@ sets.precast.WS['Cataclysm'] =
  
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
     sets.precast.WS['Savage Blade'] = 
-{       ammo="Coiste Bodhar",
-head="Sakpata's Helm",
+{            ammo="Aurgelmir Orb +1",
+head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
 body="Sakpata's Plate",
-hands="Sakpata's Gauntlets",
+hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 legs="Sakpata's Cuisses",
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Beithir Ring",
+left_ring="Regal Ring",
 right_ring="Epaminondas's Ring",
 back="Atheling Mantle",
 
@@ -321,18 +321,18 @@ back="Atheling Mantle",
    --Stat Modifier:  80%DEX  fTP:2.25
    sets.precast.WS['Chant du Cygne'] = 
 {	
-    ammo="Ginsen",
-    head="Sakpata's Helm",
+    ammo="Aurgelmir Orb +1",
+    head="Flam. Zucchetto +2",
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs="Sakpata's Cuisses",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet="Sulev. Leggings +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Brutal Earring",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Epaminondas's Ring",
+    left_ear="Cessance Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Regal Ring",
+    right_ring="Flamma Ring",
     back="Atheling Mantle",
 }
 	
