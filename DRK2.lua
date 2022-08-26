@@ -59,11 +59,11 @@ end
   
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow', 'crit')
+    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow', 'crit', 'counter')
     state.HybridMode:options('Normal', 'Meva', 'PDT')
     state.WeaponskillMode:options('Normal', 'MaxAcc', 'Max')  ---Max for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'SE')
     state.MagicalDefenseMode:options('MDT', 'HP')
       
     war_sj = player.sub_job == 'WAR' or false
@@ -461,7 +461,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    legs="Carmine Cuisses +1",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
@@ -498,7 +498,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
         legs="Carmine Cuisses +1",
-                feet="Sakpata's Leggings",
+        feet="Sakpata's Leggings",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Infused Earring",
@@ -556,6 +556,22 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
+    sets.defense.SE = {
+
+    ammo="Eluder's Sachet",
+    head="Ratri Sallet",
+    body="Ratri Plate",
+    hands="Ratri Gadlings",
+    legs="Ratri Cuisses",
+    feet="Flam. Gambieras +2",
+    neck="Nicander's Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Dedition Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Chirich Ring +1",
+    back="Atheling Mantle",
+}
       
     sets.defense.MDT = {
         head="Sulevia's mask +1",neck="Warder's Charm +1",ear1="Odnowa Earring",ear2="Odnowa Earring +1",
@@ -621,11 +637,11 @@ sets.engaged.crit = set_combine(sets.engaged, {
     sub="Utu Grip",
     ammo="Yetshila +1",
     head="Hjarrandi Helm",
-    body="Hjarrandi Breast.",
+        body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
     legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
     feet="Thereoid Greaves",
-    neck="Nefarious Collar +1",
+    neck="Asperity Necklace",
     waist="Ioskeha Belt +1",
     left_ear="Schere Earring",
     right_ear="Brutal Earring",
@@ -650,7 +666,7 @@ sets.engaged.crit = set_combine(sets.engaged, {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 
-sets.engaged.SubtleBlow = set_combine(sets.engaged, {
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 
     hands="Sakpata's Gauntlets",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -662,22 +678,39 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     back="Atheling Mantle",
 })
       
+    sets.engaged.counter = set_combine(sets.engaged.STP, {
+
+        ammo="Amar Cluster",
+        head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
+        body="Obviation Cuirass",
+        hands={ name="Founder's Gauntlets", augments={'STR+7','Attack+10','"Mag.Atk.Bns."+8','Phys. dmg. taken -2%',}},
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        left_ear="Cryptic Earring",
+        right_ear="Dominance Earring",
+        back="Tantalic Cape",
+
+})
+      
       
     -- These only apply when delay is capped.
     sets.engaged.Haste = set_combine(sets.engaged, {
-        waist="Ioskeha Belt +1",
+        waist="Windbuffet Belt +1"
     })
     sets.engaged.Haste.STP = set_combine(sets.engaged.STP, {
-        waist="Ioskeha Belt +1",
+        waist="Windbuffet Belt +1"
     })
     sets.engaged.Haste.crit = set_combine(sets.engaged.crit, {
-        waist="Ioskeha Belt +1",
+        waist="Windbuffet Belt +1"
     })
   
     sets.engaged.Haste.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
-        waist="Ioskeha Belt +1",
+        waist="Windbuffet Belt +1"
     })
       
+    sets.engaged.Haste.counter = set_combine(sets.engaged.counter, {
+        waist="Windbuffet Belt +1"
+    })
   
     sets.engaged.Meva = {ammo="Coiste Bodhar",
     head="Sakpata's Helm",
@@ -741,229 +774,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 }
   
   
--- Liberator
-    sets.engaged.Liberator = sets.engaged
-    sets.engaged.Liberator.Mid = sets.engaged.Mid
-    sets.engaged.Liberator.MaxAcc = set_combine(sets.engaged.MaxAcc, {
-        body="Flamma Korazin +2",
-    })
-  
-    -- Liberator AM3
-    sets.engaged.Liberator.AM3 = set_combine(sets.engaged.Liberator, {
-        ammo="Ginsen",
-        head="Flamma Zucchetto +2",
-        body="Hjarrandi Breast.",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        hands="Flamma Manopolas +2",
-        ear1="Dedition Earring",
-        ear2="Telos Earring",
-        ring1="Niqmaddu Ring",
-        right_ring="Chirich Ring +1",
-        ---back=Ankou.STP,
-        waist="Sailfi Belt +1",
-        legs="Ig. Flanchard +3",
-        feet="Flam. Gambieras +2",
-    })
-    sets.engaged.Liberator.MidAcc.AM3 = set_combine(sets.engaged.Liberator.AM3, {
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        ear1="Cessance Earring",
-        ---legs=Odyssean.Legs.TP,
-    })
-    sets.engaged.Liberator.MaxAcc.AM3 = set_combine(sets.engaged.Liberator.MidAcc.AM3, {
-        ammo="Seething Bomblet +1",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        body="Flamma Korazin +2",
-        ring2="Regal Ring",
-        waist="Ioskeha Belt",
-        legs="Ignominy Flanchard +3",
-        feet="Flamma Gambieras +2"
-    })
-    sets.engaged.Haste.Liberator = set_combine(sets.engaged.Liberator, {
-        waist="Windbuffet Belt +1"
-    })
-    sets.engaged.Haste.Liberator.MidAcc = set_combine(sets.engaged.Liberator.MidAcc, {
-        waist="Windbuffet Belt +1"
-    })
-    sets.engaged.Haste.Liberator.MaxAcc = sets.engaged.Liberator.MaxAcc
-      
-    sets.engaged.Haste.Liberator.AM3 = set_combine(sets.engaged.Liberator.AM3, {
-        waist="Windbuffet Belt +1",
-        legs="Sulevia's Cuisses +2" 
-    })
-    sets.engaged.Haste.Liberator.MidAcc.AM3 = sets.engaged.Liberator.MidAcc.AM3
-    sets.engaged.Haste.Liberator.MaxAcc.AM3 = sets.engaged.Liberator.MaxAcc.AM3
-      
-    -- Hybrid
-    sets.engaged.Liberator.PDT = set_combine(sets.engaged.Liberator, {ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Schere Earring",
-    right_ear="Dedition Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-} )
-    sets.engaged.Liberator.MidAcc.PDT = set_combine(sets.engaged.Liberator.PDT, {
-        ear1="Cessance Earring",
-    })
-    sets.engaged.Liberator.MaxAcc.PDT = set_combine(sets.engaged.Liberator.MaxAcc, sets.DefensiveHigh)
-    -- Hybrid with AM3 up
-    sets.engaged.Liberator.PDT.AM3 = set_combine(sets.engaged.Liberator.AM3, sets.Defensive)
-    sets.engaged.Liberator.MidAcc.PDT.AM3 = set_combine(sets.engaged.Liberator.MidAcc.AM3, sets.Defensive_Mid)
-    sets.engaged.Liberator.MaxAcc.PDT.AM3 = set_combine(sets.engaged.Liberator.MaxAcc.AM3, sets.DefensiveHigh)
-    -- Hybrid with capped delay
-    sets.engaged.Haste.Liberator.PDT = set_combine(sets.engaged.Liberator.PDT, sets.DefensiveHigh)
-    sets.engaged.Haste.Liberator.MidAcc.PDT = set_combine(sets.engaged.Liberator.MidAcc.PDT, sets.DefensiveHigh)
-    sets.engaged.Haste.Liberator.MaxAcc.PDT = set_combine(sets.engaged.Liberator.MaxAcc.PDT, sets.DefensiveHigh)
-    -- Hybrid with capped delay + AM3 up
-    sets.engaged.Haste.Liberator.PDT.AM3 = set_combine(sets.engaged.Liberator.PDT.AM3, sets.Defensive)
-    sets.engaged.Haste.Liberator.MidAcc.PDT.AM3 = set_combine(sets.engaged.Liberator.MidAcc.PDT.AM3, sets.Defensive_Mid)
-    sets.engaged.Haste.Liberator.MaxAcc.PDT.AM3 = set_combine(sets.engaged.Liberator.MaxAcc.PDT.AM3, sets.DefensiveHigh)
-  
-    -- Apocalypse
-    sets.engaged.Apocalypse = set_combine(sets.engaged, {
-       
-    })
-    sets.engaged.Apocalypse.MidAcc = set_combine(sets.engaged.MidAcc, {
-    
-    })
-    sets.engaged.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {
- 
-    })
 
-    sets.engaged.Apocalypse.crit = set_combine(sets.engaged.crit, {
- 
-    })
-
-    sets.engaged.Apocalypse.STP = set_combine(sets.engaged.STP, {
- 
-    })
-
-    sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
- 
-    })
-      
-    -- sets.engaged.Apocalypse.AM = set_combine(sets.engaged.Apocalypse, {})
-    -- sets.engaged.Apocalypse.MidAcc.AM = set_combine(sets.engaged.Apocalypse.AM, {})
-    -- sets.engaged.Apocalypse.MaxAcc.AM = set_combine(sets.engaged.Apocalypse.MidAcc.AM, {
-    --     ring2="Cacoethic Ring +1",
-    --     waist="Ioskeha Belt"
-    -- })
-    sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {
-        waist="Windbuffet Belt +1"
-    })
-    sets.engaged.Haste.Apocalypse.MidAcc = sets.engaged.Apocalypse.MidAcc
-    sets.engaged.Haste.Apocalypse.MaxAcc = sets.engaged.Apocalypse.MaxAcc
-    sets.engaged.Haste.Apocalypse.crit = sets.engaged.Apocalypse.crit
-    sets.engaged.Haste.Apocalypse.STP = sets.engaged.Apocalypse.STP
-  
-    -- Hybrid
-    sets.engaged.Apocalypse.PDT = {ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Schere Earring",
-    right_ear="Dedition Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-         
-    sets.engaged.Apocalypse.MidAcc.PDT = set_combine(sets.engaged.Apocalypse.MidAcc, sets.Defensive_Mid)
-    sets.engaged.Apocalypse.MaxAcc.PDT = set_combine(sets.engaged.Apocalypse.MaxAcc, sets.Defensive_MaxAcc)
-    -- Hybrid with relic AM 
-    -- sets.engaged.Apocalypse.PDT.AM = set_combine(sets.engaged.Apocalypse, sets.Defensive)
-    -- sets.engaged.Apocalypse.MidAcc.PDT.AM = set_combine(sets.engaged.Apocalypse.MidAcc, sets.Defensive_Mid)
-    -- sets.engaged.Apocalypse.MaxAcc.PDT.AM = set_combine(sets.engaged.Apocalypse.MaxAcc, sets.Defensive_MaxAcc)
-    -- Hybrid with capped delay
-    sets.engaged.Haste.Apocalypse.PDT = sets.engaged.PDT
-    sets.engaged.Haste.Apocalypse.MidAcc.PDT = set_combine(sets.engaged.Apocalypse.MidAcc.PDT, sets.DefensiveHigh)
-    sets.engaged.Haste.Apocalypse.MaxAcc.PDT = set_combine(sets.engaged.Apocalypse.MaxAcc.PDT, sets.DefensiveHigh)
-    -- Hybrid with capped delay + AM3 up
-    -- sets.engaged.Haste.Apocalypse.PDT.AM3 = set_combine(sets.engaged.Apocalypse.PDT.AM3, sets.DefensiveHigh)
-    -- sets.engaged.Haste.Apocalypse.Mid.PDT.AM3 = set_combine(sets.engaged.Apocalypse.Mid.PDT.AM3, sets.DefensiveHigh)
-    -- sets.engaged.Haste.Apocalypse.MaxAcc.PDT.AM3 = set_combine(sets.engaged.Apocalypse.MaxAcc.PDT.AM3, sets.DefensiveHigh)
-      
-        -- generic great sword
-    sets.engaged.GreatSword = set_combine(sets.engaged, {
-       
-    })
-    sets.engaged.GreatSword.Mid = set_combine(sets.engaged.Mid, {})
-    sets.engaged.GreatSword.Acc = set_combine(sets.engaged.Acc, {
-       
-       
-    })
-  
-    sets.engaged.GreatSword.PDT = ({ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
-    right_ear="Dedition Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-})
-    sets.engaged.GreatSword.Mid.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.GreatSword.Acc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-  
-    sets.engaged.Haste.GreatSword = set_combine(sets.engaged.Haste, {})
-    sets.engaged.Haste.GreatSword.Mid = set_combine(sets.engaged.Haste.Mid, {})
-    sets.engaged.Haste.GreatSword.Acc = set_combine(sets.engaged.Haste.Acc, {})
-  
-    sets.engaged.Haste.GreatSword.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Haste.GreatSword.Mid.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Haste.GreatSword.Acc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-      
-    -- Ragnarok
-    sets.engaged.Ragnarok = set_combine(sets.engaged.GreatSword, {})
-    sets.engaged.Ragnarok.MidAcc = set_combine(sets.engaged.GreatSword.MidAcc, {})
-    sets.engaged.Ragnarok.MaxAcc = set_combine(sets.engaged.GreatSword.MaxAcc, {})
-      
-    sets.engaged.Ragnarok.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Ragnarok.MidAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Ragnarok.MaxAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-      
-    -- Caladbolg
-    sets.engaged.Caladbolg = set_combine(sets.engaged.GreatSword, {
-    })
-    sets.engaged.Caladbolg.MidAcc = set_combine(sets.engaged.GreatSword.MidAcc, {
-    })
-    sets.engaged.Caladbolg.MaxAcc = set_combine(sets.engaged.GreatSword.MaxAcc, {
-    })
-      
-    sets.engaged.Caladbolg.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Caladbolg.MidAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Caladbolg.MaxAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-      
-    sets.engaged.Haste.Caladbolg = set_combine(sets.engaged.Caladbolg, { 
-        waist="Windbuffet Belt +1"
-    })
-    sets.engaged.Haste.Caladbolg.MidAcc = set_combine(sets.engaged.Caladbolg.MidAcc, {
-        hands="Sulevia's Gauntlets +2",
-        waist="Windbuffet Belt +1"
-    })
-    sets.engaged.Haste.Caladbolg.MaxAcc = set_combine(sets.engaged.Caladbolg.MaxAcc, {
-        hands="Sulevia's Gauntlets +2",
-    })
-  
-    sets.engaged.Haste.Caladbolg.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Haste.Caladbolg.MidAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
-    sets.engaged.Haste.Caladbolg.MaxAcc.PDT = set_combine(sets.engaged.GreatSword.PDT, {})
       
   
 end
