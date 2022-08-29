@@ -59,12 +59,12 @@ end
   
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow', 'crit')
+    state.OffenseMode:options('Normal', 'STP', 'MidAcc', 'MaxAcc', 'SubtleBlow', 'crit', 'PD')
     state.HybridMode:options('Normal', 'Meva', 'PDT')
     state.WeaponskillMode:options('Normal', 'MaxAcc', 'Max')  ---Max for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP')
-    state.MagicalDefenseMode:options('MDT', 'HP')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'SE', 'SEboost')
+    state.MagicalDefenseMode:options('MDT')
       
     war_sj = player.sub_job == 'WAR' or false
   
@@ -539,7 +539,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     sets.defense.HP = {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
-        body="Heath. Cuirass +1",
+        body="Hjarrandi Breast.",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
@@ -550,6 +550,40 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Moonbeam Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+}
+
+sets.defense.SE = {
+
+    ammo="Eluder's Sachet",
+    head="Ratri Sallet",
+    body="Ratri Plate",
+    hands="Ratri Gadlings",
+    legs="Ratri Cuisses",
+    feet="Flam. Gambieras +2",
+    neck="Nicander's Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Dedition Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Chirich Ring +1",
+    back="Atheling Mantle",
+}
+
+sets.defense.SEboost = {
+
+    ammo="Staunch Tathlum +1",
+    head="Ratri Sallet",
+    body="Hjarrandi Breast.",
+    hands="Ratri Gadlings",
+    legs="Ratri Cuisses",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonbeam Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
 }
   
       
@@ -566,7 +600,6 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     --------------------------------------
       
     sets.engaged ={
-        sub="Utu Grip",
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Sakpata's Plate",
@@ -583,7 +616,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     }
   
     sets.engaged.STP = {
-        ammo="Coiste Bodhar",
+     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Flamma Korazin +2",
     hands="Flam. Manopolas +2",
@@ -598,8 +631,8 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     back="Atheling Mantle",
 }
   
-    sets.engaged.MidAcc = {
-        head="Sakpata's Helm",
+    sets.engaged.MidAcc = {     ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
@@ -614,7 +647,6 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
 
 sets.engaged.crit = set_combine(sets.engaged, {
 
-    sub="Utu Grip",
     ammo="Yetshila +1",
     head="Hjarrandi Helm",
     body="Hjarrandi Breast.",
@@ -628,6 +660,23 @@ sets.engaged.crit = set_combine(sets.engaged, {
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+})
+
+sets.engaged.PD = set_combine(sets.engaged, {
+
+    ammo="Coiste Bodhar",
+    head="Hjarrandi Helm",
+    body="Hjarrandi Breast.",
+    hands="Flam. Manopolas +2",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Dedition Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
 })
       
     sets.engaged.MaxAcc = {
