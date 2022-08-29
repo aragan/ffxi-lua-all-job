@@ -648,8 +648,7 @@ function init_gear_sets()
     -- Defense sets
     sets.defense.PDT = {
 
-		ammo=empty
-		range="Ullr",
+
 		head="Umuthi Hat",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",
