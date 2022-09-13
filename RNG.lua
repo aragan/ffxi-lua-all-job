@@ -27,6 +27,7 @@ function job_setup()
 	state.Buff.Barrage = buffactive.Barrage or false
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
+	state.CapacityMode = M(false, 'Capacity Point Mantle')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -49,6 +50,8 @@ function user_setup()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
+	send_command('bind != gs c toggle CapacityMode')
+
 end
 
 
@@ -64,6 +67,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
+    sets.CapacityMantle  = { back="Mecistopins Mantle" }
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Bounty Shot'] = {hands="Sylvan Glovelettes +2"}
@@ -115,8 +119,8 @@ function init_gear_sets()
 	})
 
     sets.precast.WS['Last Stand'] = {
-		head="Nyame Helm",
-		body="Nyame Mail",
+		head="Ikenga's Hat",
+		body="Ikenga's Vest",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
@@ -384,6 +388,9 @@ function job_precast(spell, action, spellMap, eventArgs)
 	if spell.action_type == 'Ranged Attack' then
 		state.CombatWeapon:set(player.equipment.range)
 	end
+	if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
 
 	if spell.action_type == 'Ranged Attack' or
 	  (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then

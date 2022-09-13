@@ -192,32 +192,32 @@ function init_gear_sets()
  
     ammo="Knobkierrie",
     head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
+    body="Mpaca's Doublet",
+    hands="Mpaca's Gloves",
     legs="Hiza. Hizayoroi +2",
-    feet="Malignance Boots",
+    feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Begrudging Ring",
+    left_ring="Hetairoi Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
 
 
     })
     sets.precast.WS['Shijin Spiral']   = set_combine(sets.precast.WS, {
-        ammo="Falcon Eye",
+        ammo="Aurgelmir Orb +1",
         head="Mpaca's Cap",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Hiza. Hizayoroi +2",
+        legs="Mpaca's Hose",
         feet="Malignance Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear="Odr Earring",
-        left_ring="Epona's Ring",
+        left_ring="Hetairoi Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
 
@@ -331,7 +331,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body="Nyame Mail",
+        body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
@@ -430,6 +430,7 @@ function init_gear_sets()
     }
     sets.engaged.Acc = {
         ammo="Falcon Eye",
+        head="Malignance Chapeau",
         body="Bhikku Cyclas +1",
 		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
@@ -444,11 +445,11 @@ function init_gear_sets()
     }
     sets.engaged.Mod = {
         ammo="Coiste Bodhar",
-		head="Hiza. Somen +2",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -478,6 +479,7 @@ function init_gear_sets()
 
     -- Defensive melee hybrid sets
     sets.engaged.PDT = {          ammo="Amar Cluster",
+    head="Malignance Chapeau",
     body={ name="Tatena. Harama. +1", augments={'Path: A',}},
     hands={ name="Tatena. Gote +1", augments={'Path: A',}},
     legs={ name="Tatena. Haidate +1", augments={'Path: A',}},

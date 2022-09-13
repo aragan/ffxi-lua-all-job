@@ -457,14 +457,7 @@ function init_gear_sets()
  
      -- Idle sets
      sets.idle.Town = {
-         head="Hjarrandi Helm",
-         neck="Warrior's Bead Necklace +2",
-         ear1="Brutal Earring",
-         ear2="Telos Earring",
-         body="Sakpata's Plate",
-         ring1="Niqmaddu Ring",
-         waist="Sailfi Belt +1",
-         legs="Sakpata's Cuisses",
+   
          feet="Hermes' Sandals +1",
      }
      
