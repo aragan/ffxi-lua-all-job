@@ -38,7 +38,7 @@ end
 function user_setup()
 	state.RangedMode:options('Normal', 'Acc')
 	state.WeaponskillMode:options('Normal', 'Acc')
-	state.OffenseMode:options('Normal', 'Acc')
+	state.OffenseMode:options('Normal', 'TP', 'Acc')
 
 	gear.default.weaponskill_neck = "Ocachi Gorget"
 	gear.default.weaponskill_waist = "Elanid Belt"
@@ -349,13 +349,13 @@ back="Moonlight Cape",}
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
-		right_ear="Infused Earring",
+		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
 		back="Atheling Mantle",
 	}
 
-	sets.engaged.Acc = {
+	sets.engaged.TP = {
 		head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -364,8 +364,23 @@ back="Moonlight Cape",}
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
-		right_ear="Infused Earring",
+		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
+		back="Atheling Mantle",
+	}
+
+	sets.engaged.Acc = {
+		head="Malignance Chapeau",
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+		neck="Lissome Necklace",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Sherida Earring",
+		left_ring="Chirich Ring +1",
 		right_ring="Epona's Ring",
 		back="Atheling Mantle",
 	}

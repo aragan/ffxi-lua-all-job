@@ -523,7 +523,7 @@ function init_gear_sets()
             left_ear="Brutal Earring",
            right_ear="Sherida Earring",
             left_ring="Epona's Ring",
-            right_ring="Regal Ring",
+            right_ring="Gere Ring",
            back="Atheling Mantle",
 		})
 		
@@ -551,7 +551,7 @@ function init_gear_sets()
 	   left_ear="Brutal Earring",
 	  right_ear="Sherida Earring",
 	   left_ring="Epona's Ring",
-	   right_ring="Regal Ring",
+	   right_ring="Gere Ring",
 	  back="Atheling Mantle",
 	})
 
@@ -1093,7 +1093,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Dedition Earring",
 		right_ear="Sherida Earring",
-		left_ring="Hetairoi Ring",
+		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back="Atheling Mantle",
 }
@@ -1126,7 +1126,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
-		left_ring="Hetairoi Ring",
+		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 		}
@@ -1215,7 +1215,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
-		left_ring="Hetairoi Ring",
+		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back="Atheling Mantle",
 			}
@@ -1232,7 +1232,7 @@ sets.precast.WS['Aeolian Edge'] = {
 			waist="Windbuffet Belt +1",
 			left_ear="Brutal Earring",
 			right_ear="Sherida Earring",
-			left_ring="Hetairoi Ring",
+			left_ring="Gere Ring",
 			right_ring="Epona's Ring",
 			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
 	
@@ -1249,7 +1249,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
-		left_ring="Hetairoi Ring",
+		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 }
@@ -1313,7 +1313,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		waist="Reiki Yotai",
 		left_ear="Eabani Earring",
 		right_ear="Sherida Earring",
-		left_ring="Hetairoi Ring",
+		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back="Atheling Mantle",
 		})
