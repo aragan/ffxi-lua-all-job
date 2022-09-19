@@ -359,8 +359,8 @@ function init_gear_sets()
         left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
-        right_ring="Epona's Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
     }
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -375,8 +375,8 @@ function init_gear_sets()
         left_ear="Schere Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Epona's Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
 
     })
 
@@ -391,8 +391,8 @@ function init_gear_sets()
     left_ear="Schere Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+    right_ring="Gere Ring",
+    back="Atheling Mantle",
     })
 
     sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS, {
@@ -406,8 +406,8 @@ function init_gear_sets()
         left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
-        right_ring="Epona's Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
 
     })
 
@@ -425,8 +425,8 @@ function init_gear_sets()
             left_ear="Schere Earring",
             right_ear="Telos Earring",
             left_ring="Niqmaddu Ring",
-            right_ring="Epona's Ring",
-            back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+            right_ring="Gere Ring",
+            back="Atheling Mantle",
         }
 
     )
@@ -477,7 +477,7 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Telos Earring",
         right_ear="Mache Earring +1",
-        left_ring="Epona's Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
@@ -573,7 +573,7 @@ function init_gear_sets()
     waist="Moonbow Belt",
     left_ear="Crep. Earring",
     right_ear="Mache Earring +1",
-    left_ring="Epona's Ring",
+    left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
@@ -595,7 +595,7 @@ function init_gear_sets()
     waist="Moonbow Belt",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
-    left_ring="Epona's Ring",
+    left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
     }
@@ -617,7 +617,7 @@ function init_gear_sets()
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Epona's Ring",
+        right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 

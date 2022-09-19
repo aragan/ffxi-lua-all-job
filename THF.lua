@@ -526,7 +526,7 @@ function init_gear_sets()
     waist="Reiki Yotai",
     left_ear="Sherida Earring",
     right_ear="Dedition Earring",
-    left_ring="Epona's Ring",
+    left_ring="Gere Ring",
     right_ring="Hetairoi Ring",
     back="Atheling Mantle",
 }
@@ -543,7 +543,7 @@ function init_gear_sets()
     waist="Reiki Yotai",
     left_ear="Sherida Earring",
     right_ear="Telos Earring",
-    left_ring="Epona's Ring",
+    left_ring="Gere Ring",
     right_ring="Chirich Ring +1",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
         
