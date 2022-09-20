@@ -233,7 +233,7 @@ function init_gear_sets()
 
 	sets.midcast.RA = {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Nisroch Jerkin",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -243,16 +243,17 @@ function init_gear_sets()
 		right_ear="Telos Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Regal Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
 		head="Meghanada Visor +2",
-		body="Meg. Cuirie +2",
+		body="Nisroch Jerkin",
 		hands="Ikenga's Gloves",
 		legs="Ikenga's Trousers",
 		feet="Meg. Jam. +2",
 		neck="Iskur Gorget",
-		waist="Eschan Stone",
+		waist="Yemaya Belt",
 		left_ear="Telos Earring",
 		right_ear="Enervating Earring",
 		left_ring="Dingir Ring",

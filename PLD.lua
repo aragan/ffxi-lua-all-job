@@ -446,7 +446,7 @@ back="Atheling Mantle",
     sets.midcast.Phalanx = 
     {
         main="Sakpata's Sword",
-        a mmo="Staunch Tathlum +1",
+        ammo="Staunch Tathlum +1",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body="Shab. Cuirass +1",
         hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
