@@ -52,8 +52,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Mod', 'Ranger')
-    state.HybridMode:options('Normal', 'Evasion', 'PDT')
+    state.OffenseMode:options('Normal', 'Acc', 'CRIT', 'Mod', 'Ranger')
+    state.HybridMode:options('Normal', 'Evasion', 'PDT', 'HP')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
     state.PhysicalDefenseMode:options('Evasion', 'PDT')
@@ -495,6 +495,22 @@ function init_gear_sets()
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
+    sets.defense.HP = {
+        ammo="Coiste Bodhar",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Reiki Yotai",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Moonbeam Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
+
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Nyame Mail",
@@ -531,8 +547,6 @@ function init_gear_sets()
     back="Atheling Mantle",
 }
     sets.engaged.Acc = {
-    main="Tauret",
-    sub="Gleti's Knife",
     ammo="Aurgelmir Orb +1",
     head="Malignance Chapeau",
     body="Gleti's Cuirass",    
@@ -547,6 +561,22 @@ function init_gear_sets()
     right_ring="Chirich Ring +1",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
         
+    sets.engaged.CRIT = {
+        ammo="Yetshila +1",
+        head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        body="Meg. Cuirie +2",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Gleti's Boots",
+        neck="Nefarious Collar +1",
+        waist="Reiki Yotai",
+        left_ear="Sherida Earring",
+        right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+        left_ring="Gere Ring",
+        right_ring="Hetairoi Ring",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    }
+
     -- Mod set for trivial mobs (Skadi+1)
     sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
 
