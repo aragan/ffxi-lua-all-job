@@ -540,7 +540,7 @@ function init_gear_sets()
     
     -- Resting sets
     sets.resting = {
-        head="Rao Kabuto",
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
         neck="Sanctity Necklace",
         ring2="Paguroidea Ring",
         ear2="Infused Earring",
@@ -561,7 +561,7 @@ function init_gear_sets()
     })
 
     sets.idle.Regen = set_combine(sets.idle.Field, {
-        head="Rao Kabuto",
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
         neck="Sanctity Necklace",
         ring2="Paguroidea Ring",
         ear2="Infused Earring",
