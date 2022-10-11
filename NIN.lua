@@ -27,11 +27,9 @@ end
 function job_setup()
 
     state.Buff.Migawari = buffactive.migawari or false
-    state.Buff.Sange = buffactive.sange or false
     state.Buff.Innin = buffactive.innin or false
 
-    include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
+
 
     state.HasteMode = M{['description']='Haste Mode', 'Hi', 'Normal'}
     state.Runes = M{['description']='Runes', "Ignis", "Gelus", "Flabra", "Tellus", "Sulpor", "Unda", "Lux", "Tenebrae"}
@@ -48,8 +46,7 @@ function job_setup()
     state.Proc = M(false, 'Proc')
     state.unProc = M(false, 'unProc')
 
-    gear.RegularAmmo = 'Seki Shuriken'
-    gear.SangeAmmo = 'Happo Shuriken'
+
 
     wsList = S{'Blade: Hi', 'Blade: Kamu', 'Blade: Ten'}
     nukeList = S{'Katon: San', 'Doton: San', 'Suiton: San', 'Raiton: San', 'Hyoton: San', 'Huton: San'}
@@ -70,7 +67,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','CRIT', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana')
     state.HybridMode:options('Normal', 'PDT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
@@ -199,7 +196,6 @@ function init_gear_sets()
     --------------------------------------
     -- Utility Sets for rules below
     --------------------------------------
-    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt"}
     sets.CapacityMantle = { back="Mecistopins Mantle" }
     sets.WSDayBonus     = {  }
     -- sets.WSBack         = { back="Trepidity Mantle" }
@@ -208,8 +204,7 @@ function init_gear_sets()
     sets.OdrBrutal  = { ear1="Odr Earring", ear2="Brutal Earring" }
     sets.OdrMoon     = { ear1="Odr Earring", ear2="Moonshade Earring" }
 
-    sets.RegularAmmo    = { ammo=gear.RegularAmmo }
-    sets.SangeAmmo      = { ammo=gear.SangeAmmo }
+
 
     -- sets.NightAccAmmo   = { ammo="Ginsen" }
     -- sets.DayAccAmmo     = { ammo="Seething Bomblet +1" }
@@ -315,35 +310,32 @@ function init_gear_sets()
 
     sets.idle = {
 
-    ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Danzo Sune-Ate",
-    neck="Moonbeam Nodowa",
-    waist="Sarissapho. Belt",
-    left_ear="Telos Earring",
-    right_ear="Cessance Earring",
-    left_ring="Ilabrat Ring",
-    right_ring="Gere Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Tuisto Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Paguroidea Ring",
+        back="Moonlight Cape",
     }
 
     sets.idle.Regen = set_combine(sets.idle, {
-        head="Rao Kabuto",
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
         body="Hizamaru Haramaki +2",
         ear2="Infused Earring",
         ring2="Paguroidea Ring"
     })
 
     sets.Adoulin = {
-        body="Councilor's Garb",
     }
     sets.idle.Town = sets.idle
-    sets.idle.Town = set_combine(sets.idle, {    feet="Danzo Sune-Ate",
-
-    })
+    sets.idle.Town = set_combine(sets.idle, {feet="Danzo Sune-Ate",})
     --sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
     --    body="Councilor's Garb"
     --})
@@ -370,7 +362,6 @@ function init_gear_sets()
 
     sets.defense.TreasureHunter = {
         main={ name="Heishi Shorinken", augments={'Path: A',}},
-        sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
         ammo="Per. Lucky Egg",
         head="Malignance Chapeau",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
@@ -413,7 +404,7 @@ function init_gear_sets()
         waist="Svelt. Gouriz +1",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Defending Ring",
+        left_ring="Vengeful Ring",
         right_ring="Hizamaru Ring",
         back="Moonlight Cape",
     }
@@ -454,6 +445,23 @@ function init_gear_sets()
         ring1="Regal Ring",
         waist="Olseni Belt",
     })
+
+    sets.engaged.CRIT =  {
+        ammo="Yetshila +1",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Mummu Jacket +2",
+        hands="Mummu Wrists +2",
+        legs="Mummu Kecks +2",
+        feet="Mummu Gamash. +2",
+        neck="Nefarious Collar +1",
+        waist="Reiki Yotai",
+        left_ear="Brutal Earring",
+        right_ear="Odr Earring",
+        left_ring="Mummu Ring",
+        right_ring="Hetairoi Ring",
+        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+    }
+
         sets.engaged.Sword = set_combine(sets.engaged, {
             main="Excalipoor II",
             sub=empty,
@@ -596,21 +604,7 @@ function init_gear_sets()
         right_ring="Epona's Ring",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
-    sets.engaged.Acc.MaxHaste = set_combine(sets.engaged.Mid.MaxHaste, {
-        ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck="Lissome Necklace",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Dedition Earring",
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
-    })
+
     sets.engaged.Innin.MaxHaste     = sets.engaged.MaxHaste
     sets.engaged.Innin.Mid.MaxHaste = sets.engaged.Mid.MaxHaste
     sets.engaged.Innin.Acc.MaxHaste = sets.engaged.Acc.MaxHaste
@@ -716,6 +710,8 @@ function init_gear_sets()
         right_ear="Suppanomimi",
         waist="Olseni Belt",
     })
+
+
     
     sets.engaged.Innin.Haste_15 = set_combine(sets.engaged.Haste_15, { })
     sets.engaged.Innin.Mid.Haste_15 = sets.engaged.Mid.Haste_15
@@ -1004,7 +1000,7 @@ function job_precast(spell, action, spellMap, eventArgs)
     end
     if string.find(spell.english, 'Utsusemi') then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4)'] then
-            --cancel_spell()
+            cancel_spell()
             eventArgs.cancel = true
             return
         end
@@ -1015,16 +1011,12 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
     -- Ranged Attacks 
     if spell.action_type == 'Ranged Attack' and state.OffenseMode ~= 'Acc' then
-        equip( sets.SangeAmmo )
+        equip(  )
     end
     -- protection for lag
-    if spell.name == 'Sange' and player.equipment.ammo == gear.RegularAmmo then
-        state.Buff.Sange = false
-        eventArgs.cancel = true
-    end
     if spell.type == 'WeaponSkill' then
-        if spell.english == 'Aeolian Edge' and state.TreasureMode.value ~= 'None' then
-            equip(sets.TreasureHunter)
+        if spell.english == '' and state.TreasureMode.value ~= 'None' then
+            equip()
         end
         -- Mecistopins Mantle rule (if you kill with ws)
         if state.CapacityMode.value then
@@ -1049,6 +1041,9 @@ function job_midcast(spell, action, spellMap, eventArgs)
     if nukeList:contains(spell.english) and buffactive['Futae'] then
         equip(sets.Burst)
     end
+    if spell.name == 'Utsusemi: Ichi' and overwrite then
+        send_command('cancel Copy Image|Copy Image (2)')
+    end
     -- if spell.english == "Monomi: Ichi" then
     --     if buffactive['Sneak'] then
     --         send_command('@wait 2.7;cancel sneak')
@@ -1062,6 +1057,13 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     --if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ranged Attack' then
     --    equip(sets.TreasureHunter)
     --end
+    if not spell.interrupted then
+        if spell.name == 'Utsusemi: Ichi' then
+            overwrite = false
+        elseif spell.name == 'Utsusemi: Ni' then
+            overwrite = true
+        end
+    end
 end
 
 
@@ -1069,6 +1071,13 @@ end
 function job_aftercast(spell, action, spellMap, eventArgs)
     if midaction() then
         return
+    end
+    if not spell.interrupted then
+        if spell.name == 'Utsusemi: Ichi' then
+            overwrite = false
+        elseif spell.name == 'Utsusemi: Ni' then
+            overwrite = true
+        end
     end
     -- Aftermath timer creation
     aw_custom_aftermath_timers_aftercast(spell)
@@ -1113,9 +1122,6 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -1233,13 +1239,7 @@ end
 
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
-        equip(sets.buff[buff_name] or {})
-        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
-            equip(sets.TreasureHunter)
-        end
-        eventArgs.handled = false
-    end
+
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.
