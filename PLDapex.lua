@@ -1045,15 +1045,32 @@ sets.defense.Dagger =
 
 --Doom/RR",
      
-    sets.defense.PDT.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
-    sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
-    sets.defense.MDT.Reraise = set_combine(sets.defense.MDT, sets.Reraise)
-    sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
-     
-    sets.defense.PDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
-    sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
-    sets.defense.MDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
-    sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
+sets.defense.PDT.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
+sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
+sets.defense.MDT.Reraise = set_combine(sets.defense.MDT, sets.Reraise)
+sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
+sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
+sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
+sets.defense.DEF.Reraise = set_combine(sets.defense.DEF, sets.Reraise)
+sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
+sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
+sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
+sets.defense.ResistCharm.Reraise = set_combine(sets.defense.ResistCharm, sets.Reraise)
+sets.defense.PDH.Reraise = set_combine(sets.defense.PDH, sets.Reraise)
+
+
+sets.defense.PDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
+sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
+sets.defense.MDT.Doom = set_combine(sets.defense.MDT, sets.Doom)
+sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
+sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
+sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
+sets.defense.DEF.Doom = set_combine(sets.defense.DEF, sets.Doom)
+sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
+sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
+sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
+sets.defense.ResistCharm.Doom = set_combine(sets.defense.ResistCharm, sets.Doom)
+sets.defense.PDH.Doom = set_combine(sets.defense.PDH, sets.Doom)
      
     sets.Kiting = {
         

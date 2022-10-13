@@ -881,16 +881,16 @@ back="Moonlight Cape",
 
     sub="Aegis",
     ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body="Hjarrandi Breast.",
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Nierenschutz",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Asklepian Belt",
     left_ear="Odnowa Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Patricius Ring",
+    left_ring="Shadow Ring",
     right_ring="Moonbeam Ring",
     back="Moonlight Cape",
 }
@@ -968,12 +968,20 @@ back="Moonlight Cape",
 }
 
 sets.defense.HP = set_combine(sets.defense.HPBOOST, {
-    ammo="Iron Gobbet",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    sub="Ochain",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +1",
+    body="Chev. Cuirass +1",
+    hands="Chev. Gauntlets +1",
+    legs="Chev. Cuisses +1",
     feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
 })
 
 sets.defense.DEF = {
@@ -1029,23 +1037,38 @@ sets.defense.Block = {
 
 --Doom/RR",
      
-    sets.defense.PDT.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
-    sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
-    sets.defense.MDT.Reraise = set_combine(sets.defense.MDT, sets.Reraise)
-    sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
-     
-    sets.defense.PDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
-    sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
-    sets.defense.MDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
-    sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
+sets.defense.PDT.Reraise = set_combine(sets.defense.PDT, sets.Reraise)
+sets.defense.PD.Reraise = set_combine(sets.defense.PD, sets.Reraise)
+sets.defense.MDT.Reraise = set_combine(sets.defense.MDT, sets.Reraise)
+sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
+sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
+sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
+sets.defense.DEF.Reraise = set_combine(sets.defense.DEF, sets.Reraise)
+sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
+sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
+sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
+sets.defense.ResistCharm.Reraise = set_combine(sets.defense.ResistCharm, sets.Reraise)
+sets.defense.PDH.Reraise = set_combine(sets.defense.PDH, sets.Reraise)
+
+
+sets.defense.PDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
+sets.defense.PD.Doom = set_combine(sets.defense.PD, sets.Doom)
+sets.defense.MDT.Doom = set_combine(sets.defense.MDT, sets.Doom)
+sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
+sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
+sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
+sets.defense.DEF.Doom = set_combine(sets.defense.DEF, sets.Doom)
+sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
+sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
+sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
+sets.defense.ResistCharm.Doom = set_combine(sets.defense.ResistCharm, sets.Doom)
+sets.defense.PDH.Doom = set_combine(sets.defense.PDH, sets.Doom)
      
     sets.Kiting = {
-        head="Sakpata's Helm",
-        hands="Sakpata's Gauntlets",
+
         legs="Carmine Cuisses +1",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Tuisto Earring",
-        right_ring="Paguroidea Ring",
+     
+ 
         back="Moonlight Cape",
 
 }
@@ -1058,7 +1081,8 @@ sets.defense.Block = {
      
     sets.engaged = --1124 / 1264 avec enlight up
 {       main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
-sub="Ochain",
+sub="Ochain",    hands="Rev. Gauntlets +3",
+
 
 
 }
