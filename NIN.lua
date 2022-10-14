@@ -177,7 +177,6 @@ function init_gear_sets()
         body="Hattori Ningi +1",
         neck="Defiant Collar",
         hands="Ryuo Tekko",
-        back=Andartia.DEX,
         waist="Olseni Belt",
         legs="Kendatsuba Hakama +1",
     }
@@ -198,7 +197,7 @@ function init_gear_sets()
     -- Utility Sets for rules below
     --------------------------------------
     sets.CapacityMantle = { back="Mecistopins Mantle" }
-    sets.WSDayBonus     = {  }
+    sets.WSDayBonus     = {head="Gavialis Helm"}
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear1="Odr Earring", ear2="Lugra Earring +1" }
     sets.OdrIshvara  = { ear1="Odr Earring", ear2="Ishvara Earring" }
@@ -411,7 +410,7 @@ function init_gear_sets()
     }
 
     sets.DayMovement = {feet="Danzo sune-ate"}
-    sets.NightMovement = {feet="Hachiya Kyahan +2"}
+    sets.NightMovement = {feet="Danzo sune-ate"}
 
     sets.Organizer = {
 
@@ -577,7 +576,7 @@ function init_gear_sets()
     -- Delay Cap from spell + songs alone
     sets.engaged.MaxHaste = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
@@ -592,7 +591,7 @@ function init_gear_sets()
     })
     sets.engaged.Mid.MaxHaste = set_combine(sets.engaged.MaxHaste, {
         ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
@@ -778,7 +777,7 @@ function init_gear_sets()
     -- BLADE: JIN
     sets.Jin = {
         ammo="Yetshila +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mummu Jacket +2",
         hands="Mummu Wrists +2",
         legs="Hiza. Hizayoroi +2",
@@ -801,7 +800,7 @@ function init_gear_sets()
     sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS, {
   
         ammo="Yetshila +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mummu Jacket +2",
         hands="Mummu Wrists +2",
         legs="Hiza. Hizayoroi +2",
@@ -844,7 +843,7 @@ function init_gear_sets()
     sets.Shun = {
     
         ammo="Aurgelmir Orb +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Jokushu Haidate",
@@ -867,7 +866,7 @@ function init_gear_sets()
     -- BLADE: Rin
     sets.Rin = {
         ammo="Yetshila +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mummu Jacket +2",
         hands="Mummu Wrists +2",
         legs="Hiza. Hizayoroi +2",
@@ -908,7 +907,7 @@ function init_gear_sets()
     
     sets.Ten = {
         ammo="Yetshila +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mummu Jacket +2",
         hands="Mummu Wrists +2",
         legs="Hiza. Hizayoroi +2",
@@ -1023,6 +1022,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
         end
+        if is_sc_element_today(spell) then
+            if wsList:contains(spell.english) then
+                equip(sets.WSDayBonus)
+        end
         -- Lugra Earring for some WS
         if LugraWSList:contains(spell.english) then
             if world.time >= (17*60) or world.time <= (7*60) then
@@ -1032,8 +1035,8 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         elseif spell.english == 'Blade: Ten' then
             equip(sets.OdrMoon)
+            end
         end
-
     end
 end
 

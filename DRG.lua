@@ -134,7 +134,6 @@ function init_gear_sets()
         neck="Adad Amulet",
         ear1="Sherida Earring",
         ear2="Cessance Earring",
-		body=Valorous.Body.STP,
         hands="Flamma Manopolas +2",
         back="Updraft Mantle",
         ring1="Dreki Ring",
@@ -647,6 +646,12 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
+    end
+     if is_sc_element_today(spell) then
+        if wsList:contains(spell.english) then
+            equip(sets.WSDayBonus)
+        
+           end
         end
     end
 end
