@@ -566,7 +566,7 @@ function init_gear_sets()
         hands="Flamma Manopolas +2",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},        legs="Sulevia's Cuisses +2"
+        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},       
     })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
@@ -582,7 +582,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},   legs="Sulevia's Cuisses +2"
+        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},   
     })
 
     sets.engaged.PDT = set_combine(sets.engaged, {
@@ -607,12 +607,7 @@ function init_gear_sets()
         right_ring="Defending Ring",
     })
 
-    sets.engaged.War = set_combine(sets.engaged, {
 
-    })
-    sets.engaged.War.Mid = set_combine(sets.engaged.Mid, {
-        -- neck="Defiant Collar",
-    })
 
 end
 
@@ -650,12 +645,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
-    end
-     if is_sc_element_today(spell) then
-        if wsList:contains(spell.english) then
-            equip(sets.WSDayBonus)
-        
-           end
+
         end
     end
 end
