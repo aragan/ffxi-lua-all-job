@@ -464,7 +464,11 @@ function init_gear_sets()
 		head="Twilight Helm",
 		body="Twilight Mail",
     })
-	
+    sets.Reraise = set_combine(sets.idle.Field, {
+		head="Twilight Helm",
+		body="Twilight Mail",
+    })
+
 	-- Defense sets
 	sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
