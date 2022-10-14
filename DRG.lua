@@ -114,9 +114,7 @@ function init_gear_sets()
 
 	sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
     sets.TreasureHunter = { 
-        head="White rarab cap +1", 
-        waist="Chaac Belt",
-        feet=Valorous.Feet.TH
+
      }
 
 	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
@@ -202,8 +200,17 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     }
+
+    sets.precast.WS.Mid = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Sulevia's Plate. +2",
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        right_ring="Mujin Band",
+    })
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-        head="Valorous Mask",
+        
     })
 
 	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
@@ -221,7 +228,12 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
     })
-	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {
+	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
+    body="Sulevia's Plate. +2",
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    right_ring="Mujin Band",
 
     })
 	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {
@@ -243,14 +255,19 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
-	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {
+	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
+    body="Sulevia's Plate. +2",
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    right_ring="Mujin Band",
 
     })
 	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS["Camlann's Torment"], {})
 
 	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
@@ -263,7 +280,12 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
-	sets.precast.WS['Drakesbane'].Mid = set_combine(sets.precast.WS['Drakesbane'], {
+	sets.precast.WS['Drakesbane'].Mid = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
+    body="Sulevia's Plate. +2",
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    right_ring="Mujin Band",
 
     })
 	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS['Drakesbane'], {})
@@ -283,7 +305,12 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
-	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {
+	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
+    body="Sulevia's Plate. +2",
+    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    right_ring="Mujin Band",
 
     })
 	sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
@@ -321,6 +348,11 @@ function init_gear_sets()
         back="Argocham. Mantle",
     })
 
+    sets.precast.WS['Raiden Thrust'].Acc = set_combine(sets.precast.WS, {
+    
+    })
+
+
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
@@ -335,6 +367,10 @@ function init_gear_sets()
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Epaminondas's Ring",
         back="Argocham. Mantle",
+    })
+
+    sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS, {
+
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
@@ -353,6 +389,10 @@ function init_gear_sets()
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
 
+    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS, {
+
+    })
+
     sets.precast.WS['Cataclysm'] = set_combine(sets.precast.WS, {
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
@@ -367,6 +407,10 @@ function init_gear_sets()
         left_ring="Archon Ring",
         right_ring="Epaminondas's Ring",
         back="Argocham. Mantle",
+    })
+
+    sets.precast.WS['Cataclysm'].Acc = set_combine(sets.precast.WS, {
+
     })
 	
 	-- Sets to return to when not performing an action.
@@ -388,16 +432,16 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {
         ammo="Staunch Tathlum +1",
-        head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Subtle Blow"+10','Pet: STR+2',}},
+        head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs="Carmine Cuisses +1",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Gleti's Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
@@ -409,20 +453,20 @@ function init_gear_sets()
 	
 	sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
-        head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Subtle Blow"+10','Pet: STR+2',}},
+        head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs="Carmine Cuisses +1",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Gleti's Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     })
-    sets.idle.Sphere = set_combine(sets.idle, { body="Makora Meikogai"  })
+    sets.idle.Sphere = set_combine(sets.idle, {  })
 
     sets.idle.Regen = set_combine(sets.idle.Field, {
 		--head="Twilight Helm",
@@ -439,34 +483,34 @@ function init_gear_sets()
 	-- Defense sets
 	sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
-        head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Subtle Blow"+10','Pet: STR+2',}},
+        head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Gleti's Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {
         ammo="Staunch Tathlum +1",
-        head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Subtle Blow"+10','Pet: STR+2',}},
+        head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Gleti's Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
-        back="Moonlight Cape",    })
+        back="Moonlight Cape",   })
 
 	sets.Kiting = {
         legs="Carmine Cuisses +1",
@@ -522,32 +566,28 @@ function init_gear_sets()
 
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
-        neck="Dragoon's Collar +2",
-   	    body="Tartarus Platemail",
-        ring1="Niqmaddu Ring",
-        ring2="Dreki Ring",
-        hands="Sulevia's Gauntlets +2",
-        legs="Arke Cosciales",
-        waist="Sailfi Belt +1",
+        body="Hjarrandi Breast.",
+        hands="Sulev. Gauntlets +2",
+        left_ring="Moonbeam Ring",
+        right_ring="Defending Ring",
     })
 	sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, {
         head="Hjarrandi Helm",
-   	    body="Tartarus Platemail",
-        ring2="Patricius Ring",
-        legs="Arke Cosciales",
-		back=Brigantia.TP,
+        body="Hjarrandi Breast.",
+        hands="Sulev. Gauntlets +2",
+        left_ring="Moonbeam Ring",
+        right_ring="Defending Ring",
     })
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {
-        ring2="Patricius Ring",
-   	    body="Tartarus Platemail",
-        legs="Arke Cosciales",
-		back=Brigantia.TP,
+        head="Hjarrandi Helm",
+        body="Hjarrandi Breast.",
+        hands="Sulev. Gauntlets +2",
+        left_ring="Moonbeam Ring",
+        right_ring="Defending Ring",
     })
 
     sets.engaged.War = set_combine(sets.engaged, {
-        hands="Flamma Manopolas +2",
-        neck="Anu Torque",
-        ring2="Petrov Ring"
+
     })
     sets.engaged.War.Mid = set_combine(sets.engaged.Mid, {
         -- neck="Defiant Collar",
