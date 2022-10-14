@@ -44,7 +44,6 @@ function user_setup()
     
     war_sj = player.sub_job == 'WAR' or false
 
-	select_default_macro_book(1, 16)
     send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ input /lockstyle on')
@@ -831,10 +830,10 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'WAR' then
-    	set_macro_page(8, 1)
+    	set_macro_page(8, 38)
     elseif player.sub_job == 'WHM' then
-    	set_macro_page(8, 2)
+    	set_macro_page(8, 38)
     else
-    	set_macro_page(8, 1)
+    	set_macro_page(8, 38)
     end
 end
