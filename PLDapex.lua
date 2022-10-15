@@ -22,7 +22,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    options.OffenseModes = {'Normal', 'Acc', 'Tp'}
+    options.OffenseModes = {'Normal', 'Acc', 'Tp', 'Hybrid', 'CRIT'}
 	options.DefenseModes = {'Normal', 'PDT'}
     options.WeaponskillModes = {'Normal', 'Acc'}
     options.CastingModes = {'Normal', 'DT'} 
@@ -1056,7 +1056,6 @@ sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
 sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
 sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
 sets.defense.ResistCharm.Reraise = set_combine(sets.defense.ResistCharm, sets.Reraise)
-sets.defense.PDH.Reraise = set_combine(sets.defense.PDH, sets.Reraise)
 
 
 sets.defense.PDT.Doom = set_combine(sets.defense.PDT, sets.Doom)
@@ -1070,7 +1069,6 @@ sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
 sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
 sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
 sets.defense.ResistCharm.Doom = set_combine(sets.defense.ResistCharm, sets.Doom)
-sets.defense.PDH.Doom = set_combine(sets.defense.PDH, sets.Doom)
      
     sets.Kiting = {
         
@@ -1126,6 +1124,39 @@ right_ear="Telos Earring",
 left_ring="Patricius Ring",
 right_ring="Petrov Ring",
 back="Atheling Mantle",
+}
+sets.engaged.Hybrid = --1179 / 1315 avec enlight up
+{
+    ammo="Aurgelmir Orb +1",
+    head="Hjarrandi Helm",
+    body="Hjarrandi Breast.",
+    hands="Sulev. Gauntlets +2",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist="Tempus Fugit +1",
+    left_ear="Suppanomimi",
+    right_ear="Telos Earring",
+    left_ring="Petrov Ring",
+    right_ring="Moonbeam Ring",
+    back="Atheling Mantle",
+}
+
+sets.engaged.CRIT = --1179 / 1315 avec enlight up
+{
+    ammo="Coiste Bodhar",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Hjarrandi Breast.",
+    hands="Flam. Manopolas +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Defending Ring",
+    right_ring="Hetairoi Ring",
+    back="Moonlight Cape",
 }
 
 end

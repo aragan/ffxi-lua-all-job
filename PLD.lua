@@ -23,7 +23,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    options.OffenseModes = {'Normal', 'Tp', 'Acc'}
+    options.OffenseModes = {'Normal', 'Tp', 'Acc', 'Hybrid', 'CRIT'}
 	options.DefenseModes = {'Normal', 'PDT'}
     options.WeaponskillModes = {'Normal', 'Acc'}
     options.CastingModes = {'Normal', 'DT'} 
@@ -1199,6 +1199,40 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
+}
+
+sets.engaged.Hybrid = --1179 / 1315 avec enlight up
+{
+    ammo="Aurgelmir Orb +1",
+    head="Hjarrandi Helm",
+    body="Hjarrandi Breast.",
+    hands="Sulev. Gauntlets +2",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist="Tempus Fugit +1",
+    left_ear="Suppanomimi",
+    right_ear="Telos Earring",
+    left_ring="Petrov Ring",
+    right_ring="Moonbeam Ring",
+    back="Atheling Mantle",
+}
+
+sets.engaged.CRIT = --1179 / 1315 avec enlight up
+{
+    ammo="Coiste Bodhar",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Hjarrandi Breast.",
+    hands="Flam. Manopolas +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Defending Ring",
+    right_ring="Hetairoi Ring",
+    back="Moonlight Cape",
 }
 
 end
