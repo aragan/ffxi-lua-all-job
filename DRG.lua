@@ -37,9 +37,9 @@ function user_setup()
 	-- Options: Override default values
 	state.OffenseMode:options('Normal', 'Mid', 'Acc', 'CRIT')
 	state.IdleMode:options('Normal', 'Sphere')
-	state.HybridMode:options('Normal', 'PDT')
+	state.HybridMode:options('Normal', 'PDT', 'Reraise')
 	state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
-	state.PhysicalDefenseMode:options('PDT', 'HP')
+	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
 	state.MagicalDefenseMode:options('MDT')
     
     war_sj = player.sub_job == 'WAR' or false

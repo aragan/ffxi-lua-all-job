@@ -43,7 +43,7 @@ include('organizer-lib')
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Ranged', 'Melee', 'Acc')
+    state.OffenseMode:options('Ranged', 'Melee', 'Acc', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis')
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
@@ -418,14 +418,14 @@ function init_gear_sets()
     sets.engaged.Melee = {main="Naegling",
     sub="Demers. Degen +1",
     range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
-    head="Malignance Chapeau",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
-    left_ear="Cessance Earring",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Meg. Chausses +2",
+    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+    neck="Iskur Gorget",
+    waist="Windbuffet Belt +1",
+    left_ear="Suppanomimi",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
@@ -448,20 +448,56 @@ function init_gear_sets()
     right_ring="Petrov Ring",
     back="Atheling Mantle",
     }
+
+    sets.engaged.CRIT = {
+        main="Naegling",
+    sub="Demers. Degen +1",
+    ammo="Yetshila +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Mummu Gamash. +2",
+    neck="Nefarious Collar +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Epona's Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle",
+    }
+
+    sets.engaged.CRIT.DW = {
+        main="Naegling",
+    sub="Demers. Degen +1",
+    ammo="Yetshila +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Mummu Gamash. +2",
+    neck="Nefarious Collar +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Epona's Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle",
+    }
     sets.engaged.Melee.DW = {
     
-    head="Malignance Chapeau",
-    body="Mummu Jacket +2",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Ilabrat Ring",
-    back="Atheling Mantle",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Meg. Chausses +2",
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Iskur Gorget",
+        waist="Windbuffet Belt +1",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Petrov Ring",
+        back="Atheling Mantle",
 }
     
     sets.engaged.Acc.DW = {
