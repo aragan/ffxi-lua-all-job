@@ -197,7 +197,7 @@ function init_gear_sets()
     -- Utility Sets for rules below
     --------------------------------------
     sets.CapacityMantle = { back="Mecistopins Mantle" }
-    sets.WSDayBonus     = {head="Gavialis Helm"}
+    sets.WSDayBonus     = {}
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear1="Odr Earring", ear2="Lugra Earring +1" }
     sets.OdrIshvara  = { ear1="Odr Earring", ear2="Ishvara Earring" }
@@ -1035,9 +1035,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
         end
-        if is_sc_element_today(spell) then
+        if (spell) then
             if wsList:contains(spell.english) then
-                equip(sets.WSDayBonus)
+                equip()
         end
         -- Lugra Earring for some WS
         if LugraWSList:contains(spell.english) then
