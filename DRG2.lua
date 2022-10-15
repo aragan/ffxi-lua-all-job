@@ -35,11 +35,11 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal', 'Mid', 'Acc', 'CRIT')
+	state.OffenseMode:options('Normal', 'Mid', 'Acc')
 	state.IdleMode:options('Normal', 'Sphere')
-	state.HybridMode:options('Normal', 'PDT', 'Reraise')
+	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
-	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
+	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
     
     war_sj = player.sub_job == 'WAR' or false
@@ -66,16 +66,29 @@ function init_gear_sets()
 	-- Start defining the sets
 	--------------------------------------
     Brigantia = {}
-    Valorous = {}
-    Valorous.Feet = {}
-    Valorous.Body = {}
+    Brigantia.TP = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Pet: Damage taken -5%',}}
+    Brigantia.WS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','Weapon skill damage +10%',}}
+    Brigantia.DAWS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 
+    Valorous = {}
+    Valorous.Hands = {}
+    Valorous.Hands.TP = { name="Valorous Mitts", augments={'Accuracy+26','"Store TP"+6','AGI+10',}}
+    Valorous.Hands.WS = { name="Valorous Mitts", augments={'Accuracy+27','Weapon skill damage +4%','Accuracy+5 Attack+5','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
+    
+    Valorous.Feet = {}
+    Valorous.Feet.WS ={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+9','Accuracy+15','Attack+11',}}
+    Valorous.Feet.TH = { name="Valorous Greaves", augments={'CHR+13','INT+1','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
+    Valorous.Feet.TP = { name="Valorous Greaves", augments={'CHR+13','INT+1','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
+    
+    Valorous.Body = {}
+    Valorous.Body.STP = { name="Valorous Mail", augments={'Accuracy+30','"Store TP"+6','DEX+3','Attack+14',}}
+    Valorous.Body.DA = { name="Valorous Mail", augments={'Accuracy+20 Attack+20','"Dbl.Atk."+4','VIT+4','Attack+6',}}
     -- Precast Sets
 	-- Precast sets to enhance JAs
 	sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +1"}
     sets.CapacityMantle = {back="Mecistopins Mantle"}
     --sets.Berserker = {neck="Berserker's Torque"}
-    sets.WSDayBonus     = {head="Gavialis Helm"}
+    sets.WSDayBonus     = {}
 
     sets.Organizer = {
 
@@ -134,6 +147,7 @@ function init_gear_sets()
         neck="Adad Amulet",
         ear1="Sherida Earring",
         ear2="Cessance Earring",
+		body=Valorous.Body.STP,
         hands="Flamma Manopolas +2",
         back="Updraft Mantle",
         ring1="Dreki Ring",
@@ -402,16 +416,16 @@ function init_gear_sets()
 	
 	-- Resting sets
 	sets.resting = {
-        head="Meghanada Visor +2",
-        body="Meg. Cuirie +2",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Meg. Jam. +2",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        left_ear="Infused Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Moonlight Cape",
+        --head="Twilight Helm",
+        --neck="Twilight Torque",
+        ear1="Sherida Earring",
+        ear2="Cessance Earring",
+		--body="Twilight Mail",
+        ring1="Defending Ring",
+        ring2="Paguroidea Ring",
+		back=Brigantia.TP,
+        legs="Carmine Cuisses +1",
+        feet="Flamma Gambieras +1"
     }
 
 	-- Idle sets
@@ -464,11 +478,7 @@ function init_gear_sets()
 		head="Twilight Helm",
 		body="Twilight Mail",
     })
-    sets.Reraise = set_combine(sets.idle.Field, {
-		head="Twilight Helm",
-		body="Twilight Mail",
-    })
-
+	
 	-- Defense sets
 	sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
@@ -500,22 +510,6 @@ function init_gear_sets()
         left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",   })
-
-        sets.defense.HP = {
-            ammo="Coiste Bodhar",
-            head="Hjarrandi Helm",
-            body="Hjarrandi Breast.",
-            hands="Sulev. Gauntlets +2",
-            legs="Flamma Dirs +2",
-            feet="Flam. Gambieras +2",
-            neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-            waist="Tempus Fugit +1",
-            left_ear="Odnowa Earring",
-            right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-            left_ring="Moonbeam Ring",
-            right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-            back="Moonlight Cape",   
-        }
 
 	sets.Kiting = {
         legs="Carmine Cuisses +1",
@@ -566,23 +560,7 @@ function init_gear_sets()
         hands="Flamma Manopolas +2",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},       
-    })
-
-    sets.engaged.CRIT = set_combine(sets.engaged, {
-        ammo="Coiste Bodhar",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Hjarrandi Breast.",
-        hands="Flam. Manopolas +2",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Thereoid Greaves",
-        neck="Nefarious Collar +1",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Sherida Earring",
-        right_ear="Brutal Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Hetairoi Ring",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},   
+        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},        legs="Sulevia's Cuisses +2"
     })
 
     sets.engaged.PDT = set_combine(sets.engaged, {
@@ -607,7 +585,12 @@ function init_gear_sets()
         right_ring="Defending Ring",
     })
 
+    sets.engaged.War = set_combine(sets.engaged, {
 
+    })
+    sets.engaged.War.Mid = set_combine(sets.engaged.Mid, {
+        -- neck="Defiant Collar",
+    })
 
 end
 
@@ -645,7 +628,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
-
         end
     end
 end

@@ -448,7 +448,13 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     -- Idle/resting/defense/etc sets
     --------------------------------------
   
-     
+         -- Resting sets
+    sets.resting = {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Chirich Ring +1",
+    }
       
   
     -- Idle sets
@@ -512,7 +518,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     left_ring="Stikini Ring +1",
     })
   
-    sets.idle.Sphere = set_combine(sets.idle, { body="Makora Meikogai"  })
+    sets.idle.Sphere = set_combine(sets.idle, {   })
   
     --------------------------------------
     -- Defense sets
@@ -648,16 +654,16 @@ sets.defense.SEboost = {
 sets.engaged.crit = set_combine(sets.engaged, {
 
     ammo="Yetshila +1",
-    head="Hjarrandi Helm",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
     feet="Thereoid Greaves",
     neck="Nefarious Collar +1",
     waist="Ioskeha Belt +1",
     left_ear="Schere Earring",
     right_ear="Brutal Earring",
-    left_ring="Regal Ring",
+    left_ring="Hetairoi Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 })

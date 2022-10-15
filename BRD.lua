@@ -159,7 +159,7 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Blistering Sallet +1",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
@@ -175,8 +175,8 @@ function init_gear_sets()
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,{ 
-    head="Blistering Sallet +1",
-    neck="Fotia Gorget",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Brutal Earring",
     body="Ayanmo Corazza +2",
@@ -190,8 +190,8 @@ function init_gear_sets()
 })
 
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,{
-    head="Blistering Sallet +1",
-    neck="Fotia Gorget",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Brutal Earring",
     body="Ayanmo Corazza +2",
@@ -205,8 +205,8 @@ function init_gear_sets()
 })
 
     sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,{
-    head="Blistering Sallet +1",
-    neck="Fotia Gorget",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
     body="Ayanmo Corazza +2",
@@ -220,7 +220,7 @@ function init_gear_sets()
 })
 
 sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
-    head="Blistering Sallet +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
@@ -250,7 +250,7 @@ sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
 })
 
 sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
-    head="Blistering Sallet +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
@@ -384,8 +384,15 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {main=gear.Staff.HMP, 
-       }
+    sets.resting = {
+        body="Annoint. Kalasiris",
+        hands="Inyan. Dastanas +2",
+        legs="Assid. Pants +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+           }
     
     
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)

@@ -308,6 +308,19 @@ function init_gear_sets()
     sets.precast.Effusion.Lunge = sets.midcast.ElementalNinjutsu
     sets.precast.Effusion.Swipe = sets.midcast.ElementalNinjutsu
 
+         -- Resting sets
+    sets.resting = {
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        body="Hiza. Haramaki +2",
+        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+            neck={ name="Bathy Choker +1", augments={'Path: A',}},
+            left_ear="Infused Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Chirich Ring +1",
+        }
+
     sets.idle = {
 
         ammo="Staunch Tathlum +1",

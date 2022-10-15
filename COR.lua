@@ -368,16 +368,39 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {neck="Wiglen Gorget",ring1="Sheltered Ring",ring2="Paguroidea Ring"}
+    sets.resting = {
+        head="Meghanada Visor +2",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        legs="Meg. Chausses +2",
+        feet="Meg. Jam. +2",
+        left_ear="Infused Earring",
+        ring1="Sheltered Ring",ring2="Paguroidea Ring"}
     
 
     -- Idle sets
-    sets.idle = {}
-
-    sets.idle.Town = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
+    sets.idle = {
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        feet="Hermes' Sandals +1",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Odnowa Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+        }
+    sets.idle.Town = {
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        feet="Hermes' Sandals +1",
+        }
     
     -- Defense sets
-    sets.defense.PDT = {head="Malignance Chapeau",
+    sets.defense.PDT = {
+        head="Malignance Chapeau",
     body="Nyame Mail",
     hands="Malignance Gloves",
     legs="Malignance Tights",
@@ -392,7 +415,7 @@ function init_gear_sets()
 }
 
     sets.defense.MDT = {head="Malignance Chapeau",
-    body="Nyame Mail",
+    body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
@@ -405,7 +428,9 @@ function init_gear_sets()
 }
     
 
-    sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
+    sets.Kiting = {
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        feet="Hermes' Sandals +1",    }
 
     -- Engaged sets
 

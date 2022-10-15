@@ -1008,8 +1008,19 @@ function init_gear_sets()
 
     -- Resting sets
     sets.resting = {
-       -- Add your set here
-    }
+        main="Denouements",
+        head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
+        body="Hiza. Haramaki +2",
+        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        neck="Empath Necklace",
+        waist="Isa Belt",
+        left_ear="Infused Earring",
+        right_ear="Hypaspist Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",    }
 
     sets.defense.MasterDT = sets.idle.MasterDT
 

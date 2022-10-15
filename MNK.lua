@@ -297,7 +297,17 @@ function init_gear_sets()
     
     -- Resting sets
     sets.resting = {
-        
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        body="Hiza. Haramaki +2",
+        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        legs={ name="Rao Haidate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        feet={ name="Rao Sune-Ate +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Moonbow Belt +1",
+        left_ear="Infused Earring",
+        right_ear="Odr Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
     }
     
 

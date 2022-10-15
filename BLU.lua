@@ -616,24 +616,30 @@ sets.precast.WS['Expiacion'] = {
 
     -- Resting sets
     sets.resting = {
-        head="Ocelomeh Headpiece +1",neck="Wiglen Gorget",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        waist="Austerity Belt",feet="Chelona Boots +1"}
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    }
     
     -- Idle sets
-    sets.idle = {
+    sets.idle = { head="Gleti's Mask",
         body="Jhakri Robe +2",
-        neck="Sanctity Necklace",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        body="Gleti's Cuirass",
+        feet="Gleti's Boots",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Fucho-no-Obi",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-
     }
 
     sets.idle.PDT = {
     }
 
-    sets.idle.Town = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
+    sets.idle.Town = {
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    }
 
     sets.idle.Learning = set_combine(sets.idle, sets.Learning)
 

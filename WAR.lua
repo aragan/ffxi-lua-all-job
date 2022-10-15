@@ -44,7 +44,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Polearm', 'Club', 'Sword', 'hybrid', 'hybridtp', 'Counter')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Polearm', 'Club', 'Sword', 'hybrid', 'CRIT', 'Counter')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
@@ -322,10 +322,10 @@ function init_gear_sets()
         sub="Utu Grip",
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Sakpata's Helm",
-    body="Pumm. Lorica +3",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet="Flam. Gambieras +2",
          neck="Fotia Gorget",
          left_ring="Niqmaddu Ring",
          right_ring="Regal Ring",
@@ -450,14 +450,14 @@ function init_gear_sets()
 
      -- Resting sets
      sets.resting = {
-         --head="Baghere Salade",
-         ring1="Dark Ring",
-         ring2="Paguroidea Ring",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
      }
  
      -- Idle sets
      sets.idle.Town = {
-   
          feet="Hermes' Sandals +1",
      }
      
@@ -625,20 +625,20 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
 
-    sets.engaged.hybridtp = set_combine(sets.engaged.hybrid, {
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Pumm. Cuisses +3",
-        feet="Flam. Gambieras +2",
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Schere Earring",
-        right_ear="Telos Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Flamma Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    sets.engaged.CRIT = set_combine(sets.engaged.hybrid, {
+        ammo="Yetshila +1",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Hjarrandi Breast.",
+    hands="Flam. Manopolas +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Schere Earring",
+    right_ear="Brutal Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Hetairoi Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
     sets.engaged.Sword = set_combine(sets.engaged.hybrid, {
@@ -700,35 +700,7 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
-     sets.engaged.OneHand = set_combine(sets.engaged, {
-         head="Hjarrandi Helm",
-    	 body="Hjarrandi Breastplate", 
-         ear1="Telos Earring",
-         ear2="Cessance Earring",
-         waist="Ioskeha Belt +1",
-         legs="Tatenashi Haidate +1",
-         feet="Tatenashi Sune-ate +1",
-         --ring2="Hetairoi Ring"
-         ring2="Flamma Ring"
-        --ring1="Hetairoi Ring",
-     })
-     sets.engaged.OneHand.PDT = set_combine(sets.engaged.OneHand, sets.Defensive)
-     sets.engaged.OneHand.Mid = set_combine(sets.engaged.OneHand, {
-         body="Sakpata's Plate",
-     })
-     sets.engaged.OneHand.Mid.PDT = set_combine(sets.engaged.OneHand.Mid, sets.Defensive)
 
-     sets.engaged.GreatSword = set_combine(sets.engaged, {        feet="Pumm. Calligae +3",
-         ear1="Schere Earring",
-         ear2="Brutal Earring",
-     })
-     sets.engaged.GreatSword.Mid = set_combine(sets.engaged.Mid, {        feet="Pumm. Calligae +3",
-         ear1="Telos Earring",
-         --back="Grounded Mantle +1"
-         --ring2="K'ayres RIng"
-     })
-     sets.engaged.GreatSword.Acc = set_combine(sets.engaged.Acc, {
-     })
 
      sets.engaged.Reraise = set_combine(sets.engaged, {
      	head="Twilight Helm",

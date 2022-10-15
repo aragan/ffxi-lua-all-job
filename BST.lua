@@ -854,11 +854,19 @@ function init_gear_sets()
 		-- main="Charmer's Merlin",legs="Desultor Tassets",body="Tali'ah Manteel +2",feet="Totemic Gaiters +3",neck="Shulmanu Collar"}
 
         -- RESTING
-        sets.resting = {		body="Meg. Cuirie +2",
-		hands="Meg. Gloves +2",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		left_ear="Infused Earring",
-		left_ring="Paguroidea Ring",}
+        sets.resting = {	
+			head="Gleti's Mask",
+			body="Meg. Cuirie +2",
+			hands="Meg. Gloves +2",
+			legs="Gleti's Breeches",
+			feet="Gleti's Boots",
+			neck="Empath Necklace",
+			waist="Isa Belt",
+			left_ear="Infused Earring",
+			right_ear="Hypaspist Earring",
+			left_ring="Chirich Ring +1",
+			right_ring="Chirich Ring +1",
+	}
         
         -- IDLE SETS
 	sets.ExtraRegen = {
