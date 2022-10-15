@@ -564,7 +564,17 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
 
     -- Resting sets
-    sets.resting = {}
+    sets.resting = {
+		head="Befouled Crown",
+		body="Annoint. Kalasiris",
+		hands="Aya. Manopolas +2",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		left_ear="Infused Earring",
+		right_ear="Musical Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+	}
  
     -- Idle sets
     sets.idle.Normal = {

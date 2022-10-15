@@ -616,6 +616,7 @@ sets.precast.WS['Expiacion'] = {
 
     -- Resting sets
     sets.resting = {
+        body="Jhakri Robe +2",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",

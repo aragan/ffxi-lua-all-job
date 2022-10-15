@@ -589,7 +589,16 @@ function init_gear_sets()
  
     -- Resting sets
 	
-    sets.resting = {}
+    sets.resting = {
+        head="Befouled Crown",
+        body="Jhakri Robe +2",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		left_ear="Infused Earring",
+		right_ear="Musical Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+    }
  
     -- Idle sets: Make general idle set a max MP set, later hooks will handle the rest of your refresh sets, but
 	-- remember to alter the refresh sets (Ctrl+F to find them)

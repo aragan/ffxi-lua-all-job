@@ -278,7 +278,16 @@ function init_gear_sets()
 
 	-- Resting sets
 	sets.resting = {
-		ring1="Sheltered Ring",ring2="Paguroidea Ring"}
+        head="Meghanada Visor +2",
+        body="Meg. Cuirie +2",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Meg. Jam. +2",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",	}
 
 	-- Idle sets
 	sets.idle = {

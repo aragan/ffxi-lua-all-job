@@ -340,10 +340,21 @@ function init_gear_sets()
     --------------------------------------
     
     -- Resting sets
-    sets.resting = {main=gear.Staff.HMP,ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Pahtli Cape",waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"
+    sets.resting = {
+        main="Contemplator +1",
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head="Beckoner's Horn +1",
+        body="Shomonjijoe +1",
+        hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+        legs={ name="Glyphic Spats +1", augments={'Increases Sp. "Blood Pact" accuracy',}},
+        feet="Baayami Sabots",
+        neck="Caller's Pendant",
+        waist="Fucho-no-Obi",
+        left_ear="C. Palug Earring",
+        right_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
     }
     
     -- Idle sets

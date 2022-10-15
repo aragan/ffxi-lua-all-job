@@ -346,13 +346,14 @@ function init_gear_sets()
 
     -- Resting sets
     sets.resting = {
-        neck="Twilight Torque",
-        body="Shamash Robe",
-        hands="Geomancy Mitaines +1",
-        ring1="Dark Ring",
-        ring2="Paguroidea Ring",
-        --waist="Austerity Belt",
-        --legs="Nares Trews",
+        head="Befouled Crown",
+        body="Jhakri Robe +2",
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		left_ear="Infused Earring",
+		right_ear="Musical Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
     }
 
     -- Idle sets

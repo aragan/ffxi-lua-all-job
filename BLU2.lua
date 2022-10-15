@@ -617,7 +617,7 @@ function init_gear_sets()
     sets.latent_refresh = {}
 
     -- Resting sets
-    sets.resting = {
+    sets.resting = {        body="Jhakri Robe +2",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",

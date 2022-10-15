@@ -612,8 +612,15 @@ function init_gear_sets()
         })
 
     sets.resting = set_combine(sets.idle, {
-        main="Chatoyant Staff",
-        waist="Shinjutsu-no-Obi +1",
+        head="Befouled Crown",
+        body="Jhakri Robe +2",
+        legs="Assid. Pants +1",
+        feet="Herald's Gaiters",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        right_ear="Musical Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
         })
 
     ------------------------------------------------------------------------------------------------
