@@ -142,7 +142,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         head="Oshosi Mask",
-        body="Nyame Mail",
+        body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
         legs="Malignance Tights",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -172,7 +172,7 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
+    body="Laksa. Frac +3",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -187,7 +187,7 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
-        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -217,7 +217,7 @@ function init_gear_sets()
 
     sets.precast.WS['Last Stand'] = {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+    body="Laksa. Frac +3",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -232,7 +232,7 @@ function init_gear_sets()
 
     sets.precast.WS['Last Stand'].Acc = {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+    body="Laksa. Frac +3",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -248,7 +248,7 @@ function init_gear_sets()
 
     sets.precast.WS['Wildfire'] = {
         head="Nyame Helm",
-        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -263,7 +263,7 @@ function init_gear_sets()
 
     
     sets.precast.WS['Leaden Salute'] = {main="Naegling",sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head="Pixie Hairpin +1",
-    body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
+    body="Laksa. Frac +3",hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},neck="Sanctity Necklace",waist="Svelt. Gouriz +1",left_ear="Friomisi Earring",right_ear="Hecate's Earring",
     left_ring="Dingir Ring",right_ring="Epaminondas's Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
     
@@ -283,7 +283,7 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot = {
         head="Nyame Helm",
-        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -298,7 +298,7 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot.Acc = {
         head="Nyame Helm",
-        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -314,7 +314,7 @@ function init_gear_sets()
     sets.midcast.CorsairShot['Light Shot'] = {
     
         head="Malignance Chapeau",
-        body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+        body="Laksa. Frac +3",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
