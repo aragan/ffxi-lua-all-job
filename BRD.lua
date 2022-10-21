@@ -463,7 +463,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
 
     -- Sets with weapons defined.
     sets.engaged.Dagger = {
-        main="Tauret",
+        main={ name="Twashtar", augments={'Path: A',}},
         sub="Gleti's Knife",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",

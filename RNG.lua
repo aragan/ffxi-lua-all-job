@@ -40,11 +40,11 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'Acc')
 	state.OffenseMode:options('Normal', 'TP', 'Acc')
 
-	gear.default.weaponskill_neck = "Ocachi Gorget"
-	gear.default.weaponskill_waist = "Elanid Belt"
+	gear.default.weaponskill_neck = ""
+	gear.default.weaponskill_waist = ""
 	
-	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Achiyalabopa bullet"}
+	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullet"}
 
 	select_default_macro_book()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
@@ -372,7 +372,7 @@ back="Moonlight Cape",}
 		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Windbuffet Belt +1",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
@@ -387,7 +387,7 @@ back="Moonlight Cape",}
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
 		neck="Lissome Necklace",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Windbuffet Belt +1",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
