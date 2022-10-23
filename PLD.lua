@@ -1363,13 +1363,13 @@ function job_buff_change(buff, gain)
                         equip(sets.Doom)
                         send_command('@input /p Doomed, please Cursna.')
                         send_command('@input /item "Holy Water" <me>')					
-                        disable('legs','ring1','ring2','waist')
+                        disable('legs','ring1','ring2','waist','neck')
                 elseif not gain and not player.status == "Dead" and not player.status == "Engaged Dead" then
-                        enable('legs','ring1','ring2','waist')
+                        enable('legs','ring1','ring2','waist','neck')
                         send_command('input /p Doom removed, Thank you.')
                         handle_equipping_gear(player.status)
                 else
-                        enable('legs','ring1','ring2','waist')
+                        enable('legs','ring1','ring2','waist','neck')
                         send_command('input /p '..player.name..' is no longer Doom Thank you !')
                 end
 				 elseif buff == "petrification" then
