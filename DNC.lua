@@ -419,12 +419,7 @@ function init_gear_sets()
     left_ring="Dingir Ring",
     right_ring="Epaminondas's Ring",}
     
-    sets.precast.Skillchain = {    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    right_ring="Mujin Band",}
+    sets.precast.Skillchain = {   }
     
     
     -- Midcast Sets
@@ -511,44 +506,51 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.Evasion = {
-        ammo="Staunch Tathlum +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
+        ammo="Yamarang",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
+        waist="Svelt. Gouriz +1",
         left_ear="Infused Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Sheltered Ring",
-        right_ring="Paguroidea Ring",}
+        right_ear="Eabani Earring",
+        left_ring="Vengeful Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    }
 
-    sets.defense.PDT = {    ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Gleti's Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Infused Earring",
+    sets.defense.PDT = {        
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Sheltered Ring",
-    right_ring="Paguroidea Ring",}
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonbeam Ring",
+    back="Moonlight Cape",}
 
-    sets.defense.MDT = {    ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Gleti's Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Infused Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Sheltered Ring",
-    right_ring="Paguroidea Ring",}
+    sets.defense.MDT = {     
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Etiolation Earring",
+    right_ear="Sanare Earring",
+    left_ring="Shadow Ring",
+    right_ring="Defending Ring",
+    back="Engulfer Cape +1",
+    }
 
     sets.Kiting = {feet="Skadi's Jambeaux +1"}
 
