@@ -28,6 +28,8 @@ function job_setup()
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
+	send_command('wait 2;input /lockstyleset 200')
+
 end
 
 -------------------------------------------------------------------------------------------------------------------

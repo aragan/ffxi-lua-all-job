@@ -74,6 +74,7 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
+    send_command('wait 2;input /lockstyleset 200')
 
     select_default_macro_book()
 end
