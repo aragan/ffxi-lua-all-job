@@ -1,3 +1,11 @@
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
+
+
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
@@ -40,7 +48,7 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Climactic Flourish'] = buffactive['climactic flourish'] or false
-
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep', 'Feather Step', 'Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Quickstep', 'Feather Step', 'Stutter Step', 'Box Step'}
     state.UseAltStep = M(false, 'Use Alt Step')
@@ -68,6 +76,7 @@ function user_setup()
     gear.default.weaponskill_neck = ""
     gear.default.weaponskill_waist = ""
     gear.AugQuiahuiz = {}
+    send_command('wait 2;input /lockstyleset 200')
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
@@ -76,6 +85,7 @@ function user_setup()
     send_command('bind !- gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
+    send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
 end
@@ -106,6 +116,7 @@ function init_gear_sets()
 
     sets.precast.JA['Trance'] = {}
     
+    sets.CapacityMantle  = { back="Mecistopins Mantle" }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {ammo="Yamarang",
@@ -281,8 +292,13 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
-    back="Mecistopins Mantle" }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
+    back="Atheling Mantle", }
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    right_ring="Mujin Band",})
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
@@ -320,7 +336,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Gere Ring",
         right_ring="Regal Ring",
-        back={ name="Mecisto. Mantle", augments={'Cap. Point+46%','HP+10','DEF+9',}},
+        back="Atheling Mantle",
     })
     sets.precast.WS['Pyrrhic Kleos'].Acc = set_combine(sets.precast.WS.Acc, {    head="Nyame Helm",
     body="Nyame Mail",
@@ -381,7 +397,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
-        back="Mecistopins Mantle" 
+        back="Atheling Mantle", 
     })
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {    head="Nyame Helm",
     body="Nyame Mail",
@@ -475,7 +491,9 @@ function init_gear_sets()
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Sheltered Ring",
-    right_ring="Paguroidea Ring",}
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+}
 
     sets.idle.Town = {    ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
@@ -488,7 +506,9 @@ function init_gear_sets()
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Sheltered Ring",
-    right_ring="Paguroidea Ring",}
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+}
     
     sets.idle.Weak = {    ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
@@ -501,7 +521,9 @@ function init_gear_sets()
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Sheltered Ring",
-    right_ring="Paguroidea Ring",}
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+}
     
     -- Defense sets
 
@@ -578,7 +600,7 @@ function init_gear_sets()
 
     sets.engaged.Fodder = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Gleti's Cuirass",
+    body="Meg. Cuirie +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -586,8 +608,9 @@ function init_gear_sets()
     waist="Sarissapho. Belt",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Gere Ring",
-    right_ring="Hetairoi Ring",}
+    left_ring="Mummu Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle", }
     sets.engaged.Fodder.Evasion = {}
 
     sets.engaged.Acc = {    ammo="Aurgelmir Orb +1",
@@ -602,7 +625,7 @@ function init_gear_sets()
     right_ear="Dedition Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Mecistopins Mantle" }
+    back="Atheling Mantle", }
     sets.engaged.Evasion = {}
     sets.engaged.PDT = {}
     sets.engaged.Acc.Evasion = {}
@@ -620,7 +643,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back="Mecistopins Mantle"}
+        back="Atheling Mantle",}
 
 
     -- Custom melee group: High Haste (2x March or Haste)
@@ -640,7 +663,7 @@ function init_gear_sets()
 
     sets.engaged.Fodder.HighHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Gleti's Cuirass",
+    body="Meg. Cuirie +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -648,11 +671,12 @@ function init_gear_sets()
     waist="Sarissapho. Belt",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Gere Ring",
-    right_ring="Hetairoi Ring",}
+    left_ring="Mummu Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle", }
     sets.engaged.Fodder.Evasion.HighHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Gleti's Cuirass",
+    body="Meg. Cuirie +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -660,7 +684,7 @@ function init_gear_sets()
     waist="Sarissapho. Belt",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Gere Ring",
+    left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",}
 
     sets.engaged.Acc.HighHaste = {ammo="Aurgelmir Orb +1",
@@ -675,7 +699,7 @@ function init_gear_sets()
     right_ear="Dedition Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Mecistopins Mantle" }
+    back="Atheling Mantle", }
     sets.engaged.Evasion.HighHaste = {}
     sets.engaged.Acc.Evasion.HighHaste = {}
     sets.engaged.PDT.HighHaste = {}
@@ -700,7 +724,7 @@ function init_gear_sets()
     -- Getting Marches+Haste from Trust NPCs, doesn't cap delay.
     sets.engaged.Fodder.MaxHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Gleti's Cuirass",
+    body="Meg. Cuirie +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -708,11 +732,12 @@ function init_gear_sets()
     waist="Sarissapho. Belt",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Gere Ring",
-    right_ring="Hetairoi Ring",}
+    left_ring="Mummu Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle", }
     sets.engaged.Fodder.Evasion.MaxHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Gleti's Cuirass",
+    body="Meg. Cuirie +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -720,7 +745,7 @@ function init_gear_sets()
     waist="Sarissapho. Belt",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Gere Ring",
+    left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",}
 
     sets.engaged.Acc.MaxHaste = {    ammo="Aurgelmir Orb +1",
@@ -735,7 +760,7 @@ function init_gear_sets()
     right_ear="Dedition Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Mecistopins Mantle" }
+    back="Atheling Mantle", }
     sets.engaged.Evasion.MaxHaste = {}
     sets.engaged.Acc.Evasion.MaxHaste = {}
     sets.engaged.PDT.MaxHaste = {}
@@ -779,6 +804,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
         if state.SkillchainPending.value == true then
             equip(sets.precast.Skillchain)
+        end
+        if state.CapacityMode.value then
+            equip(sets.CapacityMantle)
         end
     end
 end
@@ -860,8 +888,10 @@ function customize_melee_set(meleeSet)
         if state.Buff['Climactic Flourish'] then
             meleeSet = set_combine(meleeSet, sets.buff['Climactic Flourish'])
         end
+        if state.CapacityMode.value then
+            meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+        end
     end
-    
     return meleeSet
 end
 
@@ -993,6 +1023,8 @@ function auto_presto(spell)
     end
 end
 
+add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
