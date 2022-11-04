@@ -38,15 +38,15 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.RangedMode:options('Normal', 'Acc')
+	state.RangedMode:options('Normal', 'Acc', 'MAXAcc')
 	state.WeaponskillMode:options('Normal', 'Acc')
-	state.OffenseMode:options('Normal', 'TP', 'Acc')
+	state.OffenseMode:options('Normal', 'TP', 'Acc', 'DA', 'STP')
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
 	
 	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullet"}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
 
 	select_default_macro_book()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
@@ -91,12 +91,14 @@ function init_gear_sets()
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-	    head="Ikenga's Hat",
+	range="Trollbane",
+	head="Ikenga's Hat",
     body="Ikenga's Vest",
     hands="Ikenga's Gloves",
     legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
     feet="Meg. Jam. +2",
     waist="Yemaya Belt",
+	right_ring="Crepuscular Ring",
 	}
 
 
@@ -155,7 +157,7 @@ function init_gear_sets()
 	})
 
 	sets.precast.WS["Jishnu's Radiance"] = {		
-    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Meg. Cuirie +2",
     hands="Mummu Wrists +2",
     legs="Jokushu Haidate",
@@ -200,7 +202,7 @@ function init_gear_sets()
 		}
 
 		sets.precast.WS.Evisceration  = {
-			head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+			head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 			body="Mummu Jacket +2",
 			hands="Mummu Wrists +2",
 			legs="Mummu Kecks +2",
@@ -233,7 +235,8 @@ function init_gear_sets()
 
 	-- Ranged sets
 
-	sets.midcast.RA = {
+	sets.midcast.RA = {			range="Trollbane",
+
 		head="Malignance Chapeau",
 		body="Nisroch Jerkin",
 		hands="Malignance Gloves",
@@ -248,7 +251,8 @@ function init_gear_sets()
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 	
-	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
+	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	range="Trollbane",
+
 		head="Meghanada Visor +2",
 		body="Nisroch Jerkin",
 		hands="Ikenga's Gloves",
@@ -263,6 +267,22 @@ function init_gear_sets()
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 
 	})
+
+	sets.midcast.RA.MAXACC = {
+		range="Trollbane",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Iskur Gorget",
+		waist="Yemaya Belt",
+		left_ear="Enervating Earring",
+		right_ear="Crep. Earring",
+		left_ring="Cacoethic Ring",
+		right_ring="Crepuscular Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+	}
 
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
 
@@ -325,18 +345,18 @@ function init_gear_sets()
 	}
 
 	sets.defense.MDT = {
-   head="Malignance Chapeau",
-body="Malignance Tabard",
-hands="Malignance Gloves",
-legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-feet="Malignance Boots",
-neck={ name="Loricate Torque +1", augments={'Path: A',}},
-waist="Flume Belt +1",
-left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-right_ear="Infused Earring",
-left_ring="Paguroidea Ring",
-right_ring="Defending Ring",
-back="Moonlight Cape",} 
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        eet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Paguroidea Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",} 
 
 	sets.Kiting = {
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -353,7 +373,7 @@ back="Moonlight Cape",}
 		sub="Nusku Shield",
 		range="Fomalhaut",
 		ammo="Chrono Bullet",
-		head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
 		legs="Meg. Chausses +2",
@@ -367,8 +387,8 @@ back="Moonlight Cape",}
 		back="Atheling Mantle",
 	}
 
-	sets.engaged.TP = {
-		head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+	sets.engaged.TP = {	range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
 		legs="Meg. Chausses +2",
@@ -382,7 +402,7 @@ back="Moonlight Cape",}
 		back="Atheling Mantle",
 	}
 
-	sets.engaged.Acc = {
+	sets.engaged.Acc = {	range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
 		head="Malignance Chapeau",
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -394,6 +414,35 @@ back="Moonlight Cape",}
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Epona's Ring",
+		back="Atheling Mantle",
+	}
+	sets.engaged.DA = {	range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs="Meg. Chausses +2",
+		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+		neck="Clotharius Torque",
+		waist="Windbuffet Belt +1",
+		left_ear="Suppanomimi",
+		right_ear="Eabani Earring",
+		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
+		back="Atheling Mantle",
+	}
+
+	sets.engaged.STP = {	range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Iskur Gorget",
+		waist="Olseni Belt",
+		left_ear="Suppanomimi",
+		right_ear="Dedition Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
 		back="Atheling Mantle",
 	}
 

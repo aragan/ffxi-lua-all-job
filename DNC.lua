@@ -67,7 +67,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Fodder', 'PDL')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'DA', 'Fodder', 'PDL')
     state.HybridMode:options('Normal', 'Evasion', 'PDT')
     state.WeaponskillMode:options('Normal', 'Acc', 'Fodder', 'PDL')
     state.PhysicalDefenseMode:options('Evasion', 'PDT')
@@ -596,7 +596,7 @@ function init_gear_sets()
     right_ear="Brutal Earring",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Mecistopins Mantle"}
+    back="Atheling Mantle",}
 
     sets.engaged.Fodder = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -626,6 +626,36 @@ function init_gear_sets()
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Atheling Mantle", }
+    sets.engaged.STP = {    
+        ammo="Coiste Bodhar",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Meg. Jam. +2",
+        neck="Ainia Collar",
+        waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        right_ear="Dedition Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Atheling Mantle",
+ }
+    sets.engaged.DA = {  
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+        legs="Meg. Chausses +2",
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Clotharius Torque",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        right_ear="Brutal Earring",
+        left_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
+ }
     sets.engaged.Evasion = {}
     sets.engaged.PDT = {}
     sets.engaged.Acc.Evasion = {}
@@ -659,7 +689,7 @@ function init_gear_sets()
     right_ear="Brutal Earring",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Mecistopins Mantle" }
+    back="Atheling Mantle", }
 
     sets.engaged.Fodder.HighHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -700,6 +730,36 @@ function init_gear_sets()
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Atheling Mantle", }
+    sets.engaged.STP.HighHaste = {    
+        ammo="Coiste Bodhar",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Meg. Jam. +2",
+        neck="Ainia Collar",
+        waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        right_ear="Dedition Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Atheling Mantle",
+ }
+     sets.engaged.DA.HighHaste = {  
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+        legs="Meg. Chausses +2",
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Clotharius Torque",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        right_ear="Brutal Earring",
+        left_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
+ }
     sets.engaged.Evasion.HighHaste = {}
     sets.engaged.Acc.Evasion.HighHaste = {}
     sets.engaged.PDT.HighHaste = {}
@@ -719,7 +779,7 @@ function init_gear_sets()
     right_ear="Brutal Earring",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Mecistopins Mantle" }
+    back="Atheling Mantle", }
 
     -- Getting Marches+Haste from Trust NPCs, doesn't cap delay.
     sets.engaged.Fodder.MaxHaste = {    ammo="Qirmiz Tathlum",
@@ -761,6 +821,36 @@ function init_gear_sets()
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Atheling Mantle", }
+    sets.engaged.STP.MaxHaste = {    
+        ammo="Coiste Bodhar",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Meg. Jam. +2",
+        neck="Ainia Collar",
+        waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+        right_ear="Dedition Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Atheling Mantle",
+ }
+     sets.engaged.DA.MaxHaste = {  
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+        legs="Meg. Chausses +2",
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Clotharius Torque",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        right_ear="Brutal Earring",
+        left_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        back="Atheling Mantle",
+ }
     sets.engaged.Evasion.MaxHaste = {}
     sets.engaged.Acc.Evasion.MaxHaste = {}
     sets.engaged.PDT.MaxHaste = {}
@@ -769,7 +859,7 @@ function init_gear_sets()
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    sets.buff['Saber Dance'] = {}
+    sets.buff['Saber Dance'] = {aist="Windbuffet Belt +1",}
     sets.buff['Climactic Flourish'] = {}
     sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
 
