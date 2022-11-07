@@ -1107,13 +1107,13 @@ add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'BLM' then
-        set_macro_page(10, 5)
+        set_macro_page(5, 22)
     elseif player.sub_job == 'WHM' then
-        set_macro_page(10, 5)
+        set_macro_page(5, 22)
     elseif player.sub_job == 'THF' then
-        set_macro_page(10, 5)
+        set_macro_page(5, 22)
     else
-        set_macro_page(10, 5)
+        set_macro_page(5, 22)
     end
 end
 
