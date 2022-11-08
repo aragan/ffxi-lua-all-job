@@ -499,19 +499,20 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-
-    head="Aya. Zucchetto +2",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-    feet="Nyame Sollerets",
-    neck="Lissome Necklace",
-    waist="Reiki Yotai",
-    left_ear="Suppanomimi",
-    right_ear="Cessance Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        main={ name="Twashtar", augments={'Path: A',}},
+        sub="Gleti's Knife",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Nyame Sollerets",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -- Sets with weapons defined.
