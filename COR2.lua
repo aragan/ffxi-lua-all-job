@@ -136,7 +136,6 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
         head="Oshosi Mask",
         body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
@@ -166,7 +165,7 @@ function init_gear_sets()
     back="Atheling Mantle",
     }
 
-    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Savage Blade'] = sets.precast.WS, {
         head="Meghanada Visor +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
@@ -179,9 +178,9 @@ function init_gear_sets()
     left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    })
+    }
 
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'] = sets.precast.WS, {
         head="Nyame Helm",
         body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
@@ -194,9 +193,9 @@ function init_gear_sets()
         left_ring="Dingir Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    })
+    }
 
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Requiescat'] = sets.precast.WS, {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands="Meg. Gloves +2",
@@ -209,7 +208,7 @@ function init_gear_sets()
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
         back="Atheling Mantle",
-})
+}
 
     sets.precast.WS['Last Stand'] = {
     head="Meghanada Visor +2",
@@ -459,8 +458,8 @@ sets.Kiting = {
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
+    neck="Iskur Gorget",
+    waist="Windbuffet Belt +1",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
@@ -471,7 +470,7 @@ sets.Kiting = {
     sets.engaged.CRIT = {
         main="Naegling",
     sub="Demers. Degen +1",
-    ammo="Yetshila +1",
+    range="Molybdosis",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -489,7 +488,7 @@ sets.Kiting = {
     sets.engaged.CRIT.DW = {
         main="Naegling",
     sub="Demers. Degen +1",
-    ammo="Yetshila +1",
+    range="Molybdosis",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -543,8 +542,8 @@ sets.Kiting = {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
+    neck="Iskur Gorget",
+    waist="Windbuffet Belt +1",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",

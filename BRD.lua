@@ -57,16 +57,18 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger')
+    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger', 'CRIT', 'ACC')
+    state.PhysicalDefenseMode:options('PDT')
+    state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT','MDT')
 
 
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
     -- How many extra songs we can keep from Daurdabla/Terpander
-    info.ExtraSongs = 1
+    info.ExtraSongs = 2
     
     -- Set this to false if you don't want to use custom timers.
     state.UseCustomTimers = M(true, 'Use Custom Timers')
@@ -114,7 +116,6 @@ function init_gear_sets()
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-        
     main="Arendsi Fleuret",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
@@ -153,18 +154,18 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-        
+        legs="Dashing Subligar",
     }
     
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        head="Nyame Helm",
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
-        body="Ayanmo Corazza +2",
+        body="Nyame Mail",
         hands="Lustr. Mittens +1",
         ring1="Hetairoi Ring",
         ring2="Epaminondas's Ring",
@@ -188,8 +189,63 @@ function init_gear_sets()
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
-})
-
+    })
+    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,{ 
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })
+    sets.precast.WS['Evisceration'].Dagger = set_combine(sets.precast.WS['Evisceration'],{ 
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })    
+    sets.precast.WS['Evisceration'].CRIT = set_combine(sets.precast.WS['Evisceration'],{ 
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })
+    sets.precast.WS['Evisceration'].ACC = set_combine(sets.precast.WS['Evisceration'],{ 
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,{
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
@@ -198,50 +254,175 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    ring2="Begrudging Ring",
+    ring2="Ilabrat Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
-})
-
-    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,{
+    })    
+    sets.precast.WS['Exenterator'].Dagger = set_combine(sets.precast.WS['Exenterator'],{
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
     ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
+    ear2="Brutal Earring",
     body="Ayanmo Corazza +2",
-    hands="Lustr. Mittens +1",
+    hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    ring2="Epaminondas's Ring",
+    ring2="Ilabrat Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
+    })    
+    sets.precast.WS['Exenterator'].CRIT = set_combine(sets.precast.WS['Exenterator'],{
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Ilabrat Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })
+    sets.precast.WS['Exenterator'].ACC = set_combine(sets.precast.WS['Exenterator'],{
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Brutal Earring",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Ilabrat Ring",
+    back="Intarabus's Cape",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    })
+    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1={ name="Handler's Earring +1", augments={'Path: A',}},
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Windbuffet Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
 })
-
+sets.precast.WS['Mordant Rime'].Dagger = set_combine(sets.precast.WS['Mordant Rime'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1={ name="Handler's Earring +1", augments={'Path: A',}},
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Windbuffet Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Mordant Rime'].CRIT = set_combine(sets.precast.WS['Mordant Rime'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1={ name="Handler's Earring +1", augments={'Path: A',}},
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Windbuffet Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Mordant Rime'].ACC = set_combine(sets.precast.WS['Mordant Rime'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1={ name="Handler's Earring +1", augments={'Path: A',}},
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Windbuffet Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
 sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Nyame Helm",
     neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
-    body="Ayanmo Corazza +2",
+    body="Nyame Mail",
     hands="Lustr. Mittens +1",
-    ring1="Hetairoi Ring",
+    ring1="Ilabrat Ring",
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
-    waist="Fotia Belt",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
 })
 
+sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Storm'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+
+sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Rudras Storm'].ACC = set_combine(sets.precast.WS['Rudras Storm'],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
 sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
     head="C. Palug Crown",
     ear1="Moonshade Earring",
     ear2="Friomisi Earring",
-    body="Ayanmo Corazza +2",
+    body="Nyame Mail",
     hands="Lustr. Mittens +1",
-    ring1="Hetairoi Ring",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
@@ -249,22 +430,105 @@ sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
 })
-
+sets.precast.WS['Aeolian Edge'].Dagger = set_combine(sets.precast.WS['Aeolian Edge'],{
+    head="C. Palug Crown",
+    ear1="Moonshade Earring",
+    ear2="Friomisi Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Aeolian Edge'].CRIT = set_combine(sets.precast.WS['Aeolian Edge'],{
+    head="C. Palug Crown",
+    ear1="Moonshade Earring",
+    ear2="Friomisi Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Aeolian Edge'].ACC = set_combine(sets.precast.WS['Aeolian Edge'],{
+    head="C. Palug Crown",
+    ear1="Moonshade Earring",
+    ear2="Friomisi Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
 sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Nyame Helm",
     neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
-    body="Ayanmo Corazza +2",
+    body="Nyame Mail",
     hands="Lustr. Mittens +1",
-    ring1="Hetairoi Ring",
+    ring1="Ilabrat Ring",
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
 })
-    
+
+sets.precast.WS['Savage Blade '].Sword = set_combine(sets.precast.WS['Savage Blade '],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Sailfi Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Savage Blade '].CRIT = set_combine(sets.precast.WS['Savage Blade '],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Sailfi Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
+sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade '],{
+    head="Nyame Helm",
+    neck="Fotia Gorget",
+    ear1="Moonshade Earring",
+    ear2="Ishvara Earring",
+    body="Nyame Mail",
+    hands="Lustr. Mittens +1",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
+    waist="Sailfi Belt +1",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+})
     
     -- Midcast Sets
 
@@ -309,8 +573,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
 }
 
     -- For song defbuffs (duration primary, accuracy secondary)
-    sets.midcast.SongDebuff = {
-        range="Gjallarhorn",
+    sets.midcast.SongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
@@ -328,8 +591,7 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
 
 
     -- For song defbuffs (accuracy primary, duration secondary)
-    sets.midcast.ResistantSongDebuff = {
-        range="Gjallarhorn",
+    sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
         body="Aoidos' Hongreline +2",
         hands="Aoidos' Manchettes +2",    
@@ -403,17 +665,55 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Moonlight Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
 
-    sets.idle.PDT = {
+    sets.idle.PDT = {    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
        
     }
 
-    sets.idle.Town = {}
+    sets.idle.Town = {    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",}
     
-    sets.idle.Weak = {
+    sets.idle.Weak = {    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
         
     }
     
@@ -422,16 +722,32 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
 
     sets.defense.PDT = {
         head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    back="Moonlight Cape",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Moonlight Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
     }
 
     sets.defense.MDT = {
-        
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Moonlight Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
     }
 
     sets.Kiting = {feet="Aoidos' Cothurnes +2"}
@@ -447,29 +763,30 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-
-    head="Aya. Zucchetto +2",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Lissome Necklace",
-    waist="Reiki Yotai",
-    left_ear="Suppanomimi",
-    right_ear="Cessance Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        main={ name="Twashtar", augments={'Path: A',}},
+        sub="Gleti's Knife",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Nyame Sollerets",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     -- Sets with weapons defined.
     sets.engaged.Dagger = {
         main={ name="Twashtar", augments={'Path: A',}},
         sub="Gleti's Knife",
-        head="Aya. Zucchetto +2",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
-        legs="Nyame Flanchard",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Nyame Sollerets",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
@@ -483,10 +800,10 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     sets.engaged.Sword = {
         main="Naegling",
         sub="Gleti's Knife",
-        head="Aya. Zucchetto +2",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
-        legs="Nyame Flanchard",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Nyame Sollerets",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
@@ -496,6 +813,31 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+
+    sets.engaged.CRIT = set_combine(sets.engaged, {
+        main={ name="Twashtar", augments={'Path: A',}},
+        sub="Gleti's Knife",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Aya. Gambieras +2",
+        neck="Nefarious Collar +1",
+        right_ring="Hetairoi Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })
+    sets.engaged.ACC = set_combine(sets.engaged, {
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })
 
 end
 
