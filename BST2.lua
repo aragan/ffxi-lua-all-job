@@ -46,7 +46,7 @@ function job_setup()
 end
 
 function user_setup()
-        state.OffenseMode:options('Normal', 'Shield', 'MedAcc', 'MedAccHaste', 'HighAcc', 'HighAccHaste')
+        state.OffenseMode:options('Normal', 'Shield', 'MedAcc', 'MedAccHaste', 'HighAcc', 'HighAccHaste', 'CRIT')
         state.HybridMode:options('Normal', 'Hybrid')
         state.WeaponskillMode:options('Normal', 'WSMedAcc', 'WSHighAcc')
         state.CastingMode:options('Normal')
@@ -143,9 +143,6 @@ end
 function init_gear_sets()
 	-- PRECAST SETS
         sets.precast.JA['Killer Instinct'] = {   
-		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},	
-		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		sub="Kaidate",
 		range="Killer Shortbow",
 		body="Nukumi Gausape +1",}
 		
@@ -554,8 +551,24 @@ function init_gear_sets()
 	   right_ring="Gere Ring",
 	  back="Atheling Mantle",
 	})
+	sets.precast.WS['Decimation'].WSMedAcc = set_combine(sets.precast.WS['Decimation'], {
+		ammo="Coiste Bodhar",
+		head={ name="Blistering Sallet +1", augments={'Path: A',}},
+	   body={ name="Emicho Haubert", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+	   hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+     	legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+	   feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+		neck="Fotia Gorget",
+	   waist="Fotia Belt",
+	   left_ear="Brutal Earring",
+	  right_ear="Sherida Earring",
+	   left_ring="Epona's Ring",
+	   right_ring="Gere Ring",
+	  back="Atheling Mantle",
+	})
 
 	sets.precast.WS['Rampage '] = set_combine(sets.precast.WS['Decimation'], {})
+	sets.precast.WS['Rampage '].WSMedAcc = set_combine(sets.precast.WS['Decimation'], {})
 
 
 	sets.precast.WS['Calamity'] = set_combine(sets.precast.WS, {
@@ -573,8 +586,24 @@ function init_gear_sets()
 		right_ring="Epaminondas's Ring",
 		back="Atheling Mantle",
 	})
+	sets.precast.WS['Calamity'].WSMedAcc = set_combine(sets.precast.WS['Calamity'], {
+		ammo="Aurgelmir Orb +1",
+		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+		neck="Shulmanu Collar",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Regal Ring",
+		right_ring="Epaminondas's Ring",
+		back="Atheling Mantle",
+	})
 
 	sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Calamity'], {})
+	sets.precast.WS['Mistral Axe'].WSMedAcc = set_combine(sets.precast.WS['Calamity'], {})
 
 		
 	sets.precast.WS['Primal Rend'] = {
@@ -590,9 +619,23 @@ function init_gear_sets()
 		right_ear="Friomisi Earring",
 		left_ring="Beithir Ring",
 		right_ring="Epaminondas's Ring",
-}
+}	
+sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrimal Rendmity'], {
+		ammo="Pemphredo Tathlum",
+	head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+	body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+	hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+	legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+	feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+	neck="Baetyl Pendant",
+	waist="Orpheus's Sash",
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Friomisi Earring",
+	left_ring="Beithir Ring",
+	right_ring="Epaminondas's Ring",
+})
 
-sets.precast.WS['Aeolian Edge'] = {
+    sets.precast.WS['Aeolian Edge'] = {
     ammo="Pemphredo Tathlum",
     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
     body="Nyame Mail",
@@ -606,7 +649,22 @@ sets.precast.WS['Aeolian Edge'] = {
     left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back="Moonlight Cape",
-}
+}       
+sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian Edge'], {
+    ammo="Pemphredo Tathlum",
+    head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+    body="Nyame Mail",
+    hands="Meg. Gloves +2",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
+    back="Moonlight Cape",
+ })
 
 	-- Calamity, Meditate, Sekkanoki > brain > tail, leave, cb, fight > Primal Rend > tegmina > Clerrrdplerrterrr
 	--------------------------------------------------------------------------------		
@@ -623,12 +681,10 @@ sets.precast.WS['Aeolian Edge'] = {
 	--poop3
 	
 	
-		sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'],{})
-
-			
+	sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'],{})			
 		sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Primal Rend'],{})
 	
-	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS['Primal Rend'],{})
+	 sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS['Primal Rend'],{})
 
 			
 			
@@ -721,8 +777,6 @@ sets.precast.WS['Aeolian Edge'] = {
 			right_ring="Tali'ah Ring",
 			back="Argocham. Mantle",
 			--MACC
-			main="Deacon Tabar",
-			sub="Mdomo Axe +1",
 			ammo="Voluspa Tathlum",
 			head="Gleti's Mask",
 			body="Gleti's Cuirass",
@@ -1130,77 +1184,50 @@ sets.precast.WS['Aeolian Edge'] = {
 		right_ring="Epona's Ring",
 		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
 		}
+		sets.engaged.CRIT = {
+			ammo="Coiste Bodhar",
+			head={ name="Blistering Sallet +1", augments={'Path: A',}},
+			body="Meg. Cuirie +2",
+			hands="Gleti's Gauntlets",
+			legs="Heyoka Subligar",
+			feet="Thereoid Greaves",
+			neck="Nefarious Collar +1",
+			waist="Gerdr Belt",
+			left_ear="Sherida Earring",
+			right_ear="Brutal Earring",
+			left_ring="Gere Ring",
+			right_ring="Hetairoi Ring",
+			back="Atheling Mantle",
+			}
 			
 	sets.engaged.MedAccHaste = {
 		}
 			
 	sets.engaged.HighAcc = {
-			ammo="Jukukik Feather",
-			head="Yaoyotl Helm",
-			neck="Iqabi Necklace",
-			ear1="Steelflash Earring",
-			ear2="Bladeborn Earring",
-			body="Mes'yohi Haubergeon",
-			hands="Buremte Gloves",
-			ring1="Mars's Ring",
-			ring2="Ramuh's Ring +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},
-			waist="Olseni Belt",
-			legs="Xaddi Cuisses",
-			feet="Ejekamal Boots"}
+}
 			
 	sets.engaged.HighAccHaste = {
-			ammo="Jukukik Feather",
-			head="Yaoyotl Helm",
-			neck="Iqabi Necklace",
-			ear1="Steelflash Earring",
-			ear2="Bladeborn Earring",
-			body="Mes'yohi Haubergeon",
-			hands="Buremte Gloves",
-			ring1="Mars's Ring",
-			ring2="Ramuh's Ring +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},
-			waist="Olseni Belt",
-			legs="Xaddi Cuisses",
-			feet="Ejekamal Boots"}
+}
 			
 	-- MELEE (SINGLE-WIELD) HYBRID SETS
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.Shield.Hybrid = set_combine(sets.engaged.Shield, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.MedAcc.Hybrid = set_combine(sets.engaged.MedAcc, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.MedAccHaste.Hybrid = set_combine(sets.engaged.MedAccHaste, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.HighAcc.Hybrid = set_combine(sets.engaged.HighAcc, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.HighAccHaste.Hybrid = set_combine(sets.engaged.HighAccHaste, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 
         -- MELEE (DUAL-WIELD) SETS FOR DNC AND NIN SUBJOB
 		
@@ -1211,7 +1238,7 @@ sets.precast.WS['Aeolian Edge'] = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Ainia Collar",
+		neck="Anu Torque",
 		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
@@ -1235,39 +1262,52 @@ sets.precast.WS['Aeolian Edge'] = {
 			left_ring="Gere Ring",
 			right_ring="Epona's Ring",
 			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
-	
+			sets.engaged.DW.CRIT = {
+				ammo="Coiste Bodhar",
+				head={ name="Blistering Sallet +1", augments={'Path: A',}},
+				body="Meg. Cuirie +2",
+				hands="Gleti's Gauntlets",
+				legs="Heyoka Subligar",
+				feet="Thereoid Greaves",
+				neck="Nefarious Collar +1",
+				waist="Gerdr Belt",
+				left_ear="Sherida Earring",
+				right_ear="Brutal Earring",
+				left_ring="Gere Ring",
+				right_ring="Hetairoi Ring",
+				back="Atheling Mantle",
+				}
 		-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
 		
-	sets.engaged.DW.MedAcc = {
-		ammo="Paeapua",
-		head="Malignance Chapeau",
+	sets.engaged.DW.MedAcc = {    ammo="Coiste Bodhar",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Tali'ah Manteel +2",
+    hands="Malignance Gloves",
+    legs="Meg. Chausses +2",
+	feet="Malignance Boots",
+    neck="Anu Torque",
+    waist="Reiki Yotai",
+    left_ear="Suppanomimi",
+    right_ear="Sherida Earring",
+    left_ring="Gere Ring",
+    right_ring="Epona's Ring",
+    back="Atheling Mantle",
+}
+			
+	sets.engaged.DW.MedAccHaste = {
+		ammo="Coiste Bodhar",
+		head={ name="Blistering Sallet +1", augments={'Path: A',}},
 		body="Tali'ah Manteel +2",
 		hands="Malignance Gloves",
 		legs="Meg. Chausses +2",
 		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		neck="Anu Torque",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
-		back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},
-}
-			
-	sets.engaged.DW.MedAccHaste = {
-			ammo="Ginsen",
-			head="Totemic Helm +3",
-			body="Tot. Jackcoat +3",
-			hands="Totemic Gloves +3",
-			legs="Tot. Trousers +3",
-			feet="Tot. Gaiters +3",
-			neck="Shulmanu Collar",
-			waist="Patentia Sash",
-			left_ear="Suppanomimi",
-			right_ear="Digni. Earring",
-			left_ring="Rajas Ring",
-			right_ring="Varar Ring +1 +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},}
+		back="Atheling Mantle",}
 			
 	sets.engaged.DW.HighAcc = {
 			ammo="Ginsen",
@@ -1319,69 +1359,63 @@ sets.precast.WS['Aeolian Edge'] = {
 		})
 			
 	sets.engaged.DW.Shield.Hybrid = set_combine(sets.engaged.DW.Shield, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+ })
 			
 	sets.engaged.DW.MedAcc.Hybrid = set_combine(sets.engaged.DW.MedAcc, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.DW.MedAccHaste.Hybrid = set_combine(sets.engaged.DW.MedAccHaste, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.DW.HighAcc.Hybrid = set_combine(sets.engaged.DW.HighAcc, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 			
 	sets.engaged.DW.HighAccHaste.Hybrid = set_combine(sets.engaged.DW.HighAccHaste, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+})
 
 	-- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET ENGAGED
 	sets.engaged.PetStance = set_combine(sets.engaged, {
+
+		})
+			
+	sets.engaged.PetStance.Shield = set_combine(sets.engaged.Shield, {
 	    head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
     neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
-		})
-			
-	sets.engaged.PetStance.Shield = set_combine(sets.engaged.Shield, {
-			head="Anwig Salade",
-    body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash",
-			legs="Wisent Kecks",
-			feet="Armada Sollerets"})
+    waist="Klouskap Sash +1",})
 			
 	sets.engaged.PetStance.MedAcc = set_combine(sets.engaged.MedAcc, {
-                     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+})
 			
 	sets.engaged.PetStance.MedAccHaste = set_combine(sets.engaged.MedAccHaste, {
-                       head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+	    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",})
 			
 	sets.engaged.PetStance.HighAcc = set_combine(sets.engaged.HighAcc, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+	    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",})
 			
 	sets.engaged.PetStance.HighAccHaste = set_combine(sets.engaged.HighAccHaste, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+	    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",})
 
 	-- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET TANKING
 	

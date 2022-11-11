@@ -1282,6 +1282,7 @@ sets.defense.Petregen = {
 		back="Atheling Mantle",
 			}
 			
+			
 	sets.engaged.DW.Shield = {
 		
 			ammo="Staunch Tathlum",
