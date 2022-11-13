@@ -48,7 +48,11 @@ end
 
 
 function init_gear_sets()
-    sets.enmity = {ammo="Aqreqaq Bomblet", hands="Futhark Gloves +1", back="Mubvumbamiri mantle", waist="Warwolf Belt"}
+    sets.enmity =    { ammo="Iron Gobbet",
+    neck="Moonlight Necklace",
+    left_ear="Cryptic Earring",
+    right_ear="Trux Earring",
+    }
 
 	--------------------------------------
 	-- Precast sets
@@ -69,22 +73,79 @@ function init_gear_sets()
     sets.precast.JA['Elemental Sforzo'] = {body="Futhark Coat 1"}
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
     sets.precast.JA['Embolden'] = {}
-    sets.precast.JA['Vivacious Pulse'] = {}
+    sets.precast.JA['Vivacious Pulse'] = {ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Olympus Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonlight Cape",}
     sets.precast.JA['One For All'] = {}
     sets.precast.JA['Provoke'] = sets.enmity
 
 
 	-- Fast cast sets for spells
     sets.precast.FC = {
-            head="Runeist bandeau +1", ear1="Loquacious Earring",
-            body="Dread Jupon", hands="Thaumas gloves", ring2="Prolix Ring",
-            legs="Orvail Pants +1"}
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash", legs="Futhark Trousers +1"})
+        ammo="Sapience Orb",
+        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Prolix Ring",
+        right_ring="Kishar Ring",}
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Olympus Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonlight Cape",})
     sets.precast.FC['Utsusemi: Ichi'] = set_combine(sets.precast.FC, {neck='Magoraga beads', back="Mujin Mantle"})
     sets.precast.FC['Utsusemi: Ni'] = set_combine(sets.precast.FC['Utsusemi: Ichi'], {})
 
 
 	-- Weaponskill sets
+    sets.precast.WS = {
+    ammo="Knobkierrie",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Regal Ring",
+    back="Atheling Mantle",}
+    sets.precast.WS.Acc = {
+        ammo="Knobkierrie",
+        head="Meghanada Visor +2",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+        feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Ishvara Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Epaminondas's Ring",
+        right_ring="Regal Ring",
+        back="Atheling Mantle",}
+
     sets.precast.WS['Resolution'] = {    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -100,8 +161,9 @@ function init_gear_sets()
     back="Atheling Mantle",}
     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Normal, 
         {})
-    sets.precast.WS['Dimidiation'] = {    head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
+    sets.precast.WS['Dimidiation'] = {     ammo="Knobkierrie",
+    head="Nyame Helm",
+    body="Nyame Mail",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
@@ -148,11 +210,58 @@ function init_gear_sets()
 	-- Midcast sets
 	--------------------------------------
 	
-    sets.midcast.FastRecast = {}
-    sets.midcast['Enhancing Magic'] = {neck="Colossus's torque", ear1="Andoaa Earring", hands="Runeist mitons +1", waist="Olympus Sash", legs="Futhark Trousers +1"}
-    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
-    sets.midcast['Regen'] = {head="Runeist Bandeau +1", legs="Futhark Trousers +1"}
-    sets.midcast['Stoneskin'] = {waist="Siegel Sash"}
+    sets.midcast.FastRecast = {    ammo="Staunch Tathlum +1",
+    head="Agwu's Cap",
+    body="Nyame Mail",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck="Moonlight Necklace",
+    waist="Audumbla Sash",
+    left_ear="Halasz Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Evanescence Ring",
+    back="Moonlight Cape",}
+    sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Olympus Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonlight Cape",}
+    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {})
+    sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonbeam Ring",
+    back="Moonlight Cape",})
+    sets.midcast['Stoneskin'] = {waist="Siegel Sash",    ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonlight Cape",}
     sets.midcast.Cure = {neck="Colossus's Torque", hands="Buremte Gloves", ring1="Ephedra Ring", feet="Futhark Boots +1"}
 
 	--------------------------------------
@@ -163,7 +272,7 @@ function init_gear_sets()
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
@@ -194,12 +303,12 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Epaminondas's Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Shadow Ring",
     back="Moonlight Cape",}
 
 	sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -210,20 +319,7 @@ function init_gear_sets()
 	-- Engaged sets
 	--------------------------------------
 
-    sets.engaged = {     ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Ayanmo Corazza +2",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
-    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Anu Torque",
-    waist="Ioskeha Belt +1",
-    left_ear="Telos Earring",
-    right_ear="Sherida Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Moonlight Ring",
-    back="Atheling Mantle",}
-    sets.engaged.DD = {    ammo="Coiste Bodhar",
+    sets.engaged = {   ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -235,6 +331,19 @@ function init_gear_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
+    back="Atheling Mantle",}
+    sets.engaged.DD = {      ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Ayanmo Corazza +2",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Meg. Chausses +2",
+    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+    neck="Anu Torque",
+    waist="Ioskeha Belt +1",
+    left_ear="Telos Earring",
+    right_ear="Sherida Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Moonlight Ring",
     back="Atheling Mantle",}
     sets.engaged.Acc = set_combine(sets.engaged.DD, {       ammo="Yetshila +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
