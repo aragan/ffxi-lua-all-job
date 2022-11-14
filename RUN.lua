@@ -165,7 +165,7 @@ function init_gear_sets()
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
+    legs="Nyame Flanchard",
     feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",

@@ -2088,6 +2088,39 @@ function get_combat_form()
 	else
 		state.CombatForm:reset()
         end
+		organizer_items = {
+			item="Gyudon",
+			item="Revival Root",
+			item="Silver Voucher",
+			item="Holy Water",
+			item="Gyudon",
+			item="Grape Daifuku",
+			item="Miso Ramen",
+			item="Remedy",
+			item="Fiend Blood",
+			item="Sanjaku-Tenugui",
+			item="Shinobi-Tabi",
+			feet="Thereoid Greaves",
+			waist="Gerdr Belt",
+			neck="Nefarious Collar +1",
+			item="Copper Voucher",
+			range="Trollbane",
+			left_ring="Haoma's Ring",
+			item="Bambrox's Shawl",
+			item="Centurio's Armor",
+			item="Tumult's Blood",
+			item="Vidmapire's Claw",
+			item="Vedrfolnir's Wing",
+			item="Trump Card",
+			item="Silent Oil",
+			item="Shihei",
+			item="Hidhaegg's Scale",
+			item="SP Gobbie Key",
+			left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+			item="Sublime Sushi",
+			neck="Magoraga Beads",
+			waist="Windbuffet Belt +1",
+		}
 		add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
 		add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 	-- Default macro set/book
