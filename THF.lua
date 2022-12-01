@@ -153,7 +153,7 @@ function init_gear_sets()
 
 
     -- Ranged snapshot gear
-    sets.precast.RA = {
+    sets.precast.RA = {        range="Trollbane",  
         legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
         feet="Meg. Jam. +2",
         waist="Yemaya Belt",}
@@ -365,6 +365,8 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
+    sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'])
+
 
     sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, {
     head="Gleti's Mask",
@@ -380,6 +382,8 @@ function init_gear_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
+    sets.precast.WS["Empyreal Arrow"].Acc = set_combine(sets.precast.WS["Empyreal Arrow"])
+
 
     --------------------------------------
     -- Midcast sets
@@ -408,8 +412,7 @@ function init_gear_sets()
 
     -- Ranged gear
     sets.midcast.RA = {
-        range="Ullr",
-        ammo="Beryllium Arrow",
+
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -473,7 +476,7 @@ function init_gear_sets()
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back="Moonlight Cape",
 
 }
@@ -515,7 +518,7 @@ function init_gear_sets()
         waist="Reiki Yotai",
         left_ear="Tuisto Earring",
         left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
@@ -530,7 +533,7 @@ function init_gear_sets()
         waist="Reiki Yotai",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
@@ -565,27 +568,28 @@ function init_gear_sets()
     neck="Clotharius Torque",
     waist="Reiki Yotai",
     left_ear="Sherida Earring",
-    right_ear="Dedition Earring",
+    right_ear="Skulk. Earring +1",
     left_ring="Gere Ring",
     right_ring="Hetairoi Ring",
     back="Atheling Mantle",
-}
+    }
     sets.engaged.Acc = {
-    ammo="Aurgelmir Orb +1",
-    head="Malignance Chapeau",
-    body="Gleti's Cuirass",    
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Clotharius Torque",
-    waist="Reiki Yotai",
-    left_ear="Sherida Earring",
-    right_ear="Telos Earring",
-    left_ring="Gere Ring",
-    right_ring="Chirich Ring +1",
-    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
+        ammo="Yamarang",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Meg. Chausses +2",
+        feet="Malignance Boots",
+        neck="Clotharius Torque",
+        waist="Reiki Yotai",
+        left_ear="Telos Earring",
+        right_ear="Skulk. Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    }
         
-    sets.engaged.CRIT = {
+        sets.engaged.CRIT = {
         ammo="Yetshila +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Meg. Cuirie +2",
@@ -595,11 +599,11 @@ function init_gear_sets()
         neck="Nefarious Collar +1",
         waist="Reiki Yotai",
         left_ear="Sherida Earring",
-        right_ear={ name="Skulker's Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+        right_ear="Skulk. Earring +1",
         left_ring="Gere Ring",
         right_ring="Hetairoi Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-    }
+        }
 
     -- Mod set for trivial mobs (Skadi+1)
     sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
@@ -638,7 +642,7 @@ function init_gear_sets()
         waist="Reiki Yotai",
         left_ear="Tuisto Earring",
         left_ring="Defending Ring",
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
 

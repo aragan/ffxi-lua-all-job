@@ -458,8 +458,8 @@ function init_gear_sets()
         feet="Flam. Gambieras +2",
         neck="Sanctity Necklace",
         waist="Eschan Stone",
-        left_ear="Digni. Earring",
-        right_ear="Crep. Earring",
+        right_ear="Digni. Earring",
+        left_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Tantalic Cape",
@@ -527,19 +527,33 @@ function init_gear_sets()
     }
     
     sets.precast.WS['Tachi: Jinpu'] = {
-
         ammo="Knobkierrie",
         head="Nyame Helm",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs="Wakido Haidate +3",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Beithir Ring",
         right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    }
+    sets.precast.WS['Tachi: Jinpu'].Mid =  {
+        ammo="Knobkierrie",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist="Orpheus's Sash",
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Niqmaddu Ring",
+        right_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     
@@ -592,12 +606,7 @@ function init_gear_sets()
     })
 
     sets.idle.Regen = set_combine(sets.idle.Field, {
-        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        neck="Sanctity Necklace",
-        ring2="Paguroidea Ring",
-        ear2="Infused Earring",
-   	    body="Hizamaru Haramaki +2",
-        feet="Danzo Sune-ate"
+
     })
 
     sets.idle.Sphere = set_combine(sets.idle, { })
@@ -676,17 +685,17 @@ function init_gear_sets()
     
     sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
         feet="Flam. Gambieras +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Dedition Earring",
+        left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Chirich Ring +1",
+        right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     })
 
@@ -757,7 +766,7 @@ function init_gear_sets()
             body="Mpaca's Doublet",
             hands="Mpaca's Gloves",
             legs="Mpaca's Hose",
-            feet="Mpaca's Boots",
+            feet="Flam. Gambieras +2",
             neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Crep. Earring",

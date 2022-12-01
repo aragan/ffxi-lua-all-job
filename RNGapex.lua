@@ -45,8 +45,8 @@ function user_setup()
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
 	
-	DefaultAmmo = {[gear.Bow] = "Eminent arrow", [gear.Gun] = "Decimating Bullett"}
-	U_Shot_Ammo = {[gear.Bow] = "Eminent arrow", [gear.Gun] = "Chrono Bullett"}
+	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
 
 	select_default_macro_book()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
@@ -91,8 +91,9 @@ function init_gear_sets()
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-
-	head="Ikenga's Hat",
+		ammo=empty,
+		range="Trollbane", 
+			head="Ikenga's Hat",
     body="Ikenga's Vest",
     hands="Ikenga's Gloves",
     legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
@@ -124,7 +125,7 @@ function init_gear_sets()
 
     sets.precast.WS['Last Stand'] = {
 		head="Ikenga's Hat",
-		body="Nyame Mail",
+		body="Ikenga's Vest",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
@@ -139,7 +140,8 @@ function init_gear_sets()
 
 	sets.precast.WS.Wildfire  = {
 	    head="Nyame Helm",
-	body="Nyame Mail",
+    body="Nyame Mail",
+    hands="Meg. Gloves +2",
     legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
     feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
     neck="Baetyl Pendant",
@@ -172,7 +174,7 @@ function init_gear_sets()
 
 	sets.precast.WS["Savage Blade"] = {	    main="Naegling",	
 		head="Meghanada Visor +2",
-		body="Nyame Mail",
+		body="Meg. Cuirie +2",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
@@ -234,7 +236,8 @@ function init_gear_sets()
 
 	-- Ranged sets
 
-	sets.midcast.RA = {		
+	sets.midcast.RA = {			ammo=empty,
+    range="Trollbane", 
 
 		head="Malignance Chapeau",
 		body="Nisroch Jerkin",
@@ -250,7 +253,8 @@ function init_gear_sets()
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 	
-	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	
+	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	ammo=empty,
+    range="Trollbane", 
 
 		head="Meghanada Visor +2",
 		body="Nisroch Jerkin",
@@ -268,8 +272,8 @@ function init_gear_sets()
 	})
 
 	sets.midcast.RA.MAXACC = {
-		
-		head="Malignance Chapeau",
+		ammo=empty,
+		range="Trollbane", 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
@@ -311,7 +315,8 @@ function init_gear_sets()
         back="Moonlight Cape",	}
 
 	-- Idle sets
-	sets.idle = {
+	sets.idle = {ammo=empty,
+    range="Trollbane", 
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -367,11 +372,8 @@ function init_gear_sets()
 	-- Engaged sets
 	--------------------------------------
 
-	sets.engaged = {
-		main="Kustawi +1",
-		sub="Nusku Shield",
-		range="Fomalhaut",
-		ammo="Chrono Bullet",
+	sets.engaged = {range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},

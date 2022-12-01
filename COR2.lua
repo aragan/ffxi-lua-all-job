@@ -43,8 +43,8 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
 
     gear.RAbullet = "Decimating Bullet"
-    gear.WSbullet = "Decimating Bullet"
-    gear.MAbullet = "Decimating Bullet"
+    gear.WSbullet = "Chrono Bullet"
+    gear.MAbullet = "Chrono Bullet"
     gear.QDbullet = "Decimating Bullet"
     options.ammo_warning_limit = 15
 
@@ -328,35 +328,35 @@ function init_gear_sets()
 
     -- Ranged gear
     sets.midcast.RA = {
-    head="Malignance Chapeau",
-    body="Mummu Jacket +2",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Ikenga's Trousers",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        head="Ikenga's Hat",
+        body="Mummu Jacket +2",
+        hands="Malignance Gloves",
+        legs="Ikenga's Trousers",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Friomisi Earring",
+        right_ear="Telos Earring",
+        left_ring="Dingir Ring",
+        right_ring="Ilabrat Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
     sets.midcast.RA.Acc = {main="Naegling",
     sub="Tauret",
     range="Molybdosis",
     ammo="Orichalc. Bullet",
-    head="Ikenga's Hat",
-    body="Mummu Jacket +2",
+    head="Malignance Chapeau",
+    body="Laksa. Frac +3",
     hands="Malignance Gloves",
-    legs="Ikenga's Trousers",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Friomisi Earring",
+    waist="Eschan Stone",
+    left_ear="Crep. Earring",
     right_ear="Telos Earring",
-    left_ring="Dingir Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Cacoethic Ring",
+    right_ring="Regal Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 

@@ -175,6 +175,19 @@ function init_gear_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
+    sets.precast.WS['Savage Blade'].Acc = { head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    body="Laksa. Frac +3",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Caro Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
+
 
     sets.precast.WS['Aeolian Edge'] = sets.precast.WS, {
         head="Nyame Helm",
@@ -191,7 +204,7 @@ function init_gear_sets()
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
-    sets.precast.WS['Requiescat'] = sets.precast.WS, {
+    sets.precast.WS['Requiescat'] = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands="Meg. Gloves +2",
@@ -204,7 +217,20 @@ function init_gear_sets()
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
         back="Atheling Mantle",
-}
+    }
+    sets.precast.WS['Requiescat'].Acc = {     
+           head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Telos Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Regal Ring",
+    right_ring="Rufescent Ring",
+    back="Atheling Mantle",}
 
     sets.precast.WS['Last Stand'] = {
     head="Meghanada Visor +2",
@@ -324,35 +350,33 @@ function init_gear_sets()
 
     -- Ranged gear
     sets.midcast.RA = {
-    head="Malignance Chapeau",
-    body="Mummu Jacket +2",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Ikenga's Trousers",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        head="Ikenga's Hat",
+        body="Mummu Jacket +2",
+        hands="Malignance Gloves",
+        legs="Ikenga's Trousers",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Friomisi Earring",
+        right_ear="Telos Earring",
+        left_ring="Dingir Ring",
+        right_ring="Ilabrat Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
-    sets.midcast.RA.Acc = {main="Naegling",
-    sub="Tauret",
-    range="Molybdosis",
+    sets.midcast.RA.Acc = {
     ammo="Orichalc. Bullet",
-    head="Ikenga's Hat",
-    body="Mummu Jacket +2",
+    head="Malignance Chapeau",
+    body="Laksa. Frac +3",
     hands="Malignance Gloves",
-    legs="Ikenga's Trousers",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Friomisi Earring",
+    waist="Eschan Stone",
+    left_ear="Crep. Earring",
     right_ear="Telos Earring",
-    left_ring="Dingir Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Cacoethic Ring",
+    right_ring="Regal Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 

@@ -66,7 +66,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'polearm', 'Range', 'PD')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'polearm', 'Range', 'PD', 'CRIT')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.IdleMode:options('Normal', 'Sphere')
@@ -151,11 +151,24 @@ function init_gear_sets()
     sets.Organizer = {
 
     }
-    sets.precast.RA = {
+    sets.precast.RA = { ammo=empty,
+        range="Trollbane",  
+        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Yemaya Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Purity Ring",
+        right_ring="Ilabrat Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
 
     }
-    sets.midcast.RA = {
+    sets.midcast.RA = { ammo=empty,
+    range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -543,7 +556,7 @@ function init_gear_sets()
     --     body="Councilor's Garb"
     -- })
     
-    sets.idle.Field = set_combine(sets.idle.Town, {       
+    sets.idle.Field = {        
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -557,7 +570,7 @@ function init_gear_sets()
     right_ring="Defending Ring",
     back="Moonlight Cape",
 
-    })
+    }
 
     sets.idle.Regen = set_combine(sets.idle.Field, {
         head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
@@ -612,7 +625,7 @@ function init_gear_sets()
         back="Moonlight Cape",
     })
     
-    sets.Kiting = {        feet="Danzo Sune-ate",}
+    sets.Kiting = {feet="Danzo Sune-ate"}
     
     sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
     
@@ -625,7 +638,7 @@ function init_gear_sets()
     
     -- I generally use Anahera outside of Adoulin areas, so this set aims for 47 STP + 5 from Anahera (52 total)
     -- Note, this set assumes use of Cibitshavore (hence the arrow as ammo)
-    sets.engaged = {
+    sets.engaged = {range=empty,
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
@@ -672,6 +685,21 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     })
+    sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, { 
+        ammo="Amar Cluster",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Zennaroi Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
 
     sets.engaged.polearm = set_combine(sets.engaged, {
              ammo="Coiste Bodhar",
@@ -711,6 +739,24 @@ function init_gear_sets()
         right_ring="Defending Ring",
 
     })
+
+    sets.engaged.CRIT = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Mpaca's Doublet",
+    hands="Flam. Manopolas +2",
+    legs="Mpaca's Hose",
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist="Gerdr Belt",
+    left_ear="Schere Earring",
+    right_ear="Brutal Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Hetairoi Ring",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+    })
+
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",

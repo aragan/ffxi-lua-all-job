@@ -83,6 +83,7 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {body="Piety Briault"}
+    sets.precast.JA['Afflatus Solace'] = {back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -183,7 +184,13 @@ function init_gear_sets()
     }
 
     sets.midcast.Cursna = {
-      
+        ammo="Pemphredo Tathlum",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
+        hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck="Debilis Medallion",
+        left_ring="Haoma's Ring",
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
     }
 
     sets.midcast.StatusRemoval = {
@@ -277,20 +284,21 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
         main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-        sub="Sors Shield",
+        sub="Genmei Shield",
         ammo="Incantor Stone",
         head="Befouled Crown",
-        body="Annoint. Kalasiris",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
         hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
-        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Fucho-no-Obi",
-        left_ear="Andoaa Earring",
+        left_ear="Genmei Earring",
         right_ear="Etiolation Earring",
-        left_ring="Defending Ring",
+        left_ring="Stikini Ring +1",
         right_ring="Inyanga Ring",
-        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    }
     
 
     sets.idle.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
@@ -343,21 +351,23 @@ function init_gear_sets()
     
     -- Defense sets
 
-    sets.defense.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Sors Shield",
-    ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Ayanmo Corazza +2",
-    hands="Nyame Gauntlets",
-    legs="Inyanga Shalwar +2",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Inyanga Ring",
-    back="Moonlight Cape",}
+    sets.defense.PDT = {
+        main="Malignance Pole",
+        sub="Vivid Strap",
+        ammo="Incantor Stone",
+        head="Befouled Crown",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
+        hands="Inyan. Dastanas +2",
+        legs="Assid. Pants +1",
+        feet="Nyame Sollerets",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Fucho-no-Obi",
+        left_ear="Genmei Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Defending Ring",
+        right_ring="Inyanga Ring",
+        back="Solemnity Cape",
+}
 
     sets.defense.MDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",

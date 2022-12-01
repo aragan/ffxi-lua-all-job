@@ -196,7 +196,7 @@ function init_gear_sets()
     neck="Incanter's Torque",
     waist="Kobo Obi",
     left_ear="Andoaa Earring",
-    right_ear="Loquac. Earring",
+    right_ear="Beck. Earring",
     left_ring="Stikini Ring",
     right_ring="Prolix Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
@@ -223,13 +223,10 @@ function init_gear_sets()
         }
 
     sets.midcast.Cure = {
-        
-   
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
-    
 }
 
     sets.midcast.Stoneskin = {waist="Siegel Sash"}
@@ -291,15 +288,15 @@ function init_gear_sets()
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Incarnation Sash",
     left_ear="Gelos Earring",
-    right_ear="Esper Earring",
+    right_ear="Beck. Earring",
     left_ring="Varar Ring +1",
     right_ring="C. Palug Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.PhysicalBloodPactRage, {
         main="Was",
-        left_ear="Kyrene's Earring",
-        right_ear="Gelos Earring",
+        right_ear="Beck. Earring",
+        left_ear="Gelos Earring",
     })
 
     sets.midcast.Pet.MagicalBloodPactRage = {main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
@@ -312,7 +309,7 @@ function init_gear_sets()
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Kobo Obi",
-    left_ear="Kyrene's Earring",
+    left_ear="Beck. Earring",
     right_ear="Esper Earring",
     left_ring="Varar Ring +1",
     right_ring="Varar Ring +1",
@@ -320,8 +317,8 @@ function init_gear_sets()
 
     sets.midcast.Pet.MagicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {
       
-        left_ear="Kyrene's Earring",
-        right_ear="Gelos Earring",
+        right_ear="Beck. Earring",
+        left_ear="Gelos Earring",
     })
 
 

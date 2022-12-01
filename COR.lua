@@ -49,7 +49,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
 
-    gear.RAbullet = "Chrono Bullet"
+    gear.RAbullet = "Decimating Bullet"
     gear.WSbullet = "Chrono Bullet"
     gear.MAbullet = "Chrono Bullet"
     gear.QDbullet = "Chrono Bullet"
@@ -465,8 +465,8 @@ function init_gear_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
+    neck="Iskur Gorget",
+    waist="Windbuffet Belt +1",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
@@ -477,7 +477,7 @@ function init_gear_sets()
     sets.engaged.CRIT = {
         main="Naegling",
     sub="Demers. Degen +1",
-    ammo="Yetshila +1",
+    range="Molybdosis",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -495,7 +495,7 @@ function init_gear_sets()
     sets.engaged.CRIT.DW = {
         main="Naegling",
     sub="Demers. Degen +1",
-    ammo="Yetshila +1",
+    range="Molybdosis",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -550,8 +550,8 @@ function init_gear_sets()
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Sarissapho. Belt",
+    neck="Iskur Gorget",
+    waist="Windbuffet Belt +1",
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
