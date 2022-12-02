@@ -245,7 +245,7 @@ function init_gear_sets()
     Relic_Pitre.Feet_PMagic = "Pitre Babouches +1" --Role Reversal
 
     Empy_Karagoz = {}
-    Empy_Karagoz.Head_PTPBonus = "Karagoz Capello +1"
+    Empy_Karagoz.Head_PTPBonus = "Kara. Cappello +2"
     Empy_Karagoz.Body_Overload = "Karagoz Farsetto +1"
     Empy_Karagoz.Hands = "Karagoz Guanti +1"
     Empy_Karagoz.Legs_Combat = "Karagoz Pantaloni +1"
@@ -476,7 +476,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
         left_ear="Telos Earring",
-        right_ear="Mache Earring +1",
+        right_ear="Balder Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -572,7 +572,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Moonbow Belt",
     left_ear="Crep. Earring",
-    right_ear="Mache Earring +1",
+    right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1247 Val: 4',}},
@@ -940,7 +940,7 @@ function init_gear_sets()
     ]]
     sets.midcast.Pet.WSFTP = {
          
-        head="Karagoz Capello +1",
+        head="Kara. Cappello +2",
         hands="Mpaca's Gloves",
         legs={ name="Herculean Trousers", augments={'Pet: "Mag.Atk.Bns."+18','Pet: "Store TP"+7','Pet: DEX+12','Pet: Attack+14 Pet: Rng.Atk.+14',}},
         feet="Mpaca's Boots",
