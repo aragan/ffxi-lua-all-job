@@ -139,7 +139,7 @@ function init_gear_sets()
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
-        body="Ratri Plate",
+        body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sulev. Leggings +2",
@@ -167,7 +167,7 @@ function init_gear_sets()
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
-        body="Ratri Plate",
+        body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sulev. Leggings +2",
@@ -195,7 +195,7 @@ sets.precast.WS['Insurgency'] = {
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
-    right_ear="Thrud Earring",
+    right_ear="Balder Earring +1",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
@@ -228,7 +228,7 @@ sets.precast.WS['Quietus'] = {
     sub="Utu Grip",
     ammo="Knobkierrie",
     head="Ratri Sallet",
-    body="Ratri Plate",
+    body="Nyame Mail",
     hands="Ratri Gadlings",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Sulev. Leggings +2",
@@ -250,8 +250,8 @@ sets.precast.WS['Entropy '] = {
     feet="Flam. Gambieras +2",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Schere Earring",
-    right_ear="Cessance Earring",
+    left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+    right_ear="Balder Earring +1",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
@@ -259,7 +259,7 @@ sets.precast.WS['Entropy '] = {
 
 sets.precast.WS['Infernal Scythe'] = {    ammo="Knobkierrie",
 head="Pixie Hairpin +1",
-body="Ratri Plate",
+body="Nyame Mail",
 hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
 feet="Sulev. Leggings +2",
@@ -299,7 +299,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
-        body="Ratri Plate",
+        body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sulev. Leggings +2",
@@ -318,7 +318,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
       
     sets.precast.WS['Torcleaver'] = {ammo="Knobkierrie",
     head="Sakpata's Helm",
-    body="Ignominy Cuirass +3",
+    body="Nyame Mail",
     hands="Sakpata's Gauntlets",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Sulev. Leggings +2",
@@ -336,9 +336,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     })
       
       
-    sets.precast.WS['Scourge'] = set_combine(sets.precast.WS, {left_ear="Kikou's earring"})
-    sets.precast.WS['Scourge'].MaxAcc = set_combine(sets.precast.WS.MaxAcc, {left_ear="Kikou's earring"})
-    sets.precast.WS['Scourge'].Max = set_combine(sets.precast.WS.Max, {left_ear="Kikou's earring"})
+   
     --------------------------------------
     -- Midcast sets
     --------------------------------------
@@ -363,7 +361,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 }
@@ -554,7 +552,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 
@@ -587,7 +585,7 @@ sets.defense.SEboost = {
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",
 }
@@ -595,7 +593,7 @@ sets.defense.SEboost = {
       
     sets.defense.MDT = {
         head="Sulevia's mask +1",neck="Warder's Charm +1",ear1="Odnowa Earring",ear2="Odnowa Earring +1",
-        body="Souveran cuirass",hands="Souveran handschuhs +1",ring1="Moonbeam Ring",ring2="Moonbeam Ring",
+        body="Souveran cuirass",hands="Souveran handschuhs +1",ring1="Moonlight Ring",ring2="Moonlight Ring",
         back="Moonbeam cape",waist="Gold Moogle Belt",legs="Souveran diechlings +1",feet="Souveran Schuhs +1"
     }
   
@@ -608,15 +606,15 @@ sets.defense.SEboost = {
     sets.engaged ={
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
+        body="Hjarrandi Breast.",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
+        left_ear="Cessance Earring",
         right_ear="Schere Earring",
-        left_ring="Fortified Ring",
+        left_ring="Hetairoi Ring",
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
     }
@@ -647,7 +645,7 @@ sets.defense.SEboost = {
     waist="Kentarch Belt +1",
     left_ear="Telos Earring",
     right_ear="Digni. Earring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 

@@ -65,9 +65,9 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'polearm', 'Range', 'PD', 'CRIT')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'Range', 'PD', 'CRIT')
     state.HybridMode:options('Normal', 'PDT')
-    state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'Range')
+    state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL', 'Range')
     state.IdleMode:options('Normal', 'Sphere')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Reraise')
@@ -216,6 +216,9 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         feet="Flamma Gambieras +2",
     })
+
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+        feet="Flamma Gambieras +2", })
     
     sets.precast.WS['Namas Arrow'] = {
         head="Mpaca's Cap",
@@ -730,20 +733,20 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.engaged.polearm = set_combine(sets.engaged, {
-             ammo="Coiste Bodhar",
-         head="Flam. Zucchetto +2",
-         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-         hands="Flam. Manopolas +2",
-         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
-         feet="Flam. Gambieras +2",
-         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-         left_ear="Cessance Earring",
-         right_ear="Telos Earring",
-         left_ring="Niqmaddu Ring",
-         right_ring="Petrov Ring",
-         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+    sets.engaged.PDL = set_combine(sets.engaged, {
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
 
          sets.engaged.Range = {
@@ -766,7 +769,7 @@ function init_gear_sets()
             body="Mpaca's Doublet",
             hands="Mpaca's Gloves",
             legs="Mpaca's Hose",
-            feet="Flam. Gambieras +2",
+            feet="Mpaca's Boots",
             neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Crep. Earring",
