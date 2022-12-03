@@ -431,7 +431,8 @@ function init_gear_sets()
 
     -- Normal melee group without buffs
     sets.engaged = {
-
+        main={ name="Heishi Shorinken", augments={'Path: A',}},
+        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         ammo="Coiste Bodhar",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
@@ -496,7 +497,7 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.Polearm = set_combine(sets.engaged, {
-            main="Ceremonial Dagger",
+            main="Sha Wujing's La. +1",
             sub=empty,
         })
         sets.engaged.GS = set_combine(sets.engaged, {
