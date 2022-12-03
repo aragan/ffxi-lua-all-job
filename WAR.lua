@@ -530,7 +530,7 @@ function init_gear_sets()
         feet="Sakpata's Leggings",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         left_ear="Eabani Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
      })
  
      sets.Kiting = {feet="Hermes' Sandals +1"}
@@ -604,7 +604,7 @@ function init_gear_sets()
         waist="Ioskeha Belt +1",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Niqmaddu Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })

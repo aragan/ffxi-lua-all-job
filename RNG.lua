@@ -44,9 +44,11 @@ function user_setup()
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
-	
-	DefaultAmmo = {[gear.Bow] = "Eminent arrow", [gear.Gun] = "Decimating Bullett"}
-	U_Shot_Ammo = {[gear.Bow] = "Eminent arrow", [gear.Gun] = "Chrono Bullett"}
+	 
+
+	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Chrono Bullett"}
+
 
 	select_default_macro_book()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--

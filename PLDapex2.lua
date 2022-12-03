@@ -207,7 +207,7 @@ function init_gear_sets()
     sets.precast.FC.Cure = 
 {
     right_ear="Mendi. Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
 }
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -243,7 +243,7 @@ left_ring="Beithir Ring",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring="Petrov Ring",
     back="Atheling Mantle",
 
@@ -452,7 +452,7 @@ feet="Sulev. Leggings +2",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
      
@@ -891,7 +891,7 @@ back="Moonlight Cape",
     left_ear="Odnowa Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Shadow Ring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
 
@@ -962,7 +962,7 @@ back="Moonlight Cape",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
  
 }
