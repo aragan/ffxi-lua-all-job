@@ -39,14 +39,14 @@ function job_setup()
     wsList = S{}
     -- Greatswords you use. 
     gsList = S{'Ragnarok','Caladbolg','Nandaka'}
-    scytheList = S{'Liberator', 'Apocalypse'}
-    remaWeapons = S{'Apocalypse', 'Liberator', 'Caladbolg', 'Ragnarok','Nandaka'}
+    scytheList = S{'Apocalypse'}
+    remaWeapons = S{'Apocalypse','Ragnarok','Nandaka'}
   
-    shields = S{}
+    shields = S{'Blurred Shield +1'}
     -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     -- Offhand weapons used to activate DW mode
-    swordList = S{}
+    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi"}
   
     get_combat_form()
     get_combat_weapon()
@@ -604,7 +604,7 @@ sets.defense.SEboost = {
     --------------------------------------
       
     sets.engaged ={
-        ammo="Coiste Bodhar",
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
         hands="Sakpata's Gauntlets",
@@ -618,9 +618,10 @@ sets.defense.SEboost = {
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
     }
+
   
     sets.engaged.STP = {
-     ammo="Coiste Bodhar",
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Flam. Zucchetto +2",
     body="Flamma Korazin +2",
     hands="Flam. Manopolas +2",
@@ -635,7 +636,7 @@ sets.defense.SEboost = {
     back="Atheling Mantle",
 }
   
-    sets.engaged.MidAcc = {     ammo="Coiste Bodhar",
+    sets.engaged.MidAcc = {            ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
@@ -668,7 +669,7 @@ sets.engaged.crit = set_combine(sets.engaged, {
 
 sets.engaged.PD = set_combine(sets.engaged, {
 
-    ammo="Coiste Bodhar",
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Hjarrandi Helm",
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
@@ -699,8 +700,8 @@ sets.engaged.PD = set_combine(sets.engaged, {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 
-sets.engaged.SubtleBlow = set_combine(sets.engaged, {
-
+sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     hands="Sakpata's Gauntlets",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Sarissapho. Belt",
@@ -728,7 +729,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
       
   
-    sets.engaged.Meva = {ammo="Coiste Bodhar",
+    sets.engaged.Meva = {        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
@@ -788,6 +790,117 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ring="Moonlight Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }       
+    -- Apocalypse
+    sets.engaged.Apocalypse = set_combine(sets.engaged, {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ear1="Cessance Earring",
+        head="Flam. Zucchetto +2",
+        body="Hjarrandi Breast.",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Schere Earring",
+        left_ring="Hetairoi Ring",
+        right_ring="Niqmaddu Ring",
+        back="Atheling Mantle",
+    })
+    sets.engaged.Apocalypse.STP = {
+        ammo="Coiste Bodhar",
+       head="Flam. Zucchetto +2",
+       body="Flamma Korazin +2",
+       hands="Flam. Manopolas +2",
+       legs="Sulev. Cuisses +2",
+       feet="Flam. Gambieras +2",
+       neck={ name="Vim Torque +1", augments={'Path: A',}},
+       waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+       left_ear="Cessance Earring",
+       right_ear="Dedition Earring",
+       left_ring="Niqmaddu Ring",
+       right_ring="Chirich Ring +1",
+       back="Atheling Mantle",
+   }
+   sets.engaged.Apocalypse.MidAcc = {     ammo="Coiste Bodhar",
+   head="Sakpata's Helm",
+   body="Sakpata's Plate",
+   hands="Sakpata's Gauntlets",
+   legs="Sakpata's Cuisses",
+   feet="Sakpata's Leggings",
+   neck={ name="Vim Torque +1", augments={'Path: A',}},
+   waist="Kentarch Belt +1",
+   left_ear="Telos Earring",
+   right_ear="Digni. Earring",
+   right_ring="Moonlight Ring",
+   back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+}   
+    sets.engaged.Apocalypse.crit = set_combine(sets.engaged, {
+    ammo="Yetshila +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Hjarrandi Breast.",
+    hands="Flam. Manopolas +2",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist="Ioskeha Belt +1",
+    left_ear="Schere Earring",
+    right_ear="Brutal Earring",
+    left_ring="Hetairoi Ring",
+    right_ring="Niqmaddu Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    })
+    sets.engaged.Apocalypse.PD = set_combine(sets.engaged, {
+        ammo="Coiste Bodhar",
+        head="Hjarrandi Helm",
+        body="Hjarrandi Breast.",
+        hands="Flam. Manopolas +2",
+        legs="Sulev. Cuisses +2",
+        feet="Flam. Gambieras +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Dedition Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    })
+    sets.engaged.Apocalypse.MaxAcc = {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Sulevia's Mask +2",
+    body="Sulevia's Plate. +2",
+    hands="Sulev. Gauntlets +2",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist="Ioskeha Belt +1",
+    left_ear="Mache Earring +1",
+    right_ear="Telos Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    }
+    sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged, {
+        hands="Sakpata's Gauntlets",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Sarissapho. Belt",
+        left_ear="Digni. Earring",
+        right_ear="Schere Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Atheling Mantle",
+    })
+    sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {})
+    sets.engaged.Haste.Apocalypse.STP = set_combine(sets.engaged.STP, {
+        waist="Ioskeha Belt +1",
+    })
+    sets.engaged.Haste.Apocalypse.rit = set_combine(sets.engaged.crit, {
+        waist="Ioskeha Belt +1",
+    })
+  
+    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
+        waist="Ioskeha Belt +1",
+    })
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
     body="Twilight Mail",})
