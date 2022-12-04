@@ -788,8 +788,10 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ring="Moonlight Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
-  
-  
+sets.Doom = {    neck="Nicander's Necklace",
+waist="Gishdubar Sash",
+left_ring="Purity Ring",
+right_ring="Blenmot's Ring +1",}
 
   
 end
@@ -944,6 +946,18 @@ function job_buff_change(buff, gain)
     if S{'madrigal'}:contains(buff:lower()) then
         if buffactive.madrigal and state.OffenseMode.value == 'MaxAcc' then
             equip(sets.MadrigalBonus)
+        end
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
         end
     end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then

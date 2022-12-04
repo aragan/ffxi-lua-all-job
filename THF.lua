@@ -656,9 +656,12 @@ function init_gear_sets()
         
     }
     sets.engaged.Acc.PDT = {        right_ring="Defending Ring",
-
-        
     }
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 
 end
 
@@ -712,6 +715,18 @@ end
 function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         if not midaction() then
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
     end

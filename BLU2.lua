@@ -764,7 +764,7 @@ function init_gear_sets()
             legs="Gleti's Breeches",
             feet="Thereoid Greaves",
             neck="Nefarious Collar +1",
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            waist="Gerdr Belt",
             left_ear="Telos Earring",
             right_ear="Odr Earring",
             left_ring="Epona's Ring",
@@ -829,7 +829,7 @@ function init_gear_sets()
         legs="Gleti's Breeches",
         feet="Thereoid Greaves",
         neck="Nefarious Collar +1",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Gerdr Belt",
         left_ear="Telos Earring",
         right_ear="Odr Earring",
         left_ring="Epona's Ring",
@@ -854,7 +854,10 @@ function init_gear_sets()
 
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
-
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
 
     sets.self_healing = {ring1="Kunaji Ring",ring2="Asklepian Ring"}
 end
@@ -905,6 +908,10 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         state.Buff[buff] = gain
     end
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
 end
 
 -------------------------------------------------------------------------------------------------------------------

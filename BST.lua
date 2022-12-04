@@ -1544,20 +1544,25 @@ sets.defense.Petregen = {
 			head="Anwig Salade",
 			hands="Regimen Mittens"})
 
-sets.buff['Killer Instinct'] = {
-main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
-head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-body="Nukumi Gausape +1",
+    sets.buff['Killer Instinct'] = {
+    main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
+    head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
+    body="Nukumi Gausape +1",
 
 }
 
-sets.buff.Doomed = {neck="Nicander's Necklace",
+    sets.buff.Doomed = {neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Saida Ring",}
 
-sets.THBelt = {	
-			}
+	sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
+
+    sets.THBelt = {}
 
 -------------------------------------------------------------------------------------------------------------------
 -- Complete Lvl 76-99 Jug Pet Precast List +Funguar +Courier +Amigo
@@ -1774,7 +1779,20 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 	end
 end
 
-
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+end
 
 function job_pet_midcast(spell, action, spellMap, eventArgs)
 -- Equip monster correlation gear, as appropriate

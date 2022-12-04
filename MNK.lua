@@ -585,6 +585,11 @@ function init_gear_sets()
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +1"}
     sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -651,6 +656,18 @@ function job_buff_change(buff, gain)
     end
     return meleeSet
 
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
     end
     
     -- Hundred Fists and Impetus modify the custom melee groups

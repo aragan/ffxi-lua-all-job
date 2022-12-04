@@ -533,8 +533,18 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     -- Midcast Sets
 
     -- General set for recast times.
-    sets.midcast.FastRecast = {ear2="Loquacious Earring",
-        ring1="Prolix Ring",
+    sets.midcast.FastRecast = {    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Inyanga Jubbah +2",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Aya. Cosciales +2",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Flume Belt +1",
+    left_ear="Etiolation Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Kishar Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
@@ -838,6 +848,11 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 
 end
 
@@ -849,6 +864,29 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+	if spell.english == "Utsusemi: Ichi" then
+		if buffactive['Copy Image'] then
+			send_command('cancel 66')
+		elseif buffactive['Copy Image (2)'] then 
+			send_command('cancel 444')
+		elseif buffactive['Copy Image (3)'] then
+			send_command('cancel 445')
+		elseif buffactive['Copy Image (4+)'] then
+			send_command('cancel 446')
+		end
+	end
+
+	if spell.english == "Utsusemi: Ni" then
+		if buffactive['Copy Image'] then
+			send_command('cancel 66')
+		elseif buffactive['Copy Image (2)'] then 
+			send_command('cancel 444')
+		elseif buffactive['Copy Image (3)'] then
+			send_command('cancel 445')
+		elseif buffactive['Copy Image (4+)'] then
+			send_command('cancel 446')
+		end
+	end
     if spell.type == 'BardSong' then
         -- Auto-Pianissimo
         if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
@@ -885,6 +923,28 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 
         state.ExtraSongsMode:reset()
     end
+    if not spell.interrupted then
+        if spell.name == 'Utsusemi: Ichi' then
+            overwrite = false
+        elseif spell.name == 'Utsusemi: Ni' then
+            overwrite = false
+        end
+    end
+end
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+
 end
 
 -- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.
@@ -892,6 +952,13 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if spell.type == 'BardSong' and not spell.interrupted then
         if spell.target and spell.target.type == 'SELF' then
             adjust_timers(spell, spellMap)
+        end
+        if not spell.interrupted then
+            if spell.name == 'Utsusemi: Ichi' then
+                overwrite = false
+            elseif spell.name == 'Utsusemi: Ni' then
+                overwrite = true
+            end
         end
     end
 end

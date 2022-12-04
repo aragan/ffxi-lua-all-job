@@ -449,16 +449,20 @@ function init_gear_sets()
 
     sets.precast.WS["Howling Fist"] = set_combine(sets.precast.WS, {
         body="Tali'ah Manteel +2",
-    
-
-
     })
+    
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 
     -------------------------------------Idle
     --[[
         Pet is not active
         Idle Mode = MasterDT
     ]]
+
     sets.idle.MasterDT = {
         main={ name="Xiucoatl", augments={'Path: C',}},
         range="Animator P +1",
@@ -1066,6 +1070,21 @@ function init_gear_sets()
 end
 add_to_chat(159,'Author Aragan PUP.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

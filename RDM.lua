@@ -41,7 +41,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Enspell', 'DW', 'ACC', 'CRIT')
+    state.OffenseMode:options('None', 'Normal', 'Enspell', 'ACC', 'CRIT')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Town')
 	state.CastingMode:options('Normal', 'Burst')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
@@ -725,7 +725,7 @@ function init_gear_sets()
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
 		feet="Thereoid Greaves",
 		neck="Nefarious Collar +1",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Gerdr Belt",
 		left_ear="Sherida Earring",
 		right_ear="Brutal Earring",
 		left_ring="Hetairoi Ring",
@@ -740,7 +740,7 @@ function init_gear_sets()
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
 		feet="Thereoid Greaves",
 		neck="Nefarious Collar +1",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		waist="Gerdr Belt",
 		left_ear="Sherida Earring",
 		right_ear="Brutal Earring",
 		left_ring="Hetairoi Ring",
@@ -748,7 +748,7 @@ function init_gear_sets()
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 		sets.engaged.Acc = {
-	                ammo="Aurgelmir Orb +1",
+	        ammo="Aurgelmir Orb +1",
 			head="Malignance Chapeau",
 			body="Malignance Tabard",
 			hands="Malignance Gloves",
@@ -763,7 +763,7 @@ function init_gear_sets()
 			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
 	sets.engaged.DW.Acc = {
-			ammo="Aurgelmir Orb +1",
+	ammo="Aurgelmir Orb +1",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -776,7 +776,7 @@ function init_gear_sets()
 	left_ring="Chirich Ring +1",
 	right_ring="Chirich Ring +1",
 	back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-}
+    }
 
 
 	sets.engaged.Enspell = {   
@@ -831,6 +831,11 @@ function init_gear_sets()
     sets.MoveSpeed = {legs = "Carmine Cuisses +1",}
 		
 	sets.ConsMP = {body="Seidr Cotehardie"}
+	sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 end
 
 function refine_various_spells(spell, action, spellMap, eventArgs)
@@ -996,6 +1001,18 @@ function job_buff_change(buff, gain)
 	if (buff and gain) or (buff and not gain) then
 	send_command('gs c update')
 	end
+	if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
 end
 
 

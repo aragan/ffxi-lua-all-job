@@ -269,8 +269,6 @@ function init_gear_sets()
     sets.precast.FC = {ammo="Sapience Orb",
     body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','Pet: Damage taken -3%',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    feet="Jute Boots +1",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Prolix Ring",}
@@ -282,9 +280,9 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {    ammo="Aurgelmir Orb +1",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Meg. Gloves +2",
-    legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",    hands="Meg. Gloves +2",
     feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
     neck="Caro Necklace",
     waist="Grunfeld Rope",
@@ -361,12 +359,12 @@ function init_gear_sets()
         back="Atheling Mantle",
     })
 
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Aurgelmir Orb +1",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Meg. Cuirie +2",
+        hands="Mummu Wrists +2",
         legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-        feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+        feet="Mummu Gamash. +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Sherida Earring",
@@ -374,7 +372,8 @@ function init_gear_sets()
         left_ring="Ilabrat Ring",
         right_ring="Regal Ring",
     })
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {    head="Nyame Helm",
+    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {  
+    head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -389,7 +388,7 @@ function init_gear_sets()
         head="Gleti's Mask",
         body="Nyame Mail",
         hands="Meg. Gloves +2",
-        legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%',}},
+        legs="Nyame Flanchard",
         feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
         neck="Caro Necklace",
         waist="Grunfeld Rope",
@@ -409,9 +408,9 @@ function init_gear_sets()
     sets.precast.WS["Rudra's Storm"].PDL = set_combine(sets.precast.WS["Rudra's Storm"], {
         ammo="Crepuscular Pebble",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Nyame Mail",
         hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
+        legs="Nyame Flanchard",
         feet="Gleti's Boots",
         neck="Anu Torque",
         waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -613,19 +612,19 @@ function init_gear_sets()
     back="Atheling Mantle", }
     sets.engaged.Fodder.Evasion = {}
 
-    sets.engaged.Acc = {    ammo="Aurgelmir Orb +1",
+    sets.engaged.Acc = {      ammo="Yamarang",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
-    waist="Windbuffet Belt +1",
+    neck="Lissome Necklace",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear="Dedition Earring",
+    right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle", }
+    back="Atheling Mantle",}
     sets.engaged.STP = {    
         ammo="Coiste Bodhar",
         head="Malignance Chapeau",
@@ -657,9 +656,24 @@ function init_gear_sets()
         back="Atheling Mantle",
  }
     sets.engaged.Evasion = {}
-    sets.engaged.PDT = {}
+    sets.engaged.PDT = {    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",}
     sets.engaged.Acc.Evasion = {}
-    sets.engaged.Acc.PDT = {}
+    sets.engaged.Acc.PDT = {    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Anu Torque",
+    waist="Windbuffet Belt +1",
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",}
 
         sets.engaged.PDL = {    ammo="Aurgelmir Orb +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -717,16 +731,16 @@ function init_gear_sets()
     left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",}
 
-    sets.engaged.Acc.HighHaste = {ammo="Aurgelmir Orb +1",
+    sets.engaged.Acc.HighHaste = {    ammo="Yamarang",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
-    waist="Windbuffet Belt +1",
+    neck="Lissome Necklace",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear="Dedition Earring",
+    right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Atheling Mantle", }
@@ -762,8 +776,23 @@ function init_gear_sets()
  }
     sets.engaged.Evasion.HighHaste = {}
     sets.engaged.Acc.Evasion.HighHaste = {}
-    sets.engaged.PDT.HighHaste = {}
-    sets.engaged.Acc.PDT.HighHaste = {}
+    sets.engaged.PDT.HighHaste = {    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",}
+    sets.engaged.Acc.PDT.HighHaste = {    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Anu Torque",
+    waist="Windbuffet Belt +1",
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",}
 
 
     -- Custom melee group: Max Haste (2x March + Haste)
@@ -808,16 +837,16 @@ function init_gear_sets()
     left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",}
 
-    sets.engaged.Acc.MaxHaste = {    ammo="Aurgelmir Orb +1",
+    sets.engaged.Acc.MaxHaste = {       ammo="Yamarang",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
-    waist="Windbuffet Belt +1",
+    neck="Lissome Necklace",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear="Dedition Earring",
+    right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Atheling Mantle", }
@@ -853,15 +882,33 @@ function init_gear_sets()
  }
     sets.engaged.Evasion.MaxHaste = {}
     sets.engaged.Acc.Evasion.MaxHaste = {}
-    sets.engaged.PDT.MaxHaste = {}
-    sets.engaged.Acc.PDT.MaxHaste = {}
+    sets.engaged.PDT.MaxHaste = {    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",}
+    sets.engaged.Acc.PDT.MaxHaste = {    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Anu Torque",
+    waist="Windbuffet Belt +1",
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",}
 
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Saber Dance'] = {aist="Windbuffet Belt +1",}
     sets.buff['Climactic Flourish'] = {}
-    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",} -- +65%
 
 end
 
@@ -933,11 +980,13 @@ function job_buff_change(buff,gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.buff.Doom)
-            send_command('@input /p Doomed.')
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
         else
             enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
     end

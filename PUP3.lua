@@ -433,10 +433,12 @@ function init_gear_sets()
 
     sets.precast.WS["Howling Fist"] = set_combine(sets.precast.WS, {
         body="Tali'ah Manteel +2",
-    
-
-
     })
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 
     -------------------------------------Idle
     --[[
@@ -1076,6 +1078,21 @@ function init_gear_sets()
     right_ring="Overbearing Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
     })
+end
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+
 end
 
 -- Select default macro book on initial load or subjob change.

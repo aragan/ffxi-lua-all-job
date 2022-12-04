@@ -740,6 +740,21 @@ function init_gear_sets()
     right_ring="Epona's Ring",
     back="Atheling Mantle",
 }
+
+    sets.engaged.CRIT = {
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist="Gerdr Belt",
+    left_ear="Telos Earring",
+    right_ear="Odr Earring",
+    left_ring="Epona's Ring",
+    right_ring="Hetairoi Ring",
+    back="Atheling Mantle",}
     
 
     sets.engaged.Refresh = {
@@ -780,13 +795,30 @@ function init_gear_sets()
     right_ring="Epona's Ring",
     back="Atheling Mantle",
     }
+    sets.engaged.DW.CRIT = {
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Gleti's Cuirass",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Thereoid Greaves",
+        neck="Nefarious Collar +1",
+        waist="Gerdr Belt",
+        left_ear="Telos Earring",
+        right_ear="Odr Earring",
+        left_ring="Epona's Ring",
+        right_ring="Hetairoi Ring",
+        back="Atheling Mantle",}
 
     sets.engaged.DW.Refresh = {
     }
 
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
-
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
 
     sets.self_healing = {ring1="Kunaji Ring",ring2="Asklepian Ring"}
 end
@@ -836,6 +868,18 @@ end
 function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         state.Buff[buff] = gain
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
     end
 end
 

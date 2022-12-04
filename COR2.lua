@@ -550,6 +550,11 @@ sets.Kiting = {
     right_ring="Petrov Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
+sets.Doom = {    neck="Nicander's Necklace",
+waist="Gishdubar Sash",
+left_ring="Purity Ring",
+right_ring="Blenmot's Ring +1",}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -576,7 +581,20 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)

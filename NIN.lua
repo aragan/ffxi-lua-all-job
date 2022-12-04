@@ -236,7 +236,10 @@ function init_gear_sets()
         left_ring="Rahab Ring",
         right_ring="Kishar Ring",
     }
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket", })
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
+        body="Passion Jacket",
+        feet="Hattori Kyahan +1",
+     })
 
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
@@ -275,10 +278,14 @@ function init_gear_sets()
     right_ring="Stikini Ring +1",
 }
     sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {    
+        feet="Hattori Kyahan +1",
+        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+
 
     })
     sets.midcast.Migawari = {    neck="Incanter's Torque",
-
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
@@ -972,6 +979,11 @@ function init_gear_sets()
         right_ear="Hattori Earring",     })
     sets.precast.WS['Blade: Teki'] = sets.precast.WS['Blade: Chi']
     sets.precast.WS['Blade: To'] = sets.precast.WS['Blade: Chi']
+    
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
 
 end
 
@@ -1003,11 +1015,13 @@ function job_precast(spell, action, spellMap, eventArgs)
         -- If sneak is active when using, cancel before completion
         -- send_command('cancel 71')
     end
-    if string.find(spell.english, 'Utsusemi') then
-        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4)'] then
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
-            eventArgs.cancel = true
+            eventArgs.handled = true
             return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
         end
     end
 
@@ -1049,9 +1063,6 @@ end
 function job_midcast(spell, action, spellMap, eventArgs)
     if nukeList:contains(spell.english) and buffactive['Futae'] then
         equip(sets.Burst)
-    end
-    if spell.name == 'Utsusemi: Ichi' and overwrite then
-        send_command('cancel Copy Image|Copy Image (2)')
     end
     -- if spell.english == "Monomi: Ichi" then
     --     if buffactive['Sneak'] then
@@ -1180,6 +1191,18 @@ function job_buff_change(buff, gain)
     if S{'haste', 'march', 'mighty guard', 'embrava', 'haste samba', 'geo-haste', 'indi-haste'}:contains(buff:lower()) then
         determine_haste_group()
         if not midaction() then
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
     end

@@ -162,8 +162,8 @@ function init_gear_sets()
     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Normal, 
         {})
     sets.precast.WS['Dimidiation'] = {     ammo="Knobkierrie",
-    head="Nyame Helm",
-    body="Nyame Mail",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
@@ -248,7 +248,7 @@ function init_gear_sets()
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",})
     sets.midcast['Stoneskin'] = {waist="Siegel Sash",    ammo="Staunch Tathlum +1",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -386,6 +386,11 @@ function init_gear_sets()
         right_ring="Moonlight Ring",
         back="Atheling Mantle",}
     sets.engaged.repulse = {}
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 
 end
 
@@ -416,6 +421,20 @@ function job_aftercast(spell)
         end
     end
 end
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+end
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -433,7 +452,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-
+add_to_chat(159,'Author Aragan RUN.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
 	-- Default macro set/book
