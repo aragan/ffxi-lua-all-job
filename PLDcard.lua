@@ -203,7 +203,7 @@ function init_gear_sets()
     sets.precast.FC.Cure = 
 {
     right_ear="Mendi. Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
 }
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -239,7 +239,7 @@ left_ring="Beithir Ring",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring="Petrov Ring",
     back="Atheling Mantle",
 
@@ -449,7 +449,7 @@ back="Atheling Mantle",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
      
@@ -888,7 +888,7 @@ back="Moonlight Cape",
     left_ear="Odnowa Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Shadow Ring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
 
@@ -959,7 +959,7 @@ back="Moonlight Cape",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
  
 }
@@ -1126,7 +1126,9 @@ right_ear="Telos Earring",
 left_ring="Patricius Ring",
 right_ring="Petrov Ring",
 back="Atheling Mantle",
-}
+}    
+sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+body="Twilight Mail",})
 
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -1288,6 +1290,15 @@ function job_buff_change(buff, gain)
                 else                        
                         send_command('input /p '..player.name..' is no longer Paralysed Thank you !')
                     end	
+                    if buff == "weakness" then
+                        if gain then
+                            equip(sets.Reraise)
+                             disable('body','head')
+                            else
+                             enable('body','head')
+                        end
+                        return meleeSet
+                    end
 
         end
 	for index,value in pairs(buffWatcher.watchList) do

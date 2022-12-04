@@ -606,6 +606,8 @@ function init_gear_sets()
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
+    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    body="Twilight Mail",})
 
 
 
@@ -784,6 +786,12 @@ function job_buff_change(buff, gain)
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+             disable('body','head')
         end
     end
 end

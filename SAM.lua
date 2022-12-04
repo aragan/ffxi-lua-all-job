@@ -798,6 +798,8 @@ function init_gear_sets()
     })
     sets.engaged.Kogarasumaru.AM3 = set_combine(sets.engaged, {
     })
+    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    body="Twilight Mail",})
     
     sets.buff.Sekkanoki = {hands="unkai kote +2"}
     sets.buff.Sengikori = {}
@@ -1013,6 +1015,15 @@ function job_buff_change(buff, gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+    if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+             disable('body','head')
+            else
+             enable('body','head')
+        end
+        return meleeSet
     end
     
     if not midaction() then

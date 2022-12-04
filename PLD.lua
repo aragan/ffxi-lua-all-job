@@ -192,7 +192,7 @@ function init_gear_sets()
     sets.precast.FC.Cure = 
 {
     right_ear="Mendi. Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
 }
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -438,7 +438,7 @@ back="Atheling Mantle",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
      
@@ -916,7 +916,7 @@ sets.midcast['Frightful Roar'] =
     left_ear="Odnowa Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Shadow Ring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
 
@@ -1029,7 +1029,7 @@ sets.defense.PDH =
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring="Fortified Ring",
     back="Moonlight Cape",
 }
@@ -1049,7 +1049,7 @@ sets.defense.PDH =
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Moonlight Cape",
  
 }
@@ -1214,7 +1214,7 @@ sets.engaged.Hybrid = --1179 / 1315 avec enlight up
     left_ear="Suppanomimi",
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back="Atheling Mantle",
 }
 
@@ -1234,6 +1234,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
     right_ring="Hetairoi Ring",
     back="Moonlight Cape",
 }
+
 
 end
 ------------------------------------------------------------------------------------------------------------------------------------------

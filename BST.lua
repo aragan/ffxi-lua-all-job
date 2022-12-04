@@ -1549,7 +1549,10 @@ sets.defense.Petregen = {
     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
     body="Nukumi Gausape +1",
 
-}
+    }         
+	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    body="Twilight Mail",})
+
 
     sets.buff.Doomed = {neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -1791,6 +1794,15 @@ function job_buff_change(buff,gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+	if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+             disable('body','head')
+            else
+             enable('body','head')
+        end
+        return meleeSet
     end
 end
 

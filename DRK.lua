@@ -63,7 +63,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'Meva', 'PDT')
     state.WeaponskillMode:options('Normal', 'MaxAcc', 'Max')  ---Max for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'SE', 'SEboost')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'SE', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
       
     war_sj = player.sub_job == 'WAR' or false
@@ -787,11 +787,16 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     left_ring="Defending Ring",
     right_ring="Moonlight Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-sets.Doom = {    neck="Nicander's Necklace",
-waist="Gishdubar Sash",
-left_ring="Purity Ring",
-right_ring="Blenmot's Ring +1",}
+}       
+
+    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    body="Twilight Mail",})
+
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+    sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
 
   
 end
@@ -959,6 +964,15 @@ function job_buff_change(buff, gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+    if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+             disable('body','head')
+            else
+             enable('body','head')
+        end
+        return meleeSet
     end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
         if (buffactive['Last Resort']) then
