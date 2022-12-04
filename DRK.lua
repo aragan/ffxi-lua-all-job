@@ -606,13 +606,13 @@ sets.defense.SEboost = {
     sets.engaged ={
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Cessance Earring",
+        left_ear="Brutal Earring",
         right_ear="Schere Earring",
         left_ring="Hetairoi Ring",
         right_ring="Niqmaddu Ring",
@@ -702,8 +702,9 @@ sets.engaged.PD = set_combine(sets.engaged, {
 
 sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    hands="Sakpata's Gauntlets",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    body="Flamma Korazin +2",
+    hands="Sulev. Gauntlets +2",
+    legs="Sulev. Cuisses +2",    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Sarissapho. Belt",
     left_ear="Digni. Earring",
     right_ear="Schere Earring",
@@ -715,16 +716,20 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
       
     -- These only apply when delay is capped.
     sets.engaged.Haste = set_combine(sets.engaged, {
+        ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",
     })
     sets.engaged.Haste.STP = set_combine(sets.engaged.STP, {
+        ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",
     })
     sets.engaged.Haste.crit = set_combine(sets.engaged.crit, {
+        ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",
     })
   
     sets.engaged.Haste.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
+        ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",
     })
       
@@ -881,7 +886,9 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     }
     sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged, {
-        hands="Sakpata's Gauntlets",
+        body="Flamma Korazin +2",
+        hands="Sulev. Gauntlets +2",
+        legs="Sulev. Cuisses +2",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Sarissapho. Belt",
         left_ear="Digni. Earring",
