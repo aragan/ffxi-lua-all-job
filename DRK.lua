@@ -797,7 +797,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 }       
     -- Apocalypse
     sets.engaged.Apocalypse = set_combine(sets.engaged, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ammo="Coiste Bodhar",
         ear1="Cessance Earring",
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
@@ -899,15 +899,15 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
     sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {})
     sets.engaged.Haste.Apocalypse.STP = set_combine(sets.engaged.STP, {
-        waist="Ioskeha Belt +1",
-    })
+        ammo="Coiste Bodhar",
+        waist="Ioskeha Belt +1",    })
     sets.engaged.Haste.Apocalypse.rit = set_combine(sets.engaged.crit, {
-        waist="Ioskeha Belt +1",
-    })
+        ammo="Coiste Bodhar",
+        waist="Ioskeha Belt +1",    })
   
     sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
-        waist="Ioskeha Belt +1",
-    })
+        ammo="Coiste Bodhar",
+        waist="Ioskeha Belt +1",    })
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
     body="Twilight Mail",})
