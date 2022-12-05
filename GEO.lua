@@ -113,31 +113,49 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Jhakri Coronal +2",
-        neck=gear.ElementalGorget,
-        ear1="Brutal Earring",
-        ear2="Regal Earring",
-        --body="Vanir Cotehardie",
-        hands="Jhakri Cuffs +2",
-        ring1="Ifrit Ring",
-        ring2="Ifrit Ring",
-        back="Buquwik Cape",
-        waist=gear.ElementalBelt,
-        feet="Jhakri Pigaches +2"
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Caro Necklace",
+        waist="Grunfeld Rope",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Brutal Earring",
+        left_ring="Rufescent Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
     sets.precast.WS['Flash Nova'] = {
-        --ammo="Dosis Tathlum",
-        head="Jhakri Coronal +2",
-        neck="Eddy Necklace",
-        ear1="Malignance Earring",
-        ear2="Crematio Earring",
-        --hands="Yaoyotl Gloves",
-        ring1="Acumen Ring",
-        --ring2="Strendu Ring",
-        back="Toro Cape",
-        feet="Jhakri Pigaches +2"
-        --waist="Snow Belt",
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
+        back="Argocham. Mantle",
+    }
+    sets.precast.WS['Cataclysm'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
+        back="Argocham. Mantle",
     }
 
     sets.precast.WS['Starlight'] = {ear2="Moonshade Earring"}
@@ -428,7 +446,6 @@ function init_gear_sets()
     })
 
     sets.idle.Melee = set_combine(sets.idle, {
-        main="Malevolence",
         neck="Lissome Necklace",
         feet="Jhakri Pigaches +2"
         --sub="Bolelabunga"
@@ -502,24 +519,33 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     -- Normal melee group
-    sets.engaged = {
-        range="Dunna",
-        neck="Asperity Necklace",
-        ear1="Brutal Earring",
-        ear2="Telos Earring",
-        body="Shamash Robe",
-        --body="Vanir Cotehardie",
-        hands="Geomancy Mitaines +1",
-        ring1="Rajas Ring",
-        ring2="Petrov Ring",
-        back="Kayapa Cape",
-        waist="Windbuffet Belt +1",
-        legs="Geomancy Pants +1",
-        feet="Merlinic Crackows"
+    sets.engaged = {    ammo="Amar Cluster",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Olseni Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.Melee = set_combine(sets.engaged, {
-        main="Malevolence",
-    })
+    sets.engaged.Melee = set_combine(sets.engaged, {    ammo="Amar Cluster",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Olseni Belt",
+        left_ear="Telos Earring",
+        right_ear="Mache Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},    })
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
