@@ -651,16 +651,16 @@ function init_gear_sets()
     sets.engaged = {range=empty,
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
-    body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
     hands={ name="Tatena. Gote +1", augments={'Path: A',}},
     legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
-    feet={ name="Sak. Sune-Ate +3", augments={'Enhances "Meikyo Shisui" effect',}},
+    feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Telos Earring",
-    right_ear="Dedition Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
+    right_ear="Telos Earring",
+    left_ear="Dedition Earring",
+    right_ring="Chirich Ring +1",
+    left_ring="Niqmaddu Ring",
     back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     }
     
@@ -670,7 +670,7 @@ function init_gear_sets()
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
@@ -686,7 +686,7 @@ function init_gear_sets()
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
@@ -766,6 +766,22 @@ function init_gear_sets()
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
+    sets.engaged.PDT = set_combine(sets.engaged.Acc, {
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Telos Earring",
+        left_ear="Dedition Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+
+    })
 
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {
         ammo="Coiste Bodhar",
@@ -819,9 +835,8 @@ function init_gear_sets()
     --sets.seigan = {hands="Otronif Gloves +1"}
     sets.bow = {ammo=gear.RAarrow}
     
-    sets.MadrigalBonus = {
-        hands="Composer's Mitts"
-    }
+    sets.MadrigalBonus = {hands="Composer's Mitts"}
+    sets.Terror = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
@@ -1024,6 +1039,14 @@ function job_buff_change(buff, gain)
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "terror" then
+        if gain then
+            equip(sets.Terror)
+             disable('feet')
+            else
+             enable('feet')
         end
     end
     if buff == "weakness" then

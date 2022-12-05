@@ -65,7 +65,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'Range', 'PD', 'CRIT')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'Range', 'PD', 'CRIT', 'Counter')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL', 'Range')
     state.IdleMode:options('Normal', 'Sphere')
@@ -159,8 +159,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Sanctity Necklace",
     waist="Yemaya Belt",
-    left_ear="Telos Earring",
-    right_ear="Enervating Earring",
+    right_ear="Telos Earring",
+    left_ear="Enervating Earring",
     left_ring="Crepuscular Ring",
     right_ring="Cacoethic Ring",
 
@@ -245,8 +245,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
         waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ear="Crep. Earring",
         left_ring="Rufescent Ring",
         right_ring="Cacoethic Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -263,8 +263,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
         waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ear="Crep. Earring",
         left_ring="Rufescent Ring",
         right_ring="Cacoethic Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -278,8 +278,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
         waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ear="Crep. Earring",
         left_ring="Rufescent Ring",
         right_ring="Cacoethic Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -674,16 +674,16 @@ function init_gear_sets()
     sets.engaged = {range=empty,
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
-    body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
     hands={ name="Tatena. Gote +1", augments={'Path: A',}},
     legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
-    feet={ name="Sak. Sune-Ate +3", augments={'Enhances "Meikyo Shisui" effect',}},
+    feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Telos Earring",
-    right_ear="Dedition Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
+    right_ear="Telos Earring",
+    left_ear="Dedition Earring",
+    right_ring="Chirich Ring +1",
+    left_ring="Niqmaddu Ring",
     back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     }
     
@@ -693,7 +693,7 @@ function init_gear_sets()
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
         legs="Mpaca's Hose",
-        feet="Flam. Gambieras +2",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Crep. Earring",
@@ -709,7 +709,7 @@ function init_gear_sets()
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
@@ -780,6 +780,22 @@ function init_gear_sets()
             back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     
         })
+        sets.engaged.Counter = set_combine(sets.engaged, {
+            ammo="Amar Cluster",
+            head="Hiza. Somen +2",
+            body="Mpaca's Doublet",
+            hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+            legs={ name="Sakonji Haidate +3", augments={'Enhances "Shikikoyo" effect',}},
+            feet="Hiza. Sune-Ate +2",
+            neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Genmei Earring",
+            right_ear="Cryptic Earring",
+            left_ring="Niqmaddu Ring",
+            right_ring="Hizamaru Ring",
+            back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+    
+        })
     
         sets.engaged.CRIT = set_combine(sets.engaged, {
             ammo="Aurgelmir Orb +1",
@@ -799,19 +815,20 @@ function init_gear_sets()
         })
     
 
-    sets.engaged.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear="Infused Earring",
-    left_ring="Purity Ring",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
+    sets.engaged.PDT = set_combine(sets.engaged.Acc, {
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Telos Earring",
+        left_ear="Dedition Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
 
     })
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {

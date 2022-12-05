@@ -658,6 +658,9 @@ function init_gear_sets()
 
      sets.engaged.Counter = set_combine(sets.engaged, {
         ammo="Amar Cluster",
+        body="Obviation Cuirass",
+        hands={ name="Founder's Gauntlets", augments={'STR+7','Attack+10','"Mag.Atk.Bns."+8','Phys. dmg. taken -2%',}},
+        feet="Sakpata's Leggings",
     left_ear="Genmei Earring",
     right_ear="Cryptic Earring",
     })

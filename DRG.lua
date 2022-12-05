@@ -188,7 +188,7 @@ function init_gear_sets()
 
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
         head="Nyame Helm",
-        body="Sulevia's Plate. +2",
+        body="Nyame Mail",
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -214,7 +214,7 @@ function init_gear_sets()
         back="Atheling Mantle",
     })
 	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
-    body="Sulevia's Plate. +2",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -241,7 +241,7 @@ function init_gear_sets()
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
 	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
-    body="Sulevia's Plate. +2",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -266,7 +266,7 @@ function init_gear_sets()
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
 	sets.precast.WS['Drakesbane'].Mid = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
-    body="Sulevia's Plate. +2",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -291,7 +291,7 @@ function init_gear_sets()
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     })
 	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
-    body="Sulevia's Plate. +2",
+    body="Nyame Mail",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -531,15 +531,15 @@ function init_gear_sets()
 	-- Normal melee group
 	sets.engaged = {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Flamma Korazin +2",
+        head="Hjarrandi Helm",
+        body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
-        legs="Flamma Dirs +2",
+        legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Sherida Earring",
+        waist="Tempus Fugit +1",
+        left_ear="Sherida Earring",
+        right_ear="Balder Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
         back="Atheling Mantle",
@@ -550,7 +550,7 @@ function init_gear_sets()
         head="Flam. Zucchetto +2",
         body="Flamma Korazin +2",
         hands="Sulev. Gauntlets +2",
-        legs="Flamma Dirs +2",
+        legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -590,7 +590,7 @@ function init_gear_sets()
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
-        right_ring="Defending Ring",
+        right_ring="Moonbeam Ring",
     })
 	sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, {
         head="Hjarrandi Helm",
