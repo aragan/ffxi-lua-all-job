@@ -84,12 +84,12 @@ function init_gear_sets()
 
     sets.precast.FC = {
         main="Sucellus",
-        head="Amalric Coif",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         ear1="Malignance Earring",
         ear2="Loquacious Earring",
-        hands="Magavan Mitts",
+        hands="Agwu's Gages",
         body="Shango Robe",
-        ring1="Weatherspoon Ring",
+        ring1="Prolix Ring",
         ring2="Kishar Ring",
         back="Lifestream Cape",
         waist="Witful Belt",
@@ -171,8 +171,6 @@ function init_gear_sets()
     sets.midcast.FastRecast = {
         ear2="Loquacious Earring",
         neck="Incanter's Torque",
-        body="Azimuth Coat +1", -- 3%
-        hands="Amalric Gages", 
         ring1="Prolix Ring",
         back="Lifestream Cape",
         waist="Witful Belt", -- 4%
@@ -223,11 +221,20 @@ function init_gear_sets()
 
     sets.midcast.Cure = set_combine(sets.midcast.FastRecast, {
         main="Daybreak",
-        main="Serenity",
+        sub="Sors Shield",
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Annoint. Kalasiris",
+        hands="Agwu's Gages",
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Incanter's Torque",
-        ear1="Mendicant's Earring",
-        hands="Telchine Gloves",
-    	back="Solemnity Cape",
+        waist="Acerbic Sash +1",
+        left_ear="Gifted Earring",
+        right_ear="Mendi. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Naji's Loop",
+        back="Solemnity Cape",
     })
     
     sets.midcast.Curaga = sets.midcast.Cure
@@ -258,7 +265,6 @@ function init_gear_sets()
         ear1="Malignance Earring",
         neck="Erra Pendant",
         -- ear2="Gwati Earring", 
-        hands="Amalric Gages", 
         --feet="Bokwus Boots"
     })
     --sets.midcast['Elemental Magic'].Mindmelter = set_combine(sets.midcast.HighTierNuke, {
@@ -307,7 +313,6 @@ function init_gear_sets()
         back="Twilight Cape",
     }
     sets.midcast.Refresh = set_combine(sets.midcast.Macc, {
-        head="Amalric Coif"
     })
     sets.midcast.Absorb = set_combine(sets.midcast.Macc, {
         head="Bagua Galero",
@@ -446,9 +451,7 @@ function init_gear_sets()
     })
 
     sets.idle.Melee = set_combine(sets.idle, {
-        neck="Lissome Necklace",
-        feet="Jhakri Pigaches +2"
-        --sub="Bolelabunga"
+
     })
 
     -- .Indi sets are for when an Indi-spell is active.
@@ -480,31 +483,37 @@ function init_gear_sets()
 
     sets.defense.PDT = {
         range="Dunna",
-        neck="Twilight Torque",
-        body="Shamash Robe",
-        hands="Geomancy Mitaines +1",
-        ring1="Dark Ring",
-        ring2="Defending Ring",
-        --back="Umbra Cape",
-        feet="Azimuth Gaiters +1"
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Etiolation Earring",
+        right_ear="Infused Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Provocare Ring",
+        back="Moonlight Cape",
     }
 
     sets.defense.MDT = {
-        range="Dunna",
-        --head="Nahtirah Hat",
-        --neck="Wiglen Gorget",
-        ear2="Loquacious Earring",
-        body="Shamash Robe",
-        hands="Geomancy Mitaines +1",
-        --ring1="Defending Ring",
-        --ring2="Shadow Ring",
-        --back="Umbra Cape",
-        waist="Yamabuki-no-Obi",
-        --legs="Bokwus Slops",
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Sanare Earring",
+        right_ear="Eabani Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Shadow Ring",
+        back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Geo. Sandals +1",
-}
+    sets.Kiting = {feet="Geo. Sandals +1",}
 
     sets.latent_refresh = {body="Jhakri Robe +2", waist="Fucho-no-obi"}
 
@@ -520,7 +529,7 @@ function init_gear_sets()
 
     -- Normal melee group
     sets.engaged = {    ammo="Amar Cluster",
-        head="Nyame Helm",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands="Nyame Gauntlets",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -534,13 +543,13 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.Melee = set_combine(sets.engaged, {    ammo="Amar Cluster",
-        head="Nyame Helm",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands="Nyame Gauntlets",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Lissome Necklace",
-        waist="Olseni Belt",
+        waist="Grunfeld Rope",
         left_ear="Telos Earring",
         right_ear="Mache Earring +1",
         left_ring="Chirich Ring +1",
