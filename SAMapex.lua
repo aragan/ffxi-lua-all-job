@@ -464,8 +464,8 @@ function init_gear_sets()
         right_ear="Digni. Earring",
         left_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Tantalic Cape",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     
     sets.precast.WS['Tachi: Kasha'] = {
