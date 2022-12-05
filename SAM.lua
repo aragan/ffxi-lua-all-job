@@ -197,7 +197,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
     ammo="Knobkierrie",
-    head={ name="Valorous Mask", augments={'Weapon Skill Acc.+13','VIT+6','Accuracy+4 Attack+4','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
+    head="Mpaca's Cap",
     body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Wakido Haidate +3",
@@ -214,11 +214,10 @@ function init_gear_sets()
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-        feet="Flamma Gambieras +2",
     })
     
     sets.precast.WS['Namas Arrow'] = {
@@ -238,7 +237,6 @@ function init_gear_sets()
     sets.precast.WS['Namas Arrow'].Mid = set_combine(sets.precast.WS['Namas Arrow'], {
     })
     sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {
-        ring2="Hajduk Ring"
     })
     
     sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
@@ -505,9 +503,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Nyame Helm",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
@@ -526,10 +524,10 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
-        left_ear="Thrud Earring",
+        left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Niqmaddu Ring",
-        right_ring="Regal Ring",
+        left_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     

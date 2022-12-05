@@ -193,7 +193,7 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-    head={ name="Valorous Mask", augments={'Weapon Skill Acc.+13','VIT+6','Accuracy+4 Attack+4','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
+        head="Mpaca's Cap",
     body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
     legs="Wakido Haidate +2",
@@ -214,11 +214,9 @@ function init_gear_sets()
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-        feet="Flamma Gambieras +2",
     })
 
-    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-        feet="Flamma Gambieras +2", })
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {})
     
     sets.precast.WS['Namas Arrow'] = {
         head="Mpaca's Cap",
@@ -556,10 +554,10 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
-        left_ear="Thrud Earring",
+        left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		left_ring="Niqmaddu Ring",
-        right_ring="Regal Ring",
+        left_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     
