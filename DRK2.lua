@@ -552,7 +552,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
@@ -575,7 +575,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
       
     sets.defense.MDT = {
         head="Sulevia's mask +1",neck="Warder's Charm +1",ear1="Odnowa Earring",ear2="Odnowa Earring +1",
-        body="Souveran cuirass",hands="Souveran handschuhs +1",ring1="Moonbeam Ring",ring2="Moonbeam Ring",
+        body="Souveran cuirass",hands="Souveran handschuhs +1",ring1="Moonlight Ring",ring2="Moonlight Ring",
         back="Moonbeam cape",waist="Gold Moogle Belt",legs="Souveran diechlings +1",feet="Souveran Schuhs +1"
     }
   
@@ -628,7 +628,7 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     waist="Kentarch Belt +1",
     left_ear="Telos Earring",
     right_ear="Digni. Earring",
-    right_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 

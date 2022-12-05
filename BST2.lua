@@ -474,7 +474,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 			ammo="Ginsen",
 			head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+			body="Nyame Mail",
 			hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 			legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 			feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -490,7 +490,7 @@ function init_gear_sets()
 	sets.precast.WS.WSMedAcc = {
 		ammo="Ginsen",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		body="Nyame Mail",
 		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -506,7 +506,7 @@ function init_gear_sets()
 	sets.precast.WS.WSHighAcc = {
 		ammo="Ginsen",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		body="Nyame Mail",
 		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -586,7 +586,7 @@ function init_gear_sets()
 	sets.precast.WS['Calamity'] = set_combine(sets.precast.WS, {
 		ammo="Aurgelmir Orb +1",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		body="Nyame Mail",
 		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -601,7 +601,7 @@ function init_gear_sets()
 	sets.precast.WS['Calamity'].WSMedAcc = set_combine(sets.precast.WS['Calamity'], {
 		ammo="Aurgelmir Orb +1",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		body="Nyame Mail",
 		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -621,7 +621,7 @@ function init_gear_sets()
 	sets.precast.WS['Primal Rend'] = {
 		ammo="Pemphredo Tathlum",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+		body="Nyame Mail",
 		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 		legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 		feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
@@ -635,7 +635,7 @@ function init_gear_sets()
 sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrimal Rendmity'], {
 		ammo="Pemphredo Tathlum",
 	head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-	body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+	body="Nyame Mail",
 	hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
 	legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 	feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},

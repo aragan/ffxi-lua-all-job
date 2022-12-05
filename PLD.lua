@@ -198,9 +198,9 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = 
 {   ammo="Ginsen",
-body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+body="Nyame Mail",
 hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+legs="Nyame Flanchard",
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
     neck="Fotia Gorget",
@@ -272,9 +272,10 @@ sets.precast.WS['Cataclysm'] =
 {   
     ammo="Pemphredo Tathlum",
     head="Pixie Hairpin +1",
-    body={ name="Valorous Mail", augments={'Accuracy+13 Attack+13','Weapon skill damage +4%','STR+2','Attack+8',}},
+    body="Nyame Mail",
+    legs="Nyame Flanchard",
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-    legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    legs="Nyame Flanchard",
     feet="Sulev. Leggings +2",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
@@ -290,9 +291,9 @@ sets.precast.WS['Cataclysm'] =
     sets.precast.WS['Savage Blade'] = 
 {        ammo="Aurgelmir Orb +1",
 head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
-body="Sakpata's Plate",
+body="Nyame Mail",
 hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-legs="Sakpata's Cuisses",
+legs="Nyame Flanchard",
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
