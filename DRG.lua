@@ -364,7 +364,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs="Nyame Flanchard",
-        feet="Sulev. Leggings +2",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         right_ear="Peltast's Earring",
