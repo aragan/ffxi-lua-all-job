@@ -162,7 +162,7 @@ function init_gear_sets()
     -- Weaponskill sets
 
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {
+    sets.precast.WS = {range=empty,
     ammo="Yamarang",
     head="Malignance Chapeau",
     body="Nyame Mail",
@@ -181,7 +181,7 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {neck="Fotia Gorget",waist="Fotia Belt",ear2="Moonshade Earring"})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {range=empty,
         ammo="C. Palug Stone",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
@@ -198,7 +198,7 @@ function init_gear_sets()
 
 
     })
-    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {
+    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {range=empty,
         ammo="C. Palug Stone",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
@@ -219,7 +219,7 @@ function init_gear_sets()
     sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
     sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
 
-    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {})
+    sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS, {range=empty})
     sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {ammo="Honed Tathlum", back="Letalis Mantle"})
     sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
     sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
@@ -241,7 +241,7 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
+    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {range=empty,
         ammo="Yetshila +1",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
@@ -261,7 +261,7 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
     sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
 
-    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
+    sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {range=empty,
         ammo="Yetshila +1",
     head="Gleti's Mask",
     body="Nyame Mail",
@@ -325,7 +325,7 @@ function init_gear_sets()
     sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
         body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
 
-    sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {range=empty,
         ammo="Yetshila +1",
     head="Gleti's Mask",
     body="Nyame Mail",
@@ -365,7 +365,6 @@ function init_gear_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},}
 
-    sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
     sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'])
 
 
@@ -412,8 +411,8 @@ function init_gear_sets()
     left_ring="Prolix Ring",}
 
     -- Ranged gear
-    sets.midcast.RA = {
-
+    sets.midcast.RA = {ammo=empty,
+        range="Trollbane",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -464,7 +463,7 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
-    sets.idle = {
+    sets.idle = {range=empty,
         
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
@@ -494,17 +493,17 @@ function init_gear_sets()
 
     sets.defense.Evasion = {
         ammo="Yamarang",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head="Malignance Chapeau",
+        body="Gleti's Cuirass",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
         left_ear="Infused Earring",
         right_ear="Eabani Earring",
-        left_ring="Defending Ring",
-        right_ring="Vengeful Ring",
+        left_ring="Vengeful Ring",
+        right_ring="Defending Ring",
         back="Moonlight Cape",
     }
 
@@ -559,7 +558,7 @@ function init_gear_sets()
     --------------------------------------
 
     -- Normal melee group
-    sets.engaged = {
+    sets.engaged = {range=empty,
     ammo="Aurgelmir Orb +1",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -574,7 +573,7 @@ function init_gear_sets()
     right_ring="Hetairoi Ring",
     back="Atheling Mantle",
     }
-    sets.engaged.Acc = {
+    sets.engaged.Acc = {range=empty,
         ammo="Yamarang",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -590,7 +589,7 @@ function init_gear_sets()
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
     }
         
-        sets.engaged.CRIT = {
+        sets.engaged.CRIT = {range=empty,
         ammo="Yetshila +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Meg. Cuirie +2",
@@ -632,30 +631,42 @@ function init_gear_sets()
     }
 
 
-    sets.engaged.Evasion = {
+    sets.engaged.Evasion = {range=empty,
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Gleti's Cuirass",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    waist="Reiki Yotai",
+    left_ear="Sherida Earring",
+    right_ear="Skulk. Earring +1",
+    left_ring="Gere Ring",
+    right_ring="Hetairoi Ring",
+    back="Moonlight Cape",
+
+    }
+    sets.engaged.Acc.Evasion = { range=empty,right_ring="Defending Ring",
+
+    }
+
+    sets.engaged.PDT = { range=empty,
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body="Gleti's Cuirass",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Reiki Yotai",
-        left_ear="Tuisto Earring",
-        left_ring="Defending Ring",
-        right_ring="Moonlight Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-
-
-    }
-    sets.engaged.Acc.Evasion = { right_ring="Defending Ring",
-
-    }
-
-    sets.engaged.PDT = { right_ring="Defending Ring",
+        left_ear="Sherida Earring",
+        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
+        left_ring="Gere Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
         
     }
-    sets.engaged.Acc.PDT = {        right_ring="Defending Ring",
+    sets.engaged.Acc.PDT = {   range=empty,     right_ring="Defending Ring",
     }
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -752,15 +763,7 @@ end
 
 
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
-function job_handle_equipping_gear(playerStatus, eventArgs)
-    -- Check that ranged slot is locked, if necessary
-    check_range_lock()
 
-    -- Check for SATA when equipping gear.  If either is active, equip
-    -- that gear specifically, and block equipping default gear.
-    check_buff('Sneak Attack', eventArgs)
-    check_buff('Trick Attack', eventArgs)
-end
 
 
 function customize_idle_set(idleSet)
@@ -857,13 +860,7 @@ end
 
 
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
-function check_range_lock()
-    if player.equipment.range ~= 'empty' then
-        disable('range', 'ammo')
-    else
-        enable('range', 'ammo')
-    end
-end
+
 
 add_to_chat(159,'Author Aragan THF.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
