@@ -57,8 +57,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger', 'CRIT', 'ACC')
-    state.PhysicalDefenseMode:options('PDT')
+    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger', 'CRIT', 'ACC', 'PD')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT','MDT')
@@ -726,6 +726,22 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
+    sets.defense.Evasion = {
+        sub="Gleti's Knife",
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring="Vengeful Ring",
+        right_ring="Defending Ring",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','Weapon skill damage +10%',}},
+    }
 
     sets.defense.MDT = {
         head="Nyame Helm",
@@ -755,8 +771,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        main={ name="Twashtar", augments={'Path: A',}},
-        sub="Gleti's Knife",
+
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -774,7 +789,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     -- Sets with weapons defined.
     sets.engaged.Dagger = {
         main={ name="Twashtar", augments={'Path: A',}},
-        sub="Gleti's Knife",
+        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -791,7 +806,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
 
     sets.engaged.Sword = {
         main="Naegling",
-        sub="Gleti's Knife",
+        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -808,7 +823,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
         main={ name="Twashtar", augments={'Path: A',}},
-        sub="Gleti's Knife",
+        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Aya. Gambieras +2",
@@ -829,6 +844,21 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })
+    sets.engaged.PD = set_combine(sets.engaged, {
+        ammo="Staunch Tathlum +1",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Balder Earring +1",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
     })
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",

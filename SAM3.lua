@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Initialization function that defines sets and variables to be used.
 -------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 -- This lua is based off of the Kinematics template and uses Motenten globals. --
 --                                                                             --
 -----------------------------Authors of this file--------------------------------
@@ -67,7 +68,7 @@ function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'polearm', 'Range', 'PD', 'CRIT')
     state.HybridMode:options('Normal', 'PDT')
-    state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'Range')
+    state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.IdleMode:options('Normal', 'Sphere')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Reraise')
@@ -150,22 +151,24 @@ function init_gear_sets()
     sets.Organizer = {
 
     }
-    sets.precast.RA = {	ammo=empty,
-    range="Trollbane",
-    head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Sanctity Necklace",
-    waist="Yemaya Belt",
-    left_ear="Telos Earring",
-    right_ear="Enervating Earring",
-    left_ring="Crepuscular Ring",
-    right_ring="Cacoethic Ring",
+    sets.precast.RA = { ammo=empty,
+        range="Trollbane",  
+        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist="Yemaya Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Purity Ring",
+        right_ring="Ilabrat Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
 
     }
-    sets.midcast.RA = {range="Trollbane",
+    sets.midcast.RA = { ammo=empty,
+    range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -193,36 +196,36 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-    head={ name="Valorous Mask", augments={'Weapon Skill Acc.+13','VIT+6','Accuracy+4 Attack+4','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
+    ammo="Knobkierrie",
+    head="Mpaca's Cap",
     body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-    legs="Wakido Haidate +2",
-    feet={ name="Sak. Sune-Ate +3", augments={'Enhances "Meikyo Shisui" effect',}},
+    legs="Wakido Haidate +3",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-        feet="Flamma Gambieras +2",
     })
     
     sets.precast.WS['Namas Arrow'] = {
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
@@ -236,79 +239,12 @@ function init_gear_sets()
     sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {
     })
     
-    sets.precast.WS['Apex Arrow'] = {
-        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
-        waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Cacoethic Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
-    }
-    sets.precast.WS['Apex Arrow'].Mid = sets.precast.WS['Apex Arrow']
-    sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
-    })
-
-    sets.precast.WS['Apex Arrow'].Range = set_combine(sets.precast.WS['Apex Arrow'], {
-        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
-        waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Cacoethic Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
-    })
-
-    sets.precast.WS['Empyreal Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
-        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
-        waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Cacoethic Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
-    })
-    sets.precast.WS['Empyreal Arrow'].Mid = sets.precast.WS['Apex Arrow']
-    sets.precast.WS['Empyreal Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
-    })
-
-    sets.precast.WS['Empyreal Arrow'].Range = set_combine(sets.precast.WS['Apex Arrow'], {
-        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
-        waist="Yemaya Belt",
-        left_ear="Telos Earring",
-        right_ear="Crep. Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Cacoethic Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
-    })
-    
-    sets.precast.WS['Tachi: Fudo'] = {
-
+    sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
@@ -316,82 +252,119 @@ function init_gear_sets()
         left_ring="Beithir Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
+    })
+    sets.precast.WS['Apex Arrow'].Mid = sets.precast.WS['Apex Arrow']
+    sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
+    })
+
+    sets.precast.WS['Empyreal Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
+        head="Mpaca's Cap",
+        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+    sets.precast.WS['Empyreal Arrow'].Mid = sets.precast.WS['Apex Arrow']
+    sets.precast.WS['Empyreal Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
+    })
+    
+    sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head="Mpaca's Cap",
+        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Regal Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
     sets.precast.WS['Tachi: Fudo'].Mid = set_combine(sets.precast.WS['Tachi: Fudo'], {
   
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'], {
 
-        feet="Flamma Gambieras +2",
     })
 
-    sets.precast.WS['Tachi: Kaiten'] = {
-
+    sets.precast.WS['Tachi: Kaiten'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
+    })
 
     sets.precast.WS['Tachi: Kaiten'].Mid = set_combine(sets.precast.WS['Tachi: Kaiten'], {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
 
     sets.precast.WS['Tachi: Kaiten'].Acc = set_combine(sets.precast.WS['Tachi: Kaiten'], {
-        feet="Flamma Gambieras +2",
 
     })
 
-    sets.precast.WS['Impulse Drive'] = {
-
+    sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
+    })
     sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
-        feet="Flamma Gambieras +2",
+    })
+
+    sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS['Impulse Drive'], {
     })
     
-    sets.precast.WS['Tachi: Shoha'] = {
-
+    sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
@@ -399,12 +372,12 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
+    })
     sets.precast.WS['Tachi: Shoha'].Mid = set_combine(sets.precast.WS['Tachi: Shoha'], {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Niqmaddu Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'], {})
@@ -417,20 +390,20 @@ function init_gear_sets()
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'], {
 
     })
     
-    sets.precast.WS['Tachi: Rana'] = {
-
+    sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-       legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
@@ -438,19 +411,20 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
+    })
     sets.precast.WS['Tachi: Rana'].Mid = set_combine(sets.precast.WS['Tachi: Rana'], {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Rana'].Acc = set_combine(sets.precast.WS, {
 
     })
     -- CHR Mod
-    sets.precast.WS['Tachi: Ageha'] = {
+    sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS, {
+        ammo="Pemphredo Tathlum",
         head="Flam. Zucchetto +2",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands="Flam. Manopolas +2",
@@ -461,79 +435,93 @@ function init_gear_sets()
         left_ear="Digni. Earring",
         right_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Tantalic Cape",
-    }
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
     
-    sets.precast.WS['Tachi: Kasha'] = {
-
+    sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
-    }
+    })
 
     sets.precast.WS['Tachi: Kasha'].Mid = set_combine(sets.precast.WS['Tachi: Kasha'], {
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet="Nyame Sollerets",
-        left_ring="Beithir Ring",
+        left_ring="Regal Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
 
     sets.precast.WS['Tachi: Kasha'].Acc = sets.precast.WS['Tachi: Kasha']
 
     
-    sets.precast.WS['Tachi: Gekko'] = {
-
-        head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
-        right_ring="Epaminondas's Ring",
-        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-
-    }
-    
-    sets.precast.WS['Tachi: Yukikaze'] = {
-
-        head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
-        right_ring="Epaminondas's Ring",
-        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
-    
-    sets.precast.WS['Tachi: Jinpu'] = {
-
+    sets.precast.WS['Tachi: Gekko'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Nyame Helm",
+        head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
         hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
         legs="Wakido Haidate +3",
-        feet={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+6','Attack+6',}},
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Regal Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+    })
+    
+    sets.precast.WS['Tachi: Yukikaze'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head="Mpaca's Cap",
+        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Wakido Haidate +3",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Thrud Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Regal Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+    
+    sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })      
+    sets.precast.WS['Tachi: Jinpu'].Mid =  {
+        ammo="Knobkierrie",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
@@ -569,19 +557,22 @@ function init_gear_sets()
     
     sets.idle.Town = {        
 
+    ear2="Infused Earring",
+       feet="Danzo Sune-Ate",
+
 
     }
     -- sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
     --     body="Councilor's Garb"
     -- })
     
-    sets.idle.Field = set_combine(sets.idle.Town, {  ammo=empty,
+    sets.idle.Field = {        ammo=empty,
     range="Trollbane",  
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    feet="Danzo Sune-Ate",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
@@ -589,22 +580,23 @@ function init_gear_sets()
     left_ring="Purity Ring",
     right_ring="Defending Ring",
     back="Moonlight Cape",
-    })
 
-    sets.idle.Regen = set_combine(sets.idle.Field, {
+    }
+
+    sets.idle.Regen = set_combine(sets.idle.Field, {ammo=empty,
+    range="Trollbane",  
         head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
         neck="Sanctity Necklace",
         ring2="Paguroidea Ring",
         ear2="Infused Earring",
    	    body="Hizamaru Haramaki +2",
-        feet="Danzo Sune-ate"
     })
 
     sets.idle.Sphere = set_combine(sets.idle, { })
     
     sets.idle.Weak = set_combine(sets.idle.Field, {
-        -- head="Twilight Helm",
-    	-- body="Twilight Mail"
+        head="Twilight Helm",
+    	body="Twilight Mail",
     })
     
     -- Defense sets
@@ -659,19 +651,21 @@ function init_gear_sets()
     -- I generally use Anahera outside of Adoulin areas, so this set aims for 47 STP + 5 from Anahera (52 total)
     -- Note, this set assumes use of Cibitshavore (hence the arrow as ammo)
     sets.engaged = {range=empty,
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Dedition Earring",
-        right_ear="Telos Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Chirich Ring +1",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+    main={ name="Masamune", augments={'Path: A',}},
+    sub="Utu Grip",
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
+    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+    legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
+    feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+    neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    right_ear="Kasuga Earring",
+    left_ear="Dedition Earring",
+    right_ring="Chirich Ring +1",
+    left_ring="Niqmaddu Ring",
+    back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     }
     
     sets.engaged.Mid = set_combine(sets.engaged, {
@@ -680,11 +674,11 @@ function init_gear_sets()
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
-        right_ear="Telos Earring",
+        right_ear="Kasuga Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -692,19 +686,18 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged.Mid, { 
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
+        head="Flam. Zucchetto +2",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
+        left_ear="Telos Earring",
+        right_ear="Kasuga Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     })
     sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, { 
         ammo="Amar Cluster",
@@ -715,26 +708,29 @@ function init_gear_sets()
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
-        left_ear="Zennaroi Earring",
-        right_ear="Telos Earring",
+        left_ear="Telos Earring",
+        right_ear="Kasuga Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.engaged.polearm = set_combine(sets.engaged, {
-             ammo="Coiste Bodhar",
-         head="Flam. Zucchetto +2",
-         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
-         hands="Flam. Manopolas +2",
-         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
-         feet="Flam. Gambieras +2",
-         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-         left_ear="Cessance Earring",
-         right_ear="Telos Earring",
-         left_ring="Niqmaddu Ring",
-         right_ring="Petrov Ring",
-         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+
+    sets.engaged.polearm = set_combine(sets.engaged, {   range=empty,
+         main="Shining One",
+        sub="Utu Grip",
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Kasuga Earring",
+        left_ear="Dedition Earring",
+        right_ring="Chirich Ring +1",
+        left_ring="Niqmaddu Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
 
          sets.engaged.Range = {
@@ -751,56 +747,66 @@ function init_gear_sets()
             right_ring="Ilabrat Ring",
             back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
         }
-        sets.engaged.PD = set_combine(sets.engaged, {
-            ammo="Coiste Bodhar",
-            head="Mpaca's Cap",
-            body="Mpaca's Doublet",
-            hands="Mpaca's Gloves",
-            legs="Mpaca's Hose",
-            feet="Mpaca's Boots",
-            neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Crep. Earring",
-            right_ear="Telos Earring",
-            left_ring="Niqmaddu Ring",
-            right_ring="Defending Ring",
-            back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
-    
-        })
-    
-        sets.engaged.CRIT = set_combine(sets.engaged, {
-            ammo="Aurgelmir Orb +1",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Mpaca's Doublet",
-        hands="Flam. Manopolas +2",
-        legs="Mpaca's Hose",
-        feet="Thereoid Greaves",
-        neck="Nefarious Collar +1",
-        waist="Gerdr Belt",
-        left_ear="Schere Earring",
-        right_ear="Brutal Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Hetairoi Ring",
-        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    
-        })
-    
 
-    sets.engaged.PDT = set_combine(sets.engaged.Acc, {ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear="Infused Earring",
-    left_ring="Purity Ring",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
+    sets.engaged.PD = set_combine(sets.engaged, {
+        head={ name="Loess Barbuta +1", augments={'Path: A',}},
+        body="Mpaca's Doublet",
+        legs="Mpaca's Hose",
+        right_ring="Defending Ring",
 
     })
+
+    sets.engaged.CRIT = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Mpaca's Doublet",
+    hands="Flam. Manopolas +2",
+    legs="Mpaca's Hose",
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist="Gerdr Belt",
+    left_ear="Schere Earring",
+    right_ear="Brutal Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Hetairoi Ring",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+    })
+    sets.engaged.PDT = set_combine(sets.engaged.Acc, {
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Kasuga Earring",
+        left_ear="Dedition Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+
+    })
+    sets.engaged.polearm.PDT = set_combine(sets.engaged.Acc, {
+        main="Shining One",
+        sub="Utu Grip",
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Kasuga Earring",
+        left_ear="Dedition Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
+        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+
+    })
+
     sets.engaged.Mid.PDT = set_combine(sets.engaged.PDT, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
@@ -811,7 +817,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
-        right_ear="Telos Earring",
+        right_ear="Kasuga Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Defending Ring",
             back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -826,7 +832,7 @@ function init_gear_sets()
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
-    right_ear="Telos Earring",
+    right_ear="Kasuga Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -842,6 +848,8 @@ function init_gear_sets()
     })
     sets.engaged.Kogarasumaru.AM3 = set_combine(sets.engaged, {
     })
+    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    body="Twilight Mail",})
     
     sets.buff.Sekkanoki = {hands="unkai kote +2"}
     sets.buff.Sengikori = {}
@@ -851,9 +859,13 @@ function init_gear_sets()
     --sets.seigan = {hands="Otronif Gloves +1"}
     sets.bow = {ammo=gear.RAarrow}
     
-    sets.MadrigalBonus = {
-        hands="Composer's Mitts"
-    }
+    sets.MadrigalBonus = {hands="Composer's Mitts"}
+    sets.Terror = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
 end
 
 
@@ -1041,6 +1053,35 @@ function job_buff_change(buff, gain)
             classes.CustomMeleeGroups:append('AM')
         end
     end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "terror" then
+        if gain then
+            equip(sets.Terror)
+             disable('feet')
+            else
+             enable('feet')
+        end
+    end
+    if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+             disable('body','head')
+            else
+             enable('body','head')
+        end
+        return meleeSet
+    end
     
     if not midaction() then
         handle_equipping_gear(player.status)
@@ -1112,7 +1153,8 @@ end
 function seigan_thirdeye_active()
     return state.Buff['Seigan'] or state.Buff['Third Eye']
 end
-
+add_to_chat(159,'Author Aragan SAM.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 
@@ -1140,8 +1182,6 @@ function update_am_type(spell)
         state.YoichiAM:set(false)
     end
 end
-add_to_chat(159,'Author Aragan SAM.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

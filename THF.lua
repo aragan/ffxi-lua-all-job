@@ -169,7 +169,7 @@ function init_gear_sets()
     hands="Meg. Gloves +2",
     head="Nyame Helm",
     legs="Nyame Flanchard",
-    feet="Malignance Boots",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
