@@ -590,19 +590,19 @@ function init_gear_sets()
    }
 
     sets.idle.DT = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield", --10/0
-        ammo="Staunch Tathlum +1", --3/3
-        head="Volte Beret",
-        body="Mallquis Saio +2", --8/8
-        hands="Gende. Gages +1", --4/4
-        feet="Volte Gaiters",
-        neck="Loricate Torque +1", --6/6
-        ear1="Sanare Earring",
-        ring1="Gelatinous Ring +1", --7/(-1)
-        ring2="Defending Ring", --10/10
-        back="Moonlight Cape", --6/6
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Paguroidea Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
         })
 
     sets.idle.Vagary = sets.midcast['Elemental Magic']
@@ -626,9 +626,35 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
+    sets.defense.PDT = {
 
-    sets.defense.PDT = sets.idle.DT
-    sets.defense.MDT = sets.idle.DT
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Paguroidea Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
+    sets.defense.MDT = {    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Sanare Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Shadow Ring",
+    back="Moonlight Cape",}
     sets.Kiting = {feet="Herald's Gaiters"}
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -637,19 +663,19 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged = {
-        head="Blistering Sallet +1",
-        body="Jhakri Robe +2",
-        hands="Gazu Bracelet +1",
-        legs="Peda. Pants +3",
-        feet=gear.Telchine_STP_feet,
-        neck="Combatant's Torque",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        ring1="Hetairoi Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        back="Relucent Cape",
+        ammo="Amar Cluster",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Lissome Necklace",
         waist="Windbuffet Belt +1",
-        head="Volte Cap", feet="Volte Boots", waist="Chaac Belt" --TH
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
         }
 
     ------------------------------------------------------------------------------------------------

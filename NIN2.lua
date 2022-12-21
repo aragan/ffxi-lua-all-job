@@ -331,7 +331,7 @@ function init_gear_sets()
     }
 
     sets.idle.Regen = set_combine(sets.idle, {
-        head="Rao Kabuto",
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
         body="Hizamaru Haramaki +2",
         ear2="Infused Earring",
         ring2="Paguroidea Ring"

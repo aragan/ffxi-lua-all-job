@@ -908,7 +908,7 @@ function init_gear_sets()
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
-    right_ring="Blenmot's Ring +1",} -- +65%
+    right_ring="Blenmot's Ring +1",}
 
 end
 

@@ -440,7 +440,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Infused Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
@@ -461,7 +461,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Infused Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     })
@@ -491,7 +491,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Infused Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
@@ -507,7 +507,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Infused Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",   })
 
@@ -567,21 +567,21 @@ function init_gear_sets()
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
 	sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
 
