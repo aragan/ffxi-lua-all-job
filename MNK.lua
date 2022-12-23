@@ -119,7 +119,16 @@ function init_gear_sets()
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",
     body="Passion Jacket",
 
-})
+   })   sets.precast.RA = { ammo=empty,
+   range="Trollbane",  
+
+
+   }
+       sets.midcast.RA = { ammo=empty,
+        range="Trollbane",  
+
+     }
+
 
        
     -- Weaponskill sets
@@ -130,7 +139,7 @@ function init_gear_sets()
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Hiza. Hizayoroi +2",
-        feet="Malignance Boots",
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
@@ -163,7 +172,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 
     })
     sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
@@ -177,9 +186,9 @@ function init_gear_sets()
     waist="Moonbow Belt +1",
     left_ear="Schere Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Hetairoi Ring",
+    left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 
     })
     sets.precast.WS['Asuran Fists']    = set_combine(sets.precast.WS, {
@@ -190,19 +199,19 @@ function init_gear_sets()
     })
     sets.precast.WS["Victory Smite"]   = set_combine(sets.precast.WS, {
  
-    ammo="Knobkierrie",
-    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
-    body="Mpaca's Doublet",
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Bhikku Cyclas +2",
     hands="Mpaca's Gloves",
-    legs="Hiza. Hizayoroi +2",
+    legs="Mpaca's Hose",
     feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Odr Earring",
-    left_ring="Hetairoi Ring",
+    right_ear="Schere Earring",
+    left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 
 
     })
@@ -217,9 +226,9 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear="Odr Earring",
-        left_ring="Hetairoi Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 
     })
     sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS, {})
@@ -234,9 +243,9 @@ function init_gear_sets()
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Hetairoi Ring",
+    left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 
     })
     sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, {    legs="Hiza. Hizayoroi +2",
@@ -276,7 +285,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring="Epaminondas's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
     }
     
     
@@ -318,7 +327,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Malignance Boots",
+        feet="Hermes' Sandals +1",        
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Moonbow Belt +1",
         left_ear="Odnowa Earring",
@@ -409,7 +418,7 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Bhikku Cyclas +1",
+        body="Bhikku Cyclas +2",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
@@ -417,7 +426,7 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear="Mache Earring +1",
-        left_ring="Hetairoi Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
 
@@ -425,7 +434,7 @@ function init_gear_sets()
     sets.engaged.SomeAcc = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Bhikku Cyclas +1",
+        body="Bhikku Cyclas +2",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Mpaca's Hose",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -433,7 +442,7 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Brutal Earring",
         right_ear="Sherida Earring",
-        left_ring="Hetairoi Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Atheling Mantle",
 
@@ -441,7 +450,7 @@ function init_gear_sets()
     sets.engaged.Acc = {
         ammo="Falcon Eye",
         head="Malignance Chapeau",
-        body="Bhikku Cyclas +1",
+        body="Bhikku Cyclas +2",
 		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -504,7 +513,7 @@ function init_gear_sets()
 }
     sets.engaged.SomeAcc.PDT = {          
     ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Mpaca's Hose",
@@ -548,7 +557,7 @@ function init_gear_sets()
 		right_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
-		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
 		
 	}
     sets.engaged.Acc.Counter = {ammo="Amar Cluster",

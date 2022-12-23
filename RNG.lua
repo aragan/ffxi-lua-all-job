@@ -111,7 +111,7 @@ function init_gear_sets()
 		body="Nyame Mail",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -125,11 +125,11 @@ function init_gear_sets()
 	})
 
     sets.precast.WS['Last Stand'] = {
-		head="Ikenga's Hat",
+		head="Nyame Helm",
 		body="Nyame Mail",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -140,10 +140,9 @@ function init_gear_sets()
 	}
 
 	sets.precast.WS.Wildfire  = {
-	    head="Nyame Helm",
-	body="Nyame Mail",
+		body={ name="Cohort Cloak +1", augments={'Path: A',}},
     legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Ishvara Earring",
@@ -159,10 +158,10 @@ function init_gear_sets()
 
 	sets.precast.WS["Jishnu's Radiance"] = {		
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Meg. Cuirie +2",
+    body="Nisroch Jerkin",
     hands="Mummu Wrists +2",
     legs="Jokushu Haidate",
-    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+    feet="Thereoid Greaves",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
@@ -171,13 +170,39 @@ function init_gear_sets()
     right_ring="Regal Ring",
     back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
+	sets.precast.WS["Flaming Arrow"] = sets.precast.WS.Wildfire
+	sets.precast.WS["Hot Shot"] = sets.precast.WS.Wildfire
+
+	sets.precast.WS["Heavy Shot"] = sets.precast.WS["Jishnu's Radiance"]
+	sets.precast.WS["Sniper Shot"] = sets.precast.WS["Jishnu's Radiance"]
+
+	sets.precast.WS["Blast Shot"] = {
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs="Meg. Chausses +2",
+		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+		neck="Fotia Gorget",
+		waist="Svelt. Gouriz +1",
+		left_ear="Sherida Earring",
+		right_ear="Brutal Earring",
+		left_ring="Regal Ring",
+		right_ring="Ilabrat Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+	}
+	sets.precast.WS["Numbing Shot"] = set_combine(sets.precast.WS["Blast Shot"], {
+		
+	})
+	sets.precast.WS["Slug Shot"] = set_combine(sets.precast.WS["Blast Shot"], {
+
+	})
 
 	sets.precast.WS["Savage Blade"] = {	    main="Naegling",	
-		head="Meghanada Visor +2",
-		body="Nyame Mail",
+    	head="Nyame Helm",
+     	body="Nyame Mail",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -192,7 +217,7 @@ function init_gear_sets()
 		body="Nyame Mail",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-		feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Baetyl Pendant",
 		waist="Orpheus's Sash",
 		left_ear="Ishvara Earring",
@@ -370,8 +395,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	sets.engaged = {
-		main="Kustawi +1",
-		sub="Nusku Shield",
+
 		range="Fomalhaut",
 		ammo="Chrono Bullet",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},

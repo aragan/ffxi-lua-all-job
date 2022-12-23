@@ -197,9 +197,9 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = 
-{   ammo="Ginsen",
+{   ammo="Aurgelmir Orb +1",
 body="Nyame Mail",
-hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    body="Nyame Mail",
 legs="Nyame Flanchard",
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
@@ -256,9 +256,9 @@ back="Atheling Mantle",
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -274,9 +274,9 @@ sets.precast.WS['Cataclysm'] =
     head="Pixie Hairpin +1",
     body="Nyame Mail",
     legs="Nyame Flanchard",
-    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -825,10 +825,22 @@ sets.midcast['Frightful Roar'] =
 }
      
     -- Idle sets
-    sets.idle = 
-{ 
+    sets.idle =  { ammo="Iron Gobbet",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Thureous Earring",
+    right_ear="Ethereal Earring",
+    left_ring="Patricius Ring",
+    right_ring="Defending Ring",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+    }
 
-}
+
  
     sets.idle.Town =
 {	 

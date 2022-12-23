@@ -326,9 +326,23 @@ sets.precast.WS['Infernal Scythe'].Max = set_combine(sets.precast.WS['Torcleaver
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Karieyh Ring +1",
+    left_ring="Regal Ring",
+    right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Damage taken-5%',}},
+    }       sets.precast.WS['Spinning Scythe'] = {
+        ammo="Knobkierrie",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Sulev. Leggings +2",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        left_ring="Regal Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
     sets.precast.WS['Torcleaver'].MaxAcc = set_combine(sets.precast.WS['Torcleaver'], {})
     sets.precast.WS['Torcleaver'].Max = set_combine(sets.precast.WS['Torcleaver'], {
@@ -1385,14 +1399,14 @@ end
   
 function select_default_macro_book()
       
-    if scytheList:contains(player.equipment.main) then
-        set_macro_page(7, 2)
-    elseif gsList:contains(player.equipment.main) then
+    if player.sub_job == 'WAR' then
         set_macro_page(7, 2)
     elseif player.sub_job == 'SAM' then
-        set_macro_page(7, 2)
+        set_macro_page(7, 30)
+    elseif player.sub_job == 'DRG' then
+        set_macro_page(7, 30)
     else
-        set_macro_page(7, 2)
+        set_macro_page(7, 30)
     end
 end
 add_to_chat(159,'Author Aragan DRK.Lua File (from Asura)')
