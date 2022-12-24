@@ -451,20 +451,20 @@ function init_gear_sets()
     })
 
     sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast['Elemental Magic'], {
-        main="Caduceus",
-        ammo="Sapience Orb",
-        head="Cumulus Masque +1",
-        body="Goldsmith's Smock",
+        main=empty,
+        ammo=empty,
+        head=empty,
+        body=empty,
         hands=empty,
         legs=empty,
-        feet="Herald's Gaiters",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Kishar Ring",
-        right_ring="Prolix Ring",
-        back="Moonlight Cape",
+        feet=empty,
+        neck=empty,
+        waist=empty,
+        left_ear=empty,
+        right_ear=empty,
+        left_ring=empty,
+        right_ring=empty,
+        back=empty,
     })
 
     sets.midcast['Elemental Magic'].HighTierNuke.Proc = set_combine(sets.midcast['Elemental Magic'], {

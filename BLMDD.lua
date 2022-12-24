@@ -44,7 +44,7 @@ end
 -- If you're new to gearswap, the F9~12 keys and CTRL keys in combination is how you activate this stuff.
 
 function job_setup()
-    state.OffenseMode:options('None', 'Locked')
+    state.OffenseMode:options('None', 'Locked', 'TH')
     state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
     state.IdleMode:options('Normal', 'PDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
@@ -507,19 +507,18 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast['Elemental Magic'], {
 
-        ammo="Sapience Orb",
-        head="Cumulus Masque +1",
-        body="Goldsmith's Smock",
+        head=empty,
+        body=empty,
         hands=empty,
         legs=empty,
-        feet="Herald's Gaiters",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Kishar Ring",
-        right_ring="Prolix Ring",
-        back="Moonlight Cape",
+        feet=empty,
+        neck=empty,
+        waist=empty,
+        left_ear=empty,
+        right_ear=empty,
+        left_ring=empty,
+        right_ring=empty,
+        back=empty,
     })
 
     sets.midcast['Elemental Magic'].HighTierNuke.Proc = set_combine(sets.midcast['Elemental Magic'], {
@@ -787,6 +786,21 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
         waist="Olseni Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.TH = {
+        ammo="Per. Lucky Egg",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sanctity Necklace",
+        waist="Chaac Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",

@@ -70,7 +70,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana', 'Scythe', 'GS', 'Polearm')
     state.HybridMode:options('Normal', 'PDT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
@@ -331,7 +331,7 @@ function init_gear_sets()
     }
 
     sets.idle.Regen = set_combine(sets.idle, {
-        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        head="Rao Kabuto",
         body="Hizamaru Haramaki +2",
         ear2="Infused Earring",
         ring2="Paguroidea Ring"
@@ -459,7 +459,7 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.GK = set_combine(sets.engaged, {
-            main="Uchigatana",
+            main="Zanmato +1",
             sub=empty,
         })
         sets.engaged.Club = set_combine(sets.engaged, {
@@ -475,7 +475,19 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.Dagger = set_combine(sets.engaged, {
-            main="Ceremonial Dagger",
+            main="Qutrub Knife",
+            sub=empty,
+        })
+        sets.engaged.Scythe = set_combine(sets.engaged, {
+            main="Lost Sickle",
+            sub=empty,
+        })
+        sets.engaged.GS = set_combine(sets.engaged, {
+            main="Lament",
+            sub=empty,
+        })
+        sets.engaged.Polearm = set_combine(sets.engaged, {
+            main="Lost Sickle",
             sub=empty,
         })
 
