@@ -119,10 +119,10 @@ function init_gear_sets()
     sets.precast.RA = {    
         ammo=empty,
         range="Trollbane", 
-    hands="Oshosi Gloves",
-    head="Chass. Tricorne +1",
-    body="Oshosi Vest",
-    legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        head="Chass. Tricorne +1",
+        body="Laksa. Frac +3",
+    legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
     waist="Yemaya Belt",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
@@ -132,10 +132,10 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Oshosi Mask",
+        head="Nyame Helm",
         body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
-        legs="Malignance Tights",
+        legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Sanctity Necklace",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -161,11 +161,11 @@ function init_gear_sets()
     back="Atheling Mantle",
     }
 
-    sets.precast.WS['Savage Blade'] = sets.precast.WS, {
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
     body="Laksa. Frac +3",
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Caro Necklace",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -174,22 +174,9 @@ function init_gear_sets()
     left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    }
-    sets.precast.WS['Savage Blade'].Acc = { head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    body="Laksa. Frac +3",
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Caro Necklace",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
+    })
 
-
-    sets.precast.WS['Aeolian Edge'] = sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
         body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
@@ -202,9 +189,9 @@ function init_gear_sets()
         left_ring="Dingir Ring",
         right_ring="Epaminondas's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    }
+    })
 
-    sets.precast.WS['Requiescat'] = {
+    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands="Meg. Gloves +2",
@@ -217,23 +204,10 @@ function init_gear_sets()
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
         back="Atheling Mantle",
-    }
-    sets.precast.WS['Requiescat'].Acc = {     
-           head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Telos Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Regal Ring",
-    right_ring="Rufescent Ring",
-    back="Atheling Mantle",}
+})
 
     sets.precast.WS['Last Stand'] = {
-    head="Meghanada Visor +2",
+    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Laksa. Frac +3",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
@@ -248,7 +222,7 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Last Stand'].Acc = {
-    head="Meghanada Visor +2",
+    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Laksa. Frac +3",
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
@@ -257,7 +231,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Regal Ring",
+    left_ring="Dingir Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
@@ -279,8 +253,7 @@ function init_gear_sets()
 }
 
     
-    sets.precast.WS['Leaden Salute'] = {
-       head="Pixie Hairpin +1",
+    sets.precast.WS['Leaden Salute'] = {main="Naegling",sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head="Pixie Hairpin +1",
     body="Laksa. Frac +3",hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},neck="Sanctity Necklace",waist="Svelt. Gouriz +1",left_ear="Friomisi Earring",right_ear="Hecate's Earring",
     left_ring="Dingir Ring",right_ring="Epaminondas's Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
@@ -357,7 +330,7 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck="Iskur Gorget",
         waist="Yemaya Belt",
-        left_ear="Friomisi Earring",
+        left_ear="Enervating Earring",
         right_ear="Telos Earring",
         left_ring="Dingir Ring",
         right_ring="Ilabrat Ring",

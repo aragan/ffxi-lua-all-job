@@ -96,8 +96,8 @@ function init_gear_sets()
 
 	head="Ikenga's Hat",
     body="Amini Caban +1",
-    hands="Ikenga's Gloves",
-    legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
+    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +2",
     waist="Yemaya Belt",
 	right_ring="Crepuscular Ring",
@@ -141,6 +141,7 @@ function init_gear_sets()
 
 	sets.precast.WS.Wildfire  = {
 		body={ name="Cohort Cloak +1", augments={'Path: A',}},
+		hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Baetyl Pendant",

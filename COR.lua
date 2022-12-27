@@ -128,10 +128,10 @@ function init_gear_sets()
 
 
     sets.precast.RA = {
-    hands="Oshosi Gloves",
-    head="Chass. Tricorne +1",
-    body="Oshosi Vest",
-    legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        head="Chass. Tricorne +1",
+        body="Laksa. Frac +3",
+    legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
     waist="Yemaya Belt",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
@@ -141,10 +141,10 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Oshosi Mask",
+        head="Nyame Helm",
         body="Laksa. Frac +3",
         hands="Meg. Gloves +2",
-        legs="Malignance Tights",
+        legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Sanctity Necklace",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -351,13 +351,13 @@ function init_gear_sets()
     range="Molybdosis",
     ammo="Orichalc. Bullet",
     head="Ikenga's Hat",
-    body="Mummu Jacket +2",
+    body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Ikenga's Trousers",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Yemaya Belt",
-    left_ear="Friomisi Earring",
+    left_ear="Enervating Earring",
     right_ear="Telos Earring",
     left_ring="Dingir Ring",
     right_ring="Ilabrat Ring",
