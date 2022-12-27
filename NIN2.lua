@@ -279,8 +279,9 @@ function init_gear_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
-    sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {    
-
+    sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {       
+    feet="Hattori Kyahan +1",
+    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
     sets.midcast.Migawari = {    neck="Incanter's Torque",
 
@@ -314,7 +315,6 @@ function init_gear_sets()
     sets.precast.Effusion.Swipe = sets.midcast.ElementalNinjutsu
 
     sets.idle = {
-
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -329,6 +329,7 @@ function init_gear_sets()
     right_ring="Epona's Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
+    sets.idle.Field = sets.idle
 
     sets.idle.Regen = set_combine(sets.idle, {
         head="Rao Kabuto",
@@ -342,8 +343,9 @@ function init_gear_sets()
     }
     sets.idle.Town = sets.idle
     sets.idle.Town = set_combine(sets.idle, {    feet="Danzo Sune-Ate",
-
     })
+    sets.Kiting = {feet="Danzo Sune-ate"}
+
     --sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
     --    body="Councilor's Garb"
     --})
@@ -487,7 +489,7 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.Polearm = set_combine(sets.engaged, {
-            main="Lost Sickle",
+            main="Sha Wujing's La. +1",
             sub=empty,
         })
 

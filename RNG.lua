@@ -95,7 +95,7 @@ function init_gear_sets()
 	sets.precast.RA = {
 
 	head="Ikenga's Hat",
-    body="Ikenga's Vest",
+    body="Amini Caban +1",
     hands="Ikenga's Gloves",
     legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
     feet="Meg. Jam. +2",

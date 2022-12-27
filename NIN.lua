@@ -335,7 +335,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Danzo Sune-Ate",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -344,6 +344,7 @@ function init_gear_sets()
         right_ring="Paguroidea Ring",
         back="Moonlight Cape",
     }
+    sets.idle.Field = sets.idle
 
     sets.idle.Regen = set_combine(sets.idle, {
         head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},

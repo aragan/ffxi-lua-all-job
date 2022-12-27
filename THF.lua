@@ -36,7 +36,7 @@ function job_setup()
     state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
     include('Mote-TreasureHunter')
 
     -- For th_action_check():

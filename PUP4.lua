@@ -162,7 +162,7 @@ function user_setup()
     state.CustomGearLock = M(false, "Custom Gear Lock")
     --Example customGearLock = T{"head", "waist"}
     customGearLock = T{}
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
     send_command("bind !f7 gs c cycle PetModeCycle")
     send_command("bind ^f7 gs c cycleback PetModeCycle")
     send_command("bind !f8 gs c cycle PetStyleCycle")

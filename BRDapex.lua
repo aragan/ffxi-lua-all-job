@@ -57,7 +57,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger', 'CRIT', 'ACC')
+    state.OffenseMode:options('None', 'Normal', 'Shield', 'Sword', 'ACC', 'Dagger', 'ACC', 'CRIT', 'PD')
     state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'Resistant')
@@ -76,7 +76,7 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
 
     select_default_macro_book()
 end
@@ -370,8 +370,8 @@ sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 
 sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Storm'],{
@@ -385,8 +385,8 @@ sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Sto
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 
 sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm'],{
@@ -400,8 +400,8 @@ sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Rudras Storm'].ACC = set_combine(sets.precast.WS['Rudras Storm'],{
     head="Nyame Helm",
@@ -414,8 +414,8 @@ sets.precast.WS['Rudras Storm'].ACC = set_combine(sets.precast.WS['Rudras Storm'
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
     head="C. Palug Crown",
@@ -428,8 +428,8 @@ sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Aeolian Edge'].Dagger = set_combine(sets.precast.WS['Aeolian Edge'],{
     head="C. Palug Crown",
@@ -442,8 +442,8 @@ sets.precast.WS['Aeolian Edge'].Dagger = set_combine(sets.precast.WS['Aeolian Ed
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Aeolian Edge'].CRIT = set_combine(sets.precast.WS['Aeolian Edge'],{
     head="C. Palug Crown",
@@ -456,8 +456,8 @@ sets.precast.WS['Aeolian Edge'].CRIT = set_combine(sets.precast.WS['Aeolian Edge
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Aeolian Edge'].ACC = set_combine(sets.precast.WS['Aeolian Edge'],{
     head="C. Palug Crown",
@@ -470,8 +470,8 @@ sets.precast.WS['Aeolian Edge'].ACC = set_combine(sets.precast.WS['Aeolian Edge'
     back="Intarabus's Cape",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     head="Nyame Helm",
@@ -484,8 +484,8 @@ sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 
 sets.precast.WS['Savage Blade '].Sword = set_combine(sets.precast.WS['Savage Blade '],{
@@ -499,8 +499,8 @@ sets.precast.WS['Savage Blade '].Sword = set_combine(sets.precast.WS['Savage Bla
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Savage Blade '].CRIT = set_combine(sets.precast.WS['Savage Blade '],{
     head="Nyame Helm",
@@ -513,8 +513,8 @@ sets.precast.WS['Savage Blade '].CRIT = set_combine(sets.precast.WS['Savage Blad
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
 sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade '],{
     head="Nyame Helm",
@@ -527,8 +527,8 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     ring2="Epaminondas's Ring",
     back="Intarabus's Cape",
     waist="Sailfi Belt +1",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
 })
     
     -- Midcast Sets
@@ -781,6 +781,22 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     }
 
     -- Sets with weapons defined.
+    sets.engaged.Shield = {
+        main="Naegling",
+        sub="Genmei Shield",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Telos Earring",
+        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
+        left_ring="Moonlight Ring",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     sets.engaged.Dagger = {
         main={ name="Twashtar", augments={'Path: A',}},
         sub="Gleti's Knife",
@@ -839,6 +855,25 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
+    sets.engaged.PD = set_combine(sets.engaged, {
+        ammo="Staunch Tathlum +1",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Balder Earring +1",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    })
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
 
 end
 
@@ -1091,7 +1126,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 2)
+    set_macro_page(1, 31)
 end
 add_to_chat(159,'Author Aragan BRD.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')

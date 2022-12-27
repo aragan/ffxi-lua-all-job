@@ -57,7 +57,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Sword', 'Dagger', 'CRIT', 'ACC', 'PD')
+    state.OffenseMode:options('None', 'Normal', 'Shield', 'Sword', 'ACC', 'Dagger', 'ACC', 'CRIT', 'PD')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'Resistant')
@@ -76,7 +76,7 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
 
     select_default_macro_book()
 end
@@ -356,7 +356,7 @@ sets.precast.WS['Mordant Rime'].ACC = set_combine(sets.precast.WS['Mordant Rime'
 sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
     head="Nyame Helm",
     neck="Fotia Gorget",
-    ear1="Mache Earring +1",
+    ear1="Ishvara Earring",
     ear2="Moonshade Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -371,7 +371,7 @@ sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
 sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Storm'],{
     head="Nyame Helm",
     neck="Fotia Gorget",
-    ear1="Mache Earring +1",
+    ear1="Ishvara Earring",
     ear2="Moonshade Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -386,7 +386,7 @@ sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Sto
 sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm'],{
     head="Nyame Helm",
     neck="Fotia Gorget",
-    ear1="Mache Earring +1",
+    ear1="Ishvara Earring",
     ear2="Moonshade Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -400,7 +400,7 @@ sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm
 sets.precast.WS['Rudras Storm'].ACC = set_combine(sets.precast.WS['Rudras Storm'],{
     head="Nyame Helm",
     neck="Fotia Gorget",
-    ear1="Mache Earring +1",
+    ear1="Ishvara Earring",
     ear2="Moonshade Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -787,6 +787,22 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     }
 
     -- Sets with weapons defined.
+    sets.engaged.Shield = {
+        main="Naegling",
+        sub="Genmei Shield",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Telos Earring",
+        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
+        left_ring="Moonlight Ring",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     sets.engaged.Dagger = {
         main={ name="Twashtar", augments={'Path: A',}},
         sub={ name="Ternion Dagger +1", augments={'Path: A',}},
@@ -1168,7 +1184,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 2)
+    set_macro_page(1, 31)
 end
 add_to_chat(159,'Author Aragan BRD.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')

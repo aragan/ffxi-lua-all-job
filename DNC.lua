@@ -76,7 +76,7 @@ function user_setup()
     gear.default.weaponskill_neck = ""
     gear.default.weaponskill_waist = ""
     gear.AugQuiahuiz = {}
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
@@ -908,7 +908,7 @@ function init_gear_sets()
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
-    right_ring="Blenmot's Ring +1",}
+    right_ring="Blenmot's Ring +1",} -- +65%
 
 end
 

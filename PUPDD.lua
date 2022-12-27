@@ -176,6 +176,7 @@ function user_setup()
     send_command("bind PAGEDOWN gs c hide keybinds")
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
+    send_command('wait 2;input /lockstyleset 168')
 
     select_default_macro_book()
 
