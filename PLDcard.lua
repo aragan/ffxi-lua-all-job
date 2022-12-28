@@ -1009,7 +1009,8 @@ sets.defense.Convert = {
 
 sets.defense.Block = {
     sub="Ochain",
-    ammo="Staunch Tathlum +1",
+    ammo="Iron Gobbet",
+    head="Sakpata's Helm",
     head="Chev. Armet +2",
     body="Sakpata's Plate",
     hands="Chev. Gauntlets +2",
@@ -1028,11 +1029,11 @@ sets.defense.Dagger =
 {    
     main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
     sub="Ochain",
-    ammo="Eluder's Sachet",
-    head="Sakpata's Helm",
+    ammo="Iron Gobbet",
+    head="Chev. Armet +2",
     body="Sakpata's Plate",
     hands="Rev. Gauntlets +3",
-    legs="Sakpata's Cuisses",
+    legs="Chev. Cuisses +2",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
@@ -1073,7 +1074,6 @@ sets.defense.ResistCharm.Doom = set_combine(sets.defense.ResistCharm, sets.Doom)
 sets.defense.PDH.Doom = set_combine(sets.defense.PDH, sets.Doom)
      
     sets.Kiting = {
-        
         legs="Carmine Cuisses +1",right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 

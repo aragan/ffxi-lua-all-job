@@ -1009,7 +1009,8 @@ sets.defense.Convert = {
 
 sets.defense.Block = {
     sub="Ochain",
-    ammo="Staunch Tathlum +1",
+    ammo="Iron Gobbet",
+    head="Sakpata's Helm",
     head="Chev. Armet +2",
     body="Sakpata's Plate",
     hands="Chev. Gauntlets +2",
