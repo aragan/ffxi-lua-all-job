@@ -1098,7 +1098,7 @@ sets.defense.Convert = {
     main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
-    head="Chev. Armet +1",
+    head="Chev. Armet +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
@@ -1113,19 +1113,20 @@ sets.defense.Convert = {
 }
 
 sets.defense.Block = {
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
-    head="Sakpata's Helm",
+    head="Chev. Armet +2",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Ethereal Earring",
+    hands="Chev. Gauntlets +2",
+    legs="Chev. Cuisses +2",
+    feet="Rev. Leggings +3",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
     right_ear="Thureous Earring",
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Fortified Ring",
+    left_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 

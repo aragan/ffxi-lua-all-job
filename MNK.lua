@@ -172,7 +172,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
@@ -188,7 +188,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Asuran Fists']    = set_combine(sets.precast.WS, {
@@ -211,7 +211,7 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
 
     })
@@ -228,7 +228,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS, {})
@@ -245,7 +245,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, {    legs="Hiza. Hizayoroi +2",
@@ -285,7 +285,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring="Epaminondas's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
     }
     
     
@@ -428,7 +428,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back="Atheling Mantle",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     }
     sets.engaged.SomeAcc = {
@@ -444,7 +444,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back="Atheling Mantle",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     }
     sets.engaged.Acc = {
@@ -460,7 +460,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Atheling Mantle",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
     }
     sets.engaged.Mod = {
         ammo="Coiste Bodhar",
@@ -475,7 +475,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back="Atheling Mantle",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     }
 
@@ -492,7 +492,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back="Atheling Mantle",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     }
 
@@ -509,7 +509,7 @@ function init_gear_sets()
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle",
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 }
     sets.engaged.SomeAcc.PDT = {          
     ammo="Coiste Bodhar",
@@ -524,7 +524,7 @@ function init_gear_sets()
     right_ear="Mache Earring +1",
     left_ring="Epona's Ring",
     right_ring="Niqmaddu Ring",
-    back="Atheling Mantle",
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
 		
 	}
@@ -541,7 +541,7 @@ function init_gear_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Petrov Ring",
-    back="Atheling Mantle",
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 		
 	}
     sets.engaged.Counter = {
@@ -557,7 +557,7 @@ function init_gear_sets()
 		right_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
-		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 		
 	}
     sets.engaged.Acc.Counter = {ammo="Amar Cluster",

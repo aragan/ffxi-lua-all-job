@@ -152,7 +152,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
@@ -168,7 +168,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Hetairoi Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Asuran Fists']    = set_combine(sets.precast.WS, {
@@ -189,7 +189,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Begrudging Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
 
     })
@@ -206,7 +206,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
     sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS, {feet="Daihanshi Habaki"})
@@ -223,7 +223,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Hetairoi Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','System: 1 ID: 640 Val: 4',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
     })
 

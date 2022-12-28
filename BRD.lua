@@ -185,76 +185,35 @@ function init_gear_sets()
     }
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS,{ 
+    sets.precast.WS['Evisceration'] = { 
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
-    ear1="Moonshade Earring",
+        left_ear="Brutal Earring",
     right_ear="Balder Earring +1",
     body="Ayanmo Corazza +2",
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
     ring2="Epaminondas's Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    })
-    sets.precast.WS['Evisceration'].Dagger = set_combine(sets.precast.WS['Evisceration'],{ 
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Epaminondas's Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    })    
-    sets.precast.WS['Evisceration'].CRIT = set_combine(sets.precast.WS['Evisceration'],{ 
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Epaminondas's Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    })
-    sets.precast.WS['Evisceration'].ACC = set_combine(sets.precast.WS['Evisceration'],{ 
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Epaminondas's Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    })
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS,{
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Ilabrat Ring",
     back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
-    })    
+    }
+    
+    sets.precast.WS['Exenterator'] = {
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+        left_ear="Brutal Earring",
+        right_ear="Balder Earring +1",
+    body="Ayanmo Corazza +2",
+    hands="Bunzi's Gloves",
+    ring1="Hetairoi Ring",
+    ring2="Ilabrat Ring",
+    back="Atheling Mantle",
+    waist="Fotia Belt",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
+    }
     sets.precast.WS['Exenterator'].Dagger = set_combine(sets.precast.WS['Exenterator'],{
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
@@ -292,8 +251,8 @@ function init_gear_sets()
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
     ring2="Ilabrat Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
+}
+waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
     })
@@ -783,7 +742,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     -- Sets with weapons defined.
@@ -801,7 +760,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
     sets.engaged.Dagger = {
         main={ name="Twashtar", augments={'Path: A',}},
@@ -817,7 +776,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     sets.engaged.Sword = {
@@ -834,7 +793,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
@@ -845,7 +804,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
     sets.engaged.ACC = set_combine(sets.engaged, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -859,7 +818,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
     sets.engaged.PD = set_combine(sets.engaged, {
         ammo="Staunch Tathlum +1",
