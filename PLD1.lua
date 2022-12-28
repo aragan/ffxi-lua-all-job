@@ -433,7 +433,7 @@ back="Atheling Mantle",
 }
 
     sets.midcast.Flash.DT = 
-{        
+{        main="Burtgang",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -456,7 +456,7 @@ back="Atheling Mantle",
     --Max HP+ set for reprisal 3951HP / war so 7902+ damage reflect before it off (8k+ with food)
     sets.midcast.Reprisal =	
 {
-   
+   main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -474,7 +474,7 @@ back="Atheling Mantle",
 }    
 sets.midcast.Reprisal.DT =	
 {
-   
+   main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -494,6 +494,7 @@ sets.midcast.Reprisal.DT =
     --Phalanx skill 386/386 = 31/31  + phalanx + 30/31 total 61/62
     sets.midcast.Phalanx = 
     {
+        main="Sakpata's Sword",
         ammo="Staunch Tathlum +1",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body="Shab. Cuirass +1",
@@ -511,7 +512,7 @@ sets.midcast.Reprisal.DT =
 
     sets.midcast.Phalanx.DT = 
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -930,7 +931,7 @@ sets.midcast['Frightful Roar'] =
   --3367 HP   
     sets.defense.PDT = 
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
@@ -950,7 +951,7 @@ sets.midcast['Frightful Roar'] =
     -- Shellra V can provide 75/256.
     sets.defense.MDT =
 {
-    
+    main="Burtgang",
     sub="Aegis",
     ammo="Staunch Tathlum +1",
     head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
@@ -969,7 +970,7 @@ sets.midcast['Frightful Roar'] =
 
 	sets.defense.Turtle =
 {   
-    
+    main="Burtgang",
     sub="Aegis",
     ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
@@ -988,7 +989,7 @@ sets.midcast['Frightful Roar'] =
 
 	sets.defense.ResistCharm =
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head="Loess Barbuta +1",
@@ -1027,7 +1028,7 @@ sets.defense.Dagger =
 	
     sets.defense.Enmity = 
 { 
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
@@ -1046,7 +1047,7 @@ sets.defense.Dagger =
     
     sets.defense.PD = 
 {    
-    
+    main="Burtgang",
     ammo="Eluder's Sachet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1064,7 +1065,7 @@ sets.defense.Dagger =
 
 sets.defense.PDT = 
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
@@ -1083,7 +1084,7 @@ sets.defense.PDT =
 
 sets.defense.PDH = 
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
@@ -1102,7 +1103,7 @@ sets.defense.PDH =
  
     sets.defense.HPBOOST = 
 {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1130,7 +1131,7 @@ sets.defense.HP = set_combine(sets.defense.HPBOOST, {
 })
 
 sets.defense.DEF = {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
@@ -1148,7 +1149,7 @@ sets.defense.DEF = {
 }
 
 sets.defense.Convert = {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +2",
@@ -1166,7 +1167,7 @@ sets.defense.Convert = {
 }
 
 sets.defense.Block = {
-    
+    main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
     head="Chev. Armet +2",
