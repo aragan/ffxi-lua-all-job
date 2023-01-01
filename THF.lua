@@ -560,8 +560,8 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {range=empty,
     ammo="Aurgelmir Orb +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head="Skulker's Bonnet +1",
+    body="Pillager's Vest +3",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Meg. Chausses +2",
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
@@ -576,7 +576,7 @@ function init_gear_sets()
     sets.engaged.Acc = {range=empty,
         ammo="Yamarang",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Pillager's Vest +3",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Meg. Chausses +2",
         feet="Malignance Boots",
@@ -646,28 +646,29 @@ function init_gear_sets()
     back="Moonlight Cape",
 
     }
-    sets.engaged.Acc.Evasion = { range=empty,right_ring="Defending Ring",
-
-    }
+    sets.engaged.Acc.Evasion = set_combine(sets.engaged.Evasion ,{ range=empty,
+    right_ring="Defending Ring",
+    })
 
     sets.engaged.PDT = { range=empty,
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Pillager's Vest +3",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Reiki Yotai",
         left_ear="Sherida Earring",
-        right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
+        right_ear="Skulk. Earring +1",
         left_ring="Gere Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
         
     }
-    sets.engaged.Acc.PDT = {   range=empty,     right_ring="Defending Ring",
-    }
+    sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
+    right_ring="Defending Ring",
+    })
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",

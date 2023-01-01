@@ -150,7 +150,7 @@ function init_gear_sets()
     right_ear="Etiolation Earring",
     left_ring="Prolix Ring",
     right_ring="Kishar Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},}
+    back="Intarabus's Cape",}
 
     sets.precast.FC.Daurdabla = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
         
@@ -169,7 +169,7 @@ function init_gear_sets()
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {
+    sets.precast.WS = {range="Linos",
         head="Nyame Helm",
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
@@ -185,7 +185,7 @@ function init_gear_sets()
     }
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Evisceration'] = { 
+    sets.precast.WS['Evisceration'] = { range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
         left_ear="Brutal Earring",
@@ -200,7 +200,7 @@ function init_gear_sets()
     feet="Lustra. Leggings +1",
     }
     
-    sets.precast.WS['Exenterator'] = {
+    sets.precast.WS['Exenterator'] = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
         left_ear="Brutal Earring",
@@ -214,49 +214,8 @@ function init_gear_sets()
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
     }
-    sets.precast.WS['Exenterator'].Dagger = set_combine(sets.precast.WS['Exenterator'],{
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Ilabrat Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
-    })    
-    sets.precast.WS['Exenterator'].CRIT = set_combine(sets.precast.WS['Exenterator'],{
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Ilabrat Ring",
-    back="Intarabus's Cape",
-    waist="Fotia Belt",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
-    })
-    sets.precast.WS['Exenterator'].ACC = set_combine(sets.precast.WS['Exenterator'],{
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    right_ear="Balder Earring +1",
-    body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Ilabrat Ring",
-}
-waist="Fotia Belt",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
-    })
-    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS,{
+
+    sets.precast.WS['Mordant Rime'] = {range="Linos",
         head="Nyame Helm",
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
@@ -269,65 +228,9 @@ waist="Fotia Belt",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         back="Intarabus's Cape",
-})
-sets.precast.WS['Mordant Rime'].Dagger = set_combine(sets.precast.WS['Mordant Rime'],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Mordant Rime'].CRIT = set_combine(sets.precast.WS['Mordant Rime'],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Mordant Rime'].ACC = set_combine(sets.precast.WS['Mordant Rime'],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Rudras Storm'] = set_combine(sets.precast.WS,{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
+}
 
-sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Storm'],{
+sets.precast.WS['Rudras Storm'] = {range="Linos",
     head="Nyame Helm",
     neck="Fotia Gorget",
     ear1="Ishvara Earring",
@@ -340,108 +243,25 @@ sets.precast.WS['Rudras Storm'].Dagger = set_combine(sets.precast.WS['Rudras Sto
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     back="Intarabus's Cape",
-})
+}
 
-sets.precast.WS['Rudras Storm'].CRIT = set_combine(sets.precast.WS['Rudras Storm'],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Rudras Storm'].ACC = set_combine(sets.precast.WS['Rudras Storm'],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS,{
-    head="C. Palug Crown",
-    ear1="Moonshade Earring",
-    ear2="Friomisi Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Epaminondas's Ring",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Aeolian Edge'].Dagger = set_combine(sets.precast.WS['Aeolian Edge'],{
-    head="C. Palug Crown",
-    ear1="Moonshade Earring",
-    ear2="Friomisi Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Epaminondas's Ring",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Aeolian Edge'].CRIT = set_combine(sets.precast.WS['Aeolian Edge'],{
-    head="C. Palug Crown",
-    ear1="Moonshade Earring",
-    ear2="Friomisi Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Epaminondas's Ring",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Aeolian Edge'].ACC = set_combine(sets.precast.WS['Aeolian Edge'],{
-    head="C. Palug Crown",
-    ear1="Moonshade Earring",
-    ear2="Friomisi Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Epaminondas's Ring",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Savage Blade '] = set_combine(sets.precast.WS,{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Sailfi Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
 
-sets.precast.WS['Savage Blade '].Sword = set_combine(sets.precast.WS['Savage Blade '],{
+sets.precast.WS['Aeolian Edge'] = {range="Linos",
+    head="C. Palug Crown",
+    ear1="Moonshade Earring",
+    ear2="Friomisi Earring",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    back="Intarabus's Cape",
+}
+
+sets.precast.WS['Savage Blade '] = {range="Linos",
     head="Nyame Helm",
     neck="Fotia Gorget",
     ear1="Moonshade Earring",
@@ -454,35 +274,9 @@ sets.precast.WS['Savage Blade '].Sword = set_combine(sets.precast.WS['Savage Bla
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     back="Intarabus's Cape",
-})
-sets.precast.WS['Savage Blade '].CRIT = set_combine(sets.precast.WS['Savage Blade '],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Sailfi Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
-sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade '],{
-    head="Nyame Helm",
-    neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
-    waist="Sailfi Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    back="Intarabus's Cape",
-})
+}
+
+
     
     -- Midcast Sets
 
@@ -494,13 +288,13 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
     sets.midcast.Ballad = {legs="Aoidos' Rhing. +2"}
     sets.midcast.Lullaby = {hands="Brioso Cuffs"}
-    sets.midcast.Madrigal = {head="Aoidos' Calot +2"}
+    sets.midcast.Madrigal = {head="Fili Calot +1",}
     sets.midcast.March = {hands="Aoidos' Manchettes +2"}
-    sets.midcast.Minuet = {body="Aoidos' Hongreline +2"}
+    sets.midcast.Minuet = {body="Fili Hongreline +1",}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
-    sets.midcast["Sentinel's Scherzo"] = {feet="Aoidos' Cothrn. +2"}
+    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +1",}
     sets.midcast['Magic Finale'] = {}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
@@ -521,14 +315,13 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     right_ear="Fili Earring +1",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
-}
+    back="Intarabus's Cape",}
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
-        body="Aoidos' Hongreline +2",
-        hands="Aoidos' Manchettes +2",    
+        body="Fili Hongreline +1",
+        hands="Inyan. Dastanas +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
@@ -537,16 +330,15 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Musical Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
-
-    }
+    back="Intarabus's Cape",}
+    
 
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
-        body="Aoidos' Hongreline +2",
-        hands="Aoidos' Manchettes +2",    
+        body="Fili Hongreline +1",
+        hands="Inyan. Dastanas +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
@@ -555,8 +347,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Musical Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10',}},
-    }
+        back="Intarabus's Cape",}
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {
@@ -615,7 +406,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Fili Cothurnes +1",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -644,7 +435,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    feet="Fili Cothurnes +1",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -657,7 +448,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    feet="Fili Cothurnes +1",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -717,7 +508,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Aoidos' Cothurnes +2"}
+    sets.Kiting = {feet="Fili Cothurnes +1",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -729,8 +520,7 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Basic set for if no TP weapon is defined.
-    sets.engaged = {
-
+    sets.engaged = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -742,11 +532,11 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
     -- Sets with weapons defined.
-    sets.engaged.Shield = {
+    sets.engaged.Shield = {range="Linos",
         main="Naegling",
         sub="Genmei Shield",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -760,9 +550,9 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
-    sets.engaged.Dagger = {
+    sets.engaged.Dagger = {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
         sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -776,10 +566,10 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
-    sets.engaged.Sword = {
+    sets.engaged.Sword = {range="Linos",
         main="Naegling",
         sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -793,10 +583,10 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
-    sets.engaged.CRIT = set_combine(sets.engaged, {
+    sets.engaged.CRIT = set_combine(sets.engaged, {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
         sub={ name="Ternion Dagger +1", augments={'Path: A',}},
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -804,9 +594,9 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
-    sets.engaged.ACC = set_combine(sets.engaged, {
+    sets.engaged.ACC = set_combine(sets.engaged, {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Aya. Manopolas +2",
@@ -818,9 +608,9 @@ sets.precast.WS['Savage Blade '].ACC = set_combine(sets.precast.WS['Savage Blade
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        ack={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
-    sets.engaged.PD = set_combine(sets.engaged, {
+    sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
         ammo="Staunch Tathlum +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
