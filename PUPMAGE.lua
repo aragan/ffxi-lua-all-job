@@ -526,7 +526,7 @@ function init_gear_sets()
         Hybrid Mode = Normal
     ]]
     sets.engaged.Master = {
-        
+        range="Animator P II +1",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -549,7 +549,7 @@ function init_gear_sets()
     ]]
     sets.engaged.Master.Acc = {    
 
- 
+        range="Animator P II +1",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -572,7 +572,7 @@ function init_gear_sets()
     ]]
     sets.engaged.Master.TP = {    
 
-    
+        range="Animator P II +1",
         ammo="Automat. Oil +3",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Mpaca's Doublet",
@@ -609,7 +609,7 @@ function init_gear_sets()
     back="Moonlight Cape",
     }
     sets.engaged.Master.Regen = {    
-    
+        range="Animator P II +1",
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
