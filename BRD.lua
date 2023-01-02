@@ -98,59 +98,73 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {     
+    sets.precast.FC = {       main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
     legs="Aya. Cosciales +2",
     waist="Witful Belt",
+    neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Prolix Ring",
-    right_ring="Kishar Ring",}
+    right_ring="Kishar Ring",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 
-    sets.precast.FC.Cure = set_combine(sets.precast.FC, {main={
-         name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+}
+
+    sets.precast.FC.Cure = set_combine(sets.precast.FC, {
+        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    waist="Witful Belt",
+    neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
     right_ring="Kishar Ring",
-    back="Solemnity Cape",})
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},,})
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-    main="Arendsi Fleuret",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-    legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    waist="Cascade Belt",
-    left_ear="Loquac. Earring",
-    right_ear="Andoaa Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Kishar Ring",})
-
-    sets.precast.FC.BardSong = { main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot +1",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
-    hands="Leyline Gloves",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Aya. Cosciales +2",
-    feet="Brioso Slippers +2",
-    neck="Aoidos' Matinee",
+    feet="Battlecast Gaiters",
+    neck="Baetyl Pendant",
     waist="Witful Belt",
-    left_ear="Loquac. Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Prolix Ring",
-    right_ring="Kishar Ring",
-    back="Intarabus's Cape",}
+    left_ear="Etiolation Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Kishar Ring",
+    right_ring="Prolix Ring",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+})
+
+    sets.precast.FC.BardSong = {
+        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+        head="Fili Calot +1",
+        body="Inyanga Jubbah +2",
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        legs="Aya. Cosciales +2",
+        feet="Battlecast Gaiters",
+        neck="Baetyl Pendant",
+        waist="Witful Belt",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Kishar Ring",
+        right_ring="Prolix Ring",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}
 
     sets.precast.FC.Daurdabla = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
         
@@ -289,7 +303,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     sets.midcast.Ballad = {legs="Aoidos' Rhing. +2"}
     sets.midcast.Lullaby = {hands="Brioso Cuffs"}
     sets.midcast.Madrigal = {head="Fili Calot +1",}
-    sets.midcast.March = {hands="Aoidos' Manchettes +2"}
+    sets.midcast.March = {hands="Fili Manchettes +1",}
     sets.midcast.Minuet = {body="Fili Hongreline +1",}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
@@ -306,7 +320,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head="Fili Calot +1",
     body="Fili Hongreline +1",
-    hands="Inyan. Dastanas +1",
+    hands="Fili Manchettes +1",
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
@@ -321,7 +335,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
         body="Fili Hongreline +1",
-        hands="Inyan. Dastanas +1",    
+        hands="Fili Manchettes +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
@@ -338,7 +352,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
         body="Fili Hongreline +1",
-        hands="Inyan. Dastanas +1",    
+        hands="Fili Manchettes +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
@@ -369,22 +383,74 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    left_ear="Loquac. Earring",
+    neck="Nodens Gorget",
+    waist="Luminary Sash",
+    left_ear="Gifted Earring",
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
-    right_ring="Kishar Ring",
+    right_ring="Stikini Ring +1",
     back="Solemnity Cape",
 }
         
     sets.midcast.Curaga = sets.midcast.Cure
         
-    sets.midcast.Stoneskin = {
-        }
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {         
+      sub="Ammurapi Shield",
+     neck="Nodens Gorget",
+     waist="Siegel Sash",
+    })
         
     sets.midcast.Cursna = {
-        neck="Malison Medallion",
-        ring1="Ephedra Ring"}
+        neck="Debilis Medallion",
+        left_ring="Ephedra Ring",
+        right_ring="Haoma's Ring",}
 
+    sets.midcast.StatusRemoval = {
+            head="Vanya Hood",
+            body="Vanya Robe",
+            legs="Aya. Cosciales +2",
+            feet="Vanya Clogs",
+            neck="Incanter's Torque",
+            ear2="Meili Earring",
+            ring1="Stikini Ring +1",
+            ring2="Stikini Ring +1",
+            }
+
+    sets.midcast['Enhancing Magic'] = {
+            sub="Ammurapi Shield",
+            head="Umuthi Hat",
+            body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
+            hands="Inyan. Dastanas +2",
+            legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+            feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+            neck="Incanter's Torque",
+            waist="Olympus Sash",
+            left_ear="Andoaa Earring",
+            right_ear="Mendi. Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Stikini Ring +1",
+            back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+            }
+        
+    sets.midcast['Enfeebling Magic'] = {
+        main="Arendsi Fleuret",
+        sub="Ammurapi Shield",
+        range={ name="Linos", augments={'Attack+15','Weapon skill damage +1%','Quadruple Attack +2',}},
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Inyan. Dastanas +2",
+        legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+        feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
+        neck="Incanter's Torque",
+        waist="Luminary Sash",
+        left_ear="Crep. Earring",
+        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+            back="Aurist's Cape +1",
+            }
+    
+    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
+    
     
     -- Sets to return to when not performing an action.
     
@@ -525,7 +591,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Nyame Sollerets",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
@@ -559,7 +625,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Nyame Sollerets",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
@@ -576,7 +642,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Nyame Sollerets",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
@@ -616,7 +682,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Reiki Yotai",
         left_ear="Suppanomimi",

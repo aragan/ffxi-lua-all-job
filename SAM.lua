@@ -339,6 +339,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
+        main="Shining One",
+        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -716,7 +718,9 @@ function init_gear_sets()
     })
 
     sets.engaged.polearm = set_combine(sets.engaged, {range=empty,
-             ammo="Coiste Bodhar",
+         main="Shining One",
+         sub="Utu Grip",
+         ammo="Coiste Bodhar",
          head="Flam. Zucchetto +2",
          body="Kasuga Domaru +2",
          hands={ name="Tatena. Gote +1", augments={'Path: A',}},
@@ -764,7 +768,9 @@ function init_gear_sets()
     })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {range=empty,
-        ammo="Aurgelmir Orb +1",
+    main={ name="Masamune", augments={'Path: A',}},
+    sub="Utu Grip",
+    ammo="Aurgelmir Orb +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mpaca's Doublet",
     hands="Flam. Manopolas +2",
@@ -829,7 +835,7 @@ function init_gear_sets()
     sets.engaged.STP = {range=empty,
         ammo="Coiste Bodhar",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
-        body="Kasuga Domaru +1",
+        body="Kasuga Domaru +2",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Kasuga Haidate +2",
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},

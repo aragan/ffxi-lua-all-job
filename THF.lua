@@ -111,13 +111,13 @@ function init_gear_sets()
     --------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Collaborator'] = {head="Raider's Bonnet +2"}
-    sets.precast.JA['Accomplice'] = {head="Raider's Bonnet +2"}
+    sets.precast.JA['Collaborator'] = {head="Skulker's Bonnet +1",}
+    sets.precast.JA['Accomplice'] = {head="Skulker's Bonnet +1",}
     sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +1"}
-    sets.precast.JA['Hide'] = {body="Pillager's Vest +1"}
+    sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
     sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
-    sets.precast.JA['Steal'] = {head="Plunderer's Bonnet",hands="Pillager's Armlets +1",legs="Pillager's Culottes +1",feet="Pillager's Poulaines +1"}
-    sets.precast.JA['Despoil'] = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
+    sets.precast.JA['Steal'] = {head="Plunderer's Bonnet",hands="Pillager's Armlets +1",}
+    sets.precast.JA['Despoil'] = {legs="Raider's Culottes +2",feet="Skulk. Poulaines +1",}
     sets.precast.JA['Perfect Dodge'] = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}},}
     sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
 
@@ -279,11 +279,11 @@ function init_gear_sets()
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
     sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS)
     sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
 
     sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -319,11 +319,11 @@ function init_gear_sets()
     })
     sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {back="Kayapa Cape",waist=gear.ElementalBelt})
     sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
 
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {range=empty,
         ammo="Yetshila +1",
@@ -344,11 +344,11 @@ function init_gear_sets()
     sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
     sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
     sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
     sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
-        body="Pillager's Vest +1",legs="Pillager's Culottes +1"})
+        body="Pillager's Vest +3",})
 
     sets.precast.WS['Aeolian Edge'] = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -667,7 +667,7 @@ function init_gear_sets()
         
     }
     sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
-    right_ring="Defending Ring",
+    feet={ name="Plun. Poulaines +2", augments={'Enhances "Assassin\'s Charge" effect',}},
     })
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
