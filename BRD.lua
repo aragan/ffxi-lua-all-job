@@ -128,7 +128,8 @@ function init_gear_sets()
     right_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
     right_ring="Kishar Ring",
-    back={ name="Fi Follet Cape +1", augments={'Path: A',}},,})
+    back="Fi Follet Cape +1",
+})
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
