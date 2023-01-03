@@ -678,7 +678,6 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
     sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
-        ammo="Staunch Tathlum +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",

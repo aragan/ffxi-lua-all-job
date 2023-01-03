@@ -27,6 +27,8 @@ function job_setup()
 	state.Buff.Barrage = buffactive.Barrage or false
 	state.Buff.Camouflage = buffactive.Camouflage or false
 	state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
+    state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
+    state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	send_command('wait 2;input /lockstyleset 200')
 
@@ -46,8 +48,14 @@ function user_setup()
 	gear.default.weaponskill_waist = ""
 	 
 
-	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Chrono Bullett"}
+	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", 
+	              ['Annihilator'] = "Decimating Bullett",
+				  ['Fomalhaut'] = "Decimating Bullett",
+				}
+	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", 
+	              ['Annihilator'] = "Chrono Bullett",
+				  ['Fomalhaut'] = "Chrono Bullet",
+				}
 
 
 	select_default_macro_book()
@@ -79,6 +87,8 @@ function init_gear_sets()
 	sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
 	sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +1"}
 	sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +1"}
+	sets.precast.JA['Eagle Eye Shot'] = {legs="Arc. Braccae +3"}
+
 
 
 	-- Fast cast sets for spells
@@ -95,8 +105,8 @@ function init_gear_sets()
 	sets.precast.RA = {
 
 	head="Ikenga's Hat",
-    body="Amini Caban +1",
-    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+	body="Oshosi Vest",
+	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +2",
     waist="Yemaya Belt",
@@ -475,7 +485,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Custom buff sets
 	--------------------------------------
-
+	sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {body="Amini Caban +1",})
 	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
 	sets.buff.Camouflage = {}
 	sets.Doom = {    neck="Nicander's Necklace",
