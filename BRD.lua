@@ -444,7 +444,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         neck="Incanter's Torque",
         waist="Luminary Sash",
         left_ear="Crep. Earring",
-        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
+        right_ear="Fili Earring +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
             back="Aurist's Cape +1",
@@ -614,7 +614,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
         neck="Lissome Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
-        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
+        right_ear="Fili Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
         back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
@@ -708,29 +708,17 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-	if spell.english == "Utsusemi: Ichi" then
-		if buffactive['Copy Image'] then
-			send_command('cancel 66')
-		elseif buffactive['Copy Image (2)'] then 
-			send_command('cancel 444')
-		elseif buffactive['Copy Image (3)'] then
-			send_command('cancel 445')
-		elseif buffactive['Copy Image (4+)'] then
-			send_command('cancel 446')
-		end
-	end
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
 
-	if spell.english == "Utsusemi: Ni" then
-		if buffactive['Copy Image'] then
-			send_command('cancel 66')
-		elseif buffactive['Copy Image (2)'] then 
-			send_command('cancel 444')
-		elseif buffactive['Copy Image (3)'] then
-			send_command('cancel 445')
-		elseif buffactive['Copy Image (4+)'] then
-			send_command('cancel 446')
-		end
-	end
     if spell.type == 'BardSong' then
         -- Auto-Pianissimo
         if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
