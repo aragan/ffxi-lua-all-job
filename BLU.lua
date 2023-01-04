@@ -254,12 +254,12 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.WS = {
-        ammo="Mantoptera Eye",
-        head="Malignance Chapeau",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Malignance Boots",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
@@ -290,11 +290,11 @@ function init_gear_sets()
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
             ammo="Aurgelmir Orb +1",
-            head="Gleti's Mask",
-            body="Gleti's Cuirass",
-            hands="Jhakri Cuffs +2",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+            feet="Nyame Sollerets",
             neck="Fotia Gorget",
             waist="Fotia Belt",
             left_ear="Ishvara Earring",
@@ -308,10 +308,10 @@ function init_gear_sets()
         
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
-            body="Jhakri Robe +2",
-            hands="Jhakri Cuffs +2",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet="Jhakri Pigaches +2",
+            feet="Nyame Sollerets",
             neck="Baetyl Pendant",
             waist="Hachirin-no-Obi",
             left_ear="Friomisi Earring",
@@ -820,7 +820,7 @@ function init_gear_sets()
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
 
-    sets.self_healing = {ring1="Kunaji Ring",ring2="Asklepian Ring"}
+    sets.self_healing = {ring2="Asklepian Ring"}
 end
 
 -------------------------------------------------------------------------------------------------------------------

@@ -119,7 +119,7 @@ function init_gear_sets()
 	sets.precast.WS = {
 		head="Nyame Helm",
 		body="Nyame Mail",
-		hands="Meg. Gloves +2",
+		hands="Nyame Gauntlets",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
@@ -226,7 +226,7 @@ function init_gear_sets()
 	sets.precast.WS['Aeolian Edge'] = {
 		head="Nyame Helm",
 		body="Nyame Mail",
-		hands="Meg. Gloves +2",
+		hands="Nyame Gauntlets",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Baetyl Pendant",
