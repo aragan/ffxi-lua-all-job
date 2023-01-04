@@ -45,7 +45,23 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-
+organizer_items = {
+    ammo="Meaty Broth",
+    ammo="Livid Broth",
+    ammo="Turpid Broth",
+    ammo="Aged Humus",
+    ammo="Lyrical Broth",
+    ammo="Tant. Broth",
+    ammo="Furious Broth",
+    item="Rolan. Daifuku",
+    ammo="Dire Broth",
+    ammo="Bug-Ridden Broth",
+    ammo="C. Plasma Broth",
+    ammo="Vermihumus",
+    ammo="Bubbly Broth",
+    ammo="Putrescent Broth",
+    ammo="Pale Sap",
+}
 function job_setup()
 	state.Buff['Killer Instinct'] = buffactive['Killer Instinct'] or false
 	state.Buff.Doomed = buffactive.doomed or false

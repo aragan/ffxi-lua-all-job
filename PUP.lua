@@ -229,9 +229,14 @@ function init_gear_sets()
         This section is best ultilized for defining gear that is used among multiple sets
         You can simply use or ignore the below
     ]]
-    Animators = {}
+    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
     Animators.Range = "Animator P II"
     Animators.Melee = "Animator P +1"
+
+    organizer_items = {
+        ammo="Automat. Oil +3",
+        item="Dawn Mulsum",    
+    }
 
     --Adjust to your reforge level
     --Sets up a Key, Value Pair

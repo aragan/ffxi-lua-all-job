@@ -30,6 +30,11 @@ function job_setup()
     define_roll_values()
 end
 include('organizer-lib')
+organizer_items = {
+    "Trump Card Case",
+    waist="Chr. Bul. Pouch",  
+}
+
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
@@ -41,7 +46,8 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
-
+    
+    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     gear.RAbullet = "Decimating Bullet"
     gear.WSbullet = "Chrono Bullet"
     gear.MAbullet = "Chrono Bullet"
@@ -777,7 +783,14 @@ function do_bullet_checks(spell, spellMap, eventArgs)
         state.warned:reset()
     end
 end
-
+function special_ammo_check()
+    -- Stop if Animikii/Hauksbok equipped
+    if no_shoot_ammo:contains(player.equipment.ammo) then
+        cancel_spell()
+        add_to_chat(123, '** Action Canceled: [ '.. player.equipment.ammo .. ' equipped!! ] **')
+        return
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(4, 2)

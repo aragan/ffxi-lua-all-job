@@ -214,6 +214,14 @@ function init_gear_sets()
     ---Pet Only Sets
     ---Misc Sets
     include('organizer-lib')
+    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
+    Animators.Range = "Animator P II"
+    Animators.Melee = "Animator P +1"
+
+    organizer_items = {
+        ammo="Automat. Oil +3",
+        item="Dawn Mulsum",    
+    }
     -------------------------------------------------------------------------
     --  _____                  __      __        _       _     _
     -- / ____|                 \ \    / /       (_)     | |   | |

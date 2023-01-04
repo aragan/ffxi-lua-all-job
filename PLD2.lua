@@ -1,4 +1,4 @@
-require 'organizer-lib'
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------- Initialization function that defines sets and variables to be used -----------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -9,6 +9,10 @@ require 'organizer-lib'
 function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
+    include('organizer-lib')
+    organizer_items = {
+        main="Mercurial Sword",
+    }
 end
 
  

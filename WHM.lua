@@ -118,21 +118,7 @@ function init_gear_sets()
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
-        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-        sub="Genmei Shield",
-        ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-        hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Halasz Earring",
-        left_ring="Evanescence Ring",
-        right_ring="Freke Ring",
-        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+
     }
     sets.midcast.Resistant = {
         main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},

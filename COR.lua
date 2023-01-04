@@ -37,6 +37,11 @@ function job_setup()
     define_roll_values()
 end
 include('organizer-lib')
+organizer_items = {
+    "Trump Card Case",
+    waist="Chr. Bul. Pouch",  
+}
+
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
@@ -48,7 +53,10 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
+    
+    state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Armageddon'}
 
+    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     gear.RAbullet = "Decimating Bullet"
     gear.WSbullet = "Chrono Bullet"
     gear.MAbullet = "Chrono Bullet"
@@ -784,6 +792,14 @@ function do_bullet_checks(spell, spellMap, eventArgs)
         state.warned:set()
     elseif available_bullets.count > options.ammo_warning_limit and state.warned then
         state.warned:reset()
+    end
+end
+function special_ammo_check()
+    -- Stop if Animikii/Hauksbok equipped
+    if no_shoot_ammo:contains(player.equipment.ammo) then
+        cancel_spell()
+        add_to_chat(123, '** Action Canceled: [ '.. player.equipment.ammo .. ' equipped!! ] **')
+        return
     end
 end
 add_to_chat(159,'Author Aragan COR.Lua File (from Asura)')

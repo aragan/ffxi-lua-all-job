@@ -20,6 +20,15 @@ function get_sets()
     mote_include_version = 2
     include('Mote-Include.lua')
     include('organizer-lib')
+    organizer_items = {
+        item="Shinobi-Tabi",
+        item="Chonofuda",
+        item="Shikanofuda",
+        item="Inoshishinofuda",
+        item="Sanjaku-Tenugui",
+        item="Toolbag (Cho)",   
+    }
+    
 end
 
 

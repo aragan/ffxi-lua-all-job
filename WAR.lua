@@ -18,6 +18,10 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+    organizer_items = {
+        ammo="Thr. Tomahawk",
+    }
+    
 end
  
  

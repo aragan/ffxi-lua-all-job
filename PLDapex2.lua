@@ -16,7 +16,10 @@
 function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
-    require 'organizer-lib'
+    include('organizer-lib')
+    organizer_items = {
+        main="Mercurial Sword",
+    }
     add_to_chat(123,'Author Aragan PLD.Lua File (from Asura)')
 
 

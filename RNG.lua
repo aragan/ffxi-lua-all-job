@@ -46,7 +46,14 @@ function user_setup()
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
-	 
+
+    war_sub_weapons = S{"Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
+	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
+	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow",
+
+}
+
+	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
 	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", 
 	              ['Annihilator'] = "Decimating Bullett",
@@ -617,7 +624,14 @@ function check_ammo(spell, action, spellMap, eventArgs)
 		end
 	end
 end
-
+function special_ammo_check()
+    -- Stop if Animikii/Hauksbok equipped
+    if no_shoot_ammo:contains(player.equipment.ammo) then
+        cancel_spell()
+        add_to_chat(123, '** Action Canceled: [ '.. player.equipment.ammo .. ' equipped!! ] **')
+        return
+    end
+end
 add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
