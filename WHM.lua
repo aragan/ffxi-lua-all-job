@@ -66,7 +66,10 @@ function init_gear_sets()
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
-    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {neck="Nicander's Necklace",waist="Siegel Sash",})
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+        head="Umuthi Hat",
+        neck="Nodens Gorget",
+        waist="Siegel Sash",})
 
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pant. +1",})
 
@@ -115,8 +118,38 @@ function init_gear_sets()
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
-        ear2="Loquacious Earring",
-        ring1="Prolix Ring",
+        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        sub="Sors Shield",
+        ammo="Staunch Tathlum +1",
+        head="Umuthi Hat",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
+        hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet="Inyan. Crackows +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Gishdubar Sash",
+        left_ear="Ethereal Earring",
+        right_ear="Halasz Earring",
+        left_ring="Evanescence Ring",
+        right_ring="Freke Ring",
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    }
+    sets.midcast.Resistant = {
+        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        sub="Sors Shield",
+        ammo="Staunch Tathlum +1",
+        head="Umuthi Hat",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
+        hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet="Inyan. Crackows +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Gishdubar Sash",
+        left_ear="Ethereal Earring",
+        right_ear="Halasz Earring",
+        left_ring="Evanescence Ring",
+        right_ring="Freke Ring",
+        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
     }
     
     -- Cure sets
@@ -144,13 +177,13 @@ function init_gear_sets()
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
     legs="Ebers Pant. +1",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck="Nodens Gorget",
+    neck="Reti Pendant",
     waist="Hachirin-no-Obi",
     left_ear="Mendi. Earring",
-    right_ear="Nourish. Earring",
+    right_ear="Gifted Earring",
     left_ring="Naji's Loop",
     right_ring="Mephitas's Ring",
     back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
@@ -160,16 +193,16 @@ function init_gear_sets()
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
     legs="Ebers Pant. +1",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck="Nodens Gorget",
+    neck="Reti Pendant",
     waist="Hachirin-no-Obi",
     left_ear="Mendi. Earring",
-    right_ear="Nourish. Earring",
+    right_ear="Gifted Earring",
     left_ring="Naji's Loop",
     right_ring="Mephitas's Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Solemnity Cape",}
 
     sets.midcast.CureMelee = {}
 
@@ -178,10 +211,14 @@ function init_gear_sets()
         body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
         hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         neck="Debilis Medallion",
+        waist="Gishdubar Sash",
         left_ring="Haoma's Ring",
+        right_ring="Haoma's Ring",
         back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
     }
+    sets.midcast.Refresh = {waist="Gishdubar Sash",}
 
     sets.midcast.StatusRemoval = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -336,7 +373,7 @@ function init_gear_sets()
         body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
         hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
-        feet="Herald's Gaiters",
+        feet="Inyan. Crackows +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Fucho-no-Obi",
         left_ear="Genmei Earring",
@@ -405,7 +442,7 @@ function init_gear_sets()
         body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
         hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
-        feet="Nyame Sollerets",
+        feet="Herald's Gaiters",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Fucho-no-Obi",
         left_ear="Genmei Earring",
