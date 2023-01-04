@@ -296,7 +296,7 @@ function init_gear_sets()
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
             feet="Nyame Sollerets",
             neck="Fotia Gorget",
-            waist="Fotia Belt",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Epaminondas's Ring",
@@ -341,12 +341,11 @@ function init_gear_sets()
     
     sets.precast.WS['Expiacion'] = {
         
-        ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Jhakri Cuffs +2",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Gleti's Boots",
+        feet="Nyame Sollerets",
         neck="Caro Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},

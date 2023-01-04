@@ -272,12 +272,12 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        ammo="Mantoptera Eye",
-        head="Malignance Chapeau",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Malignance Boots",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
@@ -308,13 +308,13 @@ function init_gear_sets()
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
             ammo="Aurgelmir Orb +1",
-            head="Gleti's Mask",
-            body="Gleti's Cuirass",
-            hands="Jhakri Cuffs +2",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+            feet="Nyame Sollerets",
             neck="Fotia Gorget",
-            waist="Fotia Belt",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Epaminondas's Ring",
@@ -326,10 +326,10 @@ function init_gear_sets()
         
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
-            body="Jhakri Robe +2",
-            hands="Jhakri Cuffs +2",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet="Jhakri Pigaches +2",
+            feet="Nyame Sollerets",
             neck="Baetyl Pendant",
             waist="Hachirin-no-Obi",
             left_ear="Friomisi Earring",
@@ -359,12 +359,11 @@ function init_gear_sets()
     
     sets.precast.WS['Expiacion'] = {
         
-        ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Jhakri Cuffs +2",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Gleti's Boots",
+        feet="Nyame Sollerets",
         neck="Caro Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
