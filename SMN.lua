@@ -620,13 +620,13 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
-        eventArgs.handled = true
+        eventArgs.useMidcastGear = true
     end
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
-        eventArgs.handled = true
+        eventArgs.useMidcastGear = true
     end
 end
 
