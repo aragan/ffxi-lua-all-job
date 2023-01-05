@@ -193,17 +193,18 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Mpaca's Cap",
+        ammo="Knobkierrie",
+    head="Mpaca's Cap",
     body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
     hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
-    legs="Wakido Haidate +2",
-    feet={ name="Sak. Sune-Ate +3", augments={'Enhances "Meikyo Shisui" effect',}},
+    legs="Wakido Haidate +3",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Regal Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
