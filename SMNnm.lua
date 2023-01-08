@@ -582,7 +582,6 @@ function init_gear_sets()
         right_ring="Defending Ring",
         back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
-end
 
 sets.engaged.Acc = {
     main="Contemplator +1",
