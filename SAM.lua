@@ -805,16 +805,16 @@ function init_gear_sets()
     })
     sets.engaged.Counter = set_combine(sets.engaged, {
         ammo="Amar Cluster",
-        head="Hiza. Somen +2",
+        head={ name="Loess Barbuta +1", augments={'Path: A',}},
         body="Mpaca's Doublet",
-        hands={ name="Rao Kote +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        legs={ name="Sakonji Haidate +3", augments={'Enhances "Shikikoyo" effect',}},
+        hands="Hizamaru Kote +2",
+        legs="Kasuga Haidate +2",
         feet="Hiza. Sune-Ate +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Genmei Earring",
-        right_ear="Cryptic Earring",
-        left_ring="Niqmaddu Ring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
         right_ring="Hizamaru Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
 
@@ -939,6 +939,8 @@ function init_gear_sets()
     
     sets.MadrigalBonus = {hands="Composer's Mitts"}
     sets.Terror = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
+    sets.Stun = {
+        feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",

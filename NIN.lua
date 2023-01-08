@@ -36,7 +36,8 @@ end
 function job_setup()
 
     state.Buff.Migawari = buffactive.migawari or false
-
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
     state.Buff.Innin = buffactive.innin or false
 
 
@@ -85,7 +86,8 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
 
     select_default_macro_book()
-
+    
+    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
     send_command('bind ![ input /lockstyle off')
@@ -1410,6 +1412,18 @@ function job_state_change(stateField, newValue, oldValue)
         add_to_chat(8, '------------WARPING-----------')
         --equip({ring1="Warp Ring"})
         send_command('input //gs equip sets.Warp;@wait 10.0;input /item "Warp Ring" <me>;')
+    end
+    if stateField == 'Offense Mode' then
+        if newValue == 'Normal' then
+            disable('main','sub','range')
+        else
+            enable('main','sub','range')
+        end
+    end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
     end
 end
 

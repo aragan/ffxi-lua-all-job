@@ -245,50 +245,105 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-        --ammo="Floestone",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
-        legs=gear.Telchine_ENH_legs,
-        feet="Jhakri Pigaches +2",
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
-        ear1="Moonshade Earring",
-        ear2="Telos Earring",
-        ring1="Epaminondas's Ring",
-        ring2="Rufescent Ring",
-        back="Relucent Cape",
         waist="Fotia Belt",
-        }
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Rufescent Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
     sets.precast.WS['Omniscience'] = set_combine(sets.precast.WS, {
-        ammo="Ghastly Tathlum +1",
+        ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
-        body="Peda. Gown +3",
-        legs="Peda. Pants +3",
-        feet="Merlinic Crackows",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
-        ring2="Archon Ring",
-        back=gear.SCH_MAB_Cape,
-        waist="Sacro Cord",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
         })
 
+        sets.precast.WS['Myrkr'] = {
+            ammo="Pemphredo Tathlum",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Freke Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
-    sets.precast.WS['Myrkr'] = {
-        ammo="Ghastly Tathlum +1",
-        head="Pixie Hairpin +1",
-        body="Amalric Doublet +1",
-        hands="Kaykaus Cuffs +1",
-        legs="Amalric Slops +1",
-        feet="Kaykaus Boots +1",
-        neck="Orunmila's Torque",
-        ear1="Loquacious Earring",
-        ear2="Etiolation Earring",
-        ring1={name="Fenrir Ring +1", bag="wardrobe3"},
-        ring2="Metamor. Ring +1",
-        back="Fi Follet Cape +1",
-        waist="Shinjutsu-no-Obi +1",
-        } -- Max MP
+        sets.precast.WS['Cataclysm'] = {
+            ammo="Pemphredo Tathlum",
+            head="Pixie Hairpin +1",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Archon Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }
+        
+     sets.precast.WS['Black Halo'] = {
+        ammo="Crepuscular Pebble",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Caro Necklace",
+        waist="Luminary Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Epaminondas's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+
+    sets.precast.WS['Shattersoul'] = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Brutal Earring",
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        left_ring="Rufescent Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
 
 
     ------------------------------------------------------------------------------------------------
@@ -328,30 +383,27 @@ function init_gear_sets()
         })
 
     sets.midcast.StatusRemoval = {
-        main="Musa",
-        sub="Khonsu",
-        head="Vanya Hood",
-        body="Vanya Robe",
-        hands="Peda. Bracers +3",
-        legs="Acad. Pants +3",
-        feet="Vanya Clogs",
-        neck="Incanter's Torque",
-        ear2="Meili Earring",
-        ring1="Haoma's Ring",
-        ring2="Menelaus's Ring",
-        waist="Bishop's Sash",
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        ammo="Pemphredo Tathlum",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck="Debilis Medallion",
+        left_ring="Ephedra Ring",
+        right_ring="Haoma's Ring",
         }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
-        main=gear.Gada_ENH,
-        sub="Ammurapi Shield",
-        hands="Hieros Mittens",
-        feet="Vanya Clogs",
-        --feet="Gende. Galosh. +1",
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        ammo="Pemphredo Tathlum",
+        body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
+        hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         neck="Debilis Medallion",
-        ear1="Beatific Earring",
-        ring2="Menelaus's Ring",
-        back="Oretan. Cape +1",
+        waist="Gishdubar Sash",
+        left_ring="Haoma's Ring",
+        right_ring="Haoma's Ring",
         })
 
     sets.midcast['Enhancing Magic'] = {
@@ -372,7 +424,7 @@ function init_gear_sets()
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
         }
 
-    sets.midcast.EnhancingDuration = {
+    sets.midcast.EnhancingDuration = set_combine(sets.midcast['Enhancing Magic'], {
         main="Musa",
         sub="Khonsu",
         head=gear.Telchine_ENH_head,
@@ -381,9 +433,9 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_legs,
         feet=gear.Telchine_ENH_feet,
         waist="Embla Sash",
-        }
+        })
 
-    sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
+    sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
         main="Musa",
         sub="Khonsu",
         head="Arbatel Bonnet +1",
@@ -391,28 +443,30 @@ function init_gear_sets()
         hands=gear.Telchine_ENH_hands,
         legs=gear.Telchine_ENH_legs,
         feet=gear.Telchine_ENH_feet,
+        waist="Embla Sash",
         back="Bookworm's Cape",
         })
 
-    sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
+    sets.midcast.RegenDuration = set_combine(sets.midcast['Enhancing Magic'], {
         head=gear.Telchine_ENH_head,
         back=gear.SCH_FC_Cape,
+        waist="Embla Sash",
         })
 
     sets.midcast.Haste = sets.midcast.EnhancingDuration
 
-    sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
         head="Amalric Coif +1",
         waist="Gishdubar Sash",
         back="Grapevine Cape",
         })
 
-    sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
         neck="Nodens Gorget",
         waist="Siegel Sash",
         })
 
-    sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
+    sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
         main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
@@ -421,14 +475,14 @@ function init_gear_sets()
         ear1="Halasz Earring",
         ear2="Magnetic Earring",
         ring1="Freke Ring",
-        waist="Emphatikos Rope",
+        waist="Embla Sash",
         })
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
 
     sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet="Peda. Loafers +3"})
 
-    sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {ring2="Sheltered Ring"})
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell
@@ -452,7 +506,7 @@ function init_gear_sets()
         waist="Luminary Sash",
         }
 
-    sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
+    sets.midcast.IntEnfeebles = set_combine(sets.midcast.Enfeebles, {
         main="Maxentius",
         sub="Ammurapi Shield",
         head="Acad. Mortar. +3",
@@ -558,13 +612,13 @@ function init_gear_sets()
         waist="Shinjutsu-no-Obi +1",
         })
 
-    sets.midcast.Helix = {
+    sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'], {
         main="Bunzi's Rod",
         sub="Ammurapi Shield",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         neck="Mizu. Kubikazari",
         waist="Orpheus's Sash",
-    }
+    })
 
     sets.midcast.DarkHelix = set_combine(sets.midcast.Helix, {
         head="Pixie Hairpin +1",

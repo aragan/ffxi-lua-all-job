@@ -62,13 +62,15 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
+    state.OffenseMode:options('None', 'Normal','Club', 'Staff', 'MaxAcc', 'Shield')
+    state.HybridMode:options('Normal', 'MaxAcc')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @w gs c toggle WeaponLock')
 
     select_default_macro_book()
 end
@@ -162,35 +164,75 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back="Argocham. Mantle",
     }
-    sets.precast.WS['Black Halo'] = {
-        ammo="Pemphredo Tathlum",
+
+            sets.precast.WS['Myrkr'] = {
+            ammo="Pemphredo Tathlum",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Freke Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},}
+
+        sets.precast.WS['Cataclysm'] = {
+            ammo="Pemphredo Tathlum",
+            head="Pixie Hairpin +1",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Archon Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }
+        
+     sets.precast.WS['Black Halo'] = {
+        ammo="Crepuscular Pebble",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Caro Necklace",
-        waist="Grunfeld Rope",
+        waist="Luminary Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Brutal Earring",
-        left_ring="Freke Ring",
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Epaminondas's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }    
-    sets.precast.WS['Cataclysm'] = {
-        ammo="Pemphredo Tathlum",
+    }
+
+    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+
+    sets.precast.WS['Shattersoul'] = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Malignance Earring",
-        left_ring="Freke Ring",
-        right_ring="Epaminondas's Ring",
-        back="Argocham. Mantle",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Brutal Earring",
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        left_ring="Rufescent Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     -- Midcast Sets
     
@@ -547,24 +589,117 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        main="Maxentius",
-        sub="Ammurapi Shield",
         ammo="Amar Cluster",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Aya. Manopolas +2",
+        hands="Bunzi's Gloves",
         legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +2",
         neck="Lissome Necklace",
         waist="Grunfeld Rope",
         left_ear="Brutal Earring",
         right_ear="Telos Earring",
-        left_ring="Hetairoi Ring",
+        left_ring="Chirich Ring +1",
         right_ring="Petrov Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
-        
-    
     }
+    sets.engaged.Club = {
+        main="Maxentius",
+        sub="Genmei Shield",
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Lissome Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Brutal Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.Staff = {
+        main="Malignance Pole",
+        sub="Enki Strap",
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Lissome Necklace",
+        waist="Windbuffet Belt +1",
+        left_ear="Brutal Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.MaxAcc = {
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Subtlety Spec.",
+        waist="Olseni Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.MaxAcc.Staff = {
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Subtlety Spec.",
+        waist="Olseni Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.MaxAcc.Club = {
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Subtlety Spec.",
+        waist="Olseni Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.Shield = {
+            main="Maxentius",
+            sub="Genmei Shield",
+            ammo="Amar Cluster",
+            head="Aya. Zucchetto +2",
+            body="Ayanmo Corazza +2",
+            hands="Bunzi's Gloves",
+            legs="Aya. Cosciales +2",
+            feet={ name="Nyame Sollerets", augments={'Path: B',}},
+            neck="Lissome Necklace",
+            waist="Grunfeld Rope",
+            left_ear="Brutal Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Defending Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

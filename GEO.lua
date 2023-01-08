@@ -38,8 +38,10 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.Buff.Poison = buffactive['Poison'] or false
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
 
-    state.OffenseMode:options('None', 'Normal', 'Melee')
+    state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Melee')
 
@@ -49,6 +51,7 @@ function user_setup()
 
     select_default_macro_book()
     send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @w gs c toggle WeaponLock')
 end
 
 function file_unload()
@@ -127,6 +130,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
+
     sets.precast.WS['Flash Nova'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
@@ -142,25 +146,80 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back="Argocham. Mantle",
     }
-    sets.precast.WS['Cataclysm'] = {
-        ammo="Pemphredo Tathlum",
+
+            sets.precast.WS['Myrkr'] = {
+            ammo="Pemphredo Tathlum",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Freke Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},}
+
+        sets.precast.WS['Cataclysm'] = {
+            ammo="Pemphredo Tathlum",
+            head="Pixie Hairpin +1",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Baetyl Pendant",
+            waist="Orpheus's Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Friomisi Earring",
+            left_ring="Epaminondas's Ring",
+            right_ring="Archon Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }
+        
+     sets.precast.WS['Black Halo'] = {
+        ammo="Crepuscular Pebble",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Malignance Earring",
-        left_ring="Freke Ring",
+        neck="Caro Necklace",
+        waist="Luminary Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Epaminondas's Ring",
-        back="Argocham. Mantle",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
-    sets.precast.WS['Starlight'] = {ear2="Moonshade Earring"}
+    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
 
-    sets.precast.WS['Moonlight'] = {ear2="Moonshade Earring"}
+    sets.precast.WS['Shattersoul'] = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Brutal Earring",
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        left_ring="Rufescent Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.precast.WS['Starlight'] = sets.precast.WS
+
+    sets.precast.WS['Moonlight'] = sets.precast.WS
 
 
     --------------------------------------
@@ -169,20 +228,10 @@ function init_gear_sets()
 
     -- Base fast recast for spells
     sets.midcast.FastRecast = {
-        ear2="Loquacious Earring",
-        neck="Incanter's Torque",
-        ring1="Prolix Ring",
-        back="Lifestream Cape",
-        waist="Witful Belt", -- 4%
-        legs="Geomancy Pants +1", -- 5%
-        feet="Merlinic Crackows"
+
     }
     sets.midcast.Trust =  {
-         head="Azimuth hood +1",
-         hands="Amalric Gages", 
-         body="Azimuth Coat +1",
-         legs="Azimuth Tights +1",
-         feet="Helios Boots"
+
     }
      sets.midcast["Apururu (UC)"] = set_combine(sets.midcast.Trust, {
          body="Apururu Unity shirt",
@@ -219,7 +268,7 @@ function init_gear_sets()
         back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
     })
 
-    sets.midcast.Cure = set_combine(sets.midcast.FastRecast, {
+    sets.midcast.Cure = {
         main="Daybreak",
         sub="Sors Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -235,7 +284,7 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring="Naji's Loop",
         back="Solemnity Cape",
-    })
+    }
     
     sets.midcast.Curaga = sets.midcast.Cure
 
@@ -555,6 +604,22 @@ function init_gear_sets()
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},    })
+       
+        sets.engaged.Shield = set_combine(sets.engaged, { 
+            main="Maxentius",
+            sub="Genmei Shield",
+            head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Telos Earring",
+        right_ear="Mache Earring +1",
+        left_ring="Defending Ring",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},    })
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
@@ -627,11 +692,16 @@ end
 
 function job_state_change(stateField, newValue, oldValue)
     if stateField == 'Offense Mode' then
-        if newValue == 'Melee' then
-            disable('main','sub')
+        if newValue == 'Normal' then
+            disable('main','sub','range')
         else
-            enable('main','sub')
+            enable('main','sub','range')
         end
+    end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
     end
 end
 
@@ -696,7 +766,15 @@ end
 
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
-    display_current_caster_state()
+    
+    local i_msg = state.IdleMode.value
+
+    local msg = ''
+    if state.MagicBurst.value then
+        msg = ' Burst: On |'
+    end
+    add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,002)..msg)
     eventArgs.handled = true
 end
 

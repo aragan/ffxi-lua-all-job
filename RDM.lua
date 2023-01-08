@@ -52,7 +52,7 @@ function user_setup()
     
     select_default_macro_book()
 
-
+    send_command('bind @w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
@@ -267,7 +267,77 @@ function init_gear_sets()
 		left_ring="Rufescent Ring",
 		right_ring="Epaminondas's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-	}
+	}  
+	    sets.precast.WS['Cataclysm'] = {
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",
+		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+
+    }
+	sets.precast.WS['Myrkr'] = {
+		ammo="Pemphredo Tathlum",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Baetyl Pendant",
+		waist="Orpheus's Sash",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Friomisi Earring",
+		left_ring="Epaminondas's Ring",
+		right_ring="Freke Ring",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},}
+
+	
+ sets.precast.WS['Black Halo'] = {
+	ammo="Crepuscular Pebble",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Caro Necklace",
+	waist="Luminary Sash",
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Ishvara Earring",
+	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+	right_ring="Epaminondas's Ring",
+	back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
+
+sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+
+sets.precast.WS['Shattersoul'] = {
+	ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Fotia Belt",
+	left_ear="Brutal Earring",
+	right_ear="Ishvara Earring",
+	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+	left_ring="Rufescent Ring",
+	back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
 	
 
 	
@@ -366,9 +436,7 @@ function init_gear_sets()
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
 		waist="Siegel Sash",
 		neck="Nodens Gorget",
-		hands="Stone Mufflers",
-		legs="Haven hose",
-		ear2="Earthcry Earring"})
+    })
 	
 	
 	-- If you have them, add Shedir Seraweels, Regal Cuffs, Amalric Coif (+1), or Chironic Hat

@@ -100,6 +100,7 @@ function job_setup()
 	state.Buff.Doom = buffactive.doom or false
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+	send_command('bind @w gs c toggle WeaponLock')
 	send_command('wait 2;input /lockstyleset 200')
 	get_combat_form()
 end
@@ -650,7 +651,22 @@ function init_gear_sets()
 		right_ear="Friomisi Earring",
 		left_ring="Beithir Ring",
 		right_ring="Epaminondas's Ring",
-}
+}   
+        sets.precast.WS['Cataclysm'] = {
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",
+        
+    }
 
 	-- Calamity, Meditate, Sekkanoki > brain > tail, leave, cb, fight > Primal Rend > tegmina > Clerrrdplerrterrr
 	--------------------------------------------------------------------------------		
