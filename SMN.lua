@@ -61,6 +61,8 @@ end
 function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
 
     spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
     avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
@@ -303,14 +305,14 @@ function init_gear_sets()
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head="C. Palug Crown",
-    body="Con. Doublet +2",
+    body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Blood Pact Dmg.+10','Pet: "Mag.Atk.Bns."+3',}},
     legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Kobo Obi",
-    left_ear="Beck. Earring",
-    right_ear="Esper Earring",
+    left_ear="Gelos Earring",
+    right_ear="Beck. Earring",
     left_ring="Varar Ring +1",
     right_ring="Varar Ring +1",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
@@ -958,7 +960,20 @@ function handle_pacts(cmdParams)
         add_to_chat(122,pet.name..' does not have a pact of type ['..pact..'].')
     end
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if stateField == 'Offense Mode' then
+        if newValue == 'Normal' then
+            disable('main','sub','range')
+        else
+            enable('main','sub','range')
+        end
+    end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -- Event handler for updates to player skill, since we can't rely on skill being
 -- correct at pet_aftercast for the creation of custom timers.
@@ -998,14 +1013,10 @@ function create_pact_timer(spell_name)
     end
 end
 
-
+add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
-function select_default_macro_book(reset)
-    if reset == 'reset' then
-        -- lost pet, or tried to use pact when pet is gone
-    end
-    add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
-    add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+function select_default_macro_book()
     -- Default macro set/book
     set_macro_page(3, 2)
 end

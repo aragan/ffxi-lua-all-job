@@ -276,7 +276,7 @@ function init_gear_sets()
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Incarnation Sash",
     left_ear="Gelos Earring",
-    right_ear="Esper Earring",
+    right_ear="Beck. Earring",
     left_ring="Varar Ring +1",
     right_ring="C. Palug Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
@@ -291,22 +291,22 @@ function init_gear_sets()
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head="C. Palug Crown",
-    body="Con. Doublet +2",
+    body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Blood Pact Dmg.+10','Pet: "Mag.Atk.Bns."+3',}},
     legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
     feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Kobo Obi",
     left_ear="Kyrene's Earring",
-    right_ear="Esper Earring",
+    right_ear="Beck. Earring",
     left_ring="Varar Ring +1",
     right_ring="Varar Ring +1",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     sets.midcast.Pet.MagicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {
       
-        left_ear="Kyrene's Earring",
-        right_ear="Gelos Earring",
+        left_ear="Gelos Earring",
+        right_ear="Beck. Earring",
     })
 
 
