@@ -529,9 +529,7 @@ sets.precast.WS['Shattersoul'] = {
 		right_ring="Shiva Ring +1",
 		back="Izdubar Mantle",}
 		
-	sets.midcast['Elemental Magic'].Burst = {    
-
-		
+    sets.magic_burst = {    
 		ammo="Pemphredo Tathlum",
 		head="Ea Hat",
 		body="Ea Houppelande",
@@ -539,12 +537,14 @@ sets.precast.WS['Shattersoul'] = {
 		legs="Ea Slops",
 		feet="Ea Pigaches",
 		neck="Mizu. Kubikazari",
-		waist="Eschan Stone",
-		left_ear="Hecate's Earring",
+		waist="Hachirin-no-Obi",
+		left_ear="Malignance Earring",
 		right_ear="Friomisi Earring",
 		left_ring="Mujin Band",
-		right_ring="Shiva Ring +1",
-		back="Izdubar Mantle",}
+		right_ring="Freke Ring",
+		back="Twilight Cape",
+    }
+	
     
 	sets.Obi = {waist="Hachirin-no-Obi",}
 	

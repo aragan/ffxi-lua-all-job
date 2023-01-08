@@ -79,9 +79,42 @@ function init_gear_sets()
 
     sets.CapacityMantle  = { back="Mecistopins Mantle" }
 
-    sets.Organizer = {
-  
-    }
+    sets.Organizer = {}
+
+    organizer_items = {
+            item="Gyudon",
+            item="Reraiser",
+            item="Hi-Reraiser",
+            item="Vile Elixir",
+            item="Vile Elixir +1",
+            item="Miso Ramen",
+            item="Carbonara",
+            item="Silent Oil",
+            item="Salt Ramen",
+            item="Panacea",
+            item="Toolbag (Shika)",
+            item="Sublime Sushi",
+            item="Sublime Sushi 1+",
+            item="Prism Powder",
+            item="Antacid",
+            item="Icarus Wing",
+            sub="Warp Cudgel",
+            item="Holy Water",
+            item="Sanjaku-Tenugui",
+            item="Shinobi-Tabi",
+            item="Shihei",
+            item="Remedy",
+            head="Wh. Rarab Cap +1",
+            ring="Emporox's Ring",
+            item="Abdhaljs Seal",
+            item="Red Curry Bun",
+            item="Instant Reraise",
+            item="Black Curry Bun",
+            item="Rolan. Daifuku",
+            sub="Qutrub Knife",
+            sub="Wind Knife +1",
+            ear="Reraise Earring",
+            }
 
     -- Fast cast sets for spells
 
@@ -105,10 +138,10 @@ function init_gear_sets()
         --sub="Genbu's Shield",
         --back="Pahtli Cape"
     })
+    sets.precast.JA['Concentric Pulse'] = sets.midcast.HightTierNuke
 
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {
-        neck="Stoicheion Medal",
-        hands="Bagua Mitaines",
+
         ring1="Mallquis Ring",
     })
 
@@ -230,9 +263,7 @@ function init_gear_sets()
     sets.midcast.FastRecast = {
 
     }
-    sets.midcast.Trust =  {
 
-    }
      sets.midcast["Apururu (UC)"] = set_combine(sets.midcast.Trust, {
          body="Apururu Unity shirt",
      })
@@ -288,60 +319,94 @@ function init_gear_sets()
     
     sets.midcast.Curaga = sets.midcast.Cure
 
-    --sets.midcast.Protectra = {ring1="Sheltered Ring"}
-
-    --sets.midcast.Shellra = {ring1="Sheltered Ring"}
+    sets.midcast.Protectra = sets.midcast['Enhancing Magic']
+    sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
     sets.midcast.HighTierNuke = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        main="Daybreak",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head="Ea Hat",
-        body="Ea Houppelande",
-        hands="Ea Cuffs",
-        legs="Ea Slops",
-        feet="Ea Pigaches",
-        neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
-        left_ear="Crep. Earring",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
         right_ear="Malignance Earring",
-        left_ring="Mujin Band",
-        right_ring="Locus Ring",
-        back="Twilight Cape",
+        left_ring="Jhakri Ring",
+        right_ring="Freke Ring",
+        back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
     }
     
     sets.midcast.HighTierNuke.Resistant = set_combine(sets.midcast.HighTierNuke, {
-        ear1="Malignance Earring",
-        neck="Erra Pendant",
-        -- ear2="Gwati Earring", 
-        --feet="Bokwus Boots"
+		ammo="Pemphredo Tathlum",
+		head="Ea Hat",
+		body="Ea Houppelande",
+		hands="Ea Cuffs",
+		legs="Ea Slops",
+		feet="Ea Pigaches",
+		neck="Mizu. Kubikazari",
+		waist="Hachirin-no-Obi",
+		left_ear="Malignance Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Mujin Band",
+		right_ring="Freke Ring",
+		back="Twilight Cape",
     })
     --sets.midcast['Elemental Magic'].Mindmelter = set_combine(sets.midcast.HighTierNuke, {
     --    main="Mindmelter"
     --})
+    sets.magic_burst = {    
+		ammo="Pemphredo Tathlum",
+		head="Ea Hat",
+		body="Ea Houppelande",
+		hands="Ea Cuffs",
+		legs="Ea Slops",
+		feet="Ea Pigaches",
+		neck="Mizu. Kubikazari",
+		waist="Hachirin-no-Obi",
+		left_ear="Malignance Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Mujin Band",
+		right_ring="Freke Ring",
+		back="Twilight Cape",
+    }
 
-    sets.precast.JA['Concentric Pulse'] = sets.midcast.HightTierNuke
 
     sets.midcast.LowTierNuke = set_combine(sets.midcast.HighTierNuke, {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        main="Daybreak",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head="Ea Hat",
-        body="Ea Houppelande",
-        hands="Ea Cuffs",
-        legs="Ea Slops",
-        feet="Ea Pigaches",
-        neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
-        left_ear="Crep. Earring",
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Agwu's Pigaches",
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
         right_ear="Malignance Earring",
         left_ring="Jhakri Ring",
         right_ring="Freke Ring",
-        back="Twilight Cape",
+        back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
     })
     
     sets.midcast.LowTierNuke.Resistant = set_combine(sets.midcast.LowTierNuke, {
-
+        ammo="Pemphredo Tathlum",
+		head="Ea Hat",
+		body="Ea Houppelande",
+		hands="Ea Cuffs",
+		legs="Ea Slops",
+		feet="Ea Pigaches",
+		neck="Mizu. Kubikazari",
+		waist="Hachirin-no-Obi",
+		left_ear="Malignance Earring",
+		right_ear="Friomisi Earring",
+		left_ring="Mujin Band",
+		right_ring="Freke Ring",
+		back="Twilight Cape",
     })
 
     sets.midcast.Macc = { 
@@ -361,7 +426,7 @@ function init_gear_sets()
         right_ring="Stikini Ring +1",
         back="Twilight Cape",
     }
-    sets.midcast.Refresh = set_combine(sets.midcast.Macc, {
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
     })
     sets.midcast.Absorb = set_combine(sets.midcast.Macc, {
         head="Bagua Galero",
@@ -407,11 +472,21 @@ function init_gear_sets()
         feet="Bagua Sandals"
     })
 
-	sets.midcast['Enhancing Magic'] = sets.midcast.FastRecast
-        --sub="Fulcio Grip", 
-        --neck="Colossus's Torque", 
-        --body="Anhur Robe",
-        --hands="Ayao's Gloves"
+    sets.midcast['Enhancing Magic'] = {main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    sub="Ammurapi Shield",
+    ammo="Pemphredo Tathlum",
+    head="Befouled Crown",
+    body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
+    hands="Inyan. Dastanas +2",
+    legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Andoaa Earring",
+    right_ear="Gifted Earring",
+    right_ring="Stikini Ring",
+    left_ring="Stikini Ring",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
     --------------------------------------
     -- Idle/resting/defense/etc sets
     --------------------------------------
