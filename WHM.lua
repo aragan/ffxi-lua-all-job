@@ -16,6 +16,39 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 end
+organizer_items = {
+    item="Gyudon",
+    item="Reraiser",
+    item="Hi-Reraiser",
+    item="Vile Elixir",
+    item="Vile Elixir +1",
+    item="Miso Ramen",
+    item="Carbonara",
+    item="Silent Oil",
+    item="Salt Ramen",
+    item="Panacea",
+    item="Toolbag (Shika)",
+    item="Sublime Sushi",
+    item="Sublime Sushi 1+",
+    item="Prism Powder",
+    item="Antacid",
+    item="Icarus Wing",
+    sub="Warp Cudgel",
+    item="Holy Water",
+    item="Sanjaku-Tenugui",
+    item="Shinobi-Tabi",
+    item="Shihei",
+    item="Remedy",
+    head="Wh. Rarab Cap +1",
+    ring="Emporox's Ring",
+    item="Red Curry Bun",
+    item="Instant Reraise",
+    item="Black Curry Bun",
+    item="Rolan. Daifuku",
+    sub="Qutrub Knife",
+    sub="Wind Knife +1",
+    ear="Reraise Earring",
+    }
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
@@ -33,7 +66,8 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
     send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
@@ -104,17 +138,60 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Imbodla Necklace",
-        waist="Luminary Sash",
+        neck="Caro Necklace",
+        waist="Grunfeld Rope",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Ishvara Earring",
-        left_ring="Rufescent Ring",
-        right_ring="Freke Ring",
+        right_ear="Brutal Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     
-    sets.precast.WS['Flash Nova'] = {}
-    
+    sets.precast.WS['Flash Nova'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
+        back="Argocham. Mantle",
+    }
+    sets.precast.WS['Black Halo'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Caro Necklace",
+        waist="Grunfeld Rope",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Brutal Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }    
+    sets.precast.WS['Cataclysm'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Freke Ring",
+        right_ring="Epaminondas's Ring",
+        back="Argocham. Mantle",
+    }
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
@@ -275,20 +352,23 @@ function init_gear_sets()
 
     sets.midcast.Auspice = sets.midcast['Enhancing Magic']
 
-    sets.midcast.BarElement = {main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
+    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
     ammo="Pemphredo Tathlum",
     hands="Inyan. Dastanas +2",
     neck="Nodens Gorget",
     legs="Ebers Pant. +1",
     left_ear="Andoaa Earring",
     right_ring="Stikini Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    })
 
     sets.midcast.Regen =set_combine(sets.midcast['Enhancing Magic'], {
         main="Bolelabunga",
         sub="Ammurapi Shield",
         ammo="Incantor Stone",
-        head="Inyanga Tiara +2",    })
+        head="Inyanga Tiara +2",
+        waist="Embla Sash",    })
 
     sets.midcast.Protectra = sets.midcast['Enhancing Magic']
     sets.midcast.Shellra = sets.midcast['Enhancing Magic']
@@ -535,6 +615,11 @@ function job_state_change(stateField, newValue, oldValue)
             enable('main','sub','range')
         end
     end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 end
 
 
@@ -591,6 +676,32 @@ end
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
     display_current_caster_state()
+
+    local c_msg = state.CastingMode.value
+
+    local d_msg = 'None'
+    if state.DefenseMode.value ~= 'None' then
+        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+    end
+
+    local i_msg = state.IdleMode.value
+
+    local msg = ''
+    if state.MagicBurst.value then
+        msg = ' Burst: On |'
+    end
+    if state.DeathMode.value then
+        msg = msg .. ' Death: On |'
+    end
+    if state.Kiting.value then
+        msg = msg .. ' Kiting: On |'
+    end
+
+    add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,002)..msg)
+
     eventArgs.handled = true
 end
 

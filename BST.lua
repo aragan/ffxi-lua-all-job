@@ -62,9 +62,44 @@ organizer_items = {
     ammo="Putrescent Broth",
     ammo="Pale Sap",
 }
+organizer_items = {
+item="Gyudon",
+item="Reraiser",
+item="Hi-Reraiser",
+item="Vile Elixir",
+item="Vile Elixir +1",
+item="Miso Ramen",
+item="Carbonara",
+item="Silent Oil",
+item="Salt Ramen",
+item="Panacea",
+item="Toolbag (Shika)",
+item="Sublime Sushi",
+item="Sublime Sushi 1+",
+item="Prism Powder",
+item="Antacid",
+item="Icarus Wing",
+sub="Warp Cudgel",
+item="Holy Water",
+item="Sanjaku-Tenugui",
+item="Shinobi-Tabi",
+item="Shihei",
+item="Remedy",
+head="Wh. Rarab Cap +1",
+ring="Emporox's Ring",
+item="Red Curry Bun",
+item="Instant Reraise",
+item="Black Curry Bun",
+item="Rolan. Daifuku",
+sub="Qutrub Knife",
+sub="Wind Knife +1",
+ear="Reraise Earring",
+}
 function job_setup()
 	state.Buff['Killer Instinct'] = buffactive['Killer Instinct'] or false
-	state.Buff.Doomed = buffactive.doomed or false
+	state.Buff.Doom = buffactive.doom or false
+	state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
 	send_command('wait 2;input /lockstyleset 200')
 	get_combat_form()
 end
@@ -1569,13 +1604,14 @@ sets.defense.Petregen = {
 	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
     body="Twilight Mail",})
 
+	sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
 
-    sets.buff.Doomed = {neck="Nicander's Necklace",
-    waist="Gishdubar Sash",
-    left_ring="Purity Ring",
-    right_ring="Saida Ring",}
-
-	sets.Doom = {    neck="Nicander's Necklace",
+	sets.idle.Weak = 
+	{
+		head="Twilight Helm", body="Twilight Mail"
+	}
+	sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
+	sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1801,7 +1837,7 @@ end
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1899,6 +1935,18 @@ function job_state_change(stateField, newValue, oldValue)
         elseif stateField == 'Jug Mode' then
                 state.JugMode:set(newValue)
         end
+    if stateField == 'Offense Mode' then
+        if newValue == 'Normal' then
+            disable('main','sub','range')
+        else
+            enable('main','sub','range')
+        end
+    end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 end
 
 function get_custom_wsmode(spell, spellMap, default_wsmode)
@@ -2127,48 +2175,14 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-
+add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 function get_combat_form()
 	if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
                 state.CombatForm:set('DW')
 	else
 		state.CombatForm:reset()
         end
-		organizer_items = {
-			item="Gyudon",
-			item="Revival Root",
-			item="Silver Voucher",
-			item="Holy Water",
-			item="Gyudon",
-			item="Grape Daifuku",
-			item="Miso Ramen",
-			item="Remedy",
-			item="Fiend Blood",
-			item="Sanjaku-Tenugui",
-			item="Shinobi-Tabi",
-			feet="Thereoid Greaves",
-			waist="Gerdr Belt",
-			neck="Nefarious Collar +1",
-			item="Copper Voucher",
-			range="Trollbane",
-			left_ring="Haoma's Ring",
-			item="Bambrox's Shawl",
-			item="Centurio's Armor",
-			item="Tumult's Blood",
-			item="Vidmapire's Claw",
-			item="Vedrfolnir's Wing",
-			item="Trump Card",
-			item="Silent Oil",
-			item="Shihei",
-			item="Hidhaegg's Scale",
-			item="SP Gobbie Key",
-			left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-			item="Sublime Sushi",
-			neck="Magoraga Beads",
-			waist="Windbuffet Belt +1",
-		}
-		add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
-		add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 	-- Default macro set/book
 	if player.sub_job == 'DNC' then
 		set_macro_page(9, 11)

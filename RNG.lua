@@ -47,21 +47,29 @@ function user_setup()
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
 
-    war_sub_weapons = S{"Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
+	war_sub_weapons = S{"Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
 	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
-	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow",
+	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi",
 
 }
-
+    elemental_ws = S{'Aeolian Edge', 'Trueflight', 'Wildfire'}
 	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
-	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", 
-	              ['Annihilator'] = "Decimating Bullett",
+	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
+	              ['Ullr'] = "Eminent Arrow",
 				  ['Fomalhaut'] = "Decimating Bullett",
 				}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", 
-	              ['Annihilator'] = "Chrono Bullett",
-				  ['Fomalhaut'] = "Chrono Bullet",
+	WSAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
+	               ['Ullr'] = "Beryllium Arrow",
+				   ['Fomalhaut'] = "Chrono Bullet",
+				}
+	AccAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
+	              ['Ullr'] = "Eminent Arrow",
+				  ['Fomalhaut'] = "Decimating Bullett",
+				}
+	MagicAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
+	              ['Ullr'] = "Beryllium Arrow",
+	              ['Fomalhaut'] = "Chrono Bullet",
 				}
 
 
@@ -101,8 +109,8 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {
-		head="Haruspex Hat",ear2="Loquacious Earring",
-		hands="Thaumas Gloves",ring1="Prolix Ring"}
+		ear2="Loquacious Earring",
+		ring1="Prolix Ring"}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
@@ -111,11 +119,11 @@ function init_gear_sets()
 	
 	sets.precast.RA = {
 
-	head="Ikenga's Hat",
+		head="Arcadian Beret +1",
 	body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
-    feet="Meg. Jam. +2",
+    feet="Arcadian Socks +3",
     waist="Yemaya Belt",
 	right_ring="Crepuscular Ring",
 	}
@@ -281,12 +289,12 @@ function init_gear_sets()
 
 	sets.midcast.RA = {		
 
-		head="Malignance Chapeau",
+		head="Arcadian Beret +1",
 		body="Nisroch Jerkin",
 		hands="Malignance Gloves",
-		legs="Malignance Tights",
+		legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
 		feet="Malignance Boots",
-		neck="Iskur Gorget",
+		neck="Scout's Gorget +2",
 		waist="Yemaya Belt",
 		left_ear="Dedition Earring",
 		right_ear="Telos Earring",
@@ -302,12 +310,12 @@ function init_gear_sets()
 		hands="Ikenga's Gloves",
 		legs="Ikenga's Trousers",
 		feet="Meg. Jam. +2",
-		neck="Iskur Gorget",
+		neck="Scout's Gorget +2",
 		waist="Yemaya Belt",
 		left_ear="Telos Earring",
 		right_ear="Enervating Earring",
-		left_ring="Dingir Ring",
-		right_ring="Cacoethic Ring",
+		left_ring="Cacoethic Ring 1+",
+		right_ring="Dingir Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 
 	})
@@ -319,11 +327,11 @@ function init_gear_sets()
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Iskur Gorget",
+		neck="Scout's Gorget +2",
 		waist="Yemaya Belt",
 		left_ear="Enervating Earring",
 		right_ear="Crep. Earring",
-		left_ring="Cacoethic Ring",
+		left_ring="Cacoethic Ring 1+",
 		right_ring="Crepuscular Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
@@ -581,49 +589,52 @@ end
 
 -- Check for proper ammo when shooting or weaponskilling
 function check_ammo(spell, action, spellMap, eventArgs)
-	-- Filter ammo checks depending on Unlimited Shot
-	if state.Buff['Unlimited Shot'] then
-		if player.equipment.ammo ~= U_Shot_Ammo[player.equipment.range] then
-			if player.inventory[U_Shot_Ammo[player.equipment.range]] or player.wardrobe[U_Shot_Ammo[player.equipment.range]] then
-				add_to_chat(122,"Unlimited Shot active. Using custom ammo.")
-				equip({ammo=U_Shot_Ammo[player.equipment.range]})
-			elseif player.inventory[DefaultAmmo[player.equipment.range]] or player.wardrobe[DefaultAmmo[player.equipment.range]] then
-				add_to_chat(122,"Unlimited Shot active but no custom ammo available. Using default ammo.")
-				equip({ammo=DefaultAmmo[player.equipment.range]})
-			else
-				add_to_chat(122,"Unlimited Shot active but unable to find any custom or default ammo.")
-			end
-		end
-	else
-		if player.equipment.ammo == U_Shot_Ammo[player.equipment.range] and player.equipment.ammo ~= DefaultAmmo[player.equipment.range] then
-			if DefaultAmmo[player.equipment.range] then
-				if player.inventory[DefaultAmmo[player.equipment.range]] then
-					add_to_chat(122,"Unlimited Shot not active. Using Default Ammo")
-					equip({ammo=DefaultAmmo[player.equipment.range]})
-				else
-					add_to_chat(122,"Default ammo unavailable.  Removing Unlimited Shot ammo.")
-					equip({ammo=empty})
-				end
-			else
-				add_to_chat(122,"Unable to determine default ammo for current weapon.  Removing Unlimited Shot ammo.")
-				equip({ammo=empty})
-			end
-		elseif player.equipment.ammo == 'empty' then
-			if DefaultAmmo[player.equipment.range] then
-				if player.inventory[DefaultAmmo[player.equipment.range]] then
-					add_to_chat(122,"Using Default Ammo")
-					equip({ammo=DefaultAmmo[player.equipment.range]})
-				else
-					add_to_chat(122,"Default ammo unavailable.  Leaving empty.")
-				end
-			else
-				add_to_chat(122,"Unable to determine default ammo for current weapon.  Leaving empty.")
-			end
-		elseif player.inventory[player.equipment.ammo].count < 15 then
-			add_to_chat(122,"Ammo '"..player.inventory[player.equipment.ammo].shortname.."' running low ("..player.inventory[player.equipment.ammo].count..")")
-		end
-	end
+    if spell.action_type == 'Ranged Attack' then
+        if player.equipment.ammo == 'empty' or player.equipment.ammo ~= DefaultAmmo[player.equipment.range] then
+            if DefaultAmmo[player.equipment.range] then
+                if player.inventory[DefaultAmmo[player.equipment.range]] then
+                    --add_to_chat(3,"Using Default Ammo")
+                    equip({ammo=DefaultAmmo[player.equipment.range]})
+                else
+                    add_to_chat(3,"Default ammo unavailable.  Leaving empty.")
+                end
+            else
+                add_to_chat(3,"Unable to determine default ammo for current weapon.  Leaving empty.")
+            end
+        end
+    elseif spell.type == 'WeaponSkill' then
+        -- magical weaponskills
+        if elemental_ws:contains(spell.english) then
+            if player.inventory[MagicAmmo[player.equipment.range]] then
+                equip({ammo=MagicAmmo[player.equipment.range]})
+            else
+                add_to_chat(3,"Magic ammo unavailable.  Using default ammo.")
+                equip({ammo=DefaultAmmo[player.equipment.range]})
+            end
+        --physical weaponskills
+        else
+            if state.RangedMode.value == 'Acc' then
+                if player.inventory[AccAmmo[player.equipment.range]] then
+                    equip({ammo=AccAmmo[player.equipment.range]})
+                else
+                    add_to_chat(3,"Acc ammo unavailable.  Using default ammo.")
+                    equip({ammo=DefaultAmmo[player.equipment.range]})
+                end
+            else
+                if player.inventory[WSAmmo[player.equipment.range]] then
+                    equip({ammo=WSAmmo[player.equipment.range]})
+                else
+                    add_to_chat(3,"WS ammo unavailable.  Using default ammo.")
+                    equip({ammo=DefaultAmmo[player.equipment.range]})
+                end
+            end
+        end
+    end
+    if player.equipment.ammo ~= 'empty' and player.inventory[player.equipment.ammo].count < 15 then
+        add_to_chat(39,"*** Ammo '"..player.inventory[player.equipment.ammo].shortname.."' running low! *** ("..player.inventory[player.equipment.ammo].count..")")
+    end
 end
+
 function special_ammo_check()
     -- Stop if Animikii/Hauksbok equipped
     if no_shoot_ammo:contains(player.equipment.ammo) then

@@ -1400,13 +1400,13 @@ end
 function select_default_macro_book()
       
     if player.sub_job == 'WAR' then
-        set_macro_page(7, 2)
+        set_macro_page(7, 21)
     elseif player.sub_job == 'SAM' then
-        set_macro_page(7, 30)
+        set_macro_page(7, 21)
     elseif player.sub_job == 'DRG' then
-        set_macro_page(7, 30)
+        set_macro_page(7, 21)
     else
-        set_macro_page(7, 30)
+        set_macro_page(7, 21)
     end
 end
 add_to_chat(159,'Author Aragan DRK.Lua File (from Asura)')
