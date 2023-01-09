@@ -33,7 +33,7 @@ function user_setup()
     options.IdleModes = {'Normal',}
     options.RestingModes = {'Normal'}
     options.PhysicalDefenseModes = {'PD','PDT','PDH', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert', 'Block'}
-    options.MagicalDefenseModes = {'MDT' ,'Turtle','ResistCharm','Dagger'}
+    options.MagicalDefenseModes = {'MDT' ,'Turtle','Evasion','ResistCharm','Dagger'}
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
 	state.Defense.PhysicalMode = 'PD'
@@ -974,6 +974,22 @@ sets.defense.Dagger =
     right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
+sets.defense.Evasion = 
+{    
+    ammo="Amar Cluster",
+    head="Nyame Helm",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands="Nyame Gauntlets",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet="Nyame Sollerets",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Eabani Earring",
+    right_ear="Infused Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Defending Ring",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
+}
 	
     sets.defense.Enmity = 
 { 
@@ -1015,19 +1031,19 @@ sets.defense.Dagger =
 sets.defense.PDT = 
 {
     main="Burtgang",
-    sub="Ochain",
+    sub="Aegis",
     ammo="Iron Gobbet",
-    head="Sakpata's Helm",
+    head="Chev. Armet +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    legs="Chev. Cuisses +2",
     feet="Sakpata's Leggings",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Carrier's Sash",
-    left_ear="Thureous Earring",
-    right_ear="Ethereal Earring",
-    left_ring="Patricius Ring",
-    right_ring="Defending Ring",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 
@@ -1098,20 +1114,19 @@ sets.defense.DEF = {
 }
 
 sets.defense.Convert = {
-    main="Burtgang",
     sub="Ochain",
-    ammo="Staunch Tathlum +1",
+    ammo="Iron Gobbet",
     head="Chev. Armet +2",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    body="Rev. Surcoat +3",
+    hands="Chev. Gauntlets +2",
+    legs="Chev. Cuisses +2",
     feet="Rev. Leggings +3",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
     right_ear="Ethereal Earring",
-    left_ring="Defending Ring",
-    right_ring="Fortified Ring",
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 

@@ -860,7 +860,7 @@ add_to_chat(159,'Author Aragan GEO.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(2, 5)
+    set_macro_page(5, 34)
 end
 --Refine Nuke Spells
 function refine_various_spells(spell, action, spellMap, eventArgs)
