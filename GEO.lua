@@ -138,6 +138,7 @@ function init_gear_sets()
         --sub="Genbu's Shield",
         --back="Pahtli Cape"
     })
+    sets.precast['Enhancing Magic'] = sets.precast.FC
     sets.precast.JA['Concentric Pulse'] = sets.midcast.HightTierNuke
 
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {
@@ -251,7 +252,6 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Starlight'] = sets.precast.WS
-
     sets.precast.WS['Moonlight'] = sets.precast.WS
 
 
@@ -300,12 +300,12 @@ function init_gear_sets()
     })
 
     sets.midcast.Cure = {
-        main="Daybreak",
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         sub="Sors Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Annoint. Kalasiris",
-        hands="Agwu's Gages",
+        hands="Inyan. Dastanas +2",
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Incanter's Torque",
@@ -319,8 +319,8 @@ function init_gear_sets()
     
     sets.midcast.Curaga = sets.midcast.Cure
 
-    sets.midcast.Protectra = sets.midcast['Enhancing Magic']
-    sets.midcast.Shellra = sets.midcast['Enhancing Magic']
+    --sets.midcast.Protectra = sets.midcast['Enhancing Magic']
+    --sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
     sets.midcast.HighTierNuke = {
         main="Daybreak",
@@ -860,7 +860,7 @@ add_to_chat(159,'Author Aragan GEO.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 6)
+    set_macro_page(2, 5)
 end
 --Refine Nuke Spells
 function refine_various_spells(spell, action, spellMap, eventArgs)
