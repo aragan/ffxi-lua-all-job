@@ -190,10 +190,13 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'CRIT', 'Refresh', 'Learning')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal', 'Acc', 'PD', 'AccMAX', 'CRIT', 'Refresh', 'Learning')
+    state.HybridMode:options('Normal', 'DT')
+    state.RangedMode:options('Normal', 'Acc')
+    state.WeaponskillMode:options('Normal', 'Acc', 'AccMAX', 'CRIT')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Learning')
+    state.PhysicalDefenseMode:options('PDT', 'MDT')
 
     gear.macc_hagondes = {name="Hagondes Cuffs", augments={'Phys. dmg. taken -3%','Mag. Acc.+29'}}
 
@@ -355,6 +358,21 @@ function init_gear_sets()
         right_ring="Beithir Ring",
         back="Atheling Mantle",
     }
+
+    sets.precast.WS['Aeolian Edge'] = {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    ear1="Moonshade Earring",
+    ear2="Friomisi Earring",
+    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+    ring2="Epaminondas's Ring",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    back="Argocham. Mantle",
+}
     sets.precast.WS['Flash Nova'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
@@ -799,10 +817,10 @@ function init_gear_sets()
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck="Asperity Necklace",
-        waist="Reiki Yotai",
+        neck="Mirage Stole +2",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
-        right_ear="Suppanomimi",
+        right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Epona's Ring",
         back="Atheling Mantle",
@@ -817,16 +835,31 @@ function init_gear_sets()
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Reiki Yotai",
-    left_ear="Dedition Earring",
-    right_ear="Suppanomimi",
+    neck="Mirage Stole +2",
+    waist="Olseni Belt",
+    left_ear="Mache Earring +1",
+    right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
-    right_ring="Epona's Ring",
-    back="Atheling Mantle",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
+sets.engaged.AccMAX = set_combine(sets.engaged, {
+    ammo="Aurgelmir Orb +1",
+    head="Malignance Chapeau",
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Malignance Tights",
+    feet="Gleti's Boots",
+    neck="Mirage Stole +2",
+    waist="Olseni Belt",
+    left_ear="Mache Earring +1",
+    right_ear="Telos Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},})
 
-    sets.engaged.CRIT = {
+
+sets.engaged.CRIT = {
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Gleti's Cuirass",
@@ -855,10 +888,25 @@ function init_gear_sets()
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+4','DEX+7','"Triple Atk."+2',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Asperity Necklace",
+    neck="Lissome Necklace",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Petrov Ring",
+    right_ring="Epona's Ring",
+    back="Atheling Mantle",
+    }
+    sets.engaged.DW.PD = {
+        ammo="Aurgelmir Orb +1",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs={ name="Samnuha Tights", augments={'STR+4','DEX+7','"Triple Atk."+2',}},
+    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+    neck="Lissome Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Telos Earring",
+    right_ear="Suppanomimi",
     left_ring="Petrov Ring",
     right_ring="Epona's Ring",
     back="Atheling Mantle",
@@ -867,18 +915,18 @@ function init_gear_sets()
     sets.engaged.DW.Acc = {main="Naegling",
     sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
     ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Asperity Necklace",
-    waist="Reiki Yotai",
-    left_ear="Dedition Earring",
-    right_ear="Suppanomimi",
+    neck="Mirage Stole +2",
+    waist="Olseni Belt",
+    left_ear="Suppanomimi",
+    right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
-    right_ring="Epona's Ring",
-    back="Atheling Mantle",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.DW.CRIT = {
         ammo="Coiste Bodhar",
@@ -889,15 +937,48 @@ function init_gear_sets()
         feet="Thereoid Greaves",
         neck="Nefarious Collar +1",
         waist="Gerdr Belt",
-        left_ear="Telos Earring",
+        left_ear="Suppanomimi",
         right_ear="Odr Earring",
         left_ring="Epona's Ring",
         right_ring="Hetairoi Ring",
         back="Atheling Mantle",}
 
+        sets.engaged.PD = {
+            sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
+            ammo="Coiste Bodhar",
+            head="Malignance Chapeau",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
+            neck="Mirage Stole +2",
+            waist="Reiki Yotai",
+            left_ear="Dedition Earring",
+            right_ear="Suppanomimi",
+            left_ring="Defending Ring",
+            right_ring="Epona's Ring",
+            back="Moonlight Cape",
+        }
+        sets.engaged.PDT = {
+            sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
+            ammo="Coiste Bodhar",
+            head="Malignance Chapeau",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
+            neck="Mirage Stole +2",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Dedition Earring",
+            right_ear="Suppanomimi",
+            left_ring="Defending Ring",
+            right_ring="Epona's Ring",
+            back="Moonlight Cape",
+        }
+
     sets.engaged.DW.Refresh = {
     }
-
+    
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
     sets.Doom = {    neck="Nicander's Necklace",
