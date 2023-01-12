@@ -111,8 +111,8 @@ function init_gear_sets()
     --------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Collaborator'] = {head="Skulker's Bonnet +1",}
-    sets.precast.JA['Accomplice'] = {head="Skulker's Bonnet +1",}
+    sets.precast.JA['Collaborator'] = {head="Skulker's Bonnet +2",}
+    sets.precast.JA['Accomplice'] = {head="Skulker's Bonnet +2",}
     sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +1"}
     sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
     sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
@@ -560,7 +560,7 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {range=empty,
     ammo="Aurgelmir Orb +1",
-    head="Skulker's Bonnet +1",
+    head="Skulker's Bonnet +2",
     body="Pillager's Vest +3",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Meg. Chausses +2",
