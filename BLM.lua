@@ -712,11 +712,10 @@ function init_gear_sets()
 	
     sets.resting = {
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		left_ear="Infused Earring",
-		right_ear="Musical Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
     }
@@ -728,7 +727,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Alber Strap",
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -740,7 +739,7 @@ function init_gear_sets()
     sub="Alber Strap",
     ammo="Amar Cluster",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Shamash Robe",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -770,7 +769,7 @@ function init_gear_sets()
         main="Malignance Pole",
         sub="Alber Strap",
         ammo="Amar Cluster",
-        head="Nyame Helm",
+        body="Shamash Robe",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -808,7 +807,7 @@ function init_gear_sets()
 	
 	sets.auto_refresh = {
         main="Contemplator +1",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",

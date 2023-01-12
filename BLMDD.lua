@@ -657,7 +657,7 @@ function init_gear_sets()
 
     sets.idle = {
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -668,7 +668,7 @@ function init_gear_sets()
 
     ammo="Amar Cluster",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Shamash Robe",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -698,7 +698,7 @@ function init_gear_sets()
 
         ammo="Amar Cluster",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Shamash Robe",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -733,7 +733,7 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-Obi"}
 	
 	sets.auto_refresh = {
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",

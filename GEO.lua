@@ -494,11 +494,11 @@ function init_gear_sets()
     -- Resting sets
     sets.resting = {
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		left_ear="Infused Earring",
-		right_ear="Musical Earring",
+		waist="Fucho-no-Obi",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
     }
@@ -509,7 +509,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         hands="Geo. Mitaines +1",
         legs="Assid. Pants +1",
         feet="Geo. Sandals +1",
@@ -525,7 +525,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         hands="Geo. Mitaines +1",
         legs="Assid. Pants +1",
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
@@ -551,8 +551,8 @@ function init_gear_sets()
     waist="Isa Belt",
     left_ear="Handler's Earring +1",
     right_ear="Handler's Earring",
-    left_ring="Fortified Ring",
-    right_ring="Defending Ring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
     back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
     })
 
@@ -569,8 +569,8 @@ function init_gear_sets()
     waist="Isa Belt",
     left_ear="Handler's Earring +1",
     right_ear="Handler's Earring",
-    left_ring="Fortified Ring",
-    right_ring="Defending Ring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
     back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
     })
 
@@ -608,7 +608,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         range="Dunna",
         head="Nyame Helm",
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Shamash Robe",
         hands="Nyame Gauntlets",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -616,8 +616,8 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Infused Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Provocare Ring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
 
@@ -632,8 +632,8 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Sanare Earring",
         right_ear="Eabani Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Shadow Ring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
 
