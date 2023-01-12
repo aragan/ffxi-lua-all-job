@@ -199,8 +199,8 @@ function init_gear_sets()
 }
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = 
-{   ammo="Aurgelmir Orb +1",
+sets.precast.WS = {   ammo="Aurgelmir Orb +1",
+head="Nyame Helm",
 body="Nyame Mail",
     body="Nyame Mail",
 legs="Nyame Flanchard",
@@ -291,11 +291,11 @@ sets.precast.WS['Cataclysm'] =
 
  
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
-    sets.precast.WS['Savage Blade'] = 
+sets.precast.WS['Savage Blade'] = 
 {        ammo="Aurgelmir Orb +1",
-head={ name="Valorous Mask", augments={'Weapon skill damage +4%',}},
+head="Nyame Helm",
 body="Nyame Mail",
-hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 legs="Nyame Flanchard",
 feet="Sulev. Leggings +2",
 neck="Fotia Gorget",
@@ -402,7 +402,7 @@ back="Atheling Mantle",
      
     sets.midcast.Flash = 
 {
-    main="Burtgang",
+   
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -429,8 +429,7 @@ back="Atheling Mantle",
     --Max HP+ set for reprisal 3951HP / war so 7902+ damage reflect before it off (8k+ with food)
     sets.midcast.Reprisal =	
 {
-   main="Burtgang",
-    sub="Ochain",
+
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Rev. Surcoat +3",
@@ -467,8 +466,7 @@ back="Atheling Mantle",
 
     sets.midcast.Phalanx.DT = 
 {
-    main="Burtgang",
-    sub="Ochain",
+
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Sakpata's Plate",
@@ -490,7 +488,7 @@ back="Atheling Mantle",
 }
 	
 	
-    sets.midcast['Banish II'] = set_combine(sets.midcast.MAB, {right_ring="Fenian Ring"})
+    sets.midcast['Banish II'] = set_combine(sets.midcast.MAB, {})
      
     sets.midcast.Holy = sets.midcast.MAB
     sets.midcast['Holy II'] = sets.midcast.Holy

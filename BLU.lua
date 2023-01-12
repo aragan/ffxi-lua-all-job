@@ -190,7 +190,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'PD', 'AccMAX', 'CRIT', 'Refresh', 'Learning')
+    state.OffenseMode:options('Normal', 'Acc', 'AccMAX', 'PD', 'CRIT', 'Refresh', 'Learning')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'AccMAX', 'CRIT')
@@ -728,7 +728,7 @@ function init_gear_sets()
 
     -- Resting sets
     sets.resting = {
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
@@ -737,7 +737,7 @@ function init_gear_sets()
     
     -- Idle sets
     sets.idle = { head="Gleti's Mask",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         body="Gleti's Cuirass",
         feet="Gleti's Boots",

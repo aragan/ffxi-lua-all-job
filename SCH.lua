@@ -638,15 +638,26 @@ function init_gear_sets()
     ----------------------------------------- Idle Sets --------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.idle = {feet="Herald's Gaiters",
-        ring1="Stikini Ring +1",
-        ring2="Stikini Ring +1",
+    sets.idle = {
+        main="Contemplator +1",
+        head="Befouled Crown",
+        body="Shamash Robe",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Assid. Pants +1",
+        feet="Herald's Gaiters",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Fucho-no-Obi",
+        left_ear="Etiolation Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
    }
 
     sets.idle.DT = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Shamash Robe",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -654,20 +665,20 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Paguroidea Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
         })
 
     sets.idle.Vagary = sets.midcast['Elemental Magic']
 
-    sets.idle.Town = set_combine(sets.idle, {
+    sets.idle.Town = set_combine(sets.idle, {body="Shamash Robe",
         feet="Herald's Gaiters"
         })
 
     sets.resting = set_combine(sets.idle, {
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         feet="Herald's Gaiters",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -684,7 +695,7 @@ function init_gear_sets()
 
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Shamash Robe",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
