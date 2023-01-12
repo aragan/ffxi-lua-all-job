@@ -591,7 +591,8 @@ sets.precast.WS['Shattersoul'] = {
 	
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
-		body="Cohort Cloak +1",
+		        head=empty;
+        body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet="Jhakri Pigaches +2",
