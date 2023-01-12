@@ -428,9 +428,7 @@ sets.precast.WS['Shattersoul'] = {
 	sets.midcast['Enhancing Magic'].GainSpell = set_combine(sets.midcast['Enhancing Magic'].SelfDuration, {hands="Vitiation gloves +3"})
 		
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
-		body="Atrophy Tabard +3",
-		head="Amalric Coif",
-		legs="Lethargy Fuseau +1",
+
 		waist="Gishdubar sash"})
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
@@ -460,7 +458,7 @@ sets.precast.WS['Shattersoul'] = {
         body="Shango Robe",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-        feet="Skaoi Boots",
+        feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
         neck="Incanter's Torque",
         waist="Rumination Sash",
         left_ear="Malignance Earring",
@@ -477,11 +475,10 @@ sets.precast.WS['Shattersoul'] = {
 
 		
 		ammo="Regal Gem",
-		head="Viti. Chapeau +3",
-		body="Atrophy Tabard +3",
-		hands="Lethargy Gantherots +1",
+		body="Cohort Cloak +1",
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
-		feet="Vitiation Boots +3",
+		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
 		neck="Incanter's Torque",
 		waist="Luminary Sash",
 		left_ear="Digni. Earring",
@@ -494,16 +491,15 @@ sets.precast.WS['Shattersoul'] = {
 
 		
 		ammo="Regal Gem",
-		head="Viti. Chapeau +3",
-		body="Lethargy Sayon +1",
-		hands="Lethargy Gantherots +1",
+		body="Cohort Cloak +1",
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
-		feet="Vitiation Boots +3",
+		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
 		neck="Incanter's Torque",
 		waist="Luminary Sash",
 		left_ear="Digni. Earring",
-		right_ear="Gwati Earring",
-		left_ring="Kishar Ring",
+		right_ear="Regal Earring",
+		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
@@ -511,23 +507,23 @@ sets.precast.WS['Shattersoul'] = {
 	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {hands="Lethargy Gantherots +1"})
 
 	
-	sets.midcast['Enfeebling Magic'].ParalyzeDuration = {feet="Vitiation Boots +3",}
+	sets.midcast['Enfeebling Magic'].ParalyzeDuration = {}
 	
     sets.midcast['Elemental Magic'] = {
 		
 		ammo="Pemphredo Tathlum",
-		head={ name="Merlinic Hood", augments={'Mag. Acc.+24 "Mag.Atk.Bns."+24','Magic burst dmg.+8%','Mag. Acc.+2','"Mag.Atk.Bns."+13',}},
-		body={ name="Merlinic Jubbah", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Mag. Acc.+12','"Mag.Atk.Bns."+10',}},
-		hands={ name="Amalric Gages", augments={'MP+60','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Mag. crit. hit dmg. +4%','MND+4','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
-		feet="Vitiation Boots +3",
-		neck="Sanctity Necklace",
-		waist="Eschan Stone",
-		left_ear="Hecate's Earring",
+		head="Ea Hat",
+		body="Ea Houppelande",
+		hands="Ea Cuffs",
+		legs="Ea Slops",
+		feet="Ea Pigaches",
+		neck="Mizu. Kubikazari",
+		waist="Hachirin-no-Obi",
+		left_ear="Malignance Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Shiva Ring +1",
-		right_ring="Shiva Ring +1",
-		back="Izdubar Mantle",}
+		left_ring="Mujin Band",
+		right_ring="Freke Ring",
+		back="Twilight Cape",}
 		
     sets.magic_burst = {    
 		ammo="Pemphredo Tathlum",
@@ -554,8 +550,7 @@ sets.precast.WS['Shattersoul'] = {
 
 		
 		ammo="Regal Gem",
-		head={ name="Chironic Hat", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+2','MND+5','Mag. Acc.+15','"Mag.Atk.Bns."+2',}},
-		body="Atrophy Tabard +3",
+		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
@@ -582,8 +577,7 @@ sets.precast.WS['Shattersoul'] = {
 
 		
 		ammo="Regal Gem",
-		head={ name="Chironic Hat", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+2','MND+5','Mag. Acc.+15','"Mag.Atk.Bns."+2',}},
-		body="Atrophy Tabard +3",
+		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet="Jhakri Pigaches +2",
@@ -597,8 +591,7 @@ sets.precast.WS['Shattersoul'] = {
 	
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
-		head={ name="Chironic Hat", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+2','MND+5','Mag. Acc.+15','"Mag.Atk.Bns."+2',}},
-		body="Atrophy Tabard +3",
+		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet="Jhakri Pigaches +2",
@@ -625,7 +618,7 @@ sets.precast.WS['Shattersoul'] = {
     -- Resting sets
     sets.resting = {
 		head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
 		hands="Aya. Manopolas +2",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -639,7 +632,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.idle.Normal = {
 		ammo="Staunch Tathlum +1",
 		head="Befouled Crown",
-		body="Jhakri Robe +2",
+		body="Shamash Robe",
 		hands="Nyame Gauntlets",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Nyame Sollerets",
@@ -654,7 +647,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.idle.Town = {
 		ammo="Staunch Tathlum +1",
 		head="Befouled Crown",
-		body="Jhakri Robe +2",
+		body="Shamash Robe",
 		hands="Nyame Gauntlets",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Nyame Sollerets",
@@ -669,7 +662,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.idle.Weak = {
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Nyame Mail",
+		body="Shamash Robe",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
@@ -684,7 +677,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.idle.PDT = {
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Nyame Mail",
+		body="Shamash Robe",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
@@ -718,7 +711,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.defense.PDT = {
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Nyame Mail",
+		body="Shamash Robe",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
