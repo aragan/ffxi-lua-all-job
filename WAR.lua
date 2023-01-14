@@ -250,6 +250,14 @@ function init_gear_sets()
     sets.precast.WS["Raging Rush"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Sturmwind"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Stardiver"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Fast Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+    sets.precast.WS["Swift Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
+    sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+
+
 
 
 
@@ -292,7 +300,7 @@ function init_gear_sets()
 
      -- RESOLUTION
      -- 86-100% STR
-     sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {
         sub="Utu Grip",
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Hjarrandi Helm",
@@ -309,7 +317,7 @@ function init_gear_sets()
          back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 
      })
-     sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS.Resolution, {
+    sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS.Resolution, {
         sub="Utu Grip",
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Hjarrandi Helm",
@@ -326,7 +334,7 @@ function init_gear_sets()
          back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 
      })
-     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Mid, sets.precast.WS.Acc) 
+    sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Mid, sets.precast.WS.Acc) 
      
      sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
      sets.precast.WS['Shoulder Tackle'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
@@ -380,7 +388,6 @@ function init_gear_sets()
         right_ear="Lugra Earring +1",
     })
 
-
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS['Impulse Drive'], {
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
@@ -416,8 +423,15 @@ function init_gear_sets()
 
     })
 
-     sets.precast.WS['Sanguine Blade'].Mid = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Mid)
-     sets.precast.WS['Sanguine Blade'].Acc = set_combine(sets.precast.WS['Sanguine Blade'], sets.precast.WS.Acc)
+    sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+    sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Sanguine Blade"],{right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+    sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
+    sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
+    sets.precast.WS["Shield Break"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+    sets.precast.WS["Shield Break"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+
+
+
 
 
      sets.precast.WS.Cataclysm = {
