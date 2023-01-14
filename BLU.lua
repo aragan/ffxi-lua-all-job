@@ -18,9 +18,10 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('Mote-TreasureHunter')
+    include('organizer-lib')
 end
 
-include('organizer-lib')
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Burst Affinity'] = buffactive['Burst Affinity'] or false
@@ -198,13 +199,14 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 
-    gear.macc_hagondes = {name="Hagondes Cuffs", augments={'Phys. dmg. taken -3%','Mag. Acc.+29'}}
-
+    send_command('lua l azureSets')
     -- Additional local binds
     send_command('bind ^` input /ja "Chain Affinity" <me>')
     send_command('bind !` input /ja "Efflux" <me>')
     send_command('bind @` input /ja "Burst Affinity" <me>')
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @t gs c cycle treasuremode')
+    send_command('bind !` gs c toggle MagicBurst')
     update_combat_form()
     select_default_macro_book()
 end
@@ -808,9 +810,8 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-    sets.engaged = {
+ sets.engaged = {
        
-        sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -827,8 +828,7 @@ function init_gear_sets()
     
     }
     
-    sets.engaged.Acc = {main="Naegling",
-    sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
+sets.engaged.Acc = {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -868,20 +868,19 @@ sets.engaged.CRIT = {
     feet="Thereoid Greaves",
     neck="Nefarious Collar +1",
     waist="Gerdr Belt",
-    left_ear="Telos Earring",
-    right_ear="Odr Earring",
+    left_ear="Odr Earring",
+    right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
     back="Atheling Mantle",}
     
 
     sets.engaged.Refresh = {
-        main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-    sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+
 
     }
 
-    sets.engaged.DW = {
+sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -890,13 +889,13 @@ sets.engaged.CRIT = {
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Lissome Necklace",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Telos Earring",
-    right_ear="Suppanomimi",
+    left_ear="Suppanomimi",
+    right_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Epona's Ring",
     back="Atheling Mantle",
     }
-    sets.engaged.DW.PD = {
+sets.engaged.DW.PD = {
         ammo="Aurgelmir Orb +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -905,15 +904,14 @@ sets.engaged.CRIT = {
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Lissome Necklace",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Telos Earring",
-    right_ear="Suppanomimi",
+    left_ear="Suppanomimi",
+    right_ear="Telos Earring",
     left_ring="Petrov Ring",
-    right_ring="Epona's Ring",
+    right_ring="Chirich Ring +1",
     back="Atheling Mantle",
     }
 
-    sets.engaged.DW.Acc = {main="Naegling",
-    sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
+sets.engaged.DW.Acc = {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -928,7 +926,7 @@ sets.engaged.CRIT = {
     right_ring="Chirich Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.DW.CRIT = {
+sets.engaged.DW.CRIT = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Gleti's Cuirass",
@@ -943,24 +941,8 @@ sets.engaged.CRIT = {
         right_ring="Hetairoi Ring",
         back="Atheling Mantle",}
 
-        sets.engaged.PD = {
-            sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
-            ammo="Coiste Bodhar",
-            head="Malignance Chapeau",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            legs="Malignance Tights",
-            feet="Malignance Boots",
-            neck="Mirage Stole +2",
-            waist="Reiki Yotai",
-            left_ear="Dedition Earring",
-            right_ear="Suppanomimi",
-            left_ring="Defending Ring",
-            right_ring="Epona's Ring",
-            back="Moonlight Cape",
-        }
-        sets.engaged.PDT = {
-            sub={ name="Machaera +2", augments={'TP Bonus +1000',}},
+sets.engaged.PD = {
+          
             ammo="Coiste Bodhar",
             head="Malignance Chapeau",
             body="Gleti's Cuirass",
@@ -969,22 +951,51 @@ sets.engaged.CRIT = {
             feet="Malignance Boots",
             neck="Mirage Stole +2",
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Dedition Earring",
-            right_ear="Suppanomimi",
+            left_ear="Mache Earring +1",
+            right_ear="Dedition Earring",
+            left_ring="Defending Ring",
+            right_ring="Epona's Ring",
+            back="Moonlight Cape",
+        }
+sets.engaged.PDT = {
+            ammo="Coiste Bodhar",
+            head="Malignance Chapeau",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
+            neck="Mirage Stole +2",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Mache Earring +1",
+            right_ear="Dedition Earring",
             left_ring="Defending Ring",
             right_ring="Epona's Ring",
             back="Moonlight Cape",
         }
 
-    sets.engaged.DW.Refresh = {
+sets.engaged.DW.Refresh = {
     }
     
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
+
+    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt"}
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
+
+    sets.magic_burst = set_combine(sets.midcast['Blue Magic'].Magical, {
+        body="Samnuha Coat", --(8)
+        hands="Amalric Gages +1", --(6)
+        legs="Assim. Shalwar +3", --10
+        feet="Jhakri Pigaches +2", --7
+        neck="Warder's Charm +1", --10
+        --ear1="Static Earring",--5
+        ring1="Mujin Band", --(5)
+        ring2="Locus Ring", --5
+        back="Seshaw Cape", --5
+        })
 
     sets.self_healing = {ring2="Asklepian Ring"}
 end
@@ -1015,15 +1026,23 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         if spellMap == 'Healing' and spell.target.type == 'SELF' and sets.self_healing then
             equip(sets.self_healing)
         end
+        if spellMap == 'Magical' then
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
     end
 
     -- If in learning mode, keep on gear intended to help with that, regardless of action.
     if state.OffenseMode.value == 'Learning' then
         equip(sets.Learning)
     end
+    if state.Buff['Burst Affinity'] or (spellMap == 'Magical' or spellMap == 'MagicalLight' or spellMap == 'MagicalDark' or spellMap == 'Breath') then
+        if state.MagicBurst.value then
+        equip(sets.magic_burst)
+        end
+    end
 end
-
-
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
@@ -1121,14 +1140,42 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
 
+    return meleeSet
+end
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type == 'WeaponSkill' then
+        if elemental_ws:contains(spell.name) then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
 function update_combat_form()
     -- Check for H2H or single-wielding
-    if player.equipment.sub == "Genbu's Shield" or player.equipment.sub == 'empty' then
+    if player.equipment.sub == "Genmei Shield" or player.equipment.sub == "Sors Shield" or player.equipment.sub == 'empty' then
         state.CombatForm:reset()
     else
         state.CombatForm:set('DW')
