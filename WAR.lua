@@ -455,8 +455,8 @@ function init_gear_sets()
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ring="Epaminondas's Ring",})
     sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
