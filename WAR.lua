@@ -586,7 +586,7 @@ function init_gear_sets()
         right_ring="Petrov Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
-     sets.engaged.Mid = set_combine(sets.engaged, {
+    sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
@@ -601,7 +601,7 @@ function init_gear_sets()
         right_ring="Hetairoi Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
-     sets.engaged.Acc = set_combine(sets.engaged.Mid, {
+    sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
@@ -617,7 +617,7 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
-     sets.engaged.hybrid = {
+    sets.engaged.hybrid = {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
@@ -649,7 +649,69 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
-    sets.engaged.Sword = set_combine(sets.engaged.hybrid, {
+    sets.engaged.DW = set_combine(sets.engaged, {
+        ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    feet="Pumm. Calligae +3",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist="Ioskeha Belt +1",
+    left_ear="Suppanomimi",
+    right_ear="Schere Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Petrov Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+
+    sets.engaged.DW.Mid = set_combine(sets.engaged, {
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet="Flam. Gambieras +2",
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Suppanomimi",
+        right_ear="Schere Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Petrov Ring",
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+    sets.engaged.DW.Acc = set_combine(sets.engaged.Mid, {
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
+        left_ring="Moonlight Ring",
+        right_ring="Niqmaddu Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+    sets.engaged.hybrid.DW = set_combine(sets.engaged.hybrid, {
+        ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    feet="Pumm. Calligae +3",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist="Ioskeha Belt +1",
+    left_ear="Suppanomimi",
+    right_ear="Schere Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Petrov Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+
+     sets.engaged.Sword = set_combine(sets.engaged.hybrid, {
         main="Naegling",
         sub="Blurred Shield +1",
     })
@@ -679,67 +741,6 @@ function init_gear_sets()
      sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, sets.Defensive)
      sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.Defensive_Acc)
 
-     sets.engaged.hybrid.DW = set_combine(sets.engaged.hybrid, {
-        ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet="Pumm. Calligae +3",
-    neck={ name="War. Beads +2", augments={'Path: A',}},
-    waist="Ioskeha Belt +1",
-    left_ear="Suppanomimi",
-    right_ear="Schere Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Petrov Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-     })
-     sets.engaged.DW = set_combine(sets.engaged, {
-        ammo="Coiste Bodhar",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet="Pumm. Calligae +3",
-    neck={ name="War. Beads +2", augments={'Path: A',}},
-    waist="Ioskeha Belt +1",
-    left_ear="Suppanomimi",
-    right_ear="Schere Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Petrov Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-     })
-     sets.engaged.DW.Acc = set_combine(sets.engaged.Mid, {
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist="Ioskeha Belt +1",
-        left_ear="Suppanomimi",
-        right_ear="Telos Earring",
-        left_ring="Moonlight Ring",
-        right_ring="Niqmaddu Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-     })
-
-     sets.engaged.DW.Mid = set_combine(sets.engaged, {
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet="Flam. Gambieras +2",
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist="Ioskeha Belt +1",
-        left_ear="Suppanomimi",
-        right_ear="Schere Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Petrov Ring",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-     })
 
 
 
