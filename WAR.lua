@@ -38,10 +38,14 @@ function job_setup()
     
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
     gsList = S{'Macbain', 'Nandaka', 'Nativus Halberd'}
-    war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun", "Tanmogayi +1", "Reikiko", "Digirbalag"}
-
+    war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
+    "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
+        "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
+        "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1",
+    }
     get_combat_form()
     get_combat_weapon()
+    update_combat_form()
 end
  
  
@@ -675,6 +679,21 @@ function init_gear_sets()
      sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, sets.Defensive)
      sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.Defensive_Acc)
 
+     sets.engaged.hybrid.DW = set_combine(sets.engaged.hybrid, {
+        ammo="Coiste Bodhar",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    feet="Pumm. Calligae +3",
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist="Ioskeha Belt +1",
+    left_ear="Suppanomimi",
+    right_ear="Schere Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Petrov Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
      sets.engaged.DW = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
     head="Sakpata's Helm",
@@ -688,6 +707,21 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Petrov Ring",
+    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+     sets.engaged.DW.Acc = set_combine(sets.engaged.Mid, {
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
+        left_ring="Moonlight Ring",
+        right_ring="Niqmaddu Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
@@ -925,6 +959,7 @@ function job_update(cmdParams, eventArgs)
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     get_combat_weapon()
+    update_combat_form()
 
 end
 
@@ -954,6 +989,15 @@ function get_combat_weapon()
         state.CombatWeapon:set("GreatSword")
     else -- use regular set
         state.CombatWeapon:reset()
+    end
+end
+function update_combat_form()
+    -- Check for H2H or single-wielding
+    if player.equipment.sub == "Blurred Shield +1" or player.equipment.sub == "Beatific Shield +1" or player.equipment.sub == "Utu Grip" or 
+    player.equipment.sub == "Alber Strap" or player.equipment.sub == 'empty' then
+        state.CombatForm:reset()
+    else
+        state.CombatForm:set('DW')
     end
 end
 
