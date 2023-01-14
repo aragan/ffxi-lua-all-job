@@ -255,6 +255,7 @@ function init_gear_sets()
     sets.precast.WS["Swift Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
     sets.precast.WS["Rampage"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Vorpal Scythe"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Vorpal Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         ammo="Aurgelmir Orb +1",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
@@ -343,6 +344,9 @@ function init_gear_sets()
      sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Resolution"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
      sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Resolution"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
      sets.precast.WS["Entropy"] = set_combine(sets.precast.WS["Resolution"], {})
+     sets.precast.WS["Penta Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
+     sets.precast.WS["Double Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
+
 
 
 
@@ -481,6 +485,14 @@ function init_gear_sets()
         head="Nyame Helm",
         right_ring="Epaminondas's Ring",})
     sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Sanguine Blade"], {
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        right_ring="Epaminondas's Ring",})
+    sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        right_ring="Epaminondas's Ring",})
+    sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
         right_ring="Epaminondas's Ring",})
