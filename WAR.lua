@@ -55,7 +55,7 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Polearm', 'Club', 'Sword', 'PD', 'CRIT', 'Counter')
-    state.HybridMode:options('Normal', 'PDT')
+    state.HybridMode:options('Normal', 'PDT', 'H2H')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
     state.IdleMode:options('Normal')
@@ -172,7 +172,6 @@ function init_gear_sets()
      -- WEAPONSKILL SETS
      -- General sets
      sets.precast.WS = {
-       
         ammo="Knobkierrie",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
         body="Pumm. Lorica +3",
@@ -188,13 +187,9 @@ function init_gear_sets()
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      }
 
-     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
-         
-     })
+     sets.precast.WS.Mid = set_combine(sets.precast.WS, {})
      sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
-         waist="Olseni Belt",
-     })
-    
+         waist="Olseni Belt",})
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
         sub="Utu Grip",
     ammo="Knobkierrie",
@@ -229,7 +224,6 @@ function init_gear_sets()
     })
     sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS["Upheaval"], {})
 
- 
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
         sub="Utu Grip",
         ammo="Yetshila +1",
@@ -260,12 +254,6 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
-
-
-
-
-
-
 
     sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS, {
         sub="Utu Grip",
@@ -346,10 +334,6 @@ function init_gear_sets()
      sets.precast.WS["Entropy"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Penta Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Double Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
-
-
-
-
      sets.precast.WS["Bora Axe"] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
@@ -411,6 +395,15 @@ function init_gear_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+    sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {right_ear="Lugra Earring +1",})
+    sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {
+        ammo="Yetshila +1",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Hjarrandi Breast.",})
+
+
+
      -- Sword WS's
      -- SANGUINE BLADE
      -- 50% MND / 50% STR Darkness Elemental
@@ -493,6 +486,14 @@ function init_gear_sets()
         head="Nyame Helm",
         right_ring="Epaminondas's Ring",})
     sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        right_ring="Epaminondas's Ring",})
+    sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        right_ring="Epaminondas's Ring",})
+    sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
         right_ring="Epaminondas's Ring",})
@@ -688,6 +689,21 @@ function init_gear_sets()
     right_ring="Hetairoi Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
+    sets.engaged.H2H = {
+        ammo="Coiste Bodhar",
+        head="Hjarrandi Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Pumm. Cuisses +3",
+        feet="Pumm. Calligae +3",
+        neck={ name="War. Beads +2", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
+        left_ear="Mache Earring +1",
+        right_ear="Mache Earring +1",
+        left_ring="Niqmaddu Ring",
+        right_ring="Petrov Ring",
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    }
 
     sets.engaged.DW = set_combine(sets.engaged, {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
