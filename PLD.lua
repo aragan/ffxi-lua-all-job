@@ -18,7 +18,6 @@ function get_sets()
     include('Mote-IncludePLD.lua')
     include('organizer-lib')
     organizer_items = {
-        main="Mercurial Sword",
     }
 end
 
@@ -32,8 +31,8 @@ function user_setup()
     options.CastingModes = {'Normal', 'DT'} 
     options.IdleModes = {'Normal',}
     options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PD','PDT','PDH', 'HPBOOST', 'Enmity', 'HP', 'DEF', 'Convert', 'Block'}
-    options.MagicalDefenseModes = {'MDT' ,'Turtle','Evasion','ResistCharm','Dagger'}
+    options.PhysicalDefenseModes = {'PDT', 'PD', 'Convert', 'Block', 'PDH', 'HPBOOST', 'Enmity', 'HP', 'DEF'}
+    options.MagicalDefenseModes = {'MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger'}
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
 	state.Defense.PhysicalMode = 'PD'
