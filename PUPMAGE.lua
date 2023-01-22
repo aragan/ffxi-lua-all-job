@@ -540,14 +540,14 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Malignance Boots",
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
         neck="Lissome Necklace",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
         right_ear="Balder Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------Acc
@@ -570,7 +570,7 @@ function init_gear_sets()
         right_ear="Karagoz Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------TP
@@ -593,7 +593,7 @@ function init_gear_sets()
         right_ear="Karagoz Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------DT
@@ -614,8 +614,8 @@ function init_gear_sets()
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back="Moonlight Cape",
-    }
+    back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
+    
     sets.engaged.Master.Regen = {    
         range="Animator P II +1",
         head="Mpaca's Cap",
@@ -629,8 +629,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back="Moonlight Cape",
-        
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},        
         }
 
     ----------------------------------------------------------------------------------
@@ -664,7 +663,7 @@ function init_gear_sets()
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+    back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------Acc
@@ -686,7 +685,7 @@ function init_gear_sets()
     right_ear="Karagoz Earring",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+    back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------TP
@@ -707,7 +706,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     -------------------------------------DT
@@ -737,7 +736,7 @@ function init_gear_sets()
         right_ear="Karagoz Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
 
     ----------------------------------------------------------------

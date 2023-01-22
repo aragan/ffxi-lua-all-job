@@ -46,6 +46,8 @@ function job_setup()
     get_combat_form()
     --get_combat_weapon()
     update_melee_groups()
+    customize_idle_set(idleSet)
+    customize_melee_set(meleeSet)
     send_command('wait 2;input /lockstyleset 200')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
@@ -117,6 +119,7 @@ function init_gear_sets()
 
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
         waist="Chaac Belt",
      }
     sets.precast.JA['Provoke'] = { 
@@ -306,6 +309,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Tachi: Kaiten'] = set_combine(sets.precast.WS, {
+        main={ name="Amanomurakumo", augments={'Path: A',}},
+        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -383,6 +388,8 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
+        main={ name="Masamune", augments={'Path: A',}},
+        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -851,7 +858,7 @@ function init_gear_sets()
     sets.engaged.PDT = set_combine(sets.engaged.Acc, {
         ammo="Coiste Bodhar",
         head="Mpaca's Cap",
-        body="Mpaca's Doublet",
+        body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
         feet="Mpaca's Boots",
@@ -860,7 +867,7 @@ function init_gear_sets()
         right_ear="Kasuga Earring",
         left_ear="Dedition Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Defending Ring",
+        right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
 
     })
@@ -1066,11 +1073,19 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 		state.Buff[spell.english] = not spell.interrupted or buffactive[spell.english]
 	end
 end
+function job_handle_equipping_gear(player,status, eventArgs)
+    customize_idle_set(idleSet)
+    customize_melee_set(meleeSet)
+end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if player.hpp < 90 then
         idleSet = set_combine(idleSet, sets.idle.Regen)
+    end
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        idleSet = set_combine(idleSet, sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
     end
 	return idleSet
 end
@@ -1087,14 +1102,26 @@ function customize_melee_set(meleeSet)
             meleeSet = set_combine(meleeSet, sets.seigan)
         end
     end
-    if state.CapacityMode.value then
-        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
-    end
     if player.equipment.range == 'Yoichinoyumi' then
         meleeSet = set_combine(meleeSet, sets.bow)
     end
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        meleeSet = set_combine(meleeSet, sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+    end
     return meleeSet
 end
+if spellMap == 'Utsusemi' then
+    if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+        cancel_spell()
+        add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+        eventArgs.handled = true
+        return
+    elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+        send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+    end
+end
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.

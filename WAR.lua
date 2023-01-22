@@ -898,7 +898,7 @@ end
 function job_handle_equipping_gear(player,status, eventArgs)
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
-        job_state_change(player,stateField, newValue, oldValue)
+    job_state_change(stateField, newValue, oldValue)
 
 end
 -- Modify the default idle set after it was constructed.
@@ -909,7 +909,7 @@ function customize_idle_set(idleSet)
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
-    if player.hpp < 10 then
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1031,7 +1031,7 @@ function job_update(player,cmdParams, eventArgs)
     update_combat_form()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
-    job_state_change(player,stateField, newValue, oldValue)
+    job_state_change(stateField, newValue, oldValue)
 
 end
 
