@@ -303,7 +303,8 @@ sets.precast.WS['Entropy'] = {
     right_ear="Balder Earring +1",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
-    back="Atheling Mantle",} 
+    back="Bleating Mantle",
+} 
 sets.precast.WS['Entropy'].Mid = set_combine(sets.precast.WS['Entropy'], {})
 
 sets.precast.WS['Infernal Scythe'] = {   
@@ -364,7 +365,8 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Regal Ring",
-    back="Atheling Mantle",}
+    back="Bleating Mantle",
+}
   
     sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'], {})
     sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS['Resolution'], {})
@@ -797,8 +799,7 @@ sets.engaged.PD = set_combine(sets.engaged, {
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
-}
+    back="Annealed Mantle",}
 
 sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},

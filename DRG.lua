@@ -215,7 +215,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     })
 	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
     body="Nyame Mail",
@@ -600,7 +600,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back="Atheling Mantle",
+        back="Annealed Mantle",
     }
 
 	sets.engaged.Mid = set_combine(sets.engaged, {
@@ -616,7 +616,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back="Atheling Mantle",
+        back="Annealed Mantle",
     })
 
 	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
@@ -624,8 +624,7 @@ function init_gear_sets()
         hands="Flamma Manopolas +2",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},       
-    })
+        back="Annealed Mantle",    })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
@@ -640,16 +639,14 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}},   
-    })
+        back="Annealed Mantle",    })
 
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
-        right_ring="Moonbeam Ring",
-    })
+        back="Annealed Mantle",    })
 	sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",

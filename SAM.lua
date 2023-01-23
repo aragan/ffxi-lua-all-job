@@ -462,18 +462,22 @@ function init_gear_sets()
     -- CHR Mod
     sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS, {
         ammo="Pemphredo Tathlum",
-        head="Flam. Zucchetto +2",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Kasuga Domaru +2",
         hands="Flam. Manopolas +2",
-        legs="Flamma Dirs +2",
-        feet="Flam. Gambieras +2",
-        neck="Sanctity Necklace",
+        legs="Kasuga Haidate +2",
+        feet="Kas. Sune-Ate +2",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Eschan Stone",
         left_ear="Digni. Earring",
         right_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+    sets.precast.WS['Tachi: Ageha'].Mid = set_combine(sets.precast.WS['Tachi: Ageha'], {
+        left_ear="Handler's Earring",
+        right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
     })
     
     sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
@@ -930,7 +934,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Bleating Mantle",
     }
     
     sets.engaged.Amanomurakumo = set_combine(sets.engaged, {

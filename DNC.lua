@@ -290,7 +290,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Regal Ring",
     right_ring="Epaminondas's Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -334,7 +334,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Gere Ring",
         right_ring="Regal Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     })
     sets.precast.WS['Pyrrhic Kleos'].Acc = set_combine(sets.precast.WS.Acc, {    head="Nyame Helm",
     body="Nyame Mail",
@@ -356,7 +356,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Regal Ring",
         right_ring="Gere Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Aurgelmir Orb +1",
@@ -396,7 +396,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
-        back="Atheling Mantle", 
+        back="Bleating Mantle", 
     })
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {    head="Nyame Helm",
     body="Nyame Mail",
@@ -418,7 +418,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Regal Ring",
         right_ring="Epaminondas's Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     })
 
     sets.precast.WS['Aeolian Edge'] = {        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -595,7 +595,7 @@ function init_gear_sets()
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Atheling Mantle",}
+    back="Bleating Mantle",}
 
     sets.engaged.Fodder = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -609,7 +609,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.engaged.Fodder.Evasion = {}
 
     sets.engaged.Acc = {      ammo="Yamarang",
@@ -624,7 +624,7 @@ function init_gear_sets()
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle",}
+    back="Bleating Mantle",}
     sets.engaged.STP = {    
         ammo="Coiste Bodhar",
         head="Malignance Chapeau",
@@ -638,7 +638,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
     sets.engaged.DA = {  
         ammo="Coiste Bodhar",
@@ -653,7 +653,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Epona's Ring",
         right_ring="Gere Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
     sets.engaged.Evasion = {}
     sets.engaged.PDT = {    ammo="Staunch Tathlum +1",
@@ -687,7 +687,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back="Atheling Mantle",}
+        back="Bleating Mantle",}
 
 
     -- Custom melee group: High Haste (2x March or Haste)
@@ -703,7 +703,7 @@ function init_gear_sets()
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
 
     sets.engaged.Fodder.HighHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -717,7 +717,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.engaged.Fodder.Evasion.HighHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Meg. Cuirie +2",
@@ -743,7 +743,7 @@ function init_gear_sets()
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.engaged.STP.HighHaste = {    
         ammo="Coiste Bodhar",
         head="Malignance Chapeau",
@@ -757,7 +757,7 @@ function init_gear_sets()
         left_ear="Dedition Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
      sets.engaged.DA.HighHaste = {  
         ammo="Coiste Bodhar",
@@ -772,7 +772,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Epona's Ring",
         right_ring="Gere Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
     sets.engaged.Evasion.HighHaste = {}
     sets.engaged.Acc.Evasion.HighHaste = {}
@@ -808,7 +808,7 @@ function init_gear_sets()
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
 
     -- Getting Marches+Haste from Trust NPCs, doesn't cap delay.
     sets.engaged.Fodder.MaxHaste = {    ammo="Qirmiz Tathlum",
@@ -823,7 +823,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.engaged.Fodder.Evasion.MaxHaste = {    ammo="Qirmiz Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Meg. Cuirie +2",
@@ -849,7 +849,7 @@ function init_gear_sets()
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle", }
+    back="Bleating Mantle", }
     sets.engaged.STP.MaxHaste = {    
         ammo="Coiste Bodhar",
         head="Malignance Chapeau",
@@ -863,7 +863,7 @@ function init_gear_sets()
         left_ear="Dedition Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
      sets.engaged.DA.MaxHaste = {  
         ammo="Coiste Bodhar",
@@ -878,7 +878,7 @@ function init_gear_sets()
         right_ear="Balder Earring +1",
         left_ring="Epona's Ring",
         right_ring="Gere Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
  }
     sets.engaged.Evasion.MaxHaste = {}
     sets.engaged.Acc.Evasion.MaxHaste = {}

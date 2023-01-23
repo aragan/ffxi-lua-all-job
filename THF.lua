@@ -194,7 +194,7 @@ function init_gear_sets()
     right_ear="Ishvara Earring",
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
-    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Bleating Mantle",
 
 
     })
@@ -211,7 +211,7 @@ function init_gear_sets()
     right_ear="Ishvara Earring",
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
-    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Bleating Mantle",
 
     })
     sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {})
@@ -239,8 +239,8 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Ilabrat Ring",
         right_ring="Regal Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-})
+        back="Bleating Mantle",
+    })
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {range=empty,
         ammo="Yetshila +1",
         head="Gleti's Mask",
@@ -254,7 +254,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Ilabrat Ring",
         right_ring="Regal Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+        back="Bleating Mantle",
     })
     sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
     sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
@@ -586,7 +586,7 @@ function init_gear_sets()
         right_ear="Skulk. Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+        back="Bleating Mantle",
     }
         
         sets.engaged.CRIT = {range=empty,
@@ -602,8 +602,8 @@ function init_gear_sets()
         right_ear="Skulk. Earring +1",
         left_ring="Gere Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-        }
+        back="Bleating Mantle",
+    }
 
     -- Mod set for trivial mobs (Skadi+1)
     sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
@@ -643,7 +643,7 @@ function init_gear_sets()
     right_ear="Skulk. Earring +1",
     left_ring="Gere Ring",
     right_ring="Hetairoi Ring",
-    back="Moonlight Cape",
+    back="Bleating Mantle",
 
     }
     sets.engaged.Acc.Evasion = set_combine(sets.engaged.Evasion ,{ range=empty,
@@ -663,11 +663,10 @@ function init_gear_sets()
         right_ear="Skulk. Earring +1",
         left_ring="Gere Ring",
         right_ring="Defending Ring",
-        back="Moonlight Cape",
+        back="Bleating Mantle",
         
     }
     sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
-    feet={ name="Plun. Poulaines +2", augments={'Enhances "Assassin\'s Charge" effect',}},
     })
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",

@@ -764,7 +764,7 @@ sets.precast.WS['Shattersoul'] = {
 		right_ear="Cessance Earring",
 		left_ring="Hetairoi Ring",
 		right_ring="Petrov Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
     }
 
 	sets.engaged.DW = {
@@ -780,7 +780,7 @@ sets.precast.WS['Shattersoul'] = {
 		right_ear="Eabani Earring",
 		left_ring="Hetairoi Ring",
 		right_ring="Petrov Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 		}
 
 	sets.engaged.CRIT = {
@@ -796,8 +796,7 @@ sets.precast.WS['Shattersoul'] = {
 		right_ear="Brutal Earring",
 		left_ring="Hetairoi Ring",
 		right_ring="Petrov Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-	}       
+		back="Annealed Mantle",	}       
 	sets.engaged.DW.CRIT = {
 		ammo="Coiste Bodhar",
 		head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -811,8 +810,7 @@ sets.precast.WS['Shattersoul'] = {
 		right_ear="Brutal Earring",
 		left_ring="Hetairoi Ring",
 		right_ring="Petrov Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-	}
+		back="Annealed Mantle",	}
 		sets.engaged.Acc = {
 	        ammo="Aurgelmir Orb +1",
 			head="Malignance Chapeau",
@@ -826,8 +824,7 @@ sets.precast.WS['Shattersoul'] = {
 			right_ear="Cessance Earring",
 			left_ring="Chirich Ring +1",
 			right_ring="Chirich Ring +1",
-			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-		}
+			back="Annealed Mantle",		}
 	sets.engaged.DW.Acc = {
 	ammo="Aurgelmir Orb +1",
 	head="Malignance Chapeau",
@@ -841,8 +838,7 @@ sets.precast.WS['Shattersoul'] = {
 	right_ear="Cessance Earring",
 	left_ring="Chirich Ring +1",
 	right_ring="Chirich Ring +1",
-	back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-    }
+	back="Annealed Mantle",    }
 
 
 	sets.engaged.Enspell = {   

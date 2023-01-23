@@ -31,6 +31,7 @@ end
 function job_setup()
     -- Whether to use Luzaf's Ring
     state.LuzafRing = M(false, "Luzaf's Ring")
+    state.WeaponLock = M(false, 'Weapon Lock')
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
     send_command('wait 2;input /lockstyleset 200')
@@ -66,7 +67,8 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
-
+    send_command('bind @w gs c toggle WeaponLock')
+    update_combat_form()
     select_default_macro_book()
 end
 
@@ -101,14 +103,14 @@ function init_gear_sets()
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
-    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Navarch's Tricorne +2"})
+    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +1",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Navarch's Frac +2"})
-    sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Navarch's Gants +2"})
+    sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +1",})
     
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     sets.precast.FoldDoubleBust = {hands="Lanun Gants"}
     
-    sets.precast.CorsairShot = {head="Blood Mask"}
+    sets.precast.CorsairShot = {}
     
 
     -- Waltz set (chr and vit)
@@ -175,13 +177,13 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Mummu Ring",
     right_ring="Regal Ring",
-    back="Atheling Mantle",
+    back="Bleating Mantle",
     }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        head="Meghanada Visor +2",
+        head="Nyame Helm",
     body="Laksa. Frac +3",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Caro Necklace",
@@ -220,7 +222,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
 })
 
     sets.precast.WS['Last Stand'] = {
@@ -270,10 +272,19 @@ function init_gear_sets()
 }
 
     
-    sets.precast.WS['Leaden Salute'] = {main="Naegling",sub="Tauret",range="Molybdosis",ammo="Orichalc. Bullet",head="Pixie Hairpin +1",
-    body="Laksa. Frac +3",hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+24','STR+15',}},legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+22','Weapon skill damage +2%','INT+11','Mag. Acc.+8',}},
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},neck="Sanctity Necklace",waist="Svelt. Gouriz +1",left_ear="Friomisi Earring",right_ear="Hecate's Earring",
-    left_ring="Dingir Ring",right_ring="Epaminondas's Ring",back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
+    sets.precast.WS['Leaden Salute'] = {
+        head="Pixie Hairpin +1",
+    body="Laksa. Frac +3",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Baetyl Pendant",
+    waist="Svelt. Gouriz +1",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Dingir Ring",
+    right_ring="Archon Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},}
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
@@ -448,8 +459,9 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee group
-    sets.engaged.Melee = {main="Naegling",
-    sub="Demers. Degen +1",
+
+
+    sets.engaged.Melee = {
     range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -462,12 +474,10 @@ function init_gear_sets()
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
     }
     sets.engaged.Acc = {
-        main="Tauret",
-        sub="Gleti's Knife",
-        range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
@@ -475,17 +485,15 @@ function init_gear_sets()
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
-    left_ear="Cessance Earring",
+    left_ear="Suppanomimi",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
     }
 
     sets.engaged.CRIT = {
-        main="Naegling",
-    sub="Demers. Degen +1",
-    range="Molybdosis",
+
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -497,13 +505,41 @@ function init_gear_sets()
     right_ear="Brutal Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
+    }
+    sets.engaged.Ranged = {    
+        head="Malignance Chapeau",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Windbuffet Belt +1",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Petrov Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
-    sets.engaged.CRIT.DW = {
-        main="Naegling",
-    sub="Demers. Degen +1",
-    range="Molybdosis",
+    sets.engaged.Acc = {
+            ammo="Orichalc. Bullet",
+            head="Malignance Chapeau",
+            body="Mummu Jacket +2",
+            hands="Malignance Gloves",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
+            neck="Iskur Gorget",
+            waist="Yemaya Belt",
+            left_ear="Suppanomimi",
+            right_ear="Telos Earring",
+            left_ring="Petrov Ring",
+            right_ring="Ilabrat Ring",
+            back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+        }
+
+    sets.engaged.CRIT = {
+
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -511,13 +547,13 @@ function init_gear_sets()
     feet="Mummu Gamash. +2",
     neck="Nefarious Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
+    left_ear="Suppanomimi",
     right_ear="Brutal Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
     }
-    sets.engaged.Melee.DW = {
+    sets.engaged.Melee = {
     
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -530,42 +566,14 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
         right_ring="Petrov Ring",
-        back="Atheling Mantle",
+        back="Annealed Mantle",
 }
     
-    sets.engaged.Acc.DW = {
-    
-    range="Molybdosis",
-    ammo="Orichalc. Bullet",
-    head="Malignance Chapeau",
-    body="Mummu Jacket +2",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Yemaya Belt",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-}
 
 
-    sets.engaged.Ranged = {    range="Molybdosis",
-    head="Malignance Chapeau",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Windbuffet Belt +1",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Epona's Ring",
-    right_ring="Petrov Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-}
+
+
+sets.DefaultShield = {sub="Nusku Shield"}
 sets.Doom = {    neck="Nicander's Necklace",
 waist="Gishdubar Sash",
 left_ring="Purity Ring",
@@ -596,6 +604,16 @@ function job_precast(spell, action, spellMap, eventArgs)
             eventArgs.handled = true
         end
     end
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
 end
 function job_buff_change(buff,gain)
     if buff == "doom" then
@@ -611,7 +629,17 @@ function job_buff_change(buff,gain)
         end
     end
 end
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    update_combat_form()
 
+end
+function update_combat_form()
+    if DW == true then
+        state.CombatForm:set('DW')
+    elseif DW == false then
+        state.CombatForm:reset()
+    end
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
     if spell.type == 'CorsairRoll' and not spell.interrupted then

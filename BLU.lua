@@ -272,7 +272,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Ilabrat Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     }
     
         sets.precast.WS.acc = set_combine(sets.precast.WS, {})
@@ -291,7 +291,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Epona's Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
         })
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
@@ -307,7 +307,7 @@ function init_gear_sets()
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Epaminondas's Ring",
             right_ring="Ilabrat Ring",
-            back="Atheling Mantle",
+            back="Bleating Mantle",
         })
     
         sets.precast.WS['Sanguine Blade'] = {
@@ -341,7 +341,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Ilabrat Ring",
         right_ring="Epona's Ring",
-        back="Atheling Mantle",
+        back="Annealed Mantle",
     }
     
     
@@ -358,7 +358,7 @@ function init_gear_sets()
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
         right_ring="Beithir Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     }
 
     sets.precast.WS['Aeolian Edge'] = {
@@ -505,7 +505,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Shukuyu Ring",
         right_ring="Ilabrat Ring",
-        back="Atheling Mantle",
+        back="Bleating Mantle",
     }
 
     sets.midcast['Blue Magic'].PhysicalAcc = {
@@ -824,7 +824,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Epona's Ring",
-        back="Atheling Mantle",
+        back="Annealed Mantle",
     
     }
     
@@ -872,7 +872,7 @@ sets.engaged.CRIT = {
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back="Atheling Mantle",}
+    back="Annealed Mantle",}
     
 
     sets.engaged.Refresh = {
@@ -893,7 +893,7 @@ sets.engaged.DW = {
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Epona's Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
     }
 sets.engaged.DW.PD = {
         ammo="Aurgelmir Orb +1",
@@ -908,7 +908,7 @@ sets.engaged.DW.PD = {
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Chirich Ring +1",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
     }
 
 sets.engaged.DW.Acc = {
@@ -939,7 +939,7 @@ sets.engaged.DW.CRIT = {
         right_ear="Odr Earring",
         left_ring="Epona's Ring",
         right_ring="Hetairoi Ring",
-        back="Atheling Mantle",}
+        back="Annealed Mantle",}
 
 sets.engaged.PD = {
           

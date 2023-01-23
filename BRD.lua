@@ -212,7 +212,7 @@ function init_gear_sets()
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
     ring2="Epaminondas's Ring",
-    back="Intarabus's Cape",
+    back="Bleating Mantle",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
@@ -220,17 +220,17 @@ function init_gear_sets()
     
     sets.precast.WS['Exenterator'] = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
-        left_ear="Brutal Earring",
-        right_ear="Balder Earring +1",
     body="Ayanmo Corazza +2",
-    hands="Bunzi's Gloves",
-    ring1="Hetairoi Ring",
-    ring2="Ilabrat Ring",
-    back="Atheling Mantle",
-    waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
+    hands="Bunzi's Gloves",
+    neck="Fotia Gorget",
+    left_ear="Brutal Earring",
+    right_ear="Balder Earring +1",
+    ring1="Hetairoi Ring",
+    ring2="Ilabrat Ring",
+    waist="Fotia Belt",
+    back="Bleating Mantle",
     }
 
     sets.precast.WS['Mordant Rime'] = {range="Linos",
@@ -687,8 +687,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-    }
+        back="Bleating Mantle",    }
 
     -- Sets with weapons defined.
     sets.engaged.Shield = {range="Linos",
@@ -705,7 +704,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Fili Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.Dagger = {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
@@ -721,8 +720,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-    }
+        back="Bleating Mantle",    }
 
     sets.engaged.Sword = {range="Linos",
         main="Naegling",
@@ -738,8 +736,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-    }
+        back="Bleating Mantle",    }
 
     sets.engaged.CRIT = set_combine(sets.engaged, {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
@@ -749,8 +746,7 @@ sets.precast.WS['Shattersoul'] = {
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-    })
+        back="Bleating Mantle",    })
     sets.engaged.ACC = set_combine(sets.engaged, {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
@@ -763,7 +759,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
     sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},

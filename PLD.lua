@@ -176,7 +176,7 @@ left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 right_ear="Cessance Earring",
 left_ring="Petrov Ring",
 right_ring="Regal Ring",
-back="Atheling Mantle",
+back="Bleating Mantle",
 }
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
     sets.precast.WS['Sanguine Blade'] = {
@@ -239,7 +239,7 @@ left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring="Regal Ring",
 right_ring="Epaminondas's Ring",
-back="Atheling Mantle",
+back="Bleating Mantle",
 }
    --Stat Modifier:  80%DEX  fTP:2.25
    sets.precast.WS['Chant du Cygne'] = {	
@@ -255,7 +255,7 @@ back="Atheling Mantle",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
     right_ring="Flamma Ring",
-    back="Atheling Mantle",
+    back="Bleating Mantle",
 }
     --Stat Modifier: WS damage + 30/31%   2211DMG maxaggro
     sets.precast.WS['Atonement'] = {
@@ -1064,7 +1064,7 @@ left_ear="Brutal Earring",
 right_ear="Telos Earring",
 left_ring="Patricius Ring",
 right_ring="Petrov Ring",
-back="Atheling Mantle",
+back="Annealed Mantle",
 }
 
 sets.engaged.Tp = --1179 / 1315 avec enlight up
@@ -1083,8 +1083,7 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
-}
+    back="Annealed Mantle",}
 
 sets.engaged.Hybrid = --1179 / 1315 avec enlight up
 {
@@ -1100,7 +1099,7 @@ sets.engaged.Hybrid = --1179 / 1315 avec enlight up
     right_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Moonlight Ring",
-    back="Atheling Mantle",
+    back="Annealed Mantle",
 }
 
 sets.engaged.CRIT = --1179 / 1315 avec enlight up
@@ -1117,8 +1116,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
     right_ear="Brutal Earring",
     left_ring="Defending Ring",
     right_ring="Hetairoi Ring",
-    back="Moonlight Cape",
-}
+    back="Annealed Mantle",}
 
 
 end

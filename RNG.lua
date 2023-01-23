@@ -198,8 +198,8 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Regal Ring",
-    back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-	}
+	back="Bleating Mantle",
+}
 	sets.precast.WS["Flaming Arrow"] = sets.precast.WS.Wildfire
 	sets.precast.WS["Hot Shot"] = sets.precast.WS.Wildfire
 
@@ -269,7 +269,7 @@ function init_gear_sets()
 			right_ear="Amini Earring +1",
 			left_ring="Mummu Ring",
 			right_ring="Regal Ring",
-			back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+			back="Bleating Mantle",
 		}
 
 
@@ -437,7 +437,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged = {
 		range="Fomalhaut",
@@ -452,7 +452,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged.DD = {
 		sub="Blurred Knife +1",
@@ -469,7 +469,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged.Shield = {
 		range="Fomalhaut",
@@ -484,7 +484,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 
 	sets.engaged.Range = {	
@@ -501,7 +501,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 
 	sets.engaged.ShieldAcc = {	
@@ -516,7 +516,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged.DDACC = {
 		sub="Blurred Knife +1",
@@ -533,7 +533,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged.Acc = {	
 		head="Malignance Chapeau",
@@ -547,7 +547,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 	sets.engaged.DA = {	
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -561,7 +561,7 @@ function init_gear_sets()
 		right_ear="Eabani Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 
 	sets.engaged.STP = {	
@@ -576,7 +576,7 @@ function init_gear_sets()
 		right_ear="Dedition Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Atheling Mantle",
+		back="Annealed Mantle",
 	}
 
 	--------------------------------------

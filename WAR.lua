@@ -90,6 +90,7 @@ function init_gear_sets()
     --------------------------------------
 
     sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
