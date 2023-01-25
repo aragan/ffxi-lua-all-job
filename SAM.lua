@@ -48,7 +48,7 @@ function job_setup()
     update_melee_groups()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 172')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')
@@ -71,9 +71,9 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'polearm', 'Range', 'CRIT' , 'Counter')
     state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL')
-    state.IdleMode:options('Normal', 'Sphere')
+    state.IdleMode:options('Normal', 'Evasion')
     state.RestingMode:options('Normal')
-    state.PhysicalDefenseMode:options('PDT', 'Reraise')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
     
     -- Additional local binds
@@ -81,7 +81,10 @@ function user_setup()
     send_command('bind ^[ input /lockstyle on')
     send_command('bind ![ input /lockstyle off')
     send_command('bind != gs c toggle CapacityMode')
-    
+    send_command('bind ^/ gs disable all')
+    --send_command('bind ^- gs c toggle enable all')
+
+
     select_default_macro_book()
 end
 
@@ -91,6 +94,7 @@ function file_unload()
     send_command('unbind ^[')
     send_command('unbind !=')
     send_command('unbind ![')
+    send_command('unbind ^/')
 end
 
 --[[
@@ -132,13 +136,13 @@ function init_gear_sets()
     -- Precast Sets
     -- Precast sets to enhance JAs
     sets.precast.JA.Meditate = {
-        head="Wakido Kabuto +2",
+        head="Wakido Kabuto +1",
         hands="Sakonji Kote +3",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.JA.Sekkanoki = {hands="Unkai Kote +2" }
     sets.precast.JA.Seigan = {head="Unkai Kabuto +2"}
-    sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +2"}
+    sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +1"}
     sets.precast.JA['Third Eye'] = {legs="Sakonji Haidate +3"}
     --sets.precast.JA['Blade Bash'] = {hands="Saotome Kote +2"}
    
@@ -624,7 +628,21 @@ function init_gear_sets()
 
     })
 
-    sets.idle.Sphere = set_combine(sets.idle, { })
+    sets.idle.Evasion = set_combine(sets.idle, {
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Vengeful Ring",
+        back="Moonlight Cape",
+     })
     
     sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
@@ -668,6 +686,21 @@ function init_gear_sets()
         right_ring="Defending Ring",
         back="Moonlight Cape",
     })
+    sets.defense.Evasion = set_combine(sets.defense.PDT, {
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Vengeful Ring",
+        back="Moonlight Cape",
+    })
     
     sets.Kiting = {feet="Danzo Sune-ate"}
     
@@ -686,7 +719,7 @@ function init_gear_sets()
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Kasuga Domaru +2",
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+    hands="Wakido Kote +2",
     legs="Kasuga Haidate +2",
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -702,7 +735,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Kasuga Domaru +2",
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+    hands="Wakido Kote +2",
     legs="Kasuga Haidate +2",
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -781,7 +814,7 @@ function init_gear_sets()
          ammo="Coiste Bodhar",
          head="Flam. Zucchetto +2",
          body="Kasuga Domaru +2",
-         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+         hands="Wakido Kote +2",
          legs="Kasuga Haidate +2",
          feet="Flam. Gambieras +2",
          neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -812,7 +845,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Kasuga Domaru +2",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        hands="Wakido Kote +2",
         legs="Kasuga Haidate +2",
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -910,7 +943,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Kasuga Domaru +2",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        hands="Wakido Kote +2",
         legs="Kasuga Haidate +2",
         feet="Kas. Sune-Ate +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -976,15 +1009,6 @@ end
 
 -- Set eventArgs.handled to true if we don't want any automatic target handling to be done.
 function job_pretarget(spell, action, spellMap, eventArgs)
-	if spell.type:lower() == 'weaponskill' then
-		-- Change any GK weaponskills to polearm weaponskill if we're using a polearm.
-		if player.equipment.main =='Nativus Halberd' or player.equipment.main =='Quint Spear' then
-			if spell.english:startswith("Tachi:") then
-				send_command('@input /ws "Stardiver" '..spell.target.raw)
-				eventArgs.cancel = true
-			end
-		end
-	end
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = true
     end

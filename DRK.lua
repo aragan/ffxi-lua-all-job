@@ -93,7 +93,7 @@ function init_gear_sets()
     --------------------------------------
       
     -- Precast sets to enhance JAs
-    sets.precast.JA['Last Resort'] = {back="Ankou's mantle"}
+    sets.precast.JA['Last Resort'] = {back="Ankou's mantle", feet={ name="Fallen's Sollerets", augments={'Enhances "Desperate Blows" effect',}},}
     sets.precast.JA['Nether Void'] = {Legs="Heathen's Flanchard +1"}
     sets.precast.JA['Blood Weapon'] = {body="Fallen's Cuirass +3"}
     sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
