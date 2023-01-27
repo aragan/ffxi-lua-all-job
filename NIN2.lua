@@ -383,7 +383,7 @@ function init_gear_sets()
         main={ name="Heishi Shorinken", augments={'Path: A',}},
         sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
         ammo="Per. Lucky Egg",
-        head="Malignance Chapeau",
+        head="Wh. Rarab Cap +1",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",

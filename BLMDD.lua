@@ -796,7 +796,7 @@ function init_gear_sets()
     }
     sets.engaged.TH = {
         ammo="Per. Lucky Egg",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        head="Wh. Rarab Cap +1",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",

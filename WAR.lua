@@ -60,7 +60,7 @@ function user_setup()
     state.CastingMode:options('Normal')
     state.IdleMode:options('Normal')
     state.RestingMode:options('Normal')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
+    state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
     war_sj = player.sub_job == 'WAR' or false
     state.drain = M(false)
@@ -517,9 +517,10 @@ function init_gear_sets()
          body="Sakpata's Plate",
          hands="Sakpata's Gauntlets",
          legs="Sakpata's Cuisses",
-         ear1="Etiolation Earring",
-         ear2="Genmei Earring",
-         neck="Sanctity Necklace",
+         ear1="Tuisto Earring",
+         ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
+         neck={ name="Loricate Torque +1", augments={'Path: A',}},
+         waist="Carrier's Sash",
          right_ring="Paguroidea Ring",
          left_ring="Defending Ring",
          feet="Hermes' Sandals +1",
@@ -568,6 +569,21 @@ function init_gear_sets()
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Defending Ring",
+        back="Moonlight Cape",
+     }
+     sets.defense.Evasion = {
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Vengeful Ring",
         back="Moonlight Cape",
      }
 

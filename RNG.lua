@@ -584,7 +584,13 @@ function init_gear_sets()
 	--------------------------------------
 	sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {body="Amini Caban +1",})
 	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
-	sets.DoubleShot = set_combine(sets.midcast.RA, {body="Oshosi Vest",hands="Oshosi Gloves",})
+	sets.DoubleShot = set_combine(sets.midcast.RA, {
+	head="Oshosi Mask +1",
+    body="Oshosi Vest",
+    hands="Oshosi Gloves",
+    legs="Osh. Trousers +1",
+    feet="Osh. Leggings +1",
+})
 	sets.buff.Camouflage = {}
 	sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",

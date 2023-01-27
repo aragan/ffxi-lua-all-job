@@ -68,6 +68,8 @@ function user_setup()
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind ^numlock input /ja "Triple Shot" <me>')
+
     update_combat_form()
     select_default_macro_book()
 end
@@ -77,6 +79,8 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
+    send_command('unbind ^numlock')
+
 end
 
 -- Define sets and vars used by this job file.
@@ -104,11 +108,11 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +1",})
-    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Navarch's Frac +2"})
+    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +1",})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +1",})
     
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
-    sets.precast.FoldDoubleBust = {hands="Lanun Gants"}
+    sets.precast.FoldDoubleBust = {hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},}
     
     sets.precast.CorsairShot = {}
     
@@ -570,7 +574,13 @@ function init_gear_sets()
 }
     
 
-
+sets.TripleShot = set_combine(sets.midcast.RA,{
+    head="Oshosi Mask +1",
+    body="Chasseur's Frac +1",
+    hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
+    legs="Osh. Trousers +1",
+    feet="Osh. Leggings +1",
+    })
 
 
 sets.DefaultShield = {sub="Nusku Shield"}
@@ -638,6 +648,33 @@ function update_combat_form()
         state.CombatForm:set('DW')
     elseif DW == false then
         state.CombatForm:reset()
+    end
+end
+
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    if spell.type == 'CorsairShot' then
+        if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
+    elseif spell.action_type == 'Ranged Attack' then
+        if buffactive['Triple Shot'] then
+            equip(sets.TripleShot)
+        end
     end
 end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.

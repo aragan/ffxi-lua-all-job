@@ -940,7 +940,7 @@ function init_gear_sets()
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     })
     sets.engaged.STP = {range=empty,
-        ammo="Coiste Bodhar",
+        ammo="Aurgelmir Orb +1",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Kasuga Domaru +2",
         hands="Wakido Kote +2",
@@ -950,7 +950,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
         right_ear="Kasuga Earring",
-        left_ring="Niqmaddu Ring",
+        left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
     }
