@@ -50,7 +50,7 @@ organizer_items = {
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Ranged', 'Melee', 'Acc', 'CRIT')
-    state.RangedMode:options('Normal', 'Molybdosis')
+    state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
@@ -67,7 +67,7 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
 
     update_combat_form()
@@ -80,6 +80,7 @@ function user_unload()
     send_command('unbind ^`')
     send_command('unbind !`')
     send_command('unbind ^numlock')
+    send_command('unbind !w')
 
 end
 
@@ -93,7 +94,6 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     
-    sets.precast.JA['Triple Shot'] = {hands="Oshosi Gloves",head="Chass. Tricorne +1",body="Oshosi Vest",}
     sets.precast.JA['Snake Eye'] = {legs="Lanun Culottes"}
     sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
@@ -114,7 +114,8 @@ function init_gear_sets()
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     sets.precast.FoldDoubleBust = {hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},}
     
-    sets.precast.CorsairShot = {}
+    sets.precast.CorsairShot = {
+    }
     
 
     -- Waltz set (chr and vit)
@@ -142,14 +143,29 @@ function init_gear_sets()
 
 
     sets.precast.RA = {
-        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
         head="Chass. Tricorne +1",
-        body="Laksa. Frac +3",
-    legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
+        body="Oshosi Vest",
+        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
     waist="Yemaya Belt",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Tactical Mantle",
 }
+
+sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
+    body="Laksa. Frac +3", --0/20
+    }) --47/52
+
+sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
+    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    head="Chass. Tricorne +1",
+    body="Laksa. Frac +3",
+legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
+feet="Meg. Jam. +1",
+waist="Yemaya Belt",
+back="Tactical Mantle",
+    }) --32/73
+
 
        
     -- Weaponskill sets
@@ -354,19 +370,19 @@ function init_gear_sets()
 
 
     -- Ranged gear
-    sets.midcast.RA = {
-    head="Malignance Chapeau",
-    body="Mummu Jacket +2",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+sets.midcast.RA = {
+    head="Ikenga's Hat",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
     legs="Ikenga's Trousers",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Yemaya Belt",
-    left_ear="Cessance Earring",
+    left_ear="Enervating Earring",
     right_ear="Telos Earring",
-    left_ring="Petrov Ring",
+    left_ring="Dingir Ring",
     right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Tactical Mantle",
 }
 
     sets.midcast.RA.Molybdosis = {main="Naegling",
@@ -384,8 +400,75 @@ function init_gear_sets()
     right_ear="Telos Earring",
     left_ring="Dingir Ring",
     right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+    back="Tactical Mantle",
 }
+sets.midcast.RA.Acc = {main="Naegling",
+    sub="Tauret",
+    range="Molybdosis",
+    ammo="Orichalc. Bullet",
+    head="Malignance Chapeau",
+    body="Laksa. Frac +3",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist="Eschan Stone",
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    left_ring="Cacoethic Ring",
+    right_ring="Regal Ring",
+    back="Tactical Mantle",
+}
+sets.midcast.RA.MaxAcc = {
+    head="Malignance Chapeau",
+    body="Laksa. Frac +3",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist="Yemaya Belt",
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    left_ring="Regal Ring",
+    right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+    back="Tactical Mantle",
+}
+sets.midcast.RA.STP = {
+    head="Ikenga's Hat",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Ikenga's Trousers",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist="Gerdr Belt",
+    left_ear="Dedition Earring",
+    right_ear="Telos Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Tactical Mantle",
+}
+sets.midcast.RA.NOENMITY = set_combine(sets.midcast.RA, {
+    head="Ikenga's Hat",
+    body="Ikenga's Vest",
+    hands="Ikenga's Gloves",
+    legs="Ikenga's Trousers",
+    feet="Osh. Leggings +1",
+    neck="Iskur Gorget",
+    right_ear="Enervating Earring",
+    right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+    back="Tactical Mantle",
+})
+sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
+    head="Ikenga's Hat",
+    body="Ikenga's Vest",
+    hands="Ikenga's Gloves",
+    legs="Ikenga's Trousers",
+    feet="Osh. Leggings +1",
+    neck="Iskur Gorget",
+    right_ear="Enervating Earring",
+    right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+    back="Tactical Mantle",
+})
 
     
     -- Sets to return to when not performing an action.
@@ -574,13 +657,13 @@ function init_gear_sets()
 }
     
 
-sets.TripleShot = set_combine(sets.midcast.RA,{
+sets.TripleShot = {
     head="Oshosi Mask +1",
     body="Chasseur's Frac +1",
     hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
     legs="Osh. Trousers +1",
     feet="Osh. Leggings +1",
-    })
+    }
 
 
 sets.DefaultShield = {sub="Nusku Shield"}
@@ -614,6 +697,22 @@ function job_precast(spell, action, spellMap, eventArgs)
             eventArgs.handled = true
         end
     end
+    if spell.action_type == 'Ranged Attack' then
+        special_ammo_check()
+        if flurry == 2 then
+            equip(sets.precast.RA.Flurry2)
+        elseif flurry == 1 then
+            equip(sets.precast.RA.Flurry1)
+        end
+    elseif spell.type == 'WeaponSkill' then
+        if spell.skill == 'Marksmanship' then
+            special_ammo_check()
+        end
+        -- Replace TP-bonus gear if not needed.
+        if spell.english == 'Leaden Salute' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
+            equip(sets.FullTP)
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -626,6 +725,16 @@ function job_precast(spell, action, spellMap, eventArgs)
     end
 end
 function job_buff_change(buff,gain)
+    -- If we gain or lose any flurry buffs, adjust gear.
+    if S{'flurry'}:contains(buff:lower()) then
+        if not gain then
+            flurry = nil
+            --add_to_chat(122, "Flurry status cleared.")
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -639,18 +748,48 @@ function job_buff_change(buff,gain)
         end
     end
 end
+--Read incoming packet to differentiate between Haste/Flurry I and II
+windower.register_event('action',
+    function(act)
+        --check if you are a target of spell
+        local actionTargets = act.targets
+        playerId = windower.ffxi.get_player().id
+        isTarget = false
+        for _, target in ipairs(actionTargets) do
+            if playerId == target.id then
+                isTarget = true
+            end
+        end
+        if isTarget == true then
+            if act.category == 4 then
+                local param = act.param
+                if param == 845 and flurry ~= 2 then
+                    --add_to_chat(122, 'Flurry Status: Flurry I')
+                    flurry = 1
+                elseif param == 846 then
+                    --add_to_chat(122, 'Flurry Status: Flurry II')
+                    flurry = 2
+              end
+            end
+        end
+    end)
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
-
 end
 function update_combat_form()
     if DW == true then
         state.CombatForm:set('DW')
     elseif DW == false then
         state.CombatForm:reset()
+    end 
+end
+function update_offense_mode()
+    if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
+        state.CombatForm:set('DW')
+    else
+        state.CombatForm:reset()
     end
 end
-
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.type == 'CorsairShot' then
         if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then

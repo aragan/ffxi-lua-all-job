@@ -82,6 +82,8 @@ function user_setup()
 	send_command('bind f9 gs c cycle RangedMode')
 	send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
+	send_command('bind !w gs c toggle WeaponLock')
+
 
 end
 
@@ -90,6 +92,8 @@ end
 function user_unload()
 	send_command('unbind f9')
 	send_command('unbind ^f9')
+	send_command('unbind !w')
+
 end
 
 
@@ -130,7 +134,17 @@ function init_gear_sets()
     feet="Arcadian Socks +3",
     waist="Yemaya Belt",
 	right_ring="Crepuscular Ring",
+	back="Tactical Mantle",
 	}
+	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
+		body="Laksa. Frac +3", --0/20
+		}) --47/52
+	
+	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
+		hands="Carmine Fin. Ga. +1", --8/11
+		feet="Pursuer's Gaiters", --0/10
+		}) --32/73
+	
 
 
 	-- Weaponskill sets
@@ -304,7 +318,7 @@ function init_gear_sets()
 		right_ear="Telos Earring",
 		left_ring="Ilabrat Ring",
 		right_ring="Regal Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Tactical Mantle",
 	}
 	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	
@@ -320,7 +334,7 @@ function init_gear_sets()
 		right_ear="Enervating Earring",
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Dingir Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Tactical Mantle",
 
 	})
 
@@ -333,7 +347,7 @@ function init_gear_sets()
 		feet="Malignance Boots",
 		neck="Scout's Gorget +2",
 		waist="Yemaya Belt",
-		left_ear="Enervating Earring",
+		left_ear="Telos Earring",
 		right_ear="Crep. Earring",
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Crepuscular Ring",
@@ -584,13 +598,13 @@ function init_gear_sets()
 	--------------------------------------
 	sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {body="Amini Caban +1",})
 	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
-	sets.DoubleShot = set_combine(sets.midcast.RA, {
+	sets.DoubleShot = {
 	head="Oshosi Mask +1",
     body="Oshosi Vest",
     hands="Oshosi Gloves",
     legs="Osh. Trousers +1",
     feet="Osh. Leggings +1",
-})
+}
 	sets.buff.Camouflage = {}
 	sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -632,7 +646,20 @@ function job_precast(spell, action, spellMap, eventArgs)
 		eventArgs.handled = true
 	end
 end
-
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.action_type == 'Ranged Attack' then
+        special_ammo_check()
+        if flurry == 2 then
+            equip(sets.precast.RA.Flurry2)
+        elseif flurry == 1 then
+            equip(sets.precast.RA.Flurry1)
+        end
+    elseif spell.type == 'WeaponSkill' then
+        if spell.skill == 'Marksmanship' then
+            special_ammo_check()
+        end
+	end
+end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
@@ -664,6 +691,16 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+	-- If we gain or lose any flurry buffs, adjust gear.
+    if S{'flurry'}:contains(buff:lower()) then
+        if not gain then
+            flurry = nil
+            --add_to_chat(122, "Flurry status cleared.")
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+        end
+    end
 	if buff == "Camouflage" then
 		if gain then
 			equip(sets.buff.Camouflage)
@@ -685,7 +722,30 @@ function job_buff_change(buff, gain)
         end
     end
 end
-
+windower.register_event('action',
+    function(act)
+        --check if you are a target of spell
+        local actionTargets = act.targets
+        playerId = windower.ffxi.get_player().id
+        isTarget = false
+        for _, target in ipairs(actionTargets) do
+            if playerId == target.id then
+                isTarget = true
+            end
+        end
+        if isTarget == true then
+            if act.category == 4 then
+                local param = act.param
+                if param == 845 and flurry ~= 2 then
+                    --add_to_chat(122, 'Flurry Status: Flurry I')
+                    flurry = 1
+                elseif param == 846 then
+                    --add_to_chat(122, 'Flurry Status: Flurry II')
+                    flurry = 2
+              end
+            end
+        end
+    end)
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------

@@ -207,6 +207,8 @@ function init_gear_sets()
     --------------------------------------
     -- Utility Sets for rules below
     --------------------------------------
+    sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
+    waist="Chaac Belt"}
     sets.CapacityMantle = { back="Mecistopins Mantle" }
     sets.WSDayBonus     = {}
     -- sets.WSBack         = { back="Trepidity Mantle" }
@@ -224,13 +226,17 @@ function init_gear_sets()
     -- Ranged
     --------------------------------------
 
-    sets.precast.RA = {
-
-        
+    sets.precast.RA = {        range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
-    sets.midcast.RA = {
-
-        
+    sets.midcast.RA = {   range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
     })
@@ -247,7 +253,7 @@ function init_gear_sets()
         left_ring="Rahab Ring",
         right_ring="Kishar Ring",
     }
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
         body="Passion Jacket",
         feet="Hattori Kyahan +1",
      })
@@ -291,14 +297,12 @@ function init_gear_sets()
     sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {    
         feet="Hattori Kyahan +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
-
-
     })
-    sets.midcast.Migawari = {    neck="Incanter's Torque",
+    sets.midcast.Migawari = set_combine(sets.midcast.Ninjutsu, {    neck="Incanter's Torque",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
-    }
+    }}
 
     -- Nuking Ninjutsu (skill & magic attack)
     sets.midcast.ElementalNinjutsu = {

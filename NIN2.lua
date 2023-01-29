@@ -208,7 +208,8 @@ function init_gear_sets()
     --------------------------------------
     -- Utility Sets for rules below
     --------------------------------------
-    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt"}
+    sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
+    waist="Chaac Belt"}
     sets.CapacityMantle = { back="Mecistopins Mantle" }
     sets.WSDayBonus     = {  }
     -- sets.WSBack         = { back="Trepidity Mantle" }
@@ -227,13 +228,17 @@ function init_gear_sets()
     -- Ranged
     --------------------------------------
 
-    sets.precast.RA = {
-
-        
+    sets.precast.RA = {        range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
-    sets.midcast.RA = {
-
-        
+    sets.midcast.RA = {   range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
     })
@@ -250,8 +255,10 @@ function init_gear_sets()
         left_ring="Rahab Ring",
         right_ring="Kishar Ring",
     }
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket", })
-
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
+        body="Passion Jacket",
+        feet="Hattori Kyahan +1",
+     })
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
 
@@ -293,7 +300,6 @@ function init_gear_sets()
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
     sets.midcast.Migawari = {    neck="Incanter's Torque",
-
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
