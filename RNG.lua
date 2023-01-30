@@ -131,18 +131,26 @@ function init_gear_sets()
 	body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
-    feet="Arcadian Socks +3",
+    feet="Meg. Jam. +1",
     waist="Yemaya Belt",
 	right_ring="Crepuscular Ring",
 	back="Tactical Mantle",
 	}
 	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
-		body="Laksa. Frac +3", --0/20
-		}) --47/52
+		body="Oshosi Vest",
+		feet="Meg. Jam. +1",
+
+	}) --47/52
 	
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-		hands="Carmine Fin. Ga. +1", --8/11
-		feet="Pursuer's Gaiters", --0/10
+		head="Arcadian Beret +1",
+	body="Oshosi Vest",
+	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
+    feet="Arcadian Socks +3",
+    waist="Yemaya Belt",
+	right_ring="Crepuscular Ring",
+	back="Tactical Mantle",
 		}) --32/73
 	
 
@@ -658,6 +666,15 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if spell.skill == 'Marksmanship' then
             special_ammo_check()
         end
+	end
+	if spell.type == 'WeaponSkill' then
+		if spell.english == 'Trueflight' then
+			if world.weather_element == 'Light' or world.day_element == 'Light' then
+				equip({waist="Hachirin-no-Obi"})
+			end
+		elseif spell.english == 'Wildfire' and (world.weather_element == 'Fire' or world.day_element == 'Fire') then
+			equip({waist="Hachirin-no-Obi"})
+		end
 	end
 end
 
