@@ -51,7 +51,6 @@ function job_setup()
   
     get_combat_form()
     get_combat_weapon()
-    update_melee_groups()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
 end
@@ -62,9 +61,9 @@ end
   
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Mid', 'STP', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
+    state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'Meva', 'PDT')
-    state.WeaponskillMode:options('Normal', 'MaxAcc', 'Max')  ---Max for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
+    state.WeaponskillMode:options('Normal', 'MaxAcc', 'Mid')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'SE', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
@@ -708,34 +707,34 @@ sets.defense.SEboost = {
     --------------------------------------
       
     sets.engaged ={
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Ig. Flanchard +3",
-        feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Schere Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Hetairoi Ring",
-        back="Annealed Mantle",
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body="Hjarrandi Breast.",
+    hands="Sakpata's Gauntlets",
+    legs="Ig. Flanchard +3",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Chirich Ring +1",
+    back="Annealed Mantle",
     }
     sets.engaged.Mid = {          
-        ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Ig. Flanchard +3",
-        feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Schere Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Hetairoi Ring",
-        back="Annealed Mantle",}
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body="Hjarrandi Breast.",
+    hands="Sakpata's Gauntlets",
+    legs="Ig. Flanchard +3",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Chirich Ring +1",
+    back="Annealed Mantle",}
   
     sets.engaged.STP = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -752,7 +751,21 @@ sets.defense.SEboost = {
     right_ring="Chirich Ring +1",
     back="Annealed Mantle",
 }
-
+sets.engaged.DA = set_combine(sets.engaged, {
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Ig. Flanchard +3",
+    feet="Flam. Gambieras +2",
+    neck="Asperity Necklace",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Brutal Earring",
+    right_ear="Schere Earring",
+    left_ring="Hetairoi Ring",
+    right_ring="Niqmaddu Ring",
+    back="Annealed Mantle",
+})
 sets.engaged.crit = set_combine(sets.engaged, {
 
     ammo="Yetshila +1",
@@ -828,6 +841,10 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         waist="Ioskeha Belt +1",
     })
     sets.engaged.Haste.STP = set_combine(sets.engaged.STP, {
+        ammo="Coiste Bodhar",
+        waist="Ioskeha Belt +1",
+    })
+    sets.engaged.Haste.DA = set_combine(sets.engaged.SubtleBlow, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",
     })
@@ -929,32 +946,47 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
     sets.engaged.Apocalypse.STP = {
         ammo="Coiste Bodhar",
-       head="Flam. Zucchetto +2",
-       body="Flamma Korazin +2",
-       hands="Flam. Manopolas +2",
-       legs="Sulev. Cuisses +2",
-       feet="Flam. Gambieras +2",
-       neck={ name="Vim Torque +1", augments={'Path: A',}},
-       waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-       left_ear="Cessance Earring",
-       right_ear="Dedition Earring",
-       left_ring="Niqmaddu Ring",
-       right_ring="Chirich Ring +1",
-       back="Annealed Mantle",
+        head="Flam. Zucchetto +2",
+        body="Hjarrandi Breast.",
+        hands="Sakpata's Gauntlets",
+        legs="Ig. Flanchard +3",
+        feet="Flam. Gambieras +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Telos Earring",
+        right_ear="Dedition Earring",
+        left_ring="Moonlight Ring",
+        right_ring="Chirich Ring +1",
+        back="Annealed Mantle",
    }
-   sets.engaged.Apocalypse.Mid = {    
+   sets.engaged.Apocalypse.DA = set_combine(sets.engaged, {
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    neck="Asperity Necklace",
+    waist="Ioskeha Belt +1", 
     left_ear="Brutal Earring",
     right_ear="Schere Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Hetairoi Ring",
+    left_ring="Hetairoi Ring",
+    right_ring="Niqmaddu Ring",
+    back="Annealed Mantle",
+})
+   sets.engaged.Apocalypse.Mid = {    
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
+    body="Hjarrandi Breast.",
+    hands="Sakpata's Gauntlets",
+    legs="Ig. Flanchard +3",
+    feet="Flam. Gambieras +2",
+    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Telos Earring",
+    right_ear="Dedition Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Chirich Ring +1",
     back="Annealed Mantle",
 }   
     sets.engaged.Apocalypse.crit = set_combine(sets.engaged, {
@@ -1026,7 +1058,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
 
-    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+    sets.engaged.Reraise = set_combine(sets.engaged, {	
+	head="Twilight Helm",
     body="Twilight Mail",})
 
     sets.Doom = {    neck="Nicander's Necklace",
@@ -1070,7 +1103,16 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    aw_custom_aftermath_timers_precast(spell)
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
 end
   
   
@@ -1237,9 +1279,9 @@ function job_buff_change(buff, gain)
     if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
-             disable('body','head')
+             disable('body', 'head')
             else
-             enable('body','head')
+             enable('body', 'head')
         end
         return meleeSet
     end
@@ -1335,8 +1377,6 @@ function job_update(cmdParams, eventArgs)
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     get_combat_weapon()
-    update_melee_groups()
-    select_default_macro_book()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
 end
@@ -1464,87 +1504,14 @@ function aw_custom_aftermath_timers_aftercast(spell)
         info.aftermath = {}
     end
 end
-  
-function display_current_job_state(eventArgs)
-    local msg = ''
-    msg = msg .. 'Offense: '..state.OffenseMode.current
-    msg = msg .. ', Hybrid: '..state.HybridMode.current
-  
-    if state.DefenseMode.value ~= 'None' then
-        local defMode = state[state.DefenseMode.value ..'DefenseMode'].current
-        msg = msg .. ', Defense: '..state.DefenseMode.value..' '..defMode
-    end
-    if state.CombatForm.current ~= '' then 
-        msg = msg .. ', Form: ' .. state.CombatForm.current 
-    end
-    if state.CombatWeapon.current ~= '' then 
-        msg = msg .. ', Weapon: ' .. state.CombatWeapon.current 
-    end
-    if state.CapacityMode.value then
-        msg = msg .. ', Capacity: ON, '
-    end
-    if state.SouleaterMode.value then
-        msg = msg .. ', SE Cancel, '
-    end
-    -- if state.LastResortMode.value then
-    --     msg = msg .. ', LR Defense, '
-    -- end
-    if state.PCTargetMode.value ~= 'default' then
-        msg = msg .. ', Target PC: '..state.PCTargetMode.value
-    end
-    if state.SelectNPCTargets.value then
-        msg = msg .. ', Target NPCs'
-    end
-    local msg = ''
-    if state.MagicBurst.value then
-        msg = ' Burst: On |'
-    end
-    add_to_chat(123, msg)
-    eventArgs.handled = true
-end
-  
--- Set eventArgs.handled to true if we don't want the automatic display to be run.
--- Handle notifications of general user state change.
-function job_state_change(stateField, newValue, oldValue)
-end
-  
--- Creating a custom spellMap, since Mote capitalized absorbs incorrectly
-function job_get_spell_map(spell, default_spell_map)
-    if spell.skill == 'Dark Magic' and absorbs:contains(spell.english) then
-        return 'Absorb'
-    end
-    -- if spell.type == 'Trust' then
-    --     return 'Trust'
-    -- end
-end
-  
-  
-function update_melee_groups()
-  
-    classes.CustomMeleeGroups:clear()
-    -- mythic AM    
-    if player.equipment.main == 'Liberator' then
-        if buffactive['Aftermath: Lv.3'] then
-            classes.CustomMeleeGroups:append('AM3')
-        end
-    else
-        -- relic AM
-        if buffactive['Aftermath'] then
-            classes.CustomMeleeGroups:append('AM')
-        end
-        -- if buffactive['Samurai Roll'] then
-        --     classes.CustomRangedGroups:append('SamRoll')
-        -- end
-    end
-end
-  
+
 function select_default_macro_book()
       
-    if player.sub_job == 'WAR' then
+    if scytheList:contains(player.equipment.main) then
         set_macro_page(7, 21)
+    elseif gsList:contains(player.equipment.main) then
+        set_macro_page(7, 2)
     elseif player.sub_job == 'SAM' then
-        set_macro_page(7, 21)
-    elseif player.sub_job == 'DRG' then
         set_macro_page(7, 21)
     else
         set_macro_page(7, 21)

@@ -1338,4 +1338,3 @@ function select_default_macro_book()
     	set_macro_page(8, 1)
     end
 end
-
