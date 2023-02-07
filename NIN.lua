@@ -302,7 +302,7 @@ function init_gear_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
-    }}
+    })
 
     -- Nuking Ninjutsu (skill & magic attack)
     sets.midcast.ElementalNinjutsu = {

@@ -82,8 +82,8 @@ function user_setup()
     send_command('bind ![ input /lockstyle off')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^/ gs disable all')
-    --send_command('bind ^- gs c toggle enable all')
-
+    send_command('bind ^- gs enable all')
+    send_command('bind f5 gs c cycle WeaponskillMode')
 
     select_default_macro_book()
 end
@@ -95,6 +95,7 @@ function file_unload()
     send_command('unbind !=')
     send_command('unbind ![')
     send_command('unbind ^/')
+
 end
 
 --[[
@@ -719,7 +720,7 @@ function init_gear_sets()
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Kasuga Domaru +2",
-    hands="Wakido Kote +2",
+    hands="Wakido Kote +3",
     legs="Kasuga Haidate +2",
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -735,7 +736,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Kasuga Domaru +2",
-    hands="Wakido Kote +2",
+    hands="Wakido Kote +3",
     legs="Kasuga Haidate +2",
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -814,7 +815,7 @@ function init_gear_sets()
          ammo="Coiste Bodhar",
          head="Flam. Zucchetto +2",
          body="Kasuga Domaru +2",
-         hands="Wakido Kote +2",
+         hands="Wakido Kote +3",
          legs="Kasuga Haidate +2",
          feet="Flam. Gambieras +2",
          neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -845,7 +846,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Kasuga Domaru +2",
-        hands="Wakido Kote +2",
+        hands="Wakido Kote +3",
         legs="Kasuga Haidate +2",
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
@@ -943,7 +944,7 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Kasuga Domaru +2",
-        hands="Wakido Kote +2",
+        hands="Wakido Kote +3",
         legs="Kasuga Haidate +2",
         feet="Kas. Sune-Ate +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},

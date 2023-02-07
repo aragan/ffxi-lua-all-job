@@ -99,7 +99,7 @@ function init_gear_sets()
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
 
     
-    sets.precast.CorsairRoll = {range={ name="Compensator", augments={'DMG:+9','Rng.Acc.+9','Rng.Atk.+9',}},
+    sets.precast.CorsairRoll = {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     hands="Chasseur's Gants +1",
     neck="Regal Necklace",

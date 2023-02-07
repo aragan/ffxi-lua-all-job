@@ -47,10 +47,10 @@ function job_setup()
     -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     -- Offhand weapons used to activate DW mode
-    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi"}
-  
+    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
+    sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
+
     get_combat_form()
-    get_combat_weapon()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
 end
@@ -62,10 +62,10 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
-    state.HybridMode:options('Normal', 'Meva', 'PDT')
-    state.WeaponskillMode:options('Normal', 'MaxAcc', 'Mid')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
+    state.HybridMode:options('Normal', 'Dread', 'PDT')
+    state.WeaponskillMode:options('Normal', 'Mid', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'SE', 'SEboost', 'Reraise')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
       
     war_sj = player.sub_job == 'WAR' or false
@@ -74,6 +74,10 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind @f9 gs c toggle SouleaterMode')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^- gs enable all')
+
     select_default_macro_book()
 end
   
@@ -82,6 +86,8 @@ function user_unload()
     send_command('unbind !f11')
     send_command('unbind @f10')
     send_command('unbind @f11')
+    send_command('unbind f5')
+
 end
   
   
@@ -155,8 +161,8 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
-    sets.precast.WS.MaxAcc = set_combine(sets.precast.WS, {  
-    })
+    sets.precast.WS.Dread  = sets.defense['Dread Spikes']
+
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {       
      head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
@@ -164,6 +170,17 @@ function init_gear_sets()
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Sulev. Leggings +2",
     })
+    sets.precast.WS.Judgment = set_combine(sets.precast.WS, {
+        main={ name="Loxotic Mace +1", augments={'Path: A',}},
+        sub="Blurred Shield +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Sulev. Leggings +2",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    })
+
     sets.precast.WS['Vorpal Scythe'] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -183,6 +200,7 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Catastrophe'] = {
+        main={ name="Apocalypse", augments={'Path: A',}},
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
@@ -199,7 +217,7 @@ function init_gear_sets()
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
-    sets.precast.WS['Catastrophe'].MaxAcc = set_combine(sets.precast.WS['Catastrophe'], {})
+    sets.precast.WS['Catastrophe'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Catastrophe'].Mid = set_combine(sets.precast.WS['Catastrophe'], {
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
@@ -234,7 +252,7 @@ sets.precast.WS['Insurgency'] = {
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
-    sets.precast.WS['Insurgency'].MaxAcc = set_combine(sets.precast.WS['Insurgency'], {})
+    sets.precast.WS['Insurgency'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Insurgency'].Mid = set_combine(sets.precast.WS['Insurgency'], {
         head="Sakpata's Helm",
     })
@@ -256,7 +274,7 @@ sets.precast.WS['Insurgency'] = {
         back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
-    sets.precast.WS['Cross Reaper'].MaxAcc = set_combine(sets.precast.WS['Cross Reaper'], {})
+    sets.precast.WS['Cross Reaper'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Cross Reaper'].Mid = set_combine(sets.precast.WS['Cross Reaper'], {
         head="Nyame Helm",
         body="Nyame Mail",
@@ -321,9 +339,10 @@ left_ring="Archon Ring",
 right_ring="Epaminondas's Ring",
 back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
-sets.precast.WS['Infernal Scythe'].MaxAcc = set_combine(sets.precast.WS['Infernal Scythe'], {})
+sets.precast.WS['Infernal Scythe'].Dread  = sets.defense['Dread Spikes']
 sets.precast.WS['Infernal Scythe'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {})
-sets.precast.WS['Shadow of Death'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
+sets.precast.WS['Shadow of Death'] = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",
+})
 sets.precast.WS['Dark Harvest'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
 sets.precast.WS['Freezebite'] = set_combine(sets.precast.WS['Infernal Scythe'], {
@@ -345,7 +364,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     neck="Subtlety Spec.",
     waist="Olseni Belt",
     left_ear="Crep. Earring",
-    right_ear="Zennaroi Earring",
+    right_ear="Telos Earring",
     left_ring="Rufescent Ring",
     right_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},}
@@ -367,11 +386,12 @@ sets.precast.WS['Nightmare Scythe'] = {
     back="Bleating Mantle",
 }
   
-    sets.precast.WS['Resolution'].MaxAcc = set_combine(sets.precast.WS['Resolution'], {})
+    sets.precast.WS['Resolution'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS['Resolution'], {})
     sets.precast.WS['Sickle Moon'] = set_combine(sets.precast.WS['Resolution'], {})
 
     sets.precast.WS['Ground Strike'] = {
+        main="Nandaka",
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
@@ -395,10 +415,13 @@ sets.precast.WS['Nightmare Scythe'] = {
         feet="Sulev. Leggings +2",
     })
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
-    sets.precast.WS['Scourge'].MaxAcc = set_combine(sets.precast.WS['Torcleaver'], {})
+    sets.precast.WS['Scourge'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Scourge'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
       
-    sets.precast.WS['Torcleaver'] = {ammo="Knobkierrie",
+    sets.precast.WS['Torcleaver'] = {
+    main="Nandaka",
+    sub="Utu Grip",
+    ammo="Knobkierrie",
     head="Sakpata's Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
@@ -412,7 +435,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ring="Niqmaddu Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     }       
-    sets.precast.WS['Torcleaver'].MaxAcc = set_combine(sets.precast.WS['Torcleaver'], {})
+    sets.precast.WS['Torcleaver'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Torcleaver'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
 
     sets.precast.WS['Spinning Scythe'] = {
@@ -649,21 +672,21 @@ sets.precast.WS['Nightmare Scythe'] = {
         back="Moonlight Cape",
     }
 
-sets.defense.SE = {
+sets.defense['Dread Spikes'] = {
 
-    ammo="Eluder's Sachet",
+    ammo="Coiste Bodhar",
     head="Ratri Sallet",
-    body="Ratri Plate",
+    body="Heath. Cuirass +1",
     hands="Ratri Gadlings",
     legs="Ratri Cuisses",
     feet="Ratri Sollerets",
-    neck="Nicander's Necklace",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear="Dedition Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
-    back="Annealed Mantle",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
 }
 
 sets.defense.SEboost = {
@@ -682,8 +705,6 @@ sets.defense.SEboost = {
     right_ring="Moonlight Ring",
     back="Moonlight Cape",
 }
-  
-      
     sets.defense.MDT = {
         ammo="Staunch Tathlum +1",
         head="Sakpata's Helm",
@@ -1046,6 +1067,10 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         right_ring="Chirich Ring +1",
         back="Annealed Mantle",
     })
+
+    sets.engaged.Apocalypse.Dread = sets.defense['Dread Spikes']
+
+
     sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {})
     sets.engaged.Haste.Apocalypse.STP = set_combine(sets.engaged.STP, {
         ammo="Coiste Bodhar",
@@ -1075,7 +1100,7 @@ end
 function job_pretarget(spell, action, spellMap, eventArgs)
     if spell.type:endswith('Magic') and buffactive.silence then
         eventArgs.cancel = true
-        send_command('input /item "Echo Drops" <me>')
+        send_command('input /item "Remedy" <me>')
     end
 end
   
@@ -1166,12 +1191,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 end
   
 function job_post_aftercast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' then
-        if state.Buff.Souleater and state.SouleaterMode.value then
-            send_command('@wait 1.0;cancel souleater')
+    --if spell.type == 'WeaponSkill' then
+        --if state.Buff.Souleater and state.SouleaterMode.value then
+            --send_command('@wait 1.0;cancel souleater')
             --enable("head")
-        end
-    end
+        --end
+    --end
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
@@ -1376,7 +1401,6 @@ function job_update(cmdParams, eventArgs)
   
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
-    get_combat_weapon()
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
 end
