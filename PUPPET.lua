@@ -215,8 +215,8 @@ function init_gear_sets()
     ---Pet Only Sets
     ---Misc Sets
     include('organizer-lib')
-    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
-    Animators.Range = "Animator P II"
+    Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
+    Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
     organizer_items = {
@@ -1299,13 +1299,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(9, 2)
+        set_macro_page(8, 39)
     elseif player.sub_job == "NIN" then
-        set_macro_page(9, 2)
+        set_macro_page(8, 39)
     elseif player.sub_job == "DNC" then
-        set_macro_page(9, 2)
+        set_macro_page(8, 39)
     else
-        set_macro_page(9, 2)
+        set_macro_page(8, 39)
     end
 end
 

@@ -640,6 +640,7 @@ function init_gear_sets()
 
     sets.idle = {
         main="Contemplator +1",
+        ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -655,7 +656,7 @@ function init_gear_sets()
    }
 
     sets.idle.DT = set_combine(sets.idle, {
-        ammo="Staunch Tathlum +1",
+        ammo="Homiliary",
         head="Nyame Helm",
         body="Shamash Robe",
         hands="Nyame Gauntlets",
@@ -721,7 +722,8 @@ function init_gear_sets()
     right_ring="Shadow Ring",
     back="Moonlight Cape",}
     sets.Kiting = {feet="Herald's Gaiters"}
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.latent_refresh = {waist="Fucho-no-obi",     ammo="Homiliary",
+}
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------

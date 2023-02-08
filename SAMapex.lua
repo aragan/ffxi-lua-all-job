@@ -740,7 +740,7 @@ function init_gear_sets()
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
-        left_ear="Zennaroi Earring",
+        left_ear="Telos Earring",
         right_ear="Kasuga Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",

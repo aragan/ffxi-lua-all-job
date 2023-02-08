@@ -215,8 +215,8 @@ function init_gear_sets()
     ---Pet Only Sets
     ---Misc Sets
     include('organizer-lib')
-    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
-    Animators.Range = "Animator P II"
+    Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
+    Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
     organizer_items = {

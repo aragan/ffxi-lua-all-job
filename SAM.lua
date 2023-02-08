@@ -176,7 +176,7 @@ function init_gear_sets()
 
     }
     sets.midcast.RA = { ammo=empty,
-    range="Trollbane",  
+        range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -393,7 +393,6 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
-        main={ name="Masamune", augments={'Path: A',}},
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
@@ -928,7 +927,7 @@ function init_gear_sets()
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Mid.PDT, {
         ammo="Coiste Bodhar",
         head="Mpaca's Cap",
-        body="Mpaca's Doublet",
+        body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
         feet="Mpaca's Boots",

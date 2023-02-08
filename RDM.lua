@@ -631,7 +631,7 @@ sets.precast.WS['Shattersoul'] = {
  
     -- Idle sets
     sets.idle.Normal = {
-		ammo="Staunch Tathlum +1",
+		ammo="Homiliary",
 		head="Befouled Crown",
 		body="Shamash Robe",
 		hands="Nyame Gauntlets",
@@ -646,7 +646,7 @@ sets.precast.WS['Shattersoul'] = {
 		back="Moonlight Cape",}
 
     sets.idle.Town = {
-		ammo="Staunch Tathlum +1",
+		ammo="Homiliary",
 		head="Befouled Crown",
 		body="Shamash Robe",
 		hands="Nyame Gauntlets",
@@ -661,7 +661,7 @@ sets.precast.WS['Shattersoul'] = {
 		back="Moonlight Cape",}
     
     sets.idle.Weak = {
-		ammo="Staunch Tathlum +1",
+		ammo="Homiliary",
 		head="Nyame Helm",
 		body="Shamash Robe",
 		hands="Nyame Gauntlets",
@@ -676,7 +676,7 @@ sets.precast.WS['Shattersoul'] = {
 		back="Moonlight Cape",}
 
     sets.idle.PDT = {
-		ammo="Staunch Tathlum +1",
+		ammo="Homiliary",
 		head="Nyame Helm",
 		body="Shamash Robe",
 		hands="Nyame Gauntlets",
@@ -692,7 +692,7 @@ sets.precast.WS['Shattersoul'] = {
 	} 
 
     sets.idle.MDT = {
-		ammo="Staunch Tathlum +1",
+		ammo="Homiliary",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Bunzi's Gloves",
@@ -740,7 +740,7 @@ sets.precast.WS['Shattersoul'] = {
 		back="Moonlight Cape",}
 		
 
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.latent_refresh = {waist="Fucho-no-obi",    ammo="Homiliary",}
 
     -- Engaged sets
 

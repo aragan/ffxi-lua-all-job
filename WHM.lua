@@ -476,7 +476,7 @@ function init_gear_sets()
     sets.idle = {
         main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
         sub="Genmei Shield",
-        ammo="Incantor Stone",
+        ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
         hands="Inyan. Dastanas +2",
@@ -494,7 +494,7 @@ function init_gear_sets()
 
     sets.idle.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
-    ammo="Incantor Stone",
+    ammo="Homiliary",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Shamash Robe",
     hands="Inyan. Dastanas +2",
@@ -510,7 +510,7 @@ function init_gear_sets()
 
     sets.idle.Town = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
-    ammo="Incantor Stone",
+    ammo="Homiliary",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Shamash Robe",
     hands="Inyan. Dastanas +2",
@@ -526,7 +526,7 @@ function init_gear_sets()
     
     sets.idle.Weak = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
-    ammo="Incantor Stone",
+    ammo="Homiliary",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Shamash Robe",
     hands="Inyan. Dastanas +2",
@@ -578,7 +578,7 @@ function init_gear_sets()
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.latent_refresh = {waist="Fucho-no-obi",     ammo="Homiliary",}
 
     -- Engaged sets
 

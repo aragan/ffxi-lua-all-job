@@ -215,8 +215,8 @@ function init_gear_sets()
     ---Pet Only Sets
     ---Misc Sets
     include('organizer-lib')
-    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
-    Animators.Range = "Animator P II"
+    Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
+    Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
     organizer_items = {
@@ -338,7 +338,7 @@ function init_gear_sets()
         ear1 = "Burana Earring"
     }
 
-    sets.precast.JA["Activate"] = {range="Animator P +1",
+    sets.precast.JA["Activate"] = {range="Animator P II +1",
         feet="Mpaca's Boots",
     right_ear="Karagoz Earring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -533,7 +533,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = Normal
     ]]
-    sets.engaged.Master = {
+    sets.engaged.Master = { main={ name="Xiucoatl", augments={'Path: C',}}, 
         range="Animator P II +1",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
@@ -555,7 +555,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = Acc
     ]]
-    sets.engaged.Master.Acc = {    
+    sets.engaged.Master.Acc = {     main={ name="Xiucoatl", augments={'Path: C',}}, 
 
         range="Animator P II +1",
         ammo="Automat. Oil +3",
@@ -578,7 +578,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = TP
     ]]
-    sets.engaged.Master.TP = {    
+    sets.engaged.Master.TP = {     main={ name="Xiucoatl", augments={'Path: C',}}, 
 
         range="Animator P II +1",
         ammo="Automat. Oil +3",
@@ -650,7 +650,7 @@ function init_gear_sets()
     ]]
     sets.engaged.MasterPet = {
     
-    
+        main={ name="Xiucoatl", augments={'Path: C',}}, 
         
         ammo="Automat. Oil +3",    head="Heyoka Cap",
     body="Mpaca's Doublet",
@@ -672,7 +672,7 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.engaged.MasterPet.Acc = {
-    
+        main={ name="Xiucoatl", augments={'Path: C',}}, 
         
         ammo="Automat. Oil +3",    head="Heyoka Cap",
     body="Mpaca's Doublet",
@@ -694,7 +694,7 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.engaged.MasterPet.TP = {
-        
+        main={ name="Xiucoatl", augments={'Path: C',}}, 
         ammo="Automat. Oil +3",
         head="Heyoka Cap",
         hands="Mpaca's Gloves",
@@ -724,7 +724,7 @@ function init_gear_sets()
         Hybrid Mode = Regen
     ]]
     sets.engaged.MasterPet.Regen = {
-        
+        main={ name="Xiucoatl", augments={'Path: C',}}, 
         ammo="Automat. Oil +3",        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Mpaca's Doublet",
         hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
@@ -943,7 +943,7 @@ function init_gear_sets()
     right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }  
-    sets.idle.Pet.Engaged.MaxAcc ={       main={ name="Xiucoatl", augments={'Path: C',}}, 
+    sets.idle.Pet.Engaged.MaxAcc ={      
     ammo="Automat. Oil +3",
     head="Tali'ah Turban +2",
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -1217,13 +1217,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(9, 2)
+        set_macro_page(9, 39)
     elseif player.sub_job == "NIN" then
-        set_macro_page(9, 2)
+        set_macro_page(9, 39)
     elseif player.sub_job == "DNC" then
-        set_macro_page(9, 2)
+        set_macro_page(9, 39)
     else
-        set_macro_page(9, 2)
+        set_macro_page(9, 39)
     end
 end
 

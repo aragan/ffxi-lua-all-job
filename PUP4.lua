@@ -214,8 +214,8 @@ function init_gear_sets()
     ---Pet Only Sets
     ---Misc Sets
     include('organizer-lib')
-    Animators = {"Animator P +1", "Animator P II", "Neo Animator",}
-    Animators.Range = "Animator P II"
+    Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
+    Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
     organizer_items = {
@@ -235,7 +235,7 @@ function init_gear_sets()
         You can simply use or ignore the below
     ]]
     Animators = {}
-    Animators.Range = "Animator P II"
+    Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
     --Adjust to your reforge level
