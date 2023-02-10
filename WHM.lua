@@ -16,7 +16,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 end
-organizer_items = {
+sets.Organizer = {
     item="Gyudon",
     item="Reraiser",
     item="Hi-Reraiser",
@@ -27,7 +27,6 @@ organizer_items = {
     item="Silent Oil",
     item="Salt Ramen",
     item="Panacea",
-    item="Toolbag (Shika)",
     item="Sublime Sushi",
     item="Sublime Sushi 1+",
     item="Prism Powder",

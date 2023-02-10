@@ -219,7 +219,7 @@ function init_gear_sets()
     Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
-    organizer_items = {
+    sets.Organizer = {
         ammo="Automat. Oil +3",
         item="Dawn Mulsum",    
     }
@@ -758,17 +758,17 @@ function init_gear_sets()
 
     sets.midcast.Pet["Elemental Magic"] = {
         head={ name="Herculean Helm", augments={'Pet: "Mag.Atk.Bns."+26','Pet: "Dbl.Atk."+2 Pet: Crit.hit rate +2',}},
-        	body="Udug Jacket",
-        hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
-        legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
-        feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
-        neck="Adad Amulet",
-        waist="Ukko Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Enmerkar Earring",
-        left_ring="C. Palug Ring",
-        right_ring="Tali'ah Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},   
+        body="Udug Jacket",
+    hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+28','Pet: "Store TP"+6','Pet: DEX+1',}},
+    legs={ name="Pitre Churidars +3", augments={'Enhances "Ventriloquy" effect',}},
+    feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
+    neck="Adad Amulet",
+    waist="Ukko Sash",
+    left_ear="Enmerkar Earring",
+    right_ear="Karagoz Earring",
+    left_ring="C. Palug Ring",
+    right_ring="Tali'ah Ring",
+    back="Argocham. Mantle",
      }
 
     sets.midcast.Pet["Enfeebling Magic"] = {

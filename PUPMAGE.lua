@@ -177,6 +177,8 @@ function user_setup()
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind ^= gs c cycle treasuremode')
+
 
     select_default_macro_book()
 
@@ -205,6 +207,8 @@ end
 
 function job_setup()
     include("PUP-LIB.lua")
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
 end
 
 function init_gear_sets()
@@ -219,7 +223,7 @@ function init_gear_sets()
     Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
-    organizer_items = {
+    sets.Organizer = {
         ammo="Automat. Oil +3",
         item="Dawn Mulsum",    
     }
@@ -304,6 +308,11 @@ function init_gear_sets()
     right_ring="Stikini Ring",
 
     }
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+     }
 
     -------------------------------------Kiting
     sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
@@ -771,12 +780,12 @@ function init_gear_sets()
         feet={ name="Pitre Babouches +3", augments={'Enhances "Role Reversal" effect',}},
         neck="Adad Amulet",
         waist="Ukko Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Enmerkar Earring",
+        left_ear="Enmerkar Earring",
+        right_ear="Karagoz Earring",
         left_ring="C. Palug Ring",
         right_ring="Tali'ah Ring",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},   
-     }
+        back="Argocham. Mantle",
+    }
 
     sets.midcast.Pet["Enfeebling Magic"] = {
         head="Mpaca's Cap",
@@ -1212,7 +1221,15 @@ function job_buff_change(buff,gain)
     end
 
 end
-
+function check_buff(buff_name, eventArgs)
+    if state.Buff[buff_name] then
+        equip(sets.buff[buff_name] or {})
+        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
+            equip(sets.TreasureHunter)
+        end
+        eventArgs.handled = true
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
