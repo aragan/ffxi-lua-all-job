@@ -32,6 +32,7 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+    send_command('wait 2;input /lockstyleset 174')
 
 end
 
@@ -1223,7 +1224,7 @@ function select_default_macro_book()
 end
 
 
-organizer_items = {
+sets.Organizer = {
 echo="Echo Drops",
 echo2="Echo Drops",
 pana="Panacea",

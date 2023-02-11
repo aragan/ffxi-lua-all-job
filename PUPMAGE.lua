@@ -542,7 +542,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = Normal
     ]]
-    sets.engaged.Master = { main={ name="Xiucoatl", augments={'Path: C',}}, 
+    sets.engaged.Master = {    main="Sakpata's Fists",
         range="Animator P II +1",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
@@ -564,7 +564,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = Acc
     ]]
-    sets.engaged.Master.Acc = {     main={ name="Xiucoatl", augments={'Path: C',}}, 
+    sets.engaged.Master.Acc = {         main="Sakpata's Fists",
 
         range="Animator P II +1",
         ammo="Automat. Oil +3",
@@ -587,7 +587,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = TP
     ]]
-    sets.engaged.Master.TP = {     main={ name="Xiucoatl", augments={'Path: C',}}, 
+    sets.engaged.Master.TP = {         main="Sakpata's Fists",
 
         range="Animator P II +1",
         ammo="Automat. Oil +3",
@@ -625,7 +625,8 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
     
-    sets.engaged.Master.Regen = {    
+    sets.engaged.Master.Regen = {        main="Sakpata's Fists",
+
         range="Animator P II +1",
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
@@ -659,7 +660,7 @@ function init_gear_sets()
     ]]
     sets.engaged.MasterPet = {
     
-        main={ name="Xiucoatl", augments={'Path: C',}}, 
+        main="Sakpata's Fists",
         
         ammo="Automat. Oil +3",    head="Heyoka Cap",
     body="Mpaca's Doublet",
@@ -681,7 +682,7 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.engaged.MasterPet.Acc = {
-        main={ name="Xiucoatl", augments={'Path: C',}}, 
+        main="Sakpata's Fists",
         
         ammo="Automat. Oil +3",    head="Heyoka Cap",
     body="Mpaca's Doublet",
@@ -703,7 +704,7 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.engaged.MasterPet.TP = {
-        main={ name="Xiucoatl", augments={'Path: C',}}, 
+        main="Sakpata's Fists",
         ammo="Automat. Oil +3",
         head="Heyoka Cap",
         hands="Mpaca's Gloves",
@@ -733,7 +734,7 @@ function init_gear_sets()
         Hybrid Mode = Regen
     ]]
     sets.engaged.MasterPet.Regen = {
-        main={ name="Xiucoatl", augments={'Path: C',}}, 
+        main="Sakpata's Fists",
         ammo="Automat. Oil +3",        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Mpaca's Doublet",
         hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
@@ -1171,7 +1172,7 @@ function init_gear_sets()
     sets.defense.MasterDT = sets.idle.MasterDT
 
     sets.defense.PetDT = {     
-        main={ name="Xiucoatl", augments={'Path: C',}},
+        main="Sakpata's Fists",
         range="Animator P +1",
         ammo="Automat. Oil +3",
         head={ name="Nyame Helm", augments={'Path: B',}},

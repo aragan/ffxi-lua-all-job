@@ -29,6 +29,8 @@ function job_setup()
     indi_duration = 180
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
+    send_command('wait 2;input /lockstyleset 178')
+
 end
 
 -------------------------------------------------------------------------------------------------------------------

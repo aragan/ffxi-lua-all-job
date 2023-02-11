@@ -101,7 +101,7 @@ function job_setup()
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
 	send_command('bind @w gs c toggle WeaponLock')
-	send_command('wait 2;input /lockstyleset 200')
+	send_command('wait 2;input /lockstyleset 171')
 	get_combat_form()
 end
 

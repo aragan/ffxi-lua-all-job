@@ -54,6 +54,8 @@ function job_setup()
     state.Moving  = M(false, "moving")
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    send_command('wait 2;input /lockstyleset 174')
+
 
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
 
@@ -291,17 +293,17 @@ function init_gear_sets()
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Brutal Earring",
-        right_ear="Ishvara Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        left_ring="Rufescent Ring",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Jhakri Robe +2",
+        hands="Jhakri Cuffs +2",
+        legs="Jhakri Slops +2",
+        feet="Jhakri Pigaches +2",
+        neck="Clotharius Torque",
+        waist="Windbuffet Belt +1",
+        left_ear="Mache Earring +1",
+        right_ear="Balder Earring +1",
+        left_ring="Petrov Ring",
+        right_ring="Hetairoi Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     ---- Midcast Sets ----

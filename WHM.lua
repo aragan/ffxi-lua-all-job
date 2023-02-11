@@ -53,6 +53,7 @@ sets.Organizer = {
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
+    send_command('wait 2;input /lockstyleset 178')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -106,13 +107,13 @@ function init_gear_sets()
         neck="Nodens Gorget",
         waist="Siegel Sash",})
 
-    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pant. +1",})
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pant. +2",})
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     left_ear="Mendi. Earring",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     })
@@ -133,7 +134,7 @@ function init_gear_sets()
     gear.default.weaponskill_neck = ""
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
-        ammo="Pemphredo Tathlum",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -149,7 +150,7 @@ function init_gear_sets()
     }
     
     sets.precast.WS['Flash Nova'] = {
-        ammo="Pemphredo Tathlum",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -180,7 +181,7 @@ function init_gear_sets()
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
         sets.precast.WS['Cataclysm'] = {
-            ammo="Pemphredo Tathlum",
+            ammo="Oshasha's Treatise",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
             hands="Nyame Gauntlets",
@@ -196,7 +197,7 @@ function init_gear_sets()
         }
         
      sets.precast.WS['Black Halo'] = {
-        ammo="Crepuscular Pebble",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -220,17 +221,17 @@ function init_gear_sets()
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Brutal Earring",
-        right_ear="Ishvara Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        left_ring="Rufescent Ring",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Clotharius Torque",
+        waist="Windbuffet Belt +1",
+        left_ear="Mache Earring +1",
+        right_ear="Balder Earring +1",
+        left_ring="Petrov Ring",
+        right_ring="Hetairoi Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     -- Midcast Sets
@@ -266,7 +267,7 @@ function init_gear_sets()
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     neck="Nodens Gorget",
     waist="Hachirin-no-Obi",
@@ -282,7 +283,7 @@ function init_gear_sets()
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     neck="Reti Pendant",
     waist="Hachirin-no-Obi",
@@ -298,7 +299,7 @@ function init_gear_sets()
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     neck="Reti Pendant",
     waist="Hachirin-no-Obi",
@@ -398,7 +399,7 @@ function init_gear_sets()
     ammo="Pemphredo Tathlum",
     hands="Inyan. Dastanas +2",
     neck="Nodens Gorget",
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     left_ear="Andoaa Earring",
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
@@ -422,7 +423,7 @@ function init_gear_sets()
     head="Inyanga Tiara +2",
     body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
     hands="Inyan. Dastanas +2",
-    legs="Ebers Pant. +1",
+    legs="Ebers Pant. +2",
     feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
     neck="Erra Pendant",
     waist="Kobo Obi",
