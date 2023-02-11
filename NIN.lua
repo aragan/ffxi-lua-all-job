@@ -1,4 +1,6 @@
--------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------
 -- Initialization function that defines sets and variables to be used.
 -------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
@@ -21,12 +23,12 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items = {
-        item="Shinobi-Tabi",
-        item="Chonofuda",
-        item="Shikanofuda",
-        item="Inoshishinofuda",
-        item="Sanjaku-Tenugui",
-        item="Toolbag (Cho)",   
+        "Shinobi-Tabi",
+        "Chonofuda",
+        "Shikanofuda",
+        "Inoshishinofuda",
+        "Sanjaku-Tenugui",
+        "Toolbag (Cho)",   
     }
     
 end
@@ -34,7 +36,6 @@ end
 
 -- Setup vars that are user-independent.
 function job_setup()
-
     state.Buff.Migawari = buffactive.migawari or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -267,7 +268,8 @@ function init_gear_sets()
         head="Malignance Chapeau",body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','STR+13','Mag. Acc.+3','"Mag.Atk.Bns."+1',}},
-        feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},neck="Baetyl Pendant",
+        feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
+        neck="Baetyl Pendant",
         waist="Eschan Stone",    left_ring="Mephitas's Ring",
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         left_ear="Hecate's Earring",right_ear="Friomisi Earring",back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
@@ -310,7 +312,8 @@ function init_gear_sets()
     head="Malignance Chapeau",body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','STR+13','Mag. Acc.+3','"Mag.Atk.Bns."+1',}},
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},neck="Baetyl Pendant",
+    feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
+    neck="Baetyl Pendant",
     waist="Eschan Stone",    left_ring="Mephitas's Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     left_ear="Hecate's Earring",right_ear="Friomisi Earring",back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
@@ -448,9 +451,7 @@ function init_gear_sets()
     sets.DayMovement = {feet="Danzo sune-ate"}
     sets.NightMovement = {feet="Danzo sune-ate"}
 
-    sets.Organizer = {
 
-    }
 
     -- Normal melee group without buffs
     sets.engaged = {
@@ -865,7 +866,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         right_ear="Hattori Earring", 
         left_ear="Friomisi Earring",
@@ -972,8 +973,8 @@ function init_gear_sets()
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets"
-    ,neck="Baetyl Pendant",
+    feet="Nyame Sollerets",
+    neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ring="Epaminondas's Ring",
         right_ring="Dingir Ring",
@@ -987,7 +988,8 @@ function init_gear_sets()
         body="Nyame Mail",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','STR+13','Mag. Acc.+3','"Mag.Atk.Bns."+1',}},
-        feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},neck="Baetyl Pendant",
+        feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ring="Epaminondas's Ring",
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},

@@ -16,11 +16,49 @@ function get_sets()
 
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
+	include('organizer-lib')
 	autoRAmode = 0
 	send_command('bind f12 gs c auto') --Gearset update toggle--
 
 end
 
+	organizer_items = {
+		"Decimating Bullet",
+		"Beryllium Arrow",
+		"Eminent Arrow",
+		"Chr. Bul. Pouch",  
+		"Hauksbok Arrow",
+		"Gyudon",
+		"Reraiser",
+		"Hi-Reraiser",
+		"Vile Elixir",
+		"Vile Elixir +1",
+		"Miso Ramen",
+		"Carbonara",
+		"Silent Oil",
+		"Salt Ramen",
+		"Panacea",
+		"Sublime Sushi",
+		"Sublime Sushi 1+",
+		"Prism Powder",
+		"Antacid",
+		"Icarus Wing",
+		"Warp Cudgel",
+		"Holy Water",
+		"Sanjaku-Tenugui",
+		"Shinobi-Tabi",
+		"Shihei",
+		"Remedy",
+		"Wh. Rarab Cap +1",
+		"Emporox's Ring",
+		"Red Curry Bun",
+		"Instant Reraise",
+		"Black Curry Bun",
+		"Rolan. Daifuku",
+		"Qutrub Knife",
+		"Wind Knife +1",
+		"Reraise Earring",}
+    
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
@@ -270,7 +308,7 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Baetyl Pendant",
+		neck="Sibyl Scarf",
 		waist="Orpheus's Sash",
 		left_ear="Ishvara Earring",
 		right_ear="Moonshade Earring",

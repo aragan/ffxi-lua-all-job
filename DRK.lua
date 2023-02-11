@@ -19,7 +19,37 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-  
+organizer_items = {
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -331,7 +361,7 @@ body="Nyame Mail",
 hands="Nyame Gauntlets",
 legs="Nyame Flanchard",
 feet="Nyame Sollerets",
-neck="Baetyl Pendant",
+neck="Sibyl Scarf",
 waist="Orpheus's Sash",
 left_ear="Friomisi Earring",
 right_ear="Malignance Earring",
@@ -527,7 +557,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Malignance Earring",

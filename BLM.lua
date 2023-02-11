@@ -87,7 +87,37 @@ function job_setup()
 	send_command('bind ^f11 gs c cycle Enfeebling')
 	send_command('bind f12 gs c cycle ManawallMode')
     send_command('bind @w gs c toggle WeaponLock')
-    organizer_items = {aeonic="Khatvanga"}
+    organizer_items = {
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Sanjaku-Tenugui",
+        "Shinobi-Tabi",
+        "Shihei",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
     select_default_macro_book()
 end
  
@@ -246,7 +276,7 @@ function init_gear_sets()
             hands="Nyame Gauntlets",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
-            neck="Baetyl Pendant",
+            neck="Sibyl Scarf",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
@@ -260,7 +290,7 @@ function init_gear_sets()
             hands="Nyame Gauntlets",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
-            neck="Baetyl Pendant",
+            neck="Sibyl Scarf",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
@@ -492,7 +522,7 @@ function init_gear_sets()
     hands="Jhakri Cuffs +2",
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
-    neck="Baetyl Pendant",
+    neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
     right_ear="Friomisi Earring",

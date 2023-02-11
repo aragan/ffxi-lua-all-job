@@ -37,7 +37,37 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-
+organizer_items = {
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
 
 -- Setup vars that are user-independent.
 function job_setup()
@@ -156,9 +186,6 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {body="Passion Jacket",}
 
-    sets.Organizer = {
-
-    }
     sets.precast.RA = { ammo=empty,
         range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},

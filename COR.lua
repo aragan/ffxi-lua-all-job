@@ -25,6 +25,8 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('organizer-lib')
+
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -38,10 +40,7 @@ function job_setup()
     define_roll_values()
 end
 include('organizer-lib')
-organizer_items = {
-    "Trump Card Case",
-    waist="Chr. Bul. Pouch",  
-}
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
@@ -89,12 +88,48 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    
+    organizer_items  = {
+        "Decimating Bullet",
+        "Chrono Bullet",
+        "Trump Card Case",
+        "Trump Card",
+        "Chr. Bul. Pouch",  
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Sanjaku-Tenugui",
+        "Shinobi-Tabi",
+        "Shihei",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",
+        }
     -- Precast Sets
 
     -- Precast sets to enhance JAs
     
-    sets.precast.JA['Snake Eye'] = {legs="Lanun Culottes"}
+    sets.precast.JA['Snake Eye'] = {}
     sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
     sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
 
@@ -108,7 +143,7 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +1",})
-    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +1",})
+    sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +1",})
     
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
@@ -147,7 +182,7 @@ function init_gear_sets()
         head="Chass. Tricorne +1",
         body="Oshosi Vest",
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
-    feet="Meg. Jam. +1",
+    feet="Meg. Jam. +2",
     waist="Yemaya Belt",
     back="Tactical Mantle",
 }
@@ -161,7 +196,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     head="Chass. Tricorne +1",
     body="Laksa. Frac +3",
 legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
-feet="Meg. Jam. +1",
+feet="Meg. Jam. +2",
 waist="Yemaya Belt",
 back="Tactical Mantle",
     }) --32/73
@@ -659,7 +694,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
 
 sets.TripleShot = {
     head="Oshosi Mask +1",
-    body="Chasseur's Frac +1",
+    body="Chasseur's Frac +2",
     hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
     legs="Osh. Trousers +1",
     feet="Osh. Leggings +1",

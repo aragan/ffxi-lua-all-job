@@ -10,9 +10,39 @@ function get_sets()
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
 	include('organizer-lib')
+
     organizer_items = {
-        ammo="Angon",
-    }
+        "Angon",
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Sanjaku-Tenugui",
+        "Shinobi-Tabi",
+        "Shihei",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
     
 end
 
@@ -81,9 +111,7 @@ function init_gear_sets()
     --sets.Berserker = {neck="Berserker's Torque"}
     sets.WSDayBonus     = {head="Gavialis Helm"}
 
-    sets.Organizer = {
 
-    }
 
 	sets.precast.JA.Jump = {
         ammo="Ginsen",
@@ -312,7 +340,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -328,7 +356,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -349,7 +377,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
@@ -389,7 +417,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",

@@ -205,6 +205,8 @@ end
 
 function job_setup()
     include("PUP-LIB.lua")
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
 end
 
 function init_gear_sets()
@@ -219,10 +221,39 @@ function init_gear_sets()
     Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
-    sets.Organizer = {
-        ammo="Automat. Oil +3",
-        item="Dawn Mulsum",    
-    }
+    organizer_items = {
+        "Automat. Oil +3",
+        "Dawn Mulsum",   
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Sanjaku-Tenugui",
+        "Shinobi-Tabi",
+        "Shihei",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
     -------------------------------------------------------------------------
     --  _____                  __      __        _       _     _
     -- / ____|                 \ \    / /       (_)     | |   | |
@@ -302,8 +333,12 @@ function init_gear_sets()
     right_ear="Andoaa Earring",
     left_ring="Sheltered Ring",
     right_ring="Stikini Ring",
-
     }
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+     }
 
     -------------------------------------Kiting
     sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
@@ -493,7 +528,7 @@ function init_gear_sets()
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
@@ -1284,6 +1319,15 @@ function job_buff_change(buff,gain)
         end
     end
 
+end
+function check_buff(buff_name, eventArgs)
+    if state.Buff[buff_name] then
+        equip(sets.buff[buff_name] or {})
+        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
+            equip(sets.TreasureHunter)
+        end
+        eventArgs.handled = true
+    end
 end
 
 -- Select default macro book on initial load or subjob change.
