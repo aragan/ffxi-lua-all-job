@@ -225,6 +225,7 @@ function init_gear_sets()
 
    
         organizer_items = {
+            "Sakpata's Fists",
             "Automat. Oil +3",
             "Dawn Mulsum",   
             "Gyudon",
