@@ -125,6 +125,8 @@ function file_unload()
     send_command('unbind !=')
     send_command('unbind ![')
     send_command('unbind ^/')
+    send_command('unbind ^-')
+    send_command('unbind ^=')
 
 end
 
@@ -625,9 +627,9 @@ function init_gear_sets()
     }
     
     sets.idle.Town = {        
-
-    ear2="Infused Earring",
-       feet="Danzo Sune-Ate",
+        head="Valorous Mask",
+        ear2="Infused Earring",
+        feet="Danzo Sune-Ate",
 
 
     }

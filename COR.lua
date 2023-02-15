@@ -36,7 +36,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 168')
     define_roll_values()
 end
 include('organizer-lib')

@@ -74,7 +74,8 @@ organizer_items = {
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
-
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
 
     -- For tracking current recast timers via the Timers plugin.
@@ -110,6 +111,11 @@ function user_setup()
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
     send_command('wait 2;input /lockstyleset 168')
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind ^- gs enable all')
+    send_command('bind ^/ gs disable all')
+
+
 
     select_default_macro_book()
 end
@@ -212,7 +218,11 @@ function init_gear_sets()
     sets.precast.Waltz = {
         legs="Dashing Subligar",
     }
-    
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+     }
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -933,6 +943,35 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
    
+end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.Buff['Seigan'] then
+        if state.DefenseMode.value == 'PDT' then
+    	    meleeSet = set_combine(meleeSet, sets.thirdeye)
+        else
+            meleeSet = set_combine(meleeSet, sets.seigan)
+        end
+    end
+    if player.equipment.range == 'Yoichinoyumi' then
+        meleeSet = set_combine(meleeSet, sets.bow)
+    end
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        meleeSet = set_combine(meleeSet, sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+    end
+    return meleeSet
+end
+function check_buff(buff_name, eventArgs)
+    if state.Buff[buff_name] then
+        equip(sets.buff[buff_name] or {})
+        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
+            equip(sets.TreasureHunter)
+        end
+        eventArgs.handled = true
+    end
 end
 
 

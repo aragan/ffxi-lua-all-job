@@ -53,7 +53,7 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 166')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')

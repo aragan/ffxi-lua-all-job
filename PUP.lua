@@ -176,7 +176,7 @@ function user_setup()
     send_command("bind PAGEDOWN gs c hide keybinds")
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
-    send_command('wait 2;input /lockstyleset 168')
+    send_command('wait 2;input /lockstyleset 179')
     send_command('bind ^= gs c cycle treasuremode')
 
 
@@ -319,7 +319,19 @@ function init_gear_sets()
     --[[
         Will be activated when Pet is not active, otherwise refer to sets.idle.Pet
     ]]
-    sets.idle = {}
+    sets.idle = {       
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Hermes' Sandals +1",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Odnowa Earring",
+    left_ring="Warden's Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape", }
 
     -------------------------------------Fastcast
     sets.precast.FC = {
