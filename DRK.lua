@@ -20,6 +20,7 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {
+    "Hepatizon Axe +1",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -81,8 +82,11 @@ function job_setup()
     sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
 
     get_combat_form()
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+    customize_idle_set()
+    customize_melee_set()
+    update_melee_groups()
+    job_handle_equipping_gear()
+    update_combat_form()
 end
   
 -------------------------------------------------------------------------------------------------------------------
@@ -92,7 +96,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
-    state.HybridMode:options('Normal', 'Dread', 'PDT')
+    state.HybridMode:options('Normal', 'DreadSP', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'MB')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
@@ -701,12 +705,10 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     })
-    sets.idle.Regen = set_combine(sets.idle.Field, {        head=empty,
-        body={ name="Lugra Cloak +1", augments={'Path: A',}},
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        left_ear="Infused Earring",
-    })
+
     sets.idle.Weak = {head="Twilight Helm",body="Twilight Mail"}
+    sets.idle.Field.Weak = {head="Twilight Helm",body="Twilight Mail"}
+
       
     sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
         body={ name="Lugra Cloak +1", augments={'Path: A',}},
@@ -1167,14 +1169,22 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         back="Annealed Mantle",
     })
 
-    sets.engaged.Apocalypse.Dread = sets.defense['Dread Spikes']
+    sets.engaged.Apocalypse.DreadSP = set_combine(sets.engaged.Apocalypse, {
+        body="Heath. Cuirass +2",
+    })
+    sets.engaged.Apocalypse.MaxAcc.DreadSP = set_combine(sets.engaged.MaxAcc.Apocalypse, {
+        body="Heath. Cuirass +2",
+    })
+    sets.engaged.Apocalypse.DreadSP.PDT = set_combine(sets.engaged.Apocalypse, {
+        body="Heath. Cuirass +2",
+    })
 
 
     sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {})
     sets.engaged.Haste.Apocalypse.STP = set_combine(sets.engaged.STP, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
-    sets.engaged.Haste.Apocalypse.rit = set_combine(sets.engaged.crit, {
+    sets.engaged.Haste.Apocalypse.Crit = set_combine(sets.engaged.crit, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
   
@@ -1307,13 +1317,16 @@ function job_handle_equipping_gear(status, eventArgs)
     customize_idle_set(idleSet)
     customize_melee_set(meleeSet)
 end
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+        eventArgs.handled = true
+    end
+    return idleSet, meleeSet
+end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 50 then
-        idleSet = set_combine(idleSet, sets.idle.Regen)
-    elseif player.mpp < 50 then
-        idleSet = set_combine(idleSet, sets.idle.Refresh)
-    end
     if state.IdleMode.current == 'Sphere' then
         idleSet = set_combine(idleSet, sets.idle.Sphere)
     end
@@ -1498,12 +1511,17 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
   
+    job_handle_equipping_gear()
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+    update_melee_groups()
+    customize_idle_set()
+    customize_melee_set()
+    update_combat_form()
 end
-  
+function update_melee_groups()
+    classes.CustomMeleeGroups:clear()
+end
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
     if state.Buff[buff_name] then
