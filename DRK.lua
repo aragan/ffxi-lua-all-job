@@ -94,8 +94,8 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'Dread', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
-    state.CastingMode:options('Normal', 'Resistant')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'Dread Spikes', 'SEboost', 'Reraise')
+    state.CastingMode:options('Normal', 'MB')
+    state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
       
     war_sj = player.sub_job == 'WAR' or false
@@ -489,19 +489,56 @@ sets.precast.WS['Nightmare Scythe'] = {
     -- Midcast sets
     --------------------------------------
   
-    sets.midcast.FastRecast = {}
+    sets.midcast.FastRecast = {   
+         ammo="Staunch Tathlum +1",
+    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear="Halasz Earring",
+    right_ear="Mendi. Earring",
+    right_ring="Evanescence Ring",
+
+
+}
           
-    sets.midcast.Enmity = {}
+    sets.midcast.Enmity = {
+        sub="Alber Strap",
+        ammo="Iron Gobbet",
+        head={ name="Loess Barbuta +1", augments={'Path: A',}},
+        body="Obviation Cuirass",
+        hands="Macabre Gaunt. +1",
+        legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
+        feet={ name="Eschite Greaves", augments={'HP+80','Enmity+7','Phys. dmg. taken -4',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Cryptic Earring",
+        right_ear="Trux Earring",
+        left_ring="Vengeful Ring",
+        right_ring="Petrov Ring",
+        back="Reiki Cloak",
+    }
   
     sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
       
-    sets.midcast.Cure = {}
+    sets.midcast.Cure = {    ammo="Staunch Tathlum +1",
+    head={ name="Loess Barbuta +1", augments={'Path: A',}},
+    body={ name="Jumalik Mail", augments={'HP+40','Enmity+2',}},
+    hands="Macabre Gaunt. +1",
+    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Austerity Belt +1",
+    left_ear="Halasz Earring",
+    right_ear="Mendi. Earring",
+    left_ring="Defending Ring",
+    right_ring="Naji's Loop",
+    back="Solemnity Cape",}
       
       
     sets.midcast['Dread Spikes'] = {
         ammo="Staunch Tathlum +1",
         head="Ratri Sallet",
-        body="Heath. Cuirass +1",
+        body="Heath. Cuirass +2",
         hands="Ratri Gadlings",
         legs="Ratri Cuisses",
         feet="Nyame Sollerets",
@@ -565,8 +602,24 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Argocham. Mantle",
     }
+    sets.midcast['Elemental Magic'].MB = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Mujin Band",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Argocham. Mantle",
+    }
     sets.magic_burst = set_combine(sets.midcast['Elemental Magic'], {
         head="Nyame Helm",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
         left_ring="Locus Ring",
         right_ring="Mujin Band",
     })
@@ -706,7 +759,7 @@ sets.defense['Dread Spikes'] = {
 
     ammo="Coiste Bodhar",
     head="Ratri Sallet",
-    body="Heath. Cuirass +1",
+    body="Heath. Cuirass +2",
     hands="Ratri Gadlings",
     legs="Ratri Cuisses",
     feet="Ratri Sollerets",
@@ -749,6 +802,22 @@ sets.defense.SEboost = {
         left_ring="Shadow Ring",
         right_ring="Moonlight Ring",
         back="Engulfer Cape +1",
+    }
+    sets.defense.Enmity = {
+        sub="Alber Strap",
+        ammo="Iron Gobbet",
+        head={ name="Loess Barbuta +1", augments={'Path: A',}},
+        body="Obviation Cuirass",
+        hands="Macabre Gaunt. +1",
+        legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
+        feet={ name="Eschite Greaves", augments={'HP+80','Enmity+7','Phys. dmg. taken -4',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Cryptic Earring",
+        right_ear="Trux Earring",
+        left_ring="Vengeful Ring",
+        right_ring="Petrov Ring",
+        back="Reiki Cloak",
     }
   
         sets.Kiting = {legs="Carmine Cuisses +1",
