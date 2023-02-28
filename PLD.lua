@@ -116,7 +116,7 @@ function init_gear_sets()
 }
     sets.buff['Rampart'] = sets.precast.JA['Rampart']
     sets.precast.JA['Fealty'] = set_combine(sets.precast.JA['Provoke'], {body="Cab. Surcoat +1",})
-    sets.precast.JA['Divine Emblem'] = set_combine(sets.precast.JA['Provoke'], {feet="Chev. Sabatons +1"})
+    sets.precast.JA['Divine Emblem'] = set_combine(sets.precast.JA['Provoke'], {feet="Chev. Sabatons +2"})
     --15 + min(max(floor((user VIT + user MND - target VIT*2)/4),0),15)
     sets.precast.JA['Cover'] = set_combine(sets.precast.JA['Rampart'], {head="Rev. Coronet +2", body="Cab. Surcoat +1"})
     sets.buff['Cover'] = sets.precast.JA['Cover']

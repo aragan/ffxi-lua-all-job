@@ -33,7 +33,7 @@ function job_setup()
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-
+    sub_job_change()
     blue_magic_maps = {}
     
     -- Mappings for gear sets to use for various blue magic spells.
@@ -290,7 +290,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.WS = {
-        ammo="Aurgelmir Orb +1",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -325,13 +325,13 @@ function init_gear_sets()
         })
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-            ammo="Aurgelmir Orb +1",
+            ammo="Oshasha's Treatise",
             head="Nyame Helm",
             body="Nyame Mail",
             hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
             feet="Nyame Sollerets",
-            neck="Fotia Gorget",
+            neck="Rep. Plat. Medal",
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -348,14 +348,14 @@ function init_gear_sets()
             hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
             feet="Nyame Sollerets",
-            neck="Baetyl Pendant",
-            waist="Hachirin-no-Obi",
+            neck="Sibyl Scarf",
+            waist="Orpheus's Sash",
             left_ear="Friomisi Earring",
             right_ear="Hecate's Earring",
             left_ring="Epaminondas's Ring",
             right_ring="Archon Ring",
-            back="Twilight Cape",
-    }
+            back="Argocham. Mantle",
+        }
     
     sets.precast.WS['Chant du Cygne'] = {
         
@@ -376,13 +376,13 @@ function init_gear_sets()
     
     
     sets.precast.WS['Expiacion'] = {
-        
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
         feet="Nyame Sollerets",
-        neck="Caro Necklace",
+        neck="Rep. Plat. Medal",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
@@ -391,7 +391,7 @@ function init_gear_sets()
         back="Bleating Mantle",
     }
 
-    sets.precast.WS['Aeolian Edge'] = {
+    sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -1156,9 +1156,6 @@ function display_current_job_state(eventArgs)
     if state.MagicBurst.value then
         msg = ' Burst: On |'
     end
-    if state.DeathMode.value then
-        msg = msg .. ' Death: On |'
-    end
     if state.Kiting.value then
         msg = msg .. ' Kiting: On |'
     end
@@ -1190,7 +1187,11 @@ function update_combat_form()
         state.CombatForm:set('DW')
     end
 end
+function sub_job_change(new,old)
+    send_command('wait 2;input /lockstyleset 199')
+end
 
+send_command('wait 2;input /lockstyleset 199')
 add_to_chat(159,'Author Aragan BLU.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.

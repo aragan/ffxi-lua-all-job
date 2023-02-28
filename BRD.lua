@@ -834,7 +834,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
             add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = true
+            eventArgs.handled = false
             return
         elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
             send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
@@ -910,7 +910,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             if spell.name == 'Utsusemi: Ichi' then
                 overwrite = false
             elseif spell.name == 'Utsusemi: Ni' then
-                overwrite = true
+                overwrite = false
             end
         end
     end

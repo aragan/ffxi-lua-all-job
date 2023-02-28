@@ -73,9 +73,14 @@ organizer_items = {
 function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
-    get_combat_form()
     --get_combat_weapon()
+    job_handle_equipping_gear()
+    war_sj = player.sub_job == 'WAR' or false
+    get_combat_form()
     update_melee_groups()
+    customize_idle_set()
+    customize_melee_set()
+    update_combat_form()
     send_command('wait 2;input /lockstyleset 172')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
@@ -651,9 +656,9 @@ function init_gear_sets()
 
     }
 
-    sets.idle.Regen =  {
+    sets.idle.Regen = set_combine(sets.idle.Field, {
 
-    }
+    })
 
     sets.idle.Evasion = set_combine(sets.idle, {
         ammo="Amar Cluster",
@@ -942,7 +947,7 @@ function init_gear_sets()
         body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
-        feet="Mpaca's Boots",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         right_ear="Kasuga Earring",
@@ -957,7 +962,7 @@ function init_gear_sets()
         body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
-        feet="Mpaca's Boots",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
         left_ear="Telos Earring",
@@ -1129,8 +1134,8 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 	end
 end
 function job_handle_equipping_gear(player,status, eventArgs)
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+    customize_idle_set()
+    customize_melee_set()
 end
 
 -- Modify the default idle set after it was constructed.
@@ -1267,25 +1272,31 @@ end
 
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
-function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input gs equip sets.Reraise')
-        eventArgs.handled = false
-    end
-    return idleSet, meleeSet
-end
 function job_update(cmdParams, eventArgs)
 	get_combat_form()
     update_melee_groups()
+    job_handle_equipping_gear()
+    update_melee_groups()
+    customize_idle_set()
+    customize_melee_set()
+    update_combat_form()
     --get_combat_weapon()
 end
-
+function update_combat_form()
+  
+end
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
 function display_current_job_state(eventArgs)
 
 end
-
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+        eventArgs.handled = true
+    end
+    return idleSet, meleeSet
+end
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
     if state.Buff[buff_name] then

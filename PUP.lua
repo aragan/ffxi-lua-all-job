@@ -45,7 +45,7 @@ function user_setup()
         Used when you are Engaged with Pet
         Used when you are Idle and Pet is Engaged
     ]]
-    state.HybridMode:options("Normal", "Acc", "MaxAcc", "TP", "MaxTP", "DT", "Regen", "Ranged")
+    state.HybridMode:options("Normal", "Acc", "MaxAcc", "TP", "MaxTP", "Empy", "DT", "Regen", "Ranged")
 
     --[[
         Alt-F12 - Turns off any emergency mode
@@ -209,6 +209,7 @@ function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
+    sub_job_change()
 end
 
 function init_gear_sets()
@@ -290,10 +291,10 @@ function init_gear_sets()
 
     Empy_Karagoz = {}
     Empy_Karagoz.Head_PTPBonus = "Kara. Cappello +2"
-    Empy_Karagoz.Body_Overload = "Karagoz Farsetto +1"
-    Empy_Karagoz.Hands = "Karagoz Guanti +1"
+    Empy_Karagoz.Body_Overload = "Karagoz Farsetto +2"
+    Empy_Karagoz.Hands = "Karagoz Guanti +2"
     Empy_Karagoz.Legs_Combat = "Karagoz Pantaloni +2"
-    Empy_Karagoz.Feet_Tatical = "Karagoz Scarpe +1"
+    Empy_Karagoz.Feet_Tatical = "Karagoz Scarpe +2"
 
     Visucius = {}
     Visucius.PetDT = {
@@ -384,7 +385,7 @@ function init_gear_sets()
 
     sets.precast.JA.Maneuver = {
         main={ name="Midnights", augments={'Pet: Attack+25','Pet: Accuracy+25','Pet: Damage taken -3%',}},
-        body = "Karagoz Farsetto +1",
+        body = "Karagoz Farsetto +2",
         hands="Foire Dastanas +3",
         back = "Visucius's Mantle",
         ear1 = "Burana Earring"
@@ -591,7 +592,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Malignance Gloves",
+        hands="Karagoz Guanti +2",
         legs="Malignance Tights",
         feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
         neck="Lissome Necklace",
@@ -613,7 +614,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Malignance Gloves",
+        hands="Karagoz Guanti +2",
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Shulmanu Collar",
@@ -701,7 +702,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",  
       head="Heyoka Cap",
     body="Mpaca's Doublet",
-    hands="Mpaca's Gloves",
+    hands="Karagoz Guanti +2",
     legs="Heyoka Subligar",
     feet="Mpaca's Boots",
     neck="Shulmanu Collar",
@@ -722,7 +723,7 @@ function init_gear_sets()
         
         head="Kara. Cappello +2",
     body="Malignance Tabard",
-    hands="Malignance Gloves",
+    hands="Karagoz Guanti +2",
     legs="Kara. Pantaloni +2",
     feet="Malignance Boots",
     neck="Shulmanu Collar",
@@ -742,7 +743,7 @@ function init_gear_sets()
         
         ammo="Automat. Oil +3",
         head="Heyoka Cap",
-        hands="Mpaca's Gloves",
+        hands="Karagoz Guanti +2",
         legs="Mpaca's Hose",
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
@@ -772,7 +773,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",      
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Mpaca's Doublet",
-        hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
+        hands="Karagoz Guanti +2",
         legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
         neck="Shulmanu Collar",
@@ -1040,6 +1041,23 @@ function init_gear_sets()
         left_ring="Varar Ring +1",
         right_ring="Varar Ring +1",
             back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
+    }
+    sets.idle.Pet.Engaged.Empy = {          
+        main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
+        range="Animator P +1",
+        ammo="Automat. Oil +3",
+        head="Kara. Cappello +2",
+        body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
+        hands="Karagoz Guanti +2",
+        legs="Kara. Pantaloni +2",
+        feet="Karagoz Scarpe +2",
+        neck="Shulmanu Collar",
+        waist="Klouskap Sash +1",
+        left_ear="Rimeice Earring",
+        right_ear="Enmerkar Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="Varar Ring +1",
+        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
     }
 
     --[[        Idle Mode = Idle
@@ -1354,7 +1372,13 @@ function check_buff(buff_name, eventArgs)
         eventArgs.handled = true
     end
 end
+function sub_job_change(new,old)
+    send_command('wait 5;input /lockstyleset 179')
+end
 
+send_command('wait 5;input /lockstyleset 179')
+function job_update(cmdParams, eventArgs)
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

@@ -97,7 +97,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'DreadSP', 'PDT')
-    state.WeaponskillMode:options('Normal', 'Mid', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
+    state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'MB')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
@@ -198,12 +198,20 @@ function init_gear_sets()
     sets.precast.WS.Dread  = sets.defense['Dread Spikes']
 
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {       
-     head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Sulev. Leggings +2",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {       
+        head={ name="Nyame Helm", augments={'Path: B',}},
+       body={ name="Nyame Mail", augments={'Path: B',}},
+       hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+       legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+       feet="Sulev. Leggings +2",
+       })
     sets.precast.WS.Judgment = set_combine(sets.precast.WS, {
         main={ name="Loxotic Mace +1", augments={'Path: A',}},
         sub="Blurred Shield +1",
@@ -258,6 +266,14 @@ function init_gear_sets()
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Sulev. Leggings +2",
+    })
+    sets.precast.WS['Catastrophe'].SC = set_combine(sets.precast.WS['Catastrophe'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
     sets.precast.WS['Spiral Hell'] = set_combine(sets.precast.WS, {
@@ -613,11 +629,11 @@ sets.precast.WS['Nightmare Scythe'] = {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Malignance Earring",
-        left_ring="Mujin Band",
+        left_ring="Locus Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Argocham. Mantle",
     }

@@ -83,7 +83,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
-    state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion')
+    state.PhysicalDefenseMode:options('PDT', 'Enmity', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
     select_default_macro_book()
@@ -398,6 +398,22 @@ function init_gear_sets()
     right_ring="Paguroidea Ring",
     back="Moonlight Cape",
     }
+    sets.defense.Enmity = {
+        ammo="Iron Gobbet",
+        head="Malignance Chapeau",
+        body="Passion Jacket",
+        hands="Kurys Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Malignance Boots",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Trux Earring",
+        right_ear="Cryptic Earring",
+        left_ring="Defending Ring",
+        right_ring="Vengeful Ring",
+        back="Reiki Cloak",
+         }
+
 
     sets.defense.TreasureHunter = {
         main={ name="Heishi Shorinken", augments={'Path: A',}},
@@ -982,6 +998,8 @@ function init_gear_sets()
         right_ear="Hattori Earring", 
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
+    sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {})
+
     sets.precast.WS['Blade: Chi'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",

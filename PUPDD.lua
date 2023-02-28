@@ -281,15 +281,15 @@ function init_gear_sets()
     Relic_Pitre.Head_PRegen = "Pitre Taj +3" --Enhances Optimization
     Relic_Pitre.Body_PTP = "Pitre Tobe +3" --Enhances Overdrive
     Relic_Pitre.Hands_WSD = "Pitre Dastanas +2" --Enhances Fine-Tuning
-    Relic_Pitre.Legs_PMagic = "Pitre Churidars +2" --Enhances Ventriloquy
-    Relic_Pitre.Feet_PMagic = "Pitre Babouches +1" --Role Reversal
+    Relic_Pitre.Legs_PMagic = "Pitre Churidars +3" --Enhances Ventriloquy
+    Relic_Pitre.Feet_PMagic = "Pitre Babouches +3" --Role Reversal
 
     Empy_Karagoz = {}
     Empy_Karagoz.Head_PTPBonus = "Kara. Cappello +2"
-    Empy_Karagoz.Body_Overload = "Karagoz Farsetto +1"
-    Empy_Karagoz.Hands = "Karagoz Guanti +1"
-    Empy_Karagoz.Legs_Combat = "Karagoz Pantaloni +1"
-    Empy_Karagoz.Feet_Tatical = "Karagoz Scarpe +1"
+    Empy_Karagoz.Body_Overload = "Karagoz Farsetto +2"
+    Empy_Karagoz.Hands = "Karagoz Guanti +2"
+    Empy_Karagoz.Legs_Combat = "Karagoz Pantaloni +2"
+    Empy_Karagoz.Feet_Tatical = "Karagoz Scarpe +2"
 
     Visucius = {}
     Visucius.PetDT = {
@@ -367,7 +367,7 @@ function init_gear_sets()
     sets.precast.JA["Maintenance"] = set_combine(sets.precast.JA["Repair"], { hands="Foire Dastanas +3",})
 
     sets.precast.JA.Maneuver = {
-        body = "Karagoz Farsetto +1",
+        body = "Karagoz Farsetto +2",
         hands="Foire Dastanas +3",
         back = "Visucius's Mantle",
         ear1 = "Burana Earring"
