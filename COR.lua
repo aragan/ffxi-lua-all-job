@@ -38,8 +38,9 @@ function job_setup()
     state.warned = M(false)
     send_command('wait 2;input /lockstyleset 168')
     define_roll_values()
+    send_command('lua l AutoCOR')
+    include('organizer-lib')
 end
-include('organizer-lib')
 
 
 -------------------------------------------------------------------------------------------------------------------
