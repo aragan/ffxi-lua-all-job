@@ -32,7 +32,6 @@ function get_sets()
 end
     include('organizer-lib')
     organizer_items = {
-        "Thr. Tomahawk",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -300,7 +299,7 @@ function init_gear_sets()
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Caro Necklace",
+    neck="Rep. Plat. Medal",
     waist="Kentarch Belt +1",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Odr Earring",
@@ -324,7 +323,7 @@ function init_gear_sets()
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Caro Necklace",
+    neck="Rep. Plat. Medal",
     waist="Kentarch Belt +1",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
@@ -364,7 +363,7 @@ function init_gear_sets()
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Caro Necklace",
+    neck="Rep. Plat. Medal",
     waist="Kentarch Belt +1",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Odr Earring",

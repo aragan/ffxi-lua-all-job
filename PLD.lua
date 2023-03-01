@@ -63,8 +63,6 @@ function user_setup()
     send_command('bind f12 gs c cycle MagicalDefense')
  	send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
     {
@@ -1156,6 +1154,7 @@ end
 
  
 function job_update(cmdParams, eventArgs)
+    job_self_command()
     update_defense_mode()
     customize_defense_set(defenseSet)
     customize_idle_set(idleSet)
@@ -1369,6 +1368,12 @@ if cmdParams[1] == 'buffWatcher' then
   if cmdParams[1] == 'stopBuffWatcher' then
       stopBuffWatcher()
   end
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+        eventArgs.handled = false
+    end
+    return
 end
 add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')

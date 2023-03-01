@@ -1988,8 +1988,17 @@ end
 
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input gs equip sets.Reraise')
+        eventArgs.handled = false
+    end
+    return 
+end
 function job_update(cmdParams, eventArgs)
 	get_combat_form()
+    job_self_command()
 
         if state.JugMode.value == 'FunguarFamiliar' then
                 PetInfo = "Funguar, Plantoid"

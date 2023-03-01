@@ -884,6 +884,7 @@ function job_update(cmdParams, eventArgs)
 	classes.CustomMeleeGroups:clear()
 	th_update(cmdParams, eventArgs)
 	get_combat_form()
+    job_self_command()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.

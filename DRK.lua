@@ -82,10 +82,7 @@ function job_setup()
     sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
 
     get_combat_form()
-    customize_idle_set()
-    customize_melee_set()
     update_melee_groups()
-    job_handle_equipping_gear()
     update_combat_form()
 end
   
@@ -1330,16 +1327,14 @@ end
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(status, eventArgs)
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
 end
 function job_self_command(cmdParams, eventArgs)
     if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
+        eventArgs.handled = false
     end
-    return idleSet, meleeSet
+    return
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
@@ -1527,13 +1522,11 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
   
-    job_handle_equipping_gear()
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     update_melee_groups()
-    customize_idle_set()
-    customize_melee_set()
     update_combat_form()
+    job_self_command()
 end
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()

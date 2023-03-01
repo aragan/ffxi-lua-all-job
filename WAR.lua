@@ -76,8 +76,7 @@ function job_setup()
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+
 end
  
  
@@ -554,11 +553,7 @@ function init_gear_sets()
          left_ring="Defending Ring",
          feet="Hermes' Sandals +1",
      })
-     sets.idle.Regen = set_combine(sets.idle.Field, {
-        neck="Sanctity Necklace",
-         ear2="Infused Earring",
-         right_ring="Paguroidea Ring",
-        })
+     sets.idle.Regen = {}
  
      sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
@@ -1069,15 +1064,20 @@ end
  
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input gs equip sets.Reraise')
+        eventArgs.handled = false
+    end
+    return 
+end
 function job_update(player,cmdParams, eventArgs)
-    
+    job_self_command()
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
-    job_state_change(stateField, newValue, oldValue)
 
 end
 
@@ -1129,10 +1129,7 @@ function job_state_change(stateField, newValue, oldValue)
     --        send_command('@input /lockstyle yes')
     --    end
     --end
-    if player.hpp < 10 then
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-    end
+
 end
 add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
