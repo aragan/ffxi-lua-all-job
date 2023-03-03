@@ -69,6 +69,10 @@ function job_setup()
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	send_command('wait 2;input /lockstyleset 200')
+	state.TreasureMode:set('None')
+	include('Mote-TreasureHunter')
+	send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind ^= gs c cycle treasuremode')
     update_combat_form()
 end
 
@@ -350,7 +354,11 @@ function init_gear_sets()
 	sets.midcast.Utsusemi = {body="Passion Jacket",neck="Magoraga Beads",}
 
 	-- Ranged sets
-
+	sets.TreasureHunter = { 
+		ammo="Per. Lucky Egg",
+		head="White rarab cap +1", 
+		waist="Chaac Belt",
+	 }
 	sets.midcast.RA = {		
 
 		head="Arcadian Beret +1",

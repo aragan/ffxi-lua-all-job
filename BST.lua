@@ -96,11 +96,13 @@ sub="Wind Knife +1",
 ear="Reraise Earring",
 }
 function job_setup()
+	include('Mote-TreasureHunter')
 	state.Buff['Killer Instinct'] = buffactive['Killer Instinct'] or false
 	state.Buff.Doom = buffactive.doom or false
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
 	send_command('bind @w gs c toggle WeaponLock')
+	send_command('bind ^= gs c cycle treasuremode')
 	send_command('wait 2;input /lockstyleset 171')
 	get_combat_form()
 end
@@ -114,6 +116,9 @@ function user_setup()
         state.RestingMode:options('Normal')
         state.PhysicalDefenseMode:options('PDT', 'PetPDT', 'Reraise', 'Killer')
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
+		send_command('lua l PetCharges')
+		send_command('lua l mob')
+
 
         -- 'Out of Range' distance; WS will auto-cancel
         target_distance = 6
@@ -269,7 +274,11 @@ function init_gear_sets()
 				back="Tantalic Cape",
 	
 			}
-
+			sets.TreasureHunter = { 
+				ammo="Per. Lucky Egg",
+				head="White rarab cap +1", 
+				waist="Chaac Belt",
+			 }
         -- CURING WALTZ
         sets.precast.Waltz = {
 			body="Gleti's Cuirass",

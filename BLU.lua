@@ -205,7 +205,7 @@ function user_setup()
     send_command('bind !` input /ja "Efflux" <me>')
     send_command('bind @` input /ja "Burst Affinity" <me>')
     send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind @t gs c cycle treasuremode')
+    send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     update_combat_form()
     select_default_macro_book()
@@ -1009,7 +1009,9 @@ sets.engaged.DW.Refresh = {
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
 
-    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt"}
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"}
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",

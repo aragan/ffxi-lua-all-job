@@ -432,7 +432,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.Lullaby = {hands="Brioso Cuffs"}
     sets.midcast.Madrigal = {head="Fili Calot +1",}
     sets.midcast.March = {hands="Fili Manchettes +1",}
-    sets.midcast.Minuet = {body="Fili Hongreline +1",}
+    sets.midcast.Minuet = {body="Fili Hongreline +2",}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
@@ -447,7 +447,7 @@ sets.precast.WS['Shattersoul'] = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head="Fili Calot +1",
-    body="Fili Hongreline +1",
+    body="Fili Hongreline +2",
     hands="Fili Manchettes +1",
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
@@ -462,7 +462,7 @@ sets.precast.WS['Shattersoul'] = {
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
-        body="Fili Hongreline +1",
+        body="Fili Hongreline +2",
         hands="Fili Manchettes +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",
@@ -479,7 +479,7 @@ sets.precast.WS['Shattersoul'] = {
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
         head="Fili Calot +1",
-        body="Fili Hongreline +1",
+        body="Fili Hongreline +2",
         hands="Fili Manchettes +1",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +2",

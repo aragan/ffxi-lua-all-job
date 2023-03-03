@@ -96,6 +96,7 @@ function user_setup()
     
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')

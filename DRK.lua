@@ -1528,6 +1528,14 @@ function job_update(cmdParams, eventArgs)
     update_combat_form()
     job_self_command()
 end
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input gs equip sets.Reraise')
+        eventArgs.handled = false
+    end
+    return 
+end
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 end

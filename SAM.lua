@@ -109,6 +109,7 @@ function user_setup()
     send_command('bind ^[ input /lockstyle on')
     send_command('bind ![ input /lockstyle off')
     send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -1129,8 +1130,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 	end
 end
 function job_handle_equipping_gear(player,status, eventArgs)
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+
 end
 
 -- Modify the default idle set after it was constructed.
@@ -1273,11 +1273,12 @@ function job_self_command(cmdParams, eventArgs)
         send_command('input gs equip sets.Reraise')
         eventArgs.handled = false
     end
-    return idleSet, meleeSet
+    return 
 end
 function job_update(cmdParams, eventArgs)
 	get_combat_form()
     update_melee_groups()
+    job_self_command()
     --get_combat_weapon()
 end
 

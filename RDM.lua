@@ -32,6 +32,11 @@ end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+	include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
+	send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind !` gs c toggle MagicBurst')
     send_command('wait 2;input /lockstyleset 174')
 
 end
@@ -340,7 +345,11 @@ sets.precast.WS['Shattersoul'] = {
 	back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 	
-
+sets.TreasureHunter = { 
+	ammo="Per. Lucky Egg",
+	head="White rarab cap +1", 
+	waist="Chaac Belt",
+ }
 	
     -- Midcast Sets
     
