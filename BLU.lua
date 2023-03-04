@@ -265,7 +265,21 @@ function init_gear_sets()
 
     
     -- Precast Sets
-    
+    sets.Enmity = {
+        ammo="Sapience Orb", --2
+        head="Halitus Helm", --8
+        body="Emet Harness +1", --10
+        hands="Kurys Gloves", --9
+        feet="Ahosi Leggings", --7
+        neck="Unmoving Collar +1", --10
+        ear1="Cryptic Earring", --4
+        ear2="Trux Earring", --5
+        ring1="Pernicious Ring", --5
+        ring2="Eihwaz Ring", --5
+        waist="Kasiri Belt", --3
+        }
+
+    sets.precast.JA['Provoke'] = sets.Enmity
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Mirage Bazubands +2"}
     sets.precast.RA = {
@@ -283,12 +297,40 @@ function init_gear_sets()
     right_ear="Mendi. Earring",
     right_ring="Stikini Ring +1",
     back="Solemnity Cape",}
+          
+    sets.precast.FC = {      
+        ammo="Sapience Orb",
+        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+        body="Pinga Tunic",
+        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+        feet="Jhakri Pigaches +2",
+        right_ear="Loquac. Earring",
+        left_ring="Kishar Ring",
+        right_ring="Prolix Ring",
+        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
+}
         
+sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
+sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+sets.precast.FC.Cure = set_combine(sets.precast.FC, {ammo="Impatiens", ear1="Mendi. Earring"})
+
+sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
+sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+sets.precast.FC.Cure = set_combine(sets.precast.FC, {ammo="Impatiens", ear1="Mendi. Earring"})
+
+
+sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
+    ammo="Impatiens",
+    ring1="Lebeche Ring",
+    waist="Rumination Sash",
+    })
+
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 
     -- Fast cast sets for spells
-    
+
     sets.precast.WS = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",

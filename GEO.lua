@@ -57,7 +57,6 @@ function user_setup()
 end
 
 function file_unload()
-    send_command('unbind !=')
 end
 
 -- Define sets and vars used by this job file.
