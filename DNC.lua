@@ -605,7 +605,7 @@ function init_gear_sets()
     back="Engulfer Cape +1",
     }
 
-    sets.Kiting = {feet="Skadi's Jambeaux +1"}
+    sets.Kiting = {feet="Tandava Crackows",}
 
     -- Engaged sets
 

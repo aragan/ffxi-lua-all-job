@@ -1379,6 +1379,12 @@ end
 send_command('wait 5;input /lockstyleset 179')
 function job_update(cmdParams, eventArgs)
 end
+function job_self_command(cmdParams, eventArgs)
+    if player.equipment.main == "Tauret" then
+        send_command('@input /lockstyleset 168')
+    end
+    eventArgs.handled = false
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
