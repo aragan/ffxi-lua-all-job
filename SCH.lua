@@ -221,7 +221,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Tabula Rasa'] = {legs="Peda. Pants +3"}
+    sets.precast.JA['Tabula Rasa'] = {legs="Pedagogy Pants"}
     sets.precast.JA['Enlightenment'] = {body="Peda. Gown +3"}
     sets.precast.JA['Sublimation'] = {
         feet="Skaoi Boots",
@@ -243,9 +243,9 @@ function init_gear_sets()
     legs="Pinga Pants",
     feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
     neck="Baetyl Pendant",
-    waist="Witful Belt",
+    waist="Embla Sash",
     left_ear="Loquac. Earring",
-    right_ear="Etiolation Earring",
+    right_ear="Malignance Earring",
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},

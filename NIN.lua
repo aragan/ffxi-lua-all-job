@@ -22,14 +22,47 @@ function get_sets()
     mote_include_version = 2
     include('Mote-Include.lua')
     include('organizer-lib')
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
     organizer_items = {
-        "Shinobi-Tabi",
+        item="Toolbag (Shihe)",
         "Chonofuda",
         "Shikanofuda",
         "Inoshishinofuda",
         "Sanjaku-Tenugui",
         "Toolbag (Cho)",   
-    }
+        "Toolbag (Shika)",
+        "Toolbag (Ino)",
+        "Shihei",
+        "Toolbag (Shihe)",
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
+    
     
 end
 
@@ -49,7 +82,7 @@ function job_setup()
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
     state.Moving  = M(false, "moving")
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 144')
     run_sj = player.sub_job == 'RUN' or false
 
     select_ammo()
@@ -103,11 +136,10 @@ end
 
 function file_unload()
     send_command('unbind ^[')
-    send_command('unbind ![')
-    send_command('unbind ^=')
-    send_command('unbind !=')
     send_command('unbind @f9')
     send_command('unbind @[')
+    send_command('unbind ^=')
+
 end
 
 
@@ -126,54 +158,16 @@ function init_gear_sets()
     --------------------------------------
     -- Augments
     --------------------------------------
-    Andartia = {}
-    Andartia.DEX = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Damage taken-5%'}}
-    Andartia.AGI = {name="Andartia's Mantle", augments={'AGI+20','Accuracy+20 Attack+20','AGI+10','Weapon skill damage +10%',}}
-    Andartia.STR = {name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-    
-    AdhemarLegs = {}
-    AdhemarLegs.Snap = { name="Adhemar Kecks", augments={'AGI+10','"Rapid Shot"+10','Enmity-5',}}
-    AdhemarLegs.TP = { name="Adhemar Kecks", augments={'AGI+10','Rng.Acc.+15','Rng.Atk.+15',}}
-    
-    HercFeet = {}
-    HercHead = {}
-    HercLegs = {}
-    HercBody = {}
-    HercHands = {}
 
-    HercHands.R = { name="Herculean Gloves", augments={'AGI+9','Accuracy+3','"Refresh"+1',}}
-    HercHands.MAB = { name="Herculean Gloves", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','INT+4','Mag. Acc.+8','"Mag.Atk.Bns."+13',}}
-    HercHands.WSD = { name="Herculean Gloves", augments={'Accuracy+23 Attack+23','Weapon skill damage +3%','STR+10','Accuracy+10','Attack+1',}}
-
-    HercFeet.MAB = { name="Herculean Boots", augments={'Mag. Acc.+30','"Mag.Atk.Bns."+25','Accuracy+3 Attack+3','Mag. Acc.+12 "Mag.Atk.Bns."+12',}}
-    HercFeet.TP = { name="Herculean Boots", augments={'Accuracy+21 Attack+21','"Triple Atk."+4','DEX+8',}}
-
-    HercBody.MAB = { name="Herculean Vest", augments={'Haste+1','"Mag.Atk.Bns."+27','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
-    HercBody.WSD = { name="Herculean Vest", augments={'"Blood Pact" ability delay -4','AGI+3','Weapon skill damage +9%','Mag. Acc.+4 "Mag.Atk.Bns."+4',}}
-    
-    HercHead.MAB = {name="Herculean Helm", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Weapon skill damage +3%','INT+1','Mag. Acc.+3','"Mag.Atk.Bns."+8',}}
-    HercHead.TP = { name="Herculean Helm", augments={'Accuracy+25','"Triple Atk."+4','AGI+6','Attack+14',}}
-    HercHead.DM = { name="Herculean Helm", augments={'Pet: STR+9','Mag. Acc.+10 "Mag.Atk.Bns."+10','Weapon skill damage +9%','Accuracy+12 Attack+12',}}
-    
-    HercLegs.MAB = { name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+14',}}
-    HercLegs.TH = { name="Herculean Trousers", augments={'Phys. dmg. taken -1%','VIT+10','"Treasure Hunter"+2','Accuracy+10 Attack+10','Mag. Acc.+19 "Mag.Atk.Bns."+19',}} 
-
-    TaeonHands = {}
-    TaeonHands.Snap = {name="Taeon Gloves", augments={'"Snapshot"+5', 'Attack+22','"Snapshot"+5'}}
-    
-    TaeonHead = {}
-    TaeonHead.Snap = { name="Taeon Chapeau", augments={'Accuracy+20 Attack+20','"Snapshot"+5','"Snapshot"+4',}}
     --------------------------------------
     -- Job Abilties
     --------------------------------------
     sets.precast.JA['Mijin Gakure'] = { legs="Mochizuki Hakama +3" }
     sets.precast.JA['Futae'] = { hands="Hattori Tekko +1" }
     sets.precast.JA['Provoke'] = { 
-        -- ear1="Cryptic Earring",
+        ear1="Cryptic Earring",
         ear2="Trux Earring", 
         ring1="Petrov Ring",
-
-        
     }
     sets.precast.JA.Sange = { }
 
@@ -193,7 +187,6 @@ function init_gear_sets()
         legs="Kendatsuba Hakama +1",
     }
     sets.MadrigalBonus = {
-        hands="Composer's Mitts"
     }
     -- sets.midcast.Trust =  {
     --     head="Hattori Zukin +1",
@@ -210,7 +203,7 @@ function init_gear_sets()
     --------------------------------------
     sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
     waist="Chaac Belt"}
-    sets.CapacityMantle = { back="Mecistopins Mantle" }
+    sets.CapacityMantle = {}
     sets.WSDayBonus     = {}
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear1="Odr Earring", ear2="Lugra Earring +1" }
@@ -246,9 +239,8 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head="Malignance Chapeau",
+        head={ name="Herculean Helm", augments={'"Triple Atk."+4','STR+7','Accuracy+5','Attack+8',}},
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-        feet="Hiza. Sune-Ate +2",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Rahab Ring",
@@ -264,15 +256,9 @@ function init_gear_sets()
 
     -- skill ++ 
     sets.midcast.Ninjutsu = {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head="Malignance Chapeau",body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
-        hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-        legs={ name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','STR+13','Mag. Acc.+3','"Mag.Atk.Bns."+1',}},
-        feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
-        neck="Baetyl Pendant",
-        waist="Eschan Stone",    left_ring="Mephitas's Ring",
-        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        left_ear="Hecate's Earring",right_ear="Friomisi Earring",back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        neck="Incanter's Torque",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
     }
 
     sets.midcast.EnfeeblingNinjutsu = {
@@ -308,15 +294,19 @@ function init_gear_sets()
 
     -- Nuking Ninjutsu (skill & magic attack)
     sets.midcast.ElementalNinjutsu = {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Malignance Chapeau",body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','STR+13','Mag. Acc.+3','"Mag.Atk.Bns."+1',}},
-    feet={ name="Herculean Boots", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Crit.hit rate+1','INT+2','"Mag.Atk.Bns."+1',}},
-    neck="Baetyl Pendant",
-    waist="Eschan Stone",    left_ring="Mephitas's Ring",
-    right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    left_ear="Hecate's Earring",right_ear="Friomisi Earring",back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sibyl Scarf",
+        waist="Orpheus's Sash",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Dingir Ring",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
+    back="Argocham. Mantle",
     }
     sets.Burst = set_combine(sets.midcast.ElementalNinjutsu, { 
         head="Nyame Helm",
@@ -324,7 +314,9 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        left_ring="Locus Ring",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Orpheus's Sash",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Mujin Band",
 })
 
@@ -564,7 +556,6 @@ function init_gear_sets()
         -- main="Knife",
         sub=empty,
         ammo="Ginsen",
-        neck="Carnal Torque"
     }
     sets.unProc = set_combine(sets.engaged, {
   
@@ -1178,6 +1169,9 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -1569,12 +1563,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'DNC' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'RUN' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     else
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     end
 end
