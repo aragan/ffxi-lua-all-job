@@ -129,6 +129,7 @@ function user_setup()
     send_command('bind @f9 gs c cycle HasteMode')
     send_command('bind @[ gs c cycle Runes')
     send_command('bind ^] gs c toggle UseRune')
+    send_command('bind !` gs c toggle MagicBurst')
     -- send_command('bind !- gs equip sets.crafting')
 
 end
@@ -254,8 +255,22 @@ function init_gear_sets()
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
 
+    sets.midcast.enmity = {
+        ammo="Iron Gobbet",
+        hands="Kurys Gloves",
+        body={ name="Emet Harness +1", augments={'Path: A',}},
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		neck="Moonlight Necklace",
+        waist="Flume Belt +1",
+        left_ear="Trux Earring",
+        right_ear="Cryptic Earring",
+		left_ring="Eihwaz Ring",
+        right_ring="Vengeful Ring",
+        back="Reiki Cloak",
+         }
     -- skill ++ 
     sets.midcast.Ninjutsu = {
+        feet={ name="Mochi. Kyahan +1", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
         neck="Incanter's Torque",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -295,21 +310,21 @@ function init_gear_sets()
     -- Nuking Ninjutsu (skill & magic attack)
     sets.midcast.ElementalNinjutsu = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Nyame Helm",
+        head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Dingir Ring",
-    left_ear="Hecate's Earring",
-    right_ear="Friomisi Earring",
-    back="Argocham. Mantle",
+     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+     right_ring="Dingir Ring",
+     left_ear="Hecate's Earring",
+     right_ear="Friomisi Earring",
+     back="Argocham. Mantle",
     }
-    sets.Burst = set_combine(sets.midcast.ElementalNinjutsu, { 
-        head="Nyame Helm",
+    sets.magic_burst = set_combine(sets.midcast.ElementalNinjutsu, { 
+        head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -318,6 +333,8 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Mujin Band",
+        back="Argocham. Mantle",
+
 })
 
     -- Effusions
@@ -393,7 +410,7 @@ function init_gear_sets()
     sets.defense.Enmity = {
         ammo="Iron Gobbet",
         head="Malignance Chapeau",
-        body="Passion Jacket",
+        body={ name="Emet Harness +1", augments={'Path: A',}},
         hands="Kurys Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Malignance Boots",
@@ -1088,9 +1105,17 @@ end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
-    if nukeList:contains(spell.english) and buffactive['Futae'] then
-        equip(sets.Burst)
-    end
+    if spell.english == "Provoke" then
+		equip(sets.midcast.enmity)
+	end
+
+	if spell.english == "Warcry" then
+		equip(sets.midcast.enmity)
+	end
+
+	if spell.english == "Animated Flourish" then
+		equip(sets.midcast.enmity)
+	end
     -- if spell.english == "Monomi: Ichi" then
     --     if buffactive['Sneak'] then
     --         send_command('@wait 2.7;cancel sneak')
@@ -1104,12 +1129,19 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     --if state.TreasureMode.value ~= 'None' and spell.action_type == 'Ranged Attack' then
     --    equip(sets.TreasureHunter)
     --end
-    if not spell.interrupted then
-        if spell.name == 'Utsusemi: Ichi' then
-            overwrite = false
-        elseif spell.name == 'Utsusemi: Ni' then
-            overwrite = true
+    if spellMap == 'ElementalNinjutsu' then
+        if state.MagicBurst.value then
+            equip(sets.magic_burst)
         end
+        if (spell.element == world.day_element or spell.element == world.weather_element) then
+            equip(sets.Obi)
+        end
+        if state.Buff.Futae then
+            equip(sets.precast.JA['Futae'])
+        end
+    end
+    if state.Buff.Doom then
+        equip(sets.buff.Doom)
     end
 end
 
@@ -1119,13 +1151,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if midaction() then
         return
     end
-    if not spell.interrupted then
-        if spell.name == 'Utsusemi: Ichi' then
-            overwrite = false
-        elseif spell.name == 'Utsusemi: Ni' then
-            overwrite = true
-        end
-    end
+
     -- Aftermath timer creation
     aw_custom_aftermath_timers_aftercast(spell)
     --if spell.type == 'WeaponSkill' then
@@ -1156,7 +1182,7 @@ function customize_idle_set(idleSet)
             idleSet = set_combine(idleSet, sets.defense.PDT)
         end
     else
-        idleSet = set_combine(idleSet, select_movement())
+        idleSet = set_combine(idleSet)
     end
     --local res = require('resources')
     --local info = windower.ffxi.get_info()
@@ -1240,9 +1266,9 @@ function job_buff_change(buff, gain)
 end
 
 function job_status_change(newStatus, oldStatus, eventArgs)
-    if newStatus == 'Engaged' then
-        update_combat_form()
-    end
+    --if newStatus == 'Engaged' then
+        --update_combat_form()
+    --end
 end
 --mov = {counter=0}
 --if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
@@ -1312,16 +1338,16 @@ function th_action_check(category, param)
     end
 end
 
-function select_movement()
+--function select_movement()
     -- world.time is given in minutes into each day
     -- 7:00 AM would be 420 minutes
     -- 17:00 PM would be 1020 minutes
-    if world.time >= (17*60) or world.time <= (7*60) then
-        return sets.NightMovement
-    else
-        return sets.DayMovement
-    end
-end
+    --if world.time >= (17*60) or world.time <= (7*60) then
+        --return sets.NightMovement
+    --else
+        --return sets.DayMovement
+    --end
+--end
 
 function determine_haste_group()
 
@@ -1534,6 +1560,54 @@ function aw_custom_aftermath_timers_aftercast(spell)
         info.aftermath = {}
     end
 end
+-- Determine whether we have sufficient tools for the spell being attempted.
+function do_ninja_tool_checks(spell, spellMap, eventArgs)
+    local ninja_tool_name
+    local ninja_tool_min_count = 1
+
+    -- Only checks for universal tools and shihei
+    if spell.skill == "Ninjutsu" then
+        if spellMap == 'Utsusemi' then
+            ninja_tool_name = "Shihei"
+        elseif spellMap == 'ElementalNinjutsu' then
+            ninja_tool_name = "Inoshishinofuda"
+        elseif spellMap == 'EnfeeblingNinjutsu' then
+            ninja_tool_name = "Chonofuda"
+        elseif spellMap == 'EnhancingNinjutsu' then
+            ninja_tool_name = "Shikanofuda"
+        else
+            return
+        end
+    end
+
+    local available_ninja_tools = player.inventory[ninja_tool_name] or player.wardrobe[ninja_tool_name]
+
+    -- If no tools are available, end.
+    if not available_ninja_tools then
+        if spell.skill == "Ninjutsu" then
+            return
+        end
+    end
+
+    -- Low ninja tools warning.
+    if spell.skill == "Ninjutsu" and state.warned.value == false
+        and available_ninja_tools.count > 1 and available_ninja_tools.count <= options.ninja_tool_warning_limit then
+        local msg = '*****  LOW TOOLS WARNING: '..ninja_tool_name..' *****'
+        --local border = string.repeat("*", #msg)
+        local border = ""
+        for i = 1, #msg do
+            border = border .. "*"
+        end
+
+        add_to_chat(104, border)
+        add_to_chat(104, msg)
+        add_to_chat(104, border)
+
+        state.warned:set()
+    elseif available_ninja_tools.count > options.ninja_tool_warning_limit and state.warned then
+        state.warned:reset()
+    end
+end
 
 function select_ammo()
     if state.Buff.Sange then
@@ -1556,6 +1630,11 @@ function update_combat_form()
     if state.Buff.Innin then
         state.CombatForm:set('Innin')
     else
+        state.CombatForm:reset()
+    end
+    if DW == true then
+        state.CombatForm:set('DW')
+    elseif DW == false then
         state.CombatForm:reset()
     end
 end

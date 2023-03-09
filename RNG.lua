@@ -650,7 +650,7 @@ function init_gear_sets()
 	--------------------------------------
 	-- Custom buff sets
 	--------------------------------------
-	sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {body="Amini Caban +1",})
+	sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {body="Amini Caban +2",})
 	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
 	sets.DoubleShot = {
 	head="Oshosi Mask +1",
