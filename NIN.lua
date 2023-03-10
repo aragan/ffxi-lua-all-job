@@ -112,9 +112,10 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc','CRIT', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana')
-    state.HybridMode:options('Normal', 'PDT', 'Proc')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','CRIT')
+    state.HybridMode:options('Normal', 'PDT')
     state.RangedMode:options('Normal', 'Acc')
+    state.CastingMode:options('Normal', 'SIRD')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'SC')
     state.PhysicalDefenseMode:options('PDT', 'Enmity', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
@@ -124,7 +125,6 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
-    send_command('bind ![ input /lockstyle off')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind @f9 gs c cycle HasteMode')
     send_command('bind @[ gs c cycle Runes')
@@ -298,7 +298,37 @@ function init_gear_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
+sets.midcast.SelfNinjutsu.SIRD = {   
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Moonlight Necklace",
+    waist="Audumbla Sash",
+    left_ear="Halasz Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    right_ring="Evanescence Ring",
+    back="Moonlight Cape",
+}
     sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {    
+        feet="Hattori Kyahan +1",
+        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+    })
+    sets.midcast.Utsusemi.SIRD = set_combine(sets.midcast.Ninjutsu, {    
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        legs="Malignance Tights",
+        neck="Moonlight Necklace",
+        waist="Audumbla Sash",
+        left_ear="Halasz Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring="Evanescence Ring",
         feet="Hattori Kyahan +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
@@ -306,6 +336,21 @@ function init_gear_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+    })
+    sets.midcast.Migawari.SIRD = set_combine(sets.midcast.Ninjutsu, { 
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Moonlight Necklace",
+        waist="Audumbla Sash",
+        left_ear="Halasz Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring="Evanescence Ring",
+        back="Moonlight Cape",
     })
 
     -- Nuking Ninjutsu (skill & magic attack)
@@ -426,9 +471,8 @@ function init_gear_sets()
 
 
     sets.defense.TreasureHunter = {
-        main={ name="Heishi Shorinken", augments={'Path: A',}},
         ammo="Per. Lucky Egg",
-        head="Malignance Chapeau",
+        head="Wh. Rarab Cap +1",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
@@ -504,6 +548,7 @@ function init_gear_sets()
     })
 
     sets.engaged.Acc = set_combine(sets.engaged, {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         neck="Subtlety Spec.",
         left_ear="Crep. Earring",
         ear2="Telos Earring",
@@ -528,30 +573,6 @@ function init_gear_sets()
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
-        sets.engaged.Sword = set_combine(sets.engaged, {
-            main="Excalipoor II",
-            sub=empty,
-        })
-        sets.engaged.GK = set_combine(sets.engaged, {
-            main="Uchigatana",
-            sub=empty,
-        })
-        sets.engaged.Club = set_combine(sets.engaged, {
-            main="Caduceus",
-            sub=empty,
-        })
-        sets.engaged.Staff = set_combine(sets.engaged, {
-            main="Profane Staff",
-            sub=empty,
-        })
-        sets.engaged.Katana = set_combine(sets.engaged, {
-            main="Debahocho +1",
-            sub=empty,
-        })
-        sets.engaged.Dagger = set_combine(sets.engaged, {
-            main="Ceremonial Dagger",
-            sub=empty,
-        })
 
     -- set for fooling around without dual wield
     -- using this as weak / proc set now
@@ -628,7 +649,6 @@ function init_gear_sets()
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-
     })
 
     -- Delay Cap from spell + songs alone
@@ -657,12 +677,13 @@ function init_gear_sets()
         neck="Lissome Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Brutal Earring",
-        right_ear="Dedition Earring",
+        ear2="Telos Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
     sets.engaged.Acc.MaxHaste = set_combine(sets.engaged.Acc, {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         neck="Subtlety Spec.",
         left_ear="Crep. Earring",
         ear2="Telos Earring",
@@ -703,6 +724,7 @@ function init_gear_sets()
         ear2="Telos Earring",
     })
     sets.engaged.Acc.Haste_35 = set_combine(sets.engaged.Acc.MaxHaste, { 
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         ear2="Telos Earring",
         feet="Hizamaru Sune-ate +2"
     })
@@ -733,8 +755,8 @@ function init_gear_sets()
     sets.engaged.Mid.Haste_30 = set_combine(sets.engaged.Haste_30, {  ammo="Coiste Bodhar",
     head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     })
-    sets.engaged.Acc.Haste_30 = set_combine(sets.engaged.Mid.Haste_30, {  ammo="Coiste Bodhar",
-        ring1="Cacoethic Ring +1",
+    sets.engaged.Acc.Haste_30 = set_combine(sets.engaged.Mid.Haste_30, { 
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         waist="Olseni Belt",
     })
 
@@ -919,7 +941,12 @@ function init_gear_sets()
     
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, sets.Shun)
     sets.precast.WS['Blade: Shun'].Mid = set_combine(sets.Shun, {})
-    sets.precast.WS['Blade: Shun'].Acc = sets.precast.WS['Blade: Shun'].Mid
+    sets.precast.WS['Blade: Shun'].Acc = set_combine(sets.Shun, {})
+    sets.precast.WS['Blade: Shun'].SC = set_combine(sets.Shun, {
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+
     
     -- BLADE: Rin
     sets.Rin = {
