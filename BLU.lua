@@ -195,7 +195,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'AccMAX', 'CRIT')
-    state.CastingMode:options('Normal', 'Resistant')
+    state.CastingMode:options('Normal', 'SIRD')
     state.IdleMode:options('Normal', 'PDT', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 
@@ -539,8 +539,16 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     
     
     -- Midcast Sets
-    sets.midcast.FastRecast = {
+    sets.SIRD = {
+        ammo="Staunch Tathlum +1",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        left_ear="Halasz Earring",
+        right_ring="Evanescence Ring",
     }
+    sets.midcast.FastRecast = sets.SIRD 
+
     sets.midcast.RA = {			range="Trollbane",
     head="Malignance Chapeau",
     body="Nisroch Jerkin",
@@ -563,6 +571,21 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ring="Stikini Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
+sets.midcast['Blue Magic'].SIRD = {  
+    ammo="Pemphredo Tathlum",
+    head="Jhakri Coronal +2",
+    body="Jhakri Robe +2",
+    hands="Jhakri Cuffs +2",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+    feet="Jhakri Pigaches +2",
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Hecate's Earring",
+    left_ring="Jhakri Ring",
+    right_ring="Stikini Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
     
     -- Physical Spells --
     
@@ -581,6 +604,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ring="Ilabrat Ring",
         back="Bleating Mantle",
     }
+    sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical.SIRD)
 
     sets.midcast['Blue Magic'].PhysicalAcc = {
         ammo="Inlamvuyeso",
@@ -597,6 +621,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc.SIRD)
 
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
         {body="Iuitl Vest",hands="Assimilator's Bazubands +1"})
@@ -645,30 +670,13 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 
-    sets.midcast['Blue Magic'].Magical.Resistant = set_combine(sets.midcast['Blue Magic'].Magical,
-        {main={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
-        ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
-        feet="Jhakri Pigaches +2",
-        neck="Sibyl Scarf",
-         waist="Eschan Stone",
-        left_ear="Crep. Earring",
-        right_ear="Digni. Earring",
-        left_ring="Jhakri Ring",
-        right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    })  
+    sets.midcast['Blue Magic'].Magical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Magical)
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
         {ring1="Aquasoul Ring"})
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical)
 
-    sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical,
-        {
+    sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical, {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Jhakri Robe +2",
@@ -703,6 +711,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ring="Stikini Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},    }
 
+        sets.midcast['Blue Magic'].MagicAccuracy.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].MagicAccuracy)
     -- Breath Spells --
     
     sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical)
@@ -739,6 +748,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ring="Stikini Ring +1",
     back="Solemnity Cape",
 }
+sets.midcast['Blue Magic'].Healing.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Healing)
 
     sets.midcast['Blue Magic'].SkillBasedBuff = {
         ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
@@ -752,6 +762,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
 }
+sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].SkillBasedBuff) 
+
 
     sets.midcast['Blue Magic'].Buff = {
         ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
@@ -764,8 +776,10 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     left_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-
     }
+    sets.midcast['Blue Magic'].Buff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Buff) 
+
+  
     
     sets.midcast.Protect = {ring1="Sheltered Ring"}
     sets.midcast.Protectra = {ring1="Sheltered Ring"}
@@ -787,7 +801,6 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-
 }
     
     
@@ -969,23 +982,21 @@ sets.engaged.DW = {
     right_ring="Epona's Ring",
     back="Annealed Mantle",
     }
-sets.engaged.DW.PD = {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs={ name="Samnuha Tights", augments={'STR+4','DEX+7','"Triple Atk."+2',}},
-    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Lissome Necklace",
+sets.engaged.DW.PD = set_combine(sets.engaged, {
+    head="Malignance Chapeau",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Mirage Stole +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Suppanomimi",
-    right_ear="Telos Earring",
-    left_ring="Petrov Ring",
-    right_ring="Chirich Ring +1",
-    back="Annealed Mantle",
-    }
+    left_ear="Mache Earring +1",
+    right_ear="Dedition Earring",
+    left_ring="Defending Ring",
+    right_ring="Epona's Ring",
+    } )
 
-sets.engaged.DW.Acc = {
+sets.engaged.DW.Acc = set_combine(sets.engaged, {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -993,13 +1004,26 @@ sets.engaged.DW.Acc = {
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Mirage Stole +2",
-    waist="Olseni Belt",
     left_ear="Suppanomimi",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+    } )
+    sets.engaged.DW.AccMAX = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+        head="Malignance Chapeau",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Mirage Stole +2",
+        waist="Olseni Belt",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},})
+    
 sets.engaged.DW.CRIT = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -1056,24 +1080,26 @@ sets.engaged.DW.Refresh = {
     sets.TreasureHunter = {ammo="Per. Lucky Egg",
     head="White rarab cap +1", 
     waist="Chaac Belt"}
+
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
 
     sets.magic_burst = set_combine(sets.midcast['Blue Magic'].Magical, {
-        body="Samnuha Coat", --(8)
-        hands="Amalric Gages +1", --(6)
-        legs="Assim. Shalwar +3", --10
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",        --(6)
+        legs="Nyame Flanchard", --10
         feet="Jhakri Pigaches +2", --7
         neck="Warder's Charm +1", --10
         --ear1="Static Earring",--5
         ring1="Mujin Band", --(5)
-        ring2="Locus Ring", --5
-        back="Seshaw Cape", --5
+        ring2="Jhakri Ring", --5
+        --back="Seshaw Cape", --5
         })
 
-    sets.self_healing = {ring2="Asklepian Ring"}
+    sets.self_healing = sets.midcast['Blue Magic'].Healing
 end
 
 -------------------------------------------------------------------------------------------------------------------

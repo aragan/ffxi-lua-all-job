@@ -166,11 +166,9 @@ function init_gear_sets()
     --------------------------------------
     sets.precast.JA['Mijin Gakure'] = { legs="Mochizuki Hakama +3" }
     sets.precast.JA['Futae'] = { hands="Hattori Tekko +1" }
-    sets.precast.JA['Provoke'] = { 
-        ear1="Cryptic Earring",
-        ear2="Trux Earring", 
-        ring1="Petrov Ring",
-    }
+    sets.precast.JA['Provoke'] = set_combine(sets.midcast.enmity , {
+        feet={ name="Mochi. Kyahan +1", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
+    })
     sets.precast.JA.Sange = { }
 
     -- Waltz (chr and vit)
@@ -178,15 +176,16 @@ function init_gear_sets()
 
     }
     -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {
+    sets.precast.Waltz['Healing Waltz'] = {   
+    ammo="Yamarang",   
+    head="Mummu Bonnet +2",
+    body="Passion Jacket",
+    legs="Dashing Subligar",
 }
     -- Set for acc on steps, since Yonin drops acc a fair bit
     sets.precast.Step = {
         body="Hattori Ningi +1",
-        neck="Defiant Collar",
-        hands="Ryuo Tekko",
         waist="Olseni Belt",
-        legs="Kendatsuba Hakama +1",
     }
     sets.MadrigalBonus = {
     }
@@ -275,6 +274,7 @@ function init_gear_sets()
         neck="Incanter's Torque",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
+        waist="Cimmerian Sash",
     }
 
     sets.midcast.EnfeeblingNinjutsu = {
@@ -295,6 +295,7 @@ function init_gear_sets()
 
     -- any ninjutsu cast on self
     sets.midcast.SelfNinjutsu = {    neck="Incanter's Torque",
+    feet={ name="Mochi. Kyahan +1", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
@@ -333,6 +334,15 @@ sets.midcast.SelfNinjutsu.SIRD = {
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
     sets.midcast.Migawari = set_combine(sets.midcast.Ninjutsu, {    neck="Incanter's Torque",
+    ammo="Staunch Tathlum +1",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Mochi. Kyahan +1", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
@@ -358,7 +368,7 @@ sets.midcast.SelfNinjutsu.SIRD = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands="Hattori Tekko +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sibyl Scarf",
@@ -372,7 +382,7 @@ sets.midcast.SelfNinjutsu.SIRD = {
     sets.magic_burst = set_combine(sets.midcast.ElementalNinjutsu, { 
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands="Hattori Tekko +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -809,6 +819,9 @@ sets.midcast.SelfNinjutsu.SIRD = {
     sets.engaged.Innin.Acc.PDT.Haste_15 = sets.engaged.Acc.PDT.Haste_15
     
     sets.buff.Migawari = {     neck="Incanter's Torque",
+    feet={ name="Mochi. Kyahan +1", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
 
 }
@@ -1030,7 +1043,9 @@ sets.midcast.SelfNinjutsu.SIRD = {
         right_ear="Hattori Earring", 
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
-    sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {})
+    sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
+        
+    })
 
     sets.precast.WS['Blade: Chi'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},

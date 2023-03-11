@@ -86,7 +86,6 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
-    select_default_macro_book()
 
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
@@ -387,6 +386,7 @@ function init_gear_sets()
 
     sets.defense.TreasureHunter = {
         main={ name="Heishi Shorinken", augments={'Path: A',}},
+        sub="Kunimitsu",
         sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
         ammo="Per. Lucky Egg",
         head="Wh. Rarab Cap +1",
@@ -1523,12 +1523,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'DNC' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'RUN' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     else
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     end
 end

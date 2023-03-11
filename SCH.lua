@@ -465,7 +465,7 @@ function init_gear_sets()
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
         main="Musa",
         sub="Khonsu",
-        head="Arbatel Bonnet +1",
+        head="Arbatel Bonnet +2",
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
         legs=gear.Telchine_ENH_legs,
@@ -788,8 +788,8 @@ function init_gear_sets()
         back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
         }
 
-    --sets.buff['Ebullience'] = {head="Arbatel Bonnet +1"}
-    sets.buff['Rapture'] = {head="Arbatel Bonnet +1"}
+    sets.buff['Ebullience'] = {head="Arbatel Bonnet +2"}
+    sets.buff['Rapture'] = {head="Arbatel Bonnet +2"}
     sets.buff['Perpetuance'] = {hands="Arbatel Bracers +1"}
     sets.buff['Immanence'] = {
         head="Jhakri Coronal +2",
