@@ -197,7 +197,9 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'AccMAX', 'CRIT')
     state.CastingMode:options('Normal', 'SIRD')
     state.IdleMode:options('Normal', 'PDT', 'Learning')
-    state.PhysicalDefenseMode:options('PDT', 'MDT')
+    state.PhysicalDefenseMode:options('PDT', 'enmity')
+    state.MagicalDefenseMode:options('MDT')
+
 
     send_command('lua l azureSets')
     -- Additional local binds
@@ -272,13 +274,14 @@ function init_gear_sets()
         head="Halitus Helm", --8
         body="Emet Harness +1", --10
         hands="Kurys Gloves", --9
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Ahosi Leggings", --7
         neck="Unmoving Collar +1", --10
         ear1="Cryptic Earring", --4
         ear2="Trux Earring", --5
-        ring1="Pernicious Ring", --5
-        ring2="Eihwaz Ring", --5
-        waist="Kasiri Belt", --3
+		left2="Eihwaz Ring",
+        right2="Vengeful Ring",
+        back="Reiki Cloak",
         }
 
     sets.precast.JA['Provoke'] = sets.Enmity
@@ -604,7 +607,7 @@ sets.midcast['Blue Magic'].SIRD = {
         right_ring="Ilabrat Ring",
         back="Bleating Mantle",
     }
-    sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical.SIRD)
+    sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical)
 
     sets.midcast['Blue Magic'].PhysicalAcc = {
         ammo="Inlamvuyeso",
@@ -621,7 +624,7 @@ sets.midcast['Blue Magic'].SIRD = {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc.SIRD)
+    sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc)
 
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
         {body="Iuitl Vest",hands="Assimilator's Bazubands +1"})
@@ -714,7 +717,9 @@ sets.midcast['Blue Magic'].SIRD = {
         sets.midcast['Blue Magic'].MagicAccuracy.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].MagicAccuracy)
     -- Breath Spells --
     
-    sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical)
+    sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical, { 
+        ammo="Mavi Tathlum",
+    })
 
     
 
@@ -751,6 +756,7 @@ sets.midcast['Blue Magic'].SIRD = {
 sets.midcast['Blue Magic'].Healing.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Healing)
 
     sets.midcast['Blue Magic'].SkillBasedBuff = {
+        ammo="Mavi Tathlum",
         ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -759,6 +765,7 @@ sets.midcast['Blue Magic'].Healing.SIRD = set_combine(sets.SIRD, sets.midcast['B
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
+    right_ear="Hashishin Earring", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
 }
@@ -766,6 +773,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
 
 
     sets.midcast['Blue Magic'].Buff = {
+        ammo="Mavi Tathlum",
         ain={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         sub={ name="Iris", augments={'Blue Magic skill +15','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -774,6 +782,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
+    right_ear="Hashishin Earring", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
     }
@@ -825,23 +834,24 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
     }
     
     -- Idle sets
-    sets.idle = { head="Gleti's Mask",
-        body="Shamash Robe",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        body="Gleti's Cuirass",
-        feet="Gleti's Boots",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Fucho-no-Obi",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+    sets.idle = {     ammo="Homiliary",
+    head="Gleti's Mask",
+    body="Shamash Robe",
+    hands="Gleti's Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Gleti's Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Fucho-no-Obi",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Infused Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonlight Cape",
     }
 
-    sets.idle.PDT = {
-    }
+    sets.idle.PDT = set_combine(sets.idle, sets.defense.PDT) 
 
-    sets.idle.Town = {
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    }
+    sets.idle.Town = sets.idle 
 
     sets.idle.Learning = set_combine(sets.idle, sets.Learning)
 
@@ -864,6 +874,21 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         right_ring="Vengeful Ring",
         back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
     }
+    sets.defense.Enmity = {
+        ammo="Iron Gobbet",        --2
+        head="Halitus Helm", --8
+        body="Emet Harness +1", --10
+        hands="Kurys Gloves", --9
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Ahosi Leggings", --7
+        neck="Unmoving Collar +1", --10
+        ear1="Cryptic Earring", --4
+        ear2="Trux Earring", --5
+		left2="Eihwaz Ring",
+        right2="Vengeful Ring",
+        back="Reiki Cloak",
+        }
+
     
     sets.defense.MDT = { 
         main="Naegling",
@@ -962,10 +987,13 @@ sets.engaged.CRIT = {
     back="Annealed Mantle",}
     
 
-    sets.engaged.Refresh = {
-
-
-    }
+    sets.engaged.Refresh = set_combine(sets.engaged, { 
+        ammo="Homiliary",
+        body="Shamash Robe",
+        waist="Fucho-no-Obi",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+    })
 
 sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
@@ -1071,8 +1099,13 @@ sets.engaged.PDT = {
             back="Moonlight Cape",
         }
 
-sets.engaged.DW.Refresh = {
-    }
+sets.engaged.DW.Refresh =  set_combine(sets.engaged.DW, { 
+    ammo="Homiliary",
+    body="Shamash Robe",
+    waist="Fucho-no-Obi",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+})
     
     sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
     sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
