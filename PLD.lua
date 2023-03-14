@@ -12,7 +12,6 @@
 function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
-    include('Mote-TreasureHunter')
     include('organizer-lib')
     organizer_items = {
         "Gyudon",
@@ -65,7 +64,6 @@ function user_setup()
  	send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
 	send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     include('caster_buffWatcher.lua')

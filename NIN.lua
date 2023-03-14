@@ -165,7 +165,7 @@ function init_gear_sets()
     -- Job Abilties
     --------------------------------------
     sets.precast.JA['Mijin Gakure'] = { legs="Mochizuki Hakama +3" }
-    sets.precast.JA['Futae'] = { hands="Hattori Tekko +1" }
+    sets.precast.JA['Futae'] = { hands="Hattori Tekko +2" }
     sets.precast.JA['Provoke'] = set_combine(sets.midcast.enmity , {
         feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
     })
@@ -367,7 +367,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
-        hands="Hattori Tekko +1",
+        hands="Hattori Tekko +2",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sibyl Scarf",
@@ -381,7 +381,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     sets.magic_burst = set_combine(sets.midcast.ElementalNinjutsu, { 
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
         body="Nyame Mail",
-        hands="Hattori Tekko +1",
+        hands="Hattori Tekko +2",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
