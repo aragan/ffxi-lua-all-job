@@ -98,7 +98,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'polearm', 'Range', 'CRIT' , 'Counter')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'Range', 'CRIT' , 'Counter')
     state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL')
     state.IdleMode:options('Normal', 'Evasion')
@@ -175,7 +175,7 @@ function init_gear_sets()
         ring1="Prolix Ring",
     }
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {body="Passion Jacket",}
+    sets.precast.Waltz = {legs="Dashing Subligar"}
 
     sets.precast.RA = { ammo=empty,
         range="Trollbane",  
@@ -592,13 +592,67 @@ function init_gear_sets()
     }
     
     sets.midcast['Blue Magic'] = set_combine(sets.precast.WS['Tachi: Ageha'], {
-
     })
     -- Midcast Sets
     sets.midcast.FastRecast = {
- 
-        
+        ammo="Staunch Tathlum +1",
+        legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        left_ear="Halasz Earring",
+        right_ear="Mendi. Earring",
+        right_ring="Evanescence Ring",
     }
+    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
+
+    sets.midcast['Dark Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Sakpata's Helm",
+        body="Nyame Mail",
+    hands="Sakpata's Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Sakpata's Leggings",
+    neck="Erra Pendant",
+    waist="Eschan Stone",
+    left_ear="Malignance Earring",
+    right_ear="Dignitary's Earring",
+    left_ring="Evanescence Ring",
+    right_ring="Archon Ring",
+}
+         -- Drain spells 
+    sets.midcast.Drain = {
+            left_ring="Evanescence Ring",
+        }
+    sets.midcast['Elemental Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sibyl Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Locus Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Argocham. Mantle",
+    }
+    sets.midcast['Enfeebling Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Incanter's Torque",
+        waist="Eschan Stone",
+        left_ear="Malignance Earring",
+        right_ear="Crep. Earring",
+        left_ring="Kishar Ring",
+        right_ring="Stikini Ring +1",
+        back="Solemnity Cape",
+        }
     -- Sets to return to when not performing an action.
     
     -- Resting sets
