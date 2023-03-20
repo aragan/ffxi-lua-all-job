@@ -60,6 +60,8 @@ function job_setup()
     send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
+    state.WeaponLock = M(false, 'Weapon Lock')
+	send_command('bind @w gs c toggle WeaponLock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     --state.Buff.Souleater = buffactive.souleater or false

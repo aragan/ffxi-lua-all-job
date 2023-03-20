@@ -69,8 +69,8 @@ function job_setup()
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	send_command('wait 2;input /lockstyleset 200')
-	state.TreasureMode:set('None')
 	include('Mote-TreasureHunter')
+	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     update_combat_form()
@@ -866,7 +866,6 @@ function update_offense_mode()
     end
 end
 function job_update(cmdParams, eventArgs)
-    handle_equipping_gear(player.status)
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.

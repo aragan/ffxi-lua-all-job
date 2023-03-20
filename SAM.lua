@@ -73,6 +73,8 @@ organizer_items = {
 function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
+    state.WeaponLock = M(false, 'Weapon Lock')
+	send_command('bind @w gs c toggle WeaponLock')
     get_combat_form()
     --get_combat_weapon()
     update_melee_groups()
@@ -113,7 +115,7 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
     send_command('bind f5 gs c cycle WeaponskillMode')
-
+    send_command('wait 2;input /lockstyleset 172')
     select_default_macro_book()
 end
 
@@ -143,15 +145,6 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    Valorous = {}
-    Valorous.Hands = {}
-    Valorous.Hands.TP = { name="Valorous Mitts", augments={'Accuracy+26','"Store TP"+6','AGI+10',}}
-    Valorous.Hands.WS = { name="Valorous Mitts", augments={'Accuracy+27','Weapon skill damage +4%','Accuracy+5 Attack+5','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
-
-
-    Valorous.Feet = {}
-    Valorous.Feet.WS ={ name="Valorous Greaves", augments={'Weapon skill damage +5%','STR+9','Accuracy+15','Attack+11',}}
-    Valorous.Feet.TH = { name="Valorous Greaves", augments={'CHR+13','INT+1','"Treasure Hunter"+2','Accuracy+12 Attack+12','Mag. Acc.+1 "Mag.Atk.Bns."+1',}}
 
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
@@ -162,9 +155,6 @@ function init_gear_sets()
         -- ear1="Cryptic Earring",
     }
     
-    Smertrios = {}
-    Smertrios.TP = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-10%',}}
-    Smertrios.WS = {name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     -- Precast Sets
     -- Precast sets to enhance JAs
     sets.precast.JA.Meditate = {
@@ -173,7 +163,7 @@ function init_gear_sets()
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.JA.Sekkanoki = {hands="Unkai Kote +2" }
-    sets.precast.JA.Seigan = {head="Unkai Kabuto +2"}
+    sets.precast.JA.Seigan = {head="Kasuga Kabuto +2"}
     sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +1"}
     sets.precast.JA['Third Eye'] = {legs="Sakonji Haidate +3"}
     --sets.precast.JA['Blade Bash'] = {hands="Saotome Kote +2"}
@@ -221,7 +211,7 @@ function init_gear_sets()
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
     
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     --sets.Berserker       = { neck="Berserker's Torque" }
     sets.WSDayBonus      = { head="Gavialis Helm" }
     sets.LugraMoonshade  = { ear1="Lugra Earring +1", ear2="Moonshade Earring" }
@@ -342,8 +332,6 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Tachi: Kaiten'] = set_combine(sets.precast.WS, {
-        main={ name="Amanomurakumo", augments={'Path: A',}},
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -389,8 +377,6 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
-        main="Shining One",
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -421,7 +407,6 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
         body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
@@ -837,8 +822,6 @@ function init_gear_sets()
          })
 
     sets.engaged.polearm = set_combine(sets.engaged, {range=empty,
-         main="Shining One",
-         sub="Utu Grip",
          ammo="Coiste Bodhar",
          head="Flam. Zucchetto +2",
          body="Kasuga Domaru +2",
@@ -903,8 +886,6 @@ function init_gear_sets()
     })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {range=empty,
-    main={ name="Masamune", augments={'Path: A',}},
-    sub="Utu Grip",
     ammo="Aurgelmir Orb +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mpaca's Doublet",
@@ -1015,11 +996,11 @@ function init_gear_sets()
     sets.buff.Sengikori = {feet="Kas. Sune-Ate +2",}
     sets.buff['Meikyo Shisui'] = {feet="Sakonji Sune-ate +3"}
     
-    sets.thirdeye = {head="Unkai Kabuto +2", legs="Sakonji Haidate +3"}
+    sets.thirdeye = {head="Kasuga Kabuto +2", legs="Sakonji Haidate +3"}
     --sets.seigan = {hands="Otronif Gloves +1"}
     sets.bow = {ammo=gear.RAarrow}
     
-    sets.MadrigalBonus = {hands="Composer's Mitts"}
+    sets.MadrigalBonus = {}
     sets.Terror = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
     sets.Stun = {
         feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
@@ -1189,8 +1170,8 @@ function job_status_change(newStatus, oldStatus, eventArgs)
     if newStatus == 'Engaged' then
         if player.inventory['Eminent Arrow'] then
             gear.RAarrow.name = 'Eminent Arrow'
-        elseif player.inventory['Tulfaire Arrow'] then
-            gear.RAarrow.name = 'Tulfaire Arrow'
+        elseif player.inventory['Eminent Arrow'] then
+            gear.RAarrow.name = 'Eminent Arrow'
         elseif player.equipment.ammo == 'empty' then
             add_to_chat(122, 'No more Arrows!')
         end
@@ -1260,7 +1241,12 @@ function job_buff_change(buff, gain)
     end
 
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 172')
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
@@ -1367,10 +1353,14 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'WAR' then
-    	set_macro_page(8, 1)
+    	set_macro_page(3, 31)
+    elseif player.sub_job == 'DRK' then
+    	set_macro_page(4, 31)
+    elseif player.sub_job == 'NIN' then
+    	set_macro_page(5, 31)
     elseif player.sub_job == 'DNC' then
-    	set_macro_page(8, 1)
+    	set_macro_page(6, 31)
     else
-    	set_macro_page(8, 1)
+    	set_macro_page(1, 31)
     end
 end

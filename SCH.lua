@@ -694,7 +694,9 @@ function init_gear_sets()
 
     sets.idle.Vagary = sets.midcast['Elemental Magic']
 
-    sets.idle.Town = set_combine(sets.idle, {body="Shamash Robe",
+    sets.idle.Town = set_combine(sets.idle, {
+        main="Mpaca's Staff",
+        body="Shamash Robe",
         feet="Herald's Gaiters"})
 
     sets.resting = set_combine(sets.idle, {
