@@ -685,8 +685,9 @@ function init_gear_sets()
 
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     
-    sets.TreasureHunter = {waist="Chaac Belt"}
- 
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"} 
     -- Set for Conserve MP toggle, convert damage to MP body.
 	
     sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
@@ -1164,4 +1165,3 @@ function select_default_macro_book()
 end
 
 --{{Emulator Backend: log_filter=*:Info}}
-                                   

@@ -596,9 +596,11 @@ sets.precast.WS['Nightmare Scythe'] = {
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
    
     })
-    sets.midcast.Aspir = sets.midcast.Drain
+    sets.midcast.Aspir = set_combine(sets.midcast['Dark Magic'], {
+   
+    })
   
-    sets.midcast.Drain.Acc = set_combine(sets.midcast.Drain, {
+    sets.midcast.Drain.Acc = set_combine(sets.midcast['Dark Magic'], {
         hands="Leyline Gloves",
         waist="Eschan Stone", -- macc/matk 7
     })
@@ -638,7 +640,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         left_ring="Locus Ring",
-        right_ring="Mujin Band",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     })
   
   
@@ -762,7 +764,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -779,7 +781,7 @@ sets.defense['Dread Spikes'] = {
     legs="Ratri Cuisses",
     feet="Ratri Sollerets",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -796,7 +798,7 @@ sets.defense.SEboost = {
     legs="Ratri Cuisses",
     feet="Ratri Sollerets",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Tuisto Earring",
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -1332,7 +1334,7 @@ function job_self_command(cmdParams, eventArgs)
     if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
+        eventArgs.handled = true
     end
     return
 end
@@ -1528,14 +1530,7 @@ function job_update(cmdParams, eventArgs)
     update_combat_form()
     job_self_command()
 end
-function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input gs equip sets.Reraise')
-        eventArgs.handled = false
-    end
-    return 
-end
+
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 end
@@ -1668,7 +1663,7 @@ function select_default_macro_book()
     if scytheList:contains(player.equipment.main) then
         set_macro_page(7, 21)
     elseif gsList:contains(player.equipment.main) then
-        set_macro_page(7, 2)
+        set_macro_page(7, 21)
     elseif player.sub_job == 'SAM' then
         set_macro_page(7, 21)
     else

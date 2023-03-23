@@ -29,6 +29,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+    include('Mote-TreasureHunter')
  
 end
  
@@ -87,6 +88,8 @@ function job_setup()
 	send_command('bind ^f11 gs c cycle Enfeebling')
 	send_command('bind f12 gs c cycle ManawallMode')
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind ^= gs c cycle treasuremode')
     organizer_items = {
         "Gyudon",
         "Reraiser",
@@ -788,8 +791,9 @@ function init_gear_sets()
 
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     
-    sets.TreasureHunter = {waist="Chaac Belt"}
- 
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"} 
     -- Set for Conserve MP toggle, convert damage to MP body.
 	
     sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
@@ -1286,7 +1290,12 @@ function customize_melee_set(meleeSet)
     end
     return meleeSet
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 174')
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
