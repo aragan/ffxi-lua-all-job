@@ -65,7 +65,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal','Club', 'Staff', 'MaxAcc', 'Shield')
     state.HybridMode:options('Normal', 'MaxAcc')
-    state.CastingMode:options('Normal', 'ConserveMP', 'sird')
+    state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Enmity')
     state.IdleMode:options('Normal', 'PDT')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -304,7 +304,7 @@ function init_gear_sets()
         right_ring="Evanescence Ring",
 })
 
-    sets.midcast.CureSolace.ConserveMP = {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sets.midcast.CureSolace.ConserveMP = set_combine(sets.midcast.CureSolace, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -318,7 +318,23 @@ function init_gear_sets()
     right_ear="Gifted Earring",
     left_ring="Haoma's Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    back="Solemnity Cape",}
+    back="Solemnity Cape",})
+
+    sets.midcast.CureSolace.Enmity = set_combine(sets.midcast.CureSolace, {  
+    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sub="Sors Shield",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Pinga Tunic",
+    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+    legs="Pinga Pants",
+    feet="Bunzi's Sabots",
+    neck="Clotharius Torque",
+    waist="Acerbic Sash +1",
+    left_ear="Enervating Earring",
+    right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+    back="Solemnity Cape",})
 
     sets.midcast.Cure = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -344,9 +360,9 @@ function init_gear_sets()
         waist="Rumination Sash",
         right_ear="Halasz Earring",
         left_ring="Freke Ring",
-        right_ring="Evanescence Ring",
-})
-    sets.midcast.Cure.ConserveMP = {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        right_ring="Evanescence Ring",})
+
+    sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -360,7 +376,23 @@ function init_gear_sets()
     right_ear="Gifted Earring",
     left_ring="Haoma's Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    back="Solemnity Cape",}
+    back="Solemnity Cape",})
+
+    sets.midcast.Cure.Enmity = set_combine(sets.midcast.Cure, {  
+        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        sub="Sors Shield",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Pinga Tunic",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs="Pinga Pants",
+        feet="Bunzi's Sabots",
+        neck="Clotharius Torque",
+        waist="Acerbic Sash +1",
+        left_ear="Enervating Earring",
+        right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+        back="Solemnity Cape",})
 
     sets.midcast.Curaga = { main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -386,9 +418,9 @@ function init_gear_sets()
         waist="Rumination Sash",
         right_ear="Halasz Earring",
         left_ring="Freke Ring",
-        right_ring="Evanescence Ring",
-})
-    sets.midcast.Curaga.ConserveMP = {     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        right_ring="Evanescence Ring",})
+
+    sets.midcast.Curaga.ConserveMP = set_combine(sets.midcast.Curaga, {     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -402,8 +434,23 @@ function init_gear_sets()
     right_ear="Gifted Earring",
     left_ring="Haoma's Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    back="Solemnity Cape",}
+    back="Solemnity Cape",})
 
+    sets.midcast.Curaga.Enmity = set_combine(sets.midcast.Curaga, {  
+        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+        sub="Sors Shield",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Pinga Tunic",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs="Pinga Pants",
+        feet="Bunzi's Sabots",
+        neck="Clotharius Torque",
+        waist="Acerbic Sash +1",
+        left_ear="Enervating Earring",
+        right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+        back="Solemnity Cape",})
 
     sets.midcast.CureMelee = {}
 
