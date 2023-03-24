@@ -70,6 +70,7 @@ function user_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind @w gs c toggle WeaponLock')
 
@@ -584,7 +585,43 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
     right_ring="Stikini Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.midcast['Divine Magic'].sird = set_combine(sets.midcast['Divine Magic'],sets.sird) 
+    sets.midcast['Divine Magic'].Holy = set_combine(sets.midcast['Divine Magic'], {
+    main="Daybreak",
+    sub="Ammurapi Shield",
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    body={ name="Cohort Cloak +1", augments={'Path: A',}},
+    hands="Bunzi's Gloves",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet="Bunzi's Sabots",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Luminary Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Malignance Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Freke Ring",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }) 
+    sets.midcast['Holy II'] = set_combine(sets.midcast['Divine Magic'].Holy, {})
+
+    sets.midcast['Divine Magic'].Banish = set_combine(sets.midcast['Divine Magic'], {
+        main="Daybreak",
+        sub="Ammurapi Shield",
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet="Bunzi's Sabots",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Luminary Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Freke Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }) 
+    sets.midcast['Banishga'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
+    sets.midcast['Banishga II'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
+
 
 
     sets.midcast['Dark Magic'] = {
