@@ -47,7 +47,6 @@ function job_setup()
     state.UseRune = M(false, 'Use Rune')
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
-    state.Moving  = M(false, "moving")
     send_command('wait 2;input /lockstyleset 200')
     run_sj = player.sub_job == 'RUN' or false
 

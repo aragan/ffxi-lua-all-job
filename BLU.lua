@@ -213,6 +213,7 @@ function user_setup()
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;')
     update_combat_form()
     select_default_macro_book()
+    send_command('wait 6;input /lockstyleset 199')
 end
 
 
@@ -1144,7 +1145,7 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
     if unbridled_spells:contains(spell.english) and not state.Buff['Unbridled Learning'] then
         eventArgs.cancel = true
-        windower.send_command('@input /ja "Unbridled Learning" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
+        windower.send_command('input /ja "Unbridled Learning" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
     end
 end
 
@@ -1192,8 +1193,8 @@ function job_buff_change(buff, gain)
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
-            send_command('@input /p Doomed, please Cursna.')
-            send_command('@input /item "Holy Water" <me>')	
+            send_command('input /p Doomed, please Cursna.')
+            send_command('input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
         else
             enable('ring1','ring2','waist','neck')
@@ -1293,7 +1294,10 @@ function update_combat_form()
     end
 end
 function sub_job_change(new,old)
-    send_command('wait 2;input /lockstyleset 199')
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 199')
+    end
 end
 
 send_command('wait 2;input /lockstyleset 199')

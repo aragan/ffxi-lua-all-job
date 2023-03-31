@@ -1087,6 +1087,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
+    
+    sets.Kiting = {feet="Danzo Sune-ate"}
 
 end
 

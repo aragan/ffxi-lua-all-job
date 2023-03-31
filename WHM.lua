@@ -1035,6 +1035,6 @@ add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    set_macro_page(5, 33)
+    set_macro_page(1, 13)
 end
 

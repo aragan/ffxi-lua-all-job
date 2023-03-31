@@ -1313,16 +1313,8 @@ end
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(status, eventArgs)
-    customize_idle_set()
-    customize_melee_set()
 end
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
-    end
-    return idleSet, meleeSet
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
@@ -1332,9 +1324,9 @@ function customize_idle_set(idleSet)
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 50 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
+        send_command('input //gs c update user')
     end
     return idleSet
 end
@@ -1350,9 +1342,9 @@ function customize_melee_set(meleeSet)
     if state.Buff['Souleater'] then
         meleeSet = set_combine(meleeSet, sets.buff.Souleater)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 50 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
+        send_command('input //gs c update user')
     end
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet

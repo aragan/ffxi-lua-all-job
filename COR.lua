@@ -143,7 +143,7 @@ function init_gear_sets()
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
-    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +1",})
+    sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +2",})
     
@@ -180,7 +180,7 @@ function init_gear_sets()
 
     sets.precast.RA = {
         hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
-        head="Chass. Tricorne +1",
+        head="Chass. Tricorne +2",
         body="Oshosi Vest",
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +2",
@@ -194,7 +194,7 @@ sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
 
 sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-    head="Chass. Tricorne +1",
+    head="Chass. Tricorne +2",
     body="Laksa. Frac +3",
 legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
 feet="Meg. Jam. +2",
@@ -875,9 +875,9 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-    if newStatus == 'Engaged' and player.equipment.main == 'Chatoyant Staff' then
-        state.OffenseMode:set('Ranged')
-    end
+    --if newStatus == 'Engaged' and player.equipment.main == 'Chatoyant Staff' then
+        --state.OffenseMode:set('Ranged')
+    --end
 end
 
 

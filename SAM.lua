@@ -1170,10 +1170,10 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 90 then
-        idleSet = set_combine(idleSet, sets.idle.Regen)
-    end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    --if player.hpp < 90 then
+        --idleSet = set_combine(idleSet, sets.idle.Regen)
+    --end
+    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1195,7 +1195,7 @@ function customize_melee_set(meleeSet)
     if player.equipment.range == 'Yoichinoyumi' then
         meleeSet = set_combine(meleeSet, sets.bow)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1308,7 +1308,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 8 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = false

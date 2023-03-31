@@ -83,7 +83,6 @@ function job_setup()
 
     get_combat_form()
     update_melee_groups()
-    update_combat_form()
 end
   
 -------------------------------------------------------------------------------------------------------------------
@@ -92,10 +91,10 @@ end
   
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Mid', 'STP', 'DA', 'PD', 'MaxAcc', 'SubtleBlow', 'crit')
+    state.OffenseMode:options('Normal', 'PD', 'Mid', 'STP', 'DA', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'DreadSP', 'PDT')
     state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
-    state.CastingMode:options('Normal', 'MB')
+    state.CastingMode:options('Normal', 'MB', 'ConserveMP', 'sird')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
       
@@ -131,7 +130,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Last Resort'] = {back="Ankou's mantle", feet={ name="Fallen's Sollerets", augments={'Enhances "Desperate Blows" effect',}},}
     sets.precast.JA['Nether Void'] = {Legs="Heathen's Flanchard +1"}
-    sets.precast.JA['Blood Weapon'] = {body="Fallen's Cuirass +3"}
+    sets.precast.JA['Blood Weapon'] = {body="Fall. Cuirass +2"}
     sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
     sets.precast.JA['Weapon Bash'] = {hands="Ignominy Gauntlets +3"}
     sets.precast.JA['Souleater'] = {head="Ignominy Burgonet +3"}
@@ -177,13 +176,12 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
         body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -207,16 +205,14 @@ function init_gear_sets()
        body={ name="Nyame Mail", augments={'Path: B',}},
        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-       feet="Sulev. Leggings +2",
+       feet="Heath. Sollerets +2",
        })
     sets.precast.WS.Judgment = set_combine(sets.precast.WS, {
-        main={ name="Loxotic Mace +1", augments={'Path: A',}},
-        sub="Blurred Shield +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     })
 
@@ -239,14 +235,12 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Catastrophe'] = {
-        main={ name="Apocalypse", augments={'Path: A',}},
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
         body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -262,7 +256,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Catastrophe'].SC = set_combine(sets.precast.WS['Catastrophe'], {
         head="Nyame Helm",
@@ -283,7 +277,6 @@ function init_gear_sets()
     })
 
 sets.precast.WS['Insurgency'] = {
-    sub="Utu Grip",
     ammo="Knobkierrie",
     head="Hjarrandi Helm",
     body="Ratri Plate",
@@ -305,7 +298,6 @@ sets.precast.WS['Insurgency'] = {
     })
   
     sets.precast.WS['Cross Reaper'] = {
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Hjarrandi Helm",
         body="Sakpata's Plate",
@@ -331,13 +323,12 @@ sets.precast.WS['Insurgency'] = {
     })
   
 sets.precast.WS['Quietus'] = {
-    sub="Utu Grip",
     ammo="Knobkierrie",
     head="Ratri Sallet",
     body="Nyame Mail",
     hands="Ratri Gadlings",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Sulev. Leggings +2",
+    feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -351,7 +342,7 @@ sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Sulev. Leggings +2",
+    feet="Heath. Sollerets +2",
 })
 
 sets.precast.WS['Entropy'] = {
@@ -438,14 +429,12 @@ sets.precast.WS['Nightmare Scythe'] = {
     sets.precast.WS['Sickle Moon'] = set_combine(sets.precast.WS['Resolution'], {})
 
     sets.precast.WS['Ground Strike'] = {
-        main="Nandaka",
-        sub="Utu Grip",
         ammo="Knobkierrie",
         head="Ratri Sallet",
         body="Nyame Mail",
         hands="Ratri Gadlings",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -459,21 +448,19 @@ sets.precast.WS['Nightmare Scythe'] = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
     sets.precast.WS['Scourge'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Scourge'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
       
     sets.precast.WS['Torcleaver'] = {
-    main="Nandaka",
-    sub="Utu Grip",
     ammo="Knobkierrie",
     head="Sakpata's Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Sulev. Leggings +2",
+    feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -491,7 +478,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-        feet="Sulev. Leggings +2",
+        feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -514,15 +501,12 @@ sets.precast.WS['Nightmare Scythe'] = {
     left_ear="Halasz Earring",
     right_ear="Mendi. Earring",
     right_ring="Evanescence Ring",
-
-
 }
           
     sets.midcast.Enmity = {
-        sub="Alber Strap",
         ammo="Iron Gobbet",
         head={ name="Loess Barbuta +1", augments={'Path: A',}},
-        body="Obviation Cuirass",
+        body={ name="Emet Harness +1", augments={'Path: A',}},
         hands="Macabre Gaunt. +1",
         legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
         feet={ name="Eschite Greaves", augments={'HP+80','Enmity+7','Phys. dmg. taken -4',}},
@@ -535,7 +519,9 @@ sets.precast.WS['Nightmare Scythe'] = {
         back="Reiki Cloak",
     }
   
-    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
+    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
+
+    })
       
     sets.midcast.Cure = {    ammo="Staunch Tathlum +1",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
@@ -550,15 +536,31 @@ sets.precast.WS['Nightmare Scythe'] = {
     left_ring="Defending Ring",
     right_ring="Naji's Loop",
     back="Solemnity Cape",}
-      
-      
+
+    sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure,{
+    ammo="Pemphredo Tathlum",
+    legs="Augury Cuisses",
+    neck="Reti Pendant",
+    waist="Austerity Belt +1",
+    right_ear="Mendi. Earring",
+    left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    back="Solemnity Cape",} )
+    
+    sets.midcast.Cure.sird = set_combine(sets.midcast.Cure,{
+        ammo="Staunch Tathlum +1",
+        legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        left_ear="Halasz Earring",
+        left_ring="Evanescence Ring",
+    })
     sets.midcast['Dread Spikes'] = {
         ammo="Staunch Tathlum +1",
         head="Ratri Sallet",
         body="Heath. Cuirass +2",
         hands="Ratri Gadlings",
         legs="Ratri Cuisses",
-        feet="Nyame Sollerets",
+        feet="Ratri Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -567,15 +569,13 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 }
-      
-      
     sets.midcast['Dark Magic'] = {
         ammo="Pemphredo Tathlum",
-        head="Sakpata's Helm",
+        head="Nyame Helm",
         body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
-    hands="Sakpata's Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
-    feet="Sakpata's Leggings",
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Heath. Sollerets +2",
     neck="Erra Pendant",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -609,10 +609,10 @@ sets.precast.WS['Nightmare Scythe'] = {
     sets.midcast['Elemental Magic'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        body="Fall. Cuirass +2",
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Heath. Sollerets +2",
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
@@ -643,12 +643,11 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     })
   
-  
    sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Dark Magic'], {
     ammo="Pemphredo Tathlum",
-    head="Nyame Helm",
+    head="Befouled Crown",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
@@ -657,7 +656,6 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ear="Crep. Earring",
     left_ring="Kishar Ring",
     right_ring="Stikini Ring +1",
-    back="Solemnity Cape",
     })
       
     --------------------------------------
@@ -836,6 +834,21 @@ sets.defense.SEboost = {
         right_ring="Petrov Ring",
         back="Reiki Cloak",
     }
+    sets.defense.Reraise = set_combine(sets.defense.PDT, {
+        ammo="Staunch Tathlum +1",
+    head="Sakpata's Helm",
+    head="Twilight Helm",
+    body="Twilight Mail",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Etiolation Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+})
   
         sets.Kiting = {legs="Carmine Cuisses +1",
     }
@@ -1067,17 +1080,17 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 }       
     -- Apocalypse
     sets.engaged.Apocalypse = set_combine(sets.engaged, {
-        ammo="Coiste Bodhar",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
-        hands="Sakpata's Gauntlets",
+        hands="Flam. Manopolas +2",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Schere Earring",
-        left_ring="Hetairoi Ring",
+        left_ear="Cessance Earring",
+        right_ear="Dedition Earring",
+        left_ring="Moonlight Ring",
         right_ring="Niqmaddu Ring",
         back="Annealed Mantle",
     })
@@ -1246,7 +1259,7 @@ end
 function job_pretarget(spell, action, spellMap, eventArgs)
     if spell.type:endswith('Magic') and buffactive.silence then
         eventArgs.cancel = true
-        send_command('input /item "Echo Drops" <me>')
+        send_command('input /item "Remedy" <me>')
     end
 end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -1273,11 +1286,11 @@ end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
 function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spell.english:startswith('Drain') then
-        if player.status == 'Engaged' and state.CastingMode.current == 'Normal' and player.hpp < 70 then
-            classes.CustomClass = 'OhShit'
-        end
-    end
+    --if spell.english:startswith('Drain') then
+        --if player.status == 'Engaged' and state.CastingMode.current == 'Normal' and player.hpp < 70 then
+            --classes.CustomClass = 'OhShit'
+        --end
+    --end
     if (state.HybridMode.current == 'PDT' and state.PhysicalDefenseMode.current == 'Reraise') then
         equip(sets.Reraise)
     end
@@ -1334,7 +1347,6 @@ function job_self_command(cmdParams, eventArgs)
     if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
     end
     return
 end
@@ -1345,10 +1357,6 @@ function customize_idle_set(idleSet)
     end
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
-    end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        idleSet = set_combine(idleSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
     end
     return idleSet
 end
@@ -1364,10 +1372,6 @@ function customize_melee_set(meleeSet)
     if state.Buff['Souleater'] then
         meleeSet = set_combine(meleeSet, sets.buff.Souleater)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        meleeSet = set_combine(meleeSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-    end
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet
 end
@@ -1378,7 +1382,7 @@ end
   
 -- Called when the player's status changes.
 function job_status_change(newStatus, oldStatus, eventArgs)
-    if newStatus == "Engaged" then
+    --if newStatus == "Engaged" then
         --if state.Buff['Last Resort'] then
         --    send_command('@wait 1.0;cancel hasso')
         --end
@@ -1397,7 +1401,7 @@ function job_status_change(newStatus, oldStatus, eventArgs)
         -- end
         --elseif newStatus == 'Idle' then
         --    determine_idle_group()
-    end
+    --end
 end
   
 -- Called when a player gains or loses a buff.
@@ -1527,7 +1531,6 @@ function job_update(cmdParams, eventArgs)
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     update_melee_groups()
-    update_combat_form()
     job_self_command()
 end
 

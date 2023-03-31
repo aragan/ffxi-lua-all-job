@@ -26,6 +26,7 @@ function get_sets()
 
     -- Load and initialize the include file.
     include("Mote-Include.lua")
+    send_command('wait 5;input /lockstyleset 179')
 end
 
 function user_setup()
@@ -1373,17 +1374,25 @@ function check_buff(buff_name, eventArgs)
     end
 end
 function sub_job_change(new,old)
-    send_command('wait 5;input /lockstyleset 179')
+   -- if user_setup then
+     --   user_setup()
+       -- send_command('wait 5;input /lockstyleset 168')
+   -- end
+    if job_sub_job_change then
+        job_sub_job_change(newSubjob, oldSubjob)
+        send_command('wait 5;input /lockstyleset 168')
+    end
+    send_command('wait 5;input /lockstyleset 168')
 end
 
-send_command('wait 5;input /lockstyleset 179')
 function job_update(cmdParams, eventArgs)
+
 end
 function job_self_command(cmdParams, eventArgs)
-    if player.equipment.main == "Tauret" then
-        send_command('@input /lockstyleset 168')
+    if player.equipment.main == 'Tauret' then
+        send_command('wait 2;input /lockstyleset 168')
     end
-    eventArgs.handled = false
+    eventArgs.handled = true
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

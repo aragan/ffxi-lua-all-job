@@ -467,7 +467,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",
@@ -539,7 +539,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",
@@ -575,7 +575,7 @@ function init_gear_sets()
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
-    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +1",
+    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +2",
         
     }
     sets.idle.Avatar.Melee = {
@@ -603,7 +603,7 @@ function init_gear_sets()
         main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Tali'ah Sera. +2",
@@ -639,7 +639,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",

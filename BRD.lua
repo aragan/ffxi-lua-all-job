@@ -77,7 +77,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
-
+    send_command('wait 6;input /lockstyleset 168')
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
 end
@@ -142,6 +142,7 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
     legs="Aya. Cosciales +2",
+    feet="Navon Crackows",
     waist="Witful Belt",
     neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
@@ -178,7 +179,7 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Aya. Cosciales +2",
-    feet="Battlecast Gaiters",
+    feet="Navon Crackows",
     neck="Baetyl Pendant",
     waist="Witful Belt",
     left_ear="Etiolation Earring",
@@ -195,7 +196,7 @@ function init_gear_sets()
         body="Inyanga Jubbah +2",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs="Aya. Cosciales +2",
-        feet="Battlecast Gaiters",
+        feet="Navon Crackows",
         neck="Baetyl Pendant",
         waist="Witful Belt",
         left_ear="Etiolation Earring",
@@ -311,7 +312,7 @@ sets.precast.WS['Aeolian Edge'] = {range="Linos",
     hands="Nyame Gauntlets",
     ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
     ring2="Epaminondas's Ring",
-    neck="Baetyl Pendant",
+    neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -355,7 +356,7 @@ sets.precast.WS['Flash Nova'] = {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
@@ -370,7 +371,7 @@ sets.precast.WS['Flash Nova'] = {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
@@ -915,7 +916,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         end
     end
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 6;input /lockstyleset 168')
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
@@ -1144,7 +1150,7 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 31)
+    set_macro_page(1, 32)
 end
 add_to_chat(159,'Author Aragan BRD.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')

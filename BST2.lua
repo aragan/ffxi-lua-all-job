@@ -1112,20 +1112,11 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
     right_ring="Varar Ring +1",
     back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
 	
-	sets.defense.Reraise =  {
-    ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    hands="Nukumi Manoplas +1",
-    legs="Despair Cuisses",
-    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
-    neck="Shulmanu Collar",
-    waist="Incarnation Sash",
-    left_ear="Enmerkar Earring",
-    right_ear="Domes. Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
-    back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}},}
+	sets.defense.Reraise = set_combine(sets.defense.PDT, {
+	
+		ammo="Voluspa Tathlum",
+		head="Twilight Helm",body="Twilight Mail"
+})
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {
 		ammo="Staunch Tathlum +1",

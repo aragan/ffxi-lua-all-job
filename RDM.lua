@@ -47,8 +47,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Enspell', 'ACC', 'CRIT')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'Town')
+    state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT', 'Enspell')
+    state.IdleMode:options('Normal', 'PDT', 'MDT')
 	state.CastingMode:options('Normal', 'Burst')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
 
@@ -481,9 +481,7 @@ sets.TreasureHunter = {
 	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
 		body="Atrophy Tabard +3"})
 		
-	sets.midcast['Enfeebling Magic'].Skill = {    
-
-		
+	sets.midcast['Enfeebling Magic'].Skill = {   
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
@@ -498,8 +496,6 @@ sets.TreasureHunter = {
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
 
 	sets.midcast['Enfeebling Magic'].Potency = {    
-
-		
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
@@ -520,7 +516,6 @@ sets.TreasureHunter = {
 	sets.midcast['Enfeebling Magic'].ParalyzeDuration = {}
 	
     sets.midcast['Elemental Magic'] = {
-		
 		ammo="Pemphredo Tathlum",
 		head="Ea Hat",
 		body="Ea Houppelande",
@@ -551,14 +546,11 @@ sets.TreasureHunter = {
 		back="Twilight Cape",
     }
 	
-    
 	sets.Obi = {waist="Hachirin-no-Obi",}
 	
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
     sets.midcast['Dark Magic'] = {
-
-		
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
@@ -584,8 +576,6 @@ sets.TreasureHunter = {
     sets.midcast.Aspir = sets.midcast.Drain
 
     sets.midcast.Stun = {
-
-		
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
@@ -655,20 +645,6 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring +1",
 		back="Moonlight Cape",}
 
-    sets.idle.Town = {
-		ammo="Homiliary",
-		head="Befouled Crown",
-		body="Shamash Robe",
-		hands="Nyame Gauntlets",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet="Nyame Sollerets",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Fucho-no-Obi",
-		left_ear="Etiolation Earring",
-		right_ear="Genmei Earring",
-		left_ring="Stikini Ring +1",
-		right_ring="Stikini Ring +1",
-		back="Moonlight Cape",}
     
     sets.idle.Weak = {
 		ammo="Homiliary",
@@ -762,7 +738,7 @@ sets.TreasureHunter = {
     -- Normal melee group
 	
     sets.engaged = {
-                ammo="Aurgelmir Orb +1",
+        ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -778,7 +754,7 @@ sets.TreasureHunter = {
     }
 
 	sets.engaged.DW = {
-                ammo="Aurgelmir Orb +1",
+        ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",

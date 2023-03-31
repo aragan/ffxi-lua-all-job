@@ -93,7 +93,6 @@ function user_setup()
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    war_sj = player.sub_job == 'WAR' or false
     state.drain = M(false)
     
     -- Additional local binds
@@ -947,13 +946,13 @@ function job_handle_equipping_gear(player,status, eventArgs)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 90 then
-        idleSet = set_combine(idleSet, sets.idle.Regen)
-    end
+    --if player.hpp < 90 then
+        --idleSet = set_combine(idleSet, sets.idle.Regen)
+    --end
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -971,7 +970,7 @@ function customize_melee_set(meleeSet)
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1068,16 +1067,15 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 8 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
+        eventArgs.handled = false
     end
     return 
 end
 function job_update(player,cmdParams, eventArgs)
     job_self_command()
-    war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
@@ -1097,7 +1095,7 @@ function get_combat_form()
     --end
     if S{'NIN', 'DNC'}:contains(player.sub_job) and war_sub_weapons:contains(player.equipment.sub) then
         state.CombatForm:set("DW")
-    elseif S{'SAM', 'WAR'}:contains(player.sub_job) and player.equipment.sub == 'Blurred Shield +1' then
+    elseif S{'SAM', 'DRK', 'PLD', 'DRG', 'RUN'}:contains(player.sub_job) and player.equipment.sub == 'Blurred Shield +1' then
         state.CombatForm:set("OneHand")
     else
         state.CombatForm:reset()

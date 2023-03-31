@@ -1,7 +1,12 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Initialization function that defines sets and variables to be used.
 -------------------------------------------------------------------------------------------------------------------
-
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file (and its supplementary files) to go with this.
 
 -- Initialization function for this job file.
@@ -540,10 +545,7 @@ function init_gear_sets()
     sets.idle.Sphere = set_combine(sets.idle, {  })
 
     sets.idle.Regen = set_combine(sets.idle.Field, {
-		--head="Twilight Helm",
-		--body="Kumarbi's Akar",
-        ear2="Infused Earring",
-        neck="Sanctity Necklace",
+
     })
 
 	sets.idle.Weak = set_combine(sets.idle.Field, {
@@ -620,7 +622,7 @@ function init_gear_sets()
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
-        legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+        legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist="Tempus Fugit +1",
@@ -636,7 +638,7 @@ function init_gear_sets()
         head="Flam. Zucchetto +2",
         body="Flamma Korazin +2",
         hands="Sulev. Gauntlets +2",
-        legs={ name="Valorous Hose", augments={'Weapon skill damage +5%','CHR+7','Accuracy+12 Attack+12','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+        legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -812,10 +814,10 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 90 then
-        idleSet = set_combine(idleSet, sets.idle.Regen)
-    end
-	return idleSet
+    --if player.hpp < 90 then
+        --idleSet = set_combine(idleSet, sets.idle.Regen)
+    --end
+	--return idleSet
 end
 
 -- Modify the default melee set after it was constructed.
@@ -892,7 +894,12 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
-
+    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+        eventArgs.handled = false
+    end
+    return
 end
 
 function get_combat_form()
@@ -948,6 +955,8 @@ function th_action_check(category, param)
 		then return true
 	end
 end
+add_to_chat(159,'Author Aragan DRG.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
