@@ -188,7 +188,7 @@ function init_gear_sets()
         right_ear="Thrud Earring",
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
     sets.precast.WS.Dread  = sets.defense['Dread Spikes']
 
@@ -229,7 +229,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ring="Hetairoi Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     })
     sets.precast.WS['Power Slash'] = set_combine(sets.precast.WS['Vorpal Scythe'], {})
 
@@ -247,7 +247,7 @@ function init_gear_sets()
         right_ear="Thrud Earring",
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
     sets.precast.WS['Catastrophe'].Dread  = sets.defense['Dread Spikes']
@@ -289,7 +289,7 @@ sets.precast.WS['Insurgency'] = {
     right_ear="Balder Earring +1",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
     sets.precast.WS['Insurgency'].Dread  = sets.defense['Dread Spikes']
@@ -310,7 +310,7 @@ sets.precast.WS['Insurgency'] = {
         right_ear="Thrud Earring",
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
   
     sets.precast.WS['Cross Reaper'].Dread  = sets.defense['Dread Spikes']
@@ -335,7 +335,7 @@ sets.precast.WS['Quietus'] = {
     right_ear="Thrud Earring",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 } 
 sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
     head="Nyame Helm",
@@ -375,7 +375,7 @@ left_ear="Friomisi Earring",
 right_ear="Malignance Earring",
 left_ring="Archon Ring",
 right_ring="Epaminondas's Ring",
-back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 sets.precast.WS['Infernal Scythe'].Dread  = sets.defense['Dread Spikes']
 sets.precast.WS['Infernal Scythe'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {})
@@ -405,7 +405,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ear="Telos Earring",
     left_ring="Rufescent Ring",
     right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},}
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},}
 
 
     sets.precast.WS['Resolution'] = {
@@ -441,7 +441,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ear="Thrud Earring",
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     } 
     sets.precast.WS['Ground Strike'].Mid = set_combine(sets.precast.WS['Ground Strike'], {
         head="Nyame Helm",
@@ -467,7 +467,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ear="Thrud Earring",
     left_ring="Regal Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     }       
     sets.precast.WS['Torcleaver'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Torcleaver'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
@@ -485,7 +485,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
 }
 
       
@@ -1152,7 +1152,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ear="Brutal Earring",
     left_ring="Hetairoi Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     })
     sets.engaged.Apocalypse.PD = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
@@ -1182,7 +1182,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+1','Weapon skill damage +10%',}},
     }
     sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged, {
         body="Flamma Korazin +2",
