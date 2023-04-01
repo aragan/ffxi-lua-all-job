@@ -582,27 +582,38 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ear="Dignitary's Earring",
     left_ring="Evanescence Ring",
     right_ring="Archon Ring",
-    back={ name="Ankou's Mantle", augments={'INT+20','Mag. MaxAcc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
+    back="Argocham. Mantle",
 }
       sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
         -- neck="Sanctity Necklace",
         -- back="Niht Mantle",
         -- hands="Flamma Manopolas +2",
-
+        neck="Erra Pendant",
         ring1="Evanescence Ring", -- 10
         ring2="Kishar Ring",
     })
      -- Drain spells 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
-   
+        body={ name="Lugra Cloak +1", augments={'Path: A',}},
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+        neck="Erra Pendant",
+        waist="Austerity Belt +1",
+        right_ring="Evanescence Ring",
     })
     sets.midcast.Aspir = set_combine(sets.midcast['Dark Magic'], {
-   
+        body={ name="Lugra Cloak +1", augments={'Path: A',}},
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+        neck="Erra Pendant",
+        waist="Austerity Belt +1",
+        right_ring="Evanescence Ring",
     })
   
     sets.midcast.Drain.Acc = set_combine(sets.midcast['Dark Magic'], {
-        hands="Leyline Gloves",
-        waist="Eschan Stone", -- macc/matk 7
+        body={ name="Lugra Cloak +1", augments={'Path: A',}},
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+        neck="Erra Pendant",
+        waist="Austerity Belt +1",
+        right_ring="Evanescence Ring",
     })
     sets.midcast.Aspir.Acc = sets.midcast.Drain.Acc
       
