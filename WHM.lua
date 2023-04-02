@@ -251,6 +251,7 @@ function init_gear_sets()
     sets.midcast.sird = {
         ammo="Staunch Tathlum +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        body="Rosette Jaseran +1",
         legs="Bunzi's Pants",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Rumination Sash",

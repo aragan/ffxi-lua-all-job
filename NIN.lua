@@ -25,7 +25,7 @@ function get_sets()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     organizer_items = {
-        item="Toolbag (Shihe)",
+        "Toolbag (Shihe)",
         "Chonofuda",
         "Shikanofuda",
         "Inoshishinofuda",

@@ -428,7 +428,7 @@ function init_gear_sets()
         main="Malignance Pole",
         ammo="Staunch Tathlum +1",
         head="Agwu's Cap",
-        body="Rosette Jaseran",
+        body="Rosette Jaseran +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},

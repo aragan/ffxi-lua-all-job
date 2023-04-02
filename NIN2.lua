@@ -21,13 +21,44 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items = {
-        item="Shinobi-Tabi",
-        item="Chonofuda",
-        item="Shikanofuda",
-        item="Inoshishinofuda",
-        item="Sanjaku-Tenugui",
-        item="Toolbag (Cho)",   
-    }
+        "Toolbag (Shihe)",
+        "Chonofuda",
+        "Shikanofuda",
+        "Inoshishinofuda",
+        "Sanjaku-Tenugui",
+        "Toolbag (Cho)",   
+        "Toolbag (Shika)",
+        "Toolbag (Ino)",
+        "Shihei",
+        "Toolbag (Shihe)",
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
+    
     
 end
 
