@@ -669,6 +669,15 @@ sets.precast.WS['Nightmare Scythe'] = {
     right_ring="Stikini Ring +1",
     })
       
+    sets.midcast['Enhancing Magic'] = {
+    head="Befouled Crown",
+    body="Shab. Cuirass +1",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+}
     --------------------------------------
     -- Idle/resting/defense/etc sets
     --------------------------------------

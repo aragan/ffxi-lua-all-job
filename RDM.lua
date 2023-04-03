@@ -48,7 +48,8 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT', 'Enspell')
-    state.IdleMode:options('Normal', 'PDT', 'MDT')
+	state.HybridMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
 	state.CastingMode:options('Normal', 'Burst')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
 
@@ -461,11 +462,10 @@ sets.TreasureHunter = {
 	}
 	
     sets.midcast['Enfeebling Magic'] = {
-
-		
+		main={ name="Contemplator +1", augments={'Path: A',}},
         ammo="Regal Gem",
         head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-        body="Shango Robe",
+		body="Lethargy Sayon +2",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
         feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
@@ -479,11 +479,14 @@ sets.TreasureHunter = {
     }
 	
 	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
-		body="Atrophy Tabard +3"})
+		
+	})
 		
 	sets.midcast['Enfeebling Magic'].Skill = {   
+		main={ name="Contemplator +1", augments={'Path: A',}},
 		ammo="Regal Gem",
-		body="Cohort Cloak +1",
+		head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
@@ -493,11 +496,13 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
-
-	sets.midcast['Enfeebling Magic'].Potency = {    
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
+	sets.midcast['Enfeebling Magic'].Potency = {   
+		main={ name="Contemplator +1", augments={'Path: A',}}, 
 		ammo="Regal Gem",
-		body="Cohort Cloak +1",
+		head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
 		feet={ name="Medium's Sabots", augments={'MP+50','MND+10','"Conserve MP"+7','"Cure" potency +5%',}},
@@ -522,21 +527,21 @@ sets.TreasureHunter = {
 		hands="Ea Cuffs",
 		legs="Ea Slops",
 		feet="Ea Pigaches",
-		neck="Mizu. Kubikazari",
+		neck="Sibyl Scarf",
 		waist="Hachirin-no-Obi",
 		left_ear="Malignance Earring",
 		right_ear="Friomisi Earring",
-		left_ring="Mujin Band",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Freke Ring",
 		back="Twilight Cape",}
 		
     sets.magic_burst = {    
-		ammo="Pemphredo Tathlum",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Ea Hat",
 		body="Ea Houppelande",
-		hands="Ea Cuffs",
+		hands="Bunzi's Gloves",
 		legs="Ea Slops",
-		feet="Ea Pigaches",
+		feet="Bunzi's Sabots",
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
 		left_ear="Malignance Earring",
@@ -562,8 +567,8 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
-
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
     --sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence ring",
@@ -587,8 +592,8 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},}
-	
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
 		        head=empty;
@@ -692,6 +697,22 @@ sets.TreasureHunter = {
 		right_ring="Vengeful Ring",
 		back="Moonlight Cape",
 	}
+
+	sets.idle.Enmity = {
+		ammo="Sapience Orb",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Emet Harness +1", augments={'Path: A',}},
+		hands={ name="Merlinic Dastanas", augments={'Magic burst dmg.+6%','MND+7','"Mag.Atk.Bns."+5',}},
+		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Flume Belt +1",
+		left_ear="Trux Earring",
+		right_ear="Cryptic Earring",
+		left_ring="Eihwaz Ring",
+		right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+		back="Reiki Cloak",
+	}
     
     
     -- Defense sets
@@ -748,26 +769,57 @@ sets.TreasureHunter = {
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Sherida Earring",
 		right_ear="Cessance Earring",
-		left_ring="Hetairoi Ring",
-		right_ring="Petrov Ring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
 		back="Annealed Mantle",
     }
+	sets.engaged.PDT = set_combine(sets.engaged , {
+		ammo="Staunch Tathlum +1",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear="Telos Earring",
+		left_ring="Defending Ring",
+		right_ring="Chirich Ring +1",
+		back="Annealed Mantle",
+		})
 
 	sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Aya. Manopolas +2",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		neck="Anu Torque",
 		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
-		right_ear="Eabani Earring",
-		left_ring="Hetairoi Ring",
-		right_ring="Petrov Ring",
+		right_ear="Telos Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
 		back="Annealed Mantle",
 		}
+
+		sets.engaged.DW.PDT = set_combine(sets.engaged.PDT , {
+			ammo="Staunch Tathlum +1",
+			head="Malignance Chapeau",
+			body="Malignance Tabard",
+			hands="Malignance Gloves",
+			legs="Malignance Tights",
+			feet="Malignance Boots",
+			neck={ name="Loricate Torque +1", augments={'Path: A',}},
+			waist="Reiki Yotai",
+			left_ear="Suppanomimi",
+			right_ear="Telos Earring",
+			left_ring="Defending Ring",
+			right_ring="Chirich Ring +1",
+			back="Annealed Mantle",
+			})
 
 	sets.engaged.CRIT = {
 		ammo="Coiste Bodhar",
@@ -818,8 +870,8 @@ sets.TreasureHunter = {
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
-	neck="Anu Torque",
-	waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+	waist="Reiki Yotai",
+	left_ear="Suppanomimi",
 	left_ear="Sherida Earring",
 	right_ear="Cessance Earring",
 	left_ring="Chirich Ring +1",
@@ -878,7 +930,7 @@ sets.TreasureHunter = {
 
     sets.MoveSpeed = {legs = "Carmine Cuisses +1",}
 		
-	sets.ConsMP = {body="Seidr Cotehardie"}
+	sets.ConsMP = {}
 	sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
