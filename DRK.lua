@@ -910,7 +910,7 @@ sets.defense.SEboost = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Flam. Zucchetto +2",
     body="Hjarrandi Breast.",
-    hands="Sakpata's Gauntlets",
+    hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1052,20 +1052,15 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ring="Petrov Ring",
     back="Annealed Mantle",
 }
-    sets.engaged.PDT = {ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Hjarrandi Helm",
-    body="Hjarrandi Breast.",
-    hands="Flam. Manopolas +2",
-    legs="Ig. Flanchard +3",
-    feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
-    right_ring="Moonlight Ring",
-    back="Annealed Mantle",
-}
+    sets.engaged.PDT = set_combine(sets.engaged, {
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    left_ring="Niqmaddu Ring",
+    right_ring="Defending Ring",
+})
       
     sets.engaged.Mid.Meva = set_combine(sets.engaged.Meva, {})
     sets.engaged.Mid.PDT = {ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -1118,7 +1113,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
-        hands="Sakpata's Gauntlets",
+        hands="Flam. Manopolas +2",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1178,7 +1173,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Flam. Manopolas +2",
+        hands="Sulev. Gauntlets +2",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1188,6 +1183,15 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         left_ring="Niqmaddu Ring",
         right_ring="Defending Ring",
         back="Moonlight Cape",
+    })
+    sets.engaged.Apocalypse.PDT = set_combine(sets.engaged.Apocalypse, {
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        left_ring="Niqmaddu Ring",
+        right_ring="Defending Ring",
     })
     sets.engaged.Apocalypse.MaxAcc = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},

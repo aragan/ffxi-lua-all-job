@@ -47,7 +47,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT', 'Enspell')
+    state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT')
 	state.HybridMode:options('Normal', 'PDT')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
 	state.CastingMode:options('Normal', 'Burst')
@@ -57,14 +57,12 @@ function user_setup()
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     
-    select_default_macro_book()
 
     send_command('bind @w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
 	
-    select_default_macro_book()
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -109,19 +107,24 @@ function init_gear_sets()
 		feet="Carmine Greaves +1"}
 	
 	sets.precast.FC = {
-		ammo="Incantor Stone",
+		ammo="Sapience Orb",
         head="Carmine Mask +1",
-		ear2="Loquacious Earring",
-        body="Vitivation Tabard +3",
+		body="Shango Robe",
 		hands="Leyline Gloves",
+		legs="Psycloth Lappas",
+		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
+		waist="Witful Belt",
+		neck="Baetyl Pendant",
+		ear2="Loquacious Earring",
+		ear1="Malignance Earring",
 		ring1="Prolix Ring",
 		ring2="Kishar Ring",
-        back="Swith Cape +1",
-		waist="Witful Belt",
-		legs="Psycloth Lappas",
-		feet="Carmine Greaves +1"}
-		
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 
+	}
+		
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
+     })
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 	
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
@@ -462,9 +465,8 @@ sets.TreasureHunter = {
 	}
 	
     sets.midcast['Enfeebling Magic'] = {
-		main={ name="Contemplator +1", augments={'Path: A',}},
         ammo="Regal Gem",
-        head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+        head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
@@ -479,13 +481,13 @@ sets.TreasureHunter = {
     }
 	
 	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
-		
+
 	})
 		
 	sets.midcast['Enfeebling Magic'].Skill = {   
 		main={ name="Contemplator +1", augments={'Path: A',}},
 		ammo="Regal Gem",
-		head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
@@ -501,7 +503,7 @@ sets.TreasureHunter = {
 	sets.midcast['Enfeebling Magic'].Potency = {   
 		main={ name="Contemplator +1", augments={'Path: A',}}, 
 		ammo="Regal Gem",
-		head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
@@ -879,21 +881,21 @@ sets.TreasureHunter = {
 	back="Annealed Mantle",    }
 
 
-	sets.engaged.Enspell = {   
-		ammo="Coiste Bodhar",
-		head="Umuthi Hat",
-		body="Malignance Tabard",
-		hands="Aya. Manopolas +2",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck="Sanctity Necklace",
-		waist="Orpheus's Sash",
-		left_ear="Eabani Earring",
-		right_ear="Suppanomimi",
-		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-		}
+	--sets.engaged.Enspell = {   
+		--ammo="Coiste Bodhar",
+		--head="Umuthi Hat",
+		--body="Malignance Tabard",
+		--ands="Aya. Manopolas +2",
+		--legs="Malignance Tights",
+		--feet="Malignance Boots",
+		--neck="Sanctity Necklace",
+		--waist="Orpheus's Sash",
+		--left_ear="Eabani Earring",
+		--right_ear="Suppanomimi",
+		--left_ring="Chirich Ring +1",
+		--right_ring="Chirich Ring +1",
+		--back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		--}
 		sets.engaged.DW.Enspell = {   
 			ammo="Coiste Bodhar",
 			head="Umuthi Hat",

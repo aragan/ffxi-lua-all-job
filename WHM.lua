@@ -90,12 +90,13 @@ function init_gear_sets()
 
     sets.precast.FC = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
-    ammo="Incantor Stone",
+    ammo="Sapience Orb",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +1",
     hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
     legs="Aya. Cosciales +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
     right_ear="Malignance Earring",
     left_ring="Kishar Ring",
@@ -561,7 +562,7 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
     sets.midcast.Regen =set_combine(sets.midcast['Enhancing Magic'], {
         main="Bolelabunga",
         sub="Ammurapi Shield",
-        ammo="Incantor Stone",
+        ammo="Sapience Orb",
         head="Inyanga Tiara +2",
         waist="Embla Sash",    })
 
@@ -736,7 +737,7 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
     sets.defense.PDT = {
         main="Malignance Pole",
         sub="Vivid Strap",
-        ammo="Incantor Stone",
+        ammo="Staunch Tathlum +1",
         head="Befouled Crown",
         body="Shamash Robe",
         hands="Inyan. Dastanas +2",

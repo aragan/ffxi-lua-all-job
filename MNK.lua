@@ -450,7 +450,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Bhikku Cyclas +2",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Malignance Tights",
+        legs="Bhikku Hose +2",
         feet="Malignance Boots",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
@@ -466,7 +466,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Bhikku Cyclas +2",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs="Mpaca's Hose",
+        legs="Bhikku Hose +2",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
@@ -482,7 +482,7 @@ function init_gear_sets()
         head="Malignance Chapeau",
         body="Bhikku Cyclas +2",
 		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs="Bhikku Hose +2",
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
@@ -497,7 +497,7 @@ function init_gear_sets()
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Malignance Tights",
+        legs="Bhikku Hose +2",
         feet="Malignance Boots",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
@@ -514,7 +514,7 @@ function init_gear_sets()
 		head="Hiza. Somen +2",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs="Bhikku Hose +2",
         feet="Mpaca's Boots",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
@@ -527,18 +527,18 @@ function init_gear_sets()
     }
 
     -- Defensive melee hybrid sets
-    sets.engaged.PDT = {          ammo="Amar Cluster",
+    sets.engaged.PDT = {                  ammo="Coiste Bodhar",
     head="Malignance Chapeau",
-    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Bhikku Hose +2",
+    feet="Malignance Boots",
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
+	right_ring="Defending Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 }
     sets.engaged.SomeAcc.PDT = {          
@@ -546,14 +546,14 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Mpaca's Hose",
+    legs="Bhikku Hose +2",
     feet="Mpaca's Boots",
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Schere Earring",
     right_ear="Mache Earring +1",
-    left_ring="Epona's Ring",
-    right_ring="Niqmaddu Ring",
+	right_ring="Defending Ring",
+    left_ring="Niqmaddu Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
 		
@@ -563,14 +563,14 @@ function init_gear_sets()
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
-    legs="Mpaca's Hose",
+    legs="Bhikku Hose +2",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Brutal Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Petrov Ring",
+	right_ring="Defending Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 		
 	}
@@ -579,7 +579,7 @@ function init_gear_sets()
 		head="Hiza. Somen +2",
 		body="Mpaca's Doublet",
 		hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
-		legs="Hiza. Hizayoroi +2",
+        legs="Bhikku Hose +2",
 		feet="Hiza. Sune-Ate +2",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		waist="Isa Belt",
@@ -594,7 +594,7 @@ function init_gear_sets()
 	head="Hiza. Somen +2",
 	body="Mpaca's Doublet",
 	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
-	legs="Hiza. Hizayoroi +2",
+    legs="Bhikku Hose +2",
 	feet="Hiza. Sune-Ate +2",
 	waist="Isa Belt",
 	right_ear="Cryptic Earring",
@@ -608,13 +608,13 @@ function init_gear_sets()
 
     -- Hundred Fists/Impetus melee set mods
     sets.engaged.HF = set_combine(sets.engaged)
-    sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Bhikku Cyclas +1"})
+    sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.HF = set_combine(sets.engaged.Acc)
-    sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +1"})
+    sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +2"})
     sets.engaged.Counter.HF = set_combine(sets.engaged.Counter)
-    sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Bhikku Cyclas +1"})
+    sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
-    sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +1"})
+    sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +2"})
 
 
     -- Footwork combat form
@@ -622,7 +622,7 @@ function init_gear_sets()
     sets.engaged.Footwork.Acc = {}
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
-    sets.impetus_body = {body="Bhikku Cyclas +1"}
+    sets.impetus_body = {body="Bhikku Cyclas +2"}
     sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
