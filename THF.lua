@@ -67,6 +67,7 @@ function job_setup()
     state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
+    state.WeaponLock = M(false, 'Weapon Lock')
     send_command('wait 2;input /lockstyleset 168')
     include('Mote-TreasureHunter')
 
@@ -84,18 +85,19 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'CRIT', 'Mod', 'Ranger')
-    state.HybridMode:options('Normal', 'Evasion', 'PDT', 'HP')
+    state.HybridMode:options('Normal', 'PDT', 'HP', 'Evasion')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
     state.PhysicalDefenseMode:options('Evasion', 'PDT')
 
 
     gear.default.weaponskill_neck = ""
-    gear.default.weaponskill_waist = "Caudata Belt"
-    gear.AugQuiahuiz = {name="Quiahuiz Trousers", augments={'Haste+2','"Snapshot"+2','STR+8'}}
+    gear.default.weaponskill_waist = ""
+    gear.AugQuiahuiz = {}
 
     -- Additional local binds
     send_command('bind ^` input /ja "Flee" <me>')
+    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
 
@@ -571,16 +573,16 @@ function init_gear_sets()
 
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
-    body="Nyame Mail",
+    body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Warder's Charm +1",
-    waist="Flume Belt +1",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Fortified Ring",
+    waist="Plat. Mog. Belt",
+    left_ear="Eabani Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Vengeful Ring",
+    right_ring="Purity Ring",
     back="Engulfer Cape +1",}
 
 
@@ -698,6 +700,7 @@ function init_gear_sets()
         
     }
     sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
+    body="Malignance Tabard",
     })
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -874,7 +877,13 @@ function check_buff(buff_name, eventArgs)
         eventArgs.handled = true
     end
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.
