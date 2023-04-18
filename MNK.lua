@@ -194,13 +194,13 @@ function init_gear_sets()
         head="Mpaca's Cap",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Hiza. Hizayoroi +2",
+        legs="Mpaca's Hose",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epona's Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
@@ -210,7 +210,7 @@ function init_gear_sets()
     head="Mpaca's Cap",
     body={ name="Tatena. Harama. +1", augments={'Path: A',}},
     hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-    legs="Hiza. Hizayoroi +2",
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
@@ -231,8 +231,8 @@ function init_gear_sets()
  
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Bhikku Cyclas +2",
-    hands="Mpaca's Gloves",
+    body="Mpaca's Doublet",
+      hands="Mpaca's Gloves",
     legs="Mpaca's Hose",
     feet="Mpaca's Boots",
     neck="Fotia Gorget",
@@ -305,10 +305,10 @@ function init_gear_sets()
     sets.precast.WS['Cataclysm'] = {
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
-        body={ name="Samnuha Coat", augments={'Mag. Acc.+8','"Mag.Atk.Bns."+11','"Dual Wield"+2',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Hiza. Hizayoroi +2",
-        feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+        feet="Nyame Sollerets",
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
@@ -385,7 +385,7 @@ function init_gear_sets()
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Isa Belt",
+        waist="Moonbow Belt +1",
         left_ear="Odnowa Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Patricius Ring",
@@ -448,14 +448,14 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Bhikku Cyclas +2",
+        body="Mpaca's Doublet",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Bhikku Hose +2",
         feet="Malignance Boots",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Mache Earring +1",
+        right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
@@ -464,7 +464,7 @@ function init_gear_sets()
     sets.engaged.SomeAcc = {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Bhikku Cyclas +2",
+        body="Mpaca's Doublet",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Bhikku Hose +2",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -480,7 +480,7 @@ function init_gear_sets()
     sets.engaged.Acc = {
         ammo="Falcon Eye",
         head="Malignance Chapeau",
-        body="Bhikku Cyclas +2",
+        body="Mpaca's Doublet",
 		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Bhikku Hose +2",
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
@@ -503,7 +503,7 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear="Schere Earring",
-        left_ring="Epona's Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
@@ -520,7 +520,7 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
         right_ear="Schere Earring",
-        left_ring="Epona's Ring",
+        left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
 
@@ -536,7 +536,7 @@ function init_gear_sets()
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
+    right_ear="Schere Earring",
     left_ring="Chirich Ring +1",
 	right_ring="Defending Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
@@ -562,12 +562,12 @@ function init_gear_sets()
     ammo="Coiste Bodhar",
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
-    hands={ name="Adhemar Wristbands", augments={'Accuracy+15','Attack+15','"Subtle Blow"+7',}},
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Bhikku Hose +2",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
-    left_ear="Brutal Earring",
+    left_ear="Mache Earring +1",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
@@ -582,7 +582,7 @@ function init_gear_sets()
         legs="Bhikku Hose +2",
 		feet="Hiza. Sune-Ate +2",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		waist="Isa Belt",
+		waist="Moonbow Belt +1",
 		left_ear="Sherida Earring",
 		right_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
@@ -596,7 +596,7 @@ function init_gear_sets()
 	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
     legs="Bhikku Hose +2",
 	feet="Hiza. Sune-Ate +2",
-	waist="Isa Belt",
+	waist="Moonbow Belt +1",
 	right_ear="Cryptic Earring",
 	left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
@@ -720,7 +720,12 @@ function job_buff_change(buff, gain)
         if (buff == "Impetus" and gain) or buffactive.impetus then
             classes.CustomMeleeGroups:append('Impetus')
         end
-    
+        if (buff == "Impetus" and gain) or buffactive.impetus then
+            equip({body="Bhikku Cyclas +2"})
+        end
+        if state.Buff["Impetus"] then
+            equip({body="Bhikku Cyclas +2"})
+        end
 
     -- Update gear if any of the above changed
     if buff == "Hundred Fists" or buff == "Impetus" or buff == "Footwork" then
@@ -758,6 +763,12 @@ function update_combat_form()
     else
         state.CombatForm:reset()
     end
+    if (buff == "Impetus" and gain) or buffactive.impetus then
+        equip(sets.impetus_body)
+    end
+    if state.Buff["Impetus"] then
+        equip({body="Bhikku Cyclas +2"})
+    end
 end
 
 function update_melee_groups()
@@ -769,6 +780,12 @@ function update_melee_groups()
     
     if buffactive.impetus then
         classes.CustomMeleeGroups:append('Impetus')
+    end
+    if (buff == "Impetus" and gain) or buffactive.impetus then
+        equip(sets.impetus_body)
+    end
+    if state.Buff["Impetus"] then
+        equip({body="Bhikku Cyclas +2"})
     end
 end
 
