@@ -85,22 +85,25 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Polearm', 'Club', 'Sword', 'PD', 'CRIT', 'Counter')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'STP', 'PD', 'CRIT', 'Counter')
     state.HybridMode:options('Normal', 'PDT', 'H2H')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
     state.IdleMode:options('Normal')
     state.RestingMode:options('Normal')
-    state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Reraise')
+    state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Enmity', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
     state.drain = M(false)
     
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^- gs enable all')
     select_default_macro_book()
 end
  
@@ -125,7 +128,21 @@ function init_gear_sets()
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
-
+     sets.Enmity={
+        ammo="Iron Gobbet",
+        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck="Moonlight Necklace",
+        waist="Plat. Mog. Belt",
+        left_ear="Cryptic Earring",
+        right_ear="Trux Earring",
+        left_ring="Apeile Ring",
+        right_ring={ name="Apeile Ring +1", augments={'Path: A',}},
+        back="Reiki Cloak",
+    }
 
     sets.MadrigalBonus = {
         hands="Composer's Mitts"
@@ -134,7 +151,7 @@ function init_gear_sets()
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
      sets.precast.JA['Blood Rage'] = { body="Boii Lorica +1" }
-     sets.precast.JA['Provoke'] = set_combine(sets.TreasureHunter, { })
+     sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
      sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3", hands="Agoge Calligae", back="Cichol's Mantle" , feet="Agoge Calligae"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
      sets.precast.JA['Mighty Strikes'] = { head="Agoge Mufflers"}
@@ -218,7 +235,14 @@ function init_gear_sets()
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      }
 
-     sets.precast.WS.Mid = set_combine(sets.precast.WS, {})
+     sets.precast.WS.Mid = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+     })
      sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
          waist="Olseni Belt",})
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
@@ -238,20 +262,12 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Upheaval'].Mid = set_combine(sets.precast.WS['Upheaval'], {
-        sub="Utu Grip",
-    ammo="Knobkierrie",
-    head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-    body="Pumm. Lorica +3",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
-    neck={ name="War. Beads +2", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Thrud Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Regal Ring",
-    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS["Upheaval"], {})
 
@@ -612,6 +628,21 @@ function init_gear_sets()
         right_ring="Vengeful Ring",
         back="Moonlight Cape",
      }
+     sets.defense.Enmity={
+        ammo="Iron Gobbet",
+        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck="Moonlight Necklace",
+        waist="Plat. Mog. Belt",
+        left_ear="Cryptic Earring",
+        right_ear="Trux Earring",
+        left_ring="Apeile Ring",
+        right_ring={ name="Apeile Ring +1", augments={'Path: A',}},
+        back="Reiki Cloak",
+    }
 
      sets.defense.Reraise = sets.idle.Weak
  
@@ -679,10 +710,10 @@ function init_gear_sets()
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
+        left_ear="Cessance Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
-        right_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
     sets.engaged.Acc = set_combine(sets.engaged.Mid, {
@@ -810,9 +841,20 @@ function init_gear_sets()
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
-     sets.engaged.Sword = set_combine(sets.engaged, {
-        main="Naegling",
-        sub="Blurred Shield +1",
+     sets.engaged.STP = set_combine(sets.engaged, {
+        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        head="Hjarrandi Helm",
+        body="Hjarrandi Breast.",
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet="Pumm. Calligae +3",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
     sets.engaged.Club = set_combine(sets.engaged, {
