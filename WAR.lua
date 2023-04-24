@@ -128,7 +128,7 @@ function init_gear_sets()
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
-     sets.Enmity={
+     sets.Enmity = {
         ammo="Iron Gobbet",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -628,7 +628,7 @@ function init_gear_sets()
         right_ring="Vengeful Ring",
         back="Moonlight Cape",
      }
-     sets.defense.Enmity={
+     sets.defense.Enmity = {
         ammo="Iron Gobbet",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
