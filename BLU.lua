@@ -594,7 +594,7 @@ sets.midcast['Blue Magic'].SIRD = {
     -- Physical Spells --
     
     sets.midcast['Blue Magic'].Physical = {
-        ammo="Ginsen",
+        ammo="Aurgelmir Orb +1",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
@@ -602,8 +602,8 @@ sets.midcast['Blue Magic'].SIRD = {
         feet="Gleti's Boots",
         neck="Caro Necklace",
         waist="Prosilio Belt +1",
-        left_ear="Odr Earring",
-        right_ear="Telos Earring",
+        left_ear="Ethereal Earring",
+        right_ear="Balder Earring +1",
         left_ring="Shukuyu Ring",
         right_ring="Ilabrat Ring",
         back="Bleating Mantle",
@@ -628,30 +628,25 @@ sets.midcast['Blue Magic'].SIRD = {
     sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc)
 
     sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Iuitl Vest",hands="Assimilator's Bazubands +1"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalDex = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ammo="Jukukik Feather",body="Iuitl Vest",hands="Assimilator's Bazubands +1",
-         waist="Chaac Belt",legs="Manibozho Brais"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalVit = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",back="Iximulew Cape"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalAgi = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Vanir Cotehardie",hands="Iuitl Wristbands",ring2="Stormsoul Ring",
-         waist="Chaac Belt",feet="Iuitl Gaiters +1"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ear1="Psystorm Earring",body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",
-         ring2="Icesoul Ring",back="Toro Cape",feet="Hagondes Sabots"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalMnd = set_combine(sets.midcast['Blue Magic'].Physical,
-        {ear1="Lifestorm Earring",body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",
-         ring2="Aquasoul Ring",back="Refraction Cape"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalChr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {body="Vanir Cotehardie",hands="Assimilator's Bazubands +1",back="Refraction Cape",
-         waist="Chaac Belt"})
+        {})
 
     sets.midcast['Blue Magic'].PhysicalHP = set_combine(sets.midcast['Blue Magic'].Physical)
 
@@ -659,41 +654,41 @@ sets.midcast['Blue Magic'].SIRD = {
     -- Magical Spells --
     
     sets.midcast['Blue Magic'].Magical = {
-    ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",
-    body="Jhakri Robe +2",
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head=empty,
+    body={ name="Cohort Cloak +1", augments={'Path: A',}},
     hands="Jhakri Cuffs +2",
     legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-    feet="Jhakri Pigaches +2",
+    feet="Hashi. Basmak +2",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear="Hecate's Earring",
     left_ring="Jhakri Ring",
-    right_ring="Stikini Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 }
 
     sets.midcast['Blue Magic'].Magical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Magical)
     sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
-        {ring1="Aquasoul Ring"})
+        {})
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical)
 
     sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical, {
-            ammo="Pemphredo Tathlum",
-            head="Pixie Hairpin +1",
-            body="Jhakri Robe +2",
-            hands="Jhakri Cuffs +2",
-            legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet="Jhakri Pigaches +2",
-            neck="Sibyl Scarf",
-            waist="Orpheus's Sash",
-            left_ear="Hermetic Earring",
-            right_ear="Friomisi Earring",
-            left_ring="Archon Ring",
-            right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-            back={ name="Aurist's Cape +1", augments={'Path: A',}},     
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head=empty,
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Jhakri Cuffs +2",
+        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+        feet="Hashi. Basmak +2",
+        neck="Sibyl Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Jhakri Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},  
     })
 
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
@@ -1221,13 +1216,6 @@ function job_get_spell_map(spell, default_spell_map)
     end
 end
 function job_state_change(stateField, newValue, oldValue)
-    if stateField == 'Offense Mode' then
-        if newValue == 'Normal' then
-            disable('main','sub','range')
-        else
-            enable('main','sub','range')
-        end
-    end
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
