@@ -114,6 +114,7 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
+    send_command('bind f4 input //fillmode')
 
 
 
@@ -685,7 +686,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Eabani Earring",
         left_ring="Vengeful Ring",
         right_ring="Defending Ring",
-        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','Weapon skill damage +10%',}},
+        back="Intarabus's Cape",
     }
 
     sets.defense.MDT = {
