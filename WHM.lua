@@ -72,7 +72,7 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
 
     select_default_macro_book()
 end
@@ -786,7 +786,7 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Grunfeld Rope",
         left_ear="Brutal Earring",
@@ -796,14 +796,13 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.Club = {
-        main="Maxentius",
-        sub="Genmei Shield",
+
         ammo="Amar Cluster",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
         legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Grunfeld Rope",
         left_ear="Brutal Earring",
@@ -928,7 +927,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.buff['Divine Caress'])
     end
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 178')
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------

@@ -1240,7 +1240,12 @@ function aftercast(spell)
         end
     end
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 174')
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------

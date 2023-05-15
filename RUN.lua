@@ -50,6 +50,9 @@ organizer_items = {
 
 -- Setup vars that are user-independent.
 function job_setup()
+
+    send_command('wait 2;input /lockstyleset 178')
+
     -- Table of entries
     rune_timers = T{}
     -- entry = rune, index, expires
@@ -631,7 +634,12 @@ function prune(rune)
     return cmd_queue
 end
 
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 200')
+    end
+end
 ------------------------------------------------------------------
 -- Reset events
 ------------------------------------------------------------------

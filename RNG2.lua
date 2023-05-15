@@ -24,7 +24,7 @@ end
 
 	organizer_items = {
 		"Decimating Bullet",
-		"Beryllium Arrow",
+		"Eminent Arrow",
 		"Eminent Arrow",
 		"Chr. Bul. Pouch",  
 		"Hauksbok Arrow",
@@ -93,28 +93,28 @@ function user_setup()
 	sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
 	"Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
 		"Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
-		"Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
+		"Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Fomalhaut", "Bow of Trials", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
 	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
-	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi",
+	"Blurred Knife +1", "Ternion Dagger +1", "Eminent Arrow", "Eminent Arrow", "Bow of Trials",
 
 }
     elemental_ws = S{'Aeolian Edge', 'Trueflight', 'Wildfire'}
 	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
-	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
-	              ['Ullr'] = "Eminent Arrow",
+	DefaultAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 				  ['Fomalhaut'] = "Decimating Bullett",
 				}
-	WSAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
-	               ['Ullr'] = "Beryllium Arrow",
+	WSAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	               ['Bow of Trials'] = "Eminent Arrow",
 				   ['Fomalhaut'] = "Chrono Bullet",
 				}
-	AccAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
-	              ['Ullr'] = "Eminent Arrow",
+	AccAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 				  ['Fomalhaut'] = "Decimating Bullett",
 				}
-	MagicAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
-	              ['Ullr'] = "Beryllium Arrow",
+	MagicAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 	              ['Fomalhaut'] = "Chrono Bullet",
 				}
 
@@ -508,7 +508,8 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 	sets.engaged = {
-		range="Fomalhaut",
+		range="Bow of Trials",
+		ammo="Eminent Arrow",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -524,7 +525,7 @@ function init_gear_sets()
 	}
 	sets.engaged.DD = {
 		sub="Blurred Knife +1",
-		range="Hangaku-no-Yumi",
+		range="Bow of Trials",
 		ammo="Hauksbok Arrow",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -588,7 +589,7 @@ function init_gear_sets()
 	}
 	sets.engaged.DDACC = {
 		sub="Blurred Knife +1",
-		range="Hangaku-no-Yumi",
+		range="Bow of Trials",
 		ammo="Hauksbok Arrow",
 		head="Malignance Chapeau",
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},

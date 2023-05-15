@@ -2216,8 +2216,12 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
-
--------------------------------------------------------------------------------------------------------------------
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 171')
+    end
+end-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')

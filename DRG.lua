@@ -57,9 +57,8 @@ function job_setup()
 	get_combat_form()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('Tag')
-    
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-	
+    send_command('wait 6;input /lockstyleset 199')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
 
@@ -69,7 +68,6 @@ function job_setup()
 	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 end
-
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
@@ -85,8 +83,8 @@ function user_setup()
 
     send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind ^[ input /lockstyle on')
-    send_command('bind ![ input /lockstyle off')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+
 end
 
 
@@ -98,27 +96,21 @@ function file_unload()
 	send_command('unbind !=')
 end
 
-
 -- Define sets and vars used by this job file.
 function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
-    Brigantia = {}
-    Valorous = {}
-    Valorous.Feet = {}
-    Valorous.Body = {}
+
 
     -- Precast Sets
 	-- Precast sets to enhance JAs
-	sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +1"}
-    sets.CapacityMantle = {back="Mecistopins Mantle"}
+sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +1"}
+--sets.CapacityMantle = {back="Mecistopins Mantle"}
     --sets.Berserker = {neck="Berserker's Torque"}
-    sets.WSDayBonus     = {head="Gavialis Helm"}
+sets.WSDayBonus = {head="Gavialis Helm"}
 
-
-
-	sets.precast.JA.Jump = {
+sets.precast.JA.Jump = {
         ammo="Ginsen",
 		head="Flamma Zucchetto +2",
         neck="Anu Torque",
@@ -129,7 +121,6 @@ function init_gear_sets()
         body="Pteroslaver Mail +3",
         ring1="Niqmaddu Ring",
         ring2="Petrov Ring",
-		back=Brigantia.TP,
         waist="Ioskeha Belt",
         legs="Pteroslaver Brais +3",
         feet="Ostro Greaves"
@@ -137,7 +128,6 @@ function init_gear_sets()
 
 	sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
     sets.TreasureHunter = { 
-
      }
 
 	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
@@ -450,7 +440,7 @@ function init_gear_sets()
         right_ring="Freke Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-           sets.precast.WS['Black Halo'] = {
+    sets.precast.WS['Black Halo'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -589,7 +579,7 @@ function init_gear_sets()
         right_ring="Defending Ring",
         back="Moonlight Cape",   })
 
-        sets.defense.HP = {
+    sets.defense.HP = {
             ammo="Coiste Bodhar",
             head="Hjarrandi Helm",
             body="Hjarrandi Breast.",
@@ -604,6 +594,10 @@ function init_gear_sets()
             right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
             back="Moonlight Cape",   
         }
+        sets.defense.Reraise = set_combine(sets.defense.PDT, {
+            head="Twilight Helm",
+            body="Twilight Mail",
+        })
 
 	sets.Kiting = {
         legs="Carmine Cuisses +1",
@@ -621,7 +615,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2",
+        hands="Flamma Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -636,16 +630,16 @@ function init_gear_sets()
 	sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Flamma Korazin +2",
-        hands="Sulev. Gauntlets +2",
+        body="Hjarrandi Breast.",
+        hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Brutal Earring",
-        right_ear="Sherida Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Petrov Ring",
+        waist="Tempus Fugit +1",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
         back="Annealed Mantle",
     })
 
@@ -693,9 +687,6 @@ function init_gear_sets()
     })
     sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
     body="Twilight Mail",})
-
-
-
 end
 
 
@@ -813,12 +804,7 @@ function get_custom_wsmode(spell, action, spellMap)
 end
 
 -- Modify the default idle set after it was constructed.
-function customize_idle_set(idleSet)
-    --if player.hpp < 90 then
-        --idleSet = set_combine(idleSet, sets.idle.Regen)
-    --end
-	--return idleSet
-end
+
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
@@ -955,6 +941,14 @@ function th_action_check(category, param)
 		then return true
 	end
 end
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 199')
+    end
+end
+
+send_command('wait 2;input /lockstyleset 199')
 add_to_chat(159,'Author Aragan DRG.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.

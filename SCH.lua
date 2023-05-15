@@ -163,7 +163,7 @@ function user_setup()
     send_command('bind @h gs c cycle HelixMode')
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind @s gs c toggle StormSurge')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
 
     send_command('bind ^numpad0 input /Myrkr')
 
@@ -794,7 +794,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Windbuffet Belt +1",
         left_ear="Crep. Earring",
@@ -1326,7 +1326,12 @@ windower.register_event('zone change',
         end
     end
 )
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 174')
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(7, 33)

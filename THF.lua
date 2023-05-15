@@ -898,7 +898,12 @@ function th_action_check(category, param)
     end
 end
 
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 168')
+    end
+end
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
 
 

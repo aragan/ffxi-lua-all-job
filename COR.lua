@@ -1042,6 +1042,12 @@ function special_ammo_check()
         return
     end
 end
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 168')
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(4, 26)

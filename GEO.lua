@@ -53,7 +53,7 @@ function user_setup()
 
     select_default_macro_book()
     send_command('bind != gs c toggle CapacityMode')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
 end
 
 function file_unload()
@@ -652,7 +652,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands="Nyame Gauntlets",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Olseni Belt",
         left_ear="Telos Earring",
@@ -1067,4 +1067,9 @@ function refine_various_spells(spell, action, spellMap, eventArgs)
 	end
 end
 
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 178')
+    end
+end

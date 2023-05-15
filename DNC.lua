@@ -1193,7 +1193,12 @@ function auto_presto(spell)
         end
     end
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 168')
+    end
+end
 add_to_chat(159,'Author Aragan DNC.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 

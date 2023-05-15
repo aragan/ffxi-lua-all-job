@@ -206,7 +206,7 @@ function user_setup()
     send_command('bind ^` input /ja "Chain Affinity" <me>')
     send_command('bind !` input /ja "Efflux" <me>')
     send_command('bind @` input /ja "Burst Affinity" <me>')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smouldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .6;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')
@@ -214,6 +214,8 @@ function user_setup()
     update_combat_form()
     select_default_macro_book()
     send_command('wait 6;input /lockstyleset 199')
+    send_command('bind f4 input //fillmode')
+
 end
 
 
@@ -812,7 +814,10 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
     -- Sets to return to when not performing an action.
 
     -- Gear for learning spells: +skill and AF hands.
-    sets.Learning = {ammo="Mavi Tathlum",hands="Assimilator's Bazubands", neck="Mirage Stole +2",}
+    sets.Learning = {ammo="Mavi Tathlum",hands="Assim. Bazu. +1", neck="Mirage Stole +2",
+    legs="Hashishin Tayt +1", left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+}
         --head="Luhlaza Keffiyeh",  
         --body="Assimilator's Jubbah",hands="Assimilator's Bazubands +1",
         --back="Cornflower Cape",legs="Mavi Tayt +2",feet="Luhlaza Charuqs"}

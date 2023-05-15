@@ -789,7 +789,12 @@ function update_melee_groups()
     end
 end
 
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 200')
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

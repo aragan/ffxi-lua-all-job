@@ -1684,7 +1684,12 @@ function aw_custom_aftermath_timers_aftercast(spell)
         info.aftermath = {}
     end
 end
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 166')
+    end
+end
 function select_default_macro_book()
       
     if scytheList:contains(player.equipment.main) then
