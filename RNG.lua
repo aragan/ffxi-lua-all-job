@@ -291,16 +291,16 @@ function init_gear_sets()
 		right_ear="Amini Earring +1",
 	})
 
-	sets.precast.WS["Savage Blade"] = {	    main="Naegling",	
+	sets.precast.WS["Savage Blade"] = {	  
     	head="Nyame Helm",
      	body="Nyame Mail",
 		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Scout's Gorget +2",
+		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		right_ear="Ishvara Earring",
+		right_ear="Sherida Earring",
 		left_ring="Epaminondas's Ring",
 		right_ring="Regal Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},

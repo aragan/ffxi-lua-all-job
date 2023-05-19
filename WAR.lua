@@ -57,7 +57,7 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 179')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -1177,7 +1177,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 200')
+        send_command('wait 2;input /lockstyleset 179')
     end
 end
 add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')

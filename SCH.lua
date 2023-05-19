@@ -482,10 +482,10 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Befouled Crown",
-        body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        body="Telchine Chas.",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         neck="Incanter's Torque",
         waist="Embla Sash",
         left_ear="Mendi. Earring",
@@ -498,11 +498,11 @@ function init_gear_sets()
     sets.midcast.EnhancingDuration = set_combine(sets.midcast['Enhancing Magic'], {
         main="Musa",
         sub="Khonsu",
-        head=gear.Telchine_ENH_head,
-        body="Peda. Gown +3",
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         waist="Embla Sash",
         })
 
@@ -510,45 +510,57 @@ function init_gear_sets()
         main="Musa",
         sub="Khonsu",
         head="Arbatel Bonnet +2",
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         waist="Embla Sash",
         back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
         })
 
     sets.midcast.RegenDuration = set_combine(sets.midcast['Enhancing Magic'], {
+        head="Arbatel Bonnet +2",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         waist="Embla Sash",
+        back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}},
         })
 
     sets.midcast.Haste = sets.midcast.EnhancingDuration
 
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
-        head="Amalric Coif +1",
-        back="Grapevine Cape",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         neck="Nodens Gorget",
         waist="Embla Sash",
         })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
-        main="Vadose Rod",
-        sub="Ammurapi Shield",
-        ammo="Staunch Tathlum +1",
-        head="Amalric Coif +1",
-        hands="Regal Cuffs",
-        ear1="Halasz Earring",
-        ear2="Magnetic Earring",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         ring1="Freke Ring",
         waist="Embla Sash",
         })
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
 
-    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet="Peda. Loafers +3"})
+    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {})
 
     sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {})
     sets.midcast.Protectra = sets.midcast.Protect
