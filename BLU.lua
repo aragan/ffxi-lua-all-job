@@ -352,8 +352,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Ilabrat Ring",
-        back="Bleating Mantle",
-    }
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+        }
     
         sets.precast.WS.acc = set_combine(sets.precast.WS, {})
     
@@ -387,8 +387,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Epaminondas's Ring",
             right_ring="Ilabrat Ring",
-            back="Bleating Mantle",
-        })
+            back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+                })
     
         sets.precast.WS['Sanguine Blade'] = {
         
@@ -404,8 +404,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             right_ear="Hecate's Earring",
             left_ring="Epaminondas's Ring",
             right_ring="Archon Ring",
-            back="Argocham. Mantle",
-        }
+            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+                }
     
     sets.precast.WS['Chant du Cygne'] = {
         
@@ -438,8 +438,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
         right_ring="Beithir Ring",
-        back="Bleating Mantle",
-    }
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+        }
 
     sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
     head="Nyame Helm",
@@ -453,7 +453,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     ring2="Epaminondas's Ring",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    back="Argocham. Mantle",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 }
     sets.precast.WS['Flash Nova'] = {
         ammo="Pemphredo Tathlum",
@@ -468,8 +468,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring="Epaminondas's Ring",
-        back="Argocham. Mantle",
-    }
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+        }
 
             sets.precast.WS['Myrkr'] = {
             ammo="Pemphredo Tathlum",
@@ -484,8 +484,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             right_ear="Friomisi Earring",
             left_ring="Epaminondas's Ring",
             right_ring="Freke Ring",
-            back={ name="Aurist's Cape +1", augments={'Path: A',}},}
-
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+            }
         sets.precast.WS['Cataclysm'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
@@ -499,8 +499,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             right_ear="Friomisi Earring",
             left_ring="Epaminondas's Ring",
             right_ring="Archon Ring",
-            back={ name="Aurist's Cape +1", augments={'Path: A',}},
-        }
+            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+            }
         
      sets.precast.WS['Black Halo'] = {
         ammo="Crepuscular Pebble",
@@ -515,8 +515,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ear="Ishvara Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Epaminondas's Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+        }
 
     sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
@@ -538,8 +538,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         right_ear="Ishvara Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         left_ring="Rufescent Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+        }
     
 
     
@@ -608,8 +608,8 @@ sets.midcast['Blue Magic'].SIRD = {
         right_ear="Balder Earring +1",
         left_ring="Shukuyu Ring",
         right_ring="Ilabrat Ring",
-        back="Bleating Mantle",
-    }
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+        }
     sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical)
 
     sets.midcast['Blue Magic'].PhysicalAcc = {
@@ -668,7 +668,7 @@ sets.midcast['Blue Magic'].SIRD = {
     right_ear="Hecate's Earring",
     left_ring="Jhakri Ring",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
 }
 
     sets.midcast['Blue Magic'].Magical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Magical)
@@ -690,7 +690,7 @@ sets.midcast['Blue Magic'].SIRD = {
         right_ear="Hecate's Earring",
         left_ring="Jhakri Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},  
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},  
     })
 
     sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
@@ -873,8 +873,8 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         right_ear="Eabani Earring",
         left_ring="Defending Ring",
         right_ring="Vengeful Ring",
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
-    }
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},  
+      }
     sets.defense.Enmity = {
         ammo="Iron Gobbet",        --2
         head="Halitus Helm", --8
