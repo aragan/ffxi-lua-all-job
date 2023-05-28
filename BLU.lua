@@ -873,8 +873,8 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         right_ear="Eabani Earring",
         left_ring="Defending Ring",
         right_ring="Vengeful Ring",
-        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},  
-      }
+        back="Moonlight Cape",
+    }
     sets.defense.Enmity = {
         ammo="Iron Gobbet",        --2
         head="Halitus Helm", --8
@@ -906,8 +906,8 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         right_ear="Eabani Earring",
         left_ring="Defending Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        back={ name="Rosmerta's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','"Fast Cast"+10','Evasion+15',}},
-}
+        back="Moonlight Cape",
+    }
 
     sets.Kiting = {
         ammo="Staunch Tathlum +1",

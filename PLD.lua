@@ -243,14 +243,14 @@ neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Beithir Ring",
+    left_ring="Beithir Ring",
     right_ring="Epaminondas's Ring",
     back="Atheling Mantle",
 }
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
  
     --Stat Modifier:     73~85% MND  fTP:    1.0
- sets.precast.WS['Requiescat'] = {
+sets.precast.WS['Requiescat'] = {
 ammo="Aurgelmir Orb +1",
 head="Hjarrandi Helm",
 body="Sakpata's Plate",

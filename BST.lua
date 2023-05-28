@@ -46,6 +46,7 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {
+	ammo="Pet Food Theta",
     ammo="Meaty Broth",
     ammo="Livid Broth",
     ammo="Turpid Broth",

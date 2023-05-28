@@ -172,6 +172,34 @@ function init_gear_sets()
   
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
   
+    
+    sets.precast.RA = { ammo=empty,
+        range="Trollbane",  
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        waist="Yemaya Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Purity Ring",
+        right_ring="Ilabrat Ring",
+
+    }
+    sets.midcast.RA = { ammo=empty,
+        range="Trollbane",  
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        waist="Yemaya Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Purity Ring",
+        right_ring="Ilabrat Ring",
+    }	
          
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -245,7 +273,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear="Thrud Earring",
-        left_ring="Regal Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
@@ -908,7 +936,7 @@ sets.defense.SEboost = {
   
     sets.engaged.STP = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Flam. Zucchetto +2",
+    head="Sulevia's Mask +2",
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
@@ -919,7 +947,7 @@ sets.defense.SEboost = {
     right_ear="Dedition Earring",
     left_ring="Moonlight Ring",
     right_ring="Chirich Ring +1",
-    back="Annealed Mantle",
+    back="Tactical Mantle",
 }
 sets.engaged.DA = set_combine(sets.engaged, {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -982,7 +1010,8 @@ sets.engaged.PD = set_combine(sets.engaged, {
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Annealed Mantle",}
+    back="Sokolski Mantle",
+}
 
 sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -1107,11 +1136,11 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         right_ear="Dedition Earring",
         left_ring="Moonlight Ring",
         right_ring="Niqmaddu Ring",
-        back="Annealed Mantle",
+        back="Tactical Mantle",
     })
     sets.engaged.Apocalypse.STP = {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
+        head="Sulevia's Mask +2",
         body="Hjarrandi Breast.",
         hands="Flam. Manopolas +2",
         legs="Ig. Flanchard +3",
@@ -1122,8 +1151,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         right_ear="Dedition Earring",
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",
-   }
+        back="Tactical Mantle",
+    }
    sets.engaged.Apocalypse.DA = set_combine(sets.engaged, {
     ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
@@ -1149,10 +1178,10 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear="Dedition Earring",
+    right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
     right_ring="Chirich Ring +1",
-    back="Annealed Mantle",
+    back="Tactical Mantle",
 }   
     sets.engaged.Apocalypse.crit = set_combine(sets.engaged, {
     ammo="Yetshila +1",
@@ -1206,7 +1235,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Ankou's Mantle",
+    back="Sokolski Mantle",
     }
     sets.engaged.Apocalypse.SubtleBlow = set_combine(sets.engaged, {
         body="Flamma Korazin +2",
@@ -1232,17 +1261,26 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
 
 
-    sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {})
+
+    sets.engaged.Haste.Apocalypse = set_combine(sets.engaged.Apocalypse, {        ammo="Coiste Bodhar",
+    waist="Ioskeha Belt +1",  })
+    sets.engaged.Haste.Apocalypse.Mid = set_combine(sets.engaged.Apocalypse.Mid, {        ammo="Coiste Bodhar",
+    waist="Ioskeha Belt +1",  })
+
+    sets.engaged.Haste.Apocalypse.DA = set_combine(sets.engaged.Apocalypse.DA, {        ammo="Coiste Bodhar",
+    waist="Ioskeha Belt +1",  })
+    sets.engaged.Haste.Apocalypse.PD = set_combine(sets.engaged.Apocalypse.PD, {        ammo="Coiste Bodhar",
+    waist="Ioskeha Belt +1",  })   
+
     sets.engaged.Haste.Apocalypse.STP = set_combine(sets.engaged.STP, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
     sets.engaged.Haste.Apocalypse.Crit = set_combine(sets.engaged.crit, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
+    sets.engaged.Haste.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
   
-    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
-        ammo="Coiste Bodhar",
-        waist="Ioskeha Belt +1",    })
+    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
 	head="Twilight Helm",
@@ -1687,7 +1725,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 166')
+        send_command('wait 5;input /lockstyleset 166')
     end
 end
 function select_default_macro_book()

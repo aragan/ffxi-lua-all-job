@@ -295,7 +295,7 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {range=empty,
-        ammo="Yetshila +1",
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Meg. Gloves +2",
@@ -303,10 +303,10 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist="Kentarch Belt +1",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Odr Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ear="Sherida Earring",
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Ilabrat Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
@@ -601,7 +601,7 @@ function init_gear_sets()
     neck="Ainia Collar",
     waist="Reiki Yotai",
     left_ear="Dedition Earring",
-    right_ear="Skulk. Earring +1",
+    right_ear="Skulker's Earring",
     left_ring="Gere Ring",
     right_ring="Hetairoi Ring",
     back="Bleating Mantle",
@@ -616,7 +616,7 @@ function init_gear_sets()
         neck="Clotharius Torque",
         waist="Reiki Yotai",
         left_ear="Telos Earring",
-        right_ear="Skulk. Earring +1",
+        right_ear="Skulker's Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back="Bleating Mantle",
