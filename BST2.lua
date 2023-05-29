@@ -1038,7 +1038,7 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
 
 	sets.idle.Pet = set_combine(sets.idle, { 
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		body="Tot. Jackcoat +2",
+		body="Tot. Jackcoat +3",
 		hands="Gleti's Gauntlets",
 	  legs="Tali'ah Sera. +2",
 	  feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
@@ -1054,7 +1054,7 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
 			
 	sets.idle.Pet.Engaged = set_combine(sets.idle, {
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		body="Tot. Jackcoat +2",
+		body="Tot. Jackcoat +3",
 		hands="Gleti's Gauntlets",
 	  legs="Tali'ah Sera. +2",
 	  feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
