@@ -1278,11 +1278,9 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Haste.Apocalypse.Crit = set_combine(sets.engaged.crit, {
         ammo="Coiste Bodhar",
         waist="Ioskeha Belt +1",    })
-    sets.engaged.Haste.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {
-   })
+    sets.engaged.Haste.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
   
-    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {
-   })
+    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
 	head="Twilight Helm",

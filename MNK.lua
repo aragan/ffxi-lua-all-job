@@ -71,13 +71,13 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder', 'Mod')
     state.WeaponskillMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder')
-    state.HybridMode:options('Normal', 'PDT', 'Counter')
+    state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
 
     update_combat_form()
     update_melee_groups()
     send_command('bind != gs c toggle CapacityMode')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 179')
     select_default_macro_book()
 end
 
@@ -202,7 +202,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     })
     sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
@@ -218,7 +218,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     })
     sets.precast.WS['Asuran Fists']    = set_combine(sets.precast.WS, {
@@ -241,7 +241,7 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
 
     })
@@ -258,7 +258,7 @@ function init_gear_sets()
         right_ear="Odr Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     })
     sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS, {})
@@ -275,7 +275,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     })
     sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, {    legs="Hiza. Hizayoroi +2",
@@ -315,7 +315,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring="Epaminondas's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
     }
     
     
@@ -458,7 +458,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     }
     sets.engaged.SomeAcc = {
@@ -474,7 +474,7 @@ function init_gear_sets()
         right_ear="Sherida Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     }
     sets.engaged.Acc = {
@@ -490,7 +490,7 @@ function init_gear_sets()
         right_ear="Mache Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
     }
     sets.engaged.Mod = {
         ammo="Coiste Bodhar",
@@ -505,7 +505,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     }
 
@@ -522,7 +522,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
     }
 
@@ -539,7 +539,7 @@ function init_gear_sets()
     right_ear="Schere Earring",
     left_ring="Chirich Ring +1",
 	right_ring="Defending Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 }
     sets.engaged.SomeAcc.PDT = {          
     ammo="Coiste Bodhar",
@@ -554,7 +554,7 @@ function init_gear_sets()
     right_ear="Mache Earring +1",
 	right_ring="Defending Ring",
     left_ring="Niqmaddu Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 
 		
 	}
@@ -571,7 +571,7 @@ function init_gear_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
-    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 		
 	}
     sets.engaged.Counter = {
@@ -587,7 +587,7 @@ function init_gear_sets()
 		right_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
-		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10',}},
+		back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
 		
 	}
     sets.engaged.Acc.Counter = {ammo="Amar Cluster",
@@ -604,6 +604,38 @@ function init_gear_sets()
     left_ear="Dominance Earring",
     back="Tantalic Cape",
 }
+sets.engaged.SubtleBlow = set_combine(sets.engaged, {
+    legs="Mpaca's Hose",
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+})
+sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
+    legs="Mpaca's Hose",
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+})
+sets.engaged.SomeAcc.SubtleBlow = set_combine(sets.engaged, {
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Moonbow Belt +1",
+    left_ear="Digni. Earring",
+    right_ear="Sherida Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+    back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
+})
+
 
 
     -- Hundred Fists/Impetus melee set mods
@@ -615,6 +647,10 @@ function init_gear_sets()
     sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
     sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +2"})
+    --sets.engaged.SubtleBlow.HF = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
+    --sets.engaged.SubtleBlow.HF.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
+    --sets.engaged.SubtleBlow.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
+    --sets.engaged.SomeAcc.SubtleBlow.Impetus = set_combine(sets.engaged.SomeAcc.SubtleBlow, {body="Bhikku Cyclas +2"})
 
 
     -- Footwork combat form
@@ -792,7 +828,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 200')
+        send_command('wait 2;input /lockstyleset 179')
     end
 end
 -- Select default macro book on initial load or subjob change.
