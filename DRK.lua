@@ -54,7 +54,7 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 2;input /lockstyleset 166')
+    send_command('wait 6;input /lockstyleset 166')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
@@ -107,6 +107,7 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
+    send_command('wait 2;input /lockstyleset 166')
 
     select_default_macro_book()
 end
@@ -1725,7 +1726,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 5;input /lockstyleset 166')
+        send_command('wait 6;input /lockstyleset 166')
     end
 end
 function select_default_macro_book()

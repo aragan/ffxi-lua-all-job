@@ -68,7 +68,7 @@ function job_setup()
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
-	send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 6;input /lockstyleset 168')
 	include('Mote-TreasureHunter')
 	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('bind @w gs c toggle WeaponLock')
@@ -82,7 +82,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.RangedMode:options('Normal', 'Acc', 'MAXAcc')
+	state.RangedMode:options('Normal', 'Acc', 'MAXAcc', 'Critical')
 	state.HybridMode:options('Normal', 'Shield')
 	state.WeaponskillMode:options('Normal', 'Acc')
 	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
@@ -125,7 +125,7 @@ function user_setup()
 	send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
-
+    send_command('wait 2;input /lockstyleset 168')
 
 end
 
@@ -360,7 +360,6 @@ function init_gear_sets()
 		waist="Chaac Belt",
 	 }
 	sets.midcast.RA = {		
-
 		head="Arcadian Beret +1",
 		body="Nisroch Jerkin",
 		hands="Malignance Gloves",
@@ -374,9 +373,7 @@ function init_gear_sets()
 		right_ring="Regal Ring",
 		back="Tactical Mantle",
 	}
-	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	
-
 		head="Meghanada Visor +2",
 		body="Nisroch Jerkin",
 		hands="Ikenga's Gloves",
@@ -389,11 +386,8 @@ function init_gear_sets()
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Dingir Ring",
 		back="Tactical Mantle",
-
 	})
-
 	sets.midcast.RA.MAXACC = {
-		
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -407,6 +401,21 @@ function init_gear_sets()
 		right_ring="Crepuscular Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
+	sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
+		head="Meghanada Visor +2",
+		body="Nisroch Jerkin",
+		hands="Mummu Wrists +2",
+		legs="Mummu Kecks +2",
+		feet="Osh. Leggings +1",
+		neck={ name="Scout's Gorget +2", augments={'Path: A',}},
+		waist="Yemaya Belt",
+		left_ear="Odr Earring",
+		right_ear="Telos Earring",
+		left_ring="Mummu Ring",
+		right_ring="Dingir Ring",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+
+	})
 
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
 
@@ -930,7 +939,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 200')
+        send_command('wait 6;input /lockstyleset 168')
     end
 end
 add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')

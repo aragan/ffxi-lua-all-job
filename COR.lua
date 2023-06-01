@@ -36,7 +36,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
-    send_command('wait 2;input /lockstyleset 168')
+    send_command('wait 6;input /lockstyleset 168')
     define_roll_values()
     send_command('lua l AutoCOR')
     include('organizer-lib')
@@ -69,6 +69,7 @@ function user_setup()
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
+    send_command('wait 2;input /lockstyleset 168')
 
     update_combat_form()
     select_default_macro_book()
@@ -196,10 +197,10 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     head="Chass. Tricorne +2",
     body="Laksa. Frac +3",
-legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
-feet="Meg. Jam. +2",
-waist="Yemaya Belt",
-back="Tactical Mantle",
+ legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
+ feet="Meg. Jam. +2",
+ waist="Yemaya Belt",
+ back="Tactical Mantle",
     }) --32/73
 
 
@@ -495,15 +496,19 @@ sets.midcast.RA.NOENMITY = set_combine(sets.midcast.RA, {
     back="Tactical Mantle",
 })
 sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
-    head="Ikenga's Hat",
-    body="Ikenga's Vest",
-    hands="Ikenga's Gloves",
-    legs="Ikenga's Trousers",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Mummu Wrists +2",
+    legs="Mummu Kecks +2",
     feet="Osh. Leggings +1",
     neck="Iskur Gorget",
-    right_ear="Enervating Earring",
-    right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
-    back="Tactical Mantle",
+    waist="Gerdr Belt",
+    left_ear="Odr Earring",
+    right_ear="Telos Earring",
+    left_ring="Mummu Ring",
+    right_ring="Dingir Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+
 })
 
     
@@ -1045,7 +1050,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 168')
     end
 end
 -- Select default macro book on initial load or subjob change.

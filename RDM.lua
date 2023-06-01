@@ -37,7 +37,7 @@ function job_setup()
 	send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind !` gs c toggle MagicBurst')
-    send_command('wait 2;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 174')
 
 end
 
@@ -62,7 +62,7 @@ function user_setup()
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
-	
+	send_command('wait 2;input /lockstyleset 174')
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -1243,7 +1243,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 174')
     end
 end
 -------------------------------------------------------------------------------------------------------------------
