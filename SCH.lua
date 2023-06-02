@@ -283,7 +283,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Rufescent Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
     sets.precast.WS['Omniscience'] = set_combine(sets.precast.WS, {
@@ -345,7 +345,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 

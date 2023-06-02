@@ -499,7 +499,7 @@ function init_gear_sets()
 			left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 			right_ear="Thrud Earring",
 			left_ring="Regal Ring",
-			right_ring="Epaminondas's Ring",
+			right_ring="Cornelia's Ring",
 			back="Atheling Mantle",
 		}
 
@@ -515,7 +515,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Atheling Mantle",
 	}
 
@@ -531,7 +531,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Atheling Mantle",
 		}
 
@@ -611,7 +611,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Atheling Mantle",
 	})
 	sets.precast.WS['Calamity'].WSMedAcc = set_combine(sets.precast.WS['Calamity'], {
@@ -626,7 +626,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Atheling Mantle",
 	})
 
@@ -646,7 +646,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
 		left_ring="Beithir Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 }	
 sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrimal Rendmity'], {
 		ammo="Pemphredo Tathlum",
@@ -660,7 +660,7 @@ sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrima
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Friomisi Earring",
 	left_ring="Beithir Ring",
-	right_ring="Epaminondas's Ring",
+	right_ring="Cornelia's Ring",
 })
 
     sets.precast.WS['Aeolian Edge'] = {
@@ -675,7 +675,7 @@ sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrima
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Moonlight Cape",
 }       
 sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian Edge'], {
@@ -690,7 +690,7 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Moonlight Cape",
  })
 

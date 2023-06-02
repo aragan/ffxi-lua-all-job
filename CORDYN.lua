@@ -180,7 +180,7 @@ back="Tactical Mantle",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
@@ -211,7 +211,7 @@ back="Tactical Mantle",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     })
 
@@ -226,7 +226,7 @@ back="Tactical Mantle",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     })
 
@@ -256,7 +256,7 @@ back="Tactical Mantle",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
@@ -271,7 +271,7 @@ back="Tactical Mantle",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
@@ -287,7 +287,7 @@ back="Tactical Mantle",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
@@ -331,7 +331,7 @@ back="Tactical Mantle",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 
@@ -346,7 +346,7 @@ back="Tactical Mantle",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
 }
 

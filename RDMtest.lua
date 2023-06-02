@@ -133,7 +133,7 @@ function init_gear_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Rufescent Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
 	}
 
@@ -150,7 +150,7 @@ function init_gear_sets()
 		left_ear="Malignance Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
@@ -166,7 +166,7 @@ function init_gear_sets()
 		left_ear="Malignance Earring",
 		right_ear="Hecate's Earring",
 		left_ring="Archon Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 
@@ -183,7 +183,7 @@ function init_gear_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Rufescent Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
 	}
 		
@@ -199,7 +199,7 @@ function init_gear_sets()
 			left_ear="Malignance Earring",
 			right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 			left_ring="Freke Ring",
-			right_ring="Epaminondas's Ring",
+			right_ring="Cornelia's Ring",
 			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 		}
 
@@ -216,7 +216,7 @@ function init_gear_sets()
 		left_ear="Malignance Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
 		
@@ -232,7 +232,7 @@ function init_gear_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Rufescent Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
 	}
 	
@@ -249,7 +249,7 @@ function init_gear_sets()
 		left_ear="Mache Earring +1",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 
@@ -266,7 +266,7 @@ function init_gear_sets()
 		left_ear="Mache Earring +1",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	

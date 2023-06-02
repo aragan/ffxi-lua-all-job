@@ -402,7 +402,7 @@ waist="Orpheus's Sash",
 left_ear="Friomisi Earring",
 right_ear="Malignance Earring",
 left_ring="Archon Ring",
-right_ring="Epaminondas's Ring",
+right_ring="Cornelia's Ring",
 back="Ankou's Mantle",
 }
 sets.precast.WS['Infernal Scythe'].Dread  = sets.defense['Dread Spikes']

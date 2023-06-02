@@ -544,7 +544,7 @@ function init_gear_sets()
 			left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 			right_ear="Thrud Earring",
 			left_ring="Regal Ring",
-			right_ring="Epaminondas's Ring",
+			right_ring="Cornelia's Ring",
 			back="Annealed Mantle",
 		}
 
@@ -560,7 +560,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Annealed Mantle",
 	}
 
@@ -576,7 +576,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Annealed Mantle",
 		}
 
@@ -640,7 +640,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Thrud Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back="Annealed Mantle",
 	})
 
@@ -659,7 +659,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
 		left_ring="Beithir Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 }   
         sets.precast.WS['Cataclysm'] = {
         ammo="Pemphredo Tathlum",

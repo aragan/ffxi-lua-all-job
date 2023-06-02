@@ -467,7 +467,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ear="Friomisi Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
         }
 
@@ -514,7 +514,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
         }
 

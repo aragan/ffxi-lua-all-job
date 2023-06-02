@@ -231,7 +231,7 @@ function init_gear_sets()
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
      }
 
@@ -419,7 +419,7 @@ function init_gear_sets()
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {
@@ -439,7 +439,7 @@ function init_gear_sets()
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {right_ear="Lugra Earring +1",})
@@ -478,72 +478,72 @@ function init_gear_sets()
     sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Sanguine Blade"],{
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Gale Axe"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Sanguine Blade"], {
             ammo="Aurgelmir Orb +1",
             head="Nyame Helm",
-            right_ring="Epaminondas's Ring",
+            right_ring="Cornelia's Ring",
             right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Sanguine Blade"], {
                 ammo="Aurgelmir Orb +1",
                 head="Nyame Helm",
-                right_ring="Epaminondas's Ring",
+                right_ring="Cornelia's Ring",
                 right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
     sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
-        right_ring="Epaminondas's Ring",})
+        right_ring="Cornelia's Ring",})
 
      sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
 

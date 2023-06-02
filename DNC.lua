@@ -321,7 +321,7 @@ function init_gear_sets()
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Odr Earring",
     left_ring="Regal Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Bleating Mantle", }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {head="Nyame Helm",
     body="Nyame Mail",
@@ -427,7 +427,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Odr Earring",
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Bleating Mantle", 
     })
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {    head="Nyame Helm",
@@ -449,7 +449,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Sherida Earring",
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Bleating Mantle",
     })
 
@@ -464,7 +464,7 @@ function init_gear_sets()
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Epaminondas's Ring",}
+    right_ring="Cornelia's Ring",}
     
     sets.precast.Skillchain = {   }
     

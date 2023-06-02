@@ -209,7 +209,7 @@ sets.precast.JA.Jump = {
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     }
 
@@ -264,7 +264,7 @@ sets.precast.JA.Jump = {
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
 	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
@@ -314,7 +314,7 @@ sets.precast.JA.Jump = {
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
 	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
@@ -340,7 +340,7 @@ sets.precast.JA.Jump = {
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
 
@@ -356,7 +356,7 @@ sets.precast.JA.Jump = {
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
 
@@ -377,7 +377,7 @@ sets.precast.JA.Jump = {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
 
@@ -397,7 +397,7 @@ sets.precast.JA.Jump = {
         right_ear="Peltast's Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
 
@@ -417,7 +417,7 @@ sets.precast.JA.Jump = {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
         left_ring="Archon Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
 
@@ -452,7 +452,7 @@ sets.precast.JA.Jump = {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Brutal Earring",
         left_ring="Freke Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 

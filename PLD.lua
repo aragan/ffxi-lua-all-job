@@ -244,7 +244,7 @@ neck="Fotia Gorget",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Beithir Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Atheling Mantle",
 }
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -278,7 +278,7 @@ back="Bleating Mantle",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	     
     sets.precast.WS['Aeolian Edge'] = {   
@@ -293,7 +293,7 @@ back="Bleating Mantle",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	
 sets.precast.WS['Cataclysm'] = {   
@@ -309,7 +309,7 @@ sets.precast.WS['Cataclysm'] = {
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Archon Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	 
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
@@ -325,7 +325,7 @@ waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring="Regal Ring",
-right_ring="Epaminondas's Ring",
+right_ring="Cornelia's Ring",
 back="Bleating Mantle",
 }
    --Stat Modifier:  80%DEX  fTP:2.25

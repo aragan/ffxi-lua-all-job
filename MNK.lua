@@ -175,7 +175,7 @@ function init_gear_sets()
         left_ear="Ishvara Earring",
         right_ear="Telos Earring",
         left_ring="Ilabrat Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 
     }
@@ -314,7 +314,7 @@ function init_gear_sets()
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
     }
     
@@ -423,7 +423,7 @@ function init_gear_sets()
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Archon Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Moonlight Cape",
 }
     sets.Kiting = {feet="Herald's Gaiters"}
