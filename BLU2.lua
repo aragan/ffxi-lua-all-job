@@ -369,7 +369,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
-        right_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back="Atheling Mantle",
     }
     

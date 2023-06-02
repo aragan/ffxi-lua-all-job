@@ -437,7 +437,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
-        right_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
         }
 

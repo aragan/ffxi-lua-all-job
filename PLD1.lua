@@ -200,7 +200,7 @@ neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Beithir Ring",
+left_ring="Epaminondas's Ring",
     right_ring="Cornelia's Ring",
     back="Atheling Mantle",
 }

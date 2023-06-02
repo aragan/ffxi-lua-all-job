@@ -258,7 +258,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     }
@@ -277,7 +277,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
@@ -295,7 +295,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
@@ -571,7 +571,7 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })      
@@ -586,7 +586,7 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Beithir Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     }

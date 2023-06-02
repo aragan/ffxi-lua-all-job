@@ -463,7 +463,7 @@ function init_gear_sets()
         left_ear="Schere Earring",
         right_ear="Karagoz Earring",
         left_ring="Regal Ring",
-        right_ring="Beithir Ring",
+        right_ring="Epaminondas's Ring",
         back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
     }
     sets.precast.WS["Victory Smite"] = {    

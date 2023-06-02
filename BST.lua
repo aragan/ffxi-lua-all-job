@@ -658,7 +658,7 @@ function init_gear_sets()
 		waist="Orpheus's Sash",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Friomisi Earring",
-		left_ring="Beithir Ring",
+		left_ring="Epaminondas's Ring",
 		right_ring="Cornelia's Ring",
 }   
         sets.precast.WS['Cataclysm'] = {
