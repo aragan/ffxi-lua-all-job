@@ -99,7 +99,7 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'Range', 'CRIT' , 'Counter')
-    state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT')
+    state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT', 'SubtleBlow')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL')
     state.IdleMode:options('Normal', 'Evasion')
     state.RestingMode:options('Normal')
@@ -859,7 +859,7 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
-        sets.engaged.PDLATT = set_combine(sets.engaged, {
+    sets.engaged.PDLATT = set_combine(sets.engaged, {
             ammo="Crepuscular Pebble",
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
@@ -874,6 +874,36 @@ function init_gear_sets()
         right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+        body="Flamma Korazin +2",
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.Mid.SubtleBlow = set_combine(sets.defense.PDT, {  
+        head="Kasuga Kabuto +2",
+        body="Flamma Korazin +2",
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Etiolation Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
+    sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {        
+        body="Flamma Korazin +2",
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
 
     sets.engaged.polearm = set_combine(sets.engaged, {range=empty,
          ammo="Coiste Bodhar",
