@@ -162,7 +162,7 @@ function init_gear_sets()
     waist="Orpheus's Sash",
     left_ear="Ishvara Earring",
     right_ear="Friomisi Earring",
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Ilabrat Ring",
     back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
@@ -196,7 +196,7 @@ function init_gear_sets()
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Epaminondas's Ring",
+		left_ring="Cornelia's Ring",
 		right_ring="Regal Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
@@ -211,7 +211,7 @@ function init_gear_sets()
 		waist="Orpheus's Sash",
 		left_ear="Ishvara Earring",
 		right_ear="Moonshade Earring",
-		left_ring="Epaminondas's Ring",
+		left_ring="Cornelia's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}

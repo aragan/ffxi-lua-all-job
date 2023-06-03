@@ -447,7 +447,7 @@ function init_gear_sets()
         left_ear="Schere Earring",
         right_ear="Karagoz Earring",
         left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
     }
     sets.precast.WS["Victory Smite"] = {    
@@ -535,7 +535,7 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }

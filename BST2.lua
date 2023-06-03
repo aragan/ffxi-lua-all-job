@@ -659,7 +659,7 @@ sets.precast.WS['Primal Rend'].WSMedAcc = set_combine(sets.precast.WS['CalaPrima
 	waist="Orpheus's Sash",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Friomisi Earring",
-	left_ring="Epaminondas's Ring",
+	left_ring="Cornelia's Ring",
 	right_ring="Cornelia's Ring",
 })
 

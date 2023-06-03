@@ -163,7 +163,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",}
     sets.precast.WS.Acc = {
@@ -177,7 +177,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Regal Ring",
         back="Atheling Mantle",}
 
@@ -206,7 +206,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Ilabrat Ring",
     back="Atheling Mantle",}
     sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'].Normal, 
@@ -223,7 +223,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",})
     sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS, {    ammo="Knobkierrie",
@@ -236,7 +236,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",})
 
@@ -255,7 +255,7 @@ function init_gear_sets()
     waist="Audumbla Sash",
     left_ear="Halasz Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Evanescence Ring",
     back="Moonlight Cape",}
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
@@ -313,7 +313,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
     sets.idle.Refresh = set_combine(sets.idle, { waist="Fucho-no-obi"})
@@ -328,7 +328,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
 
@@ -342,7 +342,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Shadow Ring",
     back="Moonlight Cape",}
 

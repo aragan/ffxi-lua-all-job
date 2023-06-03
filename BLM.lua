@@ -255,7 +255,7 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Freke Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
         sets.precast.WS['Spinning Scythe'] = {
@@ -283,7 +283,7 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
         sets.precast.WS['Infernal Scythe'] = {
@@ -297,7 +297,7 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
         

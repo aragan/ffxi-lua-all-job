@@ -274,7 +274,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear="Thrud Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }

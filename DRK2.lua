@@ -273,7 +273,7 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear="Thrud Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
@@ -336,7 +336,7 @@ sets.precast.WS['Insurgency'] = {
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }

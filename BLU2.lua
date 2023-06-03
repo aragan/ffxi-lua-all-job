@@ -282,7 +282,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Ilabrat Ring",
         back="Atheling Mantle",
     }
@@ -301,7 +301,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Epona's Ring",
         back="Atheling Mantle",
         })
@@ -317,7 +317,7 @@ function init_gear_sets()
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Ilabrat Ring",
             back="Atheling Mantle",
         })
@@ -334,7 +334,7 @@ function init_gear_sets()
             waist="Hachirin-no-Obi",
             left_ear="Friomisi Earring",
             right_ear="Hecate's Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back="Twilight Cape",
     }
@@ -369,7 +369,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
-        right_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
         back="Atheling Mantle",
     }
     

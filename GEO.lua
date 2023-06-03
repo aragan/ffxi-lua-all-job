@@ -187,7 +187,7 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Freke Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
@@ -202,7 +202,7 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},
         }
