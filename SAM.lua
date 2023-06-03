@@ -78,7 +78,7 @@ function job_setup()
     get_combat_form()
     --get_combat_weapon()
     update_melee_groups()
-    send_command('wait 2;input /lockstyleset 172')
+    send_command('wait 6;input /lockstyleset 172')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')
@@ -1328,7 +1328,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 172')
+        send_command('wait 6;input /lockstyleset 172')
     end
 end
 -------------------------------------------------------------------------------------------------------------------

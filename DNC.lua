@@ -86,9 +86,9 @@ function job_setup()
     state.UseAltStep = M(false, 'Use Alt Step')
     state.SelectStepTarget = M(false, 'Select Step Target')
     state.IgnoreTargetting = M(false, 'Ignore Targetting')
-
     state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
     state.SkillchainPending = M(false, 'Skillchain Pending')
+    send_command('wait 6;input /lockstyleset 168')
 
     determine_haste_group()
 end
@@ -100,9 +100,9 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'DA', 'Fodder', 'PDL')
-    state.HybridMode:options('Normal', 'Evasion', 'PDT')
+    state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'SubtleBlow75')
     state.WeaponskillMode:options('Normal', 'Acc', 'Fodder', 'PDL')
-    state.PhysicalDefenseMode:options('Evasion', 'PDT')
+    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity')
 
 
     gear.default.weaponskill_neck = ""
@@ -301,8 +301,10 @@ function init_gear_sets()
     sets.precast.FC = {ammo="Sapience Orb",
     body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','Pet: Damage taken -3%',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
+    right_ring="Rahab Ring",
     left_ring="Prolix Ring",}
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket",})
@@ -588,6 +590,22 @@ function init_gear_sets()
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Moonlight Ring",
     back="Moonlight Cape",}
+    
+    sets.defense.Enmity = {
+        ammo="Iron Gobbet",
+        head="Malignance Chapeau",
+        body={ name="Emet Harness +1", augments={'Path: A',}},
+        hands="Kurys Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Ahosi Leggings",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Cryptic Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Eihwaz Ring",
+        right_ring="Petrov Ring",
+        back="Reiki Cloak",
+         }
 
     sets.defense.MDT = {     
     ammo="Yamarang",
@@ -707,7 +725,7 @@ function init_gear_sets()
     right_ring="Defending Ring",
     back="Moonlight Cape",}
 
-        sets.engaged.PDL = {    ammo="Aurgelmir Orb +1",
+    sets.engaged.PDL = {    ammo="Aurgelmir Orb +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -720,6 +738,48 @@ function init_gear_sets()
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back="Bleating Mantle",}
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        waist="Sarissapho. Belt",
+        left_ear="Sherida Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Sokolski Mantle",
+    })
+    sets.engaged.Acc.SubtleBlow = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
+    sets.engaged.Acc.SubtleBlow75 = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Sarissapho. Belt",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ear="Sherida Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Sokolski Mantle",
+    })
 
 
     -- Custom melee group: High Haste (2x March or Haste)
@@ -1196,7 +1256,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 168')
     end
 end
 add_to_chat(159,'Author Aragan DNC.Lua File (from Asura)')

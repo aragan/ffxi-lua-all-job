@@ -82,7 +82,7 @@ function job_setup()
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
     state.Moving  = M(false, "moving")
-    send_command('wait 2;input /lockstyleset 144')
+    send_command('wait 6;input /lockstyleset 144')
     run_sj = player.sub_job == 'RUN' or false
 
     select_ammo()
@@ -113,7 +113,7 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc','CRIT')
-    state.HybridMode:options('Normal', 'PDT')
+    state.HybridMode:options('Normal', 'PDT', 'SubtleBlow',  'SubtleBlow75')
     state.RangedMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'SIRD')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'SC')
@@ -131,6 +131,7 @@ function user_setup()
     send_command('bind ^] gs c toggle UseRune')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('wait 2;input /lockstyleset 144')
     -- send_command('bind !- gs equip sets.crafting')
 
 end
@@ -581,6 +582,64 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ring="Hetairoi Ring",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.Mid.SubtleBlow = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Etiolation Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
+    sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.Acc.SubtleBlow75 = set_combine(sets.engaged.Acc, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.Mid.SubtleBlow75 = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Malignance Tabard",
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Etiolation Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
 
 
     -- set for fooling around without dual wield
@@ -700,6 +759,20 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ring="Chirich Ring +1",
         waist="Olseni Belt",
     })
+    sets.engaged.SubtleBlow.MaxHaste = set_combine(sets.engaged, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75.MaxHaste = set_combine(sets.engaged, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
 
     sets.engaged.Innin.MaxHaste     = sets.engaged.MaxHaste
     sets.engaged.Innin.Mid.MaxHaste = sets.engaged.Mid.MaxHaste
@@ -737,6 +810,21 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ear2="Telos Earring",
         feet="Hizamaru Sune-ate +2"
     })
+    sets.engaged.SubtleBlow.Haste_35 = set_combine(sets.engaged.Haste_35, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged.Haste_35, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+
 
     sets.engaged.Innin.Haste_35 = set_combine(sets.engaged.Haste_35, { })
     sets.engaged.Innin.Mid.Haste_35 = sets.engaged.Mid.Haste_35
@@ -768,6 +856,21 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         waist="Olseni Belt",
     })
+    sets.engaged.SubtleBlow.Haste_30 = set_combine(sets.engaged.Haste_30, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged.Haste_30, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+
 
     sets.engaged.Innin.Haste_30 = set_combine(sets.engaged.Haste_30, { })
     sets.engaged.Innin.Mid.Haste_30 = sets.engaged.Mid.Haste_30
@@ -802,8 +905,20 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Suppanomimi",
         waist="Olseni Belt",
     })
-
-
+    sets.engaged.SubtleBlow.Haste_15 = set_combine(sets.engaged.Haste_15, {        
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged.Haste_15, {        
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Kobo Kote",
+        legs="Mpaca's Hose",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
     
     sets.engaged.Innin.Haste_15 = set_combine(sets.engaged.Haste_15, { })
     sets.engaged.Innin.Mid.Haste_15 = sets.engaged.Mid.Haste_15
@@ -822,7 +937,6 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
-
 }
     
     -- Weaponskills 
@@ -1386,7 +1500,7 @@ function check_buff(buff_name, eventArgs)
 
 end
 function sub_job_change(new,old)
-    send_command('wait 5;input /lockstyleset 144')
+    send_command('wait 6;input /lockstyleset 144')
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.

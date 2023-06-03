@@ -57,7 +57,7 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
-    send_command('wait 2;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 179')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -85,8 +85,8 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'STP', 'PD', 'CRIT', 'Counter')
-    state.HybridMode:options('Normal', 'PDT', 'H2H')
+    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'STP', 'PD', 'CRIT')
+    state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'SubtleBlow75', 'Counter')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal')
     state.IdleMode:options('Normal')
@@ -104,6 +104,7 @@ function user_setup()
     send_command('bind !` input /ja "Seigan" <me>')
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
+    send_command('wait 2;input /lockstyleset 179')
     select_default_macro_book()
 end
  
@@ -763,6 +764,56 @@ function init_gear_sets()
     right_ring="Hetairoi Ring",
     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+        body="Flamma Korazin +2",
+        hands="Sakpata's Gauntlets",
+        left_ear={ name="Schere Earring", augments={'Path: A',}},
+        right_ear="Boii Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.Mid.SubtleBlow = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head="Sakpata's Helm",
+        body="Flamma Korazin +2",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear={ name="Schere Earring", augments={'Path: A',}},
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
+    sets.engaged.SubtleBlow75 = set_combine(sets.engaged, {        
+        body="Flamma Korazin +2",
+        hands="Kobo Kote",
+        legs="Sakpata's Cuisses",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Sarissapho. Belt",
+        left_ear={ name="Schere Earring", augments={'Path: A',}},
+        right_ear="Boii Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Niqmaddu Ring",
+        back="Sokolski Mantle",
+    })
+    sets.engaged.Mid.SubtleBlow75 = set_combine(sets.defense.PDT, {        
+        ammo="Staunch Tathlum +1",
+        head="Sakpata's Helm",
+        body="Flamma Korazin +2",
+        hands="Kobo Kote",
+        legs="Sakpata's Cuisses",
+        feet="Sakpata's Leggings",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Sarissapho. Belt",
+        left_ear={ name="Schere Earring", augments={'Path: A',}},
+        right_ear="Boii Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Sokolski Mantle",
+    })
     sets.engaged.H2H = {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
@@ -1177,7 +1228,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 179')
+        send_command('wait 6;input /lockstyleset 179')
     end
 end
 add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')
