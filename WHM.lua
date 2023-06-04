@@ -54,7 +54,7 @@ organizer_items = {
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
-    send_command('wait 2;input /lockstyleset 178')
+    send_command('wait 6;input /lockstyleset 178')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal','Club', 'Staff', 'MaxAcc', 'Shield')
     state.HybridMode:options('Normal', 'MaxAcc')
-    state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Enmity')
+    state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Duration', 'Enmity')
     state.IdleMode:options('Normal', 'PDT')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -73,6 +73,7 @@ function user_setup()
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('wait 2;input /lockstyleset 178')
 
     select_default_macro_book()
 end
@@ -276,6 +277,13 @@ function init_gear_sets()
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back="Solemnity Cape",}
     
+    sets.Duration = {
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+    }
     -- Cure sets
     gear.default.obi_waist = "Hachirin-no-Obi"
     gear.default.obi_back = "Alaunus's Cape"
@@ -470,6 +478,7 @@ function init_gear_sets()
         back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
     }
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
+    sets.midcast.Refresh.Duration = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
 
     sets.midcast.StatusRemoval = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -499,13 +508,17 @@ function init_gear_sets()
     left_ring="Stikini Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
-sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic'],sets.sird) 
-
+    sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic'],sets.sird) 
+    sets.midcast['Enhancing Magic'].Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.Stoneskin = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         ammo="Pemphredo Tathlum",
-        hands="Inyan. Dastanas +2",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         neck="Nodens Gorget",
         waist="Siegel Sash",
         left_ear="Andoaa Earring",
@@ -514,14 +527,16 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         left_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
         sets.midcast.Stoneskin.sird = set_combine(sets.midcast.Stoneskin,sets.sird) 
+        sets.midcast.Stoneskin.Duration = set_combine(sets.midcast.Stoneskin,sets.Duration) 
+
     sets.midcast.Blink = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         ammo="Pemphredo Tathlum",
-        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-        body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-        hands="Inyan. Dastanas +2",
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Andoaa Earring",
@@ -530,13 +545,18 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         left_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
         sets.midcast.Blink.sird = set_combine(sets.midcast.Blink,sets.sird) 
+        sets.midcast.Blink.Duration = set_combine(sets.midcast.Blink,sets.Duration) 
+
 
     sets.midcast.Aquaveil = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
-        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Gifted Earring",
@@ -544,34 +564,48 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         left_ring="Mephitas's Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
 
-        sets.midcast.Aquaveil.sird = set_combine(sets.midcast.Aquaveil,sets.sird) 
+    sets.midcast.Aquaveil.sird = set_combine(sets.midcast.Aquaveil,sets.sird)
+    sets.midcast.Aquaveil.Duration = set_combine(sets.midcast.Aquaveil,sets.Duration) 
+
+    sets.midcast.Haste = set_combine(sets.midcast['Enhancing Magic'])
+    sets.midcast.Haste.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.Auspice = sets.midcast['Enhancing Magic']
+    sets.midcast.Auspice.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
     main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
     ammo="Pemphredo Tathlum",
-    hands="Inyan. Dastanas +2",
+    head="Telchine Cap",
+    body="Telchine Chas.",
+    hands="Telchine Gloves",
+    legs="Telchine Braconi",
+    feet="Telchine Pigaches",
     neck="Nodens Gorget",
     legs="Ebers Pant. +2",
     left_ear="Andoaa Earring",
     right_ring="Stikini Ring",
     back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
     })
+    sets.midcast.BarElement.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.Regen =set_combine(sets.midcast['Enhancing Magic'], {
         main="Bolelabunga",
         sub="Ammurapi Shield",
         ammo="Sapience Orb",
         head="Inyanga Tiara +2",
-        waist="Embla Sash",    })
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        waist="Embla Sash",})
+    sets.midcast.Regen.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.Protectra = sets.midcast['Enhancing Magic']
     sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
-
     sets.midcast['Divine Magic'] = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
     sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head="Inyanga Tiara +2",
@@ -796,7 +830,6 @@ sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.Club = {
-
         ammo="Amar Cluster",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
@@ -930,7 +963,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 178')
+        send_command('wait 6;input /lockstyleset 178')
     end
 end
 -------------------------------------------------------------------------------------------------------------------

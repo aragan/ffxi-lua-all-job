@@ -50,7 +50,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT')
 	state.HybridMode:options('Normal', 'PDT')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
-	state.CastingMode:options('Normal', 'Burst')
+	state.CastingMode:options('Normal', 'Burst', 'Duration')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
 
     state.Moving = M(false, "moving")
@@ -359,6 +359,14 @@ sets.TreasureHunter = {
     
     sets.midcast.FastRecast = {}
 
+	sets.Duration={
+		head="Telchine Cap",
+		body="Telchine Chas.",
+		hands="Telchine Gloves",
+		legs="Telchine Braconi",
+		feet="Telchine Pigaches",
+	}
+
     sets.midcast.Cure = {
 		ammo="Staunch Tathlum +1",
 		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -414,11 +422,26 @@ sets.TreasureHunter = {
 	}
 		
 	sets.midcast['Enhancing Magic'].SelfDuration = {
-		head="Befouled Crown",
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		head="Telchine Cap",
+		body="Telchine Chas.",
+		hands="Telchine Gloves",
+		legs="Telchine Braconi",
+		feet="Telchine Pigaches",
 		neck="Incanter's Torque",
-		waist="Olympus Sash",
+        waist="Embla Sash",
+		right_ear="Andoaa Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+	}
+	sets.midcast['Enhancing Magic'].Duration = {
+		head="Telchine Cap",
+		body="Telchine Chas.",
+		hands="Telchine Gloves",
+		legs="Telchine Braconi",
+		feet="Telchine Pigaches",
+		neck="Incanter's Torque",
+        waist="Embla Sash",
 		right_ear="Andoaa Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
@@ -438,14 +461,21 @@ sets.TreasureHunter = {
 	}
 	
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Skill, {})
+	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Duration, {})
+
 		
 	sets.midcast['Enhancing Magic'].GainSpell = set_combine(sets.midcast['Enhancing Magic'].SelfDuration, {hands="Vitiation gloves +3"})
 		
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
-
 		waist="Gishdubar sash"})
+		sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'].Duration, {
+			})
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+		waist="Siegel Sash",
+		neck="Nodens Gorget",
+    })
+	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'].Duration, {
 		waist="Siegel Sash",
 		neck="Nodens Gorget",
     })

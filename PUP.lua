@@ -26,7 +26,7 @@ function get_sets()
 
     -- Load and initialize the include file.
     include("Mote-Include.lua")
-    send_command('wait 5;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 179')
 end
 
 function user_setup()
@@ -1380,9 +1380,8 @@ function sub_job_change(new,old)
    -- end
     if job_sub_job_change then
         job_sub_job_change(newSubjob, oldSubjob)
-        send_command('wait 5;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 168')
     end
-    send_command('wait 5;input /lockstyleset 168')
 end
 
 function job_update(cmdParams, eventArgs)
@@ -1390,7 +1389,6 @@ function job_update(cmdParams, eventArgs)
 end
 function job_self_command(cmdParams, eventArgs)
     if player.equipment.main == 'Tauret' then
-        send_command('wait 2;input /lockstyleset 168')
     end
     eventArgs.handled = true
 end
