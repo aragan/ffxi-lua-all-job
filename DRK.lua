@@ -10,7 +10,7 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
-  
+require('closetCleaner')
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -93,10 +93,12 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'PD', 'Mid', 'STP', 'DA', 'MaxAcc', 'SubtleBlow', 'crit')
     state.HybridMode:options('Normal', 'DreadSP', 'PDT')
-    state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
+    state.WeaponskillMode:options('Normal', 'Mid', 'PDL', 'SC', 'Dread')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'MB', 'ConserveMP', 'sird')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
+    state.IdleMode:options('Normal', 'Refresh')
+
       
     war_sj = player.sub_job == 'WAR' or false
   
@@ -206,35 +208,47 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head="Ratri Sallet",
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands="Ratri Gadlings",
+        hands="Nyame Gauntlets",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Regal Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
     sets.precast.WS.Dread  = sets.defense['Dread Spikes']
-
     sets.precast.WS.Mid = set_combine(sets.precast.WS, {       
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    })
-    sets.precast.WS.SC = set_combine(sets.precast.WS, {       
         head={ name="Nyame Helm", augments={'Path: B',}},
        body={ name="Nyame Mail", augments={'Path: B',}},
        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
        feet="Heath. Sollerets +2",
+        })
+
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+    ammo="Crepuscular Pebble",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring",
+    })
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {       
+       head="Nyame Helm",
+       body="Nyame Mail",
+       hands="Nyame Gauntlets",
+       legs="Nyame Flanchard",
+       feet="Nyame Sollerets",
+       neck={ name="Warder's Charm +1", augments={'Path: A',}},
        })
     sets.precast.WS.Judgment = set_combine(sets.precast.WS, {
         head={ name="Nyame Helm", augments={'Path: B',}},
@@ -243,6 +257,19 @@ function init_gear_sets()
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    })
+    sets.precast.WS.Judgment.PDL = set_combine(sets.precast.WS.Judgment, {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
+    sets.precast.WS.Judgment.SC = set_combine(sets.precast.WS.Judgment, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
     sets.precast.WS['Vorpal Scythe'] = set_combine(sets.precast.WS, {
@@ -287,6 +314,18 @@ function init_gear_sets()
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
     })
+    sets.precast.WS['Catastrophe'].PDL = set_combine(sets.precast.WS['Catastrophe'], {
+        ammo="Crepuscular Pebble",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring",
+    })
     sets.precast.WS['Catastrophe'].SC = set_combine(sets.precast.WS['Catastrophe'], {
         head="Nyame Helm",
         body="Nyame Mail",
@@ -303,6 +342,19 @@ function init_gear_sets()
     sets.precast.WS['Spiral Hell'].Mid = set_combine(sets.precast.WS.Mid, {
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    })
+    sets.precast.WS['Spiral Hell'].PDL = set_combine(sets.precast.WS['Spiral Hell'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Spiral Hell'].SC = set_combine(sets.precast.WS['Spiral Hell'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
 sets.precast.WS['Insurgency'] = {
@@ -325,6 +377,18 @@ sets.precast.WS['Insurgency'] = {
     sets.precast.WS['Insurgency'].Mid = set_combine(sets.precast.WS['Insurgency'], {
         head="Sakpata's Helm",
     })
+    sets.precast.WS['Insurgency'].PDL = set_combine(sets.precast.WS['Insurgency'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring",    })
+
+    sets.precast.WS['Insurgency'].SC = set_combine(sets.precast.WS['Insurgency'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},  })
   
     sets.precast.WS['Cross Reaper'] = {
         ammo="Knobkierrie",
@@ -344,11 +408,19 @@ sets.precast.WS['Insurgency'] = {
   
     sets.precast.WS['Cross Reaper'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Cross Reaper'].Mid = set_combine(sets.precast.WS['Cross Reaper'], {
+    })
+    sets.precast.WS['Cross Reaper'].PDL = set_combine(sets.precast.WS['Cross Reaper'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Cross Reaper'].SC = set_combine(sets.precast.WS['Cross Reaper'], {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
   
 sets.precast.WS['Quietus'] = {
@@ -373,6 +445,19 @@ sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Heath. Sollerets +2",
 })
+sets.precast.WS['Quietus'].PDL = set_combine(sets.precast.WS['Quietus'], {
+    ammo="Crepuscular Pebble",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring", 
+})
+sets.precast.WS['Quietus'].SC = set_combine(sets.precast.WS['Quietus'], {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+})
 
 sets.precast.WS['Entropy'] = {
     ammo="Knobkierrie",
@@ -391,6 +476,20 @@ sets.precast.WS['Entropy'] = {
 } 
 sets.precast.WS['Entropy'].Mid = set_combine(sets.precast.WS['Entropy'], {})
 
+sets.precast.WS['Entropy'].PDL = set_combine(sets.precast.WS['Entropy'], {
+    ammo="Crepuscular Pebble",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring",
+})
+sets.precast.WS['Entropy'].SC = set_combine(sets.precast.WS['Entropy'], {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+})
+
 sets.precast.WS['Infernal Scythe'] = {   
 ammo="Pemphredo Tathlum",
 head="Pixie Hairpin +1",
@@ -408,7 +507,27 @@ back="Ankou's Mantle",
 }
 sets.precast.WS['Infernal Scythe'].Dread  = sets.defense['Dread Spikes']
 sets.precast.WS['Infernal Scythe'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {})
+
+sets.precast.WS['Infernal Scythe'].PDL = set_combine(sets.precast.WS['Infernal Scythe'], {
+    ammo="Crepuscular Pebble",
+right_ear="Heathen's Earring",
+right_ring="Sroda Ring", 
+})
+sets.precast.WS['Infernal Scythe'].SC = set_combine(sets.precast.WS['Infernal Scythe'], {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+})
 sets.precast.WS['Shadow of Death'] = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",
+})
+sets.precast.WS['Shadow of Death'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",
+})
+sets.precast.WS['Shadow of Death'].PDL = set_combine(sets.precast.WS['Infernal Scythe'].PDL, {neck="Sibyl Scarf",
+})
+sets.precast.WS['Shadow of Death'].SC = set_combine(sets.precast.WS['Infernal Scythe'].SC, {neck="Sibyl Scarf",
 })
 sets.precast.WS['Dark Harvest'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
@@ -454,7 +573,11 @@ sets.precast.WS['Nightmare Scythe'] = {
 }
   
     sets.precast.WS['Resolution'].Dread  = sets.defense['Dread Spikes']
-    sets.precast.WS['Resolution'].Mid = set_combine(sets.precast.WS['Resolution'], {})
+    sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Resolution'], {
+    ammo="Crepuscular Pebble",
+       right_ear="Heathen's Earring",
+       right_ring="Sroda Ring", 
+    })
     sets.precast.WS['Sickle Moon'] = set_combine(sets.precast.WS['Resolution'], {})
 
     sets.precast.WS['Ground Strike'] = {
@@ -479,9 +602,25 @@ sets.precast.WS['Nightmare Scythe'] = {
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
     })
+    sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Ground Strike'].SC = set_combine(sets.precast.WS['Ground Strike'], {
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Heath. Sollerets +2",
+    })
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
     sets.precast.WS['Scourge'].Dread  = sets.defense['Dread Spikes']
-    sets.precast.WS['Scourge'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
+    sets.precast.WS['Scourge'].PDL = set_combine(sets.precast.WS['Torcleaver'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
       
     sets.precast.WS['Torcleaver'] = {
     ammo="Knobkierrie",
@@ -500,6 +639,19 @@ sets.precast.WS['Nightmare Scythe'] = {
     }       
     sets.precast.WS['Torcleaver'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Torcleaver'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
+    sets.precast.WS['Torcleaver'].PDL = set_combine(sets.precast.WS['Torcleaver'], {
+        ammo="Crepuscular Pebble",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Torcleaver'].SC = set_combine(sets.precast.WS['Torcleaver'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
 
     sets.precast.WS['Spinning Scythe'] = {
         ammo="Knobkierrie",
@@ -516,6 +668,11 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
+    sets.precast.WS['Spinning Scythe'].PDL = set_combine(sets.precast.WS['Spinning Scythe'], {
+    ammo="Crepuscular Pebble",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring", 
+})
 
       
     --------------------------------------
