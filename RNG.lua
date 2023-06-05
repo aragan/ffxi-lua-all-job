@@ -23,6 +23,8 @@ function get_sets()
 end
 
 	organizer_items = {
+		"Perun 1+",
+		"Holliday",
 		"Decimating Bullet",
 		"Beryllium Arrow",
 		"Eminent Arrow",
