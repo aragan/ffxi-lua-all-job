@@ -16,7 +16,7 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {
-    "Thr. Tomahawk",
+    "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",

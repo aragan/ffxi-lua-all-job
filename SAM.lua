@@ -38,6 +38,7 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {
+    "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -100,7 +101,7 @@ function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'Range', 'CRIT' , 'Counter')
     state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT', 'SubtleBlow')
-    state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'PDL')
+    state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Acc', 'PDL')
     state.IdleMode:options('Normal', 'Evasion')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Reraise')
@@ -236,7 +237,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back="Smertrios's Mantle",
     }
-    sets.precast.WS.Mid = set_combine(sets.precast.WS, {
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -246,6 +247,14 @@ function init_gear_sets()
         back="Smertrios's Mantle",
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+    })
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     
     sets.precast.WS['Namas Arrow'] = {
@@ -258,11 +267,11 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     }
-    sets.precast.WS['Namas Arrow'].Mid = set_combine(sets.precast.WS['Namas Arrow'], {
+    sets.precast.WS['Namas Arrow'].PDL = set_combine(sets.precast.WS['Namas Arrow'], {
     })
     sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {
     })
@@ -277,11 +286,11 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Apex Arrow'].Mid = sets.precast.WS['Apex Arrow']
+    sets.precast.WS['Apex Arrow'].PDL = sets.precast.WS['Apex Arrow']
     sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
     })
 
@@ -295,11 +304,11 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Empyreal Arrow'].Mid = sets.precast.WS['Apex Arrow']
+    sets.precast.WS['Empyreal Arrow'].PDL = sets.precast.WS['Apex Arrow']
     sets.precast.WS['Empyreal Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
     })
     
@@ -318,7 +327,7 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Tachi: Fudo'].Mid = set_combine(sets.precast.WS['Tachi: Fudo'], {
+    sets.precast.WS['Tachi: Fudo'].PDL = set_combine(sets.precast.WS['Tachi: Fudo'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -341,34 +350,36 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        ear1="Lugra Earring +1", 
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
 
     sets.precast.WS['Tachi: Kaiten'].Mid = set_combine(sets.precast.WS['Tachi: Kaiten'], {
-        ammo="Crepuscular Pebble",
-        head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        ammo="Knobkierrie",
+        body="Nyame Mail",
+        body="Nyame Mail",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Thrud Earring",
-        right_ear="Ishvara Earring",
-        left_ring="Regal Ring",
+        ear1="Lugra Earring +1", 
+        LEFT_ring="Sroda Ring", 
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Tachi: Kaiten'].Mid = set_combine(sets.precast.WS['Tachi: Fudo'], {
-        ammo="Crepuscular Pebble",
+    sets.precast.WS['Tachi: Kaiten'].PDL = set_combine(sets.precast.WS['Tachi: Kaiten'], {
+        ammo="Knobkierrie",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
+        ear1="Lugra Earring +1", 
+        left_ring="Niqmaddu Ring",
+        right_ring="Regal Ring",
         back="Smertrios's Mantle",
     })
 
@@ -391,7 +402,7 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {
+    sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -421,13 +432,13 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Tachi: Shoha'].Mid = set_combine(sets.precast.WS['Tachi: Shoha'], {
+    sets.precast.WS['Tachi: Shoha'].PDL = set_combine(sets.precast.WS['Tachi: Shoha'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Niqmaddu Ring",
+    left_ring="Regal Ring",
         back="Smertrios's Mantle",
     })
     sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'], {})
@@ -436,7 +447,7 @@ function init_gear_sets()
         neck="Samurai's Nodowa +2",
       
     })
-    sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {
+    sets.precast.WS['Stardiver'].PDL = set_combine(sets.precast.WS['Stardiver'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -464,7 +475,7 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Tachi: Rana'].Mid = set_combine(sets.precast.WS['Tachi: Rana'], {
+    sets.precast.WS['Tachi: Rana'].PDL = set_combine(sets.precast.WS['Tachi: Rana'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -492,9 +503,14 @@ function init_gear_sets()
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Smertrios's Mantle",
     })
-    sets.precast.WS['Tachi: Ageha'].Mid = set_combine(sets.precast.WS['Tachi: Ageha'], {
-        left_ear="Handler's Earring",
-        right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
+    sets.precast.WS['Tachi: Ageha'].PDL = set_combine(sets.precast.WS['Tachi: Ageha'], {
+        ammo="Crepuscular Pebble",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Kas. Sune-Ate +2",
+        left_ring="Regal Ring",
+        back="Smertrios's Mantle",
     })
     
     sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
@@ -514,12 +530,12 @@ function init_gear_sets()
 
     })
 
-    sets.precast.WS['Tachi: Kasha'].Mid = set_combine(sets.precast.WS['Tachi: Kasha'], {
+    sets.precast.WS['Tachi: Kasha'].PDL = set_combine(sets.precast.WS['Tachi: Kasha'], {
         ammo="Crepuscular Pebble",
             body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Kas. Sune-Ate +2",
+      hands="Nyame Gauntlets",
+      legs="Nyame Flanchard",
+      feet="Kas. Sune-Ate +2",
         left_ring="Regal Ring",
         back="Smertrios's Mantle",
     })
@@ -571,11 +587,11 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })      
-    sets.precast.WS['Tachi: Jinpu'].Mid =  {
+    sets.precast.WS['Tachi: Jinpu'].PDL = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         ammo="Crepuscular Pebble",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -586,10 +602,26 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
-    }
+    })
+    sets.precast.WS['Tachi: Jinpu'].Acc = set_combine(sets.precast.WS['Tachi: Jinpu'], {
+    })
+    sets.precast.WS['Tachi: Jinpu'].SC = set_combine(sets.precast.WS['Tachi: Jinpu'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
+        back="Smertrios's Mantle",
+    })
     
     sets.midcast['Blue Magic'] = set_combine(sets.precast.WS['Tachi: Ageha'], {
     })

@@ -17,6 +17,7 @@ function get_sets()
 	include('organizer-lib')
 
     organizer_items = {
+        "Mafic Cudgel",
         "Angon",
         "Gyudon",
         "Reraiser",
@@ -447,8 +448,8 @@ sets.precast.JA.Jump = {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Caro Necklace",
-        waist="Grunfeld Rope",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Brutal Earring",
         left_ring="Freke Ring",

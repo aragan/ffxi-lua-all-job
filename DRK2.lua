@@ -205,9 +205,9 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head="Ratri Sallet",
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands="Ratri Gadlings",
+        hands="Nyame Gauntlets",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
@@ -264,9 +264,9 @@ function init_gear_sets()
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Catastrophe'] = {
         ammo="Knobkierrie",
-        head="Ratri Sallet",
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands="Ratri Gadlings",
+        hands="Nyame Gauntlets",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
@@ -352,9 +352,9 @@ sets.precast.WS['Insurgency'] = {
   
 sets.precast.WS['Quietus'] = {
     ammo="Knobkierrie",
-    head="Ratri Sallet",
+    head="Nyame Helm",
     body="Nyame Mail",
-    hands="Ratri Gadlings",
+    hands="Nyame Gauntlets",
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
@@ -458,9 +458,9 @@ sets.precast.WS['Nightmare Scythe'] = {
 
     sets.precast.WS['Ground Strike'] = {
         ammo="Knobkierrie",
-        head="Ratri Sallet",
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands="Ratri Gadlings",
+        hands="Nyame Gauntlets",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
@@ -515,6 +515,26 @@ sets.precast.WS['Nightmare Scythe'] = {
         right_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
+sets.precast.WS['Spinning Slash'] = set_combine(sets.precast.WS['Spinning Scythe'], {
+    left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+    right_ear="Lugra Earring +1",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Cornelia's Ring",})
+
+sets.precast.WS['Spinning Slash'].SC = set_combine(sets.precast.WS['Spinning Scythe'], {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+})
+sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Scythe'], {
+    ammo="Crepuscular Pebble",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring", 
+})
+
 
       
     --------------------------------------

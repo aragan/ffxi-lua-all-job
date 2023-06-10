@@ -51,6 +51,7 @@ end
 function user_setup()
     state.OffenseMode:options('Ranged', 'Melee', 'Acc', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
+    state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
@@ -91,6 +92,7 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     organizer_items  = {
+        "Mafic Cudgel",
         "Decimating Bullet",
         "Chrono Bullet",
         "Trump Card Case",
@@ -546,7 +548,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         }
     
     -- Defense sets
-    sets.defense.PDT = {
+sets.defense.PDT = {
         head="Malignance Chapeau",
     body="Nyame Mail",
     hands="Malignance Gloves",
@@ -561,7 +563,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     back="Moonlight Cape",
 }
 
-    sets.defense.MDT = {head="Malignance Chapeau",
+sets.defense.MDT = {head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
@@ -589,7 +591,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     -- Normal melee group
 
 
-    sets.engaged.Melee = {
+sets.engaged.Melee = {
     range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -604,7 +606,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     right_ring="Petrov Ring",
     back="Annealed Mantle",
     }
-    sets.engaged.Acc = {
+sets.engaged.Acc = {
 
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -620,7 +622,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     back="Annealed Mantle",
     }
 
-    sets.engaged.CRIT = {
+sets.engaged.CRIT = {
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -635,7 +637,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-    sets.engaged.Ranged = {    
+sets.engaged.Ranged = {    
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -650,7 +652,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
-    sets.engaged.Acc = {
+sets.engaged.Acc = {
             ammo="Orichalc. Bullet",
             head="Malignance Chapeau",
             body="Mummu Jacket +2",
@@ -664,9 +666,9 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
             left_ring="Petrov Ring",
             right_ring="Ilabrat Ring",
             back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-        }
+    }
 
-    sets.engaged.CRIT = {
+sets.engaged.CRIT = {
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -681,7 +683,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-    sets.engaged.Melee = {
+sets.engaged.Melee = {
     
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -696,6 +698,33 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         right_ring="Petrov Ring",
         back="Annealed Mantle",
 }
+sets.engaged.PDT = {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    }
+sets.engaged.Melee.PDT = {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    }
+sets.engaged.Acc.PDT = {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    }
     
 
 sets.TripleShot = {
@@ -707,11 +736,11 @@ sets.TripleShot = {
     }
 
 
-sets.DefaultShield = {sub="Nusku Shield"}
-sets.Doom = {    neck="Nicander's Necklace",
-waist="Gishdubar Sash",
-left_ring="Purity Ring",
-right_ring="Blenmot's Ring +1",}
+ sets.DefaultShield = {sub="Nusku Shield"}
+ sets.Doom = {    neck="Nicander's Necklace",
+   waist="Gishdubar Sash",
+   left_ring="Purity Ring",
+   right_ring="Blenmot's Ring +1",}
 
 end
 

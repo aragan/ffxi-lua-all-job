@@ -509,8 +509,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Caro Necklace",
-        waist="Luminary Sash",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -793,6 +793,37 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
     sets.midcast.Shell = {ring1="Sheltered Ring"}
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
     
+    sets.midcast['Enhancing Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Mendi. Earring",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+
+        sets.midcast['Enhancing Magic'].SIRD = {
+            ammo="Pemphredo Tathlum",
+            head="Telchine Cap",
+            body="Telchine Chas.",
+            hands="Telchine Gloves",
+            legs="Telchine Braconi",
+            feet="Telchine Pigaches",
+            neck="Incanter's Torque",
+            waist="Olympus Sash",
+            left_ear="Mendi. Earring",
+            right_ear="Andoaa Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Stikini Ring +1",
+            back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+    
+
     sets.midcast.phalanx = {
         sub="Sakpata's Sword",
         ammo="Sapience Orb",
@@ -808,6 +839,23 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}
+
+sets.midcast.phalanx.SIRD = {
+    sub="Sakpata's Sword",
+    ammo="Sapience Orb",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Pinga Tunic",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Jhakri Pigaches +2",
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Andoaa Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
     
     

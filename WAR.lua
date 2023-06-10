@@ -20,6 +20,8 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {
+            "Maliya Sickle +1",
+            "Pixquizpan",
             "Thr. Tomahawk",
             "Gyudon",
             "Reraiser",
@@ -258,7 +260,7 @@ function init_gear_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Regal Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -443,7 +445,11 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {right_ear="Lugra Earring +1",})
+    sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear="Lugra Earring +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Cornelia's Ring",    })
     sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Yetshila +1",

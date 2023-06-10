@@ -616,6 +616,21 @@ function init_gear_sets()
     sets.midcast.Shell = {ring1="Sheltered Ring"}
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
     
+    sets.midcast['Enhancing Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Mendi. Earring",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+        
     sets.midcast.phalanx = {
 
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},

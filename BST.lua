@@ -64,6 +64,9 @@ organizer_items = {
     ammo="Pale Sap",
 }
 organizer_items = {
+	"Mafic Cudgel",
+	"Maliya Sickle +1",
+	"Pixquizpan",
 item="Gyudon",
 item="Reraiser",
 item="Hi-Reraiser",

@@ -23,6 +23,7 @@ function get_sets()
 end
 
 	organizer_items = {
+		"Mafic Cudgel",
 		"Perun 1+",
 		"Holliday",
 		"Decimating Bullet",
