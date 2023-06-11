@@ -63,10 +63,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal','Club', 'Staff', 'MaxAcc', 'Shield')
-    state.HybridMode:options('Normal', 'MaxAcc')
+    state.OffenseMode:options('None', 'Normal', 'MaxAcc', 'Shield')
+    state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Duration', 'Enmity')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'Evasion')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -719,7 +720,8 @@ function init_gear_sets()
     }
     
 
-    sets.idle.PDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sets.idle.PDT = {
+    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Homiliary",
     head="Befouled Crown",
@@ -735,6 +737,21 @@ function init_gear_sets()
     right_ring="Stikini Ring +1",
     back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
 
+    sets.idle.Evasion = {       
+    ammo="Amar Cluster",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Defending Ring",
+    right_ring="Vengeful Ring",
+    back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    }
     sets.idle.Town = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Homiliary",
@@ -786,6 +803,21 @@ function init_gear_sets()
         right_ring="Inyanga Ring",
         back="Solemnity Cape",
 }
+    sets.defense.Evasion = {
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring="Defending Ring",
+        right_ring="Vengeful Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+}
 
     sets.defense.MDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -830,38 +862,6 @@ function init_gear_sets()
         right_ring="Petrov Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.Club = {
-        ammo="Amar Cluster",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs="Aya. Cosciales +2",
-        feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
-        waist="Grunfeld Rope",
-        left_ear="Brutal Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-    sets.engaged.Staff = {
-        main="Malignance Pole",
-        sub="Enki Strap",
-        ammo="Amar Cluster",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
-        neck="Lissome Necklace",
-        waist="Windbuffet Belt +1",
-        left_ear="Brutal Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
     sets.engaged.MaxAcc = {
         ammo="Amar Cluster",
         head="Aya. Zucchetto +2",
@@ -877,55 +877,84 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.MaxAcc.Staff = {
-        ammo="Amar Cluster",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
-        neck="Subtlety Spec.",
-        waist="Olseni Belt",
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-    sets.engaged.MaxAcc.Club = {
-        ammo="Amar Cluster",
-        head="Aya. Zucchetto +2",
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
-        neck="Subtlety Spec.",
-        waist="Olseni Belt",
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
     sets.engaged.Shield = {
-            main="Maxentius",
-            sub="Genmei Shield",
-            ammo="Amar Cluster",
-            head="Aya. Zucchetto +2",
-            body="Ayanmo Corazza +2",
-            hands="Bunzi's Gloves",
-            legs="Aya. Cosciales +2",
-            feet={ name="Nyame Sollerets", augments={'Path: B',}},
-            neck="Lissome Necklace",
-            waist="Grunfeld Rope",
-            left_ear="Brutal Earring",
-            right_ear="Telos Earring",
-            left_ring="Chirich Ring +1",
-            right_ring="Defending Ring",
-            back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-
-
+        main="Maxentius",
+        sub="Genmei Shield",
+        ammo="Amar Cluster",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Aya. Cosciales +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Lissome Necklace",
+        waist="Grunfeld Rope",
+        left_ear="Brutal Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Digni. Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.SubtleBlow.Shield = set_combine(sets.engaged.Shield, {
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Digni. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Moonlight Cape",
+    })
+    sets.engaged.SubtleBlow.MaxAcc = set_combine(sets.engaged.MaxAcc, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Digni. Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.engaged.PDT = set_combine(sets.engaged, {
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        back="Moonlight Cape",
+    })
+    sets.engaged.PDT.MaxAcc = set_combine(sets.engaged.MaxAcc, {
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        back="Moonlight Cape",
+    })
+    sets.engaged.PDT.Shield = set_combine(sets.engaged.Shield, {
+        sub="Ammurapi Shield",
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        back="Moonlight Cape",
+    })
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Divine Caress'] = {back="Mending Cape"}
