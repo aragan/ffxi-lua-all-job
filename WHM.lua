@@ -149,7 +149,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Brutal Earring",
-        left_ring="Freke Ring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
@@ -170,7 +170,7 @@ function init_gear_sets()
         back="Argocham. Mantle",
     }
 
-            sets.precast.WS['Myrkr'] = {
+    sets.precast.WS['Myrkr'] = {
             ammo="Pemphredo Tathlum",
             head="Nyame Helm",
             body="Nyame Mail",
@@ -181,8 +181,8 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Cornelia's Ring",
-            right_ring="Freke Ring",
+            left_ring="Freke Ring",
+            right_ring="Cornelia's Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
         sets.precast.WS['Cataclysm'] = {
@@ -196,8 +196,8 @@ function init_gear_sets()
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Friomisi Earring",
-            left_ring="Cornelia's Ring",
-            right_ring="Archon Ring",
+            right_ring="Cornelia's Ring",
+            left_ring="Archon Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},
         }
         
@@ -211,9 +211,40 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Ishvara Earring",
+        left_ear="Malignance Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.precast.WS['Judgment'] = {
+        ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.precast.WS['Realmrazer'] = {
+        ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Malignance Earring",
+        right_ear="Telos Earring",
+        left_ring="Rufescent Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
@@ -226,19 +257,69 @@ function init_gear_sets()
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Malignance Earring",
+        right_ear="Brutal Earring",
+        left_ring="Rufescent Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.precast.WS['True Strike'] = {
+        ammo="Crepuscular Pebble",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
-        legs="Aya. Cosciales +2",
+        legs="Nyame Flanchard",
         feet="Aya. Gambieras +2",
-        neck="Clotharius Torque",
-        waist="Windbuffet Belt +1",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear="Mache Earring +1",
-        right_ear="Balder Earring +1",
-        left_ring="Petrov Ring",
+        right_ear="Mache Earring +1",
+        left_ring="Rufescent Ring",
         right_ring="Hetairoi Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.precast.WS['Hexa Strike'] = {
+        ammo="Crepuscular Pebble",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs="Nyame Flanchard",
+        feet="Aya. Gambieras +2",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Mache Earring +1",
+        right_ear="Mache Earring +1",
+        left_ring="Rufescent Ring",
+        right_ring="Hetairoi Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.precast.WS.Dagan = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Ebers Bliaut +2",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs="Inyanga Shalwar +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Nodens Gorget",
+        waist="Luminary Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Halasz Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Prolix Ring",
+        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    }
+
+
+  
+
+    
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
@@ -855,11 +936,11 @@ function init_gear_sets()
         legs="Aya. Cosciales +2",
         feet="Battlecast Gaiters",
         neck="Lissome Necklace",
-        waist="Grunfeld Rope",
-        left_ear="Brutal Earring",
+        waist="Olseni Belt",
+        left_ear="Dedition Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
+        right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.MaxAcc = {
