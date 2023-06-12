@@ -67,7 +67,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Duration', 'Enmity')
     state.IdleMode:options('Normal', 'PDT', 'Evasion')
-    state.PhysicalDefenseMode:options('PDT', 'Evasion')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion', 'MP')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -103,7 +103,7 @@ function init_gear_sets()
     right_ear="Malignance Earring",
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -128,7 +128,7 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {}
-    sets.precast.JA['Afflatus Solace'] = {back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    sets.precast.JA['Afflatus Solace'] = {back="Alaunus's Cape",}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {}
@@ -312,8 +312,8 @@ function init_gear_sets()
         left_ear="Andoaa Earring",
         right_ear="Halasz Earring",
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        right_ring="Prolix Ring",
-        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+        right_ring="Mephitas's Ring",
+        back="Alaunus's Cape",
     }
 
 
@@ -384,7 +384,7 @@ function init_gear_sets()
     right_ear="Nourish. Earring",
     left_ring="Naji's Loop",
     right_ring="Mephitas's Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
 
     sets.midcast.CureSolace.sird = set_combine(sets.midcast.CureSolace, {
         ammo="Staunch Tathlum +1",
@@ -443,7 +443,7 @@ function init_gear_sets()
     right_ear="Gifted Earring",
     left_ring="Naji's Loop",
     right_ring="Mephitas's Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
 
     sets.midcast.Cure.sird = set_combine(sets.midcast.Cure, {
         ammo="Staunch Tathlum +1",
@@ -557,7 +557,7 @@ function init_gear_sets()
         waist="Gishdubar Sash",
         left_ring="Haoma's Ring",
         right_ring="Haoma's Ring",
-        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+        back="Alaunus's Cape",
     }
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
     sets.midcast.Refresh.Duration = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
@@ -572,7 +572,7 @@ function init_gear_sets()
         neck="Debilis Medallion",
         left_ring="Ephedra Ring",
         right_ring="Haoma's Ring",
-        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},    }
+        back="Alaunus's Cape",    }
         sets.midcast.StatusRemoval.sird = set_combine(sets.midcast.StatusRemoval,sets.sird) 
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
@@ -668,7 +668,7 @@ function init_gear_sets()
     legs="Ebers Pant. +2",
     left_ear="Andoaa Earring",
     right_ring="Stikini Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+    back="Alaunus's Cape",
     })
     sets.midcast.BarElement.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
@@ -797,7 +797,7 @@ function init_gear_sets()
         right_ear="Etiolation Earring",
         left_ring="Stikini Ring +1",
         right_ring="Inyanga Ring",
-        back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+        back="Alaunus's Cape",
     }
     
 
@@ -816,23 +816,24 @@ function init_gear_sets()
     right_ear="Etiolation Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
 
-    sets.idle.Evasion = {       
-    ammo="Amar Cluster",
-    head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Svelt. Gouriz +1",
-    left_ear="Infused Earring",
-    right_ear="Eabani Earring",
-    left_ring="Defending Ring",
-    right_ring="Vengeful Ring",
-    back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
-    }
+        sets.defense.MP = {       
+            ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+            head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+            body="Ebers Bliaut +2",
+            hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+            legs="Inyanga Shalwar +2",
+            feet={ name="Nyame Sollerets", augments={'Path: B',}},
+            neck="Nodens Gorget",
+            waist="Luminary Sash",
+            left_ear="Andoaa Earring",
+            right_ear="Halasz Earring",
+            left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+            right_ring="Mephitas's Ring",
+            back="Alaunus's Cape",
+        }
+    
     sets.idle.Town = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Homiliary",
@@ -847,7 +848,7 @@ function init_gear_sets()
     right_ear="Etiolation Earring",
     left_ring="Stikini Ring +1",
     right_ring="Inyanga Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
     
     sets.idle.Weak = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -863,7 +864,7 @@ function init_gear_sets()
     right_ear="Etiolation Earring",
     left_ring="Defending Ring",
     right_ring="Inyanga Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
     
     -- Defense sets
 
@@ -897,7 +898,7 @@ function init_gear_sets()
         right_ear="Eabani Earring",
         left_ring="Defending Ring",
         right_ring="Vengeful Ring",
-        back={ name="Alaunus's Cape", augments={'MP+60','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},
+        back="Alaunus's Cape",
 }
 
     sets.defense.MDT = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
@@ -914,7 +915,7 @@ function init_gear_sets()
     right_ear="Etiolation Earring",
     left_ring="Defending Ring",
     right_ring="Archon Ring",
-    back={ name="Alaunus's Cape", augments={'MP+54','Eva.+20 /Mag. Eva.+20','MP+6','"Cure" potency +10%',}},}
+    back="Alaunus's Cape",}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
