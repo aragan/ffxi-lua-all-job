@@ -225,10 +225,10 @@ function init_gear_sets()
      sets.precast.WS = {
         ammo="Knobkierrie",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-        body="Pumm. Lorica +3",
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Sulev. Leggings +2",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Thrud Earring",
@@ -246,8 +246,12 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
      })
-     sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
-         waist="Olseni Belt",})
+     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
+     })
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
@@ -274,24 +278,15 @@ function init_gear_sets()
     sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS['Upheaval'], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        right_ring="Sroda Ring", 
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
     })
     sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS["Upheaval"], {})
-
-    sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
-        ammo="Yetshila +1",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Hjarrandi Breast.",
+    sets.precast.WS["King's Justice"].Acc = set_combine(sets.precast.WS["Upheaval"], {
+        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Pumm. Cuisses +3",
-        feet="Pumm. Calligae +3",
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Schere Earring",
-        right_ear="Boii Earring +1",
-        left_ring="Niqmaddu Ring",
-        right_ring="Regal Ring",
-        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
     })
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
@@ -302,28 +297,42 @@ function init_gear_sets()
         feet="Thereoid Greaves",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ear="Schere Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+    sets.precast.WS["Ukko's Fury"].Mid = set_combine(sets.precast.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
     sets.precast.WS["Ukko's Fury"].Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
         })
     sets.precast.WS["Stardiver"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         hands="Flam. Manopolas +2",
-
     })
-    sets.precast.WS["Stardiver"].Acc = set_combine(sets.precast.WS["Ukko's Fury"], {
-        hands="Flam. Manopolas +2",
-        hands="Flam. Manopolas +2",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
+    sets.precast.WS["Stardiver"].Mid = set_combine(sets.precast.WS["Stardiver"], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+    sets.precast.WS["Stardiver"].Acc = set_combine(sets.precast.WS["Stardiver"], {
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
-
     })
 
     sets.precast.WS["Keen Edge"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
@@ -333,10 +342,11 @@ function init_gear_sets()
         waist="Fotia Belt",
     })
     sets.precast.WS["Raging Rush"].Acc = set_combine(sets.precast.WS["Raging Rush"], {
-        hands="Flam. Manopolas +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Sturmwind"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
@@ -349,12 +359,32 @@ function init_gear_sets()
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         ammo="Aurgelmir Orb +1",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Evisceration"].Mid = set_combine(sets.precast.WS["Evisceration"], {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+    sets.precast.WS["Evisceration"].Acc = set_combine(sets.precast.WS["Evisceration"], {
+        ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
+    })
 
+    sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["True Strike"].Acc = set_combine(sets.precast.WS["True Strike"], {
+        ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
+    })
     sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS, {
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-    body="Pumm. Lorica +3",
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -366,11 +396,20 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+    sets.precast.WS["Fell Cleave"].Mid = set_combine(sets.precast.WS["Fell Cleave"], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
     sets.precast.WS["Fell Cleave"].Acc = set_combine(sets.precast.WS["Fell Cleave"], {
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
     })
-
     sets.precast.WS['Armor Break'] = set_combine(sets.precast.WS, {
         ammo="Pemphredo Tathlum",
         head="Sakpata's Helm",
@@ -437,25 +476,97 @@ function init_gear_sets()
      sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
      sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
      sets.precast.WS["Raging Axe"] = set_combine(sets.precast.WS["Resolution"], {})
-     sets.precast.WS["Decimation"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Ruinator"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Exenterator"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Viper Bite"] = set_combine(sets.precast.WS["Resolution"], {ammo="Aurgelmir Orb +1",})
      sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Resolution"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
-     sets.precast.WS["Entropy"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Penta Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Double Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Bora Axe"] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
 
+        sets.precast.WS["Decimation"] = set_combine(sets.precast.WS["Resolution"], {
+            ammo="Coiste Bodhar",
+            head="Hjarrandi Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Fotia Gorget",
+            waist="Fotia Belt",
+            left_ear="Schere Earring",
+            right_ear="Boii Earring +1",           
+            left_ring="Regal Ring",
+            right_ring="Niqmaddu Ring",
+            back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        })
+        sets.precast.WS["Decimation"].Mid = set_combine(sets.precast.WS["Decimation"], {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Decimation"].Acc = set_combine(sets.precast.WS["Decimation"], {
+            ammo="Crepuscular Pebble",
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
+            left_ring="Sroda Ring",
+        })
 
-
+        sets.precast.WS["Cross Reaper"] = set_combine(sets.precast.WS, {
+            right_ring="Niqmaddu Ring",
+        })
+        sets.precast.WS["Cross Reaper"].Mid = set_combine(sets.precast.WS["Cross Reaper"], {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Cross Reaper"].Acc = set_combine(sets.precast.WS["Cross Reaper"], {
+            ammo="Crepuscular Pebble",
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
+            left_ring="Sroda Ring",
+        })
+        sets.precast.WS["Entropy"] = set_combine(sets.precast.WS, {
+            right_ring="Niqmaddu Ring",
+            right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Entropy"].Mid = set_combine(sets.precast.WS["Entropy"], {
+            right_ring="Niqmaddu Ring",
+            right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Entropy"].Acc = set_combine(sets.precast.WS["Entropy"], {
+            ammo="Crepuscular Pebble",
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
+            left_ring="Sroda Ring",
+        })
 
           -- REQUISCAT
      -- 73% MND - breath damage
      sets.precast.WS.Requiescat = set_combine(sets.precast.WS, {
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Brutal Earring",
+        left_ring="Rufescent Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+     })
+     sets.precast.WS.Requiescat.Mid = set_combine(sets.precast.WS.Requiescat, {
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+     })
+     sets.precast.WS.Requiescat.Acc = set_combine(sets.precast.WS.Requiescat, {
+        ammo="Crepuscular Pebble",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
      })
 
      -- TORCLEAVER 
@@ -486,13 +597,37 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+    sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        })
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
         })
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         right_ear="Lugra Earring +1",
+    })
+    sets.precast.WS["Sonic Thrust"].Mid = set_combine(sets.precast.WS["Sonic Thrust"], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+    sets.precast.WS["Sonic Thrust"].Acc = set_combine(sets.precast.WS["Sonic Thrust"], {
+        ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        left_ring="Sroda Ring",
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS['Impulse Drive'], {
@@ -501,7 +636,7 @@ function init_gear_sets()
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -510,26 +645,72 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
+    sets.precast.WS['Savage Blade'].Mid = set_combine(sets.precast.WS['Savage Blade'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Crepuscular Pebble",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
         left_ring="Sroda Ring",
-        })
-        sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {
-        })
-        sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
+    })
+    sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS['Mistral Axe'].Mid = set_combine(sets.precast.WS['Savage Blade'].Mid, {})
+    sets.precast.WS['Mistral Axe'].Acc = set_combine(sets.precast.WS['Savage Blade'].Acc, {})
+    sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS['Judgment'].Mid = set_combine(sets.precast.WS['Judgment'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+        sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
             ammo="Crepuscular Pebble",
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
             left_ring="Sroda Ring",
         })
         sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
-        sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Savage Blade"], {
+        sets.precast.WS["Black Halo"].Mid = set_combine(sets.precast.WS["Black Halo"], {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
             ammo="Crepuscular Pebble",
-            left_ring="Sroda Ring",})
-
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
+            left_ring="Sroda Ring",
+        })
         sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Lugra Earring +1",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",    })
+        sets.precast.WS["Ground Strike"].Mid = set_combine(sets.precast.WS['Ground Strike'], {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        })
+        sets.precast.WS["Ground Strike"].Acc = set_combine(sets.precast.WS['Ground Strike'], {
+            ammo="Crepuscular Pebble",
+            hands="Sakpata's Gauntlets",
+            legs="Sakpata's Cuisses",
+            left_ring="Sroda Ring",   })
+
     sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Yetshila +1",
@@ -555,7 +736,6 @@ function init_gear_sets()
     right_ring="Archon Ring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},   
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-
     })
 
     sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
