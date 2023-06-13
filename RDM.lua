@@ -144,7 +144,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -161,7 +161,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
     }
 
     sets.precast.WS['Sanguine Blade'] = {
@@ -177,7 +177,7 @@ function init_gear_sets()
 		right_ear="Hecate's Earring",
 		left_ring="Archon Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
     }
 
     sets.precast.WS['Savage Blade'] = {
@@ -193,7 +193,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 		
     	sets.precast.WS['Seraph Blade']	= {
@@ -209,7 +209,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 		}
 
 
@@ -226,7 +226,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
     }
 		
 	sets.precast.WS['Death Blossom'] = {
@@ -242,7 +242,7 @@ function init_gear_sets()
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
-    back={ name="Sucellos's Cape", augments={'Weapon skill damage +10%',}},
+    back="Sucellos's Cape",
 	}
 	
 	sets.precast.WS['Chant Du Cygne'] = {
@@ -259,7 +259,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 
 	sets.precast.WS['Evisceration'] = {
@@ -276,7 +276,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}  
 	    sets.precast.WS['Cataclysm'] = {
         ammo="Pemphredo Tathlum",
@@ -291,7 +291,7 @@ function init_gear_sets()
         right_ear="Friomisi Earring",
         left_ring="Cornelia's Ring",
         right_ring="Archon Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 
     }
 	sets.precast.WS['Myrkr'] = {
@@ -527,7 +527,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 	sets.midcast['Enfeebling Magic'].Potency = {   
 		ammo="Regal Gem",
@@ -542,7 +542,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 		}
     
 	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {hands="Lethargy Gantherots +1"})
@@ -597,7 +597,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
     --sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
@@ -622,7 +622,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
@@ -637,7 +637,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		back="Sucellos's Cape",
 	}
 	
     -- Sets for special buff conditions on spells
@@ -922,7 +922,7 @@ sets.TreasureHunter = {
 		--right_ear="Suppanomimi",
 		--left_ring="Chirich Ring +1",
 		--right_ring="Chirich Ring +1",
-		--back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+		--back="Sucellos's Cape",
 		--}
 		sets.engaged.DW.Enspell = {   
 			ammo="Coiste Bodhar",
@@ -937,7 +937,7 @@ sets.TreasureHunter = {
 			right_ear="Suppanomimi",
 			left_ring="Chirich Ring +1",
 			right_ring="Chirich Ring +1",
-			back={ name="Sucellos's Cape", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+			back="Sucellos's Cape",
 			}
 
 

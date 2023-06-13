@@ -234,7 +234,7 @@ function init_gear_sets()
     -- Sets for WS, Feel free to add one for Vidohunir if you have Laevateinn
 
    sets.precast.WS = {
-        ammo="Pemphredo Tathlum",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -262,7 +262,7 @@ function init_gear_sets()
             right_ring="Freke Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
         sets.precast.WS['Spinning Scythe'] = {
-            ammo="Amar Cluster",
+            ammo="Oshasha's Treatise",
             head="Jhakri Coronal +2",
             body="Jhakri Robe +2",
             hands="Jhakri Cuffs +2",
@@ -289,7 +289,8 @@ function init_gear_sets()
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
-        sets.precast.WS['Infernal Scythe'] = {
+       
+            sets.precast.WS['Infernal Scythe'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
@@ -304,8 +305,23 @@ function init_gear_sets()
             right_ring="Archon Ring",
             back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
         
+            sets.precast.WS['Cross Reaper']	= {
+                ammo="Oshasha's Treatise",
+                head="Nyame Helm",
+                body="Nyame Mail",
+                hands="Nyame Gauntlets",
+                legs="Nyame Flanchard",
+                feet="Nyame Sollerets",
+                neck="Fotia Gorget",
+                waist="Fotia Belt",
+                left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+                right_ear="Ishvara Earring",
+                left_ring="Epaminondas's Ring",
+                right_ring="Cornelia's Ring",
+                back={ name="Aurist's Cape +1", augments={'Path: A',}},
+            }
      sets.precast.WS['Black Halo'] = {
-        ammo="Crepuscular Pebble",
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -328,18 +344,18 @@ function init_gear_sets()
     sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
 
     sets.precast.WS['Shattersoul'] = {
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
-        legs="Jhakri Slops +2",
-        feet="Jhakri Pigaches +2",
-        neck="Clotharius Torque",
-        waist="Windbuffet Belt +1",
-        left_ear="Mache Earring +1",
-        right_ear="Balder Earring +1",
-        left_ring="Petrov Ring",
-        right_ring="Hetairoi Ring",
+        ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Malignance Earring",
+        right_ear="Brutal Earring",
+        left_ring="Rufescent Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     ---- Midcast Sets ----
@@ -901,9 +917,9 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Battlecast Gaiters",
         neck="Sanctity Necklace",
-        waist="Olseni Belt",
+        waist="Cornelia's Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
@@ -932,8 +948,8 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Sanctity Necklace",
-        waist="Chaac Belt",
+        neck="Lissome Necklace",
+        waist="Olseni Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",

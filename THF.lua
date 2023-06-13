@@ -200,7 +200,7 @@ function init_gear_sets()
     ammo="Yamarang",
     head="Malignance Chapeau",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     head="Nyame Helm",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -229,8 +229,6 @@ function init_gear_sets()
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
     back="Bleating Mantle",
-
-
     })
     sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {range=empty,
         ammo="C. Palug Stone",
@@ -299,7 +297,7 @@ function init_gear_sets()
         ammo="Yetshila +1",
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
@@ -323,7 +321,7 @@ function init_gear_sets()
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
@@ -339,7 +337,7 @@ function init_gear_sets()
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
@@ -349,8 +347,8 @@ function init_gear_sets()
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-
     })
+
     sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {back="Kayapa Cape",waist=gear.ElementalBelt})
     sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
@@ -363,7 +361,7 @@ function init_gear_sets()
         ammo="Yetshila +1",
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
@@ -401,11 +399,28 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'])
 
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {range=empty,
+    ammo="Yetshila +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Telos Earring",
+    left_ring="Regal Ring",
+    right_ring="Cornelia's Ring",
+    back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
+})
+    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {range=empty,
+})
 
     sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, {
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Meg. Gloves +2",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Iskur Gorget",
