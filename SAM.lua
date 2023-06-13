@@ -243,7 +243,7 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
+        left_ring="Sroda Ring",
         back="Smertrios's Mantle",
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
@@ -328,13 +328,13 @@ function init_gear_sets()
         back="Smertrios's Mantle",
     })
     sets.precast.WS['Tachi: Fudo'].PDL = set_combine(sets.precast.WS['Tachi: Fudo'], {
-        ammo="Crepuscular Pebble",
+        ammo="Knobkierrie",
             body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
-        back="Smertrios's Mantle",
+    left_ring="Sroda Ring", 
+    back="Smertrios's Mantle",
     })
     sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'], {
 
@@ -408,8 +408,8 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
-        back="Smertrios's Mantle",
+    left_ring="Sroda Ring", 
+    back="Smertrios's Mantle",
     })
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
     })
@@ -438,8 +438,8 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-    left_ring="Regal Ring",
-        back="Smertrios's Mantle",
+    left_ring="Sroda Ring", 
+    back="Smertrios's Mantle",
     })
     sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'], {})
 
@@ -453,8 +453,8 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
-        back="Smertrios's Mantle",
+    left_ring="Sroda Ring", 
+    back="Smertrios's Mantle",
     })
     sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'], {
 
@@ -481,7 +481,7 @@ function init_gear_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
+        left_ring="Sroda Ring",
         back="Smertrios's Mantle",
     })
     sets.precast.WS['Tachi: Rana'].Acc = set_combine(sets.precast.WS, {
@@ -509,7 +509,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
+        left_ring="Sroda Ring",
         back="Smertrios's Mantle",
     })
     
@@ -536,7 +536,7 @@ function init_gear_sets()
       hands="Nyame Gauntlets",
       legs="Nyame Flanchard",
       feet="Kas. Sune-Ate +2",
-        left_ring="Regal Ring",
+        left_ring="Sroda Ring",
         back="Smertrios's Mantle",
     })
 
