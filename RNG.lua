@@ -87,7 +87,7 @@ end
 function user_setup()
 	state.RangedMode:options('Normal', 'Acc', 'MAXAcc', 'Critical')
 	state.HybridMode:options('Normal', 'Shield')
-	state.WeaponskillMode:options('Normal', 'Acc')
+    state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
 	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
 
 	gear.default.weaponskill_neck = ""
@@ -172,8 +172,8 @@ function init_gear_sets()
 	
 	sets.precast.RA = {
 
-		head="Arcadian Beret +1",
-	body="Oshosi Vest",
+		head="Orion Beret +3",
+		body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
@@ -188,8 +188,8 @@ function init_gear_sets()
 	}) --47/52
 	
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-		head="Arcadian Beret +1",
-	body="Oshosi Vest",
+		head="Orion Beret +3",
+		body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Arcadian Socks +3",
@@ -216,24 +216,40 @@ function init_gear_sets()
 		right_ring="Cornelia's Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
-
-	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+		left_ring="Sroda Ring", 
+	})
+	sets.precast.WS.SC = set_combine(sets.precast.WS, {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck={ name="Warder's Charm +1", augments={'Path: A',}},
 	})
 
     sets.precast.WS['Last Stand'] = {
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Meg. Gloves +2",
+		head="Orion Beret +3",
+		body="Amini Caban +2",
+		hands="Nyame Gauntlets",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Scout's Gorget +2",
+		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
-		right_ring="Cornelia's Ring",
+		right_ring="Dingir Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
+	sets.precast.WS['Last Stand'].PDL = set_combine(sets.precast.WS['Last Stand'], {
+		legs="Ikenga's Trousers",
+		neck="Scout's Gorget +2",
+		right_ear="Amini Earring +1",
+		left_ring="Sroda Ring", 
+		right_ring="Cornelia's Ring",
+		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
+		})
 
 	sets.precast.WS.Wildfire  = {
 		body={ name="Cohort Cloak +1", augments={'Path: A',}},
@@ -297,8 +313,8 @@ function init_gear_sets()
 	sets.precast.WS["Savage Blade"] = {	  
     	head="Nyame Helm",
      	body="Nyame Mail",
-		hands="Meg. Gloves +2",
-		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
+		 hands="Nyame Gauntlets",
+		 legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -308,6 +324,12 @@ function init_gear_sets()
 		right_ring="Regal Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
+		sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+			body="Amini Caban +2",
+			neck="Scout's Gorget +2",
+			right_ear="Amini Earring +1",
+			left_ring="Sroda Ring", 
+		})
 
 	sets.precast.WS['Aeolian Edge'] = {
 		head="Nyame Helm",
