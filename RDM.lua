@@ -49,6 +49,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'ACC', 'CRIT')
 	state.HybridMode:options('Normal', 'PDT')
+	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
 	state.CastingMode:options('Normal', 'Burst', 'Duration')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
@@ -60,6 +61,7 @@ function user_setup()
 
     send_command('bind @w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
+	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
 	send_command('wait 2;input /lockstyleset 174')
@@ -146,7 +148,18 @@ function init_gear_sets()
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
 	}
-
+	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+		ammo="Crepuscular Pebble",
+		left_ring="Sroda Ring", 
+	})
+	sets.precast.WS.SC = set_combine(sets.precast.WS, {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck={ name="Warder's Charm +1", augments={'Path: A',}},
+	})
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Requiescat'] = {
 		ammo="Regal Gem",
@@ -187,14 +200,20 @@ function init_gear_sets()
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Fotia Gorget",
+		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Ishvara Earring",
+		left_ear="Sherida Earring",
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
 	}
+	sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
+		left_ear="Ishvara Earring",
+		left_ring="Sroda Ring", 
+	})
 		
     	sets.precast.WS['Seraph Blade']	= {
 		ammo="Pemphredo Tathlum",
@@ -310,21 +329,14 @@ function init_gear_sets()
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
 	
- sets.precast.WS['Black Halo'] = {
+ sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'], {
+})
+sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Savage Blade'].PDL, {
 	ammo="Crepuscular Pebble",
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
-	neck="Fotia Gorget",
-	waist="Fotia Belt",
-	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	right_ear="Ishvara Earring",
-	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Cornelia's Ring",
-	back={ name="Aurist's Cape +1", augments={'Path: A',}},
-}
+	hands="Malignance Gloves",
+	left_ear="Ishvara Earring",
+	left_ring="Sroda Ring", 
+})
 
 sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
 sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']

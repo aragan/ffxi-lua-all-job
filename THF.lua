@@ -212,7 +212,12 @@ function init_gear_sets()
     right_ring="Ilabrat Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
     }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {neck="Fotia Gorget",waist="Fotia Belt",ear2="Moonshade Earring"})
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+        head="Skulker's Bonnet +2",
+        hands="Gleti's Gauntlets",
+        left_ring="Sroda Ring", 
+    })
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {range=empty,
@@ -308,7 +313,12 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {})
+    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {
+        ammo="Crepuscular Pebble",
+        head="Skulker's Bonnet +2",
+        hands="Gleti's Gauntlets",
+        left_ring="Sroda Ring", 
+    })
     sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS)
     sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
@@ -373,7 +383,12 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 
     })
-    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {})
+    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {
+        ammo="Crepuscular Pebble",
+        head="Skulker's Bonnet +2",
+        hands="Gleti's Gauntlets",
+        left_ring="Sroda Ring", 
+    })
     sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
     sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
@@ -415,6 +430,10 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
 })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {range=empty,
+    ammo="Crepuscular Pebble",
+    head="Skulker's Bonnet +2",
+    hands="Gleti's Gauntlets",
+    left_ring="Sroda Ring", 
 })
 
     sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, {

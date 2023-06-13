@@ -52,7 +52,7 @@ function user_setup()
     state.OffenseMode:options('Ranged', 'Melee', 'Acc', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
     state.HybridMode:options('Normal', 'PDT')
-    state.WeaponskillMode:options('Normal', 'Acc', 'Att', 'Mod')
+    state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
     
@@ -215,13 +215,26 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-        neck="Sanctity Necklace",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+		ammo="Crepuscular Pebble",
+		left_ring="Sroda Ring", 
+	})
+	sets.precast.WS.SC = set_combine(sets.precast.WS, {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck={ name="Warder's Charm +1", augments={'Path: A',}},
+	})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = sets.precast.WS, {
@@ -241,11 +254,11 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
-    body="Laksa. Frac +3",
+		body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Caro Necklace",
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -253,13 +266,19 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     right_ring="Cornelia's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     })
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+        body="Ikenga's Vest",
+		left_ring="Sroda Ring", 
+        waist="Kentarch Belt +1",
+
+	})
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        head="Nyame Helm",
-        body="Laksa. Frac +3",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
         neck="Baetyl Pendant",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
@@ -317,7 +336,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.precast.WS['Wildfire'] = {
         head="Nyame Helm",
-        body="Laksa. Frac +3",
+        body="Lanun Frac +3",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -332,8 +351,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     
     sets.precast.WS['Leaden Salute'] = {
-        head="Pixie Hairpin +1",
-    body="Laksa. Frac +3",
+    head="Pixie Hairpin +1",
+    body="Lanun Frac +3",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
