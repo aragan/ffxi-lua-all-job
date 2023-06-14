@@ -117,7 +117,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow',  'SubtleBlow75')
     state.RangedMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'SIRD')
-    state.WeaponskillMode:options('Normal', 'Mid', 'Acc', 'SC')
+    state.WeaponskillMode:options('Normal', 'Acc', 'SC')
     state.PhysicalDefenseMode:options('PDT', 'Enmity', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
@@ -951,7 +951,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     
-    sets.precast.WS.Mid = set_combine(sets.precast.WS, { 
+    sets.precast.WS.SC = set_combine(sets.precast.WS, { 
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -982,8 +982,14 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS, sets.Kamu)
-    sets.precast.WS['Blade: Kamu'].Mid = set_combine(sets.precast.WS.Mid, sets.Kamu)
-    sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS.Acc, sets.Kamu, {
+    sets.precast.WS['Blade: Kamu'].SC = set_combine(sets.precast.WS, sets.Kamu, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},    })
+    sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS, sets.Kamu, {
         body="Malignance Tabard",
     })
     
@@ -1004,7 +1010,13 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS, sets.Jin)
-    sets.precast.WS['Blade: Jin'].Mid = set_combine(sets.precast.WS['Blade: Jin'], {
+    sets.precast.WS['Blade: Jin'].SC = set_combine(sets.precast.WS['Blade: Jin'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Blade: Jin'].Acc = set_combine(sets.precast.WS['Blade: Jin'], {
         ammo="Crepuscular Pebble",
@@ -1031,8 +1043,6 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ring="Gere Ring",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
-    sets.precast.WS['Blade: Hi'].Mid = set_combine(sets.precast.WS['Blade: Hi'], {
-    })
     sets.precast.WS['Blade: Hi'].SC = set_combine(sets.precast.WS['Blade: Hi'], {
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -1040,7 +1050,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-    sets.precast.WS['Blade: Hi'].Acc = set_combine(sets.precast.WS['Blade: Hi'].Mid, {
+    sets.precast.WS['Blade: Hi'].Acc = set_combine(sets.precast.WS['Blade: Hi'], {
         ammo="Crepuscular Pebble",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -1082,7 +1092,6 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     }
     
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, sets.Shun)
-    sets.precast.WS['Blade: Shun'].Mid = set_combine(sets.Shun, {})
     sets.precast.WS['Blade: Shun'].Acc = set_combine(sets.Shun, {
         ammo="Crepuscular Pebble",
         body="Malignance Tabard",
@@ -1117,7 +1126,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS['Blade: Rin'] = set_combine(sets.precast.WS, sets.Rin)
-    sets.precast.WS['Blade: Rin'].Mid = set_combine(sets.precast.WS.Mid, sets.Rin)
+    sets.precast.WS['Blade: Rin'].SC = set_combine(sets.precast.WS.SC, sets.Rin)
     sets.precast.WS['Blade: Rin'].Acc = set_combine(sets.precast.WS['Blade: Rin'], {
         ammo="Crepuscular Pebble",
         body="Malignance Tabard",
@@ -1143,8 +1152,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     sets.precast.WS['Blade: Ku'] = set_combine(sets.precast.WS, sets.Ku)
-    sets.precast.WS['Blade: Ku'].Mid = sets.precast.WS['Blade: Ku']
-    sets.precast.WS['Blade: Ku'].Acc = set_combine(sets.precast.WS['Blade: Ku'].Mid, {
+    sets.precast.WS['Blade: Ku'].SC = sets.precast.WS['Blade: Ku']
+    sets.precast.WS['Blade: Ku'].Acc = set_combine(sets.precast.WS['Blade: Ku'], {
         ammo="Crepuscular Pebble",
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -1169,10 +1178,15 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     }
     
     sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, sets.Ten)
-    sets.precast.WS['Blade: Ten'].Mid = set_combine(sets.precast.WS['Blade: Ten'], {
-        waist="Sailfi Belt +1",
+    sets.precast.WS['Blade: Ten'].SC = set_combine(sets.precast.WS['Blade: Ten'], {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-    sets.precast.WS['Blade: Ten'].Acc = set_combine(sets.precast.WS['Blade: Ten'].Mid, {
+    sets.precast.WS['Blade: Ten'].Acc = set_combine(sets.precast.WS['Blade: Ten'], {
     })
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, { 
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -1193,6 +1207,14 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ammo="Crepuscular Pebble",
         right_ear="Hattori Earring", 
         right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Savage Blade'].SC = set_combine(sets.precast.WS['Savage Blade'], { 
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {       
@@ -1220,6 +1242,14 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ammo="Crepuscular Pebble",
         right_ear="Hattori Earring", 
         right_ring="Sroda Ring", 
+    })
+    sets.precast.WS['Tachi: Jinpu'].SC = set_combine(sets.precast.WS['Tachi: Jinpu'], {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Blade: Chi'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
