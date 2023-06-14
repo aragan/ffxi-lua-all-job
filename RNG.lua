@@ -171,7 +171,6 @@ function init_gear_sets()
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-
 		head="Orion Beret +3",
 		body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
@@ -252,16 +251,17 @@ function init_gear_sets()
 		})
 
 	sets.precast.WS.Wildfire  = {
-		body={ name="Cohort Cloak +1", augments={'Path: A',}},
-		hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-    legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
     neck="Scout's Gorget +2",
     waist="Orpheus's Sash",
-    left_ear="Ishvara Earring",
+    left_ear="Hecate's Earring",
     right_ear="Friomisi Earring",
     left_ring="Cornelia's Ring",
-    right_ring="Ilabrat Ring",
+	right_ring="Dingir Ring",
     back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 

@@ -224,7 +224,6 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-		ammo="Crepuscular Pebble",
 		left_ring="Sroda Ring", 
 	})
 	sets.precast.WS.SC = set_combine(sets.precast.WS, {
@@ -238,18 +237,24 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = sets.precast.WS, {
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
-    hands="Mummu Wrists +2",
-    legs="Mummu Kecks +2",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
     feet="Mummu Gamash. +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Odr Earring",
+    right_ear="Odr Earring",
+    left_ring="Ilabrat Ring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Mummu Ring",
+    left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
     back="Bleating Mantle",
+    }
+    sets.precast.WS['Evisceration'].PDL = sets.precast.WS['Evisceration'], {
+        body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
+        right_ear="Mache Earring +1",
     }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
@@ -270,7 +275,6 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         body="Ikenga's Vest",
 		left_ring="Sroda Ring", 
         waist="Kentarch Belt +1",
-
 	})
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
@@ -305,8 +309,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.precast.WS['Last Stand'] = {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body="Laksa. Frac +3",
-    hands="Meg. Gloves +2",
+    body="Ikenga's Vest",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Fotia Gorget",
@@ -314,24 +318,24 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Cornelia's Ring",
+    right_ring="Dingir Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
-    sets.precast.WS['Last Stand'].Acc = {
+    sets.precast.WS['Last Stand'].PDL = set_combine(sets.precast.WS['Last Stand'], {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body="Laksa. Frac +3",
-    hands="Meg. Gloves +2",
-    legs="Nyame Flanchard",
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    body="Ikenga's Vest",
+    hands="Nyame Gauntlets",
+    legs="Ikenga's Trousers",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Dingir Ring",
+    left_ring="Sroda Ring", 
     right_ring="Cornelia's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-    }
+    })
 
 
     sets.precast.WS['Wildfire'] = {
@@ -341,7 +345,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Baetyl Pendant",
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
@@ -380,12 +384,12 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.midcast.CorsairShot = {
         head="Nyame Helm",
-        body="Laksa. Frac +3",
+        body="Lanun Frac +3",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Baetyl Pendant",
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
@@ -395,12 +399,12 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.midcast.CorsairShot.Acc = {
         head="Nyame Helm",
-        body="Laksa. Frac +3",
+        body="Lanun Frac +3",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Baetyl Pendant",
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
         left_ring="Dingir Ring",
