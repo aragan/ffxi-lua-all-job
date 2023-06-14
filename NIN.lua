@@ -939,21 +939,31 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     ammo="Yamarang",
     head="Mpaca's Cap",
     body="Nyame Mail",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Hiza. Hizayoroi +2",
-    feet="Malignance Boots",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Telos Earring",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
     right_ring="Regal Ring",
-    left_ring="Gere Ring",
+    left_ring="Cornelia's Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
     
-    sets.precast.WS.Mid = set_combine(sets.precast.WS, { })
+    sets.precast.WS.Mid = set_combine(sets.precast.WS, { 
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
     
-    sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        right_ear="Hattori Earring", 
+        right_ring="Sroda Ring", 
     })
     
     sets.Kamu = {
