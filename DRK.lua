@@ -1408,7 +1408,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2",
+        hands="Sakpata's Gauntlets",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},

@@ -439,7 +439,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Danzo sune-ate",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -466,7 +466,7 @@ function init_gear_sets()
     }
 
     sets.DayMovement = {feet="Danzo sune-ate"}
-    sets.NightMovement = {feet="Hachiya Kyahan +2"}
+    sets.NightMovement = {feet="Danzo sune-ate"}
 
     sets.Organizer = {
 
