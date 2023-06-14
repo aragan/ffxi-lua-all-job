@@ -10,7 +10,6 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
-require('closetCleaner')
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -235,14 +234,13 @@ function init_gear_sets()
 
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
     ammo="Crepuscular Pebble",
-    head="Nyame Helm",
+    head="Heath. Burgeon. +2",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Sakpata's Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
-    waist="Fotia Belt",
-    right_ear="Heathen's Earring",
+    right_ear={ name="Heathen's Earring", augments={'Accuracy+7','Mag. Acc.+7',}},
     right_ring="Sroda Ring",
     })
     sets.precast.WS.SC = set_combine(sets.precast.WS, {       
@@ -263,8 +261,10 @@ function init_gear_sets()
     })
     sets.precast.WS.Judgment.PDL = set_combine(sets.precast.WS.Judgment, {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
     sets.precast.WS.Judgment.SC = set_combine(sets.precast.WS.Judgment, {
         head="Nyame Helm",
@@ -319,14 +319,14 @@ function init_gear_sets()
     })
     sets.precast.WS['Catastrophe'].PDL = set_combine(sets.precast.WS['Catastrophe'], {
         ammo="Crepuscular Pebble",
-        head="Nyame Helm",
+        head="Heath. Burgeon. +2",
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands="Sakpata's Gauntlets",
         legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        right_ear="Heathen's Earring",
+        right_ear={ name="Heathen's Earring", augments={'Accuracy+7','Mag. Acc.+7',}},
         right_ring="Sroda Ring",
     })
     sets.precast.WS['Catastrophe'].SC = set_combine(sets.precast.WS['Catastrophe'], {
@@ -337,6 +337,10 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
+    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS['Catastrophe'], {})
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Catastrophe'], {})
+    sets.precast.WS['Savage Blade'].SC = set_combine(sets.precast.WS['Catastrophe'], {})
+
 
     sets.precast.WS['Spiral Hell'] = set_combine(sets.precast.WS, {
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -348,8 +352,10 @@ function init_gear_sets()
     })
     sets.precast.WS['Spiral Hell'].PDL = set_combine(sets.precast.WS['Spiral Hell'], {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
     sets.precast.WS['Spiral Hell'].SC = set_combine(sets.precast.WS['Spiral Hell'], {
         head="Nyame Helm",
@@ -385,7 +391,7 @@ sets.precast.WS['Insurgency'] = {
         feet="Nyame Sollerets",    })
     sets.precast.WS['Insurgency'].PDL = set_combine(sets.precast.WS['Insurgency'], {
         ammo="Crepuscular Pebble",
-        head="Sakpata's Helm",
+        head="Heath. Burgeon. +2",
         legs="Sakpata's Cuisses",
         right_ear="Heathen's Earring",
         right_ring="Sroda Ring",    })
@@ -419,8 +425,10 @@ sets.precast.WS['Insurgency'] = {
     })
     sets.precast.WS['Cross Reaper'].PDL = set_combine(sets.precast.WS['Cross Reaper'], {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
     sets.precast.WS['Cross Reaper'].SC = set_combine(sets.precast.WS['Cross Reaper'], {
         head="Nyame Helm",
@@ -455,8 +463,10 @@ sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
 })
 sets.precast.WS['Quietus'].PDL = set_combine(sets.precast.WS['Quietus'], {
     ammo="Crepuscular Pebble",
+    head="Heath. Burgeon. +2",
+    hands="Sakpata's Gauntlets",
     right_ear="Heathen's Earring",
-    right_ring="Sroda Ring", 
+    right_ring="Sroda Ring",
 })
 sets.precast.WS['Quietus'].SC = set_combine(sets.precast.WS['Quietus'], {
     head="Nyame Helm",
@@ -486,6 +496,8 @@ sets.precast.WS['Entropy'].Mid = set_combine(sets.precast.WS['Entropy'], {})
 
 sets.precast.WS['Entropy'].PDL = set_combine(sets.precast.WS['Entropy'], {
     ammo="Crepuscular Pebble",
+    head="Heath. Burgeon. +2",
+    hands="Sakpata's Gauntlets",
     right_ear="Heathen's Earring",
     right_ring="Sroda Ring",
 })
@@ -518,8 +530,10 @@ sets.precast.WS['Infernal Scythe'].Mid = set_combine(sets.precast.WS['Infernal S
 
 sets.precast.WS['Infernal Scythe'].PDL = set_combine(sets.precast.WS['Infernal Scythe'], {
     ammo="Crepuscular Pebble",
-right_ear="Heathen's Earring",
-right_ring="Sroda Ring", 
+    head="Heath. Burgeon. +2",
+    hands="Sakpata's Gauntlets",
+    right_ear="Heathen's Earring",
+    right_ring="Sroda Ring",
 })
 sets.precast.WS['Infernal Scythe'].SC = set_combine(sets.precast.WS['Infernal Scythe'], {
     head="Nyame Helm",
@@ -529,14 +543,10 @@ sets.precast.WS['Infernal Scythe'].SC = set_combine(sets.precast.WS['Infernal Sc
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
 })
-sets.precast.WS['Shadow of Death'] = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",
-})
-sets.precast.WS['Shadow of Death'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",
-})
-sets.precast.WS['Shadow of Death'].PDL = set_combine(sets.precast.WS['Infernal Scythe'].PDL, {neck="Sibyl Scarf",
-})
-sets.precast.WS['Shadow of Death'].SC = set_combine(sets.precast.WS['Infernal Scythe'].SC, {neck="Sibyl Scarf",
-})
+sets.precast.WS['Shadow of Death'] = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",})
+sets.precast.WS['Shadow of Death'].Mid = set_combine(sets.precast.WS['Infernal Scythe'], {neck="Sibyl Scarf",})
+sets.precast.WS['Shadow of Death'].PDL = set_combine(sets.precast.WS['Infernal Scythe'].PDL, {neck="Sibyl Scarf",})
+sets.precast.WS['Shadow of Death'].SC = set_combine(sets.precast.WS['Infernal Scythe'].SC, {neck="Sibyl Scarf",})
 sets.precast.WS['Dark Harvest'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Infernal Scythe'], {})
 sets.precast.WS['Freezebite'] = set_combine(sets.precast.WS['Infernal Scythe'], {
@@ -582,9 +592,11 @@ sets.precast.WS['Nightmare Scythe'] = {
   
     sets.precast.WS['Resolution'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Resolution'], {
-    ammo="Crepuscular Pebble",
-       right_ear="Heathen's Earring",
-       right_ring="Sroda Ring", 
+        ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring",
     })
     sets.precast.WS['Sickle Moon'] = set_combine(sets.precast.WS['Resolution'], {})
 
@@ -612,8 +624,10 @@ sets.precast.WS['Nightmare Scythe'] = {
     })
     sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
     sets.precast.WS['Ground Strike'].SC = set_combine(sets.precast.WS['Ground Strike'], {
         head="Nyame Helm",
@@ -626,8 +640,10 @@ sets.precast.WS['Nightmare Scythe'] = {
     sets.precast.WS['Scourge'].Dread  = sets.defense['Dread Spikes']
     sets.precast.WS['Scourge'].PDL = set_combine(sets.precast.WS['Torcleaver'], {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
       
     sets.precast.WS['Torcleaver'] = {
@@ -649,8 +665,10 @@ sets.precast.WS['Nightmare Scythe'] = {
     sets.precast.WS['Torcleaver'].Mid = set_combine(sets.precast.WS['Torcleaver'], {})
     sets.precast.WS['Torcleaver'].PDL = set_combine(sets.precast.WS['Torcleaver'], {
         ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
         right_ear="Heathen's Earring",
-        right_ring="Sroda Ring", 
+        right_ring="Sroda Ring",
     })
     sets.precast.WS['Torcleaver'].SC = set_combine(sets.precast.WS['Torcleaver'], {
         head="Nyame Helm",
@@ -677,9 +695,11 @@ sets.precast.WS['Nightmare Scythe'] = {
         back="Ankou's Mantle",
 }
     sets.precast.WS['Spinning Scythe'].PDL = set_combine(sets.precast.WS['Spinning Scythe'], {
-    ammo="Crepuscular Pebble",
-    right_ear="Heathen's Earring",
-    right_ring="Sroda Ring", 
+        ammo="Crepuscular Pebble",
+        head="Heath. Burgeon. +2",
+        hands="Sakpata's Gauntlets",
+        right_ear="Heathen's Earring",
+        right_ring="Sroda Ring",
 })
 sets.precast.WS['Spinning Slash'] = set_combine(sets.precast.WS['Spinning Scythe'], {
     left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -697,8 +717,10 @@ sets.precast.WS['Spinning Slash'].SC = set_combine(sets.precast.WS['Spinning Scy
 })
 sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Scythe'], {
     ammo="Crepuscular Pebble",
+    head="Heath. Burgeon. +2",
+    hands="Sakpata's Gauntlets",
     right_ear="Heathen's Earring",
-    right_ring="Sroda Ring", 
+    right_ring="Sroda Ring",
 })
       
     --------------------------------------
@@ -1279,7 +1301,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Mid.PDT = {ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Hjarrandi Helm",
     body="Hjarrandi Breast.",
-    hands="Flam. Manopolas +2",
+    hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1295,7 +1317,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.MaxAcc.PDT = {ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Hjarrandi Helm",
     body="Hjarrandi Breast.",
-    hands="Flam. Manopolas +2",
+    hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1311,7 +1333,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head="Flam. Zucchetto +2",
         body="Hjarrandi Breast.",
-        hands="Flam. Manopolas +2",
+        hands="Sakpata's Gauntlets",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
