@@ -91,7 +91,7 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    organizer_items  = {
+    organizer_items  = {"Prime Sword",
         "Mafic Cudgel",
         "Decimating Bullet",
         "Chrono Bullet",

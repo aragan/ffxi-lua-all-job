@@ -19,7 +19,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {
+organizer_items = {"Prime Sword",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -57,7 +57,7 @@ function job_setup()
     state.Buff.Impetus = buffactive.Impetus or false
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.FootworkWS = M(false, 'Footwork on WS')
-
+    send_command('wait 6;input /lockstyleset 179')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
 end
@@ -952,7 +952,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 179')
+        send_command('wait 6;input /lockstyleset 179')
     end
 end
 -- Select default macro book on initial load or subjob change.

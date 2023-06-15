@@ -226,7 +226,7 @@ function user_unload()
     send_command('unbind @`')
 end
 
-organizer_items = {
+organizer_items = {"Prime Sword",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",

@@ -18,7 +18,8 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {
+organizer_items = {        "Prime Sword",
+    "Mafic Cudgel",
     "Pixquizpan",
     "Maliya Sickle +1",
     "Foreshock Sword",
@@ -719,6 +720,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     ammo="Crepuscular Pebble",
     head="Heath. Burgeon. +2",
     hands="Sakpata's Gauntlets",
+    feet="Sakpata's Leggings",
     right_ear="Heathen's Earring",
     right_ring="Sroda Ring",
 })

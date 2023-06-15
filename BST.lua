@@ -63,7 +63,7 @@ organizer_items = {
     ammo="Putrescent Broth",
     ammo="Pale Sap",
 }
-organizer_items = {
+organizer_items = {"Prime Sword",
 	"Mafic Cudgel",
 	"Maliya Sickle +1",
 	"Pixquizpan",

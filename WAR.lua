@@ -19,7 +19,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 
-        organizer_items = {
+        organizer_items = {"Prime Sword",
             "Maliya Sickle +1",
             "Pixquizpan",
             "Thr. Tomahawk",

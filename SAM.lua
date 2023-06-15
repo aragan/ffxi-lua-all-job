@@ -37,7 +37,8 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-organizer_items = {
+organizer_items = {        "Prime Sword",
+
     "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
@@ -272,7 +273,6 @@ function init_gear_sets()
         back="Smertrios's Mantle",
     }
     sets.precast.WS['Namas Arrow'].PDL = set_combine(sets.precast.WS['Namas Arrow'], {
-        ammo="Crepuscular Pebble",
         feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring", 
         back="Smertrios's Mantle",
@@ -295,7 +295,6 @@ function init_gear_sets()
         back="Smertrios's Mantle",
     })
     sets.precast.WS['Apex Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
-        ammo="Crepuscular Pebble",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
     back="Smertrios's Mantle",
@@ -318,7 +317,6 @@ function init_gear_sets()
         back="Smertrios's Mantle",
     })
     sets.precast.WS['Empyreal Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
-        ammo="Crepuscular Pebble",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
     back="Smertrios's Mantle",

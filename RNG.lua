@@ -22,7 +22,7 @@ function get_sets()
 
 end
 
-	organizer_items = {
+	organizer_items = {"Prime Sword",
 		"Mafic Cudgel",
 		"Perun 1+",
 		"Holliday",

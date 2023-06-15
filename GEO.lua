@@ -79,7 +79,7 @@ function init_gear_sets()
     sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals"}
 
     sets.CapacityMantle  = { back="Mecistopins Mantle" }
-    organizer_items = {
+    organizer_items = {"Prime Sword",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",

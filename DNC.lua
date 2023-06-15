@@ -45,7 +45,8 @@ function get_sets()
     include('organizer-lib')
 
 end
-organizer_items = {
+organizer_items = {        "Prime Sword",
+"Mafic Cudgel",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",

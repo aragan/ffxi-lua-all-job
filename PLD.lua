@@ -15,6 +15,7 @@ function get_sets()
     include('Mote-IncludePLD.lua')
     include('organizer-lib')
     organizer_items = {
+        "Prime Sword",
         "Foreshock Sword",
         "Mafic Cudgel",
         "Gyudon",

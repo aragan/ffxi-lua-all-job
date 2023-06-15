@@ -16,7 +16,7 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 
-    organizer_items = {
+    organizer_items = {"Prime Sword",
         "Mafic Cudgel",
         "Angon",
         "Gyudon",
@@ -377,7 +377,6 @@ sets.precast.JA.Jump = {
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     right_ring="Mujin Band",
-
     })
 	sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",

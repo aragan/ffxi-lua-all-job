@@ -24,7 +24,8 @@ function get_sets()
     include('organizer-lib')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
-    organizer_items = {
+    organizer_items = {"Prime Sword",
+        "Hachimonji",
         "Mafic Cudgel",
         "Toolbag (Shihe)",
         "Chonofuda",
@@ -1081,7 +1082,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Mpaca's Hose",
-        feet="Nyame Sollerets",
+        feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -1284,6 +1285,19 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
        })
+       sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS)
+       sets.precast.WS['Asuran Fists'].Acc = set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS)
+       sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS) 
+       sets.precast.WS['Spinning Attack'].Acc= set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS) 
+       sets.precast.WS['Backhand Blow'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS)
+       sets.precast.WS['Backhand Blow'].Acc = set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS)
+       sets.precast.WS['Shoulder Tackle'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS)
+       sets.precast.WS['Shoulder Tackle'].Acc = set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS)
+       sets.precast.WS['Combo'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS) 
+       sets.precast.WS['Combo'].Acc = set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS) 
+
+
+
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",

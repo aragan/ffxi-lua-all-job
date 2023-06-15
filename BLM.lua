@@ -104,7 +104,7 @@ function user_unload()
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
 end
-organizer_items = {
+organizer_items = {"Prime Sword",
     "Mafic Cudgel",
     "Maliya Sickle +1",
     "Pixquizpan",

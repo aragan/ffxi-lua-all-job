@@ -226,7 +226,8 @@ function init_gear_sets()
     Animators.Melee = "Animator P +1"
 
    
-        organizer_items = {
+        organizer_items = {"Prime Sword",
+        "Mafic Cudgel",
             "Sakpata's Fists",
             "Automat. Oil +3",
             "Dawn Mulsum",   
