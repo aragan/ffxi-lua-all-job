@@ -194,7 +194,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'AccMAX', 'PD', 'CRIT', 'Refresh', 'Learning')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc', 'AccMAX', 'CRIT')
+    state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.CastingMode:options('Normal', 'SIRD')
     state.IdleMode:options('Normal', 'PDT', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'enmity')
@@ -355,23 +355,36 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
         }
     
-        sets.precast.WS.acc = set_combine(sets.precast.WS, {})
+        sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+            ammo="Crepuscular Pebble",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Gleti's Breeches",
+            left_ring="Sroda Ring", 
+        })
     
         -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
         sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
             ammo="Coiste Bodhar",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
-        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Jhakri Pigaches +2",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Ishvara Earring",
+        left_ear="Brutal Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
-        right_ring="Epona's Ring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Rufescent Ring",
         back="Bleating Mantle",
+        })
+        sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS, {
+            ammo="Crepuscular Pebble",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Gleti's Breeches",
+            left_ring="Sroda Ring", 
         })
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
@@ -379,24 +392,30 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             head="Nyame Helm",
             body="Nyame Mail",
             hands="Nyame Gauntlets",
-            legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+            legs="Nyame Flanchard",
             feet="Nyame Sollerets",
-            neck="Rep. Plat. Medal",
+            neck="Fotia Gorget",
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Cornelia's Ring",
             right_ring="Ilabrat Ring",
             back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-                })
+        })
+        sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+            ammo="Crepuscular Pebble",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            left_ring="Sroda Ring", 
+        })
     
-        sets.precast.WS['Sanguine Blade'] = {
+        sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
         
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
             hands="Nyame Gauntlets",
-            legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+            legs="Nyame Flanchard",
             feet="Nyame Sollerets",
             neck="Sibyl Scarf",
             waist="Orpheus's Sash",
@@ -405,10 +424,9 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-                }
+                })
     
-    sets.precast.WS['Chant du Cygne'] = {
-        
+        sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Gleti's Cuirass",
@@ -422,24 +440,46 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ring="Ilabrat Ring",
         right_ring="Epona's Ring",
         back="Annealed Mantle",
-    }
-    
+        })
+        --sets.precast.WS['Chant du Cygn'].PDL = set_combine(sets.precast.WS['Chant du Cygn'], {
+        --ammo="Crepuscular Pebble",
+        --body="Gleti's Cuirass",
+        --hands="Gleti's Gauntlets",
+        --legs="Gleti's Breeches",
+        --feet="Gleti's Boots",
+        --left_ring="Sroda Ring", 
+        --})
+        sets.precast.WS['Chant du Cygne'].SC = set_combine(sets.precast.WS['Chant du Cygne'], {
+            ammo="Crepuscular Pebble",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Gleti's Breeches",
+            feet="Gleti's Boots",
+            left_ring="Sroda Ring", 
+            })
     
     sets.precast.WS['Expiacion'] = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Rep. Plat. Medal",
+        neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Ishvara Earring",
+        right_ear="Hashishin Earring",
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-        }
+    }
+    sets.precast.WS['Expiacion'].PDL = set_combine(sets.precast.WS['Expiacion'], {
+        ammo="Crepuscular Pebble",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        left_ring="Sroda Ring", 
+        right_ear="Ishvara Earring",
+    })
 
     sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
     head="Nyame Helm",
@@ -455,7 +495,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     waist="Orpheus's Sash",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 }
-    sets.precast.WS['Flash Nova'] = {
+    sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -469,7 +509,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ring="Freke Ring",
         right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-        }
+        })
 
             sets.precast.WS['Myrkr'] = {
             ammo="Pemphredo Tathlum",
@@ -502,8 +542,8 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
             }
         
-     sets.precast.WS['Black Halo'] = {
-        ammo="Crepuscular Pebble",
+     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
+        ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -516,7 +556,14 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-        }
+        })
+    sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Black Halo'], {
+            ammo="Crepuscular Pebble",
+            body="Gleti's Cuirass",
+            hands="Gleti's Gauntlets",
+            legs="Gleti's Breeches",
+            left_ring="Sroda Ring", 
+        })
 
     sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
@@ -524,6 +571,17 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Seraph Blade'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Burning Blade'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Shining Blade'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Vorpal Blade'] = sets.precast.WS['Chant du Cygne']
+    sets.precast.WS['Vorpal Blade'].PDL = sets.precast.WS['Chant du Cygne'].PDL
+    sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
+    sets.precast.WS['Realmrazer'].PDL = sets.precast.WS['Requiescat'].PDL
+
+
+
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
