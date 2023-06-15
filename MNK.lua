@@ -179,39 +179,46 @@ function init_gear_sets()
         back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 
     }
-    sets.precast.WSAcc = {}
-    sets.precast.WSMod = {}
-    sets.precast.MaxTP = {}
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, sets.precast.WSAcc)
-    sets.precast.WS.Mod = set_combine(sets.precast.WS, sets.precast.WSMod)
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+        ammo="Crepuscular Pebble",
+    left_ring="Sroda Ring", 
+    })
+    sets.precast.WS.Mod = set_combine(sets.precast.WS, {
+       
+    })
+
 
     -- Specific weaponskill sets.
     
     -- legs={name="Quiahuiz Trousers", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','STR+8'}}}
 
-    sets.precast.WS['Raging Fists']    = set_combine(sets.precast.WS, {
-        ammo="Knobkierrie",
+    sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
         head="Mpaca's Cap",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Mpaca's Hose",
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck="Fotia Gorget",
+        legs="Nyame Flanchard",
+        feet="Mpaca's Boots",
+        neck="Rep. Plat. Medal",
         waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
+        left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
-
     })
-    sets.precast.WS['Howling Fist']    = set_combine(sets.precast.WS, {
-    ammo="Knobkierrie",
+    sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
+    ammo="Coiste Bodhar",
     head="Mpaca's Cap",
-    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-    legs="Mpaca's Hose",
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
     left_ear="Schere Earring",
@@ -219,16 +226,42 @@ function init_gear_sets()
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
+    })
+    sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], {
+    ammo="Crepuscular Pebble",
+    left_ring="Sroda Ring", 
+    })
 
+    
+    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Moonbow Belt +1",
+        left_ear="Schere Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Gere Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
     })
-    sets.precast.WS['Asuran Fists']    = set_combine(sets.precast.WS, {
+    sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS, {
        
     })
-    sets.precast.WS["Ascetic's Fury"]  = set_combine(sets.precast.WS, {
-       
+    sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
     })
-    sets.precast.WS["Victory Smite"]   = set_combine(sets.precast.WS, {
- 
+
+    sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS, {
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Mpaca's Doublet",
@@ -242,64 +275,106 @@ function init_gear_sets()
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
-
-
     })
-    sets.precast.WS['Shijin Spiral']   = set_combine(sets.precast.WS, {
-        ammo="Aurgelmir Orb +1",
-        head="Mpaca's Cap",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
+    sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS['Shijin Spiral'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Mpaca's Doublet",
+          hands="Mpaca's Gloves",
         legs="Mpaca's Hose",
         feet="Malignance Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Odr Earring",
+        right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
-
     })
-    sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS, {})
-    sets.precast.WS['Tornado Kick']    = set_combine(sets.precast.WS, {
-        ammo="Knobkierrie",
+    sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS['Dragon Kick'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Moonbow Belt +1",
+        right_ear="Schere Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Gere Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
+    })
+    sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
+        ammo="Coiste Bodhar",
     head="Mpaca's Cap",
-    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Schere Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
-
     })
-    sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, {    legs="Hiza. Hizayoroi +2",
-
-       
+    sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"],{
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+    })
+    sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Tornado Kick"], {
+    })
+    sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
     })
 
-    sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], sets.precast.WSAcc)
-    sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], sets.precast.WSAcc)
-    sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"], sets.precast.WSAcc)
-    sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"], sets.precast.WSAcc)
-    sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"], sets.precast.WSAcc)
-    sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"], sets.precast.WSAcc)
-    sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"], sets.precast.WSAcc)
-    sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"], sets.precast.WSAcc)
+    sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, { 
+        ammo="Coiste Bodhar",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Mpaca's Doublet",
+          hands="Mpaca's Gloves",
+        legs="Mpaca's Hose",
+        feet="Malignance Boots",
+        neck="Fotia Gorget",
+        waist="Moonbow Belt +1",
+        left_ear="Sherida Earring",
+        right_ear="Schere Earring",
+        left_ring="Gere Ring",
+        right_ring="Niqmaddu Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},   legs="Hiza. Hizayoroi +2",
+    })
+    sets.precast.WS['Spinning Attack'].Acc = set_combine(sets.precast.WS, {   
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring", 
+})
 
-    sets.precast.WS["Raging Fists"].Mod = set_combine(sets.precast.WS["Raging Fists"], sets.precast.WSMod)
-    sets.precast.WS["Howling Fist"].Mod = set_combine(sets.precast.WS["Howling Fist"], sets.precast.WSMod)
-    sets.precast.WS["Asuran Fists"].Mod = set_combine(sets.precast.WS["Asuran Fists"], sets.precast.WSMod)
-    sets.precast.WS["Ascetic's Fury"].Mod = set_combine(sets.precast.WS["Ascetic's Fury"], sets.precast.WSMod)
-    sets.precast.WS["Victory Smite"].Mod = set_combine(sets.precast.WS["Victory Smite"], sets.precast.WSMod)
-    sets.precast.WS["Shijin Spiral"].Mod = set_combine(sets.precast.WS["Shijin Spiral"], sets.precast.WSMod)
-    sets.precast.WS["Dragon Kick"].Mod = set_combine(sets.precast.WS["Dragon Kick"], sets.precast.WSMod)
-    sets.precast.WS["Tornado Kick"].Mod = set_combine(sets.precast.WS["Tornado Kick"], sets.precast.WSMod)
+    sets.precast.WS["Raging Fists"].Mod = set_combine(sets.precast.WS["Raging Fists"], sets.precast.WS.Mod)
+    sets.precast.WS["Howling Fist"].Mod = set_combine(sets.precast.WS["Howling Fist"], sets.precast.WS.Mod)
+    sets.precast.WS["Asuran Fists"].Mod = set_combine(sets.precast.WS["Asuran Fists"], sets.precast.WS.Mod)
+    sets.precast.WS["Ascetic's Fury"].Mod = set_combine(sets.precast.WS["Ascetic's Fury"], sets.precast.WS.Mod)
+    sets.precast.WS["Victory Smite"].Mod = set_combine(sets.precast.WS["Victory Smite"], sets.precast.WS.Mod)
+    sets.precast.WS["Shijin Spiral"].Mod = set_combine(sets.precast.WS["Shijin Spiral"], sets.precast.WS.Mod)
+    sets.precast.WS["Dragon Kick"].Mod = set_combine(sets.precast.WS["Dragon Kick"], sets.precast.WS.Mod)
+    sets.precast.WS["Tornado Kick"].Mod = set_combine(sets.precast.WS["Tornado Kick"], sets.precast.WS.Mod)
 
 
     sets.precast.WS['Cataclysm'] = {
@@ -321,14 +396,10 @@ function init_gear_sets()
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
-   
-        
     }
         
     -- Specific spells
     sets.midcast.Utsusemi = {
-        
-        
     }
 
     
@@ -697,9 +768,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip(sets.CapacityMantle)
         end
         -- Replace Moonshade Earring if we're at cap TP
-        if player.tp == 3000 then
-            equip(sets.precast.MaxTP)
-        end
     end
 end
 
