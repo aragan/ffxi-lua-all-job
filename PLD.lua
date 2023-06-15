@@ -55,7 +55,7 @@ function user_setup()
     -- Options: Override default values
     options.OffenseModes = {'Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT'}
 	options.DefenseModes = {'Normal', 'PDT'}
-    options.WeaponskillModes = {'Normal', 'Acc'}
+    options.WeaponskillModes = {'Normal', 'PDL'}
     options.CastingModes = {'Normal', 'DT', 'MB'} 
     options.IdleModes = {'Normal','Refresh',}
     options.RestingModes = {'Normal'}
@@ -135,10 +135,10 @@ function init_gear_sets()
     sets.precast.JA['Chivalry'] = set_combine(sets.defense.HPBOOST, {
         ammo="Staunch Tathlum +1",
         head={ name="Loess Barbuta +1", augments={'Path: A',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Nyame Mail",
         hands={ name="Cab. Gauntlets +1", augments={'Enhances "Chivalry" effect',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Luminary Sash",
         left_ear="Tuisto Earring",
@@ -233,21 +233,27 @@ sets.precast.FC.Cure.DT = set_combine(sets.precast.FC,{
 })
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-sets.precast.WS = {   ammo="Aurgelmir Orb +1",
+sets.precast.WS = {   
+ammo="Aurgelmir Orb +1",
 head="Nyame Helm",
 body="Nyame Mail",
-    body="Nyame Mail",
+body="Nyame Mail",
 legs="Nyame Flanchard",
-feet="Sulev. Leggings +2",
+feet="Nyame Sollerets",
 neck="Fotia Gorget",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back="Atheling Mantle",
 }
+sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+    left_ring="Sroda Ring", 
+})
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
  
     --Stat Modifier:     73~85% MND  fTP:    1.0
@@ -266,14 +272,18 @@ left_ring="Petrov Ring",
 right_ring="Regal Ring",
 back="Bleating Mantle",
 }
+sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+})
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
     sets.precast.WS['Sanguine Blade'] = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -286,9 +296,9 @@ back="Bleating Mantle",
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -302,9 +312,9 @@ sets.precast.WS['Cataclysm'] = {
     head="Pixie Hairpin +1",
     body="Nyame Mail",
     legs="Nyame Flanchard",
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -318,10 +328,10 @@ sets.precast.WS['Savage Blade'] = {
 ammo="Aurgelmir Orb +1",
 head="Nyame Helm",
 body="Nyame Mail",
-hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+hands="Nyame Gauntlets",
 legs="Nyame Flanchard",
-feet="Sulev. Leggings +2",
-neck="Fotia Gorget",
+feet="Nyame Sollerets",
+neck="Rep. Plat. Medal",
 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -329,22 +339,31 @@ left_ring="Regal Ring",
 right_ring="Cornelia's Ring",
 back="Bleating Mantle",
 }
+sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+    left_ring="Sroda Ring", 
+})
    --Stat Modifier:  80%DEX  fTP:2.25
    sets.precast.WS['Chant du Cygne'] = {	
-    ammo="Aurgelmir Orb +1",
-    head="Flam. Zucchetto +2",
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    feet="Sulev. Leggings +2",
+    feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Cessance Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    waist="Flume Belt +1",
+    left_ear="Mache Earring +1",
+    right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ring="Regal Ring",
-    right_ring="Flamma Ring",
+    right_ring="Hetairoi Ring",
     back="Bleating Mantle",
 }
+sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cygne'], {
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+})
     --Stat Modifier: WS damage + 30/31%   2211DMG maxaggro
     sets.precast.WS['Atonement'] = {
     ammo="Paeapua",
@@ -361,6 +380,40 @@ back="Bleating Mantle",
     right_ring="Apeile Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
+sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {    
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+    left_ring="Sroda Ring", 
+})
+sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Requiescat"], {})
+sets.precast.WS["Realmrazer"].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {})
+sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Aeolian Edge"], {})
+sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Chant du Cygne"], {})
+sets.precast.WS["True Strike"].PDL = set_combine(sets.precast.WS["Chant du Cygne"], {})
+sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS["Requiescat"], {
+    ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+    right_ear="Brutal Earring",
+    left_ring="Rufescent Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Annealed Mantle",
+})
+sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {
+    ammo="Crepuscular Pebble",
+    hands="Sakpata's Gauntlets",
+    left_ring="Sroda Ring", 
+})
+sets.precast.WS['Resolution'] = set_combine(sets.precast.WS['Requiescat'], {})
+sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PDL, {})
+
     ------------------------------------------------------------------------------------------------
     -----------------------------------------Midcast sets-------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -406,9 +459,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
         body="Nyame Mail",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Baetyl Pendant",
         waist="Skrymir Cord",
         left_ear="Hecate's Earring",
@@ -421,9 +474,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
         body="Nyame Mail",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Skrymir Cord",
         left_ear="Hecate's Earring",
@@ -436,9 +489,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
         ammo="Pemphredo Tathlum",
         head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
         body="Nyame Mail",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Skrymir Cord",
         left_ear="Hecate's Earring",
@@ -451,9 +504,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
     sets.midcast['Elemental Magic'] = {
         ammo="Pemphredo Tathlum",
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Sibyl Scarf",
         waist="Eschan Stone",
         left_ear="Hecate's Earring",
@@ -466,9 +519,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
             ammo="Pemphredo Tathlum",
             head="Nyame Helm",
             body="Nyame Mail",
-            hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-            legs={ name="Nyame Flanchard", augments={'Path: B',}},
-            feet={ name="Nyame Sollerets", augments={'Path: B',}},
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
             neck={ name="Warder's Charm +1", augments={'Path: A',}},
             waist="Eschan Stone",
             left_ear="Hecate's Earring",
@@ -1064,9 +1117,9 @@ sets.defense.Dagger = {
 sets.defense.Evasion = {    
     ammo="Amar Cluster",
     head="Nyame Helm",
-    body={ name="Nyame Mail", augments={'Path: B',}},
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Flume Belt +1",

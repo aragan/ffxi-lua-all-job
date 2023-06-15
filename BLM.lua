@@ -32,7 +32,8 @@ function get_sets()
     include('Mote-TreasureHunter')
  
 end
- 
+send_command('wait 2;input /lockstyleset 174')
+
  
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
  
@@ -55,7 +56,7 @@ function job_setup()
     state.Moving  = M(false, "moving")
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('wait 2;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 174')
 
 
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
@@ -90,40 +91,7 @@ function job_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^= gs c cycle treasuremode')
-    organizer_items = {
-        "Mafic Cudgel",
-        "Maliya Sickle +1",
-        "Pixquizpan",
-        "Gyudon",
-        "Reraiser",
-        "Hi-Reraiser",
-        "Vile Elixir",
-        "Vile Elixir +1",
-        "Miso Ramen",
-        "Carbonara",
-        "Silent Oil",
-        "Salt Ramen",
-        "Panacea",
-        "Sublime Sushi",
-        "Sublime Sushi 1+",
-        "Prism Powder",
-        "Antacid",
-        "Icarus Wing",
-        "Warp Cudgel",
-        "Holy Water",
-        "Sanjaku-Tenugui",
-        "Shinobi-Tabi",
-        "Shihei",
-        "Remedy",
-        "Wh. Rarab Cap +1",
-        "Emporox's Ring",
-        "Red Curry Bun",
-        "Instant Reraise",
-        "Black Curry Bun",
-        "Rolan. Daifuku",
-        "Qutrub Knife",
-        "Wind Knife +1",
-        "Reraise Earring",}
+
     select_default_macro_book()
 end
  
@@ -136,7 +104,40 @@ function user_unload()
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
 end
- 
+organizer_items = {
+    "Mafic Cudgel",
+    "Maliya Sickle +1",
+    "Pixquizpan",
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
  
 -- Define sets and vars used by this job file.
 function init_gear_sets()
@@ -1313,7 +1314,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 174')
     end
 end
 

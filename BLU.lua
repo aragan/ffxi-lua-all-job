@@ -29,7 +29,7 @@ function job_setup()
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
-    send_command('wait 2;input /lockstyleset 199')
+    send_command('wait 6;input /lockstyleset 199')
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -213,7 +213,7 @@ function user_setup()
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;')
     update_combat_form()
     select_default_macro_book()
-    send_command('wait 6;input /lockstyleset 199')
+    send_command('wait 2;input /lockstyleset 199')
     send_command('bind f4 input //fillmode')
 
 end
@@ -384,7 +384,6 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
             body="Gleti's Cuirass",
             hands="Gleti's Gauntlets",
             legs="Gleti's Breeches",
-            left_ring="Sroda Ring", 
         })
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
@@ -1390,11 +1389,10 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 199')
+        send_command('wait 6;input /lockstyleset 199')
     end
 end
 
-send_command('wait 2;input /lockstyleset 199')
 add_to_chat(159,'Author Aragan BLU.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
