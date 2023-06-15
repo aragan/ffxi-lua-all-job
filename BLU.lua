@@ -580,9 +580,6 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
     sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
     sets.precast.WS['Realmrazer'].PDL = sets.precast.WS['Requiescat'].PDL
 
-
-
-
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
@@ -598,8 +595,6 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         left_ring="Rufescent Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
         }
-    
-
     
     
     -- Midcast Sets

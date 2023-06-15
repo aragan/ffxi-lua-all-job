@@ -164,12 +164,12 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        ammo="Knobkierrie",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        ammo="Coiste Bodhar",
+        head="Mpaca's Cap",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Hiza. Hizayoroi +2",
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        legs="Mpaca's Hose",
+        feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
@@ -181,7 +181,9 @@ function init_gear_sets()
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
-    left_ring="Sroda Ring", 
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring", 
     })
     sets.precast.WS.Mod = set_combine(sets.precast.WS, {
        
@@ -209,6 +211,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], {
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -228,8 +232,10 @@ function init_gear_sets()
     back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
     })
     sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], {
-    ammo="Crepuscular Pebble",
-    left_ring="Sroda Ring", 
+        ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring", 
     })
 
     
@@ -250,6 +256,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -258,6 +266,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -278,6 +288,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -287,7 +299,7 @@ function init_gear_sets()
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
         legs="Mpaca's Hose",
-        feet="Malignance Boots",
+        feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -298,6 +310,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -318,6 +332,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
 
@@ -338,6 +354,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"],{
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
     sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS, {
@@ -357,7 +375,9 @@ function init_gear_sets()
     })
     sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
         ammo="Crepuscular Pebble",
-        left_ring="Sroda Ring",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring", 
     })
     sets.precast.WS["Retribution"] = set_combine(sets.precast.WS, {
         ammo="Oshasha's Treatise",
@@ -376,7 +396,9 @@ function init_gear_sets()
     })
     sets.precast.WS["Retribution"].Acc = set_combine(sets.precast.WS["Retribution"], {
         ammo="Crepuscular Pebble",
-        left_ring="Sroda Ring",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring", 
     })
 
     sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, { 
@@ -385,7 +407,7 @@ function init_gear_sets()
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
         legs="Mpaca's Hose",
-        feet="Malignance Boots",
+        feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -396,6 +418,8 @@ function init_gear_sets()
     })
     sets.precast.WS['Spinning Attack'].Acc = set_combine(sets.precast.WS, {   
         ammo="Crepuscular Pebble",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
         left_ring="Sroda Ring", 
 })
 
@@ -414,7 +438,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Hiza. Hizayoroi +2",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
