@@ -340,9 +340,41 @@ function init_gear_sets()
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring", 
     })
-    sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Tornado Kick"], {
+    sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS, {
+        ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Regal Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},  
     })
     sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS["Retribution"] = set_combine(sets.precast.WS, {
+        ammo="Oshasha's Treatise",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Ishvara Earring",
+        left_ring="Regal Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},   
+    })
+    sets.precast.WS["Retribution"].Acc = set_combine(sets.precast.WS["Retribution"], {
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",
     })
@@ -360,7 +392,7 @@ function init_gear_sets()
         right_ear="Schere Earring",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},   legs="Hiza. Hizayoroi +2",
+        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},  
     })
     sets.precast.WS['Spinning Attack'].Acc = set_combine(sets.precast.WS, {   
         ammo="Crepuscular Pebble",
@@ -390,7 +422,7 @@ function init_gear_sets()
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring="Cornelia's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Magic dmg. taken-10%',}},
+        back="Argocham. Mantle",
     }
     
     
