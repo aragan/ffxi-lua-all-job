@@ -150,6 +150,7 @@ function init_gear_sets()
 	}
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
 		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
 		left_ring="Sroda Ring", 
 	})
 	sets.precast.WS.SC = set_combine(sets.precast.WS, {
@@ -176,6 +177,12 @@ function init_gear_sets()
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		back="Sucellos's Cape",
     }
+	sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
+		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
+		left_ear="Ishvara Earring",
+		left_ring="Sroda Ring", 
+	})
 
     sets.precast.WS['Sanguine Blade'] = {
 		ammo="Pemphredo Tathlum",
@@ -263,6 +270,12 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back="Sucellos's Cape",
 	}
+	sets.precast.WS['Death Blossom'].PDL = set_combine(sets.precast.WS['Death Blossom'], {
+		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
+		left_ear="Ishvara Earring",
+		left_ring="Sroda Ring", 
+	})
 	
 	sets.precast.WS['Chant Du Cygne'] = {
 		ammo="Yetshila +1",
@@ -280,6 +293,11 @@ function init_gear_sets()
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
 	}
+	sets.precast.WS['Chant Du Cygne'].PDL = set_combine(sets.precast.WS['Chant Du Cygne'], {
+		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
+		left_ring="Sroda Ring", 
+	})
 
 	sets.precast.WS['Evisceration'] = {
 		ammo="Yetshila +1",
@@ -296,7 +314,12 @@ function init_gear_sets()
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
-	}  
+	} 
+	sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {
+		ammo="Crepuscular Pebble",
+		hands="Malignance Gloves",
+		left_ring="Sroda Ring", 
+	})
 	    sets.precast.WS['Cataclysm'] = {
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
@@ -331,7 +354,7 @@ function init_gear_sets()
 	
  sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'], {
 })
-sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Savage Blade'].PDL, {
+sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
 	ammo="Crepuscular Pebble",
 	hands="Malignance Gloves",
 	left_ear="Ishvara Earring",
@@ -360,6 +383,12 @@ sets.precast.WS['Shattersoul'] = {
 	left_ring="Rufescent Ring",
 	back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
+sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS['Shattersoul'], {
+	ammo="Crepuscular Pebble",
+	hands="Malignance Gloves",
+	left_ear="Ishvara Earring",
+	left_ring="Sroda Ring", 
+})
 	
 sets.TreasureHunter = { 
 	ammo="Per. Lucky Egg",

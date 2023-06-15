@@ -177,6 +177,34 @@ function init_gear_sets()
     left_ring="Prolix Ring",
     right_ring="Kishar Ring",
 }
+sets.precast.JA.Jump = {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist="Olseni Belt",
+    left_ear="Telos Earring",
+    right_ear="Crep. Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Tactical Mantle",
+}
+sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist="Olseni Belt",
+    left_ear="Telos Earring",
+    right_ear="Crep. Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Tactical Mantle",}) 
+sets.precast.JA['Super Jump'] = sets.precast.JA.Jump
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket",})
 
