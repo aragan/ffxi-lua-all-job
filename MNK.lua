@@ -181,7 +181,7 @@ function init_gear_sets()
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -211,7 +211,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -233,7 +233,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -256,7 +256,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -266,7 +266,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -288,7 +288,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -310,9 +310,8 @@ function init_gear_sets()
     })
     sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
-        left_ring="Sroda Ring", 
     })
 
     sets.precast.WS['Dragon Kick'] = set_combine(sets.precast.WS, {
@@ -332,7 +331,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -354,7 +353,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"],{
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -375,7 +374,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -396,7 +395,7 @@ function init_gear_sets()
     })
     sets.precast.WS["Retribution"].Acc = set_combine(sets.precast.WS["Retribution"], {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -418,7 +417,7 @@ function init_gear_sets()
     })
     sets.precast.WS['Spinning Attack'].Acc = set_combine(sets.precast.WS, {   
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
 })

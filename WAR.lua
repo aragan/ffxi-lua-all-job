@@ -153,17 +153,17 @@ function init_gear_sets()
      -- Precast Sets
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
-     sets.precast.JA['Blood Rage'] = { body="Boii Lorica +1" }
+     sets.precast.JA['Blood Rage'] = {}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
-     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3", hands="Agoge Calligae", back="Cichol's Mantle" , feet="Agoge Calligae"}
+     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
      sets.precast.JA['Mighty Strikes'] = { head="Agoge Mufflers"}
      sets.precast.JA['Retaliation'] = { hands="Pummeler's Mufflers +1", feet="Ravager's Calligae +2"}
-     sets.precast.JA['Aggressor'] = { head="Pummeler's Mask +1", body="Agoge Lorica"}
-     sets.precast.JA['Restraint'] = { hands="Ravager's Mufflers +2"}
-     sets.precast.JA['Warrior\'s Charge'] = { legs="Agoge Cuisses 1+"}
+     sets.precast.JA['Aggressor'] = {}
+     sets.precast.JA['Restraint'] = { hands="Boii Mufflers +2"}
+     sets.precast.JA['Warrior\'s Charge'] = {}
 
-     sets.CapacityMantle  = { back="Mecistopins Mantle" }
+     --sets.CapacityMantle  = { back="Mecistopins Mantle" }
      --sets.Berserker       = { neck="Berserker's Torque" }
      sets.WSDayBonus      = { head="Gavialis Helm" }
      -- TP ears for night and day, AM3 up and down. 
@@ -333,7 +333,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands="Boii Mufflers +2",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
@@ -363,7 +363,7 @@ function init_gear_sets()
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Boii Mufflers +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -399,7 +399,7 @@ function init_gear_sets()
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Hjarrandi Breast.",
-        hands="Sakpata's Gauntlets",
+        hands="Boii Mufflers +2",
         legs="Nyame Flanchard",
         feet="Thereoid Greaves",
         neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -492,7 +492,7 @@ function init_gear_sets()
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Boii Mufflers +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -597,7 +597,7 @@ function init_gear_sets()
             ammo="Coiste Bodhar",
             head="Hjarrandi Helm",
             body="Nyame Mail",
-            hands="Nyame Gauntlets",
+            hands="Boii Mufflers +2",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
             neck="Fotia Gorget",
@@ -755,7 +755,7 @@ function init_gear_sets()
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Boii Mufflers +2",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
