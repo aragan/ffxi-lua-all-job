@@ -142,7 +142,7 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
     legs="Aya. Cosciales +2",
-    feet="Navon Crackows",
+    feet="Fili Cothurnes +2",
     waist="Witful Belt",
     neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
@@ -179,7 +179,7 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Aya. Cosciales +2",
-    feet="Navon Crackows",
+    feet="Fili Cothurnes +2",
     neck="Baetyl Pendant",
     waist="Witful Belt",
     left_ear="Etiolation Earring",
@@ -192,11 +192,11 @@ function init_gear_sets()
     sets.precast.FC.BardSong = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
         sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +1",
+        head="Fili Calot +2",
         body="Inyanga Jubbah +2",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs="Aya. Cosciales +2",
-        feet="Navon Crackows",
+        feet="Fili Cothurnes +2",
         neck="Baetyl Pendant",
         waist="Witful Belt",
         left_ear="Etiolation Earring",
@@ -429,15 +429,15 @@ sets.precast.WS['Shattersoul'] = {
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-    sets.midcast.Ballad = {legs="Aoidos' Rhing. +2"}
-    sets.midcast.Lullaby = {hands="Brioso Cuffs"}
-    sets.midcast.Madrigal = {head="Fili Calot +1",}
-    sets.midcast.March = {hands="Fili Manchettes +1",}
+    sets.midcast.Ballad = {}
+    sets.midcast.Lullaby = {}
+    sets.midcast.Madrigal = {head="Fili Calot +2",}
+    sets.midcast.March = {hands="Fili Manchettes +2",}
     sets.midcast.Minuet = {body="Fili Hongreline +2",}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
-    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +1",}
+    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +2",}
     sets.midcast['Magic Finale'] = {}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
@@ -447,9 +447,9 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.SongEffect = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot +1",
+    head="Fili Calot +2",
     body="Fili Hongreline +2",
-    hands="Fili Manchettes +1",
+    hands="Fili Manchettes +2",
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
@@ -462,9 +462,9 @@ sets.precast.WS['Shattersoul'] = {
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
-        head="Fili Calot +1",
+        head="Fili Calot +2",
         body="Fili Hongreline +2",
-        hands="Fili Manchettes +1",    
+        hands="Fili Manchettes +2",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +3",
         neck="Mnbw. Whistle +1",
@@ -479,9 +479,9 @@ sets.precast.WS['Shattersoul'] = {
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
-        head="Fili Calot +1",
+        head="Fili Calot +2",
         body="Fili Hongreline +2",
-        hands="Fili Manchettes +1",    
+        hands="Fili Manchettes +2",    
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +3",
         neck="Mnbw. Whistle +1",
@@ -601,7 +601,7 @@ sets.precast.WS['Shattersoul'] = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +1",
+        feet="Fili Cothurnes +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -615,7 +615,7 @@ sets.precast.WS['Shattersoul'] = {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +1",
+    feet="Fili Cothurnes +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -630,7 +630,7 @@ sets.precast.WS['Shattersoul'] = {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +1",
+    feet="Fili Cothurnes +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -643,7 +643,7 @@ sets.precast.WS['Shattersoul'] = {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +1",
+    feet="Fili Cothurnes +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -662,7 +662,7 @@ sets.precast.WS['Shattersoul'] = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +1",
+        feet="Fili Cothurnes +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -693,7 +693,7 @@ sets.precast.WS['Shattersoul'] = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +1",
+        feet="Fili Cothurnes +2",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -703,7 +703,7 @@ sets.precast.WS['Shattersoul'] = {
         back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Fili Cothurnes +1",}
+    sets.Kiting = {feet="Fili Cothurnes +2",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 

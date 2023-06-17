@@ -146,7 +146,7 @@ function user_setup()
 
     -- Additional local binds
 
-
+    send_command('input /Sublimator start')
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^- gs c scholar light')
