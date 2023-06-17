@@ -644,7 +644,7 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
     head="Skulker's Bonnet +2",
     body="Pillager's Vest +3",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Ainia Collar",
     waist="Reiki Yotai",

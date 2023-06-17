@@ -648,7 +648,7 @@ sets.engaged.Melee = {
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
@@ -705,9 +705,9 @@ sets.engaged.Ranged = {
     }
 
 sets.engaged.Acc = {
-            ammo="Orichalc. Bullet",
+            
             head="Malignance Chapeau",
-            body="Mummu Jacket +2",
+            body="Malignance Tabard",
             hands="Malignance Gloves",
             legs="Malignance Tights",
             feet="Malignance Boots",
@@ -740,7 +740,7 @@ sets.engaged.Melee = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Meg. Chausses +2",
+        legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
