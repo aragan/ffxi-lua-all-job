@@ -142,6 +142,7 @@ function init_gear_sets()
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     hands="Chasseur's Gants +2",
     neck="Regal Necklace",
+    right_ring="Luzaf's Ring",
     back="Camulus's Mantle",}
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})

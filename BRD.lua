@@ -431,7 +431,7 @@ sets.precast.WS['Shattersoul'] = {
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
     sets.midcast.Ballad = {}
     sets.midcast.Lullaby = {}
-    sets.midcast.Madrigal = {head="Fili Calot +2",}
+    sets.midcast.Madrigal = {head="Fili Calot +2", back="Intarabus's Cape",}
     sets.midcast.March = {hands="Fili Manchettes +2",}
     sets.midcast.Minuet = {body="Fili Hongreline +2",}
     sets.midcast.Minne = {}
@@ -458,39 +458,44 @@ sets.precast.WS['Shattersoul'] = {
     right_ear="Fili Earring +1",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Intarabus's Cape",}
+    back="Intarabus's Cape",
+}
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
+    sub="Ammurapi Shield",
         head="Fili Calot +2",
         body="Fili Hongreline +2",
         hands="Fili Manchettes +2",    
-        legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +3",
+        legs="Fili Rhingrave +2",
+        feet="Fili Cothurnes +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
-        right_ear="Musical Earring",
-        left_ring="Stikini Ring +1",
+        right_ear="Fili Earring +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Stikini Ring +1",
-    back="Intarabus's Cape",}
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     
 
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
+    sub="Ammurapi Shield",
         head="Fili Calot +2",
         body="Fili Hongreline +2",
         hands="Fili Manchettes +2",    
-        legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +3",
+        legs="Fili Rhingrave +2",
+        feet="Fili Cothurnes +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
-        right_ear="Musical Earring",
-        left_ring="Stikini Ring +1",
+        right_ear="Fili Earring +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Stikini Ring +1",
-        back="Intarabus's Cape",}
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {
