@@ -105,9 +105,9 @@ function user_unload()
 	send_command('unbind ^f11')
 end
 organizer_items = {"Prime Sword",
+    "Drepanum",
     "Mafic Cudgel",
     "Maliya Sickle +1",
-    "Pixquizpan",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -229,7 +229,7 @@ function init_gear_sets()
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+		back="Taranus's Cape",
     }
  
     -- Sets for WS, Feel free to add one for Vidohunir if you have Laevateinn
@@ -261,7 +261,7 @@ function init_gear_sets()
             right_ear="Friomisi Earring",
             left_ring="Cornelia's Ring",
             right_ring="Freke Ring",
-            back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
+            back="Taranus's Cape",}
         sets.precast.WS['Spinning Scythe'] = {
             ammo="Oshasha's Treatise",
             head="Jhakri Coronal +2",
@@ -289,7 +289,7 @@ function init_gear_sets()
             right_ear="Friomisi Earring",
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
-            back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
+            back="Taranus's Cape",}
        
             sets.precast.WS['Infernal Scythe'] = {
             ammo="Pemphredo Tathlum",
@@ -304,7 +304,7 @@ function init_gear_sets()
             right_ear="Friomisi Earring",
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
-            back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
+            back="Taranus's Cape",}
         
             sets.precast.WS['Cross Reaper']	= {
                 ammo="Oshasha's Treatise",
@@ -408,7 +408,7 @@ function init_gear_sets()
 		right_ear="Ethereal Earring",
 		left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		right_ring="Shadow Ring",
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+		back="Taranus's Cape",
 	}
 	
 	-- I personally do not have gear to alter these abilities as of the time of disseminating this file, but 
@@ -497,7 +497,7 @@ function init_gear_sets()
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+		back="Taranus's Cape",
 	}
  
     -- Elemental Magic sets
@@ -517,7 +517,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        back="Taranus's Cape",
 	}
     sets.magic_burst = {
         main="Bunzi's Rod",
@@ -534,7 +534,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        back="Taranus's Cape",
     }
 
 
@@ -553,7 +553,7 @@ function init_gear_sets()
     right_ear="Friomisi Earring",
     left_ring="Jhakri Ring",
     right_ring="Freke Ring",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    back="Taranus's Cape",
     })
 		
     sets.midcast['Elemental Magic'].OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
@@ -571,7 +571,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        back="Taranus's Cape",
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
@@ -589,7 +589,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        back="Taranus's Cape",
     })
 	
     sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
@@ -607,7 +607,7 @@ function init_gear_sets()
     right_ear="Friomisi Earring",
     left_ring="Freke Ring",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    back="Taranus's Cape",
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
@@ -625,7 +625,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+        back="Taranus's Cape",
     })
 
     sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast['Elemental Magic'], {
@@ -690,7 +690,7 @@ function init_gear_sets()
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+		back="Taranus's Cape",
     })
  
 	sets.midcast['Comet'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
@@ -708,7 +708,7 @@ function init_gear_sets()
     right_ear="Friomisi Earring",
     left_ring="Jhakri Ring",
     right_ring="Freke Ring",
-    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+    back="Taranus's Cape",
     })
 	
 	sets.midcast.Klimaform = {main="Grioavolr",
@@ -887,7 +887,7 @@ function init_gear_sets()
 		right_ear="Ethereal Earring",
 		left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		right_ring="Shadow Ring",
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},
+		back="Taranus's Cape",
 	}
 	
 	sets.midcast.Cure = {

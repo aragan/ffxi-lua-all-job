@@ -316,13 +316,8 @@ function init_gear_sets()
         right_ring="Mephitas's Ring",
         back="Alaunus's Cape",
     }
-
-
-  
-
     
     -- Midcast Sets
-    
     sets.midcast.FastRecast = {
         ammo="Staunch Tathlum +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},

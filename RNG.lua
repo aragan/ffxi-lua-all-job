@@ -241,7 +241,7 @@ function init_gear_sets()
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
 		right_ring="Cornelia's Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 	}
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
 		left_ring="Sroda Ring", 
@@ -267,7 +267,7 @@ function init_gear_sets()
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
 		right_ring="Dingir Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 	}
 	sets.precast.WS['Last Stand'].PDL = set_combine(sets.precast.WS['Last Stand'], {
 		legs="Ikenga's Trousers",
@@ -290,7 +290,7 @@ function init_gear_sets()
     right_ear="Friomisi Earring",
     left_ring="Cornelia's Ring",
 	right_ring="Dingir Ring",
-    back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+    back="Belenus's Cape",
 	}
 
 	sets.precast.WS.Trueflight = set_combine(sets.precast.WS.Wildfire, {
@@ -329,7 +329,7 @@ function init_gear_sets()
 		right_ear="Amini Earring +1",
 		left_ring="Regal Ring",
 		right_ring="Ilabrat Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 	}
 	sets.precast.WS["Numbing Shot"] = set_combine(sets.precast.WS["Blast Shot"], {right_ear="Amini Earring +1",
 		
@@ -350,7 +350,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Cornelia's Ring",
 		right_ring="Regal Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 		}
 		sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
 			body="Amini Caban +2",
@@ -371,7 +371,7 @@ function init_gear_sets()
 		right_ear="Moonshade Earring",
 		left_ring="Cornelia's Ring",
 		right_ring="Ilabrat Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 		}
 
 		sets.precast.WS.Evisceration  = {
@@ -452,7 +452,7 @@ function init_gear_sets()
 		right_ear="Crep. Earring",
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Crepuscular Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 	}
 	sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
 		head="Meghanada Visor +2",
@@ -466,7 +466,7 @@ function init_gear_sets()
 		right_ear="Telos Earring",
 		left_ring="Mummu Ring",
 		right_ring="Dingir Ring",
-		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+		back="Belenus's Cape",
 
 	})
 

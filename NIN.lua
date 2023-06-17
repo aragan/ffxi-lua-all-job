@@ -318,7 +318,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
 }
     sets.midcast.Utsusemi = set_combine(sets.midcast.Ninjutsu, {    
         feet="Hattori Kyahan +1",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.midcast.Utsusemi.SIRD = set_combine(sets.midcast.Ninjutsu, {        sub="Tancho",
         ammo="Staunch Tathlum +1",
@@ -333,7 +333,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ring="Defending Ring",
         right_ring="Evanescence Ring",
         feet="Hattori Kyahan +1",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.midcast.Migawari = set_combine(sets.midcast.Ninjutsu, {    neck="Incanter's Torque",
     ammo="Staunch Tathlum +1",
@@ -347,7 +347,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     right_ear="Tuisto Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.midcast.Migawari.SIRD = set_combine(sets.midcast.Ninjutsu, {     sub="Tancho",
         ammo="Staunch Tathlum +1",
@@ -490,7 +490,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Cessance Earring",
         right_ring="Ilabrat Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
          }
 
     sets.defense.MDT = set_combine(sets.defense.PDT, {
@@ -544,7 +544,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Dedition Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     -- assumptions made about targe
     sets.engaged.Mid = set_combine(sets.engaged, {       
@@ -576,7 +576,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Odr Earring",
         left_ring="Mummu Ring",
         right_ring="Hetairoi Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
         hands="Kobo Kote",
@@ -647,7 +647,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         body="Adhemar Jacket +1",
         hands="Adhemar Wristbands +1",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
 
     })
     sets.Katanas = {    
@@ -729,7 +729,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Dedition Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.engaged.Mid.MaxHaste = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
@@ -744,7 +744,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ear2="Telos Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.engaged.Acc.MaxHaste = set_combine(sets.engaged.Acc, {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -796,7 +796,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     right_ear="Suppanomimi",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+    back="Andartia's Mantle",
     })
     sets.engaged.Mid.Haste_35 = set_combine(sets.engaged.Mid.MaxHaste, {  
         ear2="Telos Earring",
@@ -932,7 +932,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
 }
     
     -- Weaponskills 
@@ -949,7 +949,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     right_ear="Ishvara Earring",
     right_ring="Regal Ring",
     left_ring="Cornelia's Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+    back="Andartia's Mantle",
     }
     
     sets.precast.WS.SC = set_combine(sets.precast.WS, { 
@@ -980,7 +980,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Hattori Earring", 
         right_ring="Gere Ring",
         left_ring="Sroda Ring", 
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS, sets.Kamu)
     sets.precast.WS['Blade: Kamu'].SC = set_combine(sets.precast.WS, sets.Kamu, {
@@ -1008,7 +1008,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ear="Odr Earring",
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS, sets.Jin)
     sets.precast.WS['Blade: Jin'].SC = set_combine(sets.precast.WS['Blade: Jin'], {
@@ -1042,7 +1042,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ear="Odr Earring",
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.precast.WS['Blade: Hi'].SC = set_combine(sets.precast.WS['Blade: Hi'], {
         body="Nyame Mail",
@@ -1089,7 +1089,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Hattori Earring", 
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, sets.Shun)
@@ -1124,7 +1124,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ear="Odr Earring",
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Rin'] = set_combine(sets.precast.WS, sets.Rin)
     sets.precast.WS['Blade: Rin'].SC = set_combine(sets.precast.WS.SC, sets.Rin)
@@ -1150,7 +1150,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Ku'] = set_combine(sets.precast.WS, sets.Ku)
     sets.precast.WS['Blade: Ku'].SC = sets.precast.WS['Blade: Ku']
@@ -1175,7 +1175,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Hattori Earring", 
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     }
     
     sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, sets.Ten)
@@ -1202,7 +1202,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Ishvara Earring",
         left_ring="Cornelia's Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], { 
         ammo="Crepuscular Pebble",
@@ -1231,7 +1231,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ring="Dingir Ring",
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
+        back="Andartia's Mantle",
     })
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},

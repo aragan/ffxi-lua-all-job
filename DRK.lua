@@ -19,8 +19,8 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {        "Prime Sword",
+    "Drepanum",
     "Mafic Cudgel",
-    "Pixquizpan",
     "Maliya Sickle +1",
     "Foreshock Sword",
     "Hepatizon Axe +1",

@@ -20,8 +20,8 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {"Prime Sword",
+            "Drepanum",
             "Maliya Sickle +1",
-            "Pixquizpan",
             "Thr. Tomahawk",
             "Gyudon",
             "Reraiser",
@@ -91,7 +91,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'SubtleBlow75', 'Counter')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal', 'sird', 'ConserveMP')
-    state.IdleMode:options('Normal')
+    state.IdleMode:options('Normal', 'Refresh', 'Regen')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Enmity', 'MP', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
@@ -943,6 +943,20 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
      }
      -- Idle sets
+     sets.idle = {
+        head="Sakpata's Helm",
+        body="Sakpata's Plate",
+        hands="Sakpata's Gauntlets",
+        legs="Sakpata's Cuisses",
+        ear1="Tuisto Earring",
+        ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        right_ring="Paguroidea Ring",
+        left_ring="Defending Ring",
+        feet="Hermes' Sandals +1",
+        back="Moonlight Cape",
+        }
      sets.idle.Town = {
          feet="Hermes' Sandals +1",
      }
@@ -958,8 +972,20 @@ function init_gear_sets()
          right_ring="Paguroidea Ring",
          left_ring="Defending Ring",
          feet="Hermes' Sandals +1",
+         back="Moonlight Cape",
      })
-     sets.idle.Regen = {}
+     sets.idle.Regen = set_combine(sets.idle.Field, {
+        body="Obviation Cuirass",
+        neck="Sanctity Necklace",
+        left_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+     })
+     sets.idle.Refresh = set_combine(sets.idle.Field, {
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+     })
  
      sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
