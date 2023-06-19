@@ -16,6 +16,7 @@ function get_sets()
     include('organizer-lib')
     organizer_items = {
         "Prime Sword",
+        "Lentus Grip",
         "Foreshock Sword",
         "Mafic Cudgel",
         "Gyudon",
@@ -74,6 +75,7 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind f5 gs c cycle WeaponskillMode')
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
     {
@@ -151,7 +153,7 @@ function init_gear_sets()
     })
     ------------------------ Sub WAR ------------------------ 
 	sets.precast.JA['Provoke'] =    --enmity +152
-    {    main="Burtgang",
+    {   
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -280,19 +282,20 @@ sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
 })
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
     sets.precast.WS['Sanguine Blade'] = {
-    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Cornelia's Ring",
-    back="Argocham. Mantle",
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+        legs="Nyame Flanchard",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sibyl Scarf",
+        waist="Orpheus's Sash",
+        left_ear="Friomisi Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Archon Ring",
+        right_ring="Cornelia's Ring",
+        back="Argocham. Mantle",
 }	     
     sets.precast.WS['Aeolian Edge'] = {   
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},

@@ -21,6 +21,7 @@ function get_sets()
 
         organizer_items = {"Prime Sword",
             "Drepanum",
+            "Lentus Grip",
             "Maliya Sickle +1",
             "Thr. Tomahawk",
             "Gyudon",

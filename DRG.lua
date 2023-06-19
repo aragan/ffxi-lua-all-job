@@ -17,6 +17,7 @@ function get_sets()
 	include('organizer-lib')
 
     organizer_items = {"Prime Sword",
+        "Lentus Grip",
         "Mafic Cudgel",
         "Angon",
         "Gyudon",
