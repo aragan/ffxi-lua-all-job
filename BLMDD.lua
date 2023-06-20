@@ -788,7 +788,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
-        waist="Olseni Belt",
+        waist="Cornelia's Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",

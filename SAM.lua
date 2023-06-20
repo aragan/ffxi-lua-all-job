@@ -102,7 +102,7 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc','MaxAcc', 'PDL', 'PD', 'Range', 'CRIT' , 'Counter')
-    state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'PDLATT', 'SubtleBlow')
+    state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'Fullhaste', 'SubtleBlow')
     state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Acc', 'PDL')
     state.IdleMode:options('Normal', 'Evasion')
     state.RestingMode:options('Normal')
@@ -861,10 +861,10 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged.Mid, { range=empty,
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
+        head="Kasuga Kabuto +2",
         body="Kasuga Domaru +2",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs="Kasuga Haidate +2",
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -876,10 +876,10 @@ function init_gear_sets()
     })
     sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, { range=empty,
         ammo="Amar Cluster",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        head="Kasuga Kabuto +2",
+        body="Kasuga Domaru +2",
+        hands="Wakido Kote +3",
+        legs="Kasuga Haidate +2",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
@@ -904,19 +904,19 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
-    sets.engaged.PDLATT = set_combine(sets.engaged, {
-            ammo="Crepuscular Pebble",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Kas. Sune-Ate +2",
+    sets.engaged.Fullhaste = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+        head="Kasuga Kabuto +2",
+        body="Kasuga Domaru +2",
+        hands="Wakido Kote +3",
+        legs="Kasuga Haidate +2",
+        feet="Wakido Sune. +3",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Telos Earring",
+        waist="Gerdr Belt",
         right_ear="Kasuga Earring",
+        left_ear="Dedition Earring",
+        right_ring="Chirich Ring +1",
         left_ring="Niqmaddu Ring",
-        right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
          })
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
@@ -1085,7 +1085,7 @@ function init_gear_sets()
         legs="Kasuga Haidate +2",
         feet="Kas. Sune-Ate +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Gerdr Belt",
         left_ear="Dedition Earring",
         right_ear="Kasuga Earring",
         left_ring="Chirich Ring +1",

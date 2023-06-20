@@ -417,7 +417,6 @@ function init_gear_sets()
     sets.defense.TreasureHunter = {
         main={ name="Heishi Shorinken", augments={'Path: A',}},
         sub="Kunimitsu",
-        sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
         ammo="Per. Lucky Egg",
         head="Wh. Rarab Cap +1",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},

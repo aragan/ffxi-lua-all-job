@@ -63,6 +63,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.WeaponLock = M(false, 'Weapon Lock')
     state.Buff.Souleater = buffactive.souleater or false
     state.Buff['Last Resort'] = buffactive['Last Resort'] or false
     -- Set the default to false if you'd rather SE always stay acitve
@@ -114,6 +115,8 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
     send_command('wait 2;input /lockstyleset 166')
+    send_command('bind !w gs c toggle WeaponLock')
+
 
     select_default_macro_book()
 end
@@ -140,7 +143,7 @@ function init_gear_sets()
     sets.precast.JA['Blood Weapon'] = {body="Fall. Cuirass +2"}
     sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
     sets.precast.JA['Weapon Bash'] = {hands="Ignominy Gauntlets +3"}
-    sets.precast.JA['Souleater'] = {head="Ignominy Burgonet +3"}
+    sets.precast.JA['Souleater'] = {head="Ig. Burgeonet +3"}
     sets.precast.JA['Dark Seal'] = {head="Fallen's Burgeonet +3"}
     sets.precast.JA['Diabolic Eye'] = {hands="Fall. Fin. Gaunt. +3"}
       
@@ -221,8 +224,8 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
         right_ear="Thrud Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Niqmaddu Ring",
+        right_ring="Cornelia's Ring",
+        left_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
     sets.precast.WS.Dread  = sets.defense['Dread Spikes']
@@ -306,8 +309,8 @@ function init_gear_sets()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear="Thrud Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Niqmaddu Ring",
+        right_ring="Cornelia's Ring",
+        left_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
 }
   
@@ -770,8 +773,8 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     waist="Austerity Belt +1",
     left_ear="Halasz Earring",
     right_ear="Mendi. Earring",
-    left_ring="Defending Ring",
-    right_ring="Naji's Loop",
+    right_ring="Defending Ring",
+    left_ring="Naji's Loop",
     back="Solemnity Cape",}
 
     sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure,{
@@ -1311,8 +1314,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
-    right_ring="Moonlight Ring",
+    right_ring="Defending Ring",
+    leftring="Moonlight Ring",
     back="Annealed Mantle",
 }
       
@@ -1327,8 +1330,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
-    right_ring="Moonlight Ring",
+    right_ring="Defending Ring",
+    left_ring="Moonlight Ring",
     back="Annealed Mantle",
 }       
     -- Apocalypse
@@ -1597,7 +1600,13 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         state.Buff[spell.english] = not spell.interrupted or buffactive[spell.english]
     end
 end
-  
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 function job_post_aftercast(spell, action, spellMap, eventArgs)
     --if spell.type == 'WeaponSkill' then
         --if state.Buff.Souleater and state.SouleaterMode.value then

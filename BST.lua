@@ -46,59 +46,59 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {
-	"Pet Food Theta",
-    "Meaty Broth",
-    "Livid Broth",
-    "Turpid Broth",
-    "Aged Humus",
-    "Lyrical Broth",
-    "Tant. Broth",
-    "Furious Broth",
-    "Rolan. Daifuku",
-    "Dire Broth",
-    "Bug-Ridden Broth",
-    "C. Plasma Broth",
-    "Vermihumus",
-    "Bubbly Broth",
-    "Putrescent Broth",
-    "Pale Sap",
+	ammo="Pet Food Theta",
+    ammo="Meaty Broth",
+    ammo="Livid Broth",
+    ammo="Turpid Broth",
+    ammo="Aged Humus",
+    ammo="Lyrical Broth",
+    ammo="Tant. Broth",
+    ammo="Furious Broth",
+    item="Rolan. Daifuku",
+    ammo="Dire Broth",
+    ammo="Bug-Ridden Broth",
+    ammo="C. Plasma Broth",
+    ammo="Vermihumus",
+    ammo="Bubbly Broth",
+    ammo="Putrescent Broth",
+    ammo="Pale Sap",
 }
-organizer_items = {"Prime Sword",
-    "Drepanum",
-    "Lentus Grip",
-	"Mafic Cudgel",
-	"Maliya Sickle +1",
-"Gyudon",
-"Reraiser",
-"Hi-Reraiser",
-"Vile Elixir",
-"Vile Elixir +1",
-"Miso Ramen",
-"Carbonara",
-"Silent Oil",
-"Salt Ramen",
-"Panacea",
-"Toolbag (Shika)",
-"Sublime Sushi",
-"Sublime Sushi 1+",
-"Prism Powder",
-"Antacid",
-"Icarus Wing",
-"Warp Cudgel",
-"Holy Water",
-"Sanjaku-Tenugui",
-"Shinobi-Tabi",
-"Shihei",
-"Remedy",
-"Wh. Rarab Cap +1",
-"Emporox's Ring",
-"Red Curry Bun",
-"Instant Reraise",
-"Black Curry Bun",
-"Rolan. Daifuku",
-"Qutrub Knife",
-"Wind Knife +1",
-"Reraise Earring",
+organizer_items = {
+	item="Mafic Cudgel",
+	item="Maliya Sickle +1",
+	item="Pixquizpan",
+	item="Prime Sword",
+	item="Drepanum",
+	item="Lentus Grip",
+sub="Adapa Shield",
+item="Gyudon",
+item="Reraiser",
+item="Hi-Reraiser",
+item="Vile Elixir",
+item="Vile Elixir +1",
+item="Miso Ramen",
+item="Carbonara",
+item="Silent Oil",
+item="Salt Ramen",
+item="Panacea",
+item="Toolbag (Shika)",
+item="Sublime Sushi",
+item="Sublime Sushi 1+",
+item="Prism Powder",
+item="Antacid",
+item="Icarus Wing",
+sub="Warp Cudgel",
+item="Holy Water",
+item="Sanjaku-Tenugui",
+item="Shinobi-Tabi",
+item="Shihei",
+item="Remedy",
+head="Wh. Rarab Cap +1",
+ring="Emporox's Ring",
+item="Red Curry Bun",
+item="Instant Reraise",
+item="Black Curry Bun",
+item="Rolan. Daifuku",
 }
 function job_setup()
 	include('Mote-TreasureHunter')
@@ -218,11 +218,11 @@ function init_gear_sets()
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		sub="Kaidate",
 		range="Killer Shortbow",
-		body="Nukumi Gausape +1",}
+		body="Nukumi Gausape +2",}
 		
 		sets.precast.JA['Bestial Loyalty'] = {
 				hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-				right_ear="Nukumi Earring"
+				right_ear="Nukumi Earring",
 
 			}
 		
@@ -239,26 +239,16 @@ function init_gear_sets()
 	}
 
         sets.precast.JA['Feral Howl'] = {
-				ammo="Plumose Sachet",
-				head="Seiokona Beret",
-				neck="Voltsurge Torque",
-				ear1="Gwati Earring",
-				ear2="Enchanter Earring +1",
-                  body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-				hands="Sombra Mittens +1",
-				ring1="Perception Ring",
-				ring2="Sangoma Ring",
-				back="Aput Mantle +1",
-				waist="Salire Belt",
-				legs="Iuitl Tights +1",
-				feet="Scamp's Sollerets"}
+        body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
+			}
 
 		sets.precast.JA.Reward = {
 				main="Mdomo Axe +1",
     body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
     legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
     feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
-    back="Artio's Mantle",}
+    back="Artio's Mantle",
+}
 
 	
 	
@@ -305,16 +295,14 @@ function init_gear_sets()
 				feet="Tali'ah Crackows +2",
 				neck="Sanctity Necklace",
 				waist="Eschan Stone",
-				left_ear="Lifestorm Earring",
-				right_ear="Psystorm Earring",
 				left_ring="Etana Ring",
 				right_ring="Varar Ring +1 +1",
-				back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}}
+
+			}
 
 	-- VIOLENT FLOURISH
 	sets.precast.Flourish1 = {}
 	sets.precast.Flourish1['Violent Flourish'] = {
-				main="Tri-edge",
 				ammo="Ginsen",
 				head="Tali'ah Turban +2",
 				body="Tali'ah Manteel +2",
@@ -323,11 +311,9 @@ function init_gear_sets()
 				feet="Tali'ah Crackows +2",
 				neck="Sanctity Necklace",
 				waist="Eschan Stone",
-				left_ear="Lifestorm Earring",
-				right_ear="Psystorm Earring",
 				left_ring="Etana Ring",
 				right_ring="Varar Ring +1 +1",
-				back={ name="Artio's Mantle", augments={'STR+20','Mag. Acc+20 /Mag. Dmg.+20','STR+10','Weapon skill damage +10%',}},}
+			}
 
         sets.precast.FC = {
 				ammo="Sapience Orb",
@@ -335,10 +321,10 @@ function init_gear_sets()
                 left_ear="Etiolation Earring",
                 right_ear="Loquac. Earring",
                 left_ring="Thurandaut Ring",
-                right_ring="Prolix Ring",}
+                right_ring="Prolix Ring",
+			}
 				
         sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
-				
 			    ammo="Sapience Orb",
 				neck="Magoraga Beads",
                 hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -406,20 +392,12 @@ function init_gear_sets()
 		}
 			
 	sets.midcast.Flash = {
-			head="Jumalik Helm",
-			body="Jumalik Mail",
-			hands={ name="Leyline Gloves", augments={'Accuracy+1','Mag. Acc.+5','"Mag.Atk.Bns."+5','"Fast Cast"+1',}},
-			neck="Voltsurge Torque",
-			legs="Augury Cuisses",
-			ear1={ name="Moonshade Earring", augments={'Mag. Acc.+4','Latent effect: "Refresh"+1',}},
-			back="Izdubar Mantle",
 		}
 
 	sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {
 			ring1="Haoma's Ring",
 			neck="Malison Medallion",
 			waist="Gishdubar Sash",
-			legs="Augury Cuisses",
 			ring2="Haoma's Ring"
 		})
 
@@ -436,7 +414,7 @@ function init_gear_sets()
 	sets.midcast.Shellra = sets.midcast.Protect
 
 	sets.midcast['Enfeebling Magic'] = {
-		ammo="Plumose Sachet",
+		ammo="Voluspa Tathlum",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -451,8 +429,8 @@ function init_gear_sets()
 		}
 
 	sets.midcast['Divine Magic'] = {
-		ammo="Plumose Sachet",
-				head="Malignance Chapeau",
+		ammo="Voluspa Tathlum",
+		head="Malignance Chapeau",
 				body="Malignance Tabard",
 				hands="Malignance Gloves",
 				legs="Malignance Tights",
@@ -466,8 +444,7 @@ function init_gear_sets()
 		}		
 			
 	sets.midcast['Dark Magic'] = {
-	
-		ammo="Plumose Sachet",
+		ammo="Voluspa Tathlum",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -482,8 +459,7 @@ function init_gear_sets()
 		}		
 			
 	sets.midcast['Elemental Magic'] = {
-		
-		ammo="Plumose Sachet",
+		ammo="Voluspa Tathlum",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -498,8 +474,7 @@ function init_gear_sets()
 		}
 			
 	sets.midcast.Stun = set_combine(sets.midcast['Elemental Magic'], {
-	
-		ammo="Plumose Sachet",
+		ammo="Voluspa Tathlum",
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -514,8 +489,7 @@ function init_gear_sets()
 				})
 				
 		sets.precast.FC.Stun = set_combine(sets.precast.FC, {
-
-				ammo="Plumose Sachet",
+			ammo="Voluspa Tathlum",
 				head="Malignance Chapeau",
 				body="Malignance Tabard",
 				hands="Malignance Gloves",
@@ -540,7 +514,7 @@ function init_gear_sets()
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 			body="Nyame Mail",
-			hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+			hands="Nyame Gauntlets",
 			legs="Nyame Flanchard",
 			feet="Nyame Sollerets",
 			neck="Shulmanu Collar",
@@ -556,7 +530,7 @@ function init_gear_sets()
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		body="Nyame Mail",
-		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
         feet="Nyame Sollerets",
 		neck="Shulmanu Collar",
@@ -572,7 +546,7 @@ function init_gear_sets()
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		body="Nyame Mail",
-		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
         feet="Nyame Sollerets",
 		neck="Shulmanu Collar",
@@ -589,7 +563,7 @@ function init_gear_sets()
 		    ammo="Coiste Bodhar",
              head={ name="Blistering Sallet +1", augments={'Path: A',}},
             body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-            hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+            hands="Nyame Gauntlets",
             legs="Nyame Flanchard",
             feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
              neck="Fotia Gorget",
@@ -636,7 +610,7 @@ function init_gear_sets()
 		ammo="Aurgelmir Orb +1",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		body="Nyame Mail",
-		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
         feet="Nyame Sollerets",
 		neck="Shulmanu Collar",
@@ -655,7 +629,7 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		body="Nyame Mail",
-		hands={ name="Valorous Mitts", augments={'"Store TP"+1','MND+1','Weapon skill damage +8%','Accuracy+8 Attack+8','Mag. Acc.+1 "Mag.Atk.Bns."+1',}},
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
         feet="Nyame Sollerets",
 		neck="Baetyl Pendant",
@@ -697,15 +671,9 @@ function init_gear_sets()
 	
 	
 		sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'],{})
-
-			
 		sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Primal Rend'],{})
-	
-	sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS['Primal Rend'],{})
+	    sets.precast.WS['Seraph Strike'] = set_combine(sets.precast.WS['Primal Rend'],{})
 
-			
-			
-			
 	-- PET SIC & READY MOVES
 	sets.midcast.Pet.WS = {
 	main="Agwu's Axe",
@@ -742,7 +710,6 @@ function init_gear_sets()
     back="Artio's Mantle",}
 
 	sets.midcast.Pet.MabReady = set_combine(sets.midcast.Pet.WS, {
-			
 	main={ name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+18','Pet: Haste+3','Pet: TP Bonus+160',}},
     sub={ name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+16','Pet: Phys. dmg. taken -1%','Pet: TP Bonus+160',}},
     ammo="Voluspa Tathlum",
@@ -769,21 +736,19 @@ function init_gear_sets()
 		--	back="Argocham. Mantle",
 		
 	sets.midcast.Pet.MaccReady = set_combine(sets.midcast.Pet.WS, {
-			main="Deacon Tabar",
-    sub="Mdomo Axe +1",
-    ammo="Voluspa Tathlum",
-    head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Gleti's Boots",
-    neck="Adad Amulet",
-    waist="Incarnation Sash",
-    left_ear="Enmerkar Earring",
-    right_ear="Kyrene's Earring",
-    left_ring="C. Palug Ring",
-    right_ring="Tali'ah Ring",
-    back="Argocham. Mantle",
+		ammo="Voluspa Tathlum",
+		head="Gleti's Mask",
+		body="Nukumi Gausape +2",
+		hands="Nukumi Manoplas +2",
+		legs="Gleti's Breeches",
+		feet="Gleti's Boots",
+		neck="Adad Amulet",
+		waist="Incarnation Sash",
+		left_ear="Enmerkar Earring",
+		right_ear="Nukumi Earring",
+		left_ring="C. Palug Ring",
+		right_ring="Tali'ah Ring",
+		back="Artio's Mantle",
 })
 	
 	sets.midcast.Pet.BreathReady = set_combine(sets.midcast.Pet.WS, {
@@ -804,21 +769,19 @@ function init_gear_sets()
     right_ring="Tali'ah Ring",
     back="Argocham. Mantle",
 			--MACC
-			main="Deacon Tabar",
-    sub="Mdomo Axe +1",
     ammo="Voluspa Tathlum",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
+    body="Nukumi Gausape +2",
+    hands="Nukumi Manoplas +2",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
     neck="Adad Amulet",
     waist="Incarnation Sash",
     left_ear="Enmerkar Earring",
-    right_ear="Kyrene's Earring",
+    right_ear="Nukumi Earring",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
-    back="Argocham. Mantle",
+	back="Artio's Mantle",
 			})
 			
 		
@@ -829,7 +792,7 @@ function init_gear_sets()
 	sub="Kaidate",
 	range="Killer Shortbow",
 	head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-	body="Nukumi Gausape +1",
+	body="Nukumi Gausape +2",
 	hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
     legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
 	feet="Tali'ah Crackows +2",
@@ -847,60 +810,18 @@ function init_gear_sets()
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		sub="Kaidate",
 		range="Killer Shortbow",
-		body="Nukumi Gausape +1",
+		body="Nukumi Gausape +2",
 	}
 			
 	sets.midcast.Pet.HighAcc = {
-			main="Aymur",
-			ear1="Enmerkar Earring",
-			ring2="Varar Ring +1 +1",
-			head="Totemic Helm +3",
-			body={ name="Valorous Mail", augments={'Pet: Accuracy+27 Pet: Rng. Acc.+27','Pet: "Store TP"+1','Pet: DEX+14','Pet: Attack+13 Pet: Rng.Atk.+13',}},
-			legs={ name="Valor. Hose", augments={'Pet: Accuracy+28 Pet: Rng. Acc.+28','Pet: "Regen"+4','Pet: Attack+13 Pet: Rng.Atk.+13',}},
-			feet="Tot. Gaiters +3",
-			hands="Nukumi Manoplas +2",
-			ammo="Demonry Core",
-			neck="Shulmanu Collar",
-			waist="Incarnation Sash",
-			ear2="Hija Earring",
-			sub="Arktoi",
-			ring1="Thurandaut Ring",
-			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},
+			
 		}
 			
 	sets.midcast.Pet.MaxAcc = {
-			main="Arktoi",
-			ear1="Enmerkar Earring",
-			ring2="Varar Ring +1 +1",
-			head="Totemic Helm +3",
-			body="Tali'ah Manteel +2",
-			hands="Tali'ah Gages +2",
-			legs="Tali'ah Seraweels +2",
-			feet="Tali'ah Crackows +2",
-			ammo="Demonry Core",
-			neck="Shulmanu Collar",
-			waist="Incarnation Sash",
-			ear2="Hija Earring",
-			sub="Digirbalag",
-			ring1="Thurandaut Ring",
-			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
+			}
 			
 	sets.midcast.Pet.ArktoiAcc = {
-			main="Aymur",
-			ear1="Enmerkar Earring",
-			ring2="Varar Ring +1 +1",
-			head="Totemic Helm +3",
-			body={ name="Valorous Mail", augments={'Pet: Accuracy+27 Pet: Rng. Acc.+27','Pet: "Store TP"+1','Pet: DEX+14','Pet: Attack+13 Pet: Rng.Atk.+13',}},
-			legs="Tali'ah Seraweels +2",
-			feet="Tot. Gaiters +3",
-			hands="Nukumi Manoplas +2",
-			ammo="Demonry Core",
-			neck="Shulmanu Collar",
-			waist="Incarnation Sash",
-			ear2="Hija Earring",
-			sub="Arktoi",
-			ring1="Thurandaut Ring",
-			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
+		}
 			
 	sets.midcast.Pet.Vagary = {
 		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
@@ -977,7 +898,7 @@ function init_gear_sets()
 		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 		right_ear="Tuisto Earring",
 		left_ring="Fortified Ring",
-		right_ring="Warden's Ring",
+		right_ring="Defending Ring",
 		back="Moonlight Cape",
 }
 			
@@ -993,6 +914,7 @@ function init_gear_sets()
 		left_ear="Rimeice Earring",
 		right_ear="Enmerkar Earring",
 		left_ring="Thurandaut Ring",
+		right_ring="Defending Ring",
 		back="Artio's Mantle",
 }
 			
@@ -1061,6 +983,7 @@ function init_gear_sets()
 		left_ear="Hypaspist Earring",
 		right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
 		left_ring="Thurandaut Ring",
+		right_ring="Defending Ring",
 		back="Artio's Mantle",
 })
 
@@ -1081,6 +1004,7 @@ function init_gear_sets()
 			left_ear="Hypaspist Earring",
 			right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
 			left_ring="Thurandaut Ring",
+			right_ring="Defending Ring",
 			back="Artio's Mantle",
 	})
         
@@ -1200,6 +1124,7 @@ function init_gear_sets()
 			left_ear="Rimeice Earring",
 			right_ear="Enmerkar Earring",
 			left_ring="Thurandaut Ring",
+			right_ring="Defending Ring",
 			back="Artio's Mantle",
 }
 
@@ -1279,73 +1204,35 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.HighAcc = {
-		main="Dolichenus",
-			ammo="Jukukik Feather",
-			head="Yaoyotl Helm",
-			neck="Iqabi Necklace",
-			ear1="Steelflash Earring",
-			ear2="Bladeborn Earring",
-			body="Mes'yohi Haubergeon",
-			hands="Buremte Gloves",
-			ring1="Mars's Ring",
-			ring2="Ramuh's Ring +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},
-			waist="Olseni Belt",
-			legs="Xaddi Cuisses",
-			feet="Ejekamal Boots"}
+
+		}
 			
 	sets.engaged.HighAccHaste = set_combine(sets.engaged, {
-			ammo="Jukukik Feather",
-			head="Yaoyotl Helm",
-			neck="Iqabi Necklace",
-			ear1="Steelflash Earring",
-			ear2="Bladeborn Earring",
-			body="Mes'yohi Haubergeon",
-			hands="Buremte Gloves",
-			ring1="Mars's Ring",
-			ring2="Ramuh's Ring +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},
-			waist="Olseni Belt",
-			legs="Xaddi Cuisses",
-			feet="Ejekamal Boots"})
+
+		})
 			
 	-- MELEE (SINGLE-WIELD) HYBRID SETS
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+
+		})
 			
 	sets.engaged.Shield.Hybrid = set_combine(sets.engaged.Shield, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+
+		})
 			
 	sets.engaged.MedAcc.Hybrid = set_combine(sets.engaged.MedAcc, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+
+		})
 			
 	sets.engaged.MedAccHaste.Hybrid = set_combine(sets.engaged.MedAccHaste, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 			
 	sets.engaged.HighAcc.Hybrid = set_combine(sets.engaged.HighAcc, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 			
 	sets.engaged.HighAccHaste.Hybrid = set_combine(sets.engaged.HighAccHaste, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 
         -- MELEE (DUAL-WIELD) SETS FOR DNC AND NIN SUBJOB
 		
@@ -1401,56 +1288,14 @@ sets.defense.Petregen = {
 }
 			
 	sets.engaged.DW.MedAccHaste = {
-			main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
-			sub="Kraken Club",
-			ammo="Ginsen",
-			head="Totemic Helm +3",
-			body="Tot. Jackcoat +3",
-			hands="Totemic Gloves +3",
-			legs="Tot. Trousers +3",
-			feet="Tot. Gaiters +3",
-			neck="Shulmanu Collar",
-			waist="Patentia Sash",
-			left_ear="Suppanomimi",
-			right_ear="Digni. Earring",
-			left_ring="Rajas Ring",
-			right_ring="Varar Ring +1 +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},}
+			}
 			
 	sets.engaged.DW.HighAcc = {
-			main="Blurred Axe +1",
-			sub="Hunahpu",
-			ammo="Ginsen",
-			head="Totemic Helm +3",
-			body="Tot. Jackcoat +3",
-			hands="Totemic Gloves +3",
-			legs="Tot. Trousers +3",
-			feet="Tot. Gaiters +3",
-			neck="Shulmanu Collar",
-			waist="Patentia Sash",
-			left_ear="Suppanomimi",
-			right_ear="Eabani Earring",
-			left_ring="Rajas Ring",
-			right_ring="Varar Ring +1 +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}},
+			
 		}
 			
 	sets.engaged.DW.HighAccHaste = {
-			main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
-			sub="Blurred Axe +1",
-			ammo="Ginsen",
-			head="Totemic Helm +3",
-			body="Tot. Jackcoat +3",
-			hands="Totemic Gloves +3",
-			legs="Tot. Trousers +3",
-			feet="Tot. Gaiters +3",
-			neck="Shulmanu Collar",
-			waist="Patentia Sash",
-			left_ear="Suppanomimi",
-			right_ear="Digni. Earring",
-			left_ring="Rajas Ring",
-			right_ring="Varar Ring +1 +1",
-			back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}},}
+}
 			
 	-- MELEE (DUAL-WIELD) HYBRID SETS
 	
@@ -1471,32 +1316,19 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.DW.Shield.Hybrid = set_combine(sets.engaged.DW.Shield, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			back="Solemnity Cape",
-			hands="Iuitl Wristbands +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 			
 	sets.engaged.DW.MedAcc.Hybrid = set_combine(sets.engaged.DW.MedAcc, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 			
 	sets.engaged.DW.MedAccHaste.Hybrid = set_combine(sets.engaged.DW.MedAccHaste, {
-			head="Iuitl Headgear +1",
-			body="Iuitl Vest +1",
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+		})
 			
 	sets.engaged.DW.HighAcc.Hybrid = set_combine(sets.engaged.DW.HighAcc, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+			})
 			
 	sets.engaged.DW.HighAccHaste.Hybrid = set_combine(sets.engaged.DW.HighAccHaste, {
-			legs="Iuitl Tights +1",
-			feet="Iuitl Gaiters +1"})
+			})
 
 	-- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET ENGAGED
 	sets.engaged.PetStance = set_combine(sets.engaged, {
@@ -1510,30 +1342,19 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.PetStance.Shield = set_combine(sets.engaged.Shield, {
-			head="Anwig Salade",
-    body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash",
-			legs="Wisent Kecks",
-			feet="Armada Sollerets"})
+			})
 			
 	sets.engaged.PetStance.MedAcc = set_combine(sets.engaged.MedAcc, {
-                     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+                    })
 			
 	sets.engaged.PetStance.MedAccHaste = set_combine(sets.engaged.MedAccHaste, {
-                       head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+                     })
 			
 	sets.engaged.PetStance.HighAcc = set_combine(sets.engaged.HighAcc, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+			})
 			
 	sets.engaged.PetStance.HighAccHaste = set_combine(sets.engaged.HighAccHaste, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+		})
 
 	-- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET TANKING
 	
@@ -1544,24 +1365,16 @@ sets.defense.Petregen = {
 			})
 			
 	sets.engaged.PetTank.MedAcc = set_combine(sets.engaged.MedAcc, {
-			head="Anwig Salade",
-    hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-			back="Oneiros Cappa",
-			legs="Nukumi Quijotes +1"})
+			})
 			
 	sets.engaged.PetTank.MedAccHaste = set_combine(sets.engaged.MedAccHaste, {
-			head="Anwig Salade",
-                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-			back="Oneiros Cappa",
-			legs="Nukumi Quijotes +1"})
+			})
 			
 	sets.engaged.PetTank.HighAcc = set_combine(sets.engaged.HighAcc, {
-			head="Anwig Salade",
-			hands="Regimen Mittens"})
+		})
 			
 	sets.engaged.PetTank.HighAccHaste = set_combine(sets.engaged.HighAccHaste, {
-			head="Anwig Salade",
-			hands="Regimen Mittens"})
+		})
 
 	-- GEARSETS FOR MASTER ENGAGED (DUAL-WIELD) & PET ENGAGED
 	sets.engaged.DW.PetStance = set_combine(sets.engaged.DW, {
@@ -1575,30 +1388,19 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.DW.PetStance.Shield = set_combine(sets.engaged.DW.Shield, {
-			head="Anwig Salade",
-                      body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash",
-			legs="Wisent Kecks",
-			feet="Armada Sollerets"})
+		})
 			
 	sets.engaged.DW.PetStance.MedAcc = set_combine(sets.engaged.DW.MedAcc, {
-                     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+                   })
 			
 	sets.engaged.DW.PetStance.MedAccHaste = set_combine(sets.engaged.DW.MedAccHaste, {
-                     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+                   })
 			
 	sets.engaged.DW.PetStance.HighAcc = set_combine(sets.engaged.DW.HighAcc, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+			})
 			
 	sets.engaged.DW.PetStance.HighAccHaste = set_combine(sets.engaged.DW.HighAccHaste, {
-			hands="Regimen Mittens",
-			waist="Incarnation Sash"})
+			})
 
 	-- GEARSETS FOR MASTER ENGAGED (DUAL-WIELD) & PET TANKING
 	sets.engaged.DW.PetTank = set_combine(sets.engaged.DW, {
@@ -1608,29 +1410,21 @@ sets.defense.Petregen = {
 			})
 			
 	sets.engaged.DW.PetTank.MedAcc = set_combine(sets.engaged.DW.MedAcc, {
-			head="Anwig Salade",
-                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-			back="Oneiros Cappa",
-			legs="Nukumi Quijotes +1"})
+			})
 			
 	sets.engaged.DW.PetTank.MedAccHaste = set_combine(sets.engaged.DW.MedAccHaste, {
-			head="Anwig Salade",
-                       hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-			back="Oneiros Cappa",
-			legs="Nukumi Quijotes +1"})
+		})
 			
 	sets.engaged.DW.PetTank.HighAcc = set_combine(sets.engaged.DW.HighAcc, {
-			head="Anwig Salade",
-			hands="Regimen Mittens"})
+		})
 			
 	sets.engaged.DW.PetTank.HighAccHaste = set_combine(sets.engaged.DW.HighAccHaste, {
-			head="Anwig Salade",
-			hands="Regimen Mittens"})
+		})
 
     sets.buff['Killer Instinct'] = {
     main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
     head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-    body="Nukumi Gausape +1",
+    body="Nukumi Gausape +2",
 
     }         
 	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
@@ -1855,7 +1649,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
--- If Killer Instinct is active during WS, equip Nukumi Gausape +1.
+-- If Killer Instinct is active during WS, equip Nukumi Gausape +2.
 	if spell.type:lower() == 'weaponskill' and buffactive['Killer Instinct'] then
                 equip(sets.buff['Killer Instinct'])
         end
