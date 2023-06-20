@@ -217,6 +217,7 @@ function init_gear_sets()
 		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},	
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		sub="Kaidate",
+		ammo=empty,
 		range="Killer Shortbow",
 		body="Nukumi Gausape +2",}
 		
@@ -790,6 +791,7 @@ function init_gear_sets()
 	sets.midcast.Pet.Favorable = {
 	main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
 	sub="Kaidate",
+	ammo=empty,
 	range="Killer Shortbow",
 	head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 	body="Nukumi Gausape +2",
@@ -809,6 +811,7 @@ function init_gear_sets()
 		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},	
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		sub="Kaidate",
+		ammo=empty,
 		range="Killer Shortbow",
 		body="Nukumi Gausape +2",
 	}
@@ -870,22 +873,9 @@ function init_gear_sets()
 	}
         
         -- IDLE SETS
-	sets.ExtraRegen = {
-		body="Meg. Cuirie +2",
-		hands="Meg. Gloves +2",
-		neck={ name="Bathy Choker +1", augments={'Path: A',}},
-		left_ear="Infused Earring",
-		left_ring="Paguroidea Ring",
-	}
-	
-	sets.WaterRegen = {        main="Glyph Axe",
-	body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    left_ear="Infused Earring",
-    left_ring="Paguroidea Ring",}
+	sets.ExtraRegen = {}
+	sets.WaterRegen = {}
 
-	
     sets.idle = {
 		ammo="Iron Gobbet",
 		head="Gleti's Mask",
@@ -1061,21 +1051,20 @@ function init_gear_sets()
     back="Artio's Mantle",}
 	
 	sets.defense.Reraise =  {
-		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
-    sub={ name="Digirbalag", augments={'"Store TP"+1','Pet: CHR+1','Pet: Accuracy+12 Pet: Rng. Acc.+12','Pet: Attack+30 Pet: Rng.Atk.+30','DMG:+3',}},
-    ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    hands="Nukumi Manoplas +2",
-    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25',}},
-    neck="Shulmanu Collar",
-    waist="Incarnation Sash",
-    left_ear="Enmerkar Earring",
-    right_ear="Domes. Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
-    back="Artio's Mantle",}
+		ammo="Staunch Tathlum +1",
+		head="Twilight Helm",
+		body="Twilight Mail",
+		hands="Gleti's Gauntlets",
+		legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Incarnation Sash",
+		left_ear="Enmerkar Earring",
+		right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		left_ring="Thurandaut Ring",
+		right_ring="Defending Ring",
+		back="Artio's Mantle",
+}
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {
 		ammo="Staunch Tathlum +1",
@@ -1254,7 +1243,6 @@ sets.defense.Petregen = {
 			
 			
 	sets.engaged.DW.Shield = {
-		
 			ammo="Staunch Tathlum",
 			head="Skormoth Mask",
 			body={ name="Valorous Mail", augments={'Enmity+1','CHR+15','Quadruple Attack +3','Accuracy+13 Attack+13',}},
@@ -1267,7 +1255,7 @@ sets.defense.Petregen = {
 			right_ear="Sherida Earring",
 			left_ring="Gere Ring",
 			right_ring="Epona's Ring",
-			back={ name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','"Dbl.Atk."+10',}},}
+			back="Artio's Mantle",}
 	
 		-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
 		
@@ -1735,15 +1723,15 @@ end
 -- Customization hook for idle sets.
 -------------------------------------------------------------------------------------------------------------------
 
-function customize_idle_set(idleSet)
-	if player.hpp < 50 and pet.status ~= 'Engaged' then
-		idleSet = set_combine(idleSet, sets.ExtraRegen)
-	end
-	if world.day_element == 'Water' then
-		idleSet = set_combine(idleSet, sets.WaterRegen)
-	end
-	return idleSet
-end
+--function customize_idle_set(idleSet)
+	--if player.hpp < 50 and pet.status ~= 'Engaged' then
+		--idleSet = set_combine(idleSet, sets.ExtraRegen)
+	--end
+	--if world.day_element == 'Water' then
+		--idleSet = set_combine(idleSet, sets.WaterRegen)
+	--end
+	--return idleSet
+--end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Hooks for Reward, Correlation, Treasure Hunter, and Pet Mode handling.
@@ -1799,10 +1787,10 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 8 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 40 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
+        eventArgs.handled = true
     end
     return 
 end
