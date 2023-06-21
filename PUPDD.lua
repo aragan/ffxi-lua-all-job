@@ -320,21 +320,94 @@ function init_gear_sets()
 
     -------------------------------------Fastcast
     sets.precast.FC = {
-    right_ear="Loquac. Earring",
-    left_ring="Prolix Ring",
-
+        head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
+        body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+        feet={ name="Regal Pumps +1", augments={'Path: A',}},
+        neck="Baetyl Pendant",
+        waist="Carrier's Sash",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Prolix Ring",
+        right_ring="Rahab Ring",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
     }
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {
+        legs="Doyen Pants",
+        left_ear="Mendi. Earring",
+    })
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+        legs="Doyen Pants",
+        waist="Siegel Sash"})
 
     -------------------------------------Midcast
     sets.midcast = {} --Can be left empty
 
-    sets.midcast.FastRecast = {
-         waist="Cascade Belt",
-    left_ear="Brachyura Earring",
-    right_ear="Andoaa Earring",
-    left_ring="Sheltered Ring",
-    right_ring="Stikini Ring",
+    sets.midcast.FastRecast = {}
+    sets.midcast['Healing Magic'] = {
+        feet={ name="Regal Pumps +1", augments={'Path: A',}},
+        neck="Reti Pendant",
+        waist="Luminary Sash",
+        left_ear="Mendi. Earring",
+        right_ear="Enmerkar Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Naji's Loop",
+        back="Solemnity Cape",
     }
+    sets.midcast['Enhancing Magic'] = {
+        feet={ name="Regal Pumps +1", augments={'Path: A',}},
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+    }
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+		waist="Siegel Sash",})
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash"})
+
+    sets.midcast['Enfeebling Magic'] = {
+        main={ name="Xiucoatl", augments={'Path: C',}},
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Karagoz Guanti +2",
+        legs="Kara. Pantaloni +2",
+        feet="Karagoz Scarpe +2",
+        neck="Incanter's Torque",
+        waist="Rumination Sash",
+        left_ear="Digni. Earring",
+        right_ear="Crep. Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Stikini Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.midcast['Elemental Magic'] = {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sibyl Scarf",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Argocham. Mantle",
+	}
+    sets.midcast['Divine Magic'] = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Incanter's Torque",
+        waist="Skrymir Cord",
+        left_ear="Crematio Earring",
+        right_ear="Hecate's Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
@@ -401,10 +474,10 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {    
         head="Mpaca's Cap",
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -415,7 +488,7 @@ function init_gear_sets()
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
-        hands="Malignance Gloves",
+        head="Kara. Cappello +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
     })
@@ -524,10 +597,10 @@ function init_gear_sets()
 
     sets.precast.WS["Howling Fist"] = {    
         head="Mpaca's Cap",
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs="Mpaca's Hose",
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -581,11 +654,11 @@ function init_gear_sets()
         Idle Mode = MasterDT
     ]]
     sets.idle.MasterDT = {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
