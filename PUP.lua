@@ -413,11 +413,11 @@ function init_gear_sets()
         back="Argocham. Mantle",
 	}
     sets.midcast['Divine Magic'] = {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Incanter's Torque",
         waist="Skrymir Cord",
         left_ear="Crematio Earring",
@@ -425,7 +425,21 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
-        }
+    }
+    sets.midcast['Blue Magic'] = { 
+        head="Nyame Helm",
+        body="Nyame Mail",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Incanter's Torque",
+        waist="Eschan Stone",
+        left_ear="Digni. Earring",
+        right_ear="Crep. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
@@ -483,6 +497,20 @@ function init_gear_sets()
     sets.precast.Waltz["Healing Waltz"] = {
         body="Passion Jacket",
     }
+    sets.precast.Step = {    
+        head="Kara. Cappello +2",
+        body="Kara. Farsetto +2",
+        hands="Karagoz Guanti +2",
+    legs="Kara. Pantaloni +2",
+    feet="Karagoz Scarpe +2",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",
+    left_ear="Telos Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
 
     sets.precast.RA = { 
     range="Trollbane", }

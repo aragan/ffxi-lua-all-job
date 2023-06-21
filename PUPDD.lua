@@ -407,7 +407,21 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
-        }
+    }
+    sets.midcast['Blue Magic'] = { 
+        head="Nyame Helm",
+        body="Nyame Mail",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        neck="Incanter's Torque",
+        waist="Eschan Stone",
+        left_ear="Digni. Earring",
+        right_ear="Crep. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
@@ -459,11 +473,26 @@ function init_gear_sets()
 
     --Waltz set (chr and vit)
     sets.precast.Waltz = {
-       -- Add your set here 
+        body="Passion Jacket",
     }
 
-    sets.precast.Waltz["Healing Waltz"] = {}
-
+    sets.precast.Waltz["Healing Waltz"] = {
+        body="Passion Jacket",
+    }
+    sets.precast.Step = {    
+        head="Kara. Cappello +2",
+        body="Kara. Farsetto +2",
+        hands="Karagoz Guanti +2",
+    legs="Kara. Pantaloni +2",
+    feet="Karagoz Scarpe +2",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",
+    left_ear="Telos Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
     sets.precast.RA = { 
     range="Trollbane", }
     sets.midcast.RA = {
