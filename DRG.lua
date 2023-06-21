@@ -122,15 +122,18 @@ sets.precast.JA.Jump = {
         ear2="Telos Earring",
         hands="Flamma Manopolas +2",
         --hands="Vishap Finger Gauntlets +1",
-        --body="Pteroslaver Mail +3",
+        body="Pelt. Plackart +2",
         ring1="Niqmaddu Ring",
         ring2="Petrov Ring",
         waist="Ioskeha Belt",
         legs="Pteroslaver Brais +3",
     }
 
-	sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
-    sets.TreasureHunter = { 
+	sets.precast.JA['Ancient Circle'] = {  }
+    sets.TreasureHunter = {
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
      }
 
 	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
@@ -150,11 +153,11 @@ sets.precast.JA.Jump = {
         --hands="Lancer's Vambraces +2", 
         --head="Vishap Armet +1"
     }
-	sets.precast.JA['Call Wyvern'] = {body="Pteroslaver Mail +3"}
+	sets.precast.JA['Call Wyvern'] = {body="Pelt. Plackart +2"}
 	sets.precast.JA['Deep Breathing'] = {--head="Wyrm Armet +1" or Petroslaver Armet +1
     }
     sets.precast.JA['Spirit Surge'] = { --body="Wyrm Mail +2"
-        --body="Pteroslaver Mail +3"
+        body="Pelt. Plackart +2"
     }
 	
 	-- Healing Breath sets
@@ -197,7 +200,7 @@ sets.precast.JA.Jump = {
 	sets.midcast.FastRecast = {
     }	
 		
-	sets.midcast.Breath = set_combine(sets.midcast.FastRecast, { head="Vishap Armet +1", ring1="Dreki Ring" })
+	sets.midcast.Breath = set_combine(sets.midcast.FastRecast, {})
 	-- Weaponskill sets
 	-- Default set for any weaponskill that isn't any more specifically defined
 	sets.precast.WS = {
@@ -226,7 +229,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
-    body="Gleti's Cuirass",
+    body="Pelt. Plackart +2",
     right_ear="Peltast's Earring",
     left_ring="Sroda Ring", 
     })
@@ -256,7 +259,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {
         head="Nyame Helm",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Pelt. Plackart +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         right_ear="Peltast's Earring",
@@ -288,7 +291,7 @@ sets.precast.JA.Jump = {
     })
 	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS["Camlann's Torment"], {
         head="Nyame Helm",
-        body="Gleti's Cuirass",
+        body="Pelt. Plackart +2",
         hands="Nyame Gauntlets",
         legs="Gleti's Breeches",
         left_ear="Thrud Earring",
@@ -321,7 +324,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS['Drakesbane'], {
         ammo="Crepuscular Pebble",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Pelt. Plackart +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         right_ear="Peltast's Earring",
@@ -382,7 +385,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
-    body="Gleti's Cuirass",
+    body="Pelt. Plackart +2",
     right_ear="Peltast's Earring",
     left_ring="Sroda Ring", 
     })
@@ -454,7 +457,7 @@ sets.precast.JA.Jump = {
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
-        body="Gleti's Cuirass",
+        body="Pelt. Plackart +2",
         right_ear="Peltast's Earring",
         left_ring="Sroda Ring", 
     })
@@ -532,7 +535,7 @@ sets.precast.JA.Jump = {
     sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
-        body="Gleti's Cuirass",
+        body="Pelt. Plackart +2",
         right_ear="Peltast's Earring",
         left_ring="Sroda Ring", 
     })
@@ -625,10 +628,10 @@ sets.precast.JA.Jump = {
 		head="Twilight Helm",
 		body="Twilight Mail",
     })
-    sets.Reraise = set_combine(sets.idle.Field, {
+    sets.Reraise = {
 		head="Twilight Helm",
 		body="Twilight Mail",
-    })
+    }
 
 	-- Defense sets
 	sets.defense.PDT = {
@@ -697,7 +700,7 @@ sets.precast.JA.Jump = {
 	sets.engaged = {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        body="Pelt. Plackart +2",
         hands="Flamma Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
@@ -713,7 +716,7 @@ sets.precast.JA.Jump = {
 	sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Pelt. Plackart +2",
         hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
@@ -946,7 +949,10 @@ function job_buff_change(buff, gain)
         if gain then
             equip(sets.Reraise)
              disable('body','head')
+            else
+             disable('body','head')
         end
+        return
     end
 end
 
@@ -966,7 +972,7 @@ function job_self_command(cmdParams, eventArgs)
     if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
+        eventArgs.handled = true
     end
     return
 end
