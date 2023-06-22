@@ -614,7 +614,15 @@ function init_gear_sets()
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
 
-
+    sets.Enmity = {
+        body="Passion Jacket",
+        hands="Kurys Gloves",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        left_ear="Cryptic Earring",
+        right_ear="Trux Earring",
+        left_ring="Petrov Ring",
+        right_ring="Vengeful Ring",
+    }
     -------------------------------------Idle
     --[[
         Pet is not active

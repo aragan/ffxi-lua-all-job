@@ -253,6 +253,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         back="Camulus's Mantle",
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+        body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
 		left_ring="Sroda Ring", 
 	})
 	sets.precast.WS.SC = set_combine(sets.precast.WS, {
@@ -302,6 +304,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     })
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
 		left_ring="Sroda Ring", 
         waist="Kentarch Belt +1",
 	})

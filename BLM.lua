@@ -210,7 +210,6 @@ function init_gear_sets()
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         left_ear="Mendi. Earring",
-
     })
  
     -- Midcast set for Death, Might as well only have one set, unless you plan on free-nuking death for some unexplainable reason.
@@ -424,8 +423,7 @@ function init_gear_sets()
     sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {})
 	
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
-		waist="Siegel Sash",
-})
+		waist="Siegel Sash",})
  
     sets.midcast['Enfeebling Magic'] = {
         main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},

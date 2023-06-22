@@ -662,7 +662,7 @@ function init_gear_sets()
         right_ear="Trux Earring",
         left_ring="Petrov Ring",
         right_ring="Vengeful Ring",
-         }
+    }
 
     -------------------------------------Idle
     --[[

@@ -256,6 +256,7 @@ neck="Fotia Gorget",
 sets.precast.WS.PDL = set_combine(sets.precast.WS, {
     ammo="Crepuscular Pebble",
     hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
     left_ring="Sroda Ring", 
 })
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -277,7 +278,6 @@ right_ring="Regal Ring",
 back="Bleating Mantle",
 }
 sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
-    ammo="Crepuscular Pebble",
     hands="Sakpata's Gauntlets",
 })
    --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
@@ -347,6 +347,7 @@ back="Bleating Mantle",
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
     ammo="Crepuscular Pebble",
     hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
     left_ring="Sroda Ring", 
 })
    --Stat Modifier:  80%DEX  fTP:2.25
@@ -389,6 +390,7 @@ sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {    
     ammo="Crepuscular Pebble",
     hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
     left_ring="Sroda Ring", 
 })
 sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Requiescat"], {})
@@ -414,6 +416,7 @@ sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS["Requiescat"], {
 sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {
     ammo="Crepuscular Pebble",
     hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
     left_ring="Sroda Ring", 
 })
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS['Requiescat'], {})
