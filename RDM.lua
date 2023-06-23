@@ -427,6 +427,8 @@ sets.TreasureHunter = {
 	}
 
     sets.midcast.Cursna = {
+		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		neck="Debilis Medallion",
 		left_ring="Haoma's Ring",
 		right_ring="Haoma's Ring",
