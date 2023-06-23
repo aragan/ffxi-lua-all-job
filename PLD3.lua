@@ -10,6 +10,7 @@
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file to go with this.
 -- Initialization function for this job file.
 function get_sets()
+    mote_include_version = 2
 
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
@@ -68,9 +69,10 @@ function user_setup()
     options.BreathDefenseModes = {'Turtle'}
     state.HybridDefenseMode = 'None'
     state.BreathDefenseModes = 'Turtle'
-    send_command('bind f12 gs c cycle MagicalDefense')
+    send_command('bind ^f11 gs c cycle MagicalDefense')
  	send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
+    include('Mote-TreasureHunter')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
@@ -1108,17 +1110,17 @@ sets.defense.Dagger = {
     main="Ternion Dagger +1",
     sub="Ochain",
     ammo="Eluder's Sachet",
-    head="Chev. Armet +2",
+    head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Rev. Gauntlets +3",
-    legs="Chev. Cuisses +2",
+    legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
+    right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 sets.defense.Evasion = {    

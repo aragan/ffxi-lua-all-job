@@ -87,10 +87,12 @@ function init_gear_sets()
     
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {}
+    sets.precast.Waltz = {    legs="Dashing Subligar",
+}
         
     -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {}
+    sets.precast.Waltz['Healing Waltz'] = {    legs="Dashing Subligar",
+}
 
     -- Fast cast sets for spells
     
@@ -117,8 +119,8 @@ function init_gear_sets()
 		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
 		waist="Witful Belt",
 		neck="Baetyl Pendant",
-		ear2="Loquacious Earring",
-		ear1="Malignance Earring",
+		ear1="Loquacious Earring",
+		ear2="Lethargy Earring",
 		ring1="Prolix Ring",
 		ring2="Kishar Ring",
 		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
@@ -456,10 +458,11 @@ sets.TreasureHunter = {
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		right_ear="Andoaa Earring",
+		left_ear="Andoaa Earring",
+		right_ear="Lethargy Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+		back="Sucellos's Cape",
 	}
 		
 	sets.midcast['Enhancing Magic'].SelfDuration = {
@@ -470,10 +473,11 @@ sets.TreasureHunter = {
 		feet="Telchine Pigaches",
 		neck="Incanter's Torque",
         waist="Embla Sash",
-		right_ear="Andoaa Earring",
+		left_ear="Andoaa Earring",
+		right_ear="Lethargy Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+		back="Sucellos's Cape",
 	}
 	sets.midcast['Enhancing Magic'].Duration = {
 		head="Telchine Cap",
@@ -483,10 +487,11 @@ sets.TreasureHunter = {
 		feet="Telchine Pigaches",
 		neck="Incanter's Torque",
         waist="Embla Sash",
-		right_ear="Andoaa Earring",
+		left_ear="Andoaa Earring",
+		right_ear="Lethargy Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+		back="Sucellos's Cape",
 	}
 
 	sets.midcast['Enhancing Magic'].Skill = {
@@ -495,10 +500,11 @@ sets.TreasureHunter = {
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		right_ear="Andoaa Earring",
+		left_ear="Andoaa Earring",
+		right_ear="Lethargy Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+		back="Sucellos's Cape",
 	}
 	
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Skill, {})
@@ -523,17 +529,18 @@ sets.TreasureHunter = {
 	
 	
 	-- If you have them, add Shedir Seraweels, Regal Cuffs, Amalric Coif (+1), or Chironic Hat
-	sets.midcast.Aquaveil = {
+	sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'].Duration, {
 		head="Befouled Crown",
 		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
-		right_ear="Andoaa Earring",
+		left_ear="Andoaa Earring",
+		right_ear="Lethargy Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
-		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-	}
+		back="Sucellos's Cape",
+	})
 	
     sets.midcast['Enfeebling Magic'] = {
         ammo="Regal Gem",
@@ -548,14 +555,29 @@ sets.TreasureHunter = {
         right_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
         right_ring="Kishar Ring",
-        back="Sucellos's Cape",
+		back="Sucellos's Cape",
     }
 	
-	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
-
-	})
+	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {})
 		
 	sets.midcast['Enfeebling Magic'].Skill = {   
+		ammo="Regal Gem",
+		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
+		neck="Incanter's Torque",
+        waist="Rumination Sash",
+		left_ear="Digni. Earring",
+		right_ear="Regal Earring",
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		back="Sucellos's Cape",
+	}
+	sets.midcast['Enfeebling Magic'].Potency = {
+		main={ name="Contemplator +1", augments={'Path: A',}},
+		sub="Enki Strap",
 		ammo="Regal Gem",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
@@ -570,25 +592,13 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring",
 		back="Sucellos's Cape",
 	}
-	sets.midcast['Enfeebling Magic'].Potency = {   
-		ammo="Regal Gem",
-		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-		body="Lethargy Sayon +2",
-		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
-		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
-		neck="Incanter's Torque",
-		waist="Luminary Sash",
-		left_ear="Digni. Earring",
-		right_ear="Regal Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back="Sucellos's Cape",
-		}
     
-	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {hands="Lethargy Gantherots +1"})
+	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {
+		main={ name="Contemplator +1", augments={'Path: A',}},
+		sub="Enki Strap",
+		hands="Lethargy Gantherots +1"
+	})
 
-	
 	sets.midcast['Enfeebling Magic'].ParalyzeDuration = {}
 	
     sets.midcast['Elemental Magic'] = {
@@ -638,7 +648,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back="Sucellos's Cape",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
     --sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
@@ -663,7 +673,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back="Sucellos's Cape",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
@@ -678,7 +688,7 @@ sets.TreasureHunter = {
 		right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back="Sucellos's Cape",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	
     -- Sets for special buff conditions on spells
