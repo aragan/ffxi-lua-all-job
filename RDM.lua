@@ -603,11 +603,11 @@ sets.TreasureHunter = {
 	
     sets.midcast['Elemental Magic'] = {
 		ammo="Pemphredo Tathlum",
-		head="Ea Hat",
-		body="Ea Houppelande",
-		hands="Ea Cuffs",
-		legs="Ea Slops",
-		feet="Ea Pigaches",
+		head="C. Palug Crown",
+		body="Lethargy Sayon +2",
+		hands="Jhakri Cuffs +2",
+		legs="Jhakri Slops +2",
+		feet="Jhakri Pigaches +2",
 		neck="Sibyl Scarf",
 		waist="Hachirin-no-Obi",
 		left_ear="Malignance Earring",
