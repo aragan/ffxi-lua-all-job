@@ -427,11 +427,9 @@ sets.TreasureHunter = {
 	}
 
     sets.midcast.Cursna = {
-		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-		hands="Serpentes Cuffs",
-		ring1="Ephedra Ring",
-		ring2="Ephedra Ring",
- 
+		neck="Debilis Medallion",
+		left_ring="Haoma's Ring",
+		right_ring="Haoma's Ring",
 	}
         
     sets.midcast.Curaga = sets.midcast.Cure
