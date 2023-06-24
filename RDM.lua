@@ -1031,11 +1031,11 @@ sets.TreasureHunter = {
 		
     sets.engaged.Defense = {
                 ammo="Aurgelmir Orb +1",
-		head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-		body="Ayanmo Corazza +2",
+				head="Malignance Chapeau",
+				body="Ayanmo Corazza +2",
 		hands="Aya. Manopolas +2",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet={ name="Taeon Boots", augments={'Accuracy+23','"Triple Atk."+2','Crit. hit damage +2%',}},
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		neck="Lissome Necklace",
 		waist="Kentarch Belt +1",
 		left_ear="Cessance Earring",

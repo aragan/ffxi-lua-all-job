@@ -570,7 +570,6 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 	sets.engaged = {
-		range="Fomalhaut",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -602,7 +601,6 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 	sets.engaged.Shield = {
-		range="Fomalhaut",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -618,8 +616,6 @@ function init_gear_sets()
 	}
 
 	sets.engaged.Range = {	
-		range="Fomalhaut",
-		ammo="Chrono Bullet",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -1000,7 +996,7 @@ add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(4,7)
+	set_macro_page(1,10)
 end
          
 function autoRA()
