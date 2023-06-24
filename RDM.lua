@@ -51,7 +51,7 @@ function user_setup()
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
-	state.CastingMode:options('Normal', 'Burst', 'Duration')
+	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
 	state.Enfeeb = M('None', 'Potency', 'Skill')
 
     state.Moving = M(false, "moving")
@@ -109,7 +109,24 @@ function init_gear_sets()
 		waist="Witful Belt",
 		legs="Psycloth Lappas",
 		feet="Carmine Greaves +1"}
-	
+	sets.SIRD={
+			ammo="Staunch Tathlum +1",
+			body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+			hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+			legs="Bunzi's Pants",
+			neck={ name="Loricate Torque +1", augments={'Path: A',}},
+			waist="Rumination Sash",
+			right_ring="Freke Ring",
+	}
+	sets.midcast.SIRD={
+		ammo="Staunch Tathlum +1",
+		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs="Bunzi's Pants",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Rumination Sash",
+		right_ring="Freke Ring",
+}
 	sets.precast.FC = {
 		ammo="Sapience Orb",
         head="Carmine Mask +1",
@@ -124,7 +141,6 @@ function init_gear_sets()
 		ring1="Prolix Ring",
 		ring2="Kishar Ring",
 		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-
 	}
 		
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
@@ -336,7 +352,6 @@ function init_gear_sets()
         left_ring="Cornelia's Ring",
         right_ring="Archon Ring",
 		back="Sucellos's Cape",
-
     }
 	sets.precast.WS['Myrkr'] = {
 		ammo="Pemphredo Tathlum",
@@ -425,16 +440,26 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring +1",
 		back="Solemnity Cape",
 	}
-
-    sets.midcast.Cursna = {
-		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-		neck="Debilis Medallion",
-		left_ring="Haoma's Ring",
-		right_ring="Haoma's Ring",
-	}
+	sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
+		ammo="Staunch Tathlum +1",
+		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs="Bunzi's Pants",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Rumination Sash",
+		right_ring="Freke Ring",
+	})
         
     sets.midcast.Curaga = sets.midcast.Cure
+	sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Cure, {
+		ammo="Staunch Tathlum +1",
+		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs="Bunzi's Pants",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Rumination Sash",
+		right_ring="Freke Ring",
+	})
 	
     sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
@@ -451,7 +476,22 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring +1",
 		back="Solemnity Cape",
 	})
-		
+	sets.midcast.CureSelf.SIRD = set_combine(sets.midcast.Cure, {
+		ammo="Staunch Tathlum +1",
+		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		legs="Bunzi's Pants",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Rumination Sash",
+		right_ring="Freke Ring",
+	})
+	sets.midcast.Cursna = {
+		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+		neck="Debilis Medallion",
+		left_ring="Haoma's Ring",
+		right_ring="Haoma's Ring",
+	}
     sets.midcast['Enhancing Magic'] = {
 		head="Befouled Crown",
 		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -464,7 +504,6 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
 	}
-		
 	sets.midcast['Enhancing Magic'].SelfDuration = {
 		head="Telchine Cap",
 		body="Telchine Chas.",
@@ -493,7 +532,6 @@ sets.TreasureHunter = {
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
 	}
-
 	sets.midcast['Enhancing Magic'].Skill = {
 		head="Befouled Crown",
 		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -509,8 +547,6 @@ sets.TreasureHunter = {
 	
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Skill, {})
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Duration, {})
-
-		
 	sets.midcast['Enhancing Magic'].GainSpell = set_combine(sets.midcast['Enhancing Magic'].SelfDuration, {hands="Vitiation gloves +3"})
 		
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {

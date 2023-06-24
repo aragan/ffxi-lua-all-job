@@ -481,8 +481,8 @@ function init_gear_sets()
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
-        head="Befouled Crown",
-        hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        head="Telchine Cap",
+        hands="Telchine Gloves",
         body="Telchine Chas.",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -496,8 +496,8 @@ function init_gear_sets()
         }
 
     sets.midcast.EnhancingDuration = set_combine(sets.midcast['Enhancing Magic'], {
-        main="Musa",
-        sub="Khonsu",
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        sub="Ammurapi Shield",
         head="Telchine Cap",
         body="Telchine Chas.",
         hands="Telchine Gloves",
@@ -507,8 +507,8 @@ function init_gear_sets()
         })
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
-        main="Musa",
-        sub="Khonsu",
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        sub="Ammurapi Shield",
         head="Arbatel Bonnet +2",
         body="Telchine Chas.",
         hands="Telchine Gloves",
