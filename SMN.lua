@@ -847,7 +847,6 @@ function job_pet_change(petparam, gain)
             classes.CustomIdleGroups:append('Spirit')
         end
     else
-        select_default_macro_book('reset')
     end
 end
 
@@ -1084,7 +1083,6 @@ function handle_pacts(cmdParams)
 
     if not pet.isvalid then
         add_to_chat(122,'No avatar currently available. Returning to default macro set.')
-        select_default_macro_book('reset')
         return
     end
 
@@ -1180,5 +1178,5 @@ add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    set_macro_page(3, 2)
+    set_macro_page(1, 14)
 end

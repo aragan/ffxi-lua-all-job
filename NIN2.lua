@@ -116,6 +116,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
+	select_default_macro_book()
 
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')

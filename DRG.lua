@@ -87,6 +87,7 @@ function user_setup()
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('wait 2;input /lockstyleset 199')
+	select_default_macro_book()
 
 
 end

@@ -68,6 +68,7 @@ function user_setup()
     options.BreathDefenseModes = {'Turtle'}
     state.HybridDefenseMode = 'None'
     state.BreathDefenseModes = 'Turtle'
+    select_default_macro_book()
     send_command('bind f12 gs c cycle MagicalDefense')
  	send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')

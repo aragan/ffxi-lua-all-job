@@ -124,6 +124,7 @@ function user_setup()
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
 		--send_command('lua l PetCharges')
 		--send_command('lua l mob')
+		select_default_macro_book()
 
 
         -- 'Out of Range' distance; WS will auto-cancel

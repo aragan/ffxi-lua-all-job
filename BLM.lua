@@ -343,6 +343,7 @@ function init_gear_sets()
     sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
     sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Vidohunir'] = sets.precast.WS['Cataclysm']
 
     sets.precast.WS['Shattersoul'] = {
         ammo="Oshasha's Treatise",
@@ -506,7 +507,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",  
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
-        body="Agwu's Robe",
+        body="Wicce Coat +2",
         hands="Agwu's Gages",
         legs="Wicce Chausses +2",
         feet="Agwu's Pigaches",
@@ -1324,7 +1325,7 @@ add_to_chat(159,'Author Aragan BLM.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(4, 1)
+    set_macro_page(1, 9)
 	-- Do not remove below argument or the file WILL NOT WORK PROPERLY when reloaded in an escha area--
 	if buffactive['Vorseal'] and state.VorsealMode.value == 'Normal' then
 	send_command('gs c cycle VorsealMode')

@@ -64,13 +64,13 @@ function user_setup()
     options.IdleModes = {'Normal','Refresh',}
     options.RestingModes = {'Normal'}
     options.PhysicalDefenseModes = {'PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax'}
-    options.MagicalDefenseModes = {'MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger'}
+    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger')
     options.HybridDefenseModes = {'None', 'Reraise',}
     options.BreathDefenseModes = {'Turtle'}
     state.HybridDefenseMode = 'None'
     state.BreathDefenseModes = 'Turtle'
-    send_command('bind ^f11 gs c cycle MagicalDefense')
- 	send_command('bind ^= gs c activate MDT')
+    --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
+ 	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
     send_command('bind ^= gs c cycle treasuremode')
@@ -99,7 +99,7 @@ function user_unload()
 	send_command('unbind delete')
 	send_command('unbind end')
 	send_command('unbind home')
-    send_command('unbind f12')
+    --send_command('unbind f12')
 
 
 end

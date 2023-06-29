@@ -30,6 +30,39 @@ function get_sets()
 end
 
 
+organizer_items = {"Prime Sword",
+    "Mafic Cudgel",
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
+
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 	include('Mote-TreasureHunter')
@@ -52,13 +85,13 @@ function user_setup()
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
-	state.Enfeeb = M('None', 'Potency', 'Skill')
+	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
 
     state.Moving = M(false, "moving")
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     
-
+	select_default_macro_book()
     send_command('bind @w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f5 gs c cycle WeaponskillMode')
@@ -137,7 +170,7 @@ function init_gear_sets()
 		waist="Witful Belt",
 		neck="Baetyl Pendant",
 		ear1="Loquacious Earring",
-		ear2="Lethargy Earring",
+		ear2="Leth. Earring +1",
 		ring1="Prolix Ring",
 		ring2="Kishar Ring",
 		back={ name="Fi Follet Cape +1", augments={'Path: A',}},
@@ -499,7 +532,7 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
@@ -513,7 +546,7 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
@@ -527,7 +560,7 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
@@ -539,7 +572,7 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
@@ -572,44 +605,64 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
-		right_ear="Lethargy Earring",
+		right_ear="Leth. Earring +1",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Sucellos's Cape",
 	})
 	
     sets.midcast['Enfeebling Magic'] = {
-        ammo="Regal Gem",
+		ammo="Regal Gem",
         head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
-        neck="Incanter's Torque",
-        waist="Rumination Sash",
+		neck="Erra Pendant",
+		waist="Luminary Sash",
         left_ear="Malignance Earring",
         right_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Kishar Ring",
-		back="Sucellos's Cape",
+        left_ring="Stikini Ring +1",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 	
-	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {})
+	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+		ammo=empty,
+		range="Ullr",
+        head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +2",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
+		neck="Erra Pendant",
+		waist="Luminary Sash",
+        left_ear="Malignance Earring",
+        right_ear="Crep. Earring",
+        left_ring="Stikini Ring +1",
+        left_ring="Stikini Ring +1",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	})
 		
-	sets.midcast['Enfeebling Magic'].Skill = {   
-		ammo="Regal Gem",
+	sets.midcast['Enfeebling Magic'].Skill = {
+		main={ name="Contemplator +1", augments={'Path: A',}},
+		sub="Enki Strap",
+		ammo=empty,
+		range="Ullr",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
-		neck="Incanter's Torque",
-        waist="Rumination Sash",
-		left_ear="Digni. Earring",
-		right_ear="Regal Earring",
+		neck="Erra Pendant",
+		waist="Luminary Sash",
+        left_ear="Malignance Earring",
+        right_ear="Crep. Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back="Sucellos's Cape",
+		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast['Enfeebling Magic'].Potency = {
 		main={ name="Contemplator +1", augments={'Path: A',}},
@@ -618,14 +671,14 @@ sets.TreasureHunter = {
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +2",
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
 		neck="Incanter's Torque",
 		waist="Luminary Sash",
-		left_ear="Digni. Earring",
-		right_ear="Regal Earring",
+        left_ear="Malignance Earring",
+        right_ear="Crep. Earring",
 		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
+        right_ring="Kishar Ring",
 		back="Sucellos's Cape",
 	}
     
@@ -676,7 +729,7 @@ sets.TreasureHunter = {
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
 		neck="Erra Pendant",
 		waist="Luminary Sash",
@@ -701,7 +754,7 @@ sets.TreasureHunter = {
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet="Jhakri Pigaches +2",
 		neck="Erra Pendant",
 		waist="Luminary Sash",
@@ -716,7 +769,7 @@ sets.TreasureHunter = {
 		        head=empty;
         body="Cohort Cloak +1",
 		hands="Jhakri Cuffs +2",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','MND+6','Mag. Acc.+14',}},
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
 		neck="Erra Pendant",
 		waist="Luminary Sash",
@@ -1381,36 +1434,3 @@ function select_default_macro_book()
         set_macro_page(5, 22)
     end
 end
-
-organizer_items = {"Prime Sword",
-    "Mafic Cudgel",
-    "Gyudon",
-    "Reraiser",
-    "Hi-Reraiser",
-    "Vile Elixir",
-    "Vile Elixir +1",
-    "Miso Ramen",
-    "Carbonara",
-    "Silent Oil",
-    "Salt Ramen",
-    "Panacea",
-    "Sublime Sushi",
-    "Sublime Sushi 1+",
-    "Prism Powder",
-    "Antacid",
-    "Icarus Wing",
-    "Warp Cudgel",
-    "Holy Water",
-    "Sanjaku-Tenugui",
-    "Shinobi-Tabi",
-    "Shihei",
-    "Remedy",
-    "Wh. Rarab Cap +1",
-    "Emporox's Ring",
-    "Red Curry Bun",
-    "Instant Reraise",
-    "Black Curry Bun",
-    "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
-    "Reraise Earring",}

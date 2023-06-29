@@ -111,6 +111,7 @@ function user_setup()
         state.RestingMode:options('Normal')
         state.PhysicalDefenseMode:options('PDT', 'PetPDT', 'Reraise', 'Killer')
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT')
+		select_default_macro_book()
 
         -- 'Out of Range' distance; WS will auto-cancel
         target_distance = 6
