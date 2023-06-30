@@ -90,6 +90,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Shield', 'Sword', 'ACC', 'Dagger', 'ACC', 'CRIT', 'PD')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
+    state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT','MDT')
 
@@ -319,7 +320,7 @@ sets.precast.WS['Aeolian Edge'] = {range="Linos",
     back="Intarabus's Cape",
 }
 
-sets.precast.WS['Savage Blade '] = {range="Linos",
+sets.precast.WS['Savage Blade'] = {range="Linos",
     head="Nyame Helm",
     neck="Rep. Plat. Medal",
     ear1="Moonshade Earring",
@@ -333,6 +334,10 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     feet="Nyame Sollerets",
     back="Intarabus's Cape",
 }
+
+sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'],{
+body="Bunzi's Robe",
+})
 sets.precast.WS['Flash Nova'] = {
     ammo="Pemphredo Tathlum",
     head="Nyame Helm",

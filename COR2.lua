@@ -371,6 +371,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     
     sets.precast.WS['Leaden Salute'] = {
+        range="Death Penalty",
+        ammo="Bronze Bulle",
         head="Pixie Hairpin +1",
         body="Lanun Frac +3",
         hands="Nyame Gauntlets",
@@ -660,7 +662,8 @@ ammo="Bronze Bullet",
     back="Annealed Mantle",
     }
 
-sets.engaged.CRIT = {
+sets.engaged.CRIT = {        range="Death Penalty",
+ammo="Bronze Bullet",
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -675,7 +678,8 @@ sets.engaged.CRIT = {
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-sets.engaged.Ranged = {    
+sets.engaged.Ranged = {            range="Death Penalty",
+ammo="Bronze Bullet",
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -690,7 +694,8 @@ sets.engaged.Ranged = {
         back="Camulus's Mantle",
     }
 
-sets.engaged.Acc = {
+sets.engaged.Acc = {        range="Death Penalty",
+ammo="Bronze Bullet",
             
             head="Malignance Chapeau",
             body="Malignance Tabard",
@@ -706,7 +711,8 @@ sets.engaged.Acc = {
             back="Camulus's Mantle",
     }
 
-sets.engaged.CRIT = {
+sets.engaged.CRIT = {        range="Death Penalty",
+ammo="Bronze Bullet",
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -721,7 +727,8 @@ sets.engaged.CRIT = {
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-sets.engaged.Melee = {
+sets.engaged.Melee = {        range="Death Penalty",
+ammo="Bronze Bullet",
     
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -736,7 +743,8 @@ sets.engaged.Melee = {
         right_ring="Petrov Ring",
         back="Annealed Mantle",
 }
-sets.engaged.PDT = {
+sets.engaged.PDT = {        range="Death Penalty",
+ammo="Bronze Bullet",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
