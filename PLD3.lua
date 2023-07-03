@@ -52,23 +52,25 @@ function get_sets()
         "Reraise Earring",}
 end 
 function job_setup()
+    state.WeaponLock = M(false, 'Weapon Lock')
+    send_command('wait 6;input /lockstyleset 200')
 
 end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    options.OffenseModes = {'Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT'}
-	options.DefenseModes = {'Normal', 'PDT'}
-    options.WeaponskillModes = {'Normal', 'PDL'}
-    options.CastingModes = {'Normal', 'DT', 'MB'} 
-    options.IdleModes = {'Normal','Refresh',}
-    options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax'}
+    state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
+	--options.DefenseModes = {'Normal', 'PDT'}
+    state.WeaponskillMode:options('Normal', 'PDL')
+    state.CastingMode:options('Normal', 'DT', 'MB') 
+    state.IdleMode:options('Normal', 'Refresh')
+    --state.RestingModes:options('Normal')
+    state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger')
-    options.HybridDefenseModes = {'None', 'Reraise',}
-    options.BreathDefenseModes = {'Turtle'}
-    state.HybridDefenseMode = 'None'
-    state.BreathDefenseModes = 'Turtle'
+    --state.HybridDefenseModes:options('None', 'Reraise',)
+    --state.BreathDefenseModes:options('Turtle')
+    --state.HybridDefenseMode:options'None'
+    --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
@@ -77,6 +79,9 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind f12 gs c cycle MagicalDefenseMode')
+    send_command('bind !w gs c toggle WeaponLock')
+
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
     {

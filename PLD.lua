@@ -51,7 +51,7 @@ function get_sets()
         "Reraise Earring",}
 end 
 function job_setup()
-
+    send_command('wait 6;input /lockstyleset 200')
 end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()

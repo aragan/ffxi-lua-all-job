@@ -23,13 +23,15 @@ function get_sets()
 end
 
 	organizer_items = {"Prime Sword",
+	    "Earp",
 		"Mafic Cudgel",
 		"Perun 1+",
 		"Holliday",
 		"Decimating Bullet",
 		"Beryllium Arrow",
 		"Eminent Arrow",
-		"Chr. Bul. Pouch",  
+		"Chr. Bul. Pouch",
+		"Chrono Bullet",
 		"Hauksbok Arrow",
 		"Gyudon",
 		"Reraiser",

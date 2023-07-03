@@ -61,8 +61,8 @@ function user_setup()
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     gear.RAbullet = "Decimating Bullet"
     gear.WSbullet = "Chrono Bullet"
-    gear.MAbullet = "Chrono Bullet"
-    gear.QDbullet = "Chrono Bullet"
+    gear.MAbullet = "Living Bullet"
+    gear.QDbullet = "Living Bullet"
     options.ammo_warning_limit = 15
 
     -- Additional local binds
@@ -92,12 +92,15 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     organizer_items  = {"Prime Sword",
+        "Earp",
         "Mafic Cudgel",
+        "Living Bullet",
         "Decimating Bullet",
         "Chrono Bullet",
         "Trump Card Case",
         "Trump Card",
-        "Chr. Bul. Pouch",  
+        "Chr. Bul. Pouch", 
+        "Liv. Bul. Pouch", 
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -479,9 +482,7 @@ sets.midcast.RA = {
     back="Tactical Mantle",
 }
 
-    sets.midcast.RA.Molybdosis = {main="Naegling",
-    sub="Tauret",
-    range="Molybdosis",
+    sets.midcast.RA.Molybdosis = {
     ammo="Orichalc. Bullet",
     head="Ikenga's Hat",
     body="Malignance Tabard",
@@ -496,9 +497,7 @@ sets.midcast.RA = {
     right_ring="Ilabrat Ring",
     back="Tactical Mantle",
 }
-sets.midcast.RA.Acc = {main="Naegling",
-    sub="Tauret",
-    range="Molybdosis",
+sets.midcast.RA.Acc = {
     ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
     body="Laksa. Frac +3",

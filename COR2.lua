@@ -212,7 +212,7 @@ sets.precast.JA['Super Jump'] = sets.precast.JA.Jump
 
     sets.precast.RA = {
         range="Death Penalty",
-        ammo="Bronze Bullet",
+        
         hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
         head="Chass. Tricorne +2",
         body="Oshosi Vest",
@@ -631,7 +631,7 @@ sets.defense.MDT = {head="Malignance Chapeau",
 
 
 sets.engaged.Melee = {    range="Death Penalty",
-ammo="Bronze Bullet",
+
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -646,7 +646,7 @@ ammo="Bronze Bullet",
     back="Annealed Mantle",
     }
 sets.engaged.Acc = {    range="Death Penalty",
-ammo="Bronze Bullet",
+
 
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -663,7 +663,7 @@ ammo="Bronze Bullet",
     }
 
 sets.engaged.CRIT = {        range="Death Penalty",
-ammo="Bronze Bullet",
+
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -679,7 +679,7 @@ ammo="Bronze Bullet",
     back="Annealed Mantle",
     }
 sets.engaged.Ranged = {            range="Death Penalty",
-ammo="Bronze Bullet",
+
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -695,7 +695,7 @@ ammo="Bronze Bullet",
     }
 
 sets.engaged.Acc = {        range="Death Penalty",
-ammo="Bronze Bullet",
+
             
             head="Malignance Chapeau",
             body="Malignance Tabard",
@@ -712,7 +712,7 @@ ammo="Bronze Bullet",
     }
 
 sets.engaged.CRIT = {        range="Death Penalty",
-ammo="Bronze Bullet",
+
 
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
@@ -728,7 +728,7 @@ ammo="Bronze Bullet",
     back="Annealed Mantle",
     }
 sets.engaged.Melee = {        range="Death Penalty",
-ammo="Bronze Bullet",
+
     
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -744,7 +744,7 @@ ammo="Bronze Bullet",
         back="Annealed Mantle",
 }
 sets.engaged.PDT = {        range="Death Penalty",
-ammo="Bronze Bullet",
+
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
