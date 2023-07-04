@@ -566,18 +566,20 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
 }
     --Phalanx skill 386/386 = 31/31  + phalanx + 30/31 total 61/62
     sets.midcast.Phalanx = {
+        main="Sakpata's Sword",
+        sub="Priwen",
         ammo="Staunch Tathlum +1",
-        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-        body="Shab. Cuirass +1",
+        head="Yorium Barbuta",
+        body="Yorium Cuirass",
         hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         legs="Sakpata's Cuisses",
-        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Knightly Earring",
         right_ear="Andoaa Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
         back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
     } 
     sets.midcast.Phalanx.DT = {
@@ -979,7 +981,7 @@ sets.TreasureHunter = {
    
     sets.resting = {
         ammo="Homiliary",
-        head="Chev. Armet +2",
+        head="Chev. Armet +3",
         body="Rev. Surcoat +3",
         hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1093,7 +1095,7 @@ sets.TreasureHunter = {
 }
 
 	sets.defense.ResistCharm ={
-    main={ name="Burtgang", augments={'DMG:+17','STR+15','VIT+15',}},
+    main="Burtgang",
     sub="Ochain",
     ammo="Staunch Tathlum +1",
     head="Loess Barbuta +1",
@@ -1102,7 +1104,7 @@ sets.TreasureHunter = {
     legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Nierenschutz",
+    waist="Carrier's Sash",
     left_ear="Thureous Earring",
     right_ear="Volunt. Earring",
     left_ring="Unyielding Ring",
@@ -1200,7 +1202,7 @@ sets.defense.PDT = {
     main="Burtgang",
     sub="Duban",
     ammo="Iron Gobbet",
-    head="Chev. Armet +2",
+    head="Chev. Armet +3",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Chev. Cuisses +2",
@@ -1218,7 +1220,7 @@ sets.defense.PDH = {
     main="Burtgang",
     sub="Duban",
     ammo="Iron Gobbet",
-    head="Chev. Armet +2",
+    head="Chev. Armet +3",
     body="Chev. Cuirass +2",
     hands="Chev. Gauntlets +2",
     legs="Chev. Cuisses +2",
@@ -1281,7 +1283,7 @@ sets.defense.DEF = {
 sets.defense.Convert = {
     sub="Ochain",
     ammo="Iron Gobbet",
-    head="Chev. Armet +2",
+    head="Chev. Armet +3",
     body="Rev. Surcoat +3",
     hands="Chev. Gauntlets +2",
     legs="Chev. Cuisses +2",
@@ -1299,7 +1301,7 @@ sets.defense.Block = {
     main="Burtgang",
     sub="Ochain",
     ammo="Iron Gobbet",
-    head="Chev. Armet +2",
+    head="Chev. Armet +3",
     body="Sakpata's Plate",
     hands="Chev. Gauntlets +2",
     legs="Chev. Cuisses +2",
@@ -1664,10 +1666,10 @@ end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
   if spellMap == 'Cure' and spell.target.type == 'SELF' then
-    if options.CastingModes.value == 'DT' then
+    if state.CastingMode.value == 'DT' then
       equip(sets.self_healing.DT)
     else
-    if options.CastingModes.value == 'MB' then
+    if state.CastingMode.value == 'MB' then
       equip(sets.self_healing.MB)
     else
       equip(sets.self_healing)
