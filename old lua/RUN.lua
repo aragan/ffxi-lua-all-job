@@ -13,11 +13,47 @@ function get_sets()
 
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
+    include('organizer-lib')
 end
-
+organizer_items = {"Prime Sword",
+    "Lentus Grip",
+    "Mafic Cudgel",
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
 
 -- Setup vars that are user-independent.
 function job_setup()
+
+    send_command('wait 2;input /lockstyleset 178')
+
     -- Table of entries
     rune_timers = T{}
     -- entry = rune, index, expires
@@ -128,7 +164,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",}
     sets.precast.WS.Acc = {
@@ -142,7 +178,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Regal Ring",
         back="Atheling Mantle",}
 
@@ -171,7 +207,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Ilabrat Ring",
     back="Atheling Mantle",}
     sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'].Normal, 
@@ -188,7 +224,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",})
     sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS, {    ammo="Knobkierrie",
@@ -201,7 +237,7 @@ function init_gear_sets()
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
     back="Atheling Mantle",})
 
@@ -220,7 +256,7 @@ function init_gear_sets()
     waist="Audumbla Sash",
     left_ear="Halasz Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Evanescence Ring",
     back="Moonlight Cape",}
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
@@ -278,7 +314,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
     sets.idle.Refresh = set_combine(sets.idle, { waist="Fucho-no-obi"})
@@ -293,7 +329,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
 
@@ -307,7 +343,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Shadow Ring",
     back="Moonlight Cape",}
 
@@ -323,7 +359,7 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Anu Torque",
     waist="Ioskeha Belt +1",
@@ -336,7 +372,7 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Ayanmo Corazza +2",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Anu Torque",
     waist="Ioskeha Belt +1",
@@ -362,7 +398,7 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Ayanmo Corazza +2",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Meg. Chausses +2",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Anu Torque",
     waist="Ioskeha Belt +1",
@@ -376,7 +412,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Ayanmo Corazza +2",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Meg. Chausses +2",
+        legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
         neck="Anu Torque",
         waist="Ioskeha Belt +1",
@@ -599,7 +635,12 @@ function prune(rune)
     return cmd_queue
 end
 
-
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 200')
+    end
+end
 ------------------------------------------------------------------
 -- Reset events
 ------------------------------------------------------------------

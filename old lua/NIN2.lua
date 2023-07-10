@@ -20,6 +20,46 @@ function get_sets()
     mote_include_version = 2
     include('Mote-Include.lua')
     include('organizer-lib')
+    organizer_items = {
+        "Toolbag (Shihe)",
+        "Chonofuda",
+        "Shikanofuda",
+        "Inoshishinofuda",
+        "Sanjaku-Tenugui",
+        "Toolbag (Cho)",   
+        "Toolbag (Shika)",
+        "Toolbag (Ino)",
+        "Shihei",
+        "Toolbag (Shihe)",
+        "Gyudon",
+        "Reraiser",
+        "Hi-Reraiser",
+        "Vile Elixir",
+        "Vile Elixir +1",
+        "Miso Ramen",
+        "Carbonara",
+        "Silent Oil",
+        "Salt Ramen",
+        "Panacea",
+        "Sublime Sushi",
+        "Sublime Sushi 1+",
+        "Prism Powder",
+        "Antacid",
+        "Icarus Wing",
+        "Warp Cudgel",
+        "Holy Water",
+        "Remedy",
+        "Wh. Rarab Cap +1",
+        "Emporox's Ring",
+        "Red Curry Bun",
+        "Instant Reraise",
+        "Black Curry Bun",
+        "Rolan. Daifuku",
+        "Qutrub Knife",
+        "Wind Knife +1",
+        "Reraise Earring",}
+    
+    
 end
 
 
@@ -38,7 +78,6 @@ function job_setup()
     state.UseRune = M(false, 'Use Rune')
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
-    state.Moving  = M(false, "moving")
     send_command('wait 2;input /lockstyleset 200')
     run_sj = player.sub_job == 'RUN' or false
 
@@ -77,7 +116,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
-    select_default_macro_book()
+	select_default_macro_book()
 
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
@@ -199,7 +238,8 @@ function init_gear_sets()
     --------------------------------------
     -- Utility Sets for rules below
     --------------------------------------
-    sets.TreasureHunter = {ammo="Per. Lucky Egg", waist="Chaac Belt"}
+    sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
+    waist="Chaac Belt"}
     sets.CapacityMantle = { back="Mecistopins Mantle" }
     sets.WSDayBonus     = {  }
     -- sets.WSBack         = { back="Trepidity Mantle" }
@@ -218,13 +258,17 @@ function init_gear_sets()
     -- Ranged
     --------------------------------------
 
-    sets.precast.RA = {
-
-        
+    sets.precast.RA = {        range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
-    sets.midcast.RA = {
-
-        
+    sets.midcast.RA = {   range="Trollbane",  
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     }
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
     })
@@ -241,8 +285,10 @@ function init_gear_sets()
         left_ring="Rahab Ring",
         right_ring="Kishar Ring",
     }
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket", })
-
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
+        body="Passion Jacket",
+        feet="Hattori Kyahan +1",
+     })
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
 
@@ -284,7 +330,6 @@ function init_gear_sets()
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     })
     sets.midcast.Migawari = {    neck="Incanter's Torque",
-
         back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
@@ -372,9 +417,9 @@ function init_gear_sets()
 
     sets.defense.TreasureHunter = {
         main={ name="Heishi Shorinken", augments={'Path: A',}},
-        sub={ name="Kanaria", augments={'"Store TP"+3','AGI+3','Accuracy+6','Attack+6','DMG:+17',}},
+        sub="Kunimitsu",
         ammo="Per. Lucky Egg",
-        head="Malignance Chapeau",
+        head="Wh. Rarab Cap +1",
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
@@ -394,7 +439,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        feet="Danzo sune-ate",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -421,7 +466,7 @@ function init_gear_sets()
     }
 
     sets.DayMovement = {feet="Danzo sune-ate"}
-    sets.NightMovement = {feet="Hachiya Kyahan +2"}
+    sets.NightMovement = {feet="Danzo sune-ate"}
 
     sets.Organizer = {
 
@@ -1508,12 +1553,12 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == 'DNC' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     elseif player.sub_job == 'RUN' then
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     else
-        set_macro_page(6, 3)
+        set_macro_page(8, 27)
     end
 end

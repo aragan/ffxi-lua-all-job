@@ -22,16 +22,11 @@ function get_sets()
 
 end
 
-	organizer_items = {"Prime Sword",
-	    "Earp",
-		"Mafic Cudgel",
-		"Perun 1+",
-		"Holliday",
+	organizer_items = {
 		"Decimating Bullet",
-		"Beryllium Arrow",
 		"Eminent Arrow",
-		"Chr. Bul. Pouch",
-		"Chrono Bullet",
+		"Eminent Arrow",
+		"Chr. Bul. Pouch",  
 		"Hauksbok Arrow",
 		"Gyudon",
 		"Reraiser",
@@ -73,7 +68,7 @@ function job_setup()
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 168')
+	send_command('wait 2;input /lockstyleset 200')
 	include('Mote-TreasureHunter')
 	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('bind @w gs c toggle WeaponLock')
@@ -87,9 +82,9 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-	state.RangedMode:options('Normal', 'Acc', 'MAXAcc', 'Critical')
+	state.RangedMode:options('Normal', 'Acc', 'MAXAcc')
 	state.HybridMode:options('Normal', 'Shield')
-    state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
+	state.WeaponskillMode:options('Normal', 'Acc')
 	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
 
 	gear.default.weaponskill_neck = ""
@@ -98,28 +93,28 @@ function user_setup()
 	sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
 	"Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
 		"Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
-		"Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
+		"Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Fomalhaut", "Bow of Trials", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
 	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
-	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi",
+	"Blurred Knife +1", "Ternion Dagger +1", "Eminent Arrow", "Eminent Arrow", "Bow of Trials",
 
 }
     elemental_ws = S{'Aeolian Edge', 'Trueflight', 'Wildfire'}
 	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
-	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
-	              ['Ullr'] = "Eminent Arrow",
+	DefaultAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 				  ['Fomalhaut'] = "Decimating Bullett",
 				}
-	WSAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
-	               ['Ullr'] = "Beryllium Arrow",
+	WSAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	               ['Bow of Trials'] = "Eminent Arrow",
 				   ['Fomalhaut'] = "Chrono Bullet",
 				}
-	AccAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
-	              ['Ullr'] = "Eminent Arrow",
+	AccAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 				  ['Fomalhaut'] = "Decimating Bullett",
 				}
-	MagicAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
-	              ['Ullr'] = "Beryllium Arrow",
+	MagicAmmo = {['Bow of Trials'] = "Eminent Arrow", 
+	              ['Bow of Trials'] = "Eminent Arrow",
 	              ['Fomalhaut'] = "Chrono Bullet",
 				}
 
@@ -130,7 +125,7 @@ function user_setup()
 	send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 168')
+
 
 end
 
@@ -169,40 +164,13 @@ function init_gear_sets()
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
-	sets.precast.JA.Jump = {
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck="Iskur Gorget",
-		waist="Olseni Belt",
-		left_ear="Telos Earring",
-		right_ear="Crep. Earring",
-		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
-		back="Tactical Mantle",
-	}
-	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Malignance Gloves",
-		legs="Malignance Tights",
-		feet="Malignance Boots",
-		neck="Iskur Gorget",
-		waist="Olseni Belt",
-		left_ear="Telos Earring",
-		right_ear="Crep. Earring",
-		left_ring="Chirich Ring +1",
-		right_ring="Chirich Ring +1",
-		back="Tactical Mantle",}) 
-	sets.precast.JA['Super Jump'] = sets.precast.JA.Jump
 
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-		head="Orion Beret +3",
-		body="Oshosi Vest",
+
+		head="Arcadian Beret +1",
+	body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
@@ -217,8 +185,8 @@ function init_gear_sets()
 	}) --47/52
 	
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-		head="Orion Beret +3",
-		body="Oshosi Vest",
+		head="Arcadian Beret +1",
+	body="Oshosi Vest",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Arcadian Socks +3",
@@ -243,56 +211,39 @@ function init_gear_sets()
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
 		right_ring="Cornelia's Ring",
-		back="Belenus's Cape",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
-    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-		left_ring="Sroda Ring", 
-	})
-	sets.precast.WS.SC = set_combine(sets.precast.WS, {
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
-		neck={ name="Warder's Charm +1", augments={'Path: A',}},
+
+	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
 	})
 
     sets.precast.WS['Last Stand'] = {
-		head="Orion Beret +3",
-		body="Amini Caban +2",
-		hands="Nyame Gauntlets",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Meg. Gloves +2",
 		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Fotia Gorget",
+		neck="Scout's Gorget +2",
 		waist="Fotia Belt",
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
-		right_ring="Dingir Ring",
-		back="Belenus's Cape",
-	}
-	sets.precast.WS['Last Stand'].PDL = set_combine(sets.precast.WS['Last Stand'], {
-		legs="Ikenga's Trousers",
-		neck="Scout's Gorget +2",
-		right_ear="Amini Earring +1",
-		left_ring="Sroda Ring", 
 		right_ring="Cornelia's Ring",
-		back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Damage taken-5%',}},
-		})
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+	}
 
 	sets.precast.WS.Wildfire  = {
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		body={ name="Cohort Cloak +1", augments={'Path: A',}},
+		hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Scout's Gorget +2",
     waist="Orpheus's Sash",
-    left_ear="Hecate's Earring",
+    left_ear="Ishvara Earring",
     right_ear="Friomisi Earring",
     left_ring="Cornelia's Ring",
-	right_ring="Dingir Ring",
-    back="Belenus's Cape",
+    right_ring="Ilabrat Ring",
+    back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
 	sets.precast.WS.Trueflight = set_combine(sets.precast.WS.Wildfire, {
@@ -331,7 +282,7 @@ function init_gear_sets()
 		right_ear="Amini Earring +1",
 		left_ring="Regal Ring",
 		right_ring="Ilabrat Ring",
-		back="Belenus's Cape",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 	sets.precast.WS["Numbing Shot"] = set_combine(sets.precast.WS["Blast Shot"], {right_ear="Amini Earring +1",
 		
@@ -340,26 +291,20 @@ function init_gear_sets()
 		right_ear="Amini Earring +1",
 	})
 
-	sets.precast.WS["Savage Blade"] = {	  
+	sets.precast.WS["Savage Blade"] = {	    main="Naegling",	
     	head="Nyame Helm",
      	body="Nyame Mail",
-		 hands="Nyame Gauntlets",
-		 legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
+		hands="Meg. Gloves +2",
+		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Rep. Plat. Medal",
+		neck="Scout's Gorget +2",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		right_ear="Sherida Earring",
+		right_ear="Ishvara Earring",
 		left_ring="Cornelia's Ring",
 		right_ring="Regal Ring",
-		back="Belenus's Cape",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
-		sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
-			body="Amini Caban +2",
-			neck="Scout's Gorget +2",
-			right_ear="Amini Earring +1",
-			left_ring="Sroda Ring", 
-		})
 
 	sets.precast.WS['Aeolian Edge'] = {
 		head="Nyame Helm",
@@ -373,7 +318,7 @@ function init_gear_sets()
 		right_ear="Moonshade Earring",
 		left_ring="Cornelia's Ring",
 		right_ring="Ilabrat Ring",
-		back="Belenus's Cape",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
 
 		sets.precast.WS.Evisceration  = {
@@ -415,6 +360,7 @@ function init_gear_sets()
 		waist="Chaac Belt",
 	 }
 	sets.midcast.RA = {		
+
 		head="Arcadian Beret +1",
 		body="Nisroch Jerkin",
 		hands="Malignance Gloves",
@@ -428,7 +374,9 @@ function init_gear_sets()
 		right_ring="Regal Ring",
 		back="Tactical Mantle",
 	}
+	
 	sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {	
+
 		head="Meghanada Visor +2",
 		body="Nisroch Jerkin",
 		hands="Ikenga's Gloves",
@@ -441,8 +389,11 @@ function init_gear_sets()
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Dingir Ring",
 		back="Tactical Mantle",
+
 	})
+
 	sets.midcast.RA.MAXACC = {
+		
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
@@ -454,23 +405,8 @@ function init_gear_sets()
 		right_ear="Crep. Earring",
 		left_ring="Cacoethic Ring 1+",
 		right_ring="Crepuscular Ring",
-		back="Belenus's Cape",
+		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
-	sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
-		head="Meghanada Visor +2",
-		body="Nisroch Jerkin",
-		hands="Mummu Wrists +2",
-		legs="Mummu Kecks +2",
-		feet="Osh. Leggings +1",
-		neck={ name="Scout's Gorget +2", augments={'Path: A',}},
-		waist="Yemaya Belt",
-		left_ear="Odr Earring",
-		right_ear="Telos Earring",
-		left_ring="Mummu Ring",
-		right_ring="Dingir Ring",
-		back="Belenus's Cape",
-
-	})
 
 	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
 
@@ -561,7 +497,7 @@ function init_gear_sets()
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -572,10 +508,12 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 	sets.engaged = {
+		range="Bow of Trials",
+		ammo="Eminent Arrow",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -587,12 +525,12 @@ function init_gear_sets()
 	}
 	sets.engaged.DD = {
 		sub="Blurred Knife +1",
-		range="Hangaku-no-Yumi",
+		range="Bow of Trials",
 		ammo="Hauksbok Arrow",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -603,10 +541,11 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 	sets.engaged.Shield = {
+		range="Fomalhaut",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -618,10 +557,12 @@ function init_gear_sets()
 	}
 
 	sets.engaged.Range = {	
+		range="Fomalhaut",
+		ammo="Chrono Bullet",
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist="Windbuffet Belt +1",
@@ -648,7 +589,7 @@ function init_gear_sets()
 	}
 	sets.engaged.DDACC = {
 		sub="Blurred Knife +1",
-		range="Hangaku-no-Yumi",
+		range="Bow of Trials",
 		ammo="Hauksbok Arrow",
 		head="Malignance Chapeau",
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -681,7 +622,7 @@ function init_gear_sets()
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		legs="Meg. Chausses +2",
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist="Windbuffet Belt +1",
@@ -990,7 +931,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 2;input /lockstyleset 200')
     end
 end
 add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
@@ -998,7 +939,7 @@ add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-	set_macro_page(1,10)
+	set_macro_page(4,7)
 end
          
 function autoRA()

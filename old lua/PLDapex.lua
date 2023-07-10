@@ -15,7 +15,10 @@
 function get_sets()
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
-    require 'organizer-lib'
+    include('organizer-lib')
+    organizer_items = {
+        main="Mercurial Sword",
+    }
 end
 
  
@@ -219,8 +222,8 @@ neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Beithir Ring",
-    right_ring="Epaminondas's Ring",
+left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Atheling Mantle",
 
 }
@@ -259,8 +262,8 @@ left_ring="Beithir Ring",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Beithir Ring",
-    right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	
 	
@@ -278,7 +281,7 @@ left_ring="Beithir Ring",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	
 
@@ -295,7 +298,7 @@ sets.precast.WS['Cataclysm'] =
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Archon Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back="Argocham. Mantle",
 }	
 
@@ -313,7 +316,7 @@ waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring="Regal Ring",
-right_ring="Epaminondas's Ring",
+right_ring="Cornelia's Ring",
 back="Atheling Mantle",
 
 }
@@ -1102,7 +1105,7 @@ hands="Rev. Gauntlets +3",
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist="Tempus Fugit +1",
-    left_ear="Zennaroi Earring",
+    left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",

@@ -193,7 +193,6 @@ function init_gear_sets()
     sets.precast.FC.BardSong = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
         sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range="Daurdabla",
         head="Fili Calot +1",
         body="Inyanga Jubbah +2",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -237,7 +236,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
-        ring2="Epaminondas's Ring",
+        ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -253,7 +252,7 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    ring2="Epaminondas's Ring",
+    ring2="Cornelia's Ring",
     back="Bleating Mantle",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
@@ -283,7 +282,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
-        ring2="Epaminondas's Ring",
+        ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -298,7 +297,7 @@ sets.precast.WS['Rudras Storm'] = {range="Linos",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
+    ring2="Cornelia's Ring",
     waist="Kentarch Belt +1",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -313,7 +312,7 @@ sets.precast.WS['Aeolian Edge'] = {range="Linos",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Epaminondas's Ring",
+    ring2="Cornelia's Ring",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     legs="Nyame Flanchard",
@@ -329,7 +328,7 @@ sets.precast.WS['Savage Blade '] = {range="Linos",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1="Ilabrat Ring",
-    ring2="Epaminondas's Ring",
+    ring2="Cornelia's Ring",
     waist="Sailfi Belt +1",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -362,7 +361,7 @@ sets.precast.WS['Flash Nova'] = {
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Freke Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
@@ -377,7 +376,7 @@ sets.precast.WS['Flash Nova'] = {
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Archon Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
@@ -449,7 +448,6 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.SongEffect = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    range="Daurdabla",
     head="Fili Calot +1",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +1",
@@ -505,8 +503,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.Daurdabla = {range=info.ExtraSongInstrument}
 
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
-    sets.midcast.DaurdablaDummy = {    range="Daurdabla",
-
+    sets.midcast.DaurdablaDummy = {
         }
 
     -- Other general spells and classes.
@@ -719,7 +716,7 @@ sets.precast.WS['Shattersoul'] = {
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Basic set for if no TP weapon is defined.
-    sets.engaged = {range="Linos",
+    sets.engaged = {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -734,9 +731,7 @@ sets.precast.WS['Shattersoul'] = {
         back="Bleating Mantle",    }
 
     -- Sets with weapons defined.
-    sets.engaged.Shield = {range="Linos",
-        main="Naegling",
-        sub="Genmei Shield",
+    sets.engaged.Shield = {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -750,9 +745,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.Dagger = {range="Linos",
-        main={ name="Twashtar", augments={'Path: A',}},
-        sub="Gleti's Knife",
+    sets.engaged.Dagger = {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -766,9 +759,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ring="Chirich Ring +1",
         back="Bleating Mantle",    }
 
-    sets.engaged.Sword = {range="Linos",
-        main="Naegling",
-        sub="Gleti's Knife",
+    sets.engaged.Sword = {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -782,16 +773,14 @@ sets.precast.WS['Shattersoul'] = {
         right_ring="Chirich Ring +1",
         back="Bleating Mantle",    }
 
-    sets.engaged.CRIT = set_combine(sets.engaged, {range="Linos",
-        main={ name="Twashtar", augments={'Path: A',}},
-        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
+    sets.engaged.CRIT = set_combine(sets.engaged, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
         back="Bleating Mantle",    })
-    sets.engaged.ACC = set_combine(sets.engaged, {range="Linos",
+    sets.engaged.ACC = set_combine(sets.engaged, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Aya. Manopolas +2",
@@ -805,7 +794,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
-    sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
+    sets.engaged.PD = set_combine(sets.engaged, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",

@@ -10,6 +10,7 @@
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file to go with this.
 -- Initialization function for this job file.
 function get_sets()
+    mote_include_version = 2
 
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
@@ -51,31 +52,36 @@ function get_sets()
         "Reraise Earring",}
 end 
 function job_setup()
+    state.WeaponLock = M(false, 'Weapon Lock')
     send_command('wait 6;input /lockstyleset 200')
+
 end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    options.OffenseModes = {'Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT'}
-	options.DefenseModes = {'Normal', 'PDT'}
-    options.WeaponskillModes = {'Normal', 'PDL'}
-    options.CastingModes = {'Normal', 'DT', 'MB'} 
-    options.IdleModes = {'Normal','Refresh',}
-    options.RestingModes = {'Normal'}
-    options.PhysicalDefenseModes = {'PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax'}
-    options.MagicalDefenseModes = {'MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger'}
-    options.HybridDefenseModes = {'None', 'Reraise',}
-    options.BreathDefenseModes = {'Turtle'}
-    state.HybridDefenseMode = 'None'
-    state.BreathDefenseModes = 'Turtle'
-    select_default_macro_book()
-    send_command('bind f12 gs c cycle MagicalDefense')
- 	send_command('bind ^= gs c activate MDT')
+    state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
+	--options.DefenseModes = {'Normal', 'PDT'}
+    state.WeaponskillMode:options('Normal', 'PDL')
+    state.CastingMode:options('Normal', 'DT', 'MB') 
+    state.IdleMode:options('Normal', 'Refresh')
+    --state.RestingModes:options('Normal')
+    state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
+    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger')
+    --state.HybridDefenseModes:options('None', 'Reraise',)
+    --state.BreathDefenseModes:options('Turtle')
+    --state.HybridDefenseMode:options'None'
+    --state.BreathDefenseModes:options'Turtle'
+    --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
+ 	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
+    include('Mote-TreasureHunter')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind f12 gs c cycle MagicalDefenseMode')
+    send_command('bind !w gs c toggle WeaponLock')
+
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
     {
@@ -98,7 +104,7 @@ function user_unload()
 	send_command('unbind delete')
 	send_command('unbind end')
 	send_command('unbind home')
-    send_command('unbind f12')
+    --send_command('unbind f12')
 
 
 end
@@ -560,18 +566,20 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
 }
     --Phalanx skill 386/386 = 31/31  + phalanx + 30/31 total 61/62
     sets.midcast.Phalanx = {
+        main="Sakpata's Sword",
+        sub="Priwen",
         ammo="Staunch Tathlum +1",
-        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-        body="Shab. Cuirass +1",
+        head="Yorium Barbuta",
+        body="Yorium Cuirass",
         hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         legs="Sakpata's Cuisses",
-        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Knightly Earring",
         right_ear="Andoaa Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
         back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
     } 
     sets.midcast.Phalanx.DT = {
@@ -1109,17 +1117,17 @@ sets.defense.Dagger = {
     main="Ternion Dagger +1",
     sub="Ochain",
     ammo="Eluder's Sachet",
-    head="Chev. Armet +3",
+    head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Rev. Gauntlets +3",
-    legs="Chev. Cuisses +2",
+    legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
+    right_ring="Fortified Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
 sets.defense.Evasion = {    
@@ -1350,14 +1358,14 @@ sets.defense.Block = {
     {main="Naegling",
     sub="Blurred Shield +1",
     ammo="Ginsen",
-    head="Sakpata's Helm",
+    head="Flam. Zucchetto +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist="Olseni Belt",
-    left_ear="Crep. Earring",
+    left_ear="Mache Earring +1",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
@@ -1367,14 +1375,14 @@ sets.defense.Block = {
 sets.engaged.Tp = --1179 / 1315 avec enlight up
 {   main="Naegling",
     sub="Blurred Shield +1",
-    ammo="Aurgelmir Orb +1",
+    ammo="Ginsen",
     head="Flam. Zucchetto +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
@@ -1386,16 +1394,16 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
     sub="Blurred Shield +1",
     ammo="Aurgelmir Orb +1",
     head="Flam. Zucchetto +2",
-    body="Hjarrandi Breast.",
-    hands="Sakpata's Gauntlets",
-    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    body="Flamma Korazin +2",
+    hands="Flam. Manopolas +2",
+    legs="Flamma Dirs +2",
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
     right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Moonlight Ring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
     back="Annealed Mantle",}
 
 
@@ -1408,9 +1416,9 @@ sets.engaged.Hybrid = --1179 / 1315 avec enlight up
     feet="Flam. Gambieras +2",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist="Tempus Fugit +1",
-    left_ear="Crep. Earring",
+    left_ear="Mache Earring +1",
     right_ear="Telos Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Petrov Ring",
     right_ring="Moonlight Ring",
     back="Annealed Mantle",
 }
@@ -1658,10 +1666,10 @@ end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
   if spellMap == 'Cure' and spell.target.type == 'SELF' then
-    if options.CastingModes.value == 'DT' then
+    if state.CastingMode.value == 'DT' then
       equip(sets.self_healing.DT)
     else
-    if options.CastingModes.value == 'MB' then
+    if state.CastingMode.value == 'MB' then
       equip(sets.self_healing.MB)
     else
       equip(sets.self_healing)

@@ -18,7 +18,7 @@ function get_sets()
     include('organizer-lib')
 
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -71,7 +71,6 @@ function user_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('input /Sublimator start')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -210,7 +209,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
-        waist="Fotia Belt",
+        waist="Prosilio Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ear="Malignance Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -234,12 +233,12 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Realmrazer'] = {
-        ammo="Oshasha's Treatise",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        ammo="Amar Cluster",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Ayanmo Corazza +2",
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Malignance Earring",
@@ -316,8 +315,13 @@ function init_gear_sets()
         right_ring="Mephitas's Ring",
         back="Alaunus's Cape",
     }
+
+
+  
+
     
     -- Midcast Sets
+    
     sets.midcast.FastRecast = {
         ammo="Staunch Tathlum +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -933,7 +937,7 @@ function init_gear_sets()
         legs="Aya. Cosciales +2",
         feet="Battlecast Gaiters",
         neck="Lissome Necklace",
-        waist="Cornelia's Belt",
+        waist="Olseni Belt",
         left_ear="Dedition Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
@@ -965,7 +969,7 @@ function init_gear_sets()
         legs="Aya. Cosciales +2",
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Lissome Necklace",
-        waist="Cornelia's Belt",
+        waist="Grunfeld Rope",
         left_ear="Brutal Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",

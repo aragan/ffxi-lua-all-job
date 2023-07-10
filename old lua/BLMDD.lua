@@ -52,6 +52,8 @@ function job_setup()
 	state.Enfeebling = M('None', 'Effect')
 	--Vorseal mode is handled simply when zoning into an escha zone--
     state.Moving  = M(false, "moving")
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
    
 
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
@@ -199,13 +201,14 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
-        right_ring="Archon Ring",
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','"Mag.Atk.Bns."+10',}},}
+        right_ear="Ishvara Earring",
+        left_ring="Rufescent Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        }
         sets.precast.WS['Myrkr'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
@@ -232,7 +235,7 @@ function init_gear_sets()
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Ishvara Earring",
             left_ring="Rufescent Ring",
-            right_ring="Epaminondas's Ring",
+            right_ring="Cornelia's Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
         sets.precast.WS['Cataclysm'] = {
             ammo="Pemphredo Tathlum",
@@ -523,19 +526,18 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].HighTierNuke.Proc = set_combine(sets.midcast['Elemental Magic'], {
 
-        ammo="Sapience Orb",
-        head="Cumulus Masque +1",
+        head=empty,
+        body=empty,
         hands=empty,
-        body="Goldsmith's Smock",
         legs=empty,
-        feet="Herald's Gaiters",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Kishar Ring",
-        right_ring="Prolix Ring",
-        back="Moonlight Cape",
+        feet=empty,
+        neck=empty,
+        waist=empty,
+        left_ear=empty,
+        right_ear=empty,
+        left_ring=empty,
+        right_ring=empty,
+        back=empty,
     })
  
     sets.midcast['Impact'] = {
@@ -655,7 +657,7 @@ function init_gear_sets()
 
     sets.idle = {
         head="Befouled Crown",
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -666,7 +668,7 @@ function init_gear_sets()
 
     ammo="Amar Cluster",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Shamash Robe",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -683,8 +685,9 @@ function init_gear_sets()
 
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     
-    sets.TreasureHunter = {waist="Chaac Belt"}
- 
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"} 
     -- Set for Conserve MP toggle, convert damage to MP body.
 	
     sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
@@ -696,7 +699,7 @@ function init_gear_sets()
 
         ammo="Amar Cluster",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Shamash Robe",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -731,7 +734,7 @@ function init_gear_sets()
 	sets.latent_refresh = {waist="Fucho-no-Obi"}
 	
 	sets.auto_refresh = {
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         legs="Assid. Pants +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -785,7 +788,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Sanctity Necklace",
-        waist="Olseni Belt",
+        waist="Cornelia's Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
@@ -793,6 +796,21 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.TH = {
+        ammo="Per. Lucky Egg",
+        head="Wh. Rarab Cap +1",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Sanctity Necklace",
+        waist="Chaac Belt",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.engaged.Locked = {
         ammo="Per. Lucky Egg",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Nyame Mail",

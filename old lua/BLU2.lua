@@ -272,17 +272,17 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        ammo="Mantoptera Eye",
-        head="Malignance Chapeau",
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
+        ammo="Aurgelmir Orb +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Malignance Boots",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Ilabrat Ring",
         back="Atheling Mantle",
     }
@@ -301,23 +301,23 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epaminondas's Ring",
+        left_ring="Cornelia's Ring",
         right_ring="Epona's Ring",
         back="Atheling Mantle",
         })
 
         sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
             ammo="Aurgelmir Orb +1",
-            head="Gleti's Mask",
-            body="Gleti's Cuirass",
-            hands="Jhakri Cuffs +2",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
+            feet="Nyame Sollerets",
             neck="Fotia Gorget",
-            waist="Fotia Belt",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Ishvara Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Ilabrat Ring",
             back="Atheling Mantle",
         })
@@ -326,15 +326,15 @@ function init_gear_sets()
         
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
-            body="Jhakri Robe +2",
-            hands="Jhakri Cuffs +2",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-            feet="Jhakri Pigaches +2",
+            feet="Nyame Sollerets",
             neck="Baetyl Pendant",
             waist="Hachirin-no-Obi",
             left_ear="Friomisi Earring",
             right_ear="Hecate's Earring",
-            left_ring="Epaminondas's Ring",
+            left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back="Twilight Cape",
     }
@@ -359,18 +359,17 @@ function init_gear_sets()
     
     sets.precast.WS['Expiacion'] = {
         
-        ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Jhakri Cuffs +2",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Gleti's Boots",
+        feet="Nyame Sollerets",
         neck="Caro Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Ishvara Earring",
         left_ring="Epaminondas's Ring",
-        right_ring="Beithir Ring",
+        right_ring="Cornelia's Ring",
         back="Atheling Mantle",
     }
     
@@ -617,6 +616,21 @@ function init_gear_sets()
     sets.midcast.Shell = {ring1="Sheltered Ring"}
     sets.midcast.Shellra = {ring1="Sheltered Ring"}
     
+    sets.midcast['Enhancing Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Mendi. Earring",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+        
     sets.midcast.phalanx = {
 
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},

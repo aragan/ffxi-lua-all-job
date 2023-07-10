@@ -55,12 +55,48 @@ function get_sets()
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('organizer-lib')
 end
-
+organizer_items = {"Prime Sword",
+"Mafic Cudgel",
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff["Avatar's Favor"] = buffactive["Avatar's Favor"] or false
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('wait 5;input /lockstyleset 174')
 
     spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
     avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
@@ -202,17 +238,112 @@ function init_gear_sets()
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
 
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Cascade Belt",left_ear="Andoaa Earring",})
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {left_ear="Andoaa Earring",})
 
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Caro Necklace",
+        waist="Grunfeld Rope",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Brutal Earring",
+        left_ring="Freke Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
        }
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Myrkr'] = {
-       }
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Cornelia's Ring",
+        right_ring="Freke Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+           sets.precast.WS['Black Halo'] = {
+            ammo="Crepuscular Pebble",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Caro Necklace",
+            waist="Luminary Sash",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Ishvara Earring",
+            left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+            right_ring="Cornelia's Ring",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+    sets.precast.WS['Cataclysm'] = {
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Cornelia's Ring",
+        right_ring="Archon Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        
+    }
+    sets.precast.WS['Garland of Bliss'] = {
+        ammo="Pemphredo Tathlum",
+        body="Nyame Mail",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Baetyl Pendant",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Cornelia's Ring",
+        right_ring="Freke Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.precast.WS['Starburst'] = sets.precast.WS['Garland of Bliss']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Garland of Bliss']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Garland of Bliss']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Garland of Bliss']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Garland of Bliss']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Garland of Bliss']
+
+    sets.precast.WS['Shattersoul'] = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Bunzi's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ear="Brutal Earring",
+        right_ear="Ishvara Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Freke Ring",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
 
     
     --------------------------------------
@@ -223,19 +354,46 @@ function init_gear_sets()
         }
 
     sets.midcast.Cure = {
-    left_ear="Loquac. Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Kishar Ring",
-    right_ring="Prolix Ring",
-}
-
-    sets.midcast.Stoneskin = {waist="Siegel Sash"}
-
-    sets.midcast['Elemental Magic'] = {ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="Hagondes Coat",ring2="Acumen Ring",
+        main="Daybreak",
+        sub="Sors Shield",
+        ammo="Pemphredo Tathlum",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        hands="Inyan. Dastanas +2",
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck="Incanter's Torque",
+        waist="Fucho-no-Obi",
+        left_ear="Mendi. Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Kishar Ring",
+        right_ring="Naji's Loop",
+}   
+    sets.midcast['Enhancing Magic'] = {
+        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        sub="Ammurapi Shield",
+        ammo="Pemphredo Tathlum",
+        head="Befouled Crown",
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Mendi. Earring",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
         }
 
-    sets.midcast['Dark Magic'] = {ring2="Sangoma Ring",
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        neck="Nodens Gorget",
+        waist="Siegel Sash",
+        })
+
+    sets.midcast['Elemental Magic'] = {ear1="Friomisi Earring",
+        
+        }
+
+    sets.midcast['Dark Magic'] = {
         waist="Fuchi-no-Obi",}
 
 
@@ -281,7 +439,7 @@ function init_gear_sets()
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head={ name="Helios Band", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +2','Blood Pact Dmg.+6',}},
-    body={ name="Helios Jacket", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}},
+    body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
     legs={ name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}},
     feet={ name="Helios Boots", augments={'Pet: Attack+24 Pet: Rng.Atk.+24','Pet: Crit.hit rate +4','Blood Pact Dmg.+2',}},
@@ -295,6 +453,7 @@ function init_gear_sets()
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.PhysicalBloodPactRage, {
         main="Was",
+        body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         right_ear="Beck. Earring",
         left_ear="Gelos Earring",
     })
@@ -303,14 +462,14 @@ function init_gear_sets()
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head="C. Palug Crown",
-    body="Con. Doublet +2",
+    body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Blood Pact Dmg.+10','Pet: "Mag.Atk.Bns."+3',}},
     legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
-    feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    feet="Apogee Pumps",
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Kobo Obi",
-    left_ear="Beck. Earring",
-    right_ear="Esper Earring",
+    left_ear="Gelos Earring",
+    right_ear="Beck. Earring",
     left_ring="Varar Ring +1",
     right_ring="Varar Ring +1",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
@@ -341,7 +500,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body="Shomonjijoe +1",
         hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
         legs={ name="Glyphic Spats +1", augments={'Increases Sp. "Blood Pact" accuracy',}},
@@ -392,7 +551,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",
@@ -464,7 +623,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",
@@ -500,7 +659,7 @@ function init_gear_sets()
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
-    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +1",
+    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +2",
         
     }
     sets.idle.Avatar.Melee = {
@@ -528,11 +687,11 @@ function init_gear_sets()
         main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Tali'ah Sera. +2",
-        feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+        feet="Apogee Pumps",
         neck="Caller's Pendant",
         waist="Isa Belt",
         left_ear="Enmerkar Earring",
@@ -550,7 +709,7 @@ function init_gear_sets()
     body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
-    feet={ name="Apogee Pumps", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    feet="Apogee Pumps",
     neck="Caller's Pendant",
     waist="Klouskap Sash +1",
     left_ear="Enmerkar Earring",
@@ -564,7 +723,7 @@ function init_gear_sets()
         main="Contemplator +1",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
+        head="Beckoner's Horn +2",
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         hands="Baayami Cuffs",
         legs="Baayami Slops",
@@ -620,13 +779,13 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
-        eventArgs.handled = true
+        eventArgs.useMidcastGear = true
     end
 end
 
 function job_midcast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
-        eventArgs.handled = true
+        eventArgs.useMidcastGear = true
     end
 end
 
@@ -688,7 +847,6 @@ function job_pet_change(petparam, gain)
             classes.CustomIdleGroups:append('Spirit')
         end
     else
-        select_default_macro_book('reset')
     end
 end
 
@@ -925,7 +1083,6 @@ function handle_pacts(cmdParams)
 
     if not pet.isvalid then
         add_to_chat(122,'No avatar currently available. Returning to default macro set.')
-        select_default_macro_book('reset')
         return
     end
 
@@ -958,7 +1115,20 @@ function handle_pacts(cmdParams)
         add_to_chat(122,pet.name..' does not have a pact of type ['..pact..'].')
     end
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if stateField == 'Offense Mode' then
+        if newValue == 'Normal' then
+            disable('main','sub','range')
+        else
+            enable('main','sub','range')
+        end
+    end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -- Event handler for updates to player skill, since we can't rely on skill being
 -- correct at pet_aftercast for the creation of custom timers.
@@ -997,15 +1167,16 @@ function create_pact_timer(spell_name)
         send_command(timer_cmd)
     end
 end
-
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book(reset)
-    if reset == 'reset' then
-        -- lost pet, or tried to use pact when pet is gone
+function sub_job_change(new,old)
+    if user_setup then
+        user_setup()
+        send_command('wait 2;input /lockstyleset 174')
     end
-    add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
-    add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+end
+add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
     -- Default macro set/book
-    set_macro_page(3, 2)
+    set_macro_page(1, 14)
 end

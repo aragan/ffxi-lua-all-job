@@ -37,14 +37,50 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-
+organizer_items = {
+    "Gyudon",
+    "Reraiser",
+    "Hi-Reraiser",
+    "Vile Elixir",
+    "Vile Elixir +1",
+    "Miso Ramen",
+    "Carbonara",
+    "Silent Oil",
+    "Salt Ramen",
+    "Panacea",
+    "Sublime Sushi",
+    "Sublime Sushi 1+",
+    "Prism Powder",
+    "Antacid",
+    "Icarus Wing",
+    "Warp Cudgel",
+    "Holy Water",
+    "Sanjaku-Tenugui",
+    "Shinobi-Tabi",
+    "Shihei",
+    "Remedy",
+    "Wh. Rarab Cap +1",
+    "Emporox's Ring",
+    "Red Curry Bun",
+    "Instant Reraise",
+    "Black Curry Bun",
+    "Rolan. Daifuku",
+    "Qutrub Knife",
+    "Wind Knife +1",
+    "Reraise Earring",}
 
 -- Setup vars that are user-independent.
 function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+    --get_combat_weapon()
+    job_handle_equipping_gear()
+    war_sj = player.sub_job == 'WAR' or false
+    get_combat_form()
+    update_melee_groups()
+    customize_idle_set()
+    customize_melee_set()
+    update_combat_form()
     send_command('wait 2;input /lockstyleset 172')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
@@ -92,6 +128,8 @@ function file_unload()
     send_command('unbind !=')
     send_command('unbind ![')
     send_command('unbind ^/')
+    send_command('unbind ^-')
+    send_command('unbind ^=')
 
 end
 
@@ -153,9 +191,6 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {body="Passion Jacket",}
 
-    sets.Organizer = {
-
-    }
     sets.precast.RA = { ammo=empty,
         range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
@@ -173,7 +208,7 @@ function init_gear_sets()
 
     }
     sets.midcast.RA = { ammo=empty,
-    range="Trollbane",  
+        range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -390,7 +425,6 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
-        main={ name="Masamune", augments={'Path: A',}},
         sub="Utu Grip",
         ammo="Knobkierrie",
         head="Mpaca's Cap",
@@ -596,9 +630,9 @@ function init_gear_sets()
     }
     
     sets.idle.Town = {        
-
-    ear2="Infused Earring",
-       feet="Danzo Sune-Ate",
+        head="Valorous Mask",
+        ear2="Infused Earring",
+        feet="Danzo Sune-Ate",
 
 
     }
@@ -913,7 +947,7 @@ function init_gear_sets()
         body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
-        feet="Mpaca's Boots",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         right_ear="Kasuga Earring",
@@ -925,10 +959,10 @@ function init_gear_sets()
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Mid.PDT, {
         ammo="Coiste Bodhar",
         head="Mpaca's Cap",
-        body="Mpaca's Doublet",
+        body="Kasuga Domaru +2",
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
-        feet="Mpaca's Boots",
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
         left_ear="Telos Earring",
@@ -1100,8 +1134,8 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 	end
 end
 function job_handle_equipping_gear(player,status, eventArgs)
-    customize_idle_set(idleSet)
-    customize_melee_set(meleeSet)
+    customize_idle_set()
+    customize_melee_set()
 end
 
 -- Modify the default idle set after it was constructed.
@@ -1239,14 +1273,30 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
+	get_combat_form()
+    update_melee_groups()
+    job_handle_equipping_gear()
+    update_melee_groups()
+    customize_idle_set()
+    customize_melee_set()
+    update_combat_form()
     --get_combat_weapon()
 end
-
+function update_combat_form()
+  
+end
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
 function display_current_job_state(eventArgs)
 
 end
-
+function job_self_command(cmdParams, eventArgs)
+    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+        equip(sets.Reraise)
+        send_command('input //gs equip sets.Reraise')
+        eventArgs.handled = true
+    end
+    return idleSet, meleeSet
+end
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
     if state.Buff[buff_name] then
@@ -1314,7 +1364,14 @@ function update_melee_groups()
 end
 -- call this in job_post_precast() 
 function update_am_type(spell)
-
+    if spell.type == 'WeaponSkill' and spell.skill == 'Archery' and spell.english == 'Namas Arrow' then
+        if player.equipment.main == 'Amanomurakumo' then
+            -- Yoichi AM overwrites Amano AM
+            state.YoichiAM:set(true)
+        end
+    else
+        state.YoichiAM:set(false)
+    end
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

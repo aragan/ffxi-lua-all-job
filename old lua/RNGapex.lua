@@ -44,9 +44,23 @@ function user_setup()
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
+
+	war_sub_weapons = S{"Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
+	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
+	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi",
+
+}
 	
-	DefaultAmmo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
-	U_Shot_Ammo = {['Yoichinoyumi'] = "Achiyalabopa arrow", ['Annihilator'] = "Decimating Bullett"}
+	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
+
+	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
+	              ['Ullr'] = "Eminent Arrow",
+				  ['Fomalhaut'] = "Decimating Bullett",
+				}
+	U_Shot_Ammo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
+	               ['Ullr'] = "Beryllium Arrow",
+				   ['Fomalhaut'] = "Chrono Bullet",
+				}
 
 	select_default_macro_book()
 	send_command('bind f12 gs c autoRAmode') --Gearset update toggle--
@@ -116,7 +130,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
@@ -134,7 +148,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
 		left_ring="Regal Ring",
-		right_ring="Epaminondas's Ring",
+		right_ring="Cornelia's Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
 
@@ -148,7 +162,7 @@ function init_gear_sets()
     waist="Orpheus's Sash",
     left_ear="Ishvara Earring",
     right_ear="Friomisi Earring",
-    left_ring="Epaminondas's Ring",
+    left_ring="Cornelia's Ring",
     right_ring="Ilabrat Ring",
     back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 	}
@@ -182,7 +196,7 @@ function init_gear_sets()
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		right_ear="Ishvara Earring",
-		left_ring="Epaminondas's Ring",
+		left_ring="Cornelia's Ring",
 		right_ring="Regal Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
@@ -197,7 +211,7 @@ function init_gear_sets()
 		waist="Orpheus's Sash",
 		left_ear="Ishvara Earring",
 		right_ear="Moonshade Earring",
-		left_ring="Epaminondas's Ring",
+		left_ring="Cornelia's Ring",
 		right_ring="Ilabrat Ring",
 		back={ name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 		}
@@ -565,7 +579,14 @@ function check_ammo(spell, action, spellMap, eventArgs)
 		end
 	end
 end
-
+function special_ammo_check()
+    -- Stop if Animikii/Hauksbok equipped
+    if no_shoot_ammo:contains(player.equipment.ammo) then
+        cancel_spell()
+        add_to_chat(123, '** Action Canceled: [ '.. player.equipment.ammo .. ' equipped!! ] **')
+        return
+    end
+end
 add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
