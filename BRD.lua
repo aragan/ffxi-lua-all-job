@@ -221,7 +221,6 @@ function init_gear_sets()
         legs="Dashing Subligar",
     }
     sets.TreasureHunter = { 
-        ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
@@ -339,7 +338,6 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
 body="Bunzi's Robe",
 })
 sets.precast.WS['Flash Nova'] = {
-    ammo="Pemphredo Tathlum",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -355,7 +353,6 @@ sets.precast.WS['Flash Nova'] = {
 }
 
         sets.precast.WS['Myrkr'] = {
-        ammo="Pemphredo Tathlum",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -370,7 +367,6 @@ sets.precast.WS['Flash Nova'] = {
         back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
     sets.precast.WS['Cataclysm'] = {
-        ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -386,7 +382,6 @@ sets.precast.WS['Flash Nova'] = {
     }
     
  sets.precast.WS['Black Halo'] = {
-    ammo="Pemphredo Tathlum",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -409,7 +404,6 @@ sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
 sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
 
 sets.precast.WS['Shattersoul'] = {
-    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -682,8 +676,6 @@ sets.precast.WS['Shattersoul'] = {
         back="Moonlight Cape",
     }
     sets.defense.Evasion = {
-        sub="Gleti's Knife",
-        ammo="Amar Cluster",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},

@@ -286,7 +286,7 @@ function init_gear_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
     neck="Sanctity Necklace",
     waist="Eschan Stone",
     left_ear="Crep. Earring",

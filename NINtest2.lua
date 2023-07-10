@@ -35,8 +35,8 @@ gearswap_box_config = {pos={x=30,y=230},padding=8,text={font='sans-serif',size=1
 gearswap_jobbox = texts.new(gearswap_box_config)
 
 gearswap_box = function()
-    str = '                  \\cs(130,130,130)NINJA\\cr\n'
-    str = str..'    Offense Mode:\\cs(255,150,100)   '..tp_mode..'\\cr\n'
+    str = '                  '
+    str = str..'  OffenseMode  '
     str = str..' Weaponskill Mode:\\cs(255,150,100)   '..ws_mode..'\\cr\n'
     str = str..'    Casting Mode:\\cs(255,150,100)   '..mb_mode..'\\cr\n'
     str = str..'  Ino(E): '..inofu..'\\cs(255,255,255)   Shika(B): '..shika..'\\cr\n'

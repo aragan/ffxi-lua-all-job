@@ -60,16 +60,17 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
-	--options.DefenseModes = {'Normal', 'PDT'}
+	--state.DefenseMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'DT', 'MB') 
     state.IdleMode:options('Normal', 'Refresh')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Dagger')
-    --state.HybridDefenseModes:options('None', 'Reraise',)
+    state.HybridMode:options('Normal', 'PDT', 'MDT')
     --state.BreathDefenseModes:options('Turtle')
-    --state.HybridDefenseMode:options'None'
+    --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
+    --state.HybridDefenseMode=('none')
     --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
@@ -188,6 +189,7 @@ left_ring={ name="Apeile Ring +1", augments={'Path: A',}},
 right_ring="Apeile Ring",   
 back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity+10','Chance of successful block +5',}},
 }
+
     sets.precast.JA['Warcry'] = sets.precast.JA['Provoke'] 
     sets.precast.JA['Defender'] = sets.precast.JA['Provoke']
     ------------------------ Sub DNC ------------------------ 
@@ -1205,7 +1207,7 @@ sets.defense.PDT = {
     head="Chev. Armet +3",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Chev. Cuisses +2",
+    legs="Chev. Cuisses +3",
     feet="Sakpata's Leggings",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Carrier's Sash",
@@ -1223,7 +1225,7 @@ sets.defense.PDH = {
     head="Chev. Armet +3",
     body="Chev. Cuirass +2",
     hands="Chev. Gauntlets +2",
-    legs="Chev. Cuisses +2",
+    legs="Chev. Cuisses +3",
     feet="Chev. Sabatons +2",
     neck="Elite Royal Collar",
     waist="Carrier's Sash",
@@ -1286,7 +1288,7 @@ sets.defense.Convert = {
     head="Chev. Armet +3",
     body="Rev. Surcoat +3",
     hands="Chev. Gauntlets +2",
-    legs="Chev. Cuisses +2",
+    legs="Chev. Cuisses +3",
     feet="Rev. Leggings +3",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Flume Belt +1",
@@ -1304,7 +1306,7 @@ sets.defense.Block = {
     head="Chev. Armet +3",
     body="Sakpata's Plate",
     hands="Chev. Gauntlets +2",
-    legs="Chev. Cuisses +2",
+    legs="Chev. Cuisses +3",
     feet="Rev. Leggings +3",
     neck="Elite Royal Collar",
     waist="Carrier's Sash",
@@ -1413,7 +1415,7 @@ sets.engaged.Hybrid = --1179 / 1315 avec enlight up
     body="Hjarrandi Breast.",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
-    feet="Flam. Gambieras +2",
+    feet="Sakpata's Leggings",
     neck={ name="Vim Torque +1", augments={'Path: A',}},
     waist="Tempus Fugit +1",
     left_ear="Mache Earring +1",
@@ -1438,7 +1440,39 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
     left_ring="Defending Ring",
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",}
-
+    sets.engaged.PDT = --1179 / 1315 avec enlight up
+    {
+        ammo="Staunch Tathlum +1",
+        head="Chev. Armet +3",
+        body="Chev. Cuirass +2",
+        hands="Chev. Gauntlets +2",
+        legs="Chev. Cuisses +3",
+        feet="Chev. Sabatons +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist="Tempus Fugit +1",
+        left_ear="Mache Earring +1",
+        right_ear="Telos Earring",
+        left_ring="Defending Ring",
+        right_ring="Moonlight Ring",
+        back="Shadow Mantle",
+    }
+    sets.engaged.MDT = --1179 / 1315 avec enlight up
+    {
+        ammo="Staunch Tathlum +1",
+        head="Chev. Armet +3",
+        body="Tartarus Platemail",
+        hands="Chev. Gauntlets +2",
+        legs="Chev. Cuisses +3",
+        feet="Chev. Sabatons +2",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Tempus Fugit +1",
+        left_ear="Mache Earring +1",
+        right_ear="Telos Earring",
+        left_ring="Shadow Ring",
+        right_ring="Moonlight Ring",
+        back="Engulfer Cape +1",
+    }
+    
 
 end
 ------------------------------------------------------------------------------------------------------------------------------------------

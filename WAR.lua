@@ -154,12 +154,12 @@ function init_gear_sets()
      -- Precast Sets
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
-     sets.precast.JA['Blood Rage'] = {}
+     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +2",}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
      sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
-     sets.precast.JA['Mighty Strikes'] = { head="Agoge Mufflers"}
-     sets.precast.JA['Retaliation'] = { hands="Pummeler's Mufflers +1", feet="Ravager's Calligae +2"}
+     sets.precast.JA['Mighty Strikes'] = {}
+     sets.precast.JA['Retaliation'] = {}
      sets.precast.JA['Aggressor'] = {}
      sets.precast.JA['Restraint'] = { hands="Boii Mufflers +2"}
      sets.precast.JA['Warrior\'s Charge'] = {}
@@ -1116,14 +1116,14 @@ function init_gear_sets()
  
      -- Engaged set, assumes Liberator
      sets.engaged = {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Boii Lorica +2",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Schere Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1133,12 +1133,12 @@ function init_gear_sets()
     sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Boii Lorica +2",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Cessance Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1259,14 +1259,14 @@ function init_gear_sets()
     }
 
     sets.engaged.DW = set_combine(sets.engaged, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Boii Lorica +2",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Suppanomimi",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1277,12 +1277,12 @@ function init_gear_sets()
     sets.engaged.DW.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Boii Lorica +2",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Suppanomimi",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1321,10 +1321,10 @@ function init_gear_sets()
      })
 
      sets.engaged.STP = set_combine(sets.engaged, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        body="Boii Lorica +2",
+        hands="Sakpata's Gauntlets",
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
         feet="Pumm. Calligae +3",
         neck={ name="Vim Torque +1", augments={'Path: A',}},

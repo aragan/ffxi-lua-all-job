@@ -1717,7 +1717,7 @@ function job_buff_change(buff, gain)
             else
              enable('body', 'head')
         end
-        return meleeSet
+        return 
     end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
         if (buffactive['Last Resort']) then

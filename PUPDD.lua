@@ -423,7 +423,6 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.TreasureHunter = { 
-        ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
@@ -516,7 +515,6 @@ function init_gear_sets()
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
         head="Kara. Cappello +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
@@ -534,7 +532,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Schere Earring",
+        left_ear="Brutal Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
@@ -554,7 +552,7 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Schere Earring",
+        left_ear="Brutal Earring",
         right_ear="Sherida Earring",
         left_ring="Regal Ring",
         right_ring="Gere Ring",
@@ -574,13 +572,19 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
-        right_ear="Schere Earring",
+        right_ear="Brutal Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
     sets.precast.WS["Victory Smite"].PDL = set_combine(sets.precast.WS["Victory Smite"], {
+        head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS["Victory Smite"].SC = set_combine(sets.precast.WS["Victory Smite"], {
         head="Kara. Cappello +2",
         hands="Malignance Gloves",
         legs="Malignance Tights",
@@ -595,7 +599,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
             neck="Fotia Gorget",
             waist="Moonbow Belt +1",
-            left_ear="Schere Earring",
+            left_ear="Brutal Earring",
             left_ear="Mache Earring +1",
             left_ring="Niqmaddu Ring",
             right_ring="Gere Ring",
@@ -633,7 +637,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Schere Earring",
+        right_ear="Brutal Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
@@ -1164,7 +1168,6 @@ function init_gear_sets()
     ]]
     sets.idle.Pet.Engaged.DT = {             
 
-    ammo="Automat. Oil +3",
     
     ammo="Automat. Oil +3",
     head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
@@ -1186,7 +1189,6 @@ function init_gear_sets()
         Hybrid Mode = Regen
     ]]
     sets.idle.Pet.Engaged.Regen = {          
-    ammo="Automat. Oil +3",
     
         ammo="Automat. Oil +3",
         head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
@@ -1378,7 +1380,6 @@ function init_gear_sets()
     -- Town Set
     sets.idle.Town = {
         main="Tauret",
-        ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
