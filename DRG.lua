@@ -17,7 +17,7 @@ function get_sets()
 	include('organizer-lib')
 
     organizer_items = {"Prime Sword",
-        "Lentus Grip",
+        "Sword Strap",
         "Mafic Cudgel",
         "Angon",
         "Gyudon",
@@ -889,7 +889,13 @@ end
 function get_custom_wsmode(spell, action, spellMap)
 
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 -- Modify the default idle set after it was constructed.
 
 

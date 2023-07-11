@@ -39,7 +39,7 @@ function get_sets()
 end
 organizer_items = {        "Prime Sword",
 "Drepanum",
-"Lentus Grip",
+"Sword Strap",
     "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
@@ -1286,7 +1286,13 @@ if spellMap == 'Utsusemi' then
         send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
     end
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.

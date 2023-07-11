@@ -77,7 +77,6 @@ function user_setup()
     send_command('wait 2;input /lockstyleset 200')
     include('Mote-TreasureHunter')
     send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
@@ -1602,6 +1601,11 @@ function job_state_change(field, new_value, old_value)
         classes.CustomDefenseGroups:clear()
         classes.CustomDefenseGroups:append(new_value)
     end
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 end
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
 function display_current_job_state(eventArgs)
@@ -1728,7 +1732,7 @@ if cmdParams[1] == 'buffWatcher' then
     if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
+        eventArgs.handled = true
     end
     return
 end

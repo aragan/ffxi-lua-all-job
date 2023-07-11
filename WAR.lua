@@ -21,7 +21,7 @@ function get_sets()
 
         organizer_items = {"Prime Sword",
             "Drepanum",
-            "Lentus Grip",
+            "Sword Strap",
             "Maliya Sickle +1",
             "Thr. Tomahawk",
             "Gyudon",
@@ -1651,7 +1651,11 @@ function job_state_change(stateField, newValue, oldValue)
     --        send_command('@input /lockstyle yes')
     --    end
     --end
-
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 end
 function sub_job_change(new,old)
     if user_setup then
