@@ -14,6 +14,7 @@ function get_sets()
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
     include('organizer-lib')
+    res = require 'resources'
 end
 organizer_items = {"Prime Sword",
 "Foreshock Sword",
@@ -55,9 +56,25 @@ organizer_items = {"Prime Sword",
 -- Setup vars that are user-independent.
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
-
     send_command('wait 6;input /lockstyleset 165')
 
+    
+    rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
+        'Lux','Tenebrae'}
+
+    -- /BLU Spell Maps
+    blue_magic_maps = {}
+
+    blue_magic_maps.Enmity = S{'Blank Gaze', 'Geist Wall', 'Jettatura', 'Soporific',
+        'Poison Breath', 'Blitzstrahl', 'Sheep Song', 'Chaotic Eye'}
+    blue_magic_maps.Cure = S{'Wild Carrot'}
+    blue_magic_maps.Buffs = S{'Cocoon', 'Refueling'}
+
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
+
+    rayke_duration = 35
+    gambit_duration = 96
     -- Table of entries
     rune_timers = T{}
     -- entry = rune, index, expires
@@ -80,13 +97,17 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'DD', 'Acc', 'PDT', 'MDT')
     state.WeaponskillMode:options('Normal', 'Acc')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'Evasion', 'Enmity')
+    state.PhysicalDefenseMode:options('PDT','PDH', 'HP', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'SIRD') 
-    state.IdleMode:options('Regen', 'Refresh')
+    state.IdleMode:options('Normal', 'Regen', 'Refresh')
     send_command('wait 2;input /lockstyleset 165')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind f4 gs c cycle Runes')
+    send_command('bind f3 gs c cycleback Runes')
+    send_command('bind f2 input //gs c rune')
 
+    state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
 	select_default_macro_book()
 end
 
@@ -113,12 +134,23 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs
     sets.precast.JA['Vallation'] = {body="Runeist coat +1", legs="Futhark trousers +1"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
-    sets.precast.JA['Pflug'] = {feet="Runeist bottes +1"}
+    sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
     sets.precast.JA['Battuta'] = {head="Futhark Bandeau +1"}
     sets.precast.JA['Liement'] = {body="Futhark Coat +1"}
-    sets.precast.JA['Lunge'] = {head="Thaumas Hat", neck="Eddy Necklace", ear1="Novio Earring", ear2="Friomisi Earring",
-            body="Vanir Cotehardie", ring1="Acumen Ring", ring2="Omega Ring",
-            back="Evasionist's Cape", waist="Yamabuki-no-obi", legs="Iuitl Tights +1", feet="Qaaxo Leggings"}
+    sets.precast.JA['Lunge'] = {
+        head="Agwu's Cap",
+    body="Agwu's Robe",
+    hands={ name="Agwu's Gages", augments={'Path: A',}},
+    legs="Agwu's Slops",
+    feet="Agwu's Pigaches",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Crematio Earring",
+    left_ring="Mujin Band",
+    right_ring="Locus Ring",
+    back="Argocham. Mantle",
+    }
     sets.precast.JA['Swipe'] = sets.precast.JA['Lunge']
     sets.precast.JA['Gambit'] = {hands="Runeist Mitons +1"}
     sets.precast.JA['Rayke'] = {feet="Futhark Bottes +1"}
@@ -126,11 +158,9 @@ function init_gear_sets()
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
     sets.precast.JA['Embolden'] = {}
     sets.precast.JA['Vivacious Pulse'] = {
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    head="Erilaz Galea +1",
+    legs="Rune. Trousers +1",
     neck="Incanter's Torque",
-    waist="Olympus Sash",
-    right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
@@ -141,7 +171,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+        head="Rune. Bandeau +1",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         body="Agwu's Robe",
         neck="Baetyl Pendant",
@@ -180,21 +210,12 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
-    back="Atheling Mantle",}
+    back="Bleating Mantle",
+}
     sets.precast.WS.Acc = {
-        ammo="Knobkierrie",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
-        right_ring="Regal Ring",
-        back="Atheling Mantle",}
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
+    }
 
     sets.precast.WS['Resolution'] = {  
         ammo="Coiste Bodhar",
@@ -211,8 +232,10 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Epona's Ring",
     back="Bleating Mantle",
 }
-    sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'], 
-        {})
+    sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",})
+
     sets.precast.WS['Dimidiation'] = {  
         ammo="Coiste Bodhar",
            head="Nyame Helm",
@@ -229,7 +252,8 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     back="Bleating Mantle",
 }
     sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'],
-        {})
+        {        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",})
     sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {hands="Umuthi Gloves"})
     sets.precast.WS['Herculean Slash'].Acc = set_combine(sets.precast.WS['Herculean Slash'], {})
     sets.precast.WS['Ground Strike'] = set_combine(sets.precast.WS, { 
@@ -248,20 +272,33 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     back="Bleating Mantle",
 })
     sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS['Ground Strike'], { 
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
+})
+sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     ammo="Knobkierrie",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Cornelia's Ring",
-    right_ring="Regal Ring",
-    back="Bleating Mantle",
-})
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Thrud Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Cornelia's Ring",
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
+        ammo="Crepuscular Pebble",
+        left_ring="Sroda Ring",
+    })
 
 
 	--------------------------------------
@@ -297,7 +334,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     back="Moonlight Cape",}
 
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Erilaz Galea +1",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -310,14 +347,14 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Stikini Ring +1",
     back="Moonlight Cape",}
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
-    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {})
+    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {})
     sets.midcast['Regen'].SIRD = sets.midcast.SIRD
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
            ammo="Staunch Tathlum +1",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Nyame Mail",
+           head="Erilaz Galea +1",
+           body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
@@ -355,6 +392,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     left_ring="Defending Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
+
     sets.idle.Refresh = set_combine(sets.idle, {
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
@@ -364,6 +402,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
            
 	sets.defense.PDT = {    ammo="Staunch Tathlum +1",
     main="Aettir",
+    sub="Refined Grip +1",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -377,6 +416,23 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",}
 
+    sets.defense.PDH = {
+        ammo="Staunch Tathlum +1",
+    main="Aettir",
+    sub="Refined Grip +1",
+    head="Erilaz Galea +1",
+    body="Erilaz Surcoat +2",
+    hands="Erilaz Gauntlets +1",
+    legs="Eri. Leg Guards +2",
+    feet="Erilaz Greaves +1",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+    }
     sets.defense.Enmity = { 
         ammo="Iron Gobbet",
         main="Aettir",
@@ -384,8 +440,8 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Emet Harness +1", augments={'Path: A',}},
         hands="Kurys Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Ahosi Leggings",
+        legs="Eri. Leg Guards +2",
+        feet="Erilaz Greaves +1",
         neck="Moonlight Necklace",
         waist="Plat. Mog. Belt",
         left_ear="Cryptic Earring",
@@ -425,7 +481,9 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
         back="Moonlight Cape",
     }
 
-	sets.defense.MDT = {   
+	sets.defense.MDT = {
+    main="Aettir",
+    sub="Refined Grip +1",
     ammo="Yamarang",
     head="Nyame Helm",
     body="Nyame Mail",
@@ -516,6 +574,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
 
 
 end
+sets.Obi = {waist="Hachirin-no-Obi"}
 
 ------------------------------------------------------------------
 -- Action events
@@ -525,9 +584,8 @@ end
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.english == 'Lunge' or spell.english == 'Swipe' then
-        local obi = get_obi(get_rune_obi_element())
-        if obi then
-            equip({waist=obi})
+        if (spell.element == world.day_element or spell.element == world.weather_element) then
+            equip(sets.Obi)
         end
     end
 end
@@ -543,8 +601,20 @@ function job_aftercast(spell)
             send_command(trim(1))
         end
     end
+    if spell.name == 'Rayke' and not spell.interrupted then
+        send_command('@timers c "Rayke ['..spell.target.name..']" '..rayke_duration..' down spells/00136.png')
+        send_command('wait '..rayke_duration..';input /echo [Rayke just wore off!];')
+    elseif spell.name == 'Gambit' and not spell.interrupted then
+        send_command('@timers c "Gambit ['..spell.target.name..']" '..gambit_duration..' down spells/00136.png')
+        send_command('wait '..gambit_duration..';input /echo [Gambit just wore off!];')
+    end
 end
 function job_buff_change(buff,gain)
+    if buff == "terror" then
+        if gain then
+            equip(sets.defense.PDT)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -558,7 +628,47 @@ function job_buff_change(buff,gain)
         end
     end
 end
+function job_precast(spell, action, spellMap, eventArgs)
 
+    if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+        add_to_chat(167, 'Action stopped due to status.')
+        eventArgs.cancel = true
+        return
+    end
+    if rune_enchantments:contains(spell.english) then
+        eventArgs.handled = true
+    end
+    if spell.english == 'Lunge' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        if abil_recasts[spell.recast_id] > 0 then
+            send_command('input /jobability "Swipe" <t>')
+--            add_to_chat(122, '***Lunge Aborted: Timer on Cooldown -- Downgrading to Swipe.***')
+            eventArgs.cancel = true
+            return
+        end
+    end
+    if spell.english == 'Valiance' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        if abil_recasts[spell.recast_id] > 0 then
+            send_command('input /jobability "Vallation" <me>')
+            eventArgs.cancel = true
+            return
+        elseif spell.english == 'Valiance' and buffactive['vallation'] then
+            cast_delay(0.2)
+            send_command('cancel Vallation') -- command requires 'cancel' add-on to work
+        end
+    end
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
@@ -732,6 +842,75 @@ function sub_job_change(new,old)
     if user_setup then
         user_setup()
         send_command('wait 6;input /lockstyleset 165')
+    end
+end
+function display_current_job_state(eventArgs)
+    local r_msg = state.Runes.current
+    local r_color = ''
+    if state.Runes.current == 'Ignis' then r_color = 167
+    elseif state.Runes.current == 'Gelus' then r_color = 210
+    elseif state.Runes.current == 'Flabra' then r_color = 204
+    elseif state.Runes.current == 'Tellus' then r_color = 050
+    elseif state.Runes.current == 'Sulpor' then r_color = 215
+    elseif state.Runes.current == 'Unda' then r_color = 207
+    elseif state.Runes.current == 'Lux' then r_color = 001
+    elseif state.Runes.current == 'Tenebrae' then r_color = 160 end
+
+    local cf_msg = ''
+    if state.CombatForm.has_value then
+        cf_msg = ' (' ..state.CombatForm.value.. ')'
+    end
+
+    local m_msg = state.OffenseMode.value
+    if state.HybridMode.value ~= 'Normal' then
+        m_msg = m_msg .. '/' ..state.HybridMode.value
+    end
+
+    local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
+
+    local ws_msg = state.WeaponskillMode.value
+
+    local d_msg = 'None'
+    if state.DefenseMode.value ~= 'None' then
+        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+    end
+
+    local i_msg = state.IdleMode.value
+
+    local msg = ''
+    if state.Knockback.value == true then
+        msg = msg .. ' Knockback Resist |'
+    end
+    if state.Kiting.value then
+        msg = msg .. ' Kiting: On |'
+    end
+
+    add_to_chat(r_color, string.char(129,121).. '  ' ..string.upper(r_msg).. '  ' ..string.char(129,122)
+        ..string.char(31,210).. ' Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002).. ' |'
+        ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,060)
+        ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002).. ' |'
+        ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002).. ' |'
+        ..string.char(31,002)..msg)
+
+    eventArgs.handled = true
+end
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    end
+end
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+
     end
 end
 ------------------------------------------------------------------
