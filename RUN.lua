@@ -373,32 +373,37 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         back="Solemnity Cape",
     })
     sets.midcast.Cure.SIRD = sets.midcast.SIRD
+    sets.midcast.Flash = sets.Enmity
 
+    sets.midcast['Elemental Magic'] = set_combine(sets.precast.JA['Lunge'],{})
+    sets.midcast.Pet["Enfeebling Magic"] = set_combine(sets.midcast['Elemental Magic'],{})
 
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
 	--------------------------------------
 
-    sets.idle = {    ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Moonlight Cape",}
+    sets.idle = {   
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Genmei Earring",
+        right_ear="Infused Earring",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back="Solemnity Cape",
+}
 
     sets.idle.Refresh = set_combine(sets.idle, {
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     neck="Sanctity Necklace",
     waist="Fucho-no-Obi",
-    left_ear="Infused Earring",})
+    right_ear="Infused Earring",})
            
 	sets.defense.PDT = {    ammo="Staunch Tathlum +1",
     main="Aettir",
@@ -459,10 +464,10 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         feet="Nyame Sollerets",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
-        left_ear="Infused Earring",
-        right_ear="Eabani Earring",
-        left_ring="Ilabrat Ring",
-        right_ring="Vengeful Ring",
+        right_ear="Infused Earring",
+        left_ear="Eabani Earring",
+        right_ring="Ilabrat Ring",
+        left_ring="Vengeful Ring",
         back="Moonlight Cape",
     }
     sets.defense.HP = {
