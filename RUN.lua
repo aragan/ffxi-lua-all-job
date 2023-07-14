@@ -158,7 +158,7 @@ function init_gear_sets()
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
     sets.precast.JA['Embolden'] = {}
     sets.precast.JA['Vivacious Pulse'] = {
-    head="Erilaz Galea +1",
+    head="Erilaz Galea +2",
     legs="Rune. Trousers +1",
     neck="Incanter's Torque",
     left_ring="Stikini Ring +1",
@@ -306,7 +306,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 	--------------------------------------
 	
     sets.midcast.FastRecast = {    ammo="Staunch Tathlum +1",
-    head="Agwu's Cap",
+    head="Erilaz Galea +2",
     body="Nyame Mail",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -320,7 +320,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     back="Moonlight Cape",}
 
     sets.midcast.SIRD = {    ammo="Staunch Tathlum +1",
-    head="Agwu's Cap",
+    head="Erilaz Galea +2",
     body="Nyame Mail",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -334,7 +334,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     back="Moonlight Cape",}
 
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
-    head="Erilaz Galea +1",
+    head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -353,7 +353,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.midcast['Regen'].SIRD = sets.midcast.SIRD
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
            ammo="Staunch Tathlum +1",
-           head="Erilaz Galea +1",
+           head="Erilaz Galea +2",
            body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -425,11 +425,11 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         ammo="Staunch Tathlum +1",
     main="Aettir",
     sub="Refined Grip +1",
-    head="Erilaz Galea +1",
+    head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +1",
     legs="Eri. Leg Guards +2",
-    feet="Erilaz Greaves +1",
+    feet="Erilaz Greaves +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -446,7 +446,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         body={ name="Emet Harness +1", augments={'Path: A',}},
         hands="Kurys Gloves",
         legs="Eri. Leg Guards +2",
-        feet="Erilaz Greaves +1",
+        feet="Erilaz Greaves +2",
         neck="Moonlight Necklace",
         waist="Plat. Mog. Belt",
         left_ear="Cryptic Earring",
