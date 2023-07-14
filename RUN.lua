@@ -288,7 +288,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Thrud Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
-    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    back="Bleating Mantle",
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Crepuscular Pebble",
@@ -317,7 +317,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring="Evanescence Ring",
-    back="Moonlight Cape",}
+    back="Ogma's Cape",}
 
     sets.midcast.SIRD = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
@@ -331,7 +331,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring="Evanescence Ring",
-    back="Moonlight Cape",}
+    back="Ogma's Cape",}
 
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
@@ -345,7 +345,8 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonlight Cape",}
+    back="Ogma's Cape",
+}
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
@@ -363,7 +364,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonlight Cape",})
+    back="Ogma's Cape",})
     sets.midcast['Stoneskin'].SIRD = sets.midcast.SIRD
 
     sets.midcast.Cure = set_combine(sets.defense.PDT, {
@@ -419,7 +420,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Moonlight Cape",}
+    back="Ogma's Cape",}
 
     sets.defense.PDH = {
         ammo="Staunch Tathlum +1",
@@ -436,7 +437,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Moonlight Cape",
+    back="Ogma's Cape",
     }
     sets.defense.Enmity = { 
         ammo="Iron Gobbet",
@@ -468,7 +469,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         left_ear="Eabani Earring",
         right_ring="Ilabrat Ring",
         left_ring="Vengeful Ring",
-        back="Moonlight Cape",
+        back="Ogma's Cape",
     }
     sets.defense.HP = {
         ammo="Staunch Tathlum +1",
@@ -501,7 +502,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Erilaz Earring",
     left_ring="Defending Ring",
     right_ring="Shadow Ring",
-    back="Engulfer Cape +1",
+    back="Ogma's Cape",
 }
 
 	sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -554,7 +555,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Moonlight Ring",
-    back="Tactical Mantle",
+    back="Ogma's Cape",
 }
     sets.engaged.MDT = {
         ammo="Coiste Bodhar",
@@ -569,7 +570,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ear="Sherida Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Moonlight Ring",
-        back="Tactical Mantle",
+        back="Ogma's Cape",
     }
     sets.engaged.repulse = {}
     sets.Doom = {    neck="Nicander's Necklace",
