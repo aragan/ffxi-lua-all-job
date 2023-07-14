@@ -58,6 +58,7 @@ function job_setup()
 end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
+    state.ShieldMode = M{['description']='Shield Mode', 'Duban','Aegis', 'Ochain'} -- ,'Priwen' }
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
@@ -81,6 +82,7 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
+	send_command('bind f6 gs c cycle ShieldMode')
 
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
@@ -1624,6 +1626,17 @@ function update_defense_mode()
         state.CombatForm = nil
         end
     end
+end
+function job_handle_equipping_gear(playerStatus, eventArgs)    	
+    if state.ShieldMode.value == "Duban" then
+	   equip({sub="Duban"})
+    elseif state.ShieldMode.value == "Ochain" then
+	   equip({sub="Ochain"})
+	elseif state.ShieldMode.value == "Aegis" then
+	   equip({sub="Aegis"})
+	--elseif state.ShieldMode.value == "Srivatsa" then
+	   --equip({sub="Srivatsa"})
+	end	
 end
 
 function job_buff_change(buff, gain)

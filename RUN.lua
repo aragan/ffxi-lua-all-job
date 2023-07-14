@@ -350,7 +350,9 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
-    sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {})
+    sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
+        head="Rune. Bandeau +1",
+    })
     sets.midcast['Regen'].SIRD = sets.midcast.SIRD
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
            ammo="Staunch Tathlum +1",
@@ -367,10 +369,14 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     back="Ogma's Cape",})
     sets.midcast['Stoneskin'].SIRD = sets.midcast.SIRD
 
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
+        head="Erilaz Galea +2",
+		waist="Gishdubar sash"})
     sets.midcast.Cure = set_combine(sets.defense.PDT, {
         feet="Skaoi Boots",
         right_ear="Mendi. Earring",
         right_ring="Naji's Loop",
+        waist="Gishdubar sash",
         back="Solemnity Cape",
     })
     sets.midcast.Cure.SIRD = sets.midcast.SIRD
@@ -398,14 +404,21 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ring="Fortified Ring",
         back="Solemnity Cape",
 }
-
     sets.idle.Refresh = set_combine(sets.idle, {
+    ammo="Homiliary",
+    body="Agwu's Robe",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     neck="Sanctity Necklace",
     waist="Fucho-no-Obi",
     right_ear="Infused Earring",})
-           
+
+    sets.idle.Regen = set_combine(sets.idle, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
 	sets.defense.PDT = {    ammo="Staunch Tathlum +1",
     main="Aettir",
     sub="Refined Grip +1",
@@ -415,7 +428,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
+    waist="Flume Belt +1",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
@@ -423,16 +436,16 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     back="Ogma's Cape",}
 
     sets.defense.PDH = {
-        ammo="Staunch Tathlum +1",
+    ammo="Staunch Tathlum +1",
     main="Aettir",
     sub="Refined Grip +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Erilaz Gauntlets +1",
+    hands="Erilaz Gauntlets +2",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
+    waist="Flume Belt +1",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
