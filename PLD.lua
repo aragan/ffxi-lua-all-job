@@ -73,7 +73,6 @@ function user_setup()
  	send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
     send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     include('caster_buffWatcher.lua')
@@ -1559,11 +1558,6 @@ function job_state_change(field, new_value, old_value)
     if field == 'HybridDefenseMode' then
         classes.CustomDefenseGroups:clear()
         classes.CustomDefenseGroups:append(new_value)
-    end
-    if state.WeaponLock.value == true then
-        disable('main','sub')
-    else
-        enable('main','sub')
     end
 end
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.

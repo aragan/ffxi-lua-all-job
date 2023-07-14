@@ -496,7 +496,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
+    waist="Engraved Belt",
     left_ear="Eabani Earring",
     right_ear="Erilaz Earring",
     left_ring="Defending Ring",

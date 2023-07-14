@@ -621,7 +621,7 @@ sets.TreasureHunter = {
 		neck="Erra Pendant",
 		waist="Luminary Sash",
         left_ear="Malignance Earring",
-        right_ear="Crep. Earring",
+        right_ear="Snotra Earring",
         left_ring="Stikini Ring +1",
         left_ring="Stikini Ring +1",
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -640,7 +640,7 @@ sets.TreasureHunter = {
 		neck="Erra Pendant",
 		waist="Luminary Sash",
         left_ear="Malignance Earring",
-        right_ear="Crep. Earring",
+        right_ear="Snotra Earring",
         left_ring="Stikini Ring +1",
         left_ring="Stikini Ring +1",
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -659,7 +659,7 @@ sets.TreasureHunter = {
 		neck="Erra Pendant",
 		waist="Luminary Sash",
         left_ear="Malignance Earring",
-        right_ear="Crep. Earring",
+        right_ear="Snotra Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -676,7 +676,7 @@ sets.TreasureHunter = {
 		neck="Incanter's Torque",
 		waist="Luminary Sash",
         left_ear="Malignance Earring",
-        right_ear="Crep. Earring",
+        right_ear="Snotra Earring",
 		left_ring="Stikini Ring",
         right_ring="Kishar Ring",
 		back="Sucellos's Cape",
@@ -688,7 +688,7 @@ sets.TreasureHunter = {
 		hands="Lethargy Gantherots +1"
 	})
 
-	sets.midcast['Enfeebling Magic'].ParalyzeDuration = {}
+	sets.midcast['Enfeebling Magic'].ParalyzeDuration = set_combine(sets.midcast['Enfeebling Magic'].Potency,{})
 	
     sets.midcast['Elemental Magic'] = {
 		ammo="Pemphredo Tathlum",
