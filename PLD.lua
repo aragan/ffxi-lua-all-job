@@ -1044,7 +1044,6 @@ sets.TreasureHunter = {
   --3367 HP   
     sets.defense.PDT = {
     main="Burtgang",
-    sub="Duban",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1063,7 +1062,6 @@ sets.TreasureHunter = {
     -- Shellra V can provide 75/256.
     sets.defense.MDT ={
     main="Burtgang",
-    sub="Aegis",
     ammo="Staunch Tathlum +1",
     head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
     body="Sakpata's Plate",
@@ -1081,7 +1079,6 @@ sets.TreasureHunter = {
 
 	sets.defense.Turtle ={   
     main="Burtgang",
-    sub="Aegis",
     ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1099,7 +1096,6 @@ sets.TreasureHunter = {
 
 	sets.defense.ResistCharm ={
     main="Burtgang",
-    sub="Ochain",
     ammo="Staunch Tathlum +1",
     head="Loess Barbuta +1",
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1118,7 +1114,6 @@ sets.TreasureHunter = {
 
 sets.defense.Dagger = {    
     main="Ternion Dagger +1",
-    sub="Ochain",
     ammo="Eluder's Sachet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1151,7 +1146,6 @@ sets.defense.Evasion = {
 	
     sets.defense.Enmity = { 
     main="Burtgang",
-    sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1168,7 +1162,6 @@ sets.defense.Evasion = {
 }
 sets.defense.Enmitymax = { 
     main="Burtgang",
-    sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1203,7 +1196,6 @@ sets.defense.Enmitymax = {
 
 sets.defense.PDT = {
     main="Burtgang",
-    sub="Duban",
     ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Sakpata's Plate",
@@ -1221,7 +1213,6 @@ sets.defense.PDT = {
 
 sets.defense.PDH = {
     main="Burtgang",
-    sub="Duban",
     ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Chev. Cuirass +2",
@@ -1239,7 +1230,6 @@ sets.defense.PDH = {
  
     sets.defense.HPBOOST = {
     main="Burtgang",
-    sub="Ochain",
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     body="Rev. Surcoat +3",
@@ -1267,7 +1257,6 @@ sets.defense.HP = set_combine(sets.defense.HPBOOST, {
 
 sets.defense.DEF = {
     main="Burtgang",
-    sub="Ochain",
     ammo="Iron Gobbet",
     head="Sakpata's Helm",
     body="Sakpata's Plate",
@@ -1284,7 +1273,6 @@ sets.defense.DEF = {
 }
 
 sets.defense.Convert = {
-    sub="Ochain",
     ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Rev. Surcoat +3",
@@ -1302,7 +1290,6 @@ sets.defense.Convert = {
 
 sets.defense.Block = {
     main="Burtgang",
-    sub="Ochain",
     ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Sakpata's Plate",
@@ -1620,7 +1607,7 @@ function update_defense_mode()
      
     if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
         if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
-        player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' then
+        player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
         state.CombatForm = 'DW'
         else
         state.CombatForm = nil
