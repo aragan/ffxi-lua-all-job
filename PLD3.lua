@@ -11,7 +11,6 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
     -- Load and initialize the include file.
     include('Mote-IncludePLD.lua')
     include('organizer-lib')
@@ -54,10 +53,12 @@ end
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     send_command('wait 6;input /lockstyleset 200')
-
+    rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
+        'Lux','Tenebrae'}
 end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
+    state.Runes = M{['description']='Runes', "Tellus","Unda","Flabra","Ignis","Gelus","Sulpor","Lux","Tenebrae"}
     state.ShieldMode = M{['description']='Shield Mode', 'Duban','Aegis', 'Ochain'} -- ,'Priwen' }
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
@@ -83,6 +84,9 @@ function user_setup()
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
 	send_command('bind f6 gs c cycle ShieldMode')
+    send_command('bind f4 gs c cycle Runes')
+    send_command('bind f3 gs c cycleback Runes')
+    send_command('bind f2 input //gs c rune')
 
     include('caster_buffWatcher.lua')
     buffWatcher.watchList = 
@@ -1572,6 +1576,10 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = not spell.interrupted or buffactive[spell.english]
     end
+    --Copy-paste this piece of code to your aftercast function
+    if spell.type == "Rune" then
+        rune = spell.english
+    end
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
@@ -1736,18 +1744,16 @@ end
 
 
 function job_self_command(cmdParams, eventArgs)
+
 if cmdParams[1] == 'buffWatcher' then
       buffWatch(cmdParams[2],cmdParams[3])
   end
   if cmdParams[1] == 'stopBuffWatcher' then
       stopBuffWatcher()
   end
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
-    end
-    return
+  if cmdParams[1]:lower() == 'rune' then
+    send_command('@input /ja '..state.Runes.value..' <me>')
+  end
 end
 
 -- Curing rules
