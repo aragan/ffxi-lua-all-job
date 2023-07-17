@@ -105,6 +105,7 @@ function user_unload()
 	send_command('unbind ^f11')
 end
 organizer_items = {"Prime Sword",
+    "Marin Staff +1",
     "Drepanum",
     "Lentus Grip",
     "Mafic Cudgel",

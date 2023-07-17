@@ -52,7 +52,7 @@ function user_setup()
     geo_sub_weapons = S{"Nehushtan", "Bolelabunga"}
 
     select_default_macro_book()
-    send_command('bind != gs c toggle CapacityMode')
+    --send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
 end
 
@@ -78,7 +78,7 @@ function init_gear_sets()
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
     sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals"}
 
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     organizer_items = {"Prime Sword",
         "Gyudon",
         "Reraiser",
@@ -124,7 +124,7 @@ function init_gear_sets()
         ring2="Kishar Ring",
         back="Lifestream Cape",
         waist="Witful Belt",
-        legs="Geomancy Pants +1",
+        legs="Geomancy Pants +2",
         feet="Merlinic Crackows"
     }
 
@@ -137,7 +137,6 @@ function init_gear_sets()
     sets.precast.JA['Concentric Pulse'] = sets.midcast.HightTierNuke
 
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {
-
         ring1="Mallquis Ring",
     })
 
@@ -264,34 +263,34 @@ function init_gear_sets()
      })
 
     sets.midcast.Geomancy = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        main="Solstice",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Hike Khat",
         body="Geo. Tunic +1",
         hands="Geo. Mitaines +2",
+        legs="Geomancy Pants +2",
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
         neck="Incanter's Torque",
+        waist="Kobo Obi",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Lifestream Cape",
     }
 
     sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+        main="Solstice",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Hike Khat",
         body="Geo. Tunic +1",
         hands="Geo. Mitaines +2",
-        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+        legs="Geomancy Pants +2",
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
         neck="Incanter's Torque",
-        waist="Isa Belt",
-        left_ear="Handler's Earring +1",
-        right_ear="Handler's Earring",
+        waist="Kobo Obi",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
+        back="Nantosuelta's Cape",
     })
 
     sets.midcast.Cure = {
@@ -332,7 +331,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Jhakri Ring",
         right_ring="Freke Ring",
-        back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
+        back="Nantosuelta's Cape",
     }
     
     sets.midcast.HighTierNuke.Resistant = set_combine(sets.midcast.HighTierNuke, {
@@ -385,7 +384,7 @@ function init_gear_sets()
         right_ear="Malignance Earring",
         left_ring="Jhakri Ring",
         right_ring="Freke Ring",
-        back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
+        back="Nantosuelta's Cape",
     })
     
     sets.midcast.LowTierNuke.Resistant = set_combine(sets.midcast.LowTierNuke, {
@@ -413,61 +412,58 @@ function init_gear_sets()
         hands="Ea Cuffs",
         legs="Ea Slops",
         feet="Ea Pigaches",
-        neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
+        neck="Incanter's Torque",
+        waist="Luminary Sash",
         left_ear="Crep. Earring",
         right_ear="Malignance Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back="Twilight Cape",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
     })
     sets.midcast.Absorb = set_combine(sets.midcast.Macc, {
-        head="Bagua Galero",
         neck="Erra Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Evanescence Ring",
         ring2="Kishar Ring",
         body="Geomancy tunic +1",
-        legs="Azimuth Tights +1",
     })
     
     sets.midcast.Aspir = set_combine(sets.midcast.Macc, { 
         head="Pixie Hairpin +1",
         neck="Erra Pendant",
-        ear1="Gwati Earring",
-        ear2="Hirudinea Earring",
         ring1="Evanescence Ring",
-        ring2="Excelsis Ring",
-        body="Geomancy tunic +1",
-        legs="Azimuth Tights +1",
-        feet="Merlinic Crackows"
+
     })
     sets.midcast.Drain = sets.midcast.Aspir
     sets.midcast.Stun = sets.midcast.Macc
     
     sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc, {
         main="Daybreak",
-        neck="Erra Pendant",
-        waist="Casso Sash",
-        back="Nantosuelta's Cape",
-        hands="Azimuth Gloves",
-        ring1="Kishar Ring",
-        ring2="Globidonta Ring",
-        feet="Bagua Sandals"
+        head="C. Palug Crown",
+        body="Geo. Tunic +1",
+        hands="Geo. Mitaines +2",
+        legs="Geomancy Pants +2",
+        feet="Geo. Sandals +2",
+        neck="Incanter's Torque",
+        waist="Luminary Sash",
+        left_ear="Crep. Earring",
+        right_ear="Malignance Earring",
+        left_ring="Kishar Ring",
+        right_ring="Stikini Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
     sets.midcast.ElementalEnfeeble = set_combine(sets.midcast.Macc, {
         main="Daybreak",
-        waist="Casso Sash",
-        back="Nantosuelta's Cape",
+        waist="Luminary Sash",
         ring1="Kishar Ring",
-        ring2="Globidonta Ring",
-        feet="Bagua Sandals"
+        back="Nantosuelta's Cape",
     })
 
-    sets.midcast['Enhancing Magic'] = {main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    sets.midcast['Enhancing Magic'] = {
+    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
     sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head="Telchine Cap",
@@ -486,7 +482,7 @@ function init_gear_sets()
     --------------------------------------
 
     -- Resting sets
-    sets.resting = {
+    sets.resting = {        main="Daybreak",
         head="Befouled Crown",
         body="Shamash Robe",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -499,14 +495,14 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-        main="Bolelabunga",
+        main="Daybreak",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
         body="Shamash Robe",
         hands="Geo. Mitaines +2",
         legs="Assid. Pants +1",
-        feet="Geo. Sandals +1",
+        feet="Geo. Sandals +2",
         neck="Incanter's Torque",
         waist="Fucho-no-Obi",
         left_ear="Etiolation Earring",
@@ -515,7 +511,7 @@ function init_gear_sets()
         right_ring="Stikini Ring +1",
     }
     sets.idle.PDT = set_combine(sets.idle, {
-        main="Bolelabunga",
+        main="Daybreak",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
@@ -533,39 +529,39 @@ function init_gear_sets()
 
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = set_combine(sets.idle, {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    main="Solstice",
     sub="Ammurapi Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Geo. Galero +1",
     body="Geo. Tunic +1",
     hands="Geo. Mitaines +2",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-    feet="Geo. Sandals +1",
+    feet="Geo. Sandals +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Isa Belt",
     left_ear="Handler's Earring +1",
     right_ear="Handler's Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
+    back="Nantosuelta's Cape",
     })
 
     sets.idle.PDT.Pet = set_combine(sets.idle.Pet, {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    main="Solstice",
     sub="Ammurapi Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Geo. Galero +1",
     body="Geo. Tunic +1",
     hands="Geo. Mitaines +2",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-    feet="Geo. Sandals +1",
+    feet="Geo. Sandals +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Isa Belt",
     left_ear="Handler's Earring +1",
     right_ear="Handler's Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back={ name="Nantosuelta's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','MP+20','"Fast Cast"+10','Damage taken-5%',}},
+    back="Nantosuelta's Cape",
     })
 
     sets.idle.Melee = set_combine(sets.idle, {
@@ -591,8 +587,7 @@ function init_gear_sets()
     --})
 
     sets.idle.Town = set_combine(sets.idle, {
-        feet="Geo. Sandals +1",
-
+        feet="Geo. Sandals +2",
     })
 
     sets.idle.Weak = sets.idle
@@ -604,8 +599,8 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Shamash Robe",
         hands="Nyame Gauntlets",
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
@@ -618,10 +613,10 @@ function init_gear_sets()
     sets.defense.MDT = {
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Nyame Helm",
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Sanare Earring",
@@ -631,7 +626,7 @@ function init_gear_sets()
         back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Geo. Sandals +1",}
+    sets.Kiting = {feet="Geo. Sandals +2",}
 
     sets.latent_refresh = {body="Jhakri Robe +2", waist="Fucho-no-obi"}
 
@@ -648,9 +643,9 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {    ammo="Amar Cluster",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        legs="Nyame Flanchard",
         feet="Battlecast Gaiters",
         neck="Lissome Necklace",
         waist="Olseni Belt",
@@ -662,10 +657,10 @@ function init_gear_sets()
     }
     sets.engaged.Melee = set_combine(sets.engaged, {    ammo="Amar Cluster",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Lissome Necklace",
         waist="Grunfeld Rope",
         left_ear="Telos Earring",
@@ -678,8 +673,8 @@ function init_gear_sets()
             main="Maxentius",
             sub="Genmei Shield",
             head="Nyame Helm",
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands="Nyame Gauntlets",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Lissome Necklace",
