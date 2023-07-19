@@ -19,7 +19,7 @@ end
 organizer_items = {"Prime Sword",
 "Foreshock Sword",
 "Hepatizon Axe +1",
-"Aettir",
+    "Aettir",
     "Lentus Grip",
     "Mafic Cudgel",
     "Gyudon",
