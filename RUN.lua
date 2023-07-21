@@ -352,8 +352,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Rune. Bandeau +1",
+        right_ear="Erilaz Earring +2",
     })
-    sets.midcast['Regen'].SIRD = sets.midcast.SIRD
+    sets.midcast['Regen'].SIRD = set_combine(sets.midcast.SIRD, {
+        head="Rune. Bandeau +1",
+        right_ear="Erilaz Earring +2",
+    })
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
            ammo="Staunch Tathlum +1",
            head="Erilaz Galea +2",
@@ -495,7 +499,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Vengeful Ring",
+        left_ring="Moonlight Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
@@ -512,7 +516,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Engraved Belt",
     left_ear="Eabani Earring",
-    right_ear="Erilaz Earring",
+    right_ear="Erilaz Earring +2",
     left_ring="Defending Ring",
     right_ring="Shadow Ring",
     back="Ogma's Cape",

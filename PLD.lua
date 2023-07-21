@@ -363,7 +363,7 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
   legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
   feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
   neck="Fotia Gorget",
-  waist="Flume Belt +1",
+  waist="Fotia Belt",
   left_ear="Mache Earring +1",
   right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
   left_ring="Regal Ring",
@@ -651,8 +651,8 @@ sets.midcast.Cocoon.DT = {
       waist="Plat. Mog. Belt",
       left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
       right_ear="Chev. Earring +1",
-      left_ring="Moonlight Ring",
-      right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+      right_ring="Moonlight Ring",
+      left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
       back="Solemnity Cape",
 }
   sets.midcast.Cure.DT = set_combine(sets.SID, {
@@ -681,8 +681,8 @@ sets.midcast.Cocoon.DT = {
       waist="Plat. Mog. Belt",
       left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
       right_ear="Chev. Earring +1",
-      left_ring="Moonlight Ring",
-      right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+      right_ring="Moonlight Ring",
+      left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
       back="Solemnity Cape",
 }
   sets.self_healing.DT = set_combine(sets.SID, {
@@ -1037,22 +1037,6 @@ sets.TreasureHunter = {
    
   -- sets.Repulse = {back="Repulse Mantle"}
 --3367 HP   
-  sets.defense.PDT = {
-  main="Burtgang",
-  ammo="Iron Gobbet",
-  head="Sakpata's Helm",
-  body="Sakpata's Plate",
-  hands="Sakpata's Gauntlets",
-  legs="Sakpata's Cuisses",
-  feet="Sakpata's Leggings",
-  neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-  waist="Flume Belt +1",
-  left_ear="Thureous Earring",
-  right_ear="Ethereal Earring",
-  left_ring="Patricius Ring",
-  right_ring="Defending Ring",
-  back="Rudianos's Mantle",
-}
   -- To cap MDT with Shell IV (52/256), need 76/256 in gear. Current gear set is 248/256.
   -- Shellra V can provide 75/256.
   sets.defense.MDT ={
@@ -1214,11 +1198,11 @@ sets.defense.PDH = {
   legs="Chev. Cuisses +3",
   feet="Chev. Sabatons +2",
   neck="Elite Royal Collar",
-  waist="Carrier's Sash",
+  waist="Flume Belt +1",
   left_ear="Tuisto Earring",
   right_ear="Chev. Earring +1",
-  left_ring="Moonlight Ring",
-  right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+  right_ring="Moonlight Ring",
+  left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
   back="Rudianos's Mantle",
 }
 
@@ -1277,8 +1261,8 @@ sets.defense.Convert = {
   waist="Flume Belt +1",
   left_ear="Tuisto Earring",
   right_ear="Ethereal Earring",
-  left_ring="Moonlight Ring",
-  right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+  right_ring="Moonlight Ring",
+  left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
   back="Rudianos's Mantle",
 }
 
@@ -1419,8 +1403,8 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
   waist={ name="Sailfi Belt +1", augments={'Path: A',}},
   left_ear="Cessance Earring",
   right_ear="Brutal Earring",
-  left_ring="Defending Ring",
-  right_ring="Hetairoi Ring",
+  right_ring="Defending Ring",
+  left_ring="Hetairoi Ring",
   back="Annealed Mantle",}
   sets.engaged.PDT = --1179 / 1315 avec enlight up
   {
@@ -1434,8 +1418,8 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       waist="Tempus Fugit +1",
       left_ear="Mache Earring +1",
       right_ear="Telos Earring",
-      left_ring="Defending Ring",
-      right_ring="Moonlight Ring",
+      right_ring="Defending Ring",
+      left_ring="Moonlight Ring",
       back="Shadow Mantle",
   }
   sets.engaged.MDT = --1179 / 1315 avec enlight up
