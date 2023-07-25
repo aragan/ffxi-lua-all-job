@@ -16,7 +16,7 @@ function get_sets()
     include('organizer-lib')
     res = require 'resources'
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
 "Foreshock Sword",
 "Hepatizon Axe +1",
 "Aettir",
@@ -115,7 +115,6 @@ function user_setup()
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
-    include('Mote-TreasureHunter')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -171,13 +170,14 @@ function init_gear_sets()
   back="Rudianos's Mantle",
 }
 sets.Enmity =    --enmity +152
-{    main="Burtgang",
+{     ammo="Iron Gobbet",   
+  main="Burtgang",
 head={ name="Loess Barbuta +1", augments={'Path: A',}},
 body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 feet="Eschite Greaves",
-neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+neck="Moonlight Necklace",
 waist="Creed Baudrier",
 left_ear="Trux Earring",
 right_ear="Cryptic Earring",
@@ -231,12 +231,10 @@ back="Rudianos's Mantle",
   sets.precast.FC.Crusade = sets.precast.FC
   sets.precast.FC.Cure = set_combine(sets.precast.FC,{
   right_ear="Mendi. Earring",
-  left_ring="Moonlight Ring",
   waist="Acerbic Sash +1",
 })
 sets.precast.FC.Cure.DT = set_combine(sets.precast.FC,{
   right_ear="Mendi. Earring",
-  left_ring="Moonlight Ring",
   waist="Acerbic Sash +1",
 })
   -- Weaponskill sets
@@ -457,10 +455,11 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
   feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-  neck="Enhancing Torque",
+  neck="Incanter's Torque",
   waist="Olympus Sash",
   right_ear="Andoaa Earring",
   right_ring="Stikini Ring +1",
+  left_ring="Stikini Ring +1",
   back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
 sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {    
@@ -548,9 +547,9 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
   sets.midcast['Enlight II'] = sets.midcast.Divine --+142 accu (+2 acc each 20 divine skill)
   --Max HP+ set for reprisal 3951HP / war so 7902+ damage reflect before it off (8k+ with food)
   sets.midcast.Reprisal =	{
-  ammo="Staunch Tathlum +1",
+    ammo="Sapience Orb",
   head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-  body="Rev. Surcoat +3",
+  body="Shab. Cuirass +1",
   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -595,6 +594,8 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
   right_ring="Defending Ring",
   back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
+sets.midcast.Phalanx.MB = sets.midcast.Phalanx
+
   sets.midcast.Banish = sets.midcast.MAB
   sets.midcast['Banish II'] = set_combine(sets.midcast.MAB, {})
   sets.midcast.Holy = sets.midcast.MAB
@@ -605,7 +606,7 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {
       hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
       legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
       feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-      neck="Enhancing Torque",
+      neck="Incanter's Torque",
       waist="Olympus Sash",
       right_ear="Andoaa Earring",
       right_ring="Stikini Ring +1",
@@ -618,7 +619,7 @@ sets.midcast.Cocoon = {
   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
   feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-  neck="Enhancing Torque",
+  neck="Incanter's Torque",
   waist="Olympus Sash",
   right_ear="Andoaa Earring",
   right_ring="Stikini Ring +1",
@@ -699,23 +700,22 @@ sets.midcast.Cocoon.DT = {
       back="Solemnity Cape",
   })
   sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {
-   head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+  sub="Duban",
+  head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
   legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-  neck="Enhancing Torque",
+  neck="Incanter's Torque",
   waist="Olympus Sash",
   left_ear="Brachyura Earring",
   right_ear="Andoaa Earring",
-  left_ring="Sheltered Ring",
   right_ring="Stikini Ring +1",
 })
   sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'] , {
    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
   legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-  neck="Enhancing Torque",
+  neck="Incanter's Torque",
   waist="Olympus Sash",
   left_ear="Brachyura Earring",
   right_ear="Andoaa Earring",
-  left_ring="Sheltered Ring",
   right_ring="Stikini Ring +1",
 })
   sets.midcast.Raise = {       
@@ -1053,7 +1053,8 @@ sets.TreasureHunter = {
   right_ear="Sanare Earring",
   left_ring="Shadow Ring",
   right_ring="Defending Ring",
-  back="Engulfer Cape +1",
+    back="Rudianos's Mantle",
+
 }
 
   sets.defense.Turtle ={   
@@ -1078,7 +1079,7 @@ sets.TreasureHunter = {
   ammo="Staunch Tathlum +1",
   head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
   body={ name="Sakpata's Plate", augments={'Path: A',}},
-  hands="Chev. Gauntlets +2",
+  hands="Chev. Gauntlets +3",
   legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
   neck={ name="Unmoving Collar +1", augments={'Path: A',}},
@@ -1122,14 +1123,13 @@ sets.defense.Evasion = {
   back="Rudianos's Mantle",
 }
   
-  sets.defense.Enmity = { 
+  sets.defense.Enmity = {     ammo="Iron Gobbet",
   main="Burtgang",
-  ammo="Staunch Tathlum +1",
   head={ name="Loess Barbuta +1", augments={'Path: A',}},
   body="Chev. Cuirass +3",
   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   legs="Chev. Cuisses +3",
-  feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+  feet="Eschite Greaves",
   neck="Creed Collar",
   waist="Creed Baudrier",
   left_ear="Trux Earring",
@@ -1145,7 +1145,7 @@ sets.defense.Enmitymax = {
   body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
   legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-  feet={ name="Eschite Greaves", augments={'HP+80','Enmity+7','Phys. dmg. taken -4',}},
+  feet="Eschite Greaves",
   neck={ name="Unmoving Collar +1", augments={'Path: A',}},
   waist="Creed Baudrier",
   left_ear="Trux Earring",
@@ -1156,20 +1156,20 @@ sets.defense.Enmitymax = {
 }
   
   sets.defense.PD = {    
-  main="Burtgang",
-  ammo="Eluder's Sachet",
-  head="Sakpata's Helm",
-  body="Sakpata's Plate",
-  hands="Sakpata's Gauntlets",
-  legs="Sakpata's Cuisses",
-  feet="Sakpata's Leggings",
-  neck={ name="Loricate Torque +1", augments={'Path: A',}},
-  waist="Carrier's Sash",
-  left_ear="Tuisto Earring",
-  right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-  left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-  right_ring="Fortified Ring",
-  back="Rudianos's Mantle",
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body="Chev. Cuirass +3",
+    hands="Chev. Gauntlets +3",
+    legs="Chev. Cuisses +3",
+    feet="Chev. Sabatons +2",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Chev. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Shadow Mantle",
 }
 
 sets.defense.PDT = {
@@ -1184,8 +1184,8 @@ sets.defense.PDT = {
   waist="Carrier's Sash",
   left_ear="Tuisto Earring",
   right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-  left_ring="Moonlight Ring",
-  right_ring="Fortified Ring",
+  right_ring="Moonlight Ring",
+  left_ring="Fortified Ring",
   back="Rudianos's Mantle",
 }
 
@@ -1194,7 +1194,7 @@ sets.defense.PDH = {
   ammo="Iron Gobbet",
   head="Chev. Armet +3",
   body="Chev. Cuirass +3",
-  hands="Chev. Gauntlets +2",
+  hands="Chev. Gauntlets +3",
   legs="Chev. Cuisses +3",
   feet="Chev. Sabatons +2",
   neck="Elite Royal Collar",
@@ -1238,7 +1238,7 @@ sets.defense.DeathSpike = {
   ammo="Staunch Tathlum +1",
   head="Chev. Armet +3",
   body="Tartarus Platemail",
-  hands="Chev. Gauntlets +2",
+  hands="Chev. Gauntlets +3",
   legs="Chev. Cuisses +3",
   feet="Chev. Sabatons +2",
   neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1247,14 +1247,15 @@ sets.defense.DeathSpike = {
   right_ear="Sanare Earring",
   left_ring="Shadow Ring",
   right_ring="Archon Ring",
-  back="Engulfer Cape +1",
+    back="Rudianos's Mantle",
+
 }
 
 sets.defense.Convert = {
   ammo="Iron Gobbet",
   head="Chev. Armet +3",
   body="Rev. Surcoat +3",
-  hands="Chev. Gauntlets +2",
+  hands="Chev. Gauntlets +3",
   legs="Chev. Cuisses +3",
   feet="Rev. Leggings +3",
   neck={ name="Unmoving Collar +1", augments={'Path: A',}},
@@ -1271,7 +1272,7 @@ sets.defense.Block = {
   ammo="Iron Gobbet",
   head="Chev. Armet +3",
   body="Sakpata's Plate",
-  hands="Chev. Gauntlets +2",
+  hands="Chev. Gauntlets +3",
   legs="Chev. Cuisses +3",
   feet="Rev. Leggings +3",
   neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1411,7 +1412,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       ammo="Staunch Tathlum +1",
       head="Chev. Armet +3",
       body="Chev. Cuirass +3",
-      hands="Chev. Gauntlets +2",
+      hands="Chev. Gauntlets +3",
       legs="Chev. Cuisses +3",
       feet="Chev. Sabatons +2",
       neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1427,7 +1428,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       ammo="Staunch Tathlum +1",
       head="Chev. Armet +3",
       body="Tartarus Platemail",
-      hands="Chev. Gauntlets +2",
+      hands="Chev. Gauntlets +3",
       legs="Chev. Cuisses +3",
       feet="Chev. Sabatons +2",
       neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1436,7 +1437,8 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       right_ear="Telos Earring",
       left_ring="Shadow Ring",
       right_ring="Moonlight Ring",
-      back="Engulfer Cape +1",
+        back="Rudianos's Mantle",
+
   }
   
   --sets.Tartarus = {body="Tartarus Platemail"}
@@ -1809,41 +1811,8 @@ function display_current_job_state(eventArgs)
     elseif state.Runes.current == 'Lux' then r_color = 001
     elseif state.Runes.current == 'Tenebrae' then r_color = 160 end
 
-    local cf_msg = ''
-    if state.CombatForm.has_value then
-        cf_msg = ' (' ..state.CombatForm.value.. ')'
-    end
-
-    local m_msg = state.OffenseMode.value
-    if state.HybridMode.value ~= 'Normal' then
-        m_msg = m_msg .. '/' ..state.HybridMode.value
-    end
-
-    local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
-
-    local ws_msg = state.WeaponskillMode.value
-
-    local d_msg = 'None'
-    if state.DefenseMode.value ~= 'None' then
-        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
-    end
-
-    local i_msg = state.IdleMode.value
-
-    local msg = ''
-    if state.Knockback.value == true then
-        msg = msg .. ' Knockback Resist |'
-    end
-    if state.Kiting.value then
-        msg = msg .. ' Kiting: On |'
-    end
 
     add_to_chat(r_color, string.char(129,121).. '  ' ..string.upper(r_msg).. '  ' ..string.char(129,122)
-        ..string.char(31,210).. ' Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002).. ' |'
-        ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,060)
-        ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002).. ' |'
-        ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002).. ' |'
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
