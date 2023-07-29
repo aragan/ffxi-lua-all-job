@@ -1530,14 +1530,7 @@ function(new_hpp,old_hpp)
 end
 )
 -- Modify the default idle set after it was constructed.
-function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        idleSet = set_combine(idleSet, sets.latent_refresh)
-    end
-    if state.Buff.Doom then
-        idleSet = set_combine(idleSet, sets.buff.Doom)
-    end
-end
+
 
  
 -------------------------------------------------------------------------------------------------------------------
@@ -1604,6 +1597,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.IdleMode.current == 'Refresh' then
+        idleSet = set_combine(idleSet, sets.idle.Refresh)
+    end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     return idleSet
 end
 -- Modify the default melee set after it was constructed.

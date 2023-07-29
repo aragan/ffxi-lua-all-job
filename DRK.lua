@@ -18,7 +18,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {        "Prime Sword",
+organizer_items = {        
     "Drepanum",
     "Sword Strap",
     "Mafic Cudgel",
@@ -1632,8 +1632,8 @@ function job_self_command(cmdParams, eventArgs)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.IdleMode.current == 'Sphere' then
-        idleSet = set_combine(idleSet, sets.idle.Sphere)
+    if state.IdleMode.current == 'Refresh' then
+        idleSet = set_combine(idleSet, sets.idle.Refresh)
     end
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
