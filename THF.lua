@@ -31,7 +31,7 @@ function get_sets()
     include('Mote-Include.lua')
 end
     include('organizer-lib')
-    organizer_items = {       "Prime Sword",
+    organizer_items = {       
         "Mafic Cudgel",
         "Gyudon",
         "Reraiser",
