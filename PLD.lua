@@ -1649,7 +1649,19 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
-
+function customize_idle_set(idleSet)
+  if state.IdleMode.current == 'Refresh' then
+      idleSet = set_combine(idleSet, sets.idle.Refresh)
+  end
+  if state.Buff.Doom then
+      idleSet = set_combine(idleSet, sets.buff.Doom)
+  end
+  return idleSet
+end
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+  return meleeSet
+end
 windower.register_event('hpp change',
 function(new_hpp,old_hpp)
     if new_hpp < 8 then
