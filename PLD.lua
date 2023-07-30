@@ -107,7 +107,7 @@ function user_setup()
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'DeathSpike', 'ResistCharm', 'Dagger')
-    state.HybridMode:options('Normal', 'PDT', 'MDT')
+    state.HybridMode:options('Normal', 'PDT', 'MDT', 'ReverenceGauntlets')
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
     --state.HybridDefenseMode=('none')
@@ -1404,7 +1404,7 @@ sets.defense.Block = {
    {main="Naegling",
    sub="Blurred Shield +1",
    ammo="Ginsen",
-   head="Flam. Zucchetto +2",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
    body="Sakpata's Plate",
    hands="Sakpata's Gauntlets",
    legs="Sakpata's Cuisses",
@@ -1421,19 +1421,20 @@ sets.defense.Block = {
 sets.engaged.Tp = --1179 / 1315 avec enlight up
 {   main="Naegling",
    sub="Blurred Shield +1",
-   ammo="Ginsen",
-   head="Flam. Zucchetto +2",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   ammo="Aurgelmir Orb +1",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck={ name="Vim Torque +1", augments={'Path: A',}},
    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-   left_ear="Dedition Earring",
-   right_ear="Telos Earring",
-   left_ring="Chirich Ring +1",
-   right_ring="Chirich Ring +1",
-   back="Annealed Mantle",}
+   left_ear="Cessance Earring",
+   right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+   left_ring="Moonbeam Ring",
+   right_ring="Moonlight Ring",
+   back="Tactical Mantle",
+  }
 
    sets.engaged.STP = --1179 / 1315 avec enlight up
 {   main="Naegling",
@@ -1487,24 +1488,17 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
    sets.engaged.PDT = --1179 / 1315 avec enlight up
    {
        ammo="Staunch Tathlum +1",
-       head="Chev. Armet +3",
-     body="Chev. Cuirass +3",
-       hands="Chev. Gauntlets +3",
-       legs="Chev. Cuisses +3",
-       feet="Chev. Sabatons +3",
-       neck={ name="Vim Torque +1", augments={'Path: A',}},
-       waist="Tempus Fugit +1",
-       left_ear="Mache Earring +1",
-       right_ear="Telos Earring",
        left_ring="Defending Ring",
        right_ring="Moonlight Ring",
-       back="Shadow Mantle",
-   }
+       back="Moonlight Cape",
+      }
    sets.engaged.MDT = {
        neck={ name="Warder's Charm +1", augments={'Path: A',}},
        left_ring="Shadow Ring",
    }
-   
+   sets.engaged.ReverenceGauntlets = {    
+    hands="Rev. Gauntlets +3",
+ }
 
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -1686,6 +1680,15 @@ function customize_idle_set(idleSet)
 end
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.HybridMode.current == 'MDT' then
+        meleeSet = set_combine(meleeSet, sets.engaged.MDT)
+    end
+    if state.HybridMode.current == 'PDT' then
+        meleeSet = set_combine(meleeSet, sets.engaged.PDT)
+    end
+    if state.HybridMode.current == 'ReverenceGauntlets' then
+        meleeSet = set_combine(meleeSet, sets.engaged.ReverenceGauntlets)
+    end
   return meleeSet
 end
 windower.register_event('hpp change',
