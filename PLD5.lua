@@ -18,7 +18,7 @@ function get_sets()
     res = require 'resources'
     organizer_items = {
         
-        "Lentus Grip",
+        "Sword Strap",
         "Foreshock Sword",
         "Mafic Cudgel",
         "Gyudon",
@@ -89,13 +89,13 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'Ochain','Aegis', 'Duban'} -- ,'Priwen' }
+    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- ,'Priwen' }
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'DT', 'MB') 
-    state.IdleMode:options('Normal', 'Refresh')
+    state.IdleMode:options('Normal', 'EnemyCritRate', 'ReverenceGauntlets', 'Refresh')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'DeathSpike', 'ResistCharm', 'Dagger')
@@ -250,20 +250,18 @@ sets.precast.FC.Jettatura = set_combine(sets.Enmity,{
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
 sets.precast.WS = {   
-ammo="Aurgelmir Orb +1",
+    ammo="Oshasha's Treatise",
 head="Nyame Helm",
 body="Nyame Mail",
 body="Nyame Mail",
 legs="Nyame Flanchard",
 feet="Nyame Sollerets",
-neck="Fotia Gorget",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Thrud Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Regal Ring",
-    right_ring="Cornelia's Ring",
-    back="Bleating Mantle",
+neck="Rep. Plat. Medal",
+waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+left_ear="Thrud Earring",
+right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+left_ring="Regal Ring",
+right_ring="Cornelia's Ring",
 }
 sets.precast.WS.PDL = set_combine(sets.precast.WS, {
     ammo="Crepuscular Pebble",
@@ -342,7 +340,7 @@ sets.precast.WS['Cataclysm'] = {
 }	 
     --Stat Modifier: 50%MND / 50%STR fTP: 1000:4.0 2000:10.25 3000:13.75
 sets.precast.WS['Savage Blade'] = {
-ammo="Aurgelmir Orb +1",
+    ammo="Oshasha's Treatise",
 head="Nyame Helm",
 body="Nyame Mail",
 hands="Nyame Gauntlets",
@@ -371,7 +369,7 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     neck="Fotia Gorget",
-    waist="Flume Belt +1",
+    waist="Fotia Belt",
     left_ear="Mache Earring +1",
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ring="Regal Ring",
@@ -1068,6 +1066,15 @@ sets.TreasureHunter = {
     }
     sets.idle.Field = sets.idle
 
+    sets.idle.EnemyCritRate ={
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+}
+    sets.idle.ReverenceGauntlets ={
+        hands="Rev. Gauntlets +3",
+}
     sets.idle.Refresh ={
         ammo="Homiliary",
         left_ring="Stikini Ring +1",
@@ -1102,7 +1109,7 @@ sets.TreasureHunter = {
       body="Chev. Cuirass +3",
       hands="Chev. Gauntlets +3",
       legs="Chev. Cuisses +3",
-      feet="Chev. Sabatons +2",
+      feet="Chev. Sabatons +3",
       neck="Elite Royal Collar",
       waist="Flume Belt +1",
       left_ear="Tuisto Earring",
@@ -1235,7 +1242,7 @@ sets.defense.Enmitymax = {     ammo="Iron Gobbet",
     body="Chev. Cuirass +3",
     hands="Chev. Gauntlets +3",
     legs="Chev. Cuisses +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
     left_ear="Tuisto Earring",
@@ -1247,16 +1254,16 @@ sets.defense.Enmitymax = {     ammo="Iron Gobbet",
 
 sets.defense.PDT = {
     main="Burtgang",
-    ammo="Eluder's Sachet",
+    ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Chev. Cuirass +3",
     hands="Chev. Gauntlets +3",
     legs="Chev. Cuisses +3",
-    feet="Chev. Sabatons +2",
-    neck="Elite Royal Collar",
+    feet="Chev. Sabatons +3",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
     left_ring="Warden's Ring",
     right_ring="Fortified Ring",
     back="Reiki Cloak",
@@ -1269,7 +1276,7 @@ sets.defense.PDH = {
     body="Chev. Cuirass +3",
     hands="Chev. Gauntlets +3",
     legs="Chev. Cuisses +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck="Elite Royal Collar",
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
@@ -1313,7 +1320,7 @@ sets.defense.DeathSpike = {
     body="Tartarus Platemail",
     hands="Chev. Gauntlets +3",
     legs="Chev. Cuisses +3",
-    feet="Chev. Sabatons +2",
+    feet="Chev. Sabatons +3",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1323,7 +1330,7 @@ sets.defense.DeathSpike = {
       back="Rudianos's Mantle",
 }
 
-sets.defense.Convert = {
+sets.defense.Convert = {    main="Burtgang",
     ammo="Iron Gobbet",
     head="Chev. Armet +3",
     body="Rev. Surcoat +3",
@@ -1387,7 +1394,11 @@ sets.defense.Block = {
 
     sets.Obi = {waist="Hachirin-no-Obi"}
 
-    sets.Kiting = {legs="Carmine Cuisses +1",back="Moonlight Cape",}
+    sets.Kiting = {
+    body="Sakpata's Plate",
+    legs="Carmine Cuisses +1",
+    feet="Sakpata's Leggings",
+}
     --------------------------------------
     -- Engaged sets
     --------------------------------------
@@ -1486,7 +1497,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       body="Chev. Cuirass +3",
         hands="Chev. Gauntlets +3",
         legs="Chev. Cuisses +3",
-        feet="Chev. Sabatons +2",
+        feet="Chev. Sabatons +3",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist="Tempus Fugit +1",
         left_ear="Mache Earring +1",
@@ -1502,7 +1513,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
         body="Tartarus Platemail",
         hands="Chev. Gauntlets +3",
         legs="Chev. Cuisses +3",
-        feet="Chev. Sabatons +2",
+        feet="Chev. Sabatons +3",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Tempus Fugit +1",
         left_ear="Mache Earring +1",
@@ -1597,6 +1608,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.IdleMode.current == 'EnemyCritRate' then
+        idleSet = set_combine(idleSet, sets.idle.EnemyCritRate )
+    end
+    if state.IdleMode.current == 'ReverenceGauntlets' then
+        idleSet = set_combine(idleSet, sets.idle.ReverenceGauntlets)
+    end
     if state.IdleMode.current == 'Refresh' then
         idleSet = set_combine(idleSet, sets.idle.Refresh)
     end
@@ -1651,11 +1668,13 @@ function update_defense_mode()
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)    	
     if state.ShieldMode.value == "Duban" then
-	   equip({sub="Duban"})
-    elseif state.ShieldMode.value == "Ochain" then
-	   equip({sub="Ochain"})
-	elseif state.ShieldMode.value == "Aegis" then
-	   equip({sub="Aegis"})
+        equip({sub="Duban"})
+     elseif state.ShieldMode.value == "Ochain" then
+        equip({sub="Ochain"})
+       elseif state.ShieldMode.value == "Aegis" then
+        equip({sub="Aegis"})
+     elseif state.ShieldMode.value == "normal" then
+       equip({})
 	--elseif state.ShieldMode.value == "Srivatsa" then
 	   --equip({sub="Srivatsa"})
 	end	

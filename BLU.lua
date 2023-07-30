@@ -1329,9 +1329,15 @@ function job_state_change(stateField, newValue, oldValue)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        set_combine(idleSet, sets.latent_refresh)
+    if state.IdleMode.current == 'PDT' then
+        idleSet = set_combine(idleSet, sets.idle.PDT)
     end
+    if state.IdleMode.current == 'Learning' then
+        idleSet = set_combine(idleSet, sets.idle.Learning)
+    end
+    --if player.mpp < 51 then
+        --set_combine(idleSet, sets.latent_refresh)
+    --end
     return idleSet
 end
 
