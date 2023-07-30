@@ -95,7 +95,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- ,'Priwen' }
+    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
 
     -- Options: Override default values
@@ -103,10 +103,10 @@ function user_setup()
 	--state.DefenseMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'DT', 'MB') 
-    state.IdleMode:options('Normal', 'EnemyCritRate', 'ReverenceGauntlets', 'Refresh')
+    state.IdleMode:options('Normal', 'EnemyCritRate', 'MEVA', 'ReverenceGauntlets', 'DeathSpike', 'Refresh', 'Resist', 'EnemyTPaccumulation')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
-    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'DeathSpike', 'ResistCharm', 'Dagger')
+    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm')
     state.HybridMode:options('Normal', 'PDT', 'MDT', 'ReverenceGauntlets')
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
@@ -1074,7 +1074,29 @@ sets.TreasureHunter = {
        left_ring="Stikini Ring +1",
        right_ring="Stikini Ring +1",
 }
-   sets.idle.Town ={legs="Carmine Cuisses +1"}
+   sets.idle.Resist ={
+    ammo="Staunch Tathlum +1",
+    head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+}
+   sets.idle.EnemyTPaccumulation ={
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+}
+   sets.idle.DeathSpike ={
+    body="Tartarus Platemail",
+}
+   sets.idle.MEVA ={
+    ammo="Staunch Tathlum +1",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Eabani Earring",
+    right_ear="Sanare Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Purity Ring",
+    back="Rudianos's Mantle",}
+    sets.idle.Town ={legs="Carmine Cuisses +1"}
     
    sets.idle.Weak = {head="Twilight Helm", body="Twilight Mail"}
     
@@ -1117,7 +1139,7 @@ sets.TreasureHunter = {
    sets.defense.MDT ={
    main="Burtgang",
    ammo="Staunch Tathlum +1",
-   head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
+   head="Sakpata's Helm",
    body="Sakpata's Plate",
    hands="Sakpata's Gauntlets",
    legs="Sakpata's Cuisses",
@@ -1611,6 +1633,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
       equip({})
 	--elseif state.ShieldMode.value == "Srivatsa" then
 	   --equip({sub="Srivatsa"})
+    	--elseif state.ShieldMode.value == "Priwen" then
+	   --equip({sub="Priwen"})
 	  end
     --if state.TartarusdMode.value == "Tartarus Platemail" then
       --equip({body="Tartarus Platemail"})
@@ -1672,6 +1696,18 @@ function customize_idle_set(idleSet)
     end
     if state.IdleMode.current == 'Refresh' then
         idleSet = set_combine(idleSet, sets.idle.Refresh)
+    end
+    if state.IdleMode.current == 'Resist' then
+        idleSet = set_combine(idleSet, sets.idle.Resist)
+    end
+    if state.IdleMode.current == 'EnemyTPaccumulation' then
+        idleSet = set_combine(idleSet, sets.idle.EnemyTPaccumulation)
+    end
+    if state.IdleMode.current == 'DeathSpike' then
+        idleSet = set_combine(idleSet, sets.idle.DeathSpike)
+    end
+    if state.IdleMode.current == 'MEVA' then
+        idleSet = set_combine(idleSet, sets.idle.MEVA)
     end
     if state.Buff.Doom then
         idleSet = set_combine(idleSet, sets.buff.Doom)
