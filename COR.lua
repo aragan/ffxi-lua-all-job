@@ -157,8 +157,7 @@ function init_gear_sets()
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     sets.precast.FoldDoubleBust = {hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},}
     
-    sets.precast.CorsairShot = {
-    }
+    --sets.precast.CorsairShot = {}
     
 
     -- Waltz set (chr and vit)
@@ -343,6 +342,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 })
 
     sets.precast.WS['Last Stand'] = {
+    ammo=gear.WSbullet,
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Ikenga's Vest",
     hands="Nyame Gauntlets",
@@ -374,6 +374,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
 
     sets.precast.WS['Wildfire'] = {
+        ammo=gear.MAbullet,
         head="Nyame Helm",
         body="Lanun Frac +3",
         hands="Nyame Gauntlets",
@@ -387,9 +388,10 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         right_ring="Cornelia's Ring",
         back="Camulus's Mantle",
 }
-
+    sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
     
-    sets.precast.WS['Leaden Salute'] = {
+    sets.precast.WS['Leaden Salute'] = {     
+    ammo=gear.MAbullet,
     head="Pixie Hairpin +1",
     body="Lanun Frac +3",
     hands="Nyame Gauntlets",
@@ -418,6 +420,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     sets.midcast.Utsusemi = sets.midcast.FastRecast
 
     sets.midcast.CorsairShot = {
+        ammo=gear.QDbullet,
         head="Nyame Helm",
         body="Lanun Frac +3",
         hands="Nyame Gauntlets",
@@ -433,6 +436,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 }
 
     sets.midcast.CorsairShot.Acc = {
+        ammo=gear.RAbullet,
         head="Nyame Helm",
         body="Lanun Frac +3",
         hands="Nyame Gauntlets",
@@ -448,7 +452,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 }
 
     sets.midcast.CorsairShot['Light Shot'] = {
-    
+        ammo=gear.RAbullet,
         head="Malignance Chapeau",
         body="Laksa. Frac +3",
         hands="Malignance Gloves",
@@ -468,6 +472,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     -- Ranged gear
 sets.midcast.RA = {
+    ammo=gear.RAbullet,
     head="Ikenga's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -483,6 +488,7 @@ sets.midcast.RA = {
 }
 
     sets.midcast.RA.Molybdosis = {
+    ammo=gear.RAbullet,
     ammo="Orichalc. Bullet",
     head="Ikenga's Hat",
     body="Malignance Tabard",
@@ -498,6 +504,7 @@ sets.midcast.RA = {
     back="Tactical Mantle",
 }
 sets.midcast.RA.Acc = {
+    ammo=gear.RAbullet,
     ammo="Orichalc. Bullet",
     head="Malignance Chapeau",
     body="Laksa. Frac +3",
@@ -513,6 +520,7 @@ sets.midcast.RA.Acc = {
     back="Tactical Mantle",
 }
 sets.midcast.RA.MaxAcc = {
+    ammo=gear.RAbullet,
     head="Malignance Chapeau",
     body="Laksa. Frac +3",
     hands="Malignance Gloves",
@@ -527,6 +535,7 @@ sets.midcast.RA.MaxAcc = {
     back="Tactical Mantle",
 }
 sets.midcast.RA.STP = {
+    ammo=gear.RAbullet,
     head="Ikenga's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
