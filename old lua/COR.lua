@@ -91,7 +91,7 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    organizer_items  = {"Prime Sword",
+    organizer_items  = {
         "Earp",
         "Mafic Cudgel",
         "Living Bullet",
@@ -101,6 +101,7 @@ function init_gear_sets()
         "Trump Card",
         "Chr. Bul. Pouch", 
         "Liv. Bul. Pouch", 
+        "Dec. Bul. Pouch",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
