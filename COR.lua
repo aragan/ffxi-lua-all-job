@@ -71,6 +71,8 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+
 
     update_combat_form()
     select_default_macro_book()
@@ -642,7 +644,7 @@ sets.defense.MDT = {head="Malignance Chapeau",
 
     sets.Kiting = {
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        feet="Hermes' Sandals +1",    }
+   }
 
     -- Engaged sets
 

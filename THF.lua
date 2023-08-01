@@ -102,6 +102,8 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+
 
     select_default_macro_book()
 end
@@ -189,8 +191,11 @@ function init_gear_sets()
 
     -- Ranged snapshot gear
     sets.precast.RA = {        range="Trollbane",  
-        legs={ name="Adhemar Kecks", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        feet="Meg. Jam. +2",
+        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
+        waist="Yemaya Belt",}
+
+        sets.precast.RA.Acc = {       
+        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
         waist="Yemaya Belt",}
 
 
@@ -441,7 +446,7 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
     sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Aeolian Edge"], {})
 
 
-    sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, {
+    sets.precast.WS["Empyreal Arrow"] = {
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -454,9 +459,8 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Damage taken-5%',}},
-})
+}
     sets.precast.WS["Empyreal Arrow"].Acc = set_combine(sets.precast.WS["Empyreal Arrow"], {
-        ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
