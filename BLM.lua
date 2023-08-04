@@ -216,7 +216,7 @@ function init_gear_sets()
     -- Midcast set for Death, Might as well only have one set, unless you plan on free-nuking death for some unexplainable reason.
 
     sets.midcast['Death'] = {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
 		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
@@ -226,7 +226,7 @@ function init_gear_sets()
 		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
-		left_ear="Friomisi Earring",
+		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
@@ -259,7 +259,7 @@ function init_gear_sets()
             neck="Baetyl Pendant",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
+            right_ear="Regal Earring",
             left_ring="Cornelia's Ring",
             right_ring="Freke Ring",
             back="Taranus's Cape",}
@@ -287,7 +287,7 @@ function init_gear_sets()
             neck="Sibyl Scarf",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
+            right_ear="Regal Earring",
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back="Taranus's Cape",}
@@ -302,7 +302,7 @@ function init_gear_sets()
             neck="Sibyl Scarf",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
+            right_ear="Regal Earring",
             left_ring="Cornelia's Ring",
             right_ring="Archon Ring",
             back="Taranus's Cape",}
@@ -484,7 +484,7 @@ function init_gear_sets()
 	sets.midcast.ElementalEnfeeble = sets.midcast['Enfeebling Magic']
  
     sets.midcast['Dark Magic'] = {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
 		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
@@ -494,7 +494,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
-		left_ear="Friomisi Earring",
+		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
@@ -514,7 +514,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -531,7 +531,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -540,7 +540,7 @@ function init_gear_sets()
 
 
     sets.midcast['Elemental Magic'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
     sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
@@ -551,8 +551,8 @@ function init_gear_sets()
     neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Jhakri Ring",
+    right_ear="Regal Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Freke Ring",
     back="Taranus's Cape",
     })
@@ -568,7 +568,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -586,7 +586,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Sibyl Scarf",
         waist="Hachirin-no-Obi",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -594,7 +594,7 @@ function init_gear_sets()
     })
 	
     sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
     sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
@@ -605,7 +605,7 @@ function init_gear_sets()
     neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
+    right_ear="Regal Earring",
     left_ring="Freke Ring",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back="Taranus's Cape",
@@ -622,7 +622,7 @@ function init_gear_sets()
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -671,13 +671,13 @@ function init_gear_sets()
 		neck="Sanctity Necklace",
 		waist="Hachirin-no-Obi",
 		left_ear="Dignitary's Earring",
-        right_ear="Friomisi Earring",
+        right_ear="Regal Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
 		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},}
 	
 	sets.midcast['Comet'] = set_combine(sets.midcast['Elemental Magic'], {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
 		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
@@ -687,7 +687,7 @@ function init_gear_sets()
 		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
-		left_ear="Friomisi Earring",
+		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
@@ -695,7 +695,7 @@ function init_gear_sets()
     })
  
 	sets.midcast['Comet'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
-		main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+		main="Marin Staff +1",
     sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
@@ -706,8 +706,8 @@ function init_gear_sets()
     neck="Sanctity Necklace",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Jhakri Ring",
+    right_ear="Regal Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Freke Ring",
     back="Taranus's Cape",
     })
@@ -729,7 +729,6 @@ function init_gear_sets()
 		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}}
 	
 	sets.midcast.Flash = {
-		main="Ungeri Staff",
 		sub="Alber Strap",
 		ammo="Sapience Orb",
 		head={ name="Kaabnax Hat", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
@@ -739,7 +738,7 @@ function init_gear_sets()
 		feet="Mallquis Clogs +1",
 		neck="Unmoving Collar",
 		waist="Goading Belt",
-		left_ear="Friomisi Earring",
+		left_ear="Regal Earring",
 		right_ear="Merman's Earring",
 		left_ring="Petrov Ring",
 		right_ring="Begrudging Ring",

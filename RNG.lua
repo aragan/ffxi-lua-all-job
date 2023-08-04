@@ -22,7 +22,7 @@ function get_sets()
 
 end
 
-	organizer_items = {"Prime Sword",
+	organizer_items = {
 	    "Earp",
 		"Mafic Cudgel",
 		"Perun 1+",
@@ -31,6 +31,7 @@ end
 		"Beryllium Arrow",
 		"Eminent Arrow",
 		"Chr. Bul. Pouch",
+		"Dec. Bul. Pouch",
 		"Chrono Bullet",
 		"Hauksbok Arrow",
 		"Gyudon",

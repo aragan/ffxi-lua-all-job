@@ -71,6 +71,8 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+
 
     update_combat_form()
     select_default_macro_book()
