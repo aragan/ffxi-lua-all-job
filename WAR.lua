@@ -20,6 +20,19 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {
+            "Sarama's Hide",
+            "Hidhaegg's Scale",
+            "Sovereign's Hide",
+            "Grape Daifuku",
+            "Soy Ramen",
+            "G. Curry Bun +1",
+            "Pukatrice Egg",
+            "Moogle Amp.",
+            "Popo. con Queso",
+            "Pear Crepe",
+            "Crab Sushi",
+            "Om. Sandwich",
+            "Red Curry Bun",
             "Drepanum",
             "Sword Strap",
             "Maliya Sickle +1",

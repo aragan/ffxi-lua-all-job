@@ -17,6 +17,16 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",
 "Foreshock Sword",
 "Hepatizon Axe +1",
 "Aettir",
