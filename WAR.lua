@@ -776,7 +776,7 @@ function init_gear_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -789,10 +789,10 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
-        ammo="Crepuscular Pebble",
+        ammo="Knobkierrie",
+        body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +2",
-        left_ring="Sroda Ring",
     })
     sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Mistral Axe'].Mid = set_combine(sets.precast.WS['Savage Blade'].Mid, {})
@@ -807,10 +807,10 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
         sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
             legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",
         })
         sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
         sets.precast.WS["Black Halo"].Mid = set_combine(sets.precast.WS["Black Halo"], {
@@ -822,10 +822,10 @@ function init_gear_sets()
             neck={ name="Warder's Charm +1", augments={'Path: A',}},
         })
         sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
             legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",
         })
         sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -841,10 +841,10 @@ function init_gear_sets()
             neck={ name="Warder's Charm +1", augments={'Path: A',}},
         })
         sets.precast.WS["Ground Strike"].Acc = set_combine(sets.precast.WS['Ground Strike'], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",   })
+            legs="Boii Cuisses +2",   })
 
     sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {
