@@ -104,7 +104,11 @@ function user_unload()
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
+    "Grape Daifuku",
+    "Moogle Amp.",
+    "Pear Crepe",
+    "Prime Sword",
     "Marin Staff +1",
     "Drepanum",
     "Lentus Grip",
@@ -220,10 +224,10 @@ function init_gear_sets()
 		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
-		body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+8','Magic burst dmg.+8%','CHR+10','Mag. Acc.+4',}},
-		hands={ name="Merlinic Dastanas", augments={'Pet: "Mag.Atk.Bns."+22','Blood Pact Dmg.+6','Pet: DEX+9',}},
-		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+10 "Mag.Atk.Bns."+10','Magic burst dmg.+8%','"Mag.Atk.Bns."+4',}},
-		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
+        feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
 		waist="Hachirin-no-Obi",
 		left_ear="Regal Earring",
@@ -428,7 +432,7 @@ function init_gear_sets()
 		waist="Siegel Sash",})
  
     sets.midcast['Enfeebling Magic'] = {
-        main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+        
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
@@ -446,7 +450,7 @@ function init_gear_sets()
     }   
 
     sets.midcast['Enfeebling Magic'].Effect = set_combine(sets.midcast['Enfeebling Magic'],{
-        main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+        
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
@@ -464,7 +468,7 @@ function init_gear_sets()
     })
 
 	sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Enfeebling Magic'],{
-        main={ name="Lathi", augments={'INT+15','"Mag.Atk.Bns."+15','Mag. Acc.+15',}},
+        
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
@@ -489,7 +493,7 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
         body="Shango Robe",
-        hands="Agwu's Gages",
+        hands="Amalric Gages +1",
         legs="Agwu's Slops",
         feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
@@ -504,13 +508,13 @@ function init_gear_sets()
     -- Elemental Magic sets
      
     sets.midcast['Elemental Magic'] = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",  
+        main="Marin Staff +1",
+		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
-        body="Wicce Coat +2",
-        hands="Agwu's Gages",
-        legs="Wicce Chausses +2",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
@@ -521,13 +525,13 @@ function init_gear_sets()
         back="Taranus's Cape",
 	}
     sets.magic_burst = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",  
+		main="Marin Staff +1",
+		sub="Alber Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-		head="Ea Hat",
-        body="Wicce Coat +2",
-        hands="Agwu's Gages",
-        legs="Wicce Chausses +2",
+		head="Ea Hat +1",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
@@ -540,13 +544,13 @@ function init_gear_sets()
 
 
     sets.midcast['Elemental Magic'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
-		main="Marin Staff +1",
+	main="Marin Staff +1",
     sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
-    body="Wicce Coat +2",
-    hands="Jhakri Cuffs +2",
-    legs="Wicce Chausses +2",
+    body="Wicce Coat +3",
+    hands="Amalric Gages +1",
+    legs="Wicce Chausses +3",
     feet="Jhakri Pigaches +2",
     neck="Sibyl Scarf",
     waist="Eschan Stone",
@@ -558,13 +562,13 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",  
+		main="Marin Staff +1",
+		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
-        body="Wicce Coat +2",
-        hands="Agwu's Gages",
-        legs="Wicce Chausses +2",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
@@ -576,13 +580,13 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",  
+		main="Marin Staff +1",
+		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
-        body="Wicce Coat +2",
-        hands="Agwu's Gages",
-        legs="Wicce Chausses +2",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Sibyl Scarf",
         waist="Hachirin-no-Obi",
@@ -594,13 +598,13 @@ function init_gear_sets()
     })
 	
     sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		main="Marin Staff +1",
+	main="Marin Staff +1",
     sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
-    body="Wicce Coat +2",
-    hands="Jhakri Cuffs +2",
-    legs="Wicce Chausses +2",
+    body="Wicce Coat +3",
+    hands="Amalric Gages +1",
+    legs="Wicce Chausses +3",
     feet="Jhakri Pigaches +2",
     neck="Sibyl Scarf",
     waist="Eschan Stone",
@@ -612,13 +616,13 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",  
+		main="Marin Staff +1",
+		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
-        body="Wicce Coat +2",
-        hands="Agwu's Gages",
-        legs="Wicce Chausses +2",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
         waist="Hachirin-no-Obi",
@@ -665,7 +669,7 @@ function init_gear_sets()
  
     sets.midcast['Impact'] = {
 		head=empty,body="Twilight Cloak",
-		hands="Jhakri cuffs +1",
+		hands="Amalric Gages +1",
 		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Mag. crit. hit dmg. +4%','MND+4','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
 		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}},
 		neck="Sanctity Necklace",
@@ -700,7 +704,7 @@ function init_gear_sets()
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
-    hands="Jhakri Cuffs +2",
+    hands="Amalric Gages +1",
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
     neck="Sanctity Necklace",
@@ -729,13 +733,12 @@ function init_gear_sets()
 		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}}
 	
 	sets.midcast.Flash = {
-		sub="Alber Strap",
 		ammo="Sapience Orb",
 		head={ name="Kaabnax Hat", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
-		body="Mallquis Saio +1",
+		body="Mallquis Saio +2",
 		hands="Jhakri Cuffs +2",
 		legs={ name="Hagondes Pants +1", augments={'Phys. dmg. taken -4%',}},
-		feet="Mallquis Clogs +1",
+		feet="Mallquis Clogs +2",
 		neck="Unmoving Collar",
 		waist="Goading Belt",
 		left_ear="Regal Earring",
@@ -767,7 +770,7 @@ function init_gear_sets()
  
     -- Resting sets
 	
-    sets.resting = {
+    sets.resting = {        main="Contemplator +1",
         head="Befouled Crown",
         body="Shamash Robe",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -781,8 +784,7 @@ function init_gear_sets()
 	-- remember to alter the refresh sets (Ctrl+F to find them)
 
     sets.idle = {
-        main="Contemplator +1",
-        sub="Alber Strap",
+
         head="Befouled Crown",
         body="Shamash Robe",
         legs="Assid. Pants +1",
@@ -809,7 +811,7 @@ function init_gear_sets()
     back="Moonlight Cape",
 	}
      
-    sets.Adoulin = {body="Councilor's Garb",}
+    sets.Adoulin = {}
 
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     
@@ -943,7 +945,6 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.engaged.Locked = {
-        ammo="Per. Lucky Egg",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
