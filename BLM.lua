@@ -538,7 +538,7 @@ function init_gear_sets()
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Mujin Band",
         back="Taranus's Cape",
     }
 
@@ -564,7 +564,7 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
 		main="Marin Staff +1",
 		sub="Alber Strap",
-        ammo="Pemphredo Tathlum",
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Wicce Coat +3",
         hands="Amalric Gages +1",
@@ -575,7 +575,7 @@ function init_gear_sets()
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Mujin Band",
         back="Taranus's Cape",
     })
 		
@@ -618,7 +618,7 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
 		main="Marin Staff +1",
 		sub="Alber Strap",
-        ammo="Pemphredo Tathlum",
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Wicce Coat +3",
         hands="Amalric Gages +1",
@@ -629,7 +629,7 @@ function init_gear_sets()
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Mujin Band",
         back="Taranus's Cape",
     })
 
