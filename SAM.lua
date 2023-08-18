@@ -37,9 +37,22 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-organizer_items = {        
-"Drepanum",
-"Sword Strap",
+organizer_items = {     
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",   
+    "Drepanum",
+    "Sword Strap",
     "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
