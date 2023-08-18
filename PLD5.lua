@@ -131,6 +131,7 @@ function get_sets()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^` gs c toggle LockDT')
+    send_command('bind ^a gs c toggle CustomGearLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -139,8 +140,15 @@ function get_sets()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
+    --LOCKGEAR CTRL+TAB
     state.LockDT = M(false, "LockDT")
-
+   --[[Enter the slots you would lock based on a custom set up.
+        certain pieces to change for lock dt -50 piece.
+        //gs c toggle customgearlock
+         or ctrl+A ]]
+        state.CustomGearLock = M(false, "CustomGearLock")
+        --Example customGearLock = T{"head", "body", "hands", "legs", "feet", "rring", "ammo"}
+        customGearLock = T{"head", "body", "hands", "legs", "feet", "rring", "ammo"}
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
   select_default_macro_book()
   update_combat_form()
@@ -1812,7 +1820,6 @@ function get_sets()
     end
     if stateField == "LockDT" then
         --This command overrides everything and blocks all gear changes
-        --Will lock until turned off or Pet is disengaged
         if newValue == true then
             disable(
                 "main",
@@ -1853,6 +1860,14 @@ function get_sets()
                 "feet"
             )
         end
+    end
+    if stateField == "CustomGearLock" then --Updates HUB and disables/enables gear from custom lock
+      if newValue == true then
+        disable(customGearLock)
+      else
+        enable(customGearLock)
+        handle_equipping_gear(player.status)
+      end
     end
   end
   function update_combat_form()
