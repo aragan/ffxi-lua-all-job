@@ -37,9 +37,22 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
-organizer_items = {        "Prime Sword",
-"Drepanum",
-"Lentus Grip",
+organizer_items = {     
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",   
+    "Drepanum",
+    "Sword Strap",
     "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
@@ -836,7 +849,7 @@ function init_gear_sets()
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    right_ear="Kasuga Earring",
+    right_ear="Kasuga Earring +1 +1",
     left_ear="Dedition Earring",
     right_ring="Chirich Ring +1",
     left_ring="Niqmaddu Ring",
@@ -852,7 +865,7 @@ function init_gear_sets()
     feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
     neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    right_ear="Kasuga Earring",
+    right_ear="Kasuga Earring +1 +1",
     left_ear="Dedition Earring",
     right_ring="Chirich Ring +1",
     left_ring="Niqmaddu Ring",
@@ -869,7 +882,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1 +1",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -884,7 +897,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
         left_ear="Telos Earring",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1 +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back="Smertrios's Mantle",
@@ -898,7 +911,7 @@ function init_gear_sets()
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1 +1",
         left_ear="Dedition Earring",
         right_ring="Chirich Ring +1",
         left_ring="Niqmaddu Ring",
@@ -913,7 +926,7 @@ function init_gear_sets()
         feet="Wakido Sune. +3",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Gerdr Belt",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ear="Dedition Earring",
         right_ring="Chirich Ring +1",
         left_ring="Niqmaddu Ring",
@@ -960,7 +973,7 @@ function init_gear_sets()
          neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
          waist={ name="Sailfi Belt +1", augments={'Path: A',}},
          left_ear="Telos Earring",
-         right_ear="Kasuga Earring",
+         right_ear="Kasuga Earring +1",
          left_ring="Niqmaddu Ring",
          right_ring="Petrov Ring",
          back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -991,7 +1004,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -1039,7 +1052,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ear="Dedition Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
@@ -1056,7 +1069,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ear="Dedition Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Defending Ring",
@@ -1072,7 +1085,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Ioskeha Belt +1",
         left_ear="Telos Earring",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Defending Ring",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -1087,7 +1100,7 @@ function init_gear_sets()
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Gerdr Belt",
         left_ear="Dedition Earring",
-        right_ear="Kasuga Earring",
+        right_ear="Kasuga Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
@@ -1286,7 +1299,13 @@ if spellMap == 'Utsusemi' then
         send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
     end
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
