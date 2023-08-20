@@ -17,6 +17,7 @@ function get_sets()
     res = require 'resources'
   end
   organizer_items = {
+    "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
     "Sovereign's Hide",
@@ -110,7 +111,7 @@ function get_sets()
   function user_setup()
     state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
-  
+
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
   --state.DefenseMode:options('Normal', 'PDT')
@@ -140,6 +141,9 @@ function get_sets()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs disable head body hands legs feet rring ammo')
+    send_command('bind !/ gs enable all')
     --LOCKGEAR CTRL+TAB
     state.LockDT = M(false, "LockDT")
    --[[Enter the slots you would lock based on a custom set up.
@@ -246,13 +250,13 @@ function get_sets()
    back="Moonlight Cape",
   }
   sets.precast.FC.DT = set_combine(sets.precast.FC, {})
-   sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
+  sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
   sets.precast.FC.Enlight = sets.precast.FC
   sets.precast.FC['Enlight II'] = sets.precast.FC
   sets.precast.FC.Protect = sets.precast.FC
   sets.precast.FC.Shell = sets.precast.FC
   sets.precast.FC.Crusade = sets.precast.FC
-   sets.precast.FC.Cure = set_combine(sets.precast.FC,{
+  sets.precast.FC.Cure = set_combine(sets.precast.FC,{
    right_ear="Mendi. Earring",
    left_ring="Moonlight Ring",
    waist="Acerbic Sash +1",
@@ -1142,22 +1146,6 @@ function get_sets()
     
    -- sets.Repulse = {back="Repulse Mantle"}
   --3367 HP   
-   sets.defense.PDT = {
-     main="Burtgang",
-     ammo="Eluder's Sachet",
-     head="Chev. Armet +3",
-     body="Chev. Cuirass +3",
-     hands="Chev. Gauntlets +3",
-     legs="Chev. Cuisses +3",
-     feet="Chev. Sabatons +3",
-     neck="Elite Royal Collar",
-     waist="Flume Belt +1",
-     left_ear="Tuisto Earring",
-     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-     left_ring="Warden's Ring",
-     right_ring="Fortified Ring",
-     back="Reiki Cloak",
-  }
    -- To cap MDT with Shell IV (52/256), need 76/256 in gear. Current gear set is 248/256.
    -- Shellra V can provide 75/256.
    sets.defense.MDT ={
@@ -1353,7 +1341,7 @@ function get_sets()
    waist="Plat. Mog. Belt",
   })
   
-  sets.defense.DeathSpike = {
+  --[[sets.defense.DeathSpike = {
    main="Burtgang",
    ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
@@ -1368,7 +1356,7 @@ function get_sets()
    left_ring="Shadow Ring",
    right_ring="Archon Ring",
      back="Rudianos's Mantle",
-  }
+  }]]
   
   sets.defense.Convert = {    main="Burtgang",
    ammo="Iron Gobbet",
@@ -1411,7 +1399,7 @@ function get_sets()
    sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
    sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
    sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
-   sets.defense.DeathSpike.Reraise = set_combine(sets.defense.DeathSpike, sets.Reraise)
+   --sets.defense.DeathSpike.Reraise = set_combine(sets.defense.DeathSpike, sets.Reraise)
    sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
    sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
    sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
@@ -1425,7 +1413,7 @@ function get_sets()
    sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
    sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
    sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
-   sets.defense.DeathSpike.Doom = set_combine(sets.defense.DeathSpike, sets.Doom)
+   --sets.defense.DeathSpike.Doom = set_combine(sets.defense.DeathSpike, sets.Doom)
    sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
    sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
    sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
@@ -1619,11 +1607,11 @@ function get_sets()
     end
   end
   function job_buff_change(buff,gain)
-    if buff == "terror" then
-        if gain then
-            equip(sets.defense.PDT)
-        end
-    end
+    --if buff == "terror" then
+        --if gain then
+            --equip(sets.defense.PDT)
+        --end
+    --end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -1642,6 +1630,25 @@ function get_sets()
             send_command('input /p Petrification, please Stona.')		
         else
         send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+        handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
         end
     end
   end
