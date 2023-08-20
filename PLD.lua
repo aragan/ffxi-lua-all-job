@@ -1,5 +1,14 @@
--- NOTE: I do not play run, so this will not be maintained for 'active' use. 
--- It is added to the repository to allow people to have a baseline to build from,
+-------------------------------------------------------------------------------------------------------------------
+-- Initialization function that defines sets and variables to be used.
+-------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+----------------------------------------------------------------------------------- It is added to the repository to allow people to have a baseline to build from,
 -- and make sure it is up-to-date with the library API.
 
 
@@ -17,6 +26,10 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {
+    "Tumult's Blood",
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
     "Grape Daifuku",
     "Soy Ramen",
     "G. Curry Bun +1",
@@ -27,11 +40,11 @@ organizer_items = {
     "Crab Sushi",
     "Om. Sandwich",
     "Red Curry Bun",
-"Foreshock Sword",
-"Hepatizon Axe +1",
-"Aettir",
-"Sword Strap",
-"Mafic Cudgel",
+    "Foreshock Sword",
+    "Hepatizon Axe +1",
+    "Aettir",
+    "Sword Strap",
+    "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -66,6 +79,7 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
+
     send_command('wait 6;input /lockstyleset 165')
 
     
@@ -131,11 +145,16 @@ function user_setup()
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
 	  send_command('bind f6 gs c cycle ShieldMode')
-    --send_command('bind f1 gs c cycle TartarusdMode')
+     --send_command('bind f1 gs c cycle TartarusdMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
-
+     -- ctrl+/ gs disable all
+    send_command('bind ^/ gs disable all')
+     --Alt+; disable head body hands legs feet rring ammo
+    send_command('bind ^; gs disable head body hands legs feet rring ammo')
+     --Alt+/ enable all
+    send_command('bind !/ gs enable all')
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
 	select_default_macro_book()
   update_combat_form()
@@ -1584,7 +1603,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     end
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 
 function job_aftercast(spell)
     if not spell.interrupted then
@@ -1628,6 +1652,26 @@ function job_buff_change(buff,gain)
             send_command('input /p Petrification, please Stona.')		
         else
         send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+        handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
         end
     end
 end
@@ -1739,7 +1783,7 @@ function customize_melee_set(meleeSet)
 end
 windower.register_event('hpp change',
 function(new_hpp,old_hpp)
-    if new_hpp < 8 then
+    if new_hpp < 5 then
         equip(sets.Reraise)
     end
 end
@@ -1755,7 +1799,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan RUN.Lua File (from Asura)')
+add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
 add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
