@@ -1154,7 +1154,7 @@ sets.TreasureHunter = {
     head="Chev. Armet +3",
     body={ name="Sakpata's Plate", augments={'Path: A',}},
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Chev. Cuisses +3",
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
