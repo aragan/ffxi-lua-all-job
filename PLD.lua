@@ -1149,7 +1149,6 @@ sets.TreasureHunter = {
  --3367 HP   
    sets.defense.PDT = {
     main="Burtgang",
-    sub="Duban",
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
     body={ name="Sakpata's Plate", augments={'Path: A',}},
