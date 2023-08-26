@@ -1148,20 +1148,21 @@ sets.TreasureHunter = {
    -- sets.Repulse = {back="Repulse Mantle"}
  --3367 HP   
    sets.defense.PDT = {
-     main="Burtgang",
-     ammo="Eluder's Sachet",
-     head="Chev. Armet +3",
-     body="Chev. Cuirass +3",
-     hands="Chev. Gauntlets +3",
-     legs="Chev. Cuisses +3",
-     feet="Chev. Sabatons +3",
-     neck="Elite Royal Collar",
-     waist="Flume Belt +1",
-     left_ear="Tuisto Earring",
-     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-     left_ring="Warden's Ring",
-     right_ring="Fortified Ring",
-     back="Reiki Cloak",
+    main="Burtgang",
+    sub="Duban",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
 }
    -- To cap MDT with Shell IV (52/256), need 76/256 in gear. Current gear set is 248/256.
    -- Shellra V can provide 75/256.
@@ -1290,44 +1291,27 @@ sets.defense.Enmitymax = {     ammo="Iron Gobbet",
    feet="Chev. Sabatons +3",
    neck={ name="Loricate Torque +1", augments={'Path: A',}},
    waist="Plat. Mog. Belt",
-   left_ear="Tuisto Earring",
-   right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-   right_ring="Moonlight Ring",
-   back="Rudianos's Mantle",
-}
-
-sets.defense.PDT = {
-   main="Burtgang",
-   ammo="Iron Gobbet",
-   head="Chev. Armet +3",
-   body="Chev. Cuirass +3",
-   hands="Chev. Gauntlets +3",
-   legs="Chev. Cuisses +3",
-   feet="Chev. Sabatons +3",
-   neck={ name="Loricate Torque +1", augments={'Path: A',}},
-   waist="Flume Belt +1",
    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   right_ear="Chev. Earring +1",
-   left_ring="Warden's Ring",
-   right_ring="Fortified Ring",
-   back="Reiki Cloak",
+   right_ear="Tuisto Earring",
+   right_ring="Defending Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+   back="Rudianos's Mantle",
 }
 
 sets.defense.PDH = {
    main="Burtgang",
-   ammo="Iron Gobbet",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
-   body="Chev. Cuirass +3",
+   body="Sakpata's Plate",
    hands="Chev. Gauntlets +3",
    legs="Chev. Cuisses +3",
-   feet="Chev. Sabatons +3",
-   neck="Elite Royal Collar",
-   waist="Flume Belt +1",
+   feet="Sakpata's Leggings",
+   neck={ name="Loricate Torque +1", augments={'Path: A',}},
+   waist="Plat. Mog. Belt",
    left_ear="Tuisto Earring",
    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring="Moonlight Ring",
-   right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+   right_ring="Defending Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
    back="Rudianos's Mantle",
 }
 
@@ -1375,8 +1359,9 @@ sets.defense.DeathSpike = {
      back="Rudianos's Mantle",
 }
 
-sets.defense.Convert = {    main="Burtgang",
-   ammo="Iron Gobbet",
+sets.defense.Convert = {    
+   main="Burtgang",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
    body="Rev. Surcoat +3",
    hands="Chev. Gauntlets +3",
@@ -1393,7 +1378,7 @@ sets.defense.Convert = {    main="Burtgang",
 
 sets.defense.Block = {
    main="Burtgang",
-   ammo="Iron Gobbet",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
    body="Chev. Cuirass +3",
    hands="Chev. Gauntlets +3",
@@ -1403,7 +1388,7 @@ sets.defense.Block = {
    waist="Flume Belt +1",
    left_ear="Thureous Earring",
    right_ear="Chev. Earring +1",
-   left_ring="Moonbeam Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
    right_ring="Moonlight Ring",
    back="Rudianos's Mantle",
 }
@@ -1440,9 +1425,7 @@ sets.defense.Block = {
    sets.Obi = {waist="Hachirin-no-Obi"}
 
    sets.Kiting = {
-   body="Sakpata's Plate",
    legs="Carmine Cuisses +1",
-   feet="Sakpata's Leggings",
 }
    --------------------------------------
    -- Engaged sets
@@ -1858,9 +1841,9 @@ function update_combat_form()
   if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
     if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
     player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
-    state.CombatForm = 'DW'
+    state.CombatForm:set('DW')
     else
-    state.CombatForm = nil
+    state.CombatForm:reset()
     end
   end
 end
