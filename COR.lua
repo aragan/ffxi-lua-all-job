@@ -93,7 +93,22 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    organizer_items  = {"Prime Sword",
+    organizer_items  = {
+        "Tumult's Blood",
+        "Sarama's Hide",
+        "Hidhaegg's Scale",
+        "Sovereign's Hide",
+        "Grape Daifuku",
+        "Soy Ramen",
+        "G. Curry Bun +1",
+        "Pukatrice Egg",
+        "Moogle Amp.",
+        "Popo. con Queso",
+        "Pear Crepe",
+        "Crab Sushi",
+        "Om. Sandwich",
+        "Red Curry Bun",
+        "Prime Sword",
         "Earp",
         "Mafic Cudgel",
         "Living Bullet",
@@ -345,17 +360,17 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 
     sets.precast.WS['Last Stand'] = {
     ammo=gear.WSbullet,
-    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body="Ikenga's Vest",
+    head="Nyame Helm",
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
-    right_ring="Dingir Ring",
+    right_ring="Cornelia's Ring",
     back="Camulus's Mantle",
     }
 
@@ -400,7 +415,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Baetyl Pendant",
-    waist="Svelt. Gouriz +1",
+    waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
@@ -870,6 +885,13 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -881,6 +903,9 @@ function job_buff_change(buff,gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+    if not midaction() then
+        handle_equipping_gear(player.status)
     end
 end
 --Read incoming packet to differentiate between Haste/Flurry I and II
