@@ -653,7 +653,8 @@ sets.defense.MDT = {head="Malignance Chapeau",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring="Shadow Ring",
-    back="Engulfer Cape +1",
+    back="Moonlight Cape",
+
 }
     
 
