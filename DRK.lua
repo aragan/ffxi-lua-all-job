@@ -18,7 +18,22 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {        
+organizer_items = {    
+    "Reikiko",
+    "Tumult's Blood",
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",    
     "Drepanum",
     "Sword Strap",
     "Mafic Cudgel",
@@ -218,7 +233,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -233,7 +248,7 @@ function init_gear_sets()
         head={ name="Nyame Helm", augments={'Path: B',}},
        body={ name="Nyame Mail", augments={'Path: B',}},
        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-       legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+       legs="Nyame Flanchard",
        feet="Heath. Sollerets +2",
         })
 
@@ -260,7 +275,7 @@ function init_gear_sets()
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     })
@@ -303,12 +318,12 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-        right_ear="Thrud Earring",
+        right_ear={ name="Heathen's Earring", augments={'Accuracy+7','Mag. Acc.+7',}},
+        left_ear="Thrud Earring",
         right_ring="Cornelia's Ring",
         left_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
@@ -319,7 +334,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Catastrophe'].PDL = set_combine(sets.precast.WS['Catastrophe'], {
@@ -327,7 +342,7 @@ function init_gear_sets()
         head="Heath. Burgeon. +2",
         body="Nyame Mail",
         hands="Sakpata's Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -376,7 +391,7 @@ sets.precast.WS['Insurgency'] = {
     head="Hjarrandi Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Sakpata's Leggings",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -414,7 +429,7 @@ sets.precast.WS['Insurgency'] = {
         head="Hjarrandi Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Sakpata's Leggings",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -449,7 +464,7 @@ sets.precast.WS['Quietus'] = {
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -463,7 +478,7 @@ sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
     head="Nyame Helm",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
 })
 sets.precast.WS['Quietus'].PDL = set_combine(sets.precast.WS['Quietus'], {
@@ -610,7 +625,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -624,7 +639,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], {
@@ -638,7 +653,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
@@ -656,7 +671,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     head="Sakpata's Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -689,7 +704,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -1503,6 +1518,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
     sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
+    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
   
 end
@@ -1692,12 +1708,6 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
-  
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'MaxAcc' then
-            equip(sets.MadrigalBonus)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -1719,6 +1729,22 @@ function job_buff_change(buff, gain)
         end
         return 
     end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+        handle_equipping_gear(player.status)    
+        end
+    end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
         if (buffactive['Last Resort']) then
             if (buffactive.embrava or buffactive.haste) and buffactive.march then
@@ -1734,6 +1760,9 @@ function job_buff_change(buff, gain)
             if not midaction() then
                 handle_equipping_gear(player.status)
             end
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
         end
     end
     -- Drain II/III HP Boost. Set SE to stay on.

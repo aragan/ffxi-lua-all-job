@@ -32,11 +32,12 @@ function get_sets()
     include('Mote-TreasureHunter')
  
 end
-send_command('wait 2;input /lockstyleset 174')
 
  
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
- 
+function job_setup()
+    send_command('wait 2;input /lockstyleset 174')
+end
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
@@ -91,6 +92,8 @@ function job_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs enable all')
 
     select_default_macro_book()
 end
@@ -162,7 +165,9 @@ function init_gear_sets()
     -- Can put HP/MP set here for convert
 	
     sets.precast.JA.Convert = {}
- 
+    sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
  
     -- Base precast Fast Cast set, this set will have to show up many times in the function section of the lua
 	-- So dont forget to do that.
@@ -976,7 +981,12 @@ function job_precast(spell, action, spellMap, eventArgs)
 		sets.precast.FC = sets.precast['Impact']
     end
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 function job_post_precast(spell, action, spellMap, eventArgs)
 	if player.mp > 2000 and state.VorsealMode.value == 'Vorseal' then
 	equip(sets.precast.FC.HighMP)

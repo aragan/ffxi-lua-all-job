@@ -597,13 +597,12 @@ function get_sets()
        main="Sakpata's Sword",
        sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
        ammo="Staunch Tathlum +1",
-       head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
+       head={ name="Odyssean Helm", augments={'INT+5','"Cure" potency +8%','Phalanx +4','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        neck="Incanter's Torque",
-       waist="Gishdubar Sash",
+       waist="Olympus Sash",
        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
        right_ear="Andoaa Earring",
        left_ring="Stikini Ring +1",
@@ -1825,68 +1824,23 @@ function get_sets()
     else
         enable('main','sub')
     end
-    if stateField == "LockDT" then
-        --This command overrides everything and blocks all gear changes
-        if newValue == true then
-            disable(
-                "main",
-                "sub",
-                "range",
-                "ammo",
-                "head",
-                "neck",
-                "lear",
-                "rear",
-                "body",
-                "hands",
-                "lring",
-                "rring",
-                "back",
-                "waist",
-                "legs",
-                "feet"
-            )
-    
-        else
-            enable(
-                "main",
-                "sub",
-                "range",
-                "ammo",
-                "head",
-                "neck",
-                "lear",
-                "rear",
-                "body",
-                "hands",
-                "lring",
-                "rring",
-                "back",
-                "waist",
-                "legs",
-                "feet"
-            )
-        end
-    end
     if stateField == "CustomGearLock" then --Updates HUB and disables/enables gear from custom lock
-      if newValue == true then
         disable(customGearLock)
-      else
+    else
         enable(customGearLock)
-        handle_equipping_gear(player.status)
-      end
+      
     end
   end
   function update_combat_form()
-  -- Check for H2H or single-wielding
-  if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-    if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
-    player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
-    state.CombatForm = 'DW'
-    else
-    state.CombatForm = nil
+    -- Check for H2H or single-wielding
+    if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
+      if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
+      player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
+      state.CombatForm:set('DW')
+      else
+      state.CombatForm:reset()
+      end
     end
-  end
   end
   ------------------------------------------------------------------
   -- Timer manipulation
@@ -2016,23 +1970,11 @@ function get_sets()
     eventArgs.handled = true
   end
   function job_self_command(cmdParams, eventArgs)
-    gearinfo(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'rune' then
         send_command('@input /ja '..state.Runes.value..' <me>')
     end
   end
-  function gearinfo(cmdParams, eventArgs)
-    if cmdParams[1] == 'gearinfo' then
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-  
-    end
-  end
+
   ------------------------------------------------------------------
   -- Reset events
   ------------------------------------------------------------------

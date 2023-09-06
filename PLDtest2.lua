@@ -119,9 +119,10 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- , 'Priwen', 'Srivatsa' }
+    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis', 'Priwen'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
-
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
@@ -131,7 +132,7 @@ function user_setup()
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm')
-    state.HybridMode:options('Normal', 'PDT', 'MDT', 'ReverenceGauntlets')
+    state.HybridMode:options('Normal', 'PDT', 'MDT', 'Turtle', 'ReverenceGauntlets')
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
     --state.HybridDefenseMode=('none')
@@ -139,6 +140,7 @@ function user_setup()
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 200')
+    send_command('bind f1 gs c update user')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -599,12 +601,13 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        main="Sakpata's Sword",
        sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
        ammo="Staunch Tathlum +1",
-       head={ name="Odyssean Helm", augments={'INT+5','"Cure" potency +8%','Phalanx +4','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
+       head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        neck="Incanter's Torque",
-       waist="Olympus Sash",
+       waist="Gishdubar Sash",
        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
        right_ear="Andoaa Earring",
        left_ring="Stikini Ring +1",
@@ -1072,28 +1075,30 @@ sets.TreasureHunter = {
    }
     
    -- Idle sets
-   sets.idle =  { ammo="Iron Gobbet",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Carmine Cuisses +1",
-   feet="Sakpata's Leggings",
-   neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-   waist="Flume Belt +1",
-   left_ear="Thureous Earring",
-   right_ear="Ethereal Earring",
-   left_ring="Patricius Ring",
-   right_ring="Defending Ring",
-   back="Rudianos's Mantle",
+   sets.idle =  { 
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Chev. Cuisses +3",
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
    }
    sets.idle.Field = sets.idle
 
-   sets.idle.EnemyCritRate ={
+   sets.idle.EnemyCritRate =set_combine(sets.idle,{
        ammo="Eluder's Sachet",
        left_ring="Warden's Ring",
        right_ring="Fortified Ring",
        back="Reiki Cloak",
-}
+})
    sets.idle.ReverenceGauntlets ={
        hands="Rev. Gauntlets +3",
 }
@@ -1173,7 +1178,7 @@ sets.TreasureHunter = {
    legs="Sakpata's Cuisses",
    feet="Sakpata's Leggings",
    neck="Warder's Charm +1",
-   waist="Plat. Mog. Belt",
+   waist="Creed Baudrier",
    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
    right_ear="Sanare Earring",
    left_ring="Shadow Ring",
@@ -1435,19 +1440,19 @@ sets.defense.Block = {
    sets.engaged.Acc = --1179 / 1315 avec enlight up
    {main="Naegling",
    sub="Blurred Shield +1",
-   ammo="Ginsen",
-   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   ammo="Amar Cluster",
+   head="Sakpata's Helm",
    body="Sakpata's Plate",
    hands="Sakpata's Gauntlets",
    legs="Sakpata's Cuisses",
    feet="Sakpata's Leggings",
-   neck="Lissome Necklace",
+   neck="Subtlety Spec.",
    waist="Olseni Belt",
-   left_ear="Mache Earring +1",
+   left_ear="Crep. Earring",
    right_ear="Telos Earring",
    left_ring="Chirich Ring +1",
    right_ring="Chirich Ring +1",
-   back="Annealed Mantle",
+   back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
 
 sets.engaged.Tp = --1179 / 1315 avec enlight up
@@ -1528,6 +1533,21 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
        neck={ name="Warder's Charm +1", augments={'Path: A',}},
        left_ring="Shadow Ring",
    }
+   sets.engaged.Turtle = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Loess Barbuta +1", augments={'Path: A',}},
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Trux Earring",
+    right_ear="Cryptic Earring",
+    left_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
+}
    sets.engaged.ReverenceGauntlets = {    
     hands="Rev. Gauntlets +3",
  }
@@ -1614,6 +1634,7 @@ function job_buff_change(buff,gain)
         if gain then
             equip(sets.defense.PDT)
         end
+        handle_equipping_gear(player.status)
     end
     if buff == "doom" then
         if gain then
@@ -1636,28 +1657,41 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
         end
     end
+    if buff == "Rampart" then
+        if gain then  			
+            send_command('input /p "Rampart" [ON]')		
+        else	
+            send_command('input /p "Rampart" [OFF]')
+        end
+    end
     if buff == "Charm" then
         if gain then  			
            send_command('input /p Charmd, please Sleep me.')		
         else	
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
         end
     end
     if buff == "sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
         else
-        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
-        handle_equipping_gear(player.status)    
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
         end
         if not midaction() then
             handle_equipping_gear(player.status)
+            job_update()
         end
     end
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
-    update_combat_form() 	
+    check_moving()
+    update_combat_form()
+    check_gear()
     if state.ShieldMode.value == "Duban" then
 	   equip({sub="Duban"})
     elseif state.ShieldMode.value == "Ochain" then
@@ -1668,8 +1702,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
       equip({})
 	--elseif state.ShieldMode.value == "Srivatsa" then
 	   --equip({sub="Srivatsa"})
-    	--elseif state.ShieldMode.value == "Priwen" then
-	   --equip({sub="Priwen"})
+    elseif state.ShieldMode.value == "Priwen" then
+	   equip({sub="Priwen"})
 	  end
     --if state.TartarusdMode.value == "Tartarus Platemail" then
       --equip({body="Tartarus Platemail"})
@@ -1679,11 +1713,11 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 end
 function job_precast(spell, action, spellMap, eventArgs)
 
-    if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+    --[[if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
         add_to_chat(167, 'Action stopped due to status.')
         eventArgs.cancel = true
         return
-    end
+    end]]
     if rune_enchantments:contains(spell.english) then
         eventArgs.handled = true
     end
@@ -1718,7 +1752,10 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-
+function job_update(cmdParams, eventArgs)
+    check_moving()
+    handle_equipping_gear(player.status)
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
@@ -1746,6 +1783,9 @@ function customize_idle_set(idleSet)
     end
     if state.Buff.Doom then
         idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
     end
   return idleSet
 end
@@ -1845,6 +1885,40 @@ function update_combat_form()
     end
   end
 end
+function check_moving()
+    --[[add_to_chat(123, 'Check Movement')
+    if state.Kiting.value then
+        add_to_chat(121, 'Kite True')
+    else
+        add_to_chat(121, 'Kite False')
+    end
+ 
+    if state.Auto_Kite.value then
+        add_to_chat(122, 'A-Kite True')
+    else
+        add_to_chat(122, 'A-Kite False')
+    end
+ 
+    if moving then
+        add_to_chat(120, 'Moving')
+    else
+        add_to_chat(120, 'Not Moving')
+    end]]
+ 
+    if state.DefenseMode.value == 'None' and state.Kiting.value == false then
+        if not state.Auto_Kite.value and moving then
+            state.Auto_Kite:set(true)
+            add_to_chat(123, 'Auto-Kite on')
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+            add_to_chat(123, 'Auto-Kite off')
+        end
+    end
+end
+function check_gear()
+
+end
+
 ------------------------------------------------------------------
 -- Timer manipulation
 ------------------------------------------------------------------
@@ -1955,6 +2029,32 @@ function sub_job_change(new,old)
     end
 end
 function display_current_job_state(eventArgs)
+    local i_msg = state.IdleMode.value
+  
+    local msg = ''
+    if state.Kiting.value then
+        msg = msg .. ' Kiting: On |'
+    end
+    local cf_msg = ''
+    if state.CombatForm.has_value then
+        cf_msg = ' (' ..state.CombatForm.value.. ')'
+    end
+    local m_msg = state.OffenseMode.value
+    if state.HybridMode.value ~= 'Normal' then
+        m_msg = m_msg .. '/' ..state.HybridMode.value
+    end
+  
+    local ws_msg = state.WeaponskillMode.value
+  
+    local d_msg = 'None'
+    if state.DefenseMode.value ~= 'None' then
+        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+    end
+  
+    local i_msg = state.IdleMode.value
+  
+    local msg = ''
+
     local r_msg = state.Runes.current
     local r_color = ''
     if state.Runes.current == 'Ignis' then r_color = 167
@@ -1987,7 +2087,9 @@ function gearinfo(cmdParams, eventArgs)
                 moving = false
             end
         end
-
+        if not midaction() then
+            job_update()
+        end
     end
 end
 ------------------------------------------------------------------

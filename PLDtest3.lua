@@ -1534,16 +1534,15 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
        left_ring="Shadow Ring",
    }
    sets.engaged.Turtle = {
-    main="Burtgang",
     ammo="Staunch Tathlum +1",
-    head={ name="Sakpata's Helm", augments={'Path: A',}},
+    head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Sakpata's Plate", augments={'Path: A',}},
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Carrier's Sash",
-    left_ear="Eabani Earring",
+    left_ear="Trux Earring",
     right_ear="Cryptic Earring",
     left_ring="Moonbeam Ring",
     right_ring="Moonlight Ring",
@@ -1656,6 +1655,13 @@ function job_buff_change(buff,gain)
         else
         send_command('input /p '..player.name..' is no longer Petrify Thank you !')
         handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Rampart" then
+        if gain then  			
+            send_command('input /p "Rampart" [ON]')		
+        else	
+            send_command('input /p "Rampart" [OFF]')
         end
     end
     if buff == "Charm" then

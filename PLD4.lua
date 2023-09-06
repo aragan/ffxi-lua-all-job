@@ -17,7 +17,8 @@ include('Mote-Include.lua')
   res = require 'resources'
 end
 organizer_items = {
-  "Sarama's Hide",
+    "Tumult's Blood",
+    "Sarama's Hide",
   "Hidhaegg's Scale",
   "Sovereign's Hide",
   "Grape Daifuku",
@@ -68,7 +69,8 @@ organizer_items = {
 
 -- Setup vars that are user-independent.
 function job_setup()
-  state.WeaponLock = M(false, 'Weapon Lock')
+    state.WeaponLock = M(false, 'Weapon Lock')
+
   send_command('wait 6;input /lockstyleset 165')
 
   
@@ -138,7 +140,9 @@ function user_setup()
   send_command('bind f4 gs c cycle Runes')
   send_command('bind f3 gs c cycleback Runes')
   send_command('bind f2 input //gs c rune')
-
+  send_command('bind ^/ gs disable all')
+  send_command('bind ^; gs disable head body hands legs feet rring ammo')
+  send_command('bind !/ gs enable all')
   state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
 select_default_macro_book()
 update_combat_form()
@@ -1626,6 +1630,13 @@ function job_buff_change(buff,gain)
           handle_equipping_gear(player.status)
       end
   end
+  if buff == "Charm" then
+    if gain then  			
+       send_command('input /p Charmd, please Sleep me.')		
+    else	
+       send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+    end
+  end
   if buff == "petrification" then
       if gain then    
           equip(sets.defense.PDT)
@@ -1633,6 +1644,18 @@ function job_buff_change(buff,gain)
       else
       send_command('input /p '..player.name..' is no longer Petrify Thank you !')
       end
+  end
+  if buff == "sleep" then
+    if gain then    
+        equip(sets.Sleep)
+        send_command('input /p ZZZzzz, please cure.')		
+    else
+    send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+    handle_equipping_gear(player.status)    
+    end
+    if not midaction() then
+        handle_equipping_gear(player.status)
+    end
   end
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
@@ -1809,14 +1832,14 @@ function job_state_change(stateField, newValue, oldValue)
 end
 function update_combat_form()
 -- Check for H2H or single-wielding
-if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-  if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
-  player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
-  state.CombatForm = 'DW'
-  else
-  state.CombatForm = nil
+  if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
+    if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
+    player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
+    state.CombatForm:set('DW')
+    else
+    state.CombatForm:reset()
+    end
   end
-end
 end
 ------------------------------------------------------------------
 -- Timer manipulation

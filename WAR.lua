@@ -20,6 +20,7 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {
+            "Reikiko",
             "Tumult's Blood",
             "Sarama's Hide",
             "Hidhaegg's Scale",
@@ -167,7 +168,7 @@ function init_gear_sets()
      -- Precast Sets
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
-     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +2",}
+     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3",}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
      sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
@@ -1130,7 +1131,7 @@ function init_gear_sets()
      sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Boii Lorica +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
@@ -1145,7 +1146,7 @@ function init_gear_sets()
     sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Boii Lorica +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
@@ -1273,7 +1274,7 @@ function init_gear_sets()
     sets.engaged.DW = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Boii Lorica +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
@@ -1289,7 +1290,7 @@ function init_gear_sets()
     sets.engaged.DW.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Boii Lorica +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
@@ -1335,7 +1336,7 @@ function init_gear_sets()
      sets.engaged.STP = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
-        body="Boii Lorica +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
         feet="Pumm. Calligae +3",

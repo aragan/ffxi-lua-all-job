@@ -613,7 +613,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        feet="Hermes' Sandals +1",
+        feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
         left_ear="Odnowa Earring",
@@ -624,7 +624,6 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         }
     sets.idle.Town = {
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        feet="Hermes' Sandals +1",
         }
     
     -- Defense sets

@@ -75,7 +75,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-    organizer_items = {"Prime Sword",
+    organizer_items = {
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -224,12 +224,6 @@ function init_gear_sets()
     sets.precast.JA['Tabula Rasa'] = {legs="Pedagogy Pants"}
     sets.precast.JA['Enlightenment'] = {body="Peda. Gown +3"}
     sets.precast.JA['Sublimation'] = {
-        feet="Skaoi Boots",
-        neck="Unmoving Collar +1",
-        ear1="Eabani Earring",
-        ear2="Etiolation Earring",
-        ring1="Gelatinous Ring +1",
-        back="Moonlight Cape",
         waist="Embla Sash",
     }
 
@@ -1006,7 +1000,12 @@ function job_buff_change(buff, gain)
     end
 
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
     if state.WeaponLock.value == true then
