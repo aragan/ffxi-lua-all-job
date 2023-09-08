@@ -1031,7 +1031,12 @@ end
 -- rather than simply capping you to whatever your Aspir potency set's max MP value happens to be.
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
-	
+    if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
+        equip(sets.magic_burst)
+        if spell.english == "Impact" then
+            equip(sets.midcast.Impact)
+        end
+    end
 	if (spell.skill == 'Elemental Magic' or spell.skill == 'Healing Magic') and (spell.element == world.weather_element or spell.element == world.day_element) then
         equip(sets.Obi)
 	end
@@ -1054,17 +1059,17 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip(sets.Obi)
         end
     end
-	if spell.skill == 'Elemental Magic' and spell.english ~= 'Impact' and (player.mp-spell.mp_cost) < 436 then
+	--[[if spell.skill == 'Elemental Magic' and spell.english ~= 'Impact' and (player.mp-spell.mp_cost) < 436 then
 		equip(sets.AFBody)
-	end
+	end]]
 		
 	if spell.skill == 'Enfeebling Magic' and state.Enfeebling.Value == 'Effect' then
 		equip(sets.midcast['Enfeebling Magic'].Effect)
 	end
 	
-	if spell.skill == 'Elemental Magic' and (string.find(spell.english,'ga') or string.find(spell.english,'ja') or string.find(spell.english,'ra')) then
+	--[[if spell.skill == 'Elemental Magic' and (string.find(spell.english,'ga') or string.find(spell.english,'ja') or string.find(spell.english,'ra')) then
             equip(sets.AFBody)
-	end
+	end]]
 	
 	if spellMap == 'Cure' and state.ManawallMode.Value == 'No_Swaps' then
 		equip(sets.midcast.Mana_Wall_No_Swap)
