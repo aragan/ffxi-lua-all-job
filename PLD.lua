@@ -80,7 +80,7 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
 
-    send_command('wait 6;input /lockstyleset 165')
+    send_command('wait 6;input /lockstyleset 150')
 
     
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
@@ -138,7 +138,7 @@ function user_setup()
     --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 150')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -1124,7 +1124,7 @@ sets.TreasureHunter = {
     left_ring="Vengeful Ring",
     right_ring="Purity Ring",
     back="Rudianos's Mantle",}
-    sets.idle.Town ={legs="Carmine Cuisses +1"}
+    sets.idle.Town = {legs="Carmine Cuisses +1"}
     
    sets.idle.Weak = {head="Twilight Helm", body="Twilight Mail"}
     
@@ -1951,7 +1951,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 200')
+        send_command('wait 6;input /lockstyleset 150')
     end
 end
 function display_current_job_state(eventArgs)

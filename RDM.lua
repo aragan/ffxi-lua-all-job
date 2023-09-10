@@ -70,7 +70,7 @@ function job_setup()
 	send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind !` gs c toggle MagicBurst')
-    send_command('wait 6;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 152')
 
 end
 
@@ -97,7 +97,7 @@ function user_setup()
 	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
-	send_command('wait 2;input /lockstyleset 174')
+	send_command('wait 2;input /lockstyleset 152')
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -117,7 +117,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     sets.precast.JA['Chainspell'] = {body="Vitivation Tabard +3"}
-    
+	sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {    legs="Dashing Subligar",
@@ -1136,7 +1138,12 @@ function job_precast(spell, action, spellMap, eventArgs)
     end
 end
 	
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 
 function job_midcast(spell, action, spellMap, eventArgs)
 	if spell.english == "Impact" then
@@ -1413,7 +1420,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 -------------------------------------------------------------------------------------------------------------------

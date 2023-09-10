@@ -160,7 +160,7 @@ function init_gear_sets()
 	
     sets.precast.JA['Mana Wall'] = {back="Taranus's cape",feet="Wicce Sabots +1"}
  
-    sets.precast.JA.Manafont = {body="Sorcerer's Coat +2"}
+    sets.precast.JA.Manafont = {body={ name="Arch. Coat", augments={'Enhances "Manafont" effect',}},}
      
     -- Can put HP/MP set here for convert
 	
@@ -815,8 +815,9 @@ function init_gear_sets()
     right_ring="Shadow Ring",
     back="Moonlight Cape",
 	}
-     
-    sets.Adoulin = {}
+    sets.idle.Town = {feet="Herald's Gaiters"}
+
+    sets.Adoulin = {body="Councilor's Garb", feet="Herald's Gaiters"}
 
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     
@@ -1215,9 +1216,9 @@ function job_buff_change(buff, gain)
 	elseif buff == "Vorseal" and not gain then
 	send_command('gs c cycle VorsealMode')
 	end
-	if buff == "Visitant" then
+	--[[if buff == "Visitant" then
 	send_command('gs l blm3.lua')
-	end
+	end]]
     -- Unlock feet when Mana Wall buff is lost.
 	if buff == "Mana Wall" then
 	send_command('wait 0.5;gs c update')

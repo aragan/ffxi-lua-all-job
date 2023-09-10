@@ -73,7 +73,7 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 166')
+    send_command('wait 6;input /lockstyleset 152')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
@@ -119,7 +119,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.IdleMode:options('Normal', 'Refresh')
 
-      
+    state.RP = M(false, "Reinforcement Points Mode")    
     war_sj = player.sub_job == 'WAR' or false
   
     -- Additional local binds
@@ -128,10 +128,10 @@ function user_setup()
     send_command('bind @f9 gs c toggle SouleaterMode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^- gs enable all')
-    send_command('wait 2;input /lockstyleset 166')
+    send_command('bind !/ gs enable all')
+    send_command('wait 2;input /lockstyleset 152')
     send_command('bind !w gs c toggle WeaponLock')
-
+    send_command('bind !- gs c toggle RP')  
 
     select_default_macro_book()
 end
@@ -1519,7 +1519,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     right_ring="Blenmot's Ring +1",}
     sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
-
+    sets.RP = {neck="Abyssal Beads +2"}
   
 end
   
@@ -1654,6 +1654,12 @@ function customize_idle_set(idleSet)
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end       
     return idleSet
 end
   
@@ -1668,6 +1674,12 @@ function customize_melee_set(meleeSet)
     if state.Buff['Souleater'] then
         meleeSet = set_combine(meleeSet, sets.buff.Souleater)
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end  
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet
 end
@@ -1972,7 +1984,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 166')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 function select_default_macro_book()

@@ -75,7 +75,7 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
-    send_command('wait 6;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 152')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -121,7 +121,7 @@ function user_setup()
     send_command('bind !` input /ja "Seigan" <me>')
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
-    send_command('wait 2;input /lockstyleset 179')
+    send_command('wait 2;input /lockstyleset 152')
     select_default_macro_book()
 end
  
@@ -1488,10 +1488,10 @@ function customize_idle_set(idleSet)
     --if player.hpp < 90 then
         --idleSet = set_combine(idleSet, sets.idle.Regen)
     --end
-    if state.HybridMode.current == 'PDT' then
+    --[[if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
-    end
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    end]]
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1509,7 +1509,7 @@ function customize_melee_set(meleeSet)
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1701,7 +1701,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 179')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')
