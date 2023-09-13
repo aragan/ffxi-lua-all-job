@@ -480,7 +480,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         head="Malignance Chapeau",
         body="Laksa. Frac +3",
         hands="Malignance Gloves",
-        legs="Chas. Culottes +2",
+        legs="Chas. Culottes +3",
         feet="Malignance Boots",
         neck="Sanctity Necklace",
         waist="Eschan Stone",
@@ -500,7 +500,7 @@ sets.midcast.RA = {
     head="Ikenga's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Yemaya Belt",
@@ -516,7 +516,7 @@ sets.midcast.RA = {
     head="Ikenga's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Yemaya Belt",
@@ -531,7 +531,7 @@ sets.midcast.RA.Acc = {
     head="Malignance Chapeau",
     body="Laksa. Frac +3",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Eschan Stone",
@@ -546,7 +546,7 @@ sets.midcast.RA.MaxAcc = {
     head="Malignance Chapeau",
     body="Laksa. Frac +3",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Yemaya Belt",
@@ -561,7 +561,7 @@ sets.midcast.RA.STP = {
     head="Ikenga's Hat",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Gerdr Belt",
@@ -696,11 +696,10 @@ sets.engaged = {
     back="Annealed Mantle",
     }
 sets.engaged.Acc = {
-
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
@@ -710,9 +709,7 @@ sets.engaged.Acc = {
     right_ring="Petrov Ring",
     back="Annealed Mantle",
     }
-
 sets.engaged.CRIT = {
-
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
@@ -726,11 +723,11 @@ sets.engaged.CRIT = {
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-sets.engaged.Ranged = {    
+        sets.engaged.Ranged = {    
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Chas. Culottes +2",
+        legs="Chas. Culottes +3",
         feet="Malignance Boots",
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
@@ -739,56 +736,9 @@ sets.engaged.Ranged = {
         left_ring="Epona's Ring",
         right_ring="Petrov Ring",
         back="Camulus's Mantle",
-    }
-
-sets.engaged.Acc.DW = {
-            
-            head="Malignance Chapeau",
-            body="Malignance Tabard",
-            hands="Malignance Gloves",
-            legs="Chas. Culottes +2",
-            feet="Malignance Boots",
-            neck="Iskur Gorget",
-            waist="Yemaya Belt",
-            left_ear="Suppanomimi",
-            right_ear="Telos Earring",
-            left_ring="Petrov Ring",
-            right_ring="Ilabrat Ring",
-            back="Camulus's Mantle",
-    }
-
-sets.engaged.CRIT = {
-
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body="Mummu Jacket +2",
-    hands="Mummu Wrists +2",
-    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-    feet="Mummu Gamash. +2",
-    neck="Nefarious Collar +1",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear="Brutal Earring",
-    left_ring="Epona's Ring",
-    right_ring="Hetairoi Ring",
-    back="Annealed Mantle",
-    }
-    sets.engaged.CRIT.DW = {
-
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Mummu Jacket +2",
-        hands="Mummu Wrists +2",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Mummu Gamash. +2",
-        neck="Nefarious Collar +1",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Suppanomimi",
-        right_ear="Brutal Earring",
-        left_ring="Epona's Ring",
-        right_ring="Hetairoi Ring",
-        back="Annealed Mantle",
         }
-sets.engaged.DW = {
-    
+
+        sets.engaged.DW = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -802,42 +752,121 @@ sets.engaged.DW = {
         right_ring="Petrov Ring",
         back="Annealed Mantle",
 }
-sets.engaged.PDT = {
+        sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
+            head="Malignance Chapeau",
+            body="Malignance Tabard",
+            hands="Malignance Gloves",
+            legs="Chas. Culottes +3",
+            feet="Malignance Boots",
+            neck="Iskur Gorget",
+            waist="Reiki Yotai",
+            left_ear="Suppanomimi",
+            right_ear="Telos Earring",
+            left_ring="Petrov Ring",
+            right_ring="Ilabrat Ring",
+            back="Camulus's Mantle",
+        })
+        sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
+            head={ name="Blistering Sallet +1", augments={'Path: A',}},
+            body="Mummu Jacket +2",
+            hands="Mummu Wrists +2",
+            legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+            feet="Mummu Gamash. +2",
+            neck="Nefarious Collar +1",
+            waist="Reiki Yotai",
+            left_ear="Suppanomimi",
+            right_ear="Brutal Earring",
+            left_ring="Epona's Ring",
+            right_ring="Hetairoi Ring",
+            back="Annealed Mantle",
+            })
+            sets.engaged.DW.Ranged = {    
+                head="Malignance Chapeau",
+                body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+                hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+                legs="Chas. Culottes +3",
+                feet="Malignance Boots",
+                neck="Iskur Gorget",
+                waist="Windbuffet Belt +1",
+                left_ear="Cessance Earring",
+                right_ear="Telos Earring",
+                left_ring="Epona's Ring",
+                right_ring="Petrov Ring",
+                back="Camulus's Mantle",
+                }
+sets.engaged.PDT = set_combine(sets.engaged,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
-    }
+    })
+    sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Chas. Culottes +3",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        })
+        sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
+            head="Malignance Chapeau",
+            body="Malignance Tabard",
+            hands="Malignance Gloves",
+            legs="Chas. Culottes +3",
+            feet="Malignance Boots",
+            neck={ name="Loricate Torque +1", augments={'Path: A',}},
+            left_ring="Defending Ring",
+            })
+            sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
+                head="Malignance Chapeau",
+                body="Malignance Tabard",
+                hands="Malignance Gloves",
+                legs="Chas. Culottes +3",
+                feet="Malignance Boots",
+                neck={ name="Loricate Torque +1", augments={'Path: A',}},
+                left_ring="Defending Ring",
+                })
     sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Chas. Culottes +2",
+        legs="Chas. Culottes +3",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Reiki Yotai",
         left_ring="Defending Ring",
         })
-sets.engaged.Acc.PDT = {
+sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
-    }
-    sets.engaged.Acc.DW.PDT = set_combine(sets.engaged.DW, {
+    })
+    sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Chas. Culottes +2",
+        legs="Chas. Culottes +3",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         left_ring="Defending Ring",
         })
+        sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{    
+            head="Malignance Chapeau",
+            body="Malignance Tabard",
+            hands="Malignance Gloves",
+            legs="Chas. Culottes +3",
+            feet="Malignance Boots",
+            neck={ name="Loricate Torque +1", augments={'Path: A',}},
+            left_ring="Defending Ring",
+            })
     
 
 sets.TripleShot = {
