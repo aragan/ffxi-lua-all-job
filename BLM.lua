@@ -234,7 +234,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
-		waist="Hachirin-no-Obi",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
@@ -502,7 +502,7 @@ function init_gear_sets()
         legs="Agwu's Slops",
         feet="Agwu's Pigaches",
 		neck="Mizu. Kubikazari",
-		waist="Hachirin-no-Obi",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
@@ -522,7 +522,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
@@ -539,7 +539,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Ea Pigaches +1",
         neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
@@ -576,7 +576,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Ea Pigaches +1",
         neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
@@ -594,7 +594,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Agwu's Pigaches",
         neck="Sibyl Scarf",
-        waist="Hachirin-no-Obi",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
@@ -630,7 +630,7 @@ function init_gear_sets()
         legs="Wicce Chausses +3",
         feet="Ea Pigaches +1",
         neck="Mizu. Kubikazari",
-        waist="Hachirin-no-Obi",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
@@ -678,7 +678,7 @@ function init_gear_sets()
 		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Mag. crit. hit dmg. +4%','MND+4','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
 		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}},
 		neck="Sanctity Necklace",
-		waist="Hachirin-no-Obi",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Dignitary's Earring",
         right_ear="Regal Earring",
 		left_ring="Stikini Ring",
@@ -695,7 +695,7 @@ function init_gear_sets()
 		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+10 "Mag.Atk.Bns."+10','Magic burst dmg.+8%','"Mag.Atk.Bns."+4',}},
 		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
 		neck="Mizu. Kubikazari",
-		waist="Hachirin-no-Obi",
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Regal Earring",
 		right_ear="Malignance Earring",
 		left_ring="Archon Ring",
@@ -1338,8 +1338,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan BLM.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(1, 9)

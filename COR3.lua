@@ -167,7 +167,7 @@ function init_gear_sets()
     
     sets.precast.CorsairRoll = {range={ name="Compensator", augments={'DMG:+9','Rng.Acc.+9','Rng.Atk.+9',}},
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    hands="Chasseur's Gants +3",
+    hands="Chasseur's Gants +2",
     neck="Regal Necklace",
     right_ring="Luzaf's Ring",
     back="Camulus's Mantle",}
@@ -176,7 +176,7 @@ function init_gear_sets()
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
-    sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3",})
+    sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +2",})
     
     sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
     sets.precast.FoldDoubleBust = {hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},}
@@ -186,14 +186,12 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-        head="Mummu Bonnet +2",    
-        body="Passion Jacket",
+
     }
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {
-    head="Mummu Bonnet +2",    
-    body="Passion Jacket",
+
     }
 
     -- Fast cast sets for spells
@@ -282,6 +280,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
 		left_ring="Sroda Ring", 
 	})
 	sets.precast.WS.SC = set_combine(sets.precast.WS, {
@@ -311,14 +310,15 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     }
     sets.precast.WS['Evisceration'].PDL = sets.precast.WS['Evisceration'], {
         body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
         right_ear="Mache Earring +1",
     }
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Nyame Helm",
 		body="Nyame Mail",
-        hands="Chasseur's Gants +3",
-        legs="Nyame Flanchard",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -330,6 +330,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     })
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         body="Ikenga's Vest",
+        hands="Ikenga's Gloves",
 		left_ring="Sroda Ring", 
         waist="Kentarch Belt +1",
 	})
@@ -368,7 +369,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     ammo=gear.WSbullet,
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Chasseur's Gants +3",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
@@ -383,7 +384,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     sets.precast.WS['Last Stand'].PDL = set_combine(sets.precast.WS['Last Stand'], {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Ikenga's Vest",
-    hands="Chasseur's Gants +3",
+    hands="Nyame Gauntlets",
     legs="Ikenga's Trousers",
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
@@ -411,9 +412,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         right_ring="Cornelia's Ring",
         back="Camulus's Mantle",
 }
-    sets.precast.WS['Hot Shot'] = set_combine(sets.precast.WS['Wildfire'],  {  
-    hands="Chasseur's Gants +3",})
-
+    sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
+    
     sets.precast.WS['Leaden Salute'] = {     
     ammo=gear.MAbullet,
     head="Pixie Hairpin +1",
@@ -587,7 +587,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
     ammo=gear.WSbullet,
     head="Meghanada Visor +2",
     body="Nisroch Jerkin",
-    hands="Chasseur's Gants +3",
+    hands="Chasseur's Gants +2",
     legs="Mummu Kecks +2",
     feet="Osh. Leggings +1",
     neck="Iskur Gorget",
@@ -700,7 +700,7 @@ sets.engaged.Acc = {
     head="Malignance Chapeau",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
@@ -730,7 +730,7 @@ sets.engaged.Ranged = {
         head="Malignance Chapeau",
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Chas. Culottes +2",
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
@@ -746,7 +746,7 @@ sets.engaged.Acc.DW = {
             head="Malignance Chapeau",
             body="Malignance Tabard",
             hands="Malignance Gloves",
-            legs="Chas. Culottes +2",
+            legs="Malignance Tights",
             feet="Malignance Boots",
             neck="Iskur Gorget",
             waist="Yemaya Belt",
@@ -806,7 +806,7 @@ sets.engaged.PDT = {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
@@ -815,7 +815,7 @@ sets.engaged.PDT = {
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Chas. Culottes +2",
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         left_ring="Defending Ring",
@@ -824,7 +824,7 @@ sets.engaged.Acc.PDT = {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Chas. Culottes +2",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
@@ -833,7 +833,7 @@ sets.engaged.Acc.PDT = {
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Chas. Culottes +2",
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         left_ring="Defending Ring",

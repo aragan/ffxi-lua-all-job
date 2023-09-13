@@ -38,6 +38,7 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {     
+    "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
     "Sovereign's Hide",
@@ -127,9 +128,9 @@ function user_setup()
     send_command('bind ^[ input /lockstyle on')
     send_command('bind ![ input /lockstyle off')
     send_command('bind != gs c toggle CapacityMode')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^- gs enable all')
+    send_command('bind ^; gs enable all')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('wait 2;input /lockstyleset 172')
     select_default_macro_book()
@@ -1150,6 +1151,7 @@ function init_gear_sets()
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
+    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
 end
 
@@ -1162,6 +1164,10 @@ end
 function job_pretarget(spell, action, spellMap, eventArgs)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = true
+    end
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
     end
 end
 
@@ -1374,7 +1380,25 @@ function job_buff_change(buff, gain)
              enable('feet')
         end
     end
-    if buff == "weakness" then
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
              disable('body','head')
@@ -1382,8 +1406,7 @@ function job_buff_change(buff, gain)
              enable('body','head')
         end
         return meleeSet
-    end
-    
+    end]]
     if not midaction() then
         handle_equipping_gear(player.status)
     end

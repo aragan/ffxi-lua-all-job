@@ -59,6 +59,7 @@ function job_setup()
 	get_combat_form()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('Tag')
+    state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 6;input /lockstyleset 199')
     -- list of weaponskills that make better use of Gavialis helm
@@ -86,6 +87,7 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 199')
 	select_default_macro_book()
 
@@ -774,6 +776,12 @@ sets.precast.JA.Jump = {
     })
     sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
     body="Twilight Mail",})
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+
 end
 
 
@@ -793,6 +801,10 @@ function job_pretarget(spell, action, spellMap, eventArgs)
             cancel_spell()
             send_command("High Jump")
         end
+    end
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
     end
 end
 
@@ -928,18 +940,6 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'Acc' then
-            equip(sets.MadrigalBonus)
-        end
-    end
-    if string.lower(buff) == "sleep" and gain and player.hp > 200 then
-        equip(sets.Berserker)
-    else
-        if not midaction() then
-            handle_equipping_gear(player.status)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -952,7 +952,25 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "weakness" then
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+    end
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
              disable('body','head')
@@ -960,6 +978,9 @@ function job_buff_change(buff, gain)
              disable('body','head')
         end
         return
+    end]]
+    if not midaction() then
+        handle_equipping_gear(player.status)
     end
 end
 

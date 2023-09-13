@@ -227,6 +227,20 @@ function user_unload()
 end
 
 organizer_items = {
+    "Tumult's Blood",
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -286,7 +300,9 @@ function init_gear_sets()
         right2="Vengeful Ring",
         back="Reiki Cloak",
         }
-
+    sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
     sets.precast.JA['Provoke'] = sets.Enmity
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Mirage Bazubands +2"}
@@ -467,7 +483,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Hashishin Earring",
+        right_ear="Hashi. Earring +1",
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
@@ -815,7 +831,7 @@ sets.midcast['Blue Magic'].Healing.SIRD = set_combine(sets.SIRD, sets.midcast['B
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
-    right_ear="Hashishin Earring", 
+    right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
 }
@@ -832,7 +848,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
-    right_ear="Hashishin Earring", 
+    right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
     }
@@ -1248,7 +1264,12 @@ function job_precast(spell, action, spellMap, eventArgs)
         windower.send_command('input /ja "Unbridled Learning" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
     end
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
 function job_post_midcast(spell, action, spellMap, eventArgs)

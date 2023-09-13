@@ -1573,30 +1573,36 @@ function job_buff_change(buff, gain)
             equip(sets.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
-             disable('ring1','ring2','waist','neck')
+            disable('ring1','ring2','waist','neck')
         else
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "weakness" then
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
-             disable('body','head')
+            disable('body','head')
             else
-             enable('body','head')
+            enable('body','head')
         end
         return meleeSet
-    end
+    end]]
     if buff == "sleep" then
         if gain then    
             equip(sets.Sleep)
+            disable('neck')
             send_command('input /p ZZZzzz, please cure.')		
         else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+        --[[else
         send_command('input /p '..player.name..' is no longer Sleep Thank you !')
         handle_equipping_gear(player.status)    
-        end
+        end]]
         if not midaction() then
             handle_equipping_gear(player.status)
         end
