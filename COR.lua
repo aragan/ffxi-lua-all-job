@@ -738,6 +738,11 @@ sets.engaged.CRIT = {
         back="Camulus's Mantle",
         }
 
+    -- * DNC Subjob DW Trait: +15%
+    -- * NIN Subjob DW Trait: +25%
+
+         --DW cap all set haste capped
+
         sets.engaged.DW = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -794,7 +799,10 @@ sets.engaged.CRIT = {
                 right_ring="Petrov Ring",
                 back="Camulus's Mantle",
                 }
-sets.engaged.PDT = set_combine(sets.engaged,{
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+    sets.engaged.PDT = set_combine(sets.engaged,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -877,6 +885,9 @@ sets.TripleShot = {
     feet="Osh. Leggings +1",
     }
 
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Special Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
  sets.DefaultShield = {sub="Nusku Shield"}
  sets.Doom = {    neck="Nicander's Necklace",
