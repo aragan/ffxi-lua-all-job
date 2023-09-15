@@ -473,8 +473,8 @@ function init_gear_sets()
         })
 
     sets.midcast['Enhancing Magic'] = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
-        sub="Ammurapi Shield",
+        main="Oranyan",
+        sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Telchine Cap",
         hands="Telchine Gloves",
@@ -564,6 +564,7 @@ function init_gear_sets()
 
     -- Custom spell classes
     sets.midcast.Enfeebles = {
+        main="Contemplator +1",
         ammo="Pemphredo Tathlum",
         head=empty;
         body="Cohort Cloak +1",
@@ -609,8 +610,6 @@ function init_gear_sets()
         }
 
     sets.midcast.Kaustra = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Pixie Hairpin +1",
         body="Agwu's Robe",
@@ -646,6 +645,8 @@ function init_gear_sets()
 
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {
+        main={ name="Marin Staff +1", augments={'Path: A',}},
+        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Arbatel Gown +2",
@@ -667,6 +668,8 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {
         })
         sets.midcast['Elemental Magic'].magicburst = {
+            main={ name="Marin Staff +1", augments={'Path: A',}},
+            sub="Enki Strap",
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Agwu's Cap",
             body="Arbatel Gown +2",
@@ -682,6 +685,8 @@ function init_gear_sets()
             back="Lugh's Cape",
             }
         sets.midcast['magic burst'] = {
+            main={ name="Marin Staff +1", augments={'Path: A',}},
+            sub="Enki Strap",
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Agwu's Cap",
             body="Arbatel Gown +2",
@@ -697,6 +702,8 @@ function init_gear_sets()
             back="Lugh's Cape",
             }
     sets.magic_burst = {
+        main={ name="Marin Staff +1", augments={'Path: A',}},
+        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Arbatel Gown +2",
@@ -813,7 +820,6 @@ function init_gear_sets()
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
     sets.defense.PDT = {
-
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
         body="Shamash Robe",
@@ -887,6 +893,7 @@ function init_gear_sets()
     sets.buff['Immanence'].SubtleBlow = {
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Digni. Earring",
+        right_ear="Assuage Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",}
 
