@@ -226,8 +226,9 @@ function init_gear_sets()
     Animators.Melee = "Animator P +1"
 
    
-        organizer_items = {"Prime Sword",
-        "Mafic Cudgel",
+        organizer_items = {
+            "Moogle Amp.",
+            "Mafic Cudgel",
             "Sakpata's Fists",
             "Automat. Oil +3",
             "Dawn Mulsum",   
@@ -239,7 +240,7 @@ function init_gear_sets()
             "Miso Ramen",
             "Carbonara",
             "Silent Oil",
-            "Salt Ramen",
+            "Bean Daifuku",
             "Panacea",
             "Sublime Sushi",
             "Sublime Sushi 1+",
@@ -258,6 +259,7 @@ function init_gear_sets()
             "Instant Reraise",
             "Black Curry Bun",
             "Rolan. Daifuku",
+            "Grape Daifuku",
             "Qutrub Knife",
             "Wind Knife +1",
             "Reraise Earring",}

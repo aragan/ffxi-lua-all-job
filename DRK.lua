@@ -1111,7 +1111,7 @@ sets.defense.SEboost = {
         ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
     head="Twilight Helm",
-    body="Twilight Mail",
+    body="Crepuscular Mail",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1509,7 +1509,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
 	head="Twilight Helm",
-    body="Twilight Mail",})
+    body="Crepuscular Mail",})
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -1629,7 +1629,7 @@ end
 function job_handle_equipping_gear(status, eventArgs)
 end
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end

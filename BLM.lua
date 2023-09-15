@@ -437,12 +437,11 @@ function init_gear_sets()
 		waist="Siegel Sash",})
  
     sets.midcast['Enfeebling Magic'] = {
-        
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Shango Robe",
-        hands="Jhakri Cuffs +2",
+        hands="Regal Cuffs",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
         neck="Incanter's Torque",
@@ -460,7 +459,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Shango Robe",
-        hands="Jhakri Cuffs +2",
+        hands="Regal Cuffs",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
         neck="Incanter's Torque",
@@ -478,7 +477,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Shango Robe",
-        hands="Jhakri Cuffs +2",
+        hands="Regal Cuffs",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
         neck="Incanter's Torque",
@@ -673,7 +672,8 @@ function init_gear_sets()
     })
  
     sets.midcast['Impact'] = {
-		head=empty,body="Twilight Cloak",
+		head=empty,
+        body="Twilight Cloak",
 		hands="Amalric Gages +1",
 		legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Mag. crit. hit dmg. +4%','MND+4','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
 		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}},

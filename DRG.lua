@@ -629,11 +629,11 @@ sets.precast.JA.Jump = {
 
 	sets.idle.Weak = set_combine(sets.idle.Field, {
 		head="Twilight Helm",
-		body="Twilight Mail",
+		body="Crepuscular Mail",
     })
     sets.Reraise = {
 		head="Twilight Helm",
-		body="Twilight Mail",
+		body="Crepuscular Mail",
     }
 
 	-- Defense sets
@@ -685,7 +685,7 @@ sets.precast.JA.Jump = {
         }
         sets.defense.Reraise = set_combine(sets.defense.PDT, {
             head="Twilight Helm",
-            body="Twilight Mail",
+            body="Crepuscular Mail",
         })
 
 	sets.Kiting = {
@@ -775,7 +775,7 @@ sets.precast.JA.Jump = {
         right_ring="Defending Ring",
     })
     sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
-    body="Twilight Mail",})
+    body="Crepuscular Mail",})
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
@@ -997,7 +997,7 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true

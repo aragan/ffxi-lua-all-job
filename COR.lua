@@ -693,7 +693,7 @@ sets.engaged = {
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back="Annealed Mantle",
+    back="Tactical Mantle",
     }
 sets.engaged.Acc = {
     head="Malignance Chapeau",
@@ -707,7 +707,7 @@ sets.engaged.Acc = {
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
-    back="Annealed Mantle",
+    back="Tactical Mantle",
     }
 sets.engaged.CRIT = {
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -755,8 +755,8 @@ sets.engaged.CRIT = {
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
         right_ring="Petrov Ring",
-        back="Annealed Mantle",
-}
+        back="Tactical Mantle",
+    }
         sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
             head="Malignance Chapeau",
             body="Malignance Tabard",
@@ -1146,7 +1146,6 @@ function job_update(cmdParams, eventArgs)
     --end
 end
 function job_self_command(cmdParams, eventArgs)
-
     gearinfo(cmdParams, eventArgs)
 end
 

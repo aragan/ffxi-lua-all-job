@@ -1003,7 +1003,7 @@ function init_gear_sets()
  
      sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
-        body="Twilight Mail",
+        body="Crepuscular Mail",
         back="Moonlight Cape",
      })
 
@@ -1105,7 +1105,7 @@ function init_gear_sets()
 
      sets.Reraise = {
         head="Twilight Helm",
-        body="Twilight Mail",}
+        body="Crepuscular Mail",}
 
      -- Defensive sets to combine with various weapon-specific sets below
      -- These allow hybrid acc/pdt sets for difficult content
@@ -1383,8 +1383,7 @@ function init_gear_sets()
 
      sets.engaged.Reraise = set_combine(sets.engaged, {
      	head="Twilight Helm",
-     	body="Twilight Mail"
-     })
+         body="Crepuscular Mail",     })
      sets.buff.Berserk = { 
          --feet="Warrior's Calligae +2" 
      }
