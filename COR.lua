@@ -37,10 +37,11 @@ function job_setup()
     state.Moving  = M(false, "moving")
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
     send_command('wait 6;input /lockstyleset 151')
     define_roll_values()
     send_command('lua l AutoCOR')
-    include('organizer-lib')
 end
 
 
@@ -77,6 +78,7 @@ function user_setup()
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('wait 2;input /lockstyleset 151')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^= gs c cycle treasuremode')
 
     DW_needed = 0
     DW = false
@@ -172,7 +174,7 @@ function init_gear_sets()
     right_ring="Luzaf's Ring",
     back="Camulus's Mantle",}
     
-    sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
+    sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chas. Culottes +3",})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
@@ -189,6 +191,11 @@ function init_gear_sets()
         head="Mummu Bonnet +2",    
         body="Passion Jacket",
     }
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+     }
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {
