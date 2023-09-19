@@ -136,7 +136,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal', 'Acc', 'DT')
     state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird')
     state.IdleMode:options('Normal', 'DT', 'Resist')
 
@@ -246,7 +246,13 @@ function init_gear_sets()
         }
 
     sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {head="Peda. M.Board +3", feet="Acad. Loafers +2"})
+    sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
+        head="Peda. M.Board +3", feet="Acad. Loafers +2", waist="Siegel Sash"})
+
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC.EnhancingDuration = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+
+    
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
@@ -372,7 +378,7 @@ function init_gear_sets()
     ---------------------------------------- Midcast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.midcast.FastRecast = sets.precast.FC
+    sets.midcast.FastRecast = {}--sets.precast.FC
 
     sets.midcast.Cure = {
         main="Daybreak",
@@ -491,8 +497,8 @@ function init_gear_sets()
         }
 
     sets.midcast.EnhancingDuration = set_combine(sets.midcast['Enhancing Magic'], {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
-        sub="Ammurapi Shield",
+        main="Oranyan",
+        sub="Enki Strap",
         head="Telchine Cap",
         body="Telchine Chas.",
         hands="Telchine Gloves",
@@ -549,7 +555,6 @@ function init_gear_sets()
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
-        ring1="Freke Ring",
         waist="Embla Sash",
         })
 
@@ -557,7 +562,7 @@ function init_gear_sets()
 
     sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {})
 
-    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {})
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {left_ear="Brachyura Earring",})
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell
@@ -858,20 +863,50 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged = {
-        ammo="Amar Cluster",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
-        waist="Cornelia's Belt",
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-        }
+        ammo="Homiliary",
+        head="Befouled Crown",
+        body="Shamash Robe",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Assid. Pants +1",
+        feet="Herald's Gaiters",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Fucho-no-Obi",
+        left_ear="Etiolation Earring",
+        right_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back="Lugh's Cape",
+    }
+        sets.engaged.Acc = {
+            ammo="Amar Cluster",
+            head={ name="Blistering Sallet +1", augments={'Path: A',}},
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Battlecast Gaiters",
+            neck="Lissome Necklace",
+            waist="Cornelia's Belt",
+            left_ear="Crep. Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Chirich Ring +1",
+            back={ name="Aurist's Cape +1", augments={'Path: A',}},
+            }
+    sets.engaged.DT = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Lissome Necklace",
+    waist="Cornelia's Belt",
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------

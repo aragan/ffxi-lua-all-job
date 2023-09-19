@@ -86,6 +86,7 @@ function job_setup()
     state.Buff.Retaliation = buffactive.retaliation or false
     
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
+    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
     gsList = S{'Macbain', 'Nandaka', 'Nativus Halberd'}
     war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
@@ -1160,9 +1161,9 @@ function init_gear_sets()
      })
     sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        head="Hjarrandi Helm",
+        body="Boii Lorica +3",
+        hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -1171,7 +1172,7 @@ function init_gear_sets()
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
     sets.engaged.PD = {
@@ -1416,12 +1417,10 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
 
     -- Make sure abilities using head gear don't swap 
-	if spell.type:lower() == '' then
+	if spell.type:lower() == 'weaponskill' then
         
         if is_sc_element_today(spell) then
             if state.OffenseMode.current == 'Normal' and wsList:contains(spell.english) then
-                -- do nothing
-            else
                 equip(sets.WSDayBonus)
             end
         end
@@ -1440,9 +1439,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         --     end
         -- end
         -- Use SOA neck piece for WS in rieves
-        if buffactive['Reive Mark'] then
+        --[[if buffactive['Reive Mark'] then
             equip(sets.reive)
-        end
+        end]]
     end
 end
  
@@ -1660,6 +1659,12 @@ function get_combat_form()
     --else
         --state.CombatForm:reset()
     --end
+    --[[if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    end
+    if gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+    end]]
     if S{'NIN', 'DNC'}:contains(player.sub_job) and war_sub_weapons:contains(player.equipment.sub) then
         state.CombatForm:set("DW")
     elseif S{'SAM', 'DRK', 'PLD', 'DRG', 'RUN'}:contains(player.sub_job) and player.equipment.sub == 'Blurred Shield +1' then
