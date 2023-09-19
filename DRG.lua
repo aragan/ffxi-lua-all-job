@@ -61,7 +61,7 @@ function job_setup()
     state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 199')
+    send_command('wait 6;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
 
@@ -88,7 +88,7 @@ function user_setup()
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 199')
+    send_command('wait 2;input /lockstyleset 152')
 	select_default_macro_book()
 
 
@@ -774,12 +774,17 @@ sets.precast.JA.Jump = {
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
-    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+
+    sets.engaged.CRIT.PDT = set_combine(sets.engaged, sets.engaged.PDT)
+
+    sets.engaged.Reraise = set_combine(sets.engaged, {		
+    head="Twilight Helm",
     body="Crepuscular Mail",})
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
+
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
 end
@@ -1061,7 +1066,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 199')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 
