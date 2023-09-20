@@ -80,7 +80,8 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('Tag')
     send_command('wait 6;input /lockstyleset 150')
 
     
@@ -1119,8 +1120,19 @@ sets.TreasureHunter = {
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 }
    sets.idle.DeathSpike ={
-    body="Tartarus Platemail",
-}
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Chev. Cuisses +3",
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring"}
    sets.idle.MEVA ={
     ammo="Staunch Tathlum +1",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1523,6 +1535,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
    left_ring="Defending Ring",
    right_ring="Hetairoi Ring",
    back="Annealed Mantle",}
+
    sets.engaged.PDT = --1179 / 1315 avec enlight up
    {
        ammo="Staunch Tathlum +1",

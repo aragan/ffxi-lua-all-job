@@ -26,6 +26,7 @@ function get_sets()
 
     -- Load and initialize the include file.
     include("Mote-Include.lua")
+    include('organizer-lib')
     send_command('wait 6;input /lockstyleset 179')
 end
 
@@ -209,7 +210,7 @@ end
 function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.TreasureMode:set('Tag')
     sub_job_change()
 end
 
@@ -220,7 +221,6 @@ function init_gear_sets()
     ---Hybrid Only Sets
     ---Pet Only Sets
     ---Misc Sets
-    include('organizer-lib')
     Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
     Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
@@ -443,7 +443,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.TreasureHunter = { 
-        ammo="Per. Lucky Egg",
+        --ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
@@ -483,7 +483,7 @@ function init_gear_sets()
 
     sets.precast.JA["Activate"] = {range="Animator P +1",
         feet="Mpaca's Boots",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 
@@ -547,7 +547,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
@@ -562,7 +562,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
@@ -576,7 +576,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
@@ -591,7 +591,7 @@ function init_gear_sets()
             neck="Fotia Gorget",
             waist="Fotia Belt",
             left_ear="Schere Earring",
-            right_ear="Karagoz Earring",
+            right_ear="Kara. Earring +1",
             left_ring="Niqmaddu Ring",
             right_ring="Gere Ring",
             back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
@@ -607,7 +607,7 @@ function init_gear_sets()
                 neck="Fotia Gorget",
                 waist="Fotia Belt",
                 left_ear="Schere Earring",
-                right_ear="Karagoz Earring",
+                right_ear="Kara. Earring +1",
                 left_ring="Regal Ring",
                 right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
                 back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
@@ -723,7 +723,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
@@ -743,7 +743,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
@@ -880,7 +880,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},    }
@@ -918,7 +918,7 @@ function init_gear_sets()
     neck="Adad Amulet",
     waist="Ukko Sash",
     left_ear="Enmerkar Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
     back="Argocham. Mantle",
@@ -1032,7 +1032,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1101,7 +1101,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="Varar Ring +1",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1199,7 +1199,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1250,9 +1250,8 @@ function init_gear_sets()
         If we have a pet weaponskill that can benefit from WSFTP
         then this set will be equipped
     ]]
-    sets.midcast.Pet.WSFTP = {        main={ name="Xiucoatl", augments={'Path: C',}},
-
-        
+    sets.midcast.Pet.WSFTP = {        
+        main={ name="Xiucoatl", augments={'Path: C',}},
         ammo="Automat. Oil +3",
         head="Kara. Cappello +2",
         hands="Mpaca's Gloves",
@@ -1260,7 +1259,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
-        left_ear="Karagoz Earring",
+        left_ear="Kara. Earring +1",
         left_ear="Kyrene's Earring",
         left_ring="Thurandaut Ring",
         right_ring="C. Palug Ring",
@@ -1282,7 +1281,7 @@ function init_gear_sets()
         neck="Adad Amulet",
         waist="Ukko Sash",
         left_ear="Kyrene's Earring",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="C. Palug Ring",
         right_ring="Tali'ah Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},   
@@ -1317,7 +1316,7 @@ function init_gear_sets()
             feet="Mpaca's Boots",
             waist="Incarnation Sash",
             left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-            left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+            left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
            
          
         }
@@ -1333,7 +1332,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
         left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
     }
     )
 
@@ -1348,7 +1347,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
         left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
         }
     )
 
@@ -1363,7 +1362,7 @@ function init_gear_sets()
             hands="Mpaca's Gloves",
             legs="Kara. Pantaloni +2",
             feet="Mpaca's Boots",left_ear="Kyrene's Earring",
-            right_ear="Karagoz Earring",
+            right_ear="Kara. Earring +1",
             left_ring="Thurandaut Ring",
             right_ring="C. Palug Ring",
             back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},        }
@@ -1465,13 +1464,13 @@ function job_buff_change(buff,gain)
 
 end
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 function sub_job_change(new,old)
    -- if user_setup then

@@ -23,8 +23,8 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
-    organizer_items = {"Prime Sword",
+    state.TreasureMode:set('Tag')
+    organizer_items = {
         "Hachimonji",
         "Mafic Cudgel",
         "Toolbag (Shihe)",
@@ -133,6 +133,8 @@ function user_setup()
     send_command('bind ^] gs c toggle UseRune')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs enable all')
     send_command('wait 2;input /lockstyleset 144')
     -- send_command('bind !- gs equip sets.crafting')
 
@@ -1354,9 +1356,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
     -- protection for lag
     if spell.type == 'WeaponSkill' then
-        if spell.english == '' and state.TreasureMode.value ~= 'None' then
-            equip()
-        end
         -- Mecistopins Mantle rule (if you kill with ws)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
@@ -1471,9 +1470,6 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end

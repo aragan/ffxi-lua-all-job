@@ -18,8 +18,9 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -57,6 +58,8 @@ function job_setup()
     state.Buff.Impetus = buffactive.Impetus or false
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.FootworkWS = M(false, 'Footwork on WS')
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('Tag')
     send_command('wait 6;input /lockstyleset 179')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
@@ -76,8 +79,10 @@ function user_setup()
 
     update_combat_form()
     update_melee_groups()
-    send_command('bind != gs c toggle CapacityMode')
+    --send_command('bind != gs c toggle CapacityMode')
     send_command('wait 2;input /lockstyleset 179')
+    send_command('bind ^= gs c cycle treasuremode')
+
     select_default_macro_book()
 end
 
@@ -127,7 +132,9 @@ function init_gear_sets()
         body="Passion Jacket",
         legs="Dashing Subligar",
     }
-        
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"}
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 

@@ -38,7 +38,7 @@ function job_setup()
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.TreasureMode:set('Tag')
     send_command('wait 6;input /lockstyleset 151')
     define_roll_values()
     send_command('lua l AutoCOR')
@@ -192,7 +192,7 @@ function init_gear_sets()
         body="Passion Jacket",
     }
     sets.TreasureHunter = { 
-        ammo="Per. Lucky Egg",
+        --ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }

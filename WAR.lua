@@ -77,7 +77,7 @@ end
 function job_setup()
     send_command('wait 6;input /lockstyleset 152')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
@@ -1498,9 +1498,9 @@ end
  
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
+    --[[if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
+    end]]
     if state.Buff.Berserk and not state.Buff.Retaliation then
     	meleeSet = set_combine(meleeSet, sets.buff.Berserk)
     end
@@ -1515,13 +1515,13 @@ function customize_melee_set(meleeSet)
 end
  
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 -------------------------------------------------------------------------------------------------------------------
 -- General hooks for other events.

@@ -57,7 +57,8 @@ organizer_items = {"Prime Sword",
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     send_command('wait 6;input /lockstyleset 165')
-
+	include('Mote-TreasureHunter')
+	state.TreasureMode:set('Tag')
     
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
@@ -102,6 +103,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'SIRD') 
     state.IdleMode:options('Normal', 'Regen', 'Refresh')
     send_command('wait 2;input /lockstyleset 165')
+    send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
@@ -126,7 +128,11 @@ function init_gear_sets()
     right_ring="Petrov Ring",
     back="Reiki Cloak",
     }
-
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+     }
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
@@ -638,6 +644,13 @@ function job_buff_change(buff,gain)
             equip(sets.defense.PDT)
         end
     end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -649,6 +662,15 @@ function job_buff_change(buff,gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+    if not midaction() then
+        handle_equipping_gear(player.status)
+    end
+end
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
     end
 end
 function job_precast(spell, action, spellMap, eventArgs)
