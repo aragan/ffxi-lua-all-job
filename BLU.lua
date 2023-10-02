@@ -1029,8 +1029,8 @@ sets.midcast.phalanx.SIRD = {
     sets.Kiting = {
         ammo="Staunch Tathlum +1",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    
 }
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -- Engaged sets
 
@@ -1357,6 +1357,9 @@ function customize_idle_set(idleSet)
     if state.IdleMode.current == 'Learning' then
         idleSet = set_combine(idleSet, sets.idle.Learning)
     end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     --if player.mpp < 51 then
         --set_combine(idleSet, sets.latent_refresh)
     --end
@@ -1417,8 +1420,7 @@ function sub_job_change(new,old)
     end
 end
 
-add_to_chat(159,'Author Aragan BLU.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

@@ -994,8 +994,7 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 152')
     end
 end
-add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

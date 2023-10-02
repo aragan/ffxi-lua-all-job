@@ -2028,8 +2028,7 @@ function sub_job_change(new,old)
 end-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 function select_default_macro_book()
 	-- Default macro set/book

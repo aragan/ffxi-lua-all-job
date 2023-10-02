@@ -617,6 +617,11 @@ function user_customize_idle_set(idleSet)
     else --Otherwise return the idleSet with no changes from us
         return idleSet
     end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    else --Otherwise return the idleSet with no changes from us
+        return idleSet
+    end
 end
 
 --Used to determine what Hybrid Mode to use when Player is engaged for trusts only and Pet is Engaged

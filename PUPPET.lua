@@ -8,16 +8,17 @@
 --                                                         | |   | |
 --                                                         |_|   |_|
 -----------------------------------------------------------------------------------------
---[[
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
 
-    Originally Created By: Faloun
-    Programmers: Arrchie, Kuroganashi, Byrne, Tuna
-    Testers:Arrchie, Kuroganashi, Haxetc, Patb, Whirlin, Petsmart
-    Contributors: Xilkk, Byrne, Blackhalo714
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 
-    ASCII Art Generator: http://www.network-science.de/ascii/
-    
-]]
 
 -- Initialization function for this job file.
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file (and its supplementary files) to go with this.

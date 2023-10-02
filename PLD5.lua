@@ -1049,7 +1049,7 @@ function get_sets()
   sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
-  sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+  sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
   sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
   sets.Breath = sets.defense.MDT
   

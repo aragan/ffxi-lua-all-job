@@ -8,16 +8,17 @@
 --                                                         | |   | |
 --                                                         |_|   |_|
 -----------------------------------------------------------------------------------------
---[[
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
 
-    Originally Created By: Faloun
-    Programmers: Arrchie, Kuroganashi, Byrne, Tuna
-    Testers:Arrchie, Kuroganashi, Haxetc, Patb, Whirlin, Petsmart
-    Contributors: Xilkk, Byrne, Blackhalo714
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 
-    ASCII Art Generator: http://www.network-science.de/ascii/
-    
-]]
 
 -- Initialization function for this job file.
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file (and its supplementary files) to go with this.
@@ -450,6 +451,7 @@ function init_gear_sets()
 
     -------------------------------------Kiting
     sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -------------------------------------JA
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads", body="Passion Jacket"})
@@ -1488,6 +1490,9 @@ function job_update(cmdParams, eventArgs)
 end
 function job_self_command(cmdParams, eventArgs)
     if player.equipment.main == 'Tauret' then
+        send_command('input /lockstyleset 164')
+    else
+        send_command('input /lockstyleset 168')
     end
     eventArgs.handled = true
 end

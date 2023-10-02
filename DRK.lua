@@ -993,8 +993,8 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         back="Moonlight Cape",
     })
 
-    sets.idle.Weak = {head="Twilight Helm",body="Twilight Mail"}
-    sets.idle.Field.Weak = {head="Twilight Helm",body="Twilight Mail"}
+    sets.idle.Weak = {head="Twilight Helm",body="Crepuscular Mail",}
+    sets.idle.Field.Weak = {head="Twilight Helm",body="Crepuscular Mail",}
 
       
     sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
@@ -1514,7 +1514,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-    sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
+    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail",}
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
     sets.RP = {neck="Abyssal Beads +2"}
   
@@ -1648,6 +1648,12 @@ function customize_idle_set(idleSet)
     else
         enable('neck')
     end       
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+   elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+   end
+
     return idleSet
 end
   
@@ -1665,6 +1671,11 @@ function customize_melee_set(meleeSet)
     else
         enable('neck')
     end  
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+   elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+   end
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet
 end
@@ -1890,8 +1901,7 @@ end
 function get_combat_form()
     if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 152')
-    end
-    if gsList:contains(player.equipment.main) then
+    elseif gsList:contains(player.equipment.main) then
         send_command('input /lockstyleset 165')
     end
     if S{'NIN', 'DNC'}:contains(player.sub_job) and swordList:contains(player.equipment.main) then

@@ -69,7 +69,7 @@ function job_setup()
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
-    send_command('wait 6;input /lockstyleset 168')
+    send_command('wait 6;input /lockstyleset 164')
     include('Mote-TreasureHunter')
 
     -- For th_action_check():
@@ -85,7 +85,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'CRIT', 'Mod', 'Ranger')
+    state.OffenseMode:options('Normal', 'Acc', 'CRIT', 'Ranger')
     state.HybridMode:options('Normal', 'PDT', 'HP', 'Evasion')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
@@ -102,7 +102,7 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
-    send_command('wait 2;input /lockstyleset 168')
+    send_command('wait 2;input /lockstyleset 164')
     send_command('bind f5 gs c cycle WeaponskillMode')
 
 
@@ -567,7 +567,12 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
 
 }
 
-    sets.idle.Town = sets.idle
+    sets.idle.Town = {
+        feet="Jute Boots +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
+    }
+    sets.Adoulin = {body="Councilor's Garb",}
 
     sets.idle.Weak = {neck="Sanctity Necklace",
     left_ear="Infused Earring",
@@ -692,11 +697,10 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
     }
 
     -- Mod set for trivial mobs (Skadi+1)
-    sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
+    --sets.engaged.Mod = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1"}
 
     -- Mod set for trivial mobs (Thaumas)
-    sets.engaged.Mod2 = {
-    }
+    --sets.engaged.Mod2 = {}
 
     sets.engaged.Ranger = {
         main="Kustawi +1",
@@ -857,7 +861,9 @@ function customize_idle_set(idleSet)
     if player.hpp < 80 then
         idleSet = set_combine(idleSet, sets.ExtraRegen)
     end
-
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     return idleSet
 end
 
@@ -954,26 +960,25 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 164')
     end
 end
 -- Function to lock the ranged slot if we have a ranged weapon equipped.
 
 
-add_to_chat(159,'Author Aragan THF.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    if player.sub_job == 'DNC' then
+    --[[if player.sub_job == 'DNC' then
         set_macro_page(3, 3)
     elseif player.sub_job == 'WAR' then
         set_macro_page(3, 3)
     elseif player.sub_job == 'NIN' then
         set_macro_page(3, 3)
-    else
+    else]]
         set_macro_page(3, 3)
-    end
+    --end
 end
 
 

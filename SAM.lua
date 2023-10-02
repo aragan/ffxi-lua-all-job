@@ -241,9 +241,9 @@ function init_gear_sets()
     sets.precast.WS = {
     ammo="Knobkierrie",
     head="Mpaca's Cap",
-    body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Wakido Haidate +3",
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -275,9 +275,9 @@ function init_gear_sets()
     
     sets.precast.WS['Namas Arrow'] = {
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -297,9 +297,9 @@ function init_gear_sets()
     
     sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -319,9 +319,9 @@ function init_gear_sets()
 
     sets.precast.WS['Empyreal Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -342,9 +342,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -356,7 +356,7 @@ function init_gear_sets()
     })
     sets.precast.WS['Tachi: Fudo'].PDL = set_combine(sets.precast.WS['Tachi: Fudo'], {
         ammo="Crepuscular Pebble",
-            body="Nyame Mail",
+        body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
@@ -370,9 +370,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Kaiten'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         body="Nyame Mail",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -387,7 +387,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         body="Nyame Mail",
         body="Nyame Mail",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -417,9 +417,9 @@ function init_gear_sets()
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -447,9 +447,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -490,9 +490,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -543,9 +543,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -573,9 +573,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Gekko'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -590,9 +590,9 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Yukikaze'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body={ name="Sakonji Domaru +3", augments={'Enhances "Overwhelm" effect',}},
+        body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs="Wakido Haidate +3",
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -794,7 +794,7 @@ function init_gear_sets()
     
     sets.defense.Reraise = set_combine(sets.defense.PDT, {
     	head="Twilight Helm",
-    	body="Twilight Mail"
+    	body="Crepuscular Mail"
     })
     
     sets.defense.MDT = set_combine(sets.defense.PDT, {
@@ -830,7 +830,7 @@ function init_gear_sets()
     
     sets.Kiting = {feet="Danzo Sune-ate"}
     
-    sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
+    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail"}
     
     -- Engaged sets
     
@@ -1386,8 +1386,7 @@ end
 function seigan_thirdeye_active()
     return state.Buff['Seigan'] or state.Buff['Third Eye']
 end
-add_to_chat(159,'Author Aragan SAM.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 

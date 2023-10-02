@@ -972,10 +972,12 @@ function init_gear_sets()
         feet="Hermes' Sandals +1",
         back="Moonlight Cape",
         }
-     sets.idle.Town = {
-         feet="Hermes' Sandals +1",
-     }
-     sets.idle.Field = set_combine(sets.idle.Town, {
+        sets.idle.Town ={
+        feet="Hermes' Sandals +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",}      
+
+     sets.idle.Field = {
          head="Sakpata's Helm",
          body="Sakpata's Plate",
          hands="Sakpata's Gauntlets",
@@ -988,16 +990,15 @@ function init_gear_sets()
          left_ring="Defending Ring",
          feet="Hermes' Sandals +1",
          back="Moonlight Cape",
-     })
+     }
      sets.idle.Regen = set_combine(sets.idle.Field, {
         body="Obviation Cuirass",
-        neck="Sanctity Necklace",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
      })
      sets.idle.Refresh = set_combine(sets.idle.Field, {
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
      })
@@ -1714,8 +1715,7 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 152')
     end
 end
-add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 function select_default_macro_book()
     -- Default macro set/book
 	if player.sub_job == 'DNC' then

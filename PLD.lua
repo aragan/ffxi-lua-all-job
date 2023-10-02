@@ -81,7 +81,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
+    state.TreasureMode:set('None')
     send_command('wait 6;input /lockstyleset 150')
 
     
@@ -123,6 +123,7 @@ end
 function user_setup()
     state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis', 'Priwen'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
+    --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
     -- Options: Override default values
@@ -377,14 +378,13 @@ neck="Rep. Plat. Medal",
 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Regal Ring",
+left_ring="Sroda Ring", 
 right_ring="Cornelia's Ring",
 back="Bleating Mantle",
 }
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
    ammo="Crepuscular Pebble",
    hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
   --Stat Modifier:  80%DEX  fTP:2.25
@@ -534,6 +534,8 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        back="Argocham. Mantle",
    }
    sets.magic_burst = {
+       main="Nandaka",
+       sub="Niobid Strap",
        ammo="Pemphredo Tathlum",
        head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
        body="Nyame Mail",
@@ -694,7 +696,7 @@ sets.midcast.Cocoon.DT = {
        hands="Macabre Gaunt. +1",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-       neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+       neck="Sacro Gorget",
        waist="Plat. Mog. Belt",
        left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
        right_ear="Chev. Earring +1",
@@ -724,7 +726,7 @@ sets.midcast.Cocoon.DT = {
        hands="Macabre Gaunt. +1",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-       neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+       neck="Sacro Gorget",
        waist="Plat. Mog. Belt",
        left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
        right_ear="Chev. Earring +1",
@@ -892,11 +894,11 @@ sets.midcast['Jettatura'].DT ={
 
    sets.midcast['Sheep Song'] = {   
    ammo="Pemphredo Tathlum",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head="Chev. Armet +3",
+   body="Chev. Cuirass +3",
+   hands="Chev. Gauntlets +3",
+   legs="Chev. Cuisses +3",
+   feet="Chev. Sabatons +3",
    neck="Erra Pendant",
    waist="Luminary Sash",
    left_ear="Crep. Earring",
@@ -1056,7 +1058,7 @@ sets.TreasureHunter = {
  sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
- sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+ sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
  sets.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
  sets.Breath = sets.defense.MDT
   
@@ -1067,7 +1069,7 @@ sets.TreasureHunter = {
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-       neck="Sanctity Necklace",
+       neck={ name="Bathy Choker +1", augments={'Path: A',}},
        waist="Fucho-no-Obi",
        left_ear="Infused Earring",
        right_ear="Cryptic Earring",
@@ -1142,9 +1144,12 @@ sets.TreasureHunter = {
     left_ring="Vengeful Ring",
     right_ring="Purity Ring",
     back="Rudianos's Mantle",}
-    sets.idle.Town ={legs="Carmine Cuisses +1"}
+
+    sets.idle.Town ={legs="Carmine Cuisses +1",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    left_ear="Infused Earring",}
     
-   sets.idle.Weak = {head="Twilight Helm", body="Twilight Mail"}
+   sets.idle.Weak = {head="Twilight Helm", body="Crepuscular Mail",}
     
    sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
  
@@ -1800,6 +1805,9 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
   return idleSet
 end
 -- Modify the default melee set after it was constructed.
@@ -1833,8 +1841,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan PLD.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     if player.sub_job == 'DNC' then

@@ -68,6 +68,7 @@ organizer_items = {
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
+    state.Moving  = M(false, "moving")
     send_command('wait 6;input /lockstyleset 174')
 end
 
@@ -85,7 +86,8 @@ function user_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('input /Sublimator start')
+    send_command('bind f7 @input /ja "Sublimation" <me>')
+    send_command('bind f4 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -374,11 +376,14 @@ function init_gear_sets()
     back="Solemnity Cape",}
     
     sets.Duration = {
+        sub="Ammurapi Shield",
         head="Telchine Cap",
         body="Telchine Chas.",
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
+        waist="Embla Sash",
+
     }
     -- Cure sets
     sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape"}
@@ -392,7 +397,7 @@ function init_gear_sets()
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck="Nodens Gorget",
+    neck="Cleric's Torque",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Mendi. Earring",
     right_ear="Nourish. Earring",
@@ -451,7 +456,7 @@ function init_gear_sets()
     hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
     legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck="Reti Pendant",
+    neck="Cleric's Torque",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Mendi. Earring",
     right_ear="Gifted Earring",
@@ -515,7 +520,7 @@ function init_gear_sets()
     hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
     legs="Ebers Pant. +2",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck="Reti Pendant",
+    neck="Cleric's Torque",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Mendi. Earring",
     right_ear="Gifted Earring",
@@ -613,15 +618,18 @@ function init_gear_sets()
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Ebers Bliaut +2",
         hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
+        legs="Ebers Pant. +2",
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-        neck="Debilis Medallion",
-        left_ring="Ephedra Ring",
+        neck="Cleric's Torque",
+        left_ring="Haoma's Ring",
         right_ring="Haoma's Ring",
         back="Alaunus's Cape",    }
         sets.midcast.StatusRemoval.sird = set_combine(sets.midcast.StatusRemoval,sets.sird) 
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
-    sets.midcast['Enhancing Magic'] = {main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    sets.midcast['Enhancing Magic'] = {
+    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
@@ -666,7 +674,7 @@ function init_gear_sets()
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
         neck="Incanter's Torque",
-        waist="Olympus Sash",
+        waist="Embla Sash",
         left_ear="Andoaa Earring",
         right_ear="Gifted Earring",
         right_ring="Stikini Ring",
@@ -686,10 +694,11 @@ function init_gear_sets()
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
         neck="Incanter's Torque",
-        waist="Olympus Sash",
+        waist="Embla Sash",
         left_ear="Gifted Earring",
         left_ear="Andoaa Earring",
         left_ring="Mephitas's Ring",
+        right_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
 
     sets.midcast.Aquaveil.sird = set_combine(sets.midcast.Aquaveil,sets.sird)
@@ -709,8 +718,8 @@ function init_gear_sets()
     hands="Telchine Gloves",
     legs="Telchine Braconi",
     feet="Telchine Pigaches",
-    neck="Nodens Gorget",
-    legs="Ebers Pant. +2",
+    neck="Incanter's Torque",
+    waist="Embla Sash",
     left_ear="Andoaa Earring",
     right_ring="Stikini Ring",
     back="Alaunus's Cape",
@@ -740,7 +749,7 @@ function init_gear_sets()
     body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
     hands="Inyan. Dastanas +2",
     legs="Ebers Pant. +2",
-    feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
+    feet="Bunzi's Sabots",
     neck="Erra Pendant",
     waist="Luminary Sash",
     right_ear="Malignance Earring",
@@ -749,6 +758,16 @@ function init_gear_sets()
     right_ring="Stikini Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.midcast.Repose = set_combine(sets.midcast['Divine Magic'], {
+        hands="Regal Cuffs",
+        legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+        waist="Obstin. Sash",
+        left_ear="Regal Earring",
+        right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Kishar Ring",
+    })
+
     sets.midcast['Divine Magic'].Holy = set_combine(sets.midcast['Divine Magic'], {
     main="Daybreak",
     sub="Ammurapi Shield",
@@ -792,7 +811,7 @@ function init_gear_sets()
 
 
     sets.midcast['Dark Magic'] = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
+    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
     sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head="Pixie Hairpin +1",
@@ -810,8 +829,28 @@ function init_gear_sets()
     }
 
     -- Custom spell classes
-    sets.midcast.MndEnfeebles = sets.midcast['Divine Magic']
-    sets.midcast.IntEnfeebles = sets.midcast['Dark Magic']
+    sets.midcast.MndEnfeebles = set_combine(sets.midcast['Divine Magic'], {
+        head=empty,
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Regal Cuffs",
+        legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+        waist="Obstin. Sash",
+        left_ear="Regal Earring",
+        right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Kishar Ring",
+    })
+    sets.midcast.IntEnfeebles = set_combine(sets.midcast['Dark Magic'], {
+        head=empty,
+        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+        hands="Regal Cuffs",
+        legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+        waist="Obstin. Sash",
+        left_ear="Regal Earring",
+        right_ear={ name="Ebers Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Kishar Ring",
+    })
     
     -- Sets to return to when not performing an action.
     
@@ -840,7 +879,7 @@ function init_gear_sets()
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Fucho-no-Obi",
+        waist="Carrier's Sash",
         left_ear="Genmei Earring",
         right_ear="Etiolation Earring",
         left_ring="Stikini Ring +1",
@@ -875,7 +914,7 @@ function init_gear_sets()
     legs="Assid. Pants +1",
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
+    waist="Carrier's Sash",
     left_ear="Andoaa Earring",
     right_ear="Etiolation Earring",
     left_ring="Stikini Ring +1",
@@ -907,9 +946,9 @@ function init_gear_sets()
     hands="Inyan. Dastanas +2",
     legs="Assid. Pants +1",
     feet="Herald's Gaiters",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    left_ear="Andoaa Earring",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Infused Earring",
     right_ear="Etiolation Earring",
     left_ring="Stikini Ring +1",
     right_ring="Inyanga Ring",
@@ -925,7 +964,7 @@ function init_gear_sets()
     legs="Assid. Pants +1",
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
+    waist="Carrier's Sash",
     left_ear="Andoaa Earring",
     right_ear="Etiolation Earring",
     left_ring="Defending Ring",
@@ -944,7 +983,7 @@ function init_gear_sets()
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Fucho-no-Obi",
+        waist="Carrier's Sash",
         left_ear="Genmei Earring",
         right_ear="Etiolation Earring",
         left_ring="Defending Ring",
@@ -985,8 +1024,10 @@ function init_gear_sets()
     back="Alaunus's Cape",}
 
     sets.Kiting = {feet="Herald's Gaiters"}
+    sets.MoveSpeed = {feet="Herald's Gaiters"}
+    sets.Adoulin = {body="Councilor's Garb",}
 
-    sets.latent_refresh = {waist="Fucho-no-obi", ammo="Homiliary",}
+    sets.latent_refresh = {waist="Fucho-no-obi",}
 
     -- Engaged sets
 
@@ -1107,6 +1148,8 @@ function init_gear_sets()
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Divine Caress'] = {back="Mending Cape"}
+    sets.buff.Sublimation = {waist="Embla Sash"}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1146,6 +1189,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spellMap == 'Banish' or spellMap == "Holy" then
         if (world.weather_element == 'Light' or world.day_element == 'Light') then
             equip(sets.Obi)
+    elseif state.MagicBurst.value then
+            equip(sets.magic_burst)
         end
     end
 end
@@ -1277,7 +1322,47 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
 
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if buffactive['Mana Wall'] then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------

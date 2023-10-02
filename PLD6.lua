@@ -12,7 +12,7 @@
 function get_sets()
 
     -- Load and initialize the include file.
-    include('Mote-IncludePLD.lua')
+    include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items = {
         "Prime Sword",
@@ -81,7 +81,6 @@ function user_setup()
     {
                            ["Protect"]="Protect V",
                            ["Enmity Boost"]="Crusade",
-                           ["Cocoon"]="Cocoon",
                            ["Phalanx"]="Phalanx",
     }
     include('common_info.status.lua')	
@@ -967,7 +966,7 @@ sets.TreasureHunter = {
 	sets.Cover = set_combine(sets.precast.JA['Rampart'], {main="Kheshig Blade", head="Rev. Coronet +2", body="Cab. Surcoat +1"})
     sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
     sets.Petri = {back="Sand Mantle"} 
-	sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+	sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
 	sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 	sets.Breath = sets.defense.MDT
    
@@ -1011,7 +1010,7 @@ sets.TreasureHunter = {
 }
     sets.idle.Town ={legs="Carmine Cuisses +1"}
      
-    sets.idle.Weak = {head="Twilight Helm", body="Twilight Mail"}
+    sets.idle.Weak = {head="Twilight Helm", body="Crepuscular Mail",}
      
     sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
 	
@@ -1580,53 +1579,54 @@ function update_defense_mode()
     end
 end
 function job_buff_change(buff, gain)
-        if buff == "Cover" then
-                if gain then
-                        equip (sets.Cover)
-                        disable('Body','Head')
-                else
-                        enable('Body','Head')
-                        handle_equipping_gear(player.status)
-                end
-        elseif buff == "doom" then
-                if gain then           
-                        equip(sets.Doom)
-                        send_command('input /p Doomed, please Cursna.')
-                        send_command('input /item "Holy Water" <me>')					
-                        disable('legs','ring1','ring2','waist','neck')
-                elseif not gain and not player.status == "Dead" and not player.status == "Engaged Dead" then
-                        enable('legs','ring1','ring2','waist','neck')
-                        send_command('input /p Doom removed, Thank you.')
-                        handle_equipping_gear(player.status)
-                else
-                        enable('legs','ring1','ring2','waist','neck')
-                        send_command('input /p '..player.name..' is no longer Doom Thank you !')
-                end
-				 elseif buff == "petrification" then
-                if gain then    
-						equip(sets.Petri)
-                        disable('back')				
-                        send_command('input /p Petrification, please Stona.')		
-				else
-                        enable('back')
-                        send_command('input /p '..player.name..' is no longer Petrify Thank you !')
-					end
-				 elseif buff == "Charm" then
-				 if gain then  			
-                        send_command('input /p Charmd, please Sleep me.')		
-				else	
-                        send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
-					end
-				elseif buff == "paralysis" then
-                 if gain then
-                        
-                        send_command('input /p '..player.name..' Paralysed, please Paralyna.')
-						send_command('input /item "Remedy" <me>')	
-                else                        
-                        send_command('input /p '..player.name..' is no longer Paralysed Thank you !')
-                    end	
-
+    if buff == "Cover" then
+        if gain then
+                equip (sets.Cover)
+                disable('Body','Head')
+        else
+                enable('Body','Head')
+                handle_equipping_gear(player.status)
         end
+elseif buff == "doom" then
+        if gain then           
+                equip(sets.Doom)
+                send_command('input /p Doomed, please Cursna.')
+                send_command('input /item "Holy Water" <me>')					
+                disable('legs','ring1','ring2','waist','neck')
+        elseif not gain and not player.status == "Dead" and not player.status == "Engaged Dead" then
+                enable('legs','ring1','ring2','waist','neck')
+                send_command('input /p Doom removed, Thank you.')
+                handle_equipping_gear(player.status)
+        else
+                enable('legs','ring1','ring2','waist','neck')
+                send_command('input /p '..player.name..' is no longer Doom Thank you !')
+        end
+         elseif buff == "petrification" then
+        if gain then    
+                equip(sets.Petri)
+                disable('back')				
+                send_command('input /p Petrification, please Stona.')		
+        else
+                enable('back')
+                send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+            end
+         elseif buff == "Charm" then
+         if gain then  			
+                send_command('input /p Charmd, please Sleep me.')		
+        else	
+                send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+            end
+        elseif buff == "paralysis" then
+         if gain then
+                
+                send_command('input /p '..player.name..' Paralysed, please Paralyna.')
+                send_command('input /item "Remedy" <me>')	
+        else                        
+                send_command('input /p '..player.name..' is no longer Paralysed Thank you !')
+            end	
+        end
+
+        
 	for index,value in pairs(buffWatcher.watchList) do
     if index==buff then
       buffWatch()

@@ -140,7 +140,7 @@ function init_gear_sets()
 
     sets.precast.Step = {waist="Chaac Belt"}
     sets.precast.Flourish1 = {waist="Chaac Belt"}
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    sets.CapacityMantle  = { }
 
 
     -- Fast cast sets for spells
@@ -183,8 +183,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Ilabrat Ring",
         right_ring="Cornelia's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-
+        back="Segomo's Mantle",
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
@@ -559,7 +558,8 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Moonlight Cape",
 }
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     sets.ExtraRegen = {    head={ name="Rao Kabuto", augments={'VIT+10','Attack+20','"Counter"+3',}},
     body="Hiza. Haramaki +2",
@@ -688,8 +688,6 @@ function init_gear_sets()
 	right_ring="Defending Ring",
     left_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
-
-		
 	}
     sets.engaged.Acc.PDT = {	 main={ name="Godhands", augments={'Path: A',}},
     ammo="Coiste Bodhar",
@@ -905,10 +903,9 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-    if player.hpp < 75 then
-        idleSet = set_combine(idleSet, sets.ExtraRegen)
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    
     return idleSet
 end
 
@@ -981,8 +978,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Custom event hooks.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan MNK.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Keep track of the current hit count while Impetus is up.
 function on_action_for_impetus(action)
     if state.Buff.Impetus then

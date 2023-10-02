@@ -45,7 +45,7 @@ function get_sets()
     include('organizer-lib')
 
 end
-organizer_items = {        "Prime Sword",
+organizer_items = {        
 "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
@@ -625,6 +625,7 @@ function init_gear_sets()
     }
 
     sets.Kiting = {feet="Tandava Crackows",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -- Engaged sets
 
@@ -1105,10 +1106,9 @@ end
 
 
 function customize_idle_set(idleSet)
-    if player.hpp < 80 and not areas.Cities:contains(world.area) then
-        idleSet = set_combine(idleSet, sets.ExtraRegen)
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    
     return idleSet
 end
 
@@ -1260,8 +1260,7 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 168')
     end
 end
-add_to_chat(159,'Author Aragan DNC.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

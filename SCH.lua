@@ -117,7 +117,8 @@ function job_setup()
     state.HelixMode = M{['description']='Helix Mode', 'Potency', 'Duration'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
     -- state.CP = M(false, "Capacity Points Mode")
-
+-- Mote has capitalization errors in the default Absorb mappings, so we use our own
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     update_active_strategems()
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -137,7 +138,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'DT')
-    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird')
+    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow')
     state.IdleMode:options('Normal', 'DT', 'Resist')
 
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -145,8 +146,8 @@ function user_setup()
     state.StormSurge = M(false, 'Stormsurge')
 
     -- Additional local binds
-
-    send_command('input /Sublimator start')
+    send_command('bind f7 @input /ja "Sublimation" <me>')
+    send_command('bind f4 input //Sublimator')
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^- gs c scholar light')
@@ -245,9 +246,12 @@ function init_gear_sets()
     back="Lugh's Cape",
         }
 
-    sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {head="Peda. M.Board +3", feet="Acad. Loafers +2"})
+    sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {
+        head="Peda. M.Board +3", 
+        hands="Telchine Gloves",
+        feet="Acad. Loafers +3",})
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
-        head="Peda. M.Board +3", feet="Acad. Loafers +2", waist="Siegel Sash"})
+       feet="Acad. Loafers +3", waist="Siegel Sash"})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
     sets.precast.FC.EnhancingDuration = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -405,7 +409,7 @@ function init_gear_sets()
         body="Pinga Tunic",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
         legs="Pinga Pants",
-        feet="Acad. Loafers +2",
+        feet="Acad. Loafers +3",
         neck="Clotharius Torque",
         waist="Shinjutsu-no-Obi +1",
         left_ear="Enervating Earring",
@@ -613,6 +617,16 @@ function init_gear_sets()
         right_ring="Archon Ring",
         back="Lugh's Cape",
         }
+        sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
+            ammo="Pemphredo Tathlum",
+            head="Arbatel Bonnet +2",
+            body="Arbatel Gown +2",
+            feet="Arbatel Loafers +2",
+            neck="Erra Pendant",
+            waist="Acuity Belt +1",
+            left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+            right_ring="Kishar Ring",
+        })
 
     sets.midcast.Kaustra = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -763,9 +777,9 @@ function init_gear_sets()
         body="Shamash Robe",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
-        feet="Herald's Gaiters",
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Fucho-no-Obi",
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
@@ -806,7 +820,11 @@ function init_gear_sets()
     sets.idle.Town = set_combine(sets.idle, {
         main="Mpaca's Staff",
         body="Shamash Robe",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",
         feet="Herald's Gaiters"})
+        
+        sets.Adoulin = {body="Councilor's Garb",}
 
     sets.resting = set_combine(sets.idle, {
         main="Contemplator +1",
@@ -856,7 +874,7 @@ function init_gear_sets()
 }
 
     sets.Kiting = {feet="Herald's Gaiters"}
-    sets.latent_refresh = {waist="Fucho-no-obi",ammo="Homiliary",}
+    sets.latent_refresh = {waist="Fucho-no-obi",}
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------
@@ -868,9 +886,9 @@ function init_gear_sets()
         body="Shamash Robe",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
-        feet="Herald's Gaiters",
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Fucho-no-Obi",
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
@@ -1115,7 +1133,7 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-
+    handle_equipping_gear(player.status)
 end
 
 -- Custom spell mapping.
@@ -1151,7 +1169,9 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
-
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     return idleSet
 end
 
@@ -1434,7 +1454,7 @@ function sub_job_change(new,old)
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(6, 15)
+    set_macro_page(8, 15)
 end
 
 function set_lockstyle()

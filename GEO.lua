@@ -29,7 +29,7 @@ function job_setup()
     indi_duration = 180
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
     --state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 2;input /lockstyleset 178')
+    send_command('wait 6;input /lockstyleset 178')
 
 end
 
@@ -54,6 +54,8 @@ function user_setup()
     select_default_macro_book()
     --send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('wait 2;input /lockstyleset 178')
+
 end
 
 function file_unload()
@@ -77,9 +79,25 @@ function init_gear_sets()
     sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +1", body="Geomancy Tunic +1", back="Nantosuelta's Cape"}
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
     sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +1"}
-
+    sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
     --sets.CapacityMantle  = { back="Mecistopins Mantle" }
-    organizer_items = {"Prime Sword",
+    organizer_items = {
+        "Sarama's Hide",
+        "Hidhaegg's Scale",
+        "Sovereign's Hide",
+        "Grape Daifuku",
+        "Soy Ramen",
+        "G. Curry Bun +1",
+        "Pukatrice Egg",
+        "Moogle Amp.",
+        "Popo. con Queso",
+        "Pear Crepe",
+        "Crab Sushi",
+        "Om. Sandwich",
+        "Red Curry Bun",
+        "Prime Sword",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -534,8 +552,8 @@ function init_gear_sets()
         hands="Geo. Mitaines +3",
         legs="Assid. Pants +1",
         feet="Geo. Sandals +2",
-        neck="Incanter's Torque",
-        waist="Fucho-no-Obi",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
@@ -550,8 +568,8 @@ function init_gear_sets()
         hands="Geo. Mitaines +3",
         legs="Assid. Pants +1",
         feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
-        neck="Incanter's Torque",
-        waist="Fucho-no-Obi",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
@@ -566,8 +584,8 @@ function init_gear_sets()
             hands="Geo. Mitaines +3",
             legs="Assid. Pants +1",
             feet="Geo. Sandals +2",
-            neck="Incanter's Torque",
-            waist="Fucho-no-Obi",
+            neck={ name="Loricate Torque +1", augments={'Path: A',}},
+            waist="Carrier's Sash",
             left_ear="Etiolation Earring",
             right_ear="Infused Earring",
             left_ring="Stikini Ring +1",
@@ -675,8 +693,9 @@ function init_gear_sets()
     }
 
     sets.Kiting = {feet="Geo. Sandals +2",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
-    sets.latent_refresh = {}
+	sets.latent_refresh = {waist="Fucho-no-Obi"}
 
 
     --------------------------------------
@@ -747,7 +766,12 @@ function job_precast(spell, action, spellMap, eventArgs)
     --    classes.CustomClass = 'Mindmelter'
     --end
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 function job_post_precast(spell, action, spellMap, eventArgs)
     -- Make sure abilities using head gear don't swap 
 	if spell.type:lower() == 'weaponskill' then
@@ -851,6 +875,9 @@ end
 function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
     --if state.CapacityMode.value then
         --idleSet = set_combine(idleSet, sets.CapacityMantle)
@@ -1112,6 +1139,6 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 178')
+        send_command('wait 6;input /lockstyleset 178')
     end
 end

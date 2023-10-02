@@ -150,7 +150,8 @@ function init_gear_sets()
 		waist="Witful Belt",
 		legs="Psycloth Lappas",
 		feet="Carmine Greaves +1"}
-	sets.SIRD={
+
+	sets.SIRD = {
 			ammo="Staunch Tathlum +1",
 			body={ name="Ros. Jaseran +1", augments={'Path: A',}},
 			hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -159,7 +160,7 @@ function init_gear_sets()
 			waist="Rumination Sash",
 			right_ring="Freke Ring",
 	}
-	sets.midcast.SIRD={
+	sets.midcast.SIRD = {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
 		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -467,6 +468,7 @@ sets.TreasureHunter = {
 		hands="Telchine Gloves",
 		legs="Telchine Braconi",
 		feet="Telchine Pigaches",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -545,7 +547,7 @@ sets.TreasureHunter = {
 		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Telchine Pigaches",
-		neck="Incanter's Torque",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
 		right_ear="Leth. Earring +1",
@@ -561,7 +563,7 @@ sets.TreasureHunter = {
 		hands="Telchine Gloves",
 		legs="Telchine Braconi",
 		feet="Telchine Pigaches",
-		neck="Incanter's Torque",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
 		right_ear="Leth. Earring +1",
@@ -577,7 +579,7 @@ sets.TreasureHunter = {
 		hands="Telchine Gloves",
 		legs="Telchine Braconi",
 		feet="Telchine Pigaches",
-		neck="Incanter's Torque",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
 		right_ear="Leth. Earring +1",
@@ -620,7 +622,7 @@ sets.TreasureHunter = {
 		head="Befouled Crown",
 		hands="Regal Cuffs",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		neck="Incanter's Torque",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
 		right_ear="Leth. Earring +1",
@@ -639,7 +641,7 @@ sets.TreasureHunter = {
 		hands="Regal Cuffs",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-		neck="Erra Pendant",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Obstin. Sash",
 		left_ear="Regal Earring",
         right_ear="Snotra Earring",
@@ -658,7 +660,7 @@ sets.TreasureHunter = {
 		hands="Regal Cuffs",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-		neck="Erra Pendant",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Snotra Earring",
@@ -677,8 +679,8 @@ sets.TreasureHunter = {
 		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-		neck="Incanter's Torque",
-		waist="Luminary Sash",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Obstin. Sash",
         left_ear="Regal Earring",
         right_ear="Snotra Earring",
 		left_ring="Stikini Ring",
@@ -694,7 +696,7 @@ sets.TreasureHunter = {
 		hands="Regal Cuffs",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-		neck="Incanter's Torque",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Obstin. Sash",
         left_ear="Regal Earring",
         right_ear="Snotra Earring",
@@ -721,7 +723,8 @@ sets.TreasureHunter = {
 		body="Lethargy Sayon +3",
         hands="Amalric Gages +1",
 		legs="Jhakri Slops +2",
-		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},		neck="Sibyl Scarf",
+		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Regal Earring",
 		right_ear="Regal Earring",
@@ -817,11 +820,8 @@ sets.TreasureHunter = {
     sets.resting = {
 		head="Befouled Crown",
         body="Shamash Robe",
-		hands="Malignance Gloves",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		left_ear="Infused Earring",
-		right_ear="Musical Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 	}
@@ -835,13 +835,16 @@ sets.TreasureHunter = {
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Nyame Sollerets",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Fucho-no-Obi",
+        waist="Carrier's Sash",
 		left_ear="Etiolation Earring",
 		right_ear="Genmei Earring",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
 		back="Moonlight Cape",}
 
+        sets.idle.Town ={legs="Carmine Cuisses +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",}
     
     sets.idle.Weak = {
 		ammo="Homiliary",
@@ -939,7 +942,7 @@ sets.TreasureHunter = {
 		back="Moonlight Cape",}
 		
 
-    sets.latent_refresh = {waist="Fucho-no-obi",    ammo="Homiliary",}
+    sets.latent_refresh = {waist="Fucho-no-obi",}
 
     -- Engaged sets
 
@@ -1546,8 +1549,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan RDM.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

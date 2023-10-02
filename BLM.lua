@@ -183,7 +183,8 @@ function init_gear_sets()
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
 	}
-		
+    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
+
 
 	sets.precast['Impact'] = {
 	    ammo="Sapience Orb",
@@ -241,7 +242,8 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
     }
- 
+    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
+
     -- Sets for WS, Feel free to add one for Vidohunir if you have Laevateinn
 
    sets.precast.WS = {
@@ -380,7 +382,6 @@ function init_gear_sets()
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Incanter's Torque",
-        waist="Fucho-no-Obi",
         left_ear="Mendi. Earring",
         right_ear="Etiolation Earring",
         left_ring="Kishar Ring",
@@ -789,19 +790,25 @@ function init_gear_sets()
 	-- remember to alter the refresh sets (Ctrl+F to find them)
 
     sets.idle = {
-
+        ammo="Staunch Tathlum +1",
         head="Befouled Crown",
         body="Shamash Robe",
+        hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
+        feet="Inyan. Crackows +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Etiolation Earring",
+        right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
+		back="Taranus's Cape",
 		}
- 
+        --sets.idle.Field = sets.idle
+
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {
-		main="Malignance Pole",
-    sub="Alber Strap",
-    ammo="Amar Cluster",
+    ammo="Staunch Tathlum +1",
     head="Nyame Helm",
     body="Shamash Robe",
     hands="Nyame Gauntlets",
@@ -811,11 +818,14 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear="Eabani Earring",
     right_ear="Ethereal Earring",
-    left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
     right_ring="Shadow Ring",
     back="Moonlight Cape",
 	}
-    sets.idle.Town = {feet="Herald's Gaiters"}
+    sets.idle.Town = {
+        feet="Herald's Gaiters",left_ear="Infused Earring",
+        right_ring="Stikini Ring +1",
+}
 
     sets.Adoulin = {body="Councilor's Garb", feet="Herald's Gaiters"}
 
@@ -834,7 +844,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         main="Malignance Pole",
         sub="Alber Strap",
-        ammo="Amar Cluster",
+        ammo="Staunch Tathlum +1",
         body="Shamash Robe",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -852,7 +862,7 @@ function init_gear_sets()
     sets.defense.MDT = {
 		main="Malignance Pole",
     sub="Alber Strap",
-    ammo="Amar Cluster",
+    ammo="Staunch Tathlum +1",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -920,7 +930,24 @@ function init_gear_sets()
 	-- This is mostly used in this lua in situations where a fight is about to be initiated and you arent above whatever the maximum
 	-- value for your idle set is.  Another simple way around this is to simply make a macro to equip the gear before the fight starts.
 	
-	sets.engaged = {
+    sets.engaged.None = {}
+    sets.engaged = {
+        ammo="Staunch Tathlum +1",
+        head="Befouled Crown",
+        body="Shamash Robe",
+        hands="Inyan. Dastanas +2",
+        legs="Assid. Pants +1",
+        feet="Inyan. Crackows +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Etiolation Earring",
+        right_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+		back="Taranus's Cape",
+    }
+
+	sets.engaged.TP = {
         ammo="Amar Cluster",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Nyame Mail",
@@ -1342,10 +1369,7 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(1, 9)
-	-- Do not remove below argument or the file WILL NOT WORK PROPERLY when reloaded in an escha area--
-	if buffactive['Vorseal'] and state.VorsealMode.value == 'Normal' then
-	send_command('gs c cycle VorsealMode')
-	end
+
 end
 
 --{{Emulator Backend: log_filter=*:Info}}
