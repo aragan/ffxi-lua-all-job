@@ -469,6 +469,7 @@ sets.TreasureHunter = {
 		legs="Telchine Braconi",
 		feet="Telchine Pigaches",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		right_ear="Leth. Earring +1",
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 

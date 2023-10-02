@@ -758,6 +758,7 @@ function init_gear_sets()
         right_ring="Freke Ring",
         back="Lugh's Cape",
         }
+
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
         head=empty,
         body="Twilight Cloak",
