@@ -44,6 +44,11 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 151')
     define_roll_values()
     send_command('lua l AutoCOR')
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
+    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
+    elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
+    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 end
 
 
@@ -70,8 +75,6 @@ function user_setup()
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1",}
     state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS',}
-    elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
-    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     gear.RAbullet = "Decimating Bullet"
     gear.WSbullet = "Chrono Bullet"
     gear.MAbullet = "Living Bullet"
@@ -87,9 +90,9 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^; gs enable all')
-    send_command('bind f6 gs c cycle GunMode')
-    send_command('bind f5 gs c cycle WeaponSet')
+    send_command('bind !/ gs enable all')
+    send_command('bind f7 gs c cycle GunMode')
+    send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !- gs c toggle RP')  
 
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -1238,6 +1241,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     determine_haste_group()
     update_combat_form()
     check_moving()
+    check_gear()
     if state.GunMode.value == "DeathPenalty" then
         equip({range="Death Penalty"})
     elseif state.GunMode.value == "Anarchy" then
@@ -1447,6 +1451,41 @@ end
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
 end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+    if no_swap_gear:contains(player.equipment.waist) then
+        disable("waist")
+    else
+        enable("waist")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)
 
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
