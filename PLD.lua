@@ -1839,29 +1839,6 @@ end
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------------------------
--- Utility functions specific to this job.
--------------------------------------------------------------------------------------------------------------------
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    if player.sub_job == 'DNC' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'RDM' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'RUN' then
-        set_macro_page(1, 37)
-	elseif player.sub_job == 'WAR' then
-        set_macro_page(1, 37)
-	elseif player.sub_job == 'BLU' then
-        set_macro_page(1, 37)
-    else
-        set_macro_page(1, 37)
-    end
-end
-
 function get_rune_obi_element()
     weather_rune = buffactive[elements.rune_of[world.weather_element] or '']
     day_rune = buffactive[elements.rune_of[world.day_element] or '']
@@ -2154,6 +2131,28 @@ windower.raw_register_event('status change',function(new, old)
     end
 end)
 
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    if player.sub_job == 'DNC' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'NIN' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'RDM' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'RUN' then
+        set_macro_page(1, 37)
+	elseif player.sub_job == 'WAR' then
+        set_macro_page(1, 37)
+	elseif player.sub_job == 'BLU' then
+        set_macro_page(1, 37)
+    else
+        set_macro_page(1, 37)
+    end
+end
 
 
 
