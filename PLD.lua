@@ -162,8 +162,18 @@ function user_setup()
      --Alt+/ enable all
     send_command('bind !/ gs enable all')
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
-	select_default_macro_book()
-  update_combat_form()
+	
+    state.Auto_Kite = M(false, 'Auto_Kite')
+
+    Haste = 0
+    DW_needed = 0
+    DW = false
+    moving = false
+
+    determine_haste_group()
+    
+    select_default_macro_book()
+    update_combat_form()
 end
 
 
@@ -1522,24 +1532,6 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
    right_ring="Chirich Ring +1",
    back="Tactical Mantle",
 }
-
-
-sets.engaged.Hybrid = --1179 / 1315 avec enlight up
-{   ammo="Aurgelmir Orb +1",
-   head="Hjarrandi Helm",
-   body="Hjarrandi Breast.",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
-   neck="Ainia Collar",
-   waist="Tempus Fugit +1",
-   left_ear="Dedition Earring",
-   right_ear="Telos Earring",
-   left_ring="Petrov Ring",
-   right_ring="Moonlight Ring",
-   back="Tactical Mantle",
-}
-
 sets.engaged.CRIT = --1179 / 1315 avec enlight up
 {
    ammo="Coiste Bodhar",
@@ -1555,6 +1547,155 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
    left_ring="Defending Ring",
    right_ring="Hetairoi Ring",
    back="Annealed Mantle",}
+
+   sets.engaged.Hybrid = --1179 / 1315 avec enlight up
+   {   ammo="Aurgelmir Orb +1",
+      head="Hjarrandi Helm",
+      body="Hjarrandi Breast.",
+      hands="Sakpata's Gauntlets",
+      legs="Sakpata's Cuisses",
+      feet="Sakpata's Leggings",
+      neck="Ainia Collar",
+      waist="Tempus Fugit +1",
+      left_ear="Dedition Earring",
+      right_ear="Telos Earring",
+      left_ring="Petrov Ring",
+      right_ring="Moonlight Ring",
+      back="Tactical Mantle",
+   }
+
+------------------------------------------------------------------------------------------------
+    ---------------------------------------- DW ------------------------------------------
+------------------------------------------------------------------------------------------------
+
+    -- * DNC Subjob DW Trait: +15%
+    -- * NIN Subjob DW Trait: +25%
+
+    --DW cap all set haste capped
+sets.engaged.DW = --1124 / 1264 avec enlight up 
+{}
+sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
+    right_ear="Eabani Earring", --4
+left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.Tp = set_combine(sets.engaged.Tp,{
+    right_ear="Eabani Earring", --4
+left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.STP = set_combine(sets.engaged.STP,{
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Carmine Cuisses +1", --6
+    feet="Flam. Gambieras +2",
+    neck="Clotharius Torque",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Suppanomimi", --5
+    right_ear="Eabani Earring", --4
+    left_ring="Petrov Ring",
+    right_ring="Hetairoi Ring",
+    back="Bleating Mantle",
+}) -- 12%
+sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
+    left_ring="Petrov Ring",
+    right_ear="Eabani Earring", --4
+    left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.Hybrid = set_combine(sets.engaged.Hybrid,{
+    right_ear="Eabani Earring", --4
+    left_ear="Suppanomimi",
+}) -- 12%
+------------------------------------------------------------------------------------------------
+  ---------------------------------------- DW-HASTE ------------------------------------------
+------------------------------------------------------------------------------------------------
+
+sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {})
+sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Tp.LowHaste = set_combine(sets.engaged.DW.Tp, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Hybrid.LowHaste = set_combine(sets.engaged.DW.Hybrid, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+
+-- 30% Magic Haste (56% DW to cap)
+
+sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW,{})
+sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.Acc,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Tp.MidHaste = set_combine(sets.engaged.DW.Tp,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.STP,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW.CRIT,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Hybrid.MidHaste = set_combine(sets.engaged.DW.Hybrid,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+
+sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
+sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.Acc)-- 12%
+sets.engaged.DW.Tp.MaxHaste = set_combine(sets.engaged.DW.Tp)-- 12%
+sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)-- 12%
+sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)-- 12%
+sets.engaged.DW.Hybrid.MaxHaste = set_combine(sets.engaged.DW.Hybrid)-- 12%
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
    sets.engaged.PDT = --1179 / 1315 avec enlight up
    {
@@ -1586,6 +1727,54 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
     hands="Rev. Gauntlets +3",
  }
 
+ sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.Tp.PDT = set_combine(sets.engaged.DW.Tp,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+
+    --sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.PDT)
+    --sets.engaged.DW.PDT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.PDT)
+    --sets.engaged.DW.PDT.MaxHaste = set_combine(sets.engaged.DW.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.LowHaste = set_combine(sets.engaged.DW.Tp.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.MidHaste = set_combine(sets.engaged.DW.Tp.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.MaxHaste = set_combine(sets.engaged.DW.Tp.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.PDT.MaxHaste, sets.engaged.PDT)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------Job-specific hooks that are called to process player actions at specific points in time-----------
@@ -1769,6 +1958,7 @@ function job_buff_change(buff,gain)
     end
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
+    determine_haste_group()
     check_moving()
     update_combat_form()
     check_gear()
@@ -1895,6 +2085,11 @@ function job_state_change(stateField, newValue, oldValue)
 end
 function update_combat_form()
   -- Check for H2H or single-wielding
+  if DW == true then
+        state.CombatForm:set('DW')
+  elseif DW == false then
+        state.CombatForm:reset()
+  end 
   if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
     if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
     player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
@@ -1903,6 +2098,24 @@ function update_combat_form()
     state.CombatForm:reset()
     end
   end
+end
+function determine_haste_group()
+    classes.CustomMeleeGroups:clear()
+    if DW == true then
+        if DW_needed <= 11 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 12 and DW_needed <= 21 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 21 and DW_needed <= 27 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 27 and DW_needed <= 31 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 31 and DW_needed <= 42 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 42 then
+            classes.CustomMeleeGroups:append('')
+        end
+    end
 end
 function check_moving()
     --[[add_to_chat(123, 'Check Movement')
@@ -2128,6 +2341,22 @@ function job_self_command(cmdParams, eventArgs)
 end
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
+        if type(tonumber(cmdParams[2])) == 'number' then
+            if tonumber(cmdParams[2]) ~= DW_needed then
+            DW_needed = tonumber(cmdParams[2])
+            DW = true
+            end
+        elseif type(cmdParams[2]) == 'string' then
+            if cmdParams[2] == 'false' then
+                DW_needed = 0
+                DW = false
+            end
+        end
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
         if type(cmdParams[4]) == 'string' then
             if cmdParams[4] == 'true' then
                 moving = true
