@@ -130,7 +130,7 @@ function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
-    state.WeaponskillMode:options('Normal', 'PDL')
+    state.WeaponskillMode:options('Normal', 'PDL', 'None')
     state.CastingMode:options('Normal', 'DT', 'MB') 
     state.IdleMode:options('Normal', 'EnemyCritRate', 'MEVA', 'ReverenceGauntlets', 'DeathSpike', 'Refresh', 'Resist', 'EnemyTPaccumulation')
     --state.RestingModes:options('Normal')
@@ -298,6 +298,8 @@ sets.precast.WS.PDL = set_combine(sets.precast.WS, {
    legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS.None = {}
+
    -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
    --Stat Modifier:     73~85% MND  fTP:    1.0
@@ -319,6 +321,8 @@ back="Bleating Mantle",
 sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
    hands="Sakpata's Gauntlets",
 })
+sets.precast.WS['Requiescat'].None = {}
+
   --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
    sets.precast.WS['Sanguine Blade'] = {
        ammo="Pemphredo Tathlum",
@@ -336,6 +340,8 @@ sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
        right_ring="Cornelia's Ring",
        back="Argocham. Mantle",
 }	     
+sets.precast.WS['Sanguine Blade'].None = {}
+
    sets.precast.WS['Aeolian Edge'] = {   
    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
    head="Nyame Helm",
@@ -388,6 +394,8 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
    hands="Sakpata's Gauntlets",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS['Savage Blade'].None = {}
+
   --Stat Modifier:  80%DEX  fTP:2.25
   sets.precast.WS['Chant du Cygne'] = {	
    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -408,6 +416,8 @@ sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cy
    ammo="Crepuscular Pebble",
    hands="Sakpata's Gauntlets",
 })
+sets.precast.WS['Chant du Cygne'].None = {}
+
    --Stat Modifier: WS damage + 30/31%   2211DMG maxaggro
    sets.precast.WS['Atonement'] = {
    ammo="Paeapua",
@@ -424,6 +434,8 @@ sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cy
    right_ring="Apeile Ring",
    back="Rudianos's Mantle",
 }
+sets.precast.WS['Atonement'].None = {}
+
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {    
    ammo="Crepuscular Pebble",
@@ -431,6 +443,8 @@ sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Driv
    legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS['Impulse Drive'].None = {}
+
 sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Requiescat"], {})
 sets.precast.WS["Realmrazer"].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {})
 sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Aeolian Edge"], {})
@@ -1585,6 +1599,53 @@ end
 
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
+function job_precast(spell, action, spellMap, eventArgs)
+
+    --[[if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+        add_to_chat(167, 'Action stopped due to status.')
+        eventArgs.cancel = true
+        return
+    end]]
+    --[[if spell.type == 'WeaponSkill' then
+        if state.OffenseMode.value == "None" then
+        equip({})
+        end
+    end]]
+    if rune_enchantments:contains(spell.english) then
+        eventArgs.handled = true
+    end
+    if spell.english == 'Lunge' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        if abil_recasts[spell.recast_id] > 0 then
+            send_command('input /jobability "Swipe" <t>')
+--            add_to_chat(122, '***Lunge Aborted: Timer on Cooldown -- Downgrading to Swipe.***')
+            eventArgs.cancel = true
+            return
+        end
+    end
+    if spell.english == 'Valiance' then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+        if abil_recasts[spell.recast_id] > 0 then
+            send_command('input /jobability "Vallation" <me>')
+            eventArgs.cancel = true
+            return
+        elseif spell.english == 'Valiance' and buffactive['vallation'] then
+            cast_delay(0.2)
+            send_command('cancel Vallation') -- command requires 'cancel' add-on to work
+        end
+    end
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
+end
+
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spellMap == 'Cure' and spell.target.type == 'SELF' then
       if state.CastingMode.value == 'DT' then
@@ -1730,47 +1791,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
      -- equip({})
     --end
 end
-function job_precast(spell, action, spellMap, eventArgs)
 
-    --[[if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-        add_to_chat(167, 'Action stopped due to status.')
-        eventArgs.cancel = true
-        return
-    end]]
-    if rune_enchantments:contains(spell.english) then
-        eventArgs.handled = true
-    end
-    if spell.english == 'Lunge' then
-        local abil_recasts = windower.ffxi.get_ability_recasts()
-        if abil_recasts[spell.recast_id] > 0 then
-            send_command('input /jobability "Swipe" <t>')
---            add_to_chat(122, '***Lunge Aborted: Timer on Cooldown -- Downgrading to Swipe.***')
-            eventArgs.cancel = true
-            return
-        end
-    end
-    if spell.english == 'Valiance' then
-        local abil_recasts = windower.ffxi.get_ability_recasts()
-        if abil_recasts[spell.recast_id] > 0 then
-            send_command('input /jobability "Vallation" <me>')
-            eventArgs.cancel = true
-            return
-        elseif spell.english == 'Valiance' and buffactive['vallation'] then
-            cast_delay(0.2)
-            send_command('cancel Vallation') -- command requires 'cancel' add-on to work
-        end
-    end
-    if spellMap == 'Utsusemi' then
-        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-            cancel_spell()
-            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = true
-            return
-        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
-            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
-        end
-    end
-end
 function job_update(cmdParams, eventArgs)
     check_moving()
     handle_equipping_gear(player.status)
