@@ -1928,10 +1928,8 @@ function check_moving()
     if state.DefenseMode.value == 'None' and state.Kiting.value == false then
         if not state.Auto_Kite.value and moving then
             state.Auto_Kite:set(true)
-            add_to_chat(123, 'Auto-Kite on')
         elseif state.Auto_Kite.value == true and moving == false then
             state.Auto_Kite:set(false)
-            add_to_chat(123, 'Auto-Kite off')
         end
     end
 end
