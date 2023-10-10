@@ -96,7 +96,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     send_command('bind @w gs c toggle WeaponLock')
-    send_command('wait 5;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 174')
 
     spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
     avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
@@ -179,7 +179,8 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'Regen')
     state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
     gear.perp_staff = {name=""}
-    
+    send_command('wait 2;input /lockstyleset 174')
+
     select_default_macro_book()
 end
 
@@ -239,6 +240,7 @@ function init_gear_sets()
 }
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {left_ear="Andoaa Earring",})
+    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
        
     -- Weaponskill sets
@@ -261,18 +263,16 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Myrkr'] = {
-        ammo="Pemphredo Tathlum",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Friomisi Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Freke Ring",
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Pixie Hairpin +1",
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+        neck="Sanctity Necklace",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Evans Earring",
+        left_ring="Mephitas's Ring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
            sets.precast.WS['Black Halo'] = {
@@ -389,9 +389,8 @@ function init_gear_sets()
         waist="Siegel Sash",
         })
 
-    sets.midcast['Elemental Magic'] = {ear1="Friomisi Earring",
-        
-        }
+    sets.midcast['Elemental Magic'] = {ear1="Friomisi Earring",}
+    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
 
     sets.midcast['Dark Magic'] = {
         waist="Fuchi-no-Obi",}
@@ -595,7 +594,7 @@ function init_gear_sets()
     legs="Assiduity Pants +1",
     feet={ name="Glyph. Pigaches +3", augments={'Inc. Sp. "Blood Pact" magic crit. dmg.',}},
     neck="Caller's Pendant",
-    waist="Fucho-no-Obi",
+    waist="Isa Belt",
     left_ear="Enmerkar Earring",
     right_ear="Evans Earring",
     left_ring="Thurandaut Ring",
@@ -659,13 +658,9 @@ function init_gear_sets()
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
-    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +2",
-        
-    }
-    sets.idle.Avatar.Melee = {
-
-    }
-        
+    sets.idle.Avatar.Favor = {    head="Beckoner's Horn +2",}
+    sets.idle.Avatar.Melee = {}
+    sets.Adoulin = {body="Councilor's Garb",}
     sets.perp = {}
     -- Caller's Bracer's halve the perp cost after other costs are accounted for.
     -- Using -10 (Gridavor, ring, Conv.feet), standard avatars would then cost 5, halved to 2.
@@ -890,11 +885,12 @@ function customize_idle_set(idleSet)
             idleSet = set_combine(idleSet, sets.idle.Avatar.Melee)
         end
     end
-    
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
-    
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     return idleSet
 end
 
@@ -1170,11 +1166,10 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 174')
     end
 end
-add_to_chat(159,'Author Aragan SMN.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

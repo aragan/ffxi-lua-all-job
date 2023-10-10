@@ -19,9 +19,24 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 
-        organizer_items = {"Prime Sword",
+        organizer_items = {
+            "Reikiko",
+            "Tumult's Blood",
+            "Sarama's Hide",
+            "Hidhaegg's Scale",
+            "Sovereign's Hide",
+            "Grape Daifuku",
+            "Soy Ramen",
+            "G. Curry Bun +1",
+            "Pukatrice Egg",
+            "Moogle Amp.",
+            "Popo. con Queso",
+            "Pear Crepe",
+            "Crab Sushi",
+            "Om. Sandwich",
+            "Red Curry Bun",
             "Drepanum",
-            "Lentus Grip",
+            "Sword Strap",
             "Maliya Sickle +1",
             "Thr. Tomahawk",
             "Gyudon",
@@ -60,11 +75,10 @@ end
  
 -- Setup vars that are user-independent.
 function job_setup()
-    send_command('wait 6;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 152')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
-	send_command('bind @w gs c toggle WeaponLock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     --state.Buff.Souleater = buffactive.souleater or false
@@ -72,6 +86,7 @@ function job_setup()
     state.Buff.Retaliation = buffactive.retaliation or false
     
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
+    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
     gsList = S{'Macbain', 'Nandaka', 'Nativus Halberd'}
     war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
@@ -89,7 +104,7 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Mid', 'Acc', 'STP', 'PD', 'CRIT')
-    state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'SubtleBlow75', 'Counter')
+    state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'SubtleBlow75', 'Counter', 'ressistwater')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
     state.CastingMode:options('Normal', 'sird', 'ConserveMP')
     state.IdleMode:options('Normal', 'Refresh', 'Regen')
@@ -101,13 +116,13 @@ function user_setup()
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
     send_command('bind ^/ gs disable all')
     send_command('bind ^- gs enable all')
-    send_command('wait 2;input /lockstyleset 179')
+    send_command('wait 2;input /lockstyleset 152')
     select_default_macro_book()
 end
  
@@ -154,14 +169,14 @@ function init_gear_sets()
      -- Precast Sets
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
-     sets.precast.JA['Blood Rage'] = {}
+     sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3",}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
      sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
-     sets.precast.JA['Mighty Strikes'] = { head="Agoge Mufflers"}
-     sets.precast.JA['Retaliation'] = { hands="Pummeler's Mufflers +1", feet="Ravager's Calligae +2"}
+     sets.precast.JA['Mighty Strikes'] = {}
+     sets.precast.JA['Retaliation'] = {}
      sets.precast.JA['Aggressor'] = {}
-     sets.precast.JA['Restraint'] = { hands="Boii Mufflers +2"}
+     sets.precast.JA['Restraint'] = { hands="Boii Mufflers +3"}
      sets.precast.JA['Warrior\'s Charge'] = {}
 
      --sets.CapacityMantle  = { back="Mecistopins Mantle" }
@@ -334,7 +349,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
         body="Nyame Mail",
-        hands="Boii Mufflers +2",
+        hands="Boii Mufflers +3",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
@@ -357,14 +372,14 @@ function init_gear_sets()
      sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
      })
     sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Boii Mufflers +2",
+    hands="Boii Mufflers +3",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -386,21 +401,21 @@ function init_gear_sets()
     sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS['Upheaval'], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS["Upheaval"], {})
     sets.precast.WS["King's Justice"].Acc = set_combine(sets.precast.WS["Upheaval"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Ukko's Fury"] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Hjarrandi Breast.",
-        hands="Boii Mufflers +2",
+        hands="Boii Mufflers +3",
         legs="Nyame Flanchard",
         feet="Thereoid Greaves",
         neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -422,7 +437,7 @@ function init_gear_sets()
     sets.precast.WS["Ukko's Fury"].Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
         })
     sets.precast.WS["Stardiver"] = set_combine(sets.precast.WS["Ukko's Fury"], {
@@ -439,7 +454,7 @@ function init_gear_sets()
     sets.precast.WS["Stardiver"].Acc = set_combine(sets.precast.WS["Stardiver"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
 
@@ -454,7 +469,7 @@ function init_gear_sets()
         waist="Fotia Belt",
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Sturmwind"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
@@ -478,7 +493,7 @@ function init_gear_sets()
     sets.precast.WS["Evisceration"].Acc = set_combine(sets.precast.WS["Evisceration"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
 
@@ -486,14 +501,14 @@ function init_gear_sets()
     sets.precast.WS["True Strike"].Acc = set_combine(sets.precast.WS["True Strike"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS, {
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Boii Mufflers +2",
+    hands="Boii Mufflers +3",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -515,7 +530,7 @@ function init_gear_sets()
     sets.precast.WS["Fell Cleave"].Acc = set_combine(sets.precast.WS["Fell Cleave"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS['Armor Break'] = set_combine(sets.precast.WS, {
@@ -566,7 +581,7 @@ function init_gear_sets()
     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'], {
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         feet="Sakpata's Leggings",
         ammo="Crepuscular Pebble",
         right_ring="Sroda Ring", 
@@ -598,7 +613,7 @@ function init_gear_sets()
             ammo="Coiste Bodhar",
             head="Hjarrandi Helm",
             body="Nyame Mail",
-            hands="Boii Mufflers +2",
+            hands="Boii Mufflers +3",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
             neck="Fotia Gorget",
@@ -620,7 +635,7 @@ function init_gear_sets()
         sets.precast.WS["Decimation"].Acc = set_combine(sets.precast.WS["Decimation"], {
             ammo="Crepuscular Pebble",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
+            legs="Boii Cuisses +3",
             left_ring="Sroda Ring",
         })
 
@@ -638,7 +653,7 @@ function init_gear_sets()
         sets.precast.WS["Cross Reaper"].Acc = set_combine(sets.precast.WS["Cross Reaper"], {
             ammo="Crepuscular Pebble",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
+            legs="Boii Cuisses +3",
             left_ring="Sroda Ring",
         })
         sets.precast.WS["Entropy"] = set_combine(sets.precast.WS, {
@@ -652,7 +667,7 @@ function init_gear_sets()
         sets.precast.WS["Entropy"].Acc = set_combine(sets.precast.WS["Entropy"], {
             ammo="Crepuscular Pebble",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
+            legs="Boii Cuisses +3",
             left_ring="Sroda Ring",
         })
 
@@ -673,7 +688,7 @@ function init_gear_sets()
         ammo="Crepuscular Pebble",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
      })
      sets.precast.WS['Spirits Within'] = {
@@ -730,7 +745,7 @@ function init_gear_sets()
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
         })
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {
@@ -748,7 +763,7 @@ function init_gear_sets()
     sets.precast.WS["Sonic Thrust"].Acc = set_combine(sets.precast.WS["Sonic Thrust"], {
         ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
+        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
 
@@ -756,14 +771,14 @@ function init_gear_sets()
     ammo="Knobkierrie",
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
-    hands="Boii Mufflers +2",
+    hands="Boii Mufflers +3",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -776,10 +791,9 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
-        ammo="Crepuscular Pebble",
+        body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs="Boii Cuisses +2",
-        left_ring="Sroda Ring",
+        legs="Boii Cuisses +3",
     })
     sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Mistral Axe'].Mid = set_combine(sets.precast.WS['Savage Blade'].Mid, {})
@@ -794,10 +808,10 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
         sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",
+            legs="Boii Cuisses +3",
         })
         sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
         sets.precast.WS["Black Halo"].Mid = set_combine(sets.precast.WS["Black Halo"], {
@@ -809,10 +823,10 @@ function init_gear_sets()
             neck={ name="Warder's Charm +1", augments={'Path: A',}},
         })
         sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",
+            legs="Boii Cuisses +3",
         })
         sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
@@ -828,10 +842,10 @@ function init_gear_sets()
             neck={ name="Warder's Charm +1", augments={'Path: A',}},
         })
         sets.precast.WS["Ground Strike"].Acc = set_combine(sets.precast.WS['Ground Strike'], {
-            ammo="Crepuscular Pebble",
+            ammo="Knobkierrie",
+            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Boii Cuisses +2",
-            left_ring="Sroda Ring",   })
+            legs="Boii Cuisses +3",   })
 
     sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {
@@ -958,10 +972,12 @@ function init_gear_sets()
         feet="Hermes' Sandals +1",
         back="Moonlight Cape",
         }
-     sets.idle.Town = {
-         feet="Hermes' Sandals +1",
-     }
-     sets.idle.Field = set_combine(sets.idle.Town, {
+        sets.idle.Town ={
+        feet="Hermes' Sandals +1",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Infused Earring",}      
+
+     sets.idle.Field = {
          head="Sakpata's Helm",
          body="Sakpata's Plate",
          hands="Sakpata's Gauntlets",
@@ -974,23 +990,22 @@ function init_gear_sets()
          left_ring="Defending Ring",
          feet="Hermes' Sandals +1",
          back="Moonlight Cape",
-     })
+     }
      sets.idle.Regen = set_combine(sets.idle.Field, {
         body="Obviation Cuirass",
-        neck="Sanctity Necklace",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
      })
      sets.idle.Refresh = set_combine(sets.idle.Field, {
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
      })
  
      sets.idle.Weak = set_combine(sets.idle.Field, {
         head="Twilight Helm",
-        body="Twilight Mail",
+        body="Crepuscular Mail",
         back="Moonlight Cape",
      })
 
@@ -1092,7 +1107,7 @@ function init_gear_sets()
 
      sets.Reraise = {
         head="Twilight Helm",
-        body="Twilight Mail",}
+        body="Crepuscular Mail",}
 
      -- Defensive sets to combine with various weapon-specific sets below
      -- These allow hybrid acc/pdt sets for difficult content
@@ -1116,14 +1131,14 @@ function init_gear_sets()
  
      -- Engaged set, assumes Liberator
      sets.engaged = {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Schere Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1133,12 +1148,12 @@ function init_gear_sets()
     sets.engaged.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Cessance Earring",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1147,9 +1162,9 @@ function init_gear_sets()
      })
     sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        head="Hjarrandi Helm",
+        body="Boii Lorica +3",
+        hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
@@ -1158,7 +1173,7 @@ function init_gear_sets()
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
-    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
 
     sets.engaged.PD = {
@@ -1259,14 +1274,14 @@ function init_gear_sets()
     }
 
     sets.engaged.DW = set_combine(sets.engaged, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-        head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Suppanomimi",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1277,12 +1292,12 @@ function init_gear_sets()
     sets.engaged.DW.Mid = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Hjarrandi Breast.",
+        body="Boii Lorica +3",
         hands="Sakpata's Gauntlets",
         legs="Pumm. Cuisses +3",
         feet="Pumm. Calligae +3",
         neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Ioskeha Belt +1",
         left_ear="Suppanomimi",
         right_ear="Boii Earring +1",
         left_ring="Niqmaddu Ring",
@@ -1321,10 +1336,10 @@ function init_gear_sets()
      })
 
      sets.engaged.STP = set_combine(sets.engaged, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        body="Boii Lorica +3",
+        hands="Sakpata's Gauntlets",
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
         feet="Pumm. Calligae +3",
         neck={ name="Vim Torque +1", augments={'Path: A',}},
@@ -1354,7 +1369,11 @@ function init_gear_sets()
     left_ear="Genmei Earring",
     right_ear="Cryptic Earring",
     })
-
+    sets.engaged.ressistwater = set_combine(sets.engaged, {
+        head="Genmei Kabuto",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+    })
     
 
      sets.engaged.PDT = set_combine(sets.engaged, sets.Defensive)
@@ -1366,8 +1385,7 @@ function init_gear_sets()
 
      sets.engaged.Reraise = set_combine(sets.engaged, {
      	head="Twilight Helm",
-     	body="Twilight Mail"
-     })
+         body="Crepuscular Mail",     })
      sets.buff.Berserk = { 
          --feet="Warrior's Calligae +2" 
      }
@@ -1378,14 +1396,15 @@ function init_gear_sets()
      waist="Gishdubar Sash",
      left_ring="Purity Ring",
      right_ring="Blenmot's Ring +1",}
- 
+     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+
     
 end
 
 function job_pretarget(spell, action, spellMap, eventArgs)
     if spell.type:endswith('Magic') and buffactive.silence then
         eventArgs.cancel = true
-        send_command('input /item "Echo Drops" <me>')
+        send_command('input /item "Remedy" <me>')
     --elseif spell.target.distance > 8 and player.status == 'Engaged' then
     --    eventArgs.cancel = true
     --    add_to_chat(122,"Outside WS Range! /Canceling")
@@ -1399,12 +1418,10 @@ end
 function job_post_precast(spell, action, spellMap, eventArgs)
 
     -- Make sure abilities using head gear don't swap 
-	if spell.type:lower() == '' then
+	if spell.type:lower() == 'weaponskill' then
         
         if is_sc_element_today(spell) then
             if state.OffenseMode.current == 'Normal' and wsList:contains(spell.english) then
-                -- do nothing
-            else
                 equip(sets.WSDayBonus)
             end
         end
@@ -1423,9 +1440,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         --     end
         -- end
         -- Use SOA neck piece for WS in rieves
-        if buffactive['Reive Mark'] then
+        --[[if buffactive['Reive Mark'] then
             equip(sets.reive)
-        end
+        end]]
     end
 end
  
@@ -1470,10 +1487,10 @@ function customize_idle_set(idleSet)
     --if player.hpp < 90 then
         --idleSet = set_combine(idleSet, sets.idle.Regen)
     --end
-    if state.HybridMode.current == 'PDT' then
+    --[[if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
-    end
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    end]]
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1482,16 +1499,16 @@ end
  
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
+    --[[if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
+    end]]
     if state.Buff.Berserk and not state.Buff.Retaliation then
     	meleeSet = set_combine(meleeSet, sets.buff.Berserk)
     end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1499,13 +1516,13 @@ function customize_melee_set(meleeSet)
 end
  
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 -------------------------------------------------------------------------------------------------------------------
 -- General hooks for other events.
@@ -1527,16 +1544,8 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-
-    
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
-    end
-    
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'Acc' then
-            equip(sets.MadrigalBonus)
-        end
     end
     -- Warp ring rule, for any buff being lost
     if S{'Warp', 'Vocation', 'Capacity'}:contains(player.equipment.ring2) then
@@ -1546,14 +1555,16 @@ function job_buff_change(buff, gain)
     else
         enable('ring2')
     end
-    
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
     if buff == "Berserk" then
         if gain and not buffactive['Retaliation'] then
             equip(sets.buff.Berserk)
-        else
-            if not midaction() then
-                handle_equipping_gear(player.status)
-            end
         end
     end
     if buff == "doom" then
@@ -1561,23 +1572,40 @@ function job_buff_change(buff, gain)
             equip(sets.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
-             disable('ring1','ring2','waist','neck')
+            disable('ring1','ring2','waist','neck')
         else
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "weakness" then
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
-             disable('body','head')
+            disable('body','head')
             else
-             enable('body','head')
+            enable('body','head')
         end
         return meleeSet
+    end]]
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            disable('neck')
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+        --[[else
+        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+        handle_equipping_gear(player.status)    
+        end]]
+        if not midaction() then
+            handle_equipping_gear(player.status)
+        end
     end
-
 end
  
  
@@ -1588,15 +1616,33 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 8 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    gearinfo(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    end
+    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
+        eventArgs.handled = true
     end
     return 
 end
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
 function job_update(player,cmdParams, eventArgs)
-    job_self_command()
+    --job_self_command()
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
@@ -1614,6 +1660,12 @@ function get_combat_form()
     --else
         --state.CombatForm:reset()
     --end
+    --[[if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    end
+    if gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+    end]]
     if S{'NIN', 'DNC'}:contains(player.sub_job) and war_sub_weapons:contains(player.equipment.sub) then
         state.CombatForm:set("DW")
     elseif S{'SAM', 'DRK', 'PLD', 'DRG', 'RUN'}:contains(player.sub_job) and player.equipment.sub == 'Blurred Shield +1' then
@@ -1651,16 +1703,19 @@ function job_state_change(stateField, newValue, oldValue)
     --        send_command('@input /lockstyle yes')
     --    end
     --end
-
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 179')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
-add_to_chat(159,'Author Aragan WAR.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 function select_default_macro_book()
     -- Default macro set/book
 	if player.sub_job == 'DNC' then
