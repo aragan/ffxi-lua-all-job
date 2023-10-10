@@ -112,10 +112,14 @@ end
 function job_setup()
     info.addendumNukes = S{"Stone IV", "Water IV", "Aero IV", "Fire IV", "Blizzard IV", "Thunder IV",
         "Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
-
+    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
     state.HelixMode = M{['description']='Helix Mode', 'Potency', 'Duration'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
+    state.StormSurge = M(false, 'Stormsurge')
     -- state.CP = M(false, "Capacity Points Mode")
 -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
@@ -141,13 +145,10 @@ function user_setup()
     state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow')
     state.IdleMode:options('Normal', 'DT', 'Resist')
 
-    state.WeaponLock = M(false, 'Weapon Lock')
-    state.MagicBurst = M(false, 'Magic Burst')
-    state.StormSurge = M(false, 'Stormsurge')
 
     -- Additional local binds
-    send_command('bind f7 @input /ja "Sublimation" <me>')
-    send_command('bind f4 input //Sublimator')
+    send_command('bind f4 @input /ja "Sublimation" <me>')
+    send_command('bind f3 input //Sublimator')
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^- gs c scholar light')
@@ -165,8 +166,10 @@ function user_setup()
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind @s gs c toggle StormSurge')
     send_command('bind !w gs c toggle WeaponLock')
-
+    send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
+    send_command('bind f7 gs c cycle StaffMode')
+
 
 
     select_default_macro_book()
@@ -247,7 +250,7 @@ function init_gear_sets()
         }
 
     sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {
-        head="Peda. M.Board +3", 
+        head="Peda. M.Board +1", 
         hands="Telchine Gloves",
         feet="Acad. Loafers +3",})
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
@@ -572,32 +575,36 @@ function init_gear_sets()
     sets.midcast.Shellra = sets.midcast.Shell
 
     -- Custom spell classes
-    sets.midcast.Enfeebles = {
+    sets.midcast.MndEnfeebles = {
         main="Contemplator +1",
         ammo="Pemphredo Tathlum",
-        head=empty;
+        head=empty,
         body="Cohort Cloak +1",
         hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
         legs="Jhakri Slops +2",
         feet="Jhakri Pigaches +2",
-        neck="Sanctity Necklace",
+        neck="Argute Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring2="Kishar Ring",
-        left_ring="Stikini Ring +1",
-		waist="Obstin. Sash",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        waist="Luminary Sash",
         back="Aurist's Cape +1",
         }
-    sets.midcast.MndEnfeebles = {
-        ammo="Pemphredo Tathlum",
-        head=empty;
-        body="Cohort Cloak +1",
-        }
 
-    sets.midcast.IntEnfeebles = set_combine(sets.midcast.Enfeebles, {
+    sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         legs="Chironic Hose",
+        left_ring="Stikini Ring +1",
         waist="Acuity Belt +1",
-        })
+    })
+
+    --[[sets.midcast.MndEnfeebles = set_combine(sets.midcast.IntEnfeebles,{
+        ammo="Pemphredo Tathlum",
+        head=empty,
+        body="Cohort Cloak +1",
+        waist="Luminary Sash",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    })]]
 
     sets.midcast.ElementalEnfeeble = sets.midcast.Enfeebles
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {main="Daybreak", sub="Ammurapi Shield"})
@@ -616,7 +623,7 @@ function init_gear_sets()
         left_ring="Freke Ring",
         right_ring="Archon Ring",
         back="Lugh's Cape",
-        }
+    }
         sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
             ammo="Pemphredo Tathlum",
             head="Arbatel Bonnet +2",
@@ -770,7 +777,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        main="Mpaca's Staff",
+        
         sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
@@ -972,7 +979,7 @@ function init_gear_sets()
 
     sets.LightArts = {body="Arbatel Gown +2",}
     sets.DarkArts = {body="Arbatel Gown +2",}
-
+    sets.RP = {neck="Argute Stole +2"}
     sets.Obi = {waist="Hachirin-no-Obi"}
     sets.Bookworm = {back="Lugh's Cape",}
     -- sets.CP = {back="Mecisto. Mantle"}
@@ -1129,6 +1136,13 @@ end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_rings()
     check_moving()
+    if state.StaffMode.value == "Marin" then
+        equip({main="Marin Staff +1"})
+    elseif state.StaffMode.value == "Mpaca" then
+        equip({main="Mpaca's Staff"})
+    elseif state.StaffMode.value == "normal" then
+        equip({})
+    end
 end
 
 -- Called by the 'update' self-command.
@@ -1152,7 +1166,19 @@ function job_get_spell_map(spell, default_spell_map)
         end
     end
 end
-
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    --[[if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end]]
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end  
+    return meleeSet
+end
 function customize_idle_set(idleSet)
     if state.Buff['Sublimation: Activated'] then
         idleSet = set_combine(idleSet, sets.buff.FullSublimation)
@@ -1172,6 +1198,12 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end   
     return idleSet
 end
 
