@@ -72,6 +72,10 @@ function job_setup()
 	send_command('bind !` gs c toggle MagicBurst')
     send_command('wait 6;input /lockstyleset 152')
 	state.WeaponLock = M(false, 'Weapon Lock')
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
+    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
+	absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
 
 end
 
@@ -81,22 +85,23 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT')
+    state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
 	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
-
     state.Moving = M(false, "moving")
     state.MagicBurst = M(false, 'Magic Burst')
-    
+	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'IDLE'}
+
 	select_default_macro_book()
     send_command('bind !w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
+	send_command('bind f6 gs c cycle WeaponSet')
 	send_command('wait 2;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -458,8 +463,31 @@ sets.TreasureHunter = {
     -- Midcast Sets
     
     sets.midcast.FastRecast = {}
-    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
-
+    sets.midcast.Dispelga =  {
+		main="Daybreak",
+	    sub="Ammurapi Shield",
+		ammo=empty,
+		range="Ullr",
+        head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		body="Lethargy Sayon +3",
+		hands="Regal Cuffs",
+		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		waist="Obstin. Sash",
+		left_ear="Regal Earring",
+        right_ear="Snotra Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Kishar Ring",
+		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+	}
+    sets.midcast.Absorb = {
+        ammo="Pemphredo Tathlum",
+        neck="Erra Pendant",
+        waist="Acuity Belt +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Kishar Ring",
+    }
 	sets.Duration={
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
@@ -999,21 +1027,22 @@ sets.TreasureHunter = {
 			right_ring="Petrov Ring",
 			back="Annealed Mantle",	} 
 
-		--sets.engaged.Enspell = {   
-		--ammo="Coiste Bodhar",
-		--head="Umuthi Hat",
-		--body="Malignance Tabard",
-		--ands="Aya. Manopolas +2",
-		--legs="Malignance Tights",
-		--feet="Malignance Boots",
-		--neck="Sanctity Necklace",
-		--waist="Orpheus's Sash",
-		--left_ear="Eabani Earring",
-		--right_ear="Suppanomimi",
-		--left_ring="Chirich Ring +1",
-		--right_ring="Chirich Ring +1",
-		--back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-		--}
+		sets.engaged.Enspell = {
+		main={ name="Crocea Mors", augments={'Path: C',}},
+		ammo="Coiste Bodhar",
+		head="Umuthi Hat",
+		body="Malignance Tabard",
+		ands="Aya. Manopolas +2",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Sanctity Necklace",
+		waist="Orpheus's Sash",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
+		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+		}
 
 		
     -- * DNC Subjob DW Trait: +15%
@@ -1393,7 +1422,9 @@ function customize_idle_set(idleSet)
         elseif state.IdleMode.value == 'Normal' then
             idleSet = sets.idle.Normal
         end
-
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     
     return idleSet
 end
@@ -1404,7 +1435,44 @@ function job_update(cmdParams, eventArgs)
     --if newStatus == 'Engaged' and player.equipment.main == 'Chatoyant Staff' then
         --state.OffenseMode:set('Ranged')
     --end
+	handle_equipping_gear(player.status)
 end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+    if no_swap_gear:contains(player.equipment.waist) then
+        disable("waist")
+    else
+        enable("waist")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)
+
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
         if type(tonumber(cmdParams[2])) == 'number' then
@@ -1432,6 +1500,16 @@ function gearinfo(cmdParams, eventArgs)
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
+	check_gear()
+	if state.WeaponSet.value == "SWORDS" then
+        equip({main="Naegling", sub="Demers. Degen +1",})
+    elseif state.WeaponSet.value == "DAGGERS" then
+        equip({main="Tauret", sub="Gleti's Knife",})
+	elseif state.WeaponSet.value == "IDLE" then
+        equip({main="Daybreak", sub="Sacro Bulwark",})
+    elseif state.WeaponSet.value == "normal" then
+        equip({})
+    end
 end
 function update_combat_form()
     if DW == true then

@@ -971,7 +971,7 @@ function job_buff_change(buff, gain)
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
-    if buff == "sleep" then
+    if buff == "Sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		

@@ -79,9 +79,12 @@ function global_on_unload()
 	send_command('unbind f12')
 	send_command('unbind ^f12')
 	send_command('unbind !f12')
-
 	send_command('unbind ^-')
 	send_command('unbind ^=')
+	send_command('lua u AutoCOR')
+	send_command('input //parse reset')
+
+
 end
 
 -------------------------------------------------------------------------------------------------------------------

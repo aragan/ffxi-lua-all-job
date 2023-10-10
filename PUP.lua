@@ -1450,6 +1450,7 @@ function init_gear_sets()
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
     })
 end
+
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
@@ -1498,15 +1499,15 @@ function job_self_command(cmdParams, eventArgs)
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
+    set_macro_page(8, 39)
     -- Default macro set/book
-    if player.sub_job == "WAR" then
+    --[[if player.sub_job == "WAR" then
         set_macro_page(8, 39)
     elseif player.sub_job == "NIN" then
         set_macro_page(8, 39)
     elseif player.sub_job == "DNC" then
         set_macro_page(8, 39)
-    else
-        set_macro_page(8, 39)
-    end
+    else]]
+    --end
 end
 

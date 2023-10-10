@@ -49,6 +49,8 @@ function job_setup()
     "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
     elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+
 end
 
 
@@ -58,7 +60,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.GunMode = M{['description']='Gun Mode', 'normal','DeathPenalty', 'Anarchy', 'Fomalhaut'} -- , 'Priwen', 'Anarchy_+2' }
+    state.GunMode = M{['description']='Gun Mode', 'normal','DeathPenalty', 'Anarchy', 'Fomalhaut', 'Earp'} -- , 'Priwen', 'Anarchy_+2' }
 
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'Ranged', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
@@ -148,6 +150,7 @@ function init_gear_sets()
         "Trump Card",
         "Chr. Bul. Pouch", 
         "Liv. Bul. Pouch", 
+        "Dec. Bul. Pouch",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -198,7 +201,7 @@ function init_gear_sets()
     back="Camulus's Mantle",}
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chas. Culottes +3",})
-    sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
+    sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +1"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3",})
@@ -492,7 +495,12 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         
     -- Specific spells
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
-
+    sets.midcast.Absorb = {
+        ammo="Pemphredo Tathlum",
+        neck="Erra Pendant",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Kishar Ring",
+    }
     sets.midcast.CorsairShot = {
         ammo=gear.QDbullet,
         head="Nyame Helm",
@@ -1107,7 +1115,7 @@ sets.TripleShot = {
    waist="Gishdubar Sash",
    left_ring="Purity Ring",
    right_ring="Blenmot's Ring +1",}
-   sets.RP = {}
+   sets.RP = {neck="Comm. Charm +2"}
 
 end
 
@@ -1248,6 +1256,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
         equip({range="Anarchy +2"})
     elseif state.GunMode.value == "Fomalhaut" then
         equip({range="Fomalhaut"})
+    elseif state.GunMode.value == "Earp" then
+        equip({range="Earp"})
     elseif state.GunMode.value == "normal" then
         equip({})
     end

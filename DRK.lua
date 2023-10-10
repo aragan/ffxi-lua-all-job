@@ -1673,9 +1673,9 @@ function customize_melee_set(meleeSet)
     end  
     if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 152')
-   elseif gsList:contains(player.equipment.main) then
+    elseif gsList:contains(player.equipment.main) then
         send_command('input /lockstyleset 165')
-   end
+    end
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet
 end
@@ -1744,7 +1744,7 @@ function job_buff_change(buff, gain)
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
-    if buff == "sleep" then
+    if buff == "Sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		

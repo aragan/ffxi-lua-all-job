@@ -97,8 +97,7 @@ function job_setup()
         'Poison Breath', 'Blitzstrahl', 'Sheep Song', 'Chaotic Eye'}
     blue_magic_maps.Cure = S{'Wild Carrot'}
     blue_magic_maps.Buffs = S{'Cocoon', 'Refueling'}
-
-
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
 
     rayke_duration = 35
     gambit_duration = 96
@@ -186,8 +185,7 @@ function init_gear_sets()
    sets.precast.JA['Sentinel'] = set_combine(sets.precast.JA['Provoke'], {feet="Cab. Leggings +3"})   
    --The amount of damage absorbed is variable, determined by VIT*2
    sets.precast.JA['Rampart'] = {
-   head={ name="Cab. Coronet +3", augments={'Enhances "Iron Will" effect',}},
-}
+   head={ name="Cab. Coronet +3", augments={'Enhances "Iron Will" effect',}},}
    sets.buff['Rampart'] = sets.precast.JA['Rampart']
    sets.precast.JA['Fealty'] = set_combine(sets.precast.JA['Provoke'], {body="Cab. Surcoat +1",})
    sets.precast.JA['Divine Emblem'] = set_combine(sets.precast.JA['Provoke'], {feet="Chev. Sabatons +2"})
@@ -852,7 +850,12 @@ right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
 right_ring="Defending Ring",
 back="Moonlight Cape",
-
+}
+sets.midcast.Absorb = {
+    ammo="Pemphredo Tathlum",
+    neck="Erra Pendant",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Kishar Ring",
 }
 ---------- BLU Spell	--------------
    sets.midcast['Geist Wall'] ={    
@@ -1941,7 +1944,7 @@ function job_buff_change(buff,gain)
            handle_equipping_gear(player.status)
         end
     end
-    if buff == "sleep" then
+    if buff == "Sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		

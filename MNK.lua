@@ -72,8 +72,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder', 'Mod')
-    state.WeaponskillMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder')
+    state.OffenseMode:options('Normal', 'Acc', 'Fodder')
+    state.WeaponskillMode:options('Normal', 'Acc', 'Fodder')
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
 
@@ -85,7 +85,10 @@ function user_setup()
 
     select_default_macro_book()
 end
-
+-- Called when this job file is unloaded (eg: job change)
+function file_unload()
+    send_command('lua u AutoCOR')
+end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
@@ -579,7 +582,7 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {
-        ammo="Coiste Bodhar",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -588,33 +591,18 @@ function init_gear_sets()
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Schere Earring",
+        right_ear="Mache Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
 
     }
-    sets.engaged.SomeAcc = {
-        ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Mpaca's Doublet",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs="Bhikku Hose +2",
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck="Moonbeam Nodowa",
-        waist="Moonbow Belt +1",
-        left_ear="Brutal Earring",
-        right_ear="Sherida Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Segomo's Mantle",
 
-    }
     sets.engaged.Acc = {
-        ammo="Falcon Eye",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head="Malignance Chapeau",
         body="Mpaca's Doublet",
-		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs="Bhikku Hose +2",
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Moonbeam Nodowa",
@@ -625,25 +613,9 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
         back="Segomo's Mantle",
     }
-    sets.engaged.Mod = {
-        ammo="Coiste Bodhar",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Bhikku Hose +2",
-        feet="Malignance Boots",
-        neck="Moonbeam Nodowa",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Schere Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Segomo's Mantle",
-
-    }
 
     sets.engaged.Fodder = {
-        ammo="Coiste Bodhar",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
 		head="Hiza. Somen +2",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
@@ -652,7 +624,7 @@ function init_gear_sets()
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Schere Earring",
+        right_ear="Mache Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
@@ -660,46 +632,33 @@ function init_gear_sets()
     }
 
     -- Defensive melee hybrid sets
-    sets.engaged.PDT = {                  ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
+    sets.engaged.PDT = {       
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Bhikku Hose +2",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Schere Earring",
+    right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
 	right_ring="Defending Ring",
     back="Segomo's Mantle",
 }
-    sets.engaged.SomeAcc.PDT = {          
-    ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+
+    sets.engaged.Acc.PDT = {	
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Bhikku Hose +2",
-    feet="Mpaca's Boots",
-    neck="Moonbeam Nodowa",
-    waist="Moonbow Belt +1",
-    left_ear="Schere Earring",
-    right_ear="Mache Earring +1",
-	right_ring="Defending Ring",
-    left_ring="Niqmaddu Ring",
-    back="Segomo's Mantle",
-	}
-    sets.engaged.Acc.PDT = {	 main={ name="Godhands", augments={'Path: A',}},
-    ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
-    body="Mpaca's Doublet",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Bhikku Hose +2",
+    legs="Malignance Tights",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
-    left_ear="Mache Earring +1",
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
     left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
     back="Segomo's Mantle",
@@ -714,8 +673,8 @@ function init_gear_sets()
 		feet="Hiza. Sune-Ate +2",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Sherida Earring",
-		right_ear="Cryptic Earring",
+        right_ear="Mache Earring +1",
+		left_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
 		back="Segomo's Mantle",
@@ -727,45 +686,45 @@ function init_gear_sets()
 	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
     legs="Bhikku Hose +2",
 	feet="Hiza. Sune-Ate +2",
+    neck="Anu Torque",
 	waist="Moonbow Belt +1",
-	right_ear="Cryptic Earring",
+    right_ear="Mache Earring +1",
+    left_ear="Cryptic Earring",
 	left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
-	neck="Anu Torque",
-    left_ear="Dominance Earring",
-    back="Tantalic Cape",
+    back="Segomo's Mantle",
 }
 sets.engaged.SubtleBlow = set_combine(sets.engaged, {
-    legs="Mpaca's Hose",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
-})
-sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
-    legs="Mpaca's Hose",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
-})
-sets.engaged.SomeAcc.SubtleBlow = set_combine(sets.engaged, {
-    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Malignance Chapeau",
+    ammo="Staunch Tathlum +1",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
-    left_ear="Digni. Earring",
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
+    right_ring="Defending Ring",
     back="Segomo's Mantle",
 })
+sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
+    ammo="Staunch Tathlum +1",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
+    feet="Malignance Boots",
+    neck="Moonbeam Nodowa",
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Segomo's Mantle",
+})
+
 
 
 

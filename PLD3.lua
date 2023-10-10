@@ -1752,7 +1752,7 @@ function job_buff_change(buff,gain)
            handle_equipping_gear(player.status)
         end
     end
-    if buff == "sleep" then
+    if buff == "Sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		

@@ -94,7 +94,7 @@ function job_setup()
     state.unProc = M(false, 'unProc')
 
 
-
+    swordList = S{"Naegling"}
     wsList = S{'Blade: Hi', 'Blade: Kamu', 'Blade: Ten'}
     nukeList = S{'Katon: San', 'Doton: San', 'Suiton: San', 'Raiton: San', 'Hyoton: San', 'Huton: San'}
 
@@ -208,7 +208,7 @@ function init_gear_sets()
     sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
     waist="Chaac Belt"}
     sets.CapacityMantle = {}
-    sets.WSDayBonus     = {}
+    sets.WSDayBonus     = {head="Gavialis Helm"}
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear1="Odr Earring", ear2="Lugra Earring +1" }
     sets.OdrIshvara  = { ear1="Odr Earring", ear2="Ishvara Earring" }
@@ -1364,9 +1364,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if spell.english == 'Blade: Yu' and (world.weather_element == 'Water' or world.day_element == 'Water') then
             equip(sets.Obi)
         end
-        if (spell) then
-            if wsList:contains(spell.english) then
-                equip()
+        if is_sc_element_today(spell) then
+            if state.OffenseMode.current == 'Normal' and wsList:contains(spell.english) then
+                equip(sets.WSDayBonus)
+            end
         end
         -- Lugra Earring for some WS
         if LugraWSList:contains(spell.english) then
@@ -1377,7 +1378,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         elseif spell.english == 'Blade: Ten' then
             equip(sets.OdrMoon)
-            end
+            
         end
     end
 end
@@ -1485,6 +1486,9 @@ function customize_melee_set(meleeSet)
     if state.HybridMode.value == 'Proc' then
         meleeSet = set_combine(meleeSet, sets.NoDW)
     end
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+   end
     meleeSet = set_combine(meleeSet, select_ammo())
     return meleeSet
 end

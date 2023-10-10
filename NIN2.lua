@@ -239,7 +239,7 @@ function init_gear_sets()
     --------------------------------------
     sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
     waist="Chaac Belt"}
-    sets.CapacityMantle = { back="Mecistopins Mantle" }
+    sets.CapacityMantle = { }
     sets.WSDayBonus     = {  }
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear1="Odr Earring", ear2="Lugra Earring +1" }
@@ -561,7 +561,7 @@ function init_gear_sets()
         -- main="Knife",
         sub=empty,
         ammo="Ginsen",
-        neck="Carnal Torque"
+      
     }
     sets.unProc = set_combine(sets.engaged, {
   

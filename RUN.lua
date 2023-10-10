@@ -63,7 +63,7 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
 	state.TreasureMode:set('Tag')
-    
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
 
@@ -145,7 +145,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-    sets.precast.JA['Vallation'] = {body="Runeist coat +1", legs="Futhark trousers +1"}
+    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark trousers +1"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
     sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
     sets.precast.JA['Battuta'] = {head="Futhark Bandeau +1"}
@@ -199,6 +199,7 @@ function init_gear_sets()
         legs="Doyen Pants",
         })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+        legs="Futhark trousers +1",
         waist="Siegel Sash",
     })
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
@@ -350,7 +351,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Futhark trousers +1",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     waist="Olympus Sash",
@@ -377,7 +378,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
            head="Erilaz Galea +2",
            body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Futhark trousers +1",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -403,7 +404,13 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.midcast['Elemental Magic'] = set_combine(sets.precast.JA['Lunge'],{})
     sets.midcast.Pet["Enfeebling Magic"] = set_combine(sets.midcast['Elemental Magic'],{})
-
+    sets.midcast.Absorb = {
+        ammo="Pemphredo Tathlum",
+        neck="Erra Pendant",
+        waist="Acuity Belt +1",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Kishar Ring",
+    }
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
 	--------------------------------------
