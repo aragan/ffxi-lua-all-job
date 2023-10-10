@@ -23,8 +23,8 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
-    organizer_items = {"Prime Sword",
+    state.TreasureMode:set('Tag')
+    organizer_items = {
         "Hachimonji",
         "Mafic Cudgel",
         "Toolbag (Shihe)",
@@ -122,7 +122,6 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'Enmity', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
 
-    select_default_macro_book()
     
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
@@ -133,8 +132,11 @@ function user_setup()
     send_command('bind ^] gs c toggle UseRune')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs enable all')
     send_command('wait 2;input /lockstyleset 144')
     -- send_command('bind !- gs equip sets.crafting')
+    select_default_macro_book()
 
 end
 
@@ -286,7 +288,7 @@ function init_gear_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
     neck="Sanctity Necklace",
     waist="Eschan Stone",
     left_ear="Crep. Earring",
@@ -419,7 +421,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Danzo Sune-Ate",
+        feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -436,9 +438,9 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         ear2="Infused Earring",
         ring2="Paguroidea Ring"
     })
-    sets.Adoulin = {
-    }
-    sets.idle.Town = sets.idle
+    sets.Adoulin = {body="Councilor's Garb",}
+    sets.MoveSpeed = {feet="Danzo Sune-Ate",}
+
     sets.idle.Town = set_combine(sets.idle, {feet="Danzo Sune-Ate",})
     --sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
     --    body="Councilor's Garb"
@@ -1338,6 +1340,7 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
             eventArgs.handled = true
             return
         elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
@@ -1354,12 +1357,12 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
     -- protection for lag
     if spell.type == 'WeaponSkill' then
-        if spell.english == '' and state.TreasureMode.value ~= 'None' then
-            equip()
-        end
         -- Mecistopins Mantle rule (if you kill with ws)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
+        end
+        if spell.english == 'Blade: Yu' and (world.weather_element == 'Water' or world.day_element == 'Water') then
+            equip(sets.Obi)
         end
         if (spell) then
             if wsList:contains(spell.english) then
@@ -1424,6 +1427,9 @@ end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
+    if not spell.interrupted and spell.english == "Migawari: Ichi" then
+        state.Buff.Migawari = true
+    end
     if midaction() then
         return
     end
@@ -1441,24 +1447,20 @@ end
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(status, eventArgs)
+    update_combat_form()
+
 end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 80 then
-        idleSet = set_combine(idleSet, sets.idle.Regen)
-    end
     -- if state.CraftingMode then
     --     idleSet = set_combine(idleSet, sets.crafting)
     -- end
-    if state.HybridMode.value == 'PDT' then
-        if state.Buff.Migawari then
-            idleSet = set_combine(idleSet, sets.buff.Migawari)
-        else 
-            idleSet = set_combine(idleSet, sets.defense.PDT)
-        end
-    else
-        idleSet = set_combine(idleSet)
+    if state.Buff.Migawari then
+        idleSet = set_combine(idleSet, sets.buff.Migawari)
+    end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
     --local res = require('resources')
     --local info = windower.ffxi.get_info()
@@ -1471,13 +1473,13 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
-    if state.Buff.Migawari and state.HybridMode.value == 'PDT' then
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.Buff.Migawari then
         meleeSet = set_combine(meleeSet, sets.buff.Migawari)
     end
     if state.HybridMode.value == 'Proc' then
@@ -1538,45 +1540,63 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-
+    if buff == "Migawari" and not gain then
+        add_to_chat(61, "*** MIGAWARI DOWN ***")
+    end
+    if not midaction() then
+        handle_equipping_gear(player.status)
+    end
 end
 
 function job_status_change(newStatus, oldStatus, eventArgs)
     --if newStatus == 'Engaged' then
         --update_combat_form()
     --end
+    if not midaction() then
+        handle_equipping_gear(player.status)
+    end
 end
---mov = {counter=0}
---if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
---    mov.x = windower.ffxi.get_mob_by_index(player.index).x
---    mov.y = windower.ffxi.get_mob_by_index(player.index).y
---    mov.z = windower.ffxi.get_mob_by_index(player.index).z
---end
---moving = false
---windower.raw_register_event('prerender',function()
---    mov.counter = mov.counter + 1;
---    if mov.counter>15 then
---        local pl = windower.ffxi.get_mob_by_index(player.index)
---        if pl and pl.x and mov.x then
---            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
---            if dist > 1 and not moving then
---                state.Moving.value = true
---                send_command('gs c update')
---                moving = true
---            elseif dist < 1 and moving then
---                state.Moving.value = false
---                --send_command('gs c update')
---                moving = false
---            end
---        end
---        if pl and pl.x then
---            mov.x = pl.x
---            mov.y = pl.y
---            mov.z = pl.z
---        end
---        mov.counter = 0
---    end
---end)
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+ 
 
 -- Called by the default 'update' self-command.
 function job_update(cmdParams, eventArgs)
@@ -1589,6 +1609,7 @@ function job_update(cmdParams, eventArgs)
    --     end
    --     equip(select_movement())
    -- end
+   handle_equipping_gear(player.status)
 
 end
 
@@ -1736,13 +1757,13 @@ function job_state_change(stateField, newValue, oldValue)
         --equip({ring1="Warp Ring"})
         send_command('input //gs equip sets.Warp;@wait 10.0;input /item "Warp Ring" <me>;')
     end
-    if stateField == 'Offense Mode' then
+    --[[if stateField == 'Offense Mode' then
         if newValue == 'Normal' then
             disable('main','sub','range')
         else
             enable('main','sub','range')
         end
-    end
+    end]]
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
@@ -1903,8 +1924,7 @@ end
 --         return sets.DayAccAmmo
 --     end
 -- end
-add_to_chat(159,'Author Aragan NIN.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 function update_combat_form()
     if state.Buff.Innin then
         state.CombatForm:set('Innin')

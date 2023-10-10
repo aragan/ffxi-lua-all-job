@@ -1,5 +1,14 @@
--- NOTE: I do not play run, so this will not be maintained for 'active' use. 
--- It is added to the repository to allow people to have a baseline to build from,
+-------------------------------------------------------------------------------------------------------------------
+-- Initialization function that defines sets and variables to be used.
+-------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+--                                                                             --
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+----------------------------------------------------------------------------------- It is added to the repository to allow people to have a baseline to build from,
 -- and make sure it is up-to-date with the library API.
 
 
@@ -17,6 +26,7 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {
+    "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
     "Sovereign's Hide",
@@ -69,8 +79,13 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
-    send_command('wait 6;input /lockstyleset 165')
-
+    state.MagicBurst = M(false, 'Magic Burst')
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
+    send_command('wait 6;input /lockstyleset 150')
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
+    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
     
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
@@ -83,8 +98,7 @@ function job_setup()
     blue_magic_maps.Cure = S{'Wild Carrot'}
     blue_magic_maps.Buffs = S{'Cocoon', 'Refueling'}
 
-    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
+
 
     rayke_duration = 35
     gambit_duration = 96
@@ -108,40 +122,58 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- , 'Priwen', 'Srivatsa' }
+    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis', 'Priwen'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
-
+    --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
-    state.WeaponskillMode:options('Normal', 'PDL')
+    state.WeaponskillMode:options('Normal', 'PDL', 'None')
     state.CastingMode:options('Normal', 'DT', 'MB') 
     state.IdleMode:options('Normal', 'EnemyCritRate', 'MEVA', 'ReverenceGauntlets', 'DeathSpike', 'Refresh', 'Resist', 'EnemyTPaccumulation')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm')
-    state.HybridMode:options('Normal', 'PDT', 'MDT', 'ReverenceGauntlets')
+    state.HybridMode:options('Normal', 'PDT', 'MDT', 'Turtle', 'ReverenceGauntlets')
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
     --state.HybridDefenseMode=('none')
     --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 150')
+    send_command('bind f1 gs c update user')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
 	  send_command('bind f6 gs c cycle ShieldMode')
-    --send_command('bind f1 gs c cycle TartarusdMode')
+     --send_command('bind f1 gs c cycle TartarusdMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
-
+     -- ctrl+/ gs disable all
+    send_command('bind ^/ gs disable all')
+     --Alt+; disable head body hands legs feet rring ammo
+    send_command('bind ^; gs disable head body hands legs feet rring ammo')
+     --Alt+/ enable all
+    send_command('bind !/ gs enable all')
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
-	select_default_macro_book()
-  update_combat_form()
+	
+    state.Auto_Kite = M(false, 'Auto_Kite')
+
+    Haste = 0
+    DW_needed = 0
+    DW = false
+    moving = false
+
+    determine_haste_group()
+    
+    select_default_macro_book()
+    update_combat_form()
 end
 
 
@@ -276,6 +308,8 @@ sets.precast.WS.PDL = set_combine(sets.precast.WS, {
    legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS.None = {}
+
    -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
    --Stat Modifier:     73~85% MND  fTP:    1.0
@@ -297,6 +331,8 @@ back="Bleating Mantle",
 sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
    hands="Sakpata's Gauntlets",
 })
+sets.precast.WS['Requiescat'].None = {}
+
   --Stat Modifier:  50%MND / 30%STR MAB+    fTP:2.75
    sets.precast.WS['Sanguine Blade'] = {
        ammo="Pemphredo Tathlum",
@@ -314,6 +350,8 @@ sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
        right_ring="Cornelia's Ring",
        back="Argocham. Mantle",
 }	     
+sets.precast.WS['Sanguine Blade'].None = {}
+
    sets.precast.WS['Aeolian Edge'] = {   
    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
    head="Nyame Helm",
@@ -357,16 +395,17 @@ neck="Rep. Plat. Medal",
 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 left_ear="Thrud Earring",
 right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-left_ring="Regal Ring",
+left_ring="Sroda Ring", 
 right_ring="Cornelia's Ring",
 back="Bleating Mantle",
 }
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
    ammo="Crepuscular Pebble",
    hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS['Savage Blade'].None = {}
+
   --Stat Modifier:  80%DEX  fTP:2.25
   sets.precast.WS['Chant du Cygne'] = {	
    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -387,6 +426,8 @@ sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cy
    ammo="Crepuscular Pebble",
    hands="Sakpata's Gauntlets",
 })
+sets.precast.WS['Chant du Cygne'].None = {}
+
    --Stat Modifier: WS damage + 30/31%   2211DMG maxaggro
    sets.precast.WS['Atonement'] = {
    ammo="Paeapua",
@@ -403,6 +444,8 @@ sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cy
    right_ring="Apeile Ring",
    back="Rudianos's Mantle",
 }
+sets.precast.WS['Atonement'].None = {}
+
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {    
    ammo="Crepuscular Pebble",
@@ -410,6 +453,8 @@ sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Driv
    legs="Sakpata's Cuisses",
    left_ring="Sroda Ring", 
 })
+sets.precast.WS['Impulse Drive'].None = {}
+
 sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Requiescat"], {})
 sets.precast.WS["Realmrazer"].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {})
 sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Aeolian Edge"], {})
@@ -514,6 +559,8 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        back="Argocham. Mantle",
    }
    sets.magic_burst = {
+       main="Nandaka",
+       sub="Niobid Strap",
        ammo="Pemphredo Tathlum",
        head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
        body="Nyame Mail",
@@ -674,7 +721,7 @@ sets.midcast.Cocoon.DT = {
        hands="Macabre Gaunt. +1",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-       neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+       neck="Sacro Gorget",
        waist="Plat. Mog. Belt",
        left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
        right_ear="Chev. Earring +1",
@@ -704,7 +751,7 @@ sets.midcast.Cocoon.DT = {
        hands="Macabre Gaunt. +1",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-       neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+       neck="Sacro Gorget",
        waist="Plat. Mog. Belt",
        left_ear={ name="Nourish. Earring +1", augments={'Path: A',}},
        right_ear="Chev. Earring +1",
@@ -872,11 +919,11 @@ sets.midcast['Jettatura'].DT ={
 
    sets.midcast['Sheep Song'] = {   
    ammo="Pemphredo Tathlum",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head="Chev. Armet +3",
+   body="Chev. Cuirass +3",
+   hands="Chev. Gauntlets +3",
+   legs="Chev. Cuisses +3",
+   feet="Chev. Sabatons +3",
    neck="Erra Pendant",
    waist="Luminary Sash",
    left_ear="Crep. Earring",
@@ -998,11 +1045,11 @@ sets.midcast['Bomb Toss'].DT = {
 sets.midcast['Frightful Roar'] = 
 {   main="Naegling",
    range="Ullr",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head="Chev. Armet +3",
+   body="Chev. Cuirass +3",
+   hands="Chev. Gauntlets +3",
+   legs="Chev. Cuisses +3",
+   feet="Chev. Sabatons +3",
    neck="Erra Pendant",
    waist="Luminary Sash",
    left_ear="Crep. Earring",
@@ -1036,8 +1083,8 @@ sets.TreasureHunter = {
  sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
- sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
- sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+ sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
+ sets.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
  sets.Breath = sets.defense.MDT
   
    sets.resting = {
@@ -1047,7 +1094,7 @@ sets.TreasureHunter = {
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-       neck="Sanctity Necklace",
+       neck={ name="Bathy Choker +1", augments={'Path: A',}},
        waist="Fucho-no-Obi",
        left_ear="Infused Earring",
        right_ear="Cryptic Earring",
@@ -1057,19 +1104,21 @@ sets.TreasureHunter = {
    }
     
    -- Idle sets
-   sets.idle =  { ammo="Iron Gobbet",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Carmine Cuisses +1",
-   feet="Sakpata's Leggings",
-   neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-   waist="Flume Belt +1",
-   left_ear="Thureous Earring",
-   right_ear="Ethereal Earring",
-   left_ring="Patricius Ring",
-   right_ring="Defending Ring",
-   back="Rudianos's Mantle",
+   sets.idle =  { 
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Chev. Cuisses +3",
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
    }
    sets.idle.Field = sets.idle
 
@@ -1098,8 +1147,19 @@ sets.TreasureHunter = {
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 }
    sets.idle.DeathSpike ={
-    body="Tartarus Platemail",
-}
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Chev. Cuisses +3",
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring"}
    sets.idle.MEVA ={
     ammo="Staunch Tathlum +1",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1109,9 +1169,12 @@ sets.TreasureHunter = {
     left_ring="Vengeful Ring",
     right_ring="Purity Ring",
     back="Rudianos's Mantle",}
-    sets.idle.Town ={legs="Carmine Cuisses +1"}
+
+    sets.idle.Town ={legs="Carmine Cuisses +1",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    left_ear="Infused Earring",}
     
-   sets.idle.Weak = {head="Twilight Helm", body="Twilight Mail"}
+   sets.idle.Weak = {head="Twilight Helm", body="Crepuscular Mail",}
     
    sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
  
@@ -1132,20 +1195,20 @@ sets.TreasureHunter = {
    -- sets.Repulse = {back="Repulse Mantle"}
  --3367 HP   
    sets.defense.PDT = {
-     main="Burtgang",
-     ammo="Eluder's Sachet",
-     head="Chev. Armet +3",
-     body="Chev. Cuirass +3",
-     hands="Chev. Gauntlets +3",
-     legs="Chev. Cuisses +3",
-     feet="Chev. Sabatons +3",
-     neck="Elite Royal Collar",
-     waist="Flume Belt +1",
-     left_ear="Tuisto Earring",
-     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-     left_ring="Warden's Ring",
-     right_ring="Fortified Ring",
-     back="Reiki Cloak",
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Chev. Cuisses +3",
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Chev. Earring +1",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
 }
    -- To cap MDT with Shell IV (52/256), need 76/256 in gear. Current gear set is 248/256.
    -- Shellra V can provide 75/256.
@@ -1274,44 +1337,27 @@ sets.defense.Enmitymax = {     ammo="Iron Gobbet",
    feet="Chev. Sabatons +3",
    neck={ name="Loricate Torque +1", augments={'Path: A',}},
    waist="Plat. Mog. Belt",
-   left_ear="Tuisto Earring",
-   right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-   right_ring="Moonlight Ring",
-   back="Rudianos's Mantle",
-}
-
-sets.defense.PDT = {
-   main="Burtgang",
-   ammo="Iron Gobbet",
-   head="Chev. Armet +3",
-   body="Chev. Cuirass +3",
-   hands="Chev. Gauntlets +3",
-   legs="Chev. Cuisses +3",
-   feet="Chev. Sabatons +3",
-   neck={ name="Loricate Torque +1", augments={'Path: A',}},
-   waist="Flume Belt +1",
    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   right_ear="Chev. Earring +1",
-   left_ring="Warden's Ring",
-   right_ring="Fortified Ring",
-   back="Reiki Cloak",
+   right_ear="Tuisto Earring",
+   right_ring="Defending Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+   back="Rudianos's Mantle",
 }
 
 sets.defense.PDH = {
    main="Burtgang",
-   ammo="Iron Gobbet",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
-   body="Chev. Cuirass +3",
+   body="Sakpata's Plate",
    hands="Chev. Gauntlets +3",
    legs="Chev. Cuisses +3",
-   feet="Chev. Sabatons +3",
-   neck="Elite Royal Collar",
-   waist="Flume Belt +1",
+   feet="Sakpata's Leggings",
+   neck={ name="Loricate Torque +1", augments={'Path: A',}},
+   waist="Plat. Mog. Belt",
    left_ear="Tuisto Earring",
    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring="Moonlight Ring",
-   right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+   right_ring="Defending Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
    back="Rudianos's Mantle",
 }
 
@@ -1359,8 +1405,9 @@ sets.defense.DeathSpike = {
      back="Rudianos's Mantle",
 }
 
-sets.defense.Convert = {    main="Burtgang",
-   ammo="Iron Gobbet",
+sets.defense.Convert = {    
+   main="Burtgang",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
    body="Rev. Surcoat +3",
    hands="Chev. Gauntlets +3",
@@ -1377,7 +1424,7 @@ sets.defense.Convert = {    main="Burtgang",
 
 sets.defense.Block = {
    main="Burtgang",
-   ammo="Iron Gobbet",
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
    body="Chev. Cuirass +3",
    hands="Chev. Gauntlets +3",
@@ -1387,7 +1434,7 @@ sets.defense.Block = {
    waist="Flume Belt +1",
    left_ear="Thureous Earring",
    right_ear="Chev. Earring +1",
-   left_ring="Moonbeam Ring",
+   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
    right_ring="Moonlight Ring",
    back="Rudianos's Mantle",
 }
@@ -1424,9 +1471,7 @@ sets.defense.Block = {
    sets.Obi = {waist="Hachirin-no-Obi"}
 
    sets.Kiting = {
-   body="Sakpata's Plate",
    legs="Carmine Cuisses +1",
-   feet="Sakpata's Leggings",
 }
    --------------------------------------
    -- Engaged sets
@@ -1438,19 +1483,19 @@ sets.defense.Block = {
    sets.engaged.Acc = --1179 / 1315 avec enlight up
    {main="Naegling",
    sub="Blurred Shield +1",
-   ammo="Ginsen",
-   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   ammo="Amar Cluster",
+   head="Sakpata's Helm",
    body="Sakpata's Plate",
    hands="Sakpata's Gauntlets",
    legs="Sakpata's Cuisses",
    feet="Sakpata's Leggings",
-   neck={ name="Vim Torque +1", augments={'Path: A',}},
-   waist="Olseni Belt",
-   left_ear="Mache Earring +1",
+   neck="Subtlety Spec.",
+   waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+   left_ear="Crep. Earring",
    right_ear="Telos Earring",
    left_ring="Chirich Ring +1",
    right_ring="Chirich Ring +1",
-   back="Annealed Mantle",
+   back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
 
 sets.engaged.Tp = --1179 / 1315 avec enlight up
@@ -1462,7 +1507,7 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-   neck={ name="Vim Torque +1", augments={'Path: A',}},
+   neck="Lissome Necklace",
    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
    left_ear="Cessance Earring",
    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1472,39 +1517,21 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
   }
 
    sets.engaged.STP = --1179 / 1315 avec enlight up
-{   main="Naegling",
-   sub="Blurred Shield +1",
+{  
    ammo="Aurgelmir Orb +1",
    head="Flam. Zucchetto +2",
    body="Flamma Korazin +2",
    hands="Flam. Manopolas +2",
    legs="Flamma Dirs +2",
    feet="Flam. Gambieras +2",
-   neck={ name="Vim Torque +1", augments={'Path: A',}},
+   neck="Ainia Collar",
    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
    left_ear="Dedition Earring",
    right_ear="Telos Earring",
    left_ring="Chirich Ring +1",
    right_ring="Chirich Ring +1",
-   back="Annealed Mantle",}
-
-
-sets.engaged.Hybrid = --1179 / 1315 avec enlight up
-{   ammo="Aurgelmir Orb +1",
-   head="Hjarrandi Helm",
-   body="Hjarrandi Breast.",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
-   neck={ name="Vim Torque +1", augments={'Path: A',}},
-   waist="Tempus Fugit +1",
-   left_ear="Mache Earring +1",
-   right_ear="Telos Earring",
-   left_ring="Petrov Ring",
-   right_ring="Moonlight Ring",
-   back="Annealed Mantle",
+   back="Tactical Mantle",
 }
-
 sets.engaged.CRIT = --1179 / 1315 avec enlight up
 {
    ammo="Coiste Bodhar",
@@ -1520,6 +1547,156 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
    left_ring="Defending Ring",
    right_ring="Hetairoi Ring",
    back="Annealed Mantle",}
+
+   sets.engaged.Hybrid = --1179 / 1315 avec enlight up
+   {   ammo="Aurgelmir Orb +1",
+      head="Hjarrandi Helm",
+      body="Hjarrandi Breast.",
+      hands="Sakpata's Gauntlets",
+      legs="Sakpata's Cuisses",
+      feet="Sakpata's Leggings",
+      neck="Ainia Collar",
+      waist="Tempus Fugit +1",
+      left_ear="Dedition Earring",
+      right_ear="Telos Earring",
+      left_ring="Petrov Ring",
+      right_ring="Moonlight Ring",
+      back="Tactical Mantle",
+   }
+
+------------------------------------------------------------------------------------------------
+    ---------------------------------------- DW ------------------------------------------
+------------------------------------------------------------------------------------------------
+
+    -- * DNC Subjob DW Trait: +15%
+    -- * NIN Subjob DW Trait: +25%
+
+    --DW cap all set haste capped
+sets.engaged.DW = --1124 / 1264 avec enlight up 
+{}
+sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
+    right_ear="Eabani Earring", --4
+left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.Tp = set_combine(sets.engaged.Tp,{
+    right_ear="Eabani Earring", --4
+left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.STP = set_combine(sets.engaged.STP,{
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs="Carmine Cuisses +1", --6
+    feet="Flam. Gambieras +2",
+    neck="Clotharius Torque",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Suppanomimi", --5
+    right_ear="Eabani Earring", --4
+    left_ring="Petrov Ring",
+    right_ring="Hetairoi Ring",
+    back="Bleating Mantle",
+}) -- 12%
+sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
+    left_ring="Petrov Ring",
+    right_ear="Eabani Earring", --4
+    left_ear="Suppanomimi",
+}) -- 12%
+sets.engaged.DW.Hybrid = set_combine(sets.engaged.Hybrid,{
+    right_ear="Eabani Earring", --4
+    left_ear="Suppanomimi",
+}) -- 12%
+------------------------------------------------------------------------------------------------
+  ---------------------------------------- DW-HASTE ------------------------------------------
+------------------------------------------------------------------------------------------------
+
+sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {})
+sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Tp.LowHaste = set_combine(sets.engaged.DW.Tp, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Hybrid.LowHaste = set_combine(sets.engaged.DW.Hybrid, {
+    legs="Carmine Cuisses +1", --6
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+
+-- 30% Magic Haste (56% DW to cap)
+
+sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW,{})
+sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.Acc,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Tp.MidHaste = set_combine(sets.engaged.DW.Tp,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.STP,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW.CRIT,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist="Reiki Yotai", --7
+}) -- 15%
+sets.engaged.DW.Hybrid.MidHaste = set_combine(sets.engaged.DW.Hybrid,{ 
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring", --4
+    legs="Carmine Cuisses +1", --6
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Reiki Yotai", --7
+}) -- 15%
+
+sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
+sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.Acc)-- 12%
+sets.engaged.DW.Tp.MaxHaste = set_combine(sets.engaged.DW.Tp)-- 12%
+sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)-- 12%
+sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)-- 12%
+sets.engaged.DW.Hybrid.MaxHaste = set_combine(sets.engaged.DW.Hybrid)-- 12%
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
    sets.engaged.PDT = --1179 / 1315 avec enlight up
    {
        ammo="Staunch Tathlum +1",
@@ -1531,10 +1708,73 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
        neck={ name="Warder's Charm +1", augments={'Path: A',}},
        left_ring="Shadow Ring",
    }
+   sets.engaged.Turtle = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Loess Barbuta +1", augments={'Path: A',}},
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Trux Earring",
+    right_ear="Cryptic Earring",
+    left_ring="Moonbeam Ring",
+    right_ring="Moonlight Ring",
+    back="Rudianos's Mantle",
+}
    sets.engaged.ReverenceGauntlets = {    
     hands="Rev. Gauntlets +3",
  }
 
+ sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.Tp.PDT = set_combine(sets.engaged.DW.Tp,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
+    ammo="Staunch Tathlum +1",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+})
+
+    --sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.PDT)
+    --sets.engaged.DW.PDT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.PDT)
+    --sets.engaged.DW.PDT.MaxHaste = set_combine(sets.engaged.DW.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.LowHaste = set_combine(sets.engaged.DW.Tp.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.MidHaste = set_combine(sets.engaged.DW.Tp.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.Tp.PDT.MaxHaste = set_combine(sets.engaged.DW.Tp.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.PDT.MaxHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.PDT)
+    sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.PDT.MaxHaste, sets.engaged.PDT)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------Job-specific hooks that are called to process player actions at specific points in time-----------
@@ -1548,120 +1788,18 @@ end
 
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
-function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spellMap == 'Cure' and spell.target.type == 'SELF' then
-      if state.CastingMode.value == 'DT' then
-      equip(sets.self_healing.DT)
-      elseif state.CastingMode.value == 'MB' then
-      equip(sets.self_healing.MB)
-      else
-      equip(sets.self_healing)
-      end
-    end
-    if spell.english == 'Lunge' or spell.english == 'Swipe' then
-        if (spell.element == world.day_element or spell.element == world.weather_element) then
-            equip(sets.Obi)
-        end
-    end
-    if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
-        equip(sets.magic_burst)
-    end
-    --if spell.skill == 'Divine Magic' and (spell.english == "Holy" or spell.english == "Holy II" or spell.english == "Banish" or spell.english == "Banish II" ) and state.MagicBurst.value then
-        --equip(sets.magic_burst)
-    --end
-    if spell.skill == 'Divine Magic' and (spell.english == "Holy" or spell.english == "Holy II" or spell.english == "Banish" or spell.english == "Banish II" ) then     
-           if (spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
-            equip(sets.Obi)
-        -- Target distance under 1.7 yalms.
-        elseif spell.target.distance < (1.7 + spell.target.model_size) then
-            equip({waist="Orpheus's Sash"})
-        -- Matching day and weather.
-       elseif (spell.element == world.day_element and spell.element == world.weather_element) then
-            equip(sets.Obi)
-        -- Target distance under 8 yalms.
-        elseif spell.target.distance < (8 + spell.target.model_size) then
-            equip({waist="Orpheus's Sash"})
-        -- Match day or weather.
-       elseif (spell.element == world.day_element or spell.element == world.weather_element) then
-            equip(sets.Obi)
-        end
-    end
-end
-
-
-function job_aftercast(spell)
-    if not spell.interrupted then
-        if spell.type == 'Rune' then
-            update_timers(spell)
-        elseif spell.name == "Lunge" or spell.name == "Gambit" or spell.name == 'Rayke' then
-            reset_timers()
-        elseif spell.name == "Swipe" then
-            send_command(trim(1))
-        end
-    end
-    if spell.name == 'Rayke' and not spell.interrupted then
-        send_command('@timers c "Rayke ['..spell.target.name..']" '..rayke_duration..' down spells/00136.png')
-        send_command('wait '..rayke_duration..';input /echo [Rayke just wore off!];')
-    elseif spell.name == 'Gambit' and not spell.interrupted then
-        send_command('@timers c "Gambit ['..spell.target.name..']" '..gambit_duration..' down spells/00136.png')
-        send_command('wait '..gambit_duration..';input /echo [Gambit just wore off!];')
-    end
-end
-function job_buff_change(buff,gain)
-    if buff == "terror" then
-        if gain then
-            equip(sets.defense.PDT)
-        end
-    end
-    if buff == "doom" then
-        if gain then
-            equip(sets.Doom)
-            send_command('@input /p Doomed, please Cursna.')
-            send_command('@input /item "Holy Water" <me>')	
-             disable('ring1','ring2','waist','neck')
-        else
-            enable('ring1','ring2','waist','neck')
-            send_command('input /p Doom removed.')
-            handle_equipping_gear(player.status)
-        end
-    end
-    if buff == "petrification" then
-        if gain then    
-            equip(sets.defense.PDT)
-            send_command('input /p Petrification, please Stona.')		
-        else
-        send_command('input /p '..player.name..' is no longer Petrify Thank you !')
-        end
-    end
-end
-function job_handle_equipping_gear(playerStatus, eventArgs)   
-    update_combat_form() 	
-    if state.ShieldMode.value == "Duban" then
-	   equip({sub="Duban"})
-    elseif state.ShieldMode.value == "Ochain" then
-	   equip({sub="Ochain"})
-	  elseif state.ShieldMode.value == "Aegis" then
-	   equip({sub="Aegis"})
-    elseif state.ShieldMode.value == "normal" then
-      equip({})
-	--elseif state.ShieldMode.value == "Srivatsa" then
-	   --equip({sub="Srivatsa"})
-    	--elseif state.ShieldMode.value == "Priwen" then
-	   --equip({sub="Priwen"})
-	  end
-    --if state.TartarusdMode.value == "Tartarus Platemail" then
-      --equip({body="Tartarus Platemail"})
-    --elseif state.TartarusdMode.value == "normal" then
-     -- equip({})
-    --end
-end
 function job_precast(spell, action, spellMap, eventArgs)
 
-    if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+    --[[if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
         add_to_chat(167, 'Action stopped due to status.')
         eventArgs.cancel = true
         return
-    end
+    end]]
+    --[[if spell.type == 'WeaponSkill' then
+        if state.OffenseMode.value == "None" then
+        equip({})
+        end
+    end]]
     if rune_enchantments:contains(spell.english) then
         eventArgs.handled = true
     end
@@ -1697,6 +1835,157 @@ function job_precast(spell, action, spellMap, eventArgs)
     end
 end
 
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    if spellMap == 'Cure' and spell.target.type == 'SELF' then
+      if state.CastingMode.value == 'DT' then
+      equip(sets.self_healing.DT)
+      elseif state.CastingMode.value == 'MB' then
+      equip(sets.self_healing.MB)
+      else
+      equip(sets.self_healing)
+      end
+    end
+    if spell.english == 'Lunge' or spell.english == 'Swipe' then
+        if (spell.element == world.day_element or spell.element == world.weather_element) then
+            equip(sets.Obi)
+        end
+    end
+    if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
+        equip(sets.magic_burst)
+    elseif spell.skill == 'Divine Magic' and (spell.english == "Holy" or spell.english == "Holy II" or spell.english == "Banish" or spell.english == "Banish II") and state.MagicBurst.value then
+        equip(sets.magic_burst)
+    end
+    if spell.skill == 'Divine Magic' and (spell.english == "Holy" or spell.english == "Holy II" or spell.english == "Banish" or spell.english == "Banish II" ) then     
+           if (spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element])) then
+            equip(sets.Obi)
+        -- Target distance under 1.7 yalms.
+        elseif spell.target.distance < (1.7 + spell.target.model_size) then
+            equip({waist="Orpheus's Sash"})
+        -- Matching day and weather.
+       elseif (spell.element == world.day_element and spell.element == world.weather_element) then
+            equip(sets.Obi)
+        -- Target distance under 8 yalms.
+        elseif spell.target.distance < (8 + spell.target.model_size) then
+            equip({waist="Orpheus's Sash"})
+        -- Match day or weather.
+       elseif (spell.element == world.day_element or spell.element == world.weather_element) then
+            equip(sets.Obi)
+        end
+    end
+end
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
+
+function job_aftercast(spell)
+    if not spell.interrupted then
+        if spell.type == 'Rune' then
+            update_timers(spell)
+        elseif spell.name == "Lunge" or spell.name == "Gambit" or spell.name == 'Rayke' then
+            reset_timers()
+        elseif spell.name == "Swipe" then
+            send_command(trim(1))
+        end
+    end
+    if spell.name == 'Rayke' and not spell.interrupted then
+        send_command('@timers c "Rayke ['..spell.target.name..']" '..rayke_duration..' down spells/00136.png')
+        send_command('wait '..rayke_duration..';input /echo [Rayke just wore off!];')
+    elseif spell.name == 'Gambit' and not spell.interrupted then
+        send_command('@timers c "Gambit ['..spell.target.name..']" '..gambit_duration..' down spells/00136.png')
+        send_command('wait '..gambit_duration..';input /echo [Gambit just wore off!];')
+    end
+end
+function job_buff_change(buff,gain)
+    if buff == "terror" then
+        if gain then
+            equip(sets.defense.PDT)
+        end
+        handle_equipping_gear(player.status)
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+             disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Rampart" then
+        if gain then  			
+            send_command('input /p "Rampart" [ON]')		
+        else	
+            send_command('input /p "Rampart" [OFF]')
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
+        end
+    end
+end
+function job_handle_equipping_gear(playerStatus, eventArgs)   
+    determine_haste_group()
+    check_moving()
+    update_combat_form()
+    check_gear()
+    if state.ShieldMode.value == "Duban" then
+	   equip({sub="Duban"})
+    elseif state.ShieldMode.value == "Ochain" then
+	   equip({sub="Ochain"})
+	  elseif state.ShieldMode.value == "Aegis" then
+	   equip({sub="Aegis"})
+    elseif state.ShieldMode.value == "normal" then
+      equip({})
+	--elseif state.ShieldMode.value == "Srivatsa" then
+	   --equip({sub="Srivatsa"})
+    elseif state.ShieldMode.value == "Priwen" then
+	   equip({sub="Priwen"})
+	  end
+    --if state.TartarusdMode.value == "Tartarus Platemail" then
+      --equip({body="Tartarus Platemail"})
+    --elseif state.TartarusdMode.value == "normal" then
+     -- equip({})
+    --end
+end
+
+function job_update(cmdParams, eventArgs)
+    check_moving()
+    handle_equipping_gear(player.status)
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
@@ -1724,6 +2013,12 @@ function customize_idle_set(idleSet)
     end
     if state.Buff.Doom then
         idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
+    end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
   return idleSet
 end
@@ -1754,30 +2049,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------------------------------------------
--- Utility functions specific to this job.
--------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan RUN.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    if player.sub_job == 'DNC' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'RDM' then
-        set_macro_page(1, 37)
-    elseif player.sub_job == 'RUN' then
-        set_macro_page(1, 37)
-	elseif player.sub_job == 'WAR' then
-        set_macro_page(1, 37)
-	elseif player.sub_job == 'BLU' then
-        set_macro_page(1, 37)
-    else
-        set_macro_page(1, 37)
-    end
-end
 
 function get_rune_obi_element()
     weather_rune = buffactive[elements.rune_of[world.weather_element] or '']
@@ -1814,15 +2085,101 @@ function job_state_change(stateField, newValue, oldValue)
 end
 function update_combat_form()
   -- Check for H2H or single-wielding
+  if DW == true then
+        state.CombatForm:set('DW')
+  elseif DW == false then
+        state.CombatForm:reset()
+  end 
   if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
     if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
     player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
-    state.CombatForm = 'DW'
+    state.CombatForm:set('DW')
     else
-    state.CombatForm = nil
+    state.CombatForm:reset()
     end
   end
 end
+function determine_haste_group()
+    classes.CustomMeleeGroups:clear()
+    if DW == true then
+        if DW_needed <= 11 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 12 and DW_needed <= 21 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 21 and DW_needed <= 27 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 27 and DW_needed <= 31 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 31 and DW_needed <= 42 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 42 then
+            classes.CustomMeleeGroups:append('')
+        end
+    end
+end
+function check_moving()
+    --[[add_to_chat(123, 'Check Movement')
+    if state.Kiting.value then
+        add_to_chat(121, 'Kite True')
+    else
+        add_to_chat(121, 'Kite False')
+    end
+ 
+    if state.Auto_Kite.value then
+        add_to_chat(122, 'A-Kite True')
+    else
+        add_to_chat(122, 'A-Kite False')
+    end
+ 
+    if moving then
+        add_to_chat(120, 'Moving')
+    else
+        add_to_chat(120, 'Not Moving')
+    end]]
+ 
+    if state.DefenseMode.value == 'None' and state.Kiting.value == false then
+        if not state.Auto_Kite.value and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+    if no_swap_gear:contains(player.equipment.waist) then
+        disable("waist")
+    else
+        enable("waist")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)
+
 ------------------------------------------------------------------
 -- Timer manipulation
 ------------------------------------------------------------------
@@ -1929,10 +2286,36 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 200')
+        send_command('wait 6;input /lockstyleset 150')
     end
 end
 function display_current_job_state(eventArgs)
+    local i_msg = state.IdleMode.value
+  
+    local msg = ''
+    if state.Kiting.value then
+        msg = msg .. ' Kiting: On |'
+    end
+    local cf_msg = ''
+    if state.CombatForm.has_value then
+        cf_msg = ' (' ..state.CombatForm.value.. ')'
+    end
+    local m_msg = state.OffenseMode.value
+    if state.HybridMode.value ~= 'Normal' then
+        m_msg = m_msg .. '/' ..state.HybridMode.value
+    end
+  
+    local ws_msg = state.WeaponskillMode.value
+  
+    local d_msg = 'None'
+    if state.DefenseMode.value ~= 'None' then
+        d_msg = state.DefenseMode.value .. state[state.DefenseMode.value .. 'DefenseMode'].value
+    end
+  
+    local i_msg = state.IdleMode.value
+  
+    local msg = ''
+
     local r_msg = state.Runes.current
     local r_color = ''
     if state.Runes.current == 'Ignis' then r_color = 167
@@ -1958,6 +2341,22 @@ function job_self_command(cmdParams, eventArgs)
 end
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
+        if type(tonumber(cmdParams[2])) == 'number' then
+            if tonumber(cmdParams[2]) ~= DW_needed then
+            DW_needed = tonumber(cmdParams[2])
+            DW = true
+            end
+        elseif type(cmdParams[2]) == 'string' then
+            if cmdParams[2] == 'false' then
+                DW_needed = 0
+                DW = false
+            end
+        end
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
         if type(cmdParams[4]) == 'string' then
             if cmdParams[4] == 'true' then
                 moving = true
@@ -1965,7 +2364,9 @@ function gearinfo(cmdParams, eventArgs)
                 moving = false
             end
         end
-
+        if not midaction() then
+            job_update()
+        end
     end
 end
 ------------------------------------------------------------------
@@ -1980,6 +2381,28 @@ windower.raw_register_event('status change',function(new, old)
     end
 end)
 
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    if player.sub_job == 'DNC' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'NIN' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'RDM' then
+        set_macro_page(1, 37)
+    elseif player.sub_job == 'RUN' then
+        set_macro_page(1, 37)
+	elseif player.sub_job == 'WAR' then
+        set_macro_page(1, 37)
+	elseif player.sub_job == 'BLU' then
+        set_macro_page(1, 37)
+    else
+        set_macro_page(1, 37)
+    end
+end
 
 
 

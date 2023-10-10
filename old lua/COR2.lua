@@ -49,7 +49,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Ranged', 'Melee', 'Acc', 'CRIT')
+    state.OffenseMode:options('normal', 'Ranged', 'Acc', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
@@ -71,6 +71,8 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+
 
     update_combat_form()
     select_default_macro_book()
@@ -630,7 +632,7 @@ sets.defense.MDT = {head="Malignance Chapeau",
     -- Normal melee group
 
 
-sets.engaged.Melee = {    range="Death Penalty",
+sets.engaged = {   
 
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -639,13 +641,13 @@ sets.engaged.Melee = {    range="Death Penalty",
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
-    left_ear="Suppanomimi",
+    left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
     back="Annealed Mantle",
     }
-sets.engaged.Acc = {    range="Death Penalty",
+sets.engaged.Acc = {   
 
 
     head="Malignance Chapeau",
@@ -655,7 +657,7 @@ sets.engaged.Acc = {    range="Death Penalty",
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Windbuffet Belt +1",
-    left_ear="Suppanomimi",
+    left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Petrov Ring",
@@ -694,7 +696,7 @@ sets.engaged.Ranged = {            range="Death Penalty",
         back="Camulus's Mantle",
     }
 
-sets.engaged.Acc = {        range="Death Penalty",
+sets.engaged.Acc.DW = {       
 
             
             head="Malignance Chapeau",
@@ -727,7 +729,7 @@ sets.engaged.CRIT = {        range="Death Penalty",
     right_ring="Hetairoi Ring",
     back="Annealed Mantle",
     }
-sets.engaged.Melee = {        range="Death Penalty",
+sets.engaged.DW = {      
 
     
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -753,7 +755,7 @@ sets.engaged.PDT = {        range="Death Penalty",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     }
-sets.engaged.Melee.PDT = {
+sets.engaged.PDT = {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -893,11 +895,12 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
 end
 function update_combat_form()
-    if DW == true then
-        state.CombatForm:set('DW')
-    elseif DW == false then
+        -- Check for H2H or single-wielding
+    if player.equipment.sub == "Nusku Shield" or player.equipment.sub == 'empty' then
         state.CombatForm:reset()
-    end 
+    else
+        state.CombatForm:set('DW')
+    end
 end
 function update_offense_mode()
     if player.sub_job == 'NIN' or player.sub_job == 'DNC' then

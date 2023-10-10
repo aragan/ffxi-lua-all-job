@@ -34,64 +34,19 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-    
+    ShadowType = 'None'
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-    res = require 'resources'
 end
-organizer_items = {
-    "Tumult's Blood",
-    "Sarama's Hide",
-    "Hidhaegg's Scale",
-    "Sovereign's Hide",
-    "Grape Daifuku",
-    "Soy Ramen",
-    "G. Curry Bun +1",
-    "Pukatrice Egg",
-    "Moogle Amp.",
-    "Popo. con Queso",
-    "Pear Crepe",
-    "Crab Sushi",
-    "Om. Sandwich",
-    "Red Curry Bun",
-    "Gyudon",
-    "Reraiser",
-    "Hi-Reraiser",
-    "Vile Elixir",
-    "Vile Elixir +1",
-    "Miso Ramen",
-    "Carbonara",
-    "Silent Oil",
-    "Salt Ramen",
-    "Panacea",
-    "Sublime Sushi",
-    "Sublime Sushi 1+",
-    "Prism Powder",
-    "Antacid",
-    "Icarus Wing",
-    "Warp Cudgel",
-    "Holy Water",
-    "Sanjaku-Tenugui",
-    "Shinobi-Tabi",
-    "Shihei",
-    "Remedy",
-    "Wh. Rarab Cap +1",
-    "Emporox's Ring",
-    "Red Curry Bun",
-    "Instant Reraise",
-    "Black Curry Bun",
-    "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
-    "Reraise Earring",}
+
+
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
-    include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
-    send_command('wait 6;input /lockstyleset 168')
+
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
 end
@@ -105,8 +60,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Shield', 'Sword', 'ACC', 'Dagger', 'ACC', 'CRIT', 'PD')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
-    state.WeaponskillMode:options('Normal', 'PDL')
-    state.CastingMode:options('Normal', 'AUGMENT')
+    state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT','MDT')
 
 
@@ -118,20 +72,11 @@ function user_setup()
     
     -- Set this to false if you don't want to use custom timers.
     state.UseCustomTimers = M(true, 'Use Custom Timers')
-    state.WeaponLock = M(false, 'Weapon Lock')
-    state.MagicBurst = M(false, 'Magic Burst')
     
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
     send_command('wait 2;input /lockstyleset 168')
-    send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind ^- gs enable all')
-    send_command('bind ^/ gs disable all')
-    send_command('bind f4 input //fillmode')
-
-
 
     select_default_macro_book()
 end
@@ -143,6 +88,7 @@ function user_unload()
     send_command('unbind !`')
 end
 
+include('organizer-lib')
 -- Define sets and vars used by this job file.
 function init_gear_sets()
     --------------------------------------
@@ -158,7 +104,6 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
     legs="Aya. Cosciales +2",
-    feet="Fili Cothurnes +2",
     waist="Witful Belt",
     neck="Baetyl Pendant",
     left_ear="Loquac. Earring",
@@ -166,8 +111,8 @@ function init_gear_sets()
     left_ring="Prolix Ring",
     right_ring="Kishar Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+
 }
-    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
@@ -195,9 +140,9 @@ function init_gear_sets()
     body="Inyanga Jubbah +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Aya. Cosciales +2",
-    feet="Fili Cothurnes +2",
+    feet="Battlecast Gaiters",
     neck="Baetyl Pendant",
-    waist="Siegel Sash",
+    waist="Witful Belt",
     left_ear="Etiolation Earring",
     right_ear="Loquac. Earring",
     left_ring="Kishar Ring",
@@ -208,11 +153,11 @@ function init_gear_sets()
     sets.precast.FC.BardSong = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
         sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +2",
+        head="Fili Calot +1",
         body="Inyanga Jubbah +2",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs="Aya. Cosciales +2",
-        feet="Fili Cothurnes +2",
+        feet="Battlecast Gaiters",
         neck="Baetyl Pendant",
         waist="Witful Belt",
         left_ear="Etiolation Earring",
@@ -235,10 +180,7 @@ function init_gear_sets()
     sets.precast.Waltz = {
         legs="Dashing Subligar",
     }
-    sets.TreasureHunter = { 
-        head="White rarab cap +1", 
-        waist="Chaac Belt",
-     }
+    
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -250,7 +192,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
-        ring2="Cornelia's Ring",
+        ring2="Epaminondas's Ring",
         waist="Kentarch Belt +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -266,8 +208,8 @@ function init_gear_sets()
     body="Ayanmo Corazza +2",
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    ring2="Cornelia's Ring",
-    back="Bleating Mantle",
+    ring2="Epaminondas's Ring",
+    back="Intarabus's Cape",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
@@ -275,17 +217,17 @@ function init_gear_sets()
     
     sets.precast.WS['Exenterator'] = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Fotia Gorget",
+        left_ear="Brutal Earring",
+        right_ear="Balder Earring +1",
     body="Ayanmo Corazza +2",
-    legs="Lustr. Subligar +1",
-    feet="Lustra. Leggings +1",
     hands="Bunzi's Gloves",
-    neck="Fotia Gorget",
-    left_ear="Brutal Earring",
-    right_ear="Balder Earring +1",
     ring1="Hetairoi Ring",
     ring2="Ilabrat Ring",
+    back="Atheling Mantle",
     waist="Fotia Belt",
-    back="Bleating Mantle",
+    legs="Lustr. Subligar +1",
+    feet="Lustra. Leggings +1",
     }
 
     sets.precast.WS['Mordant Rime'] = {range="Linos",
@@ -296,7 +238,7 @@ function init_gear_sets()
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
-        ring2="Cornelia's Ring",
+        ring2="Epaminondas's Ring",
         waist="Kentarch Belt +1",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -311,7 +253,7 @@ sets.precast.WS['Rudras Storm'] = {range="Linos",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1="Ilabrat Ring",
-    ring2="Cornelia's Ring",
+    ring2="Epaminondas's Ring",
     waist="Kentarch Belt +1",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -326,111 +268,27 @@ sets.precast.WS['Aeolian Edge'] = {range="Linos",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Cornelia's Ring",
-    neck="Sibyl Scarf",
+    ring2="Epaminondas's Ring",
+    neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     back="Intarabus's Cape",
 }
 
-sets.precast.WS['Savage Blade'] = {range="Linos",
+sets.precast.WS['Savage Blade '] = {range="Linos",
     head="Nyame Helm",
-    neck="Rep. Plat. Medal",
+    neck="Fotia Gorget",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    ring1="Sroda Ring", 
-    ring2="Cornelia's Ring",
+    ring1="Ilabrat Ring",
+    ring2="Epaminondas's Ring",
     waist="Sailfi Belt +1",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     back="Intarabus's Cape",
-}
-
-sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'],{
-body="Bunzi's Robe",
-})
-sets.precast.WS['Flash Nova'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear="Malignance Earring",
-    left_ring="Freke Ring",
-    right_ring="Cornelia's Ring",
-    back="Argocham. Mantle",
-}
-
-        sets.precast.WS['Myrkr'] = {
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sibyl Scarf",
-        waist="Orpheus's Sash",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Friomisi Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Freke Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},}
-
-    sets.precast.WS['Cataclysm'] = {
-        head="Pixie Hairpin +1",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sibyl Scarf",
-        waist="Orpheus's Sash",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Friomisi Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Archon Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-    
- sets.precast.WS['Black Halo'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
-    left_ring="Sroda Ring", 
-    right_ring="Cornelia's Ring",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
-}
-
-sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
-
-sets.precast.WS['Shattersoul'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Brutal Earring",
-    right_ear="Ishvara Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    left_ring="Rufescent Ring",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 
 
@@ -443,15 +301,15 @@ sets.precast.WS['Shattersoul'] = {
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-    sets.midcast.Ballad = {}
-    sets.midcast.Lullaby = {}
-    sets.midcast.Madrigal = {head="Fili Calot +2", back="Intarabus's Cape",}
-    sets.midcast.March = {hands="Fili Manchettes +2",}
-    sets.midcast.Minuet = {body="Fili Hongreline +2",}
+    sets.midcast.Ballad = {legs="Aoidos' Rhing. +2"}
+    sets.midcast.Lullaby = {hands="Brioso Cuffs"}
+    sets.midcast.Madrigal = {head="Fili Calot +1",}
+    sets.midcast.March = {hands="Fili Manchettes +1",}
+    sets.midcast.Minuet = {body="Fili Hongreline +1",}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
-    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +2",}
+    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +1",}
     sets.midcast['Magic Finale'] = {}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
@@ -461,74 +319,54 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.SongEffect = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
+    head="Fili Calot +1",
+    body="Fili Hongreline +1",
+    hands="Fili Manchettes +1",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +3",
+    feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
     waist="Kobo Obi",
     left_ear="Musical Earring",
     right_ear="Fili Earring +1",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Intarabus's Cape",
-}
-sets.midcast.SongEffect.AUGMENT = {
-    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-head="Fili Calot +2",
-body="Fili Hongreline +2",
-hands="Fili Manchettes +2",
-legs="Fili Rhingrave +2",
-feet="Fili Cothurnes +2",
-neck="Mnbw. Whistle +1",
-waist="Kobo Obi",
-left_ear="Musical Earring",
-right_ear="Fili Earring +1",
-left_ring="Stikini Ring +1",
-right_ring="Stikini Ring +1",
-back="Intarabus's Cape",
-}
+    back="Intarabus's Cape",}
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
-    sub="Ammurapi Shield",
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",    
-        legs="Fili Rhingrave +2",
-        feet="Fili Cothurnes +2",
+        head="Fili Calot +1",
+        body="Fili Hongreline +1",
+        hands="Fili Manchettes +1",    
+        legs="Inyanga Shalwar +2",
+        feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
-        right_ear="Fili Earring +1",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ear="Musical Earring",
+        left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+    back="Intarabus's Cape",}
     
 
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {        range="Gjallarhorn",
-    sub="Ammurapi Shield",
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",    
-        legs="Fili Rhingrave +2",
-        feet="Fili Cothurnes +2",
+        head="Fili Calot +1",
+        body="Fili Hongreline +1",
+        hands="Fili Manchettes +1",    
+        legs="Inyanga Shalwar +2",
+        feet="Brioso Slippers +2",
         neck="Mnbw. Whistle +1",
         waist="Kobo Obi",
         left_ear="Digni. Earring",
-        right_ear="Fili Earring +1",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ear="Musical Earring",
+        left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        back="Intarabus's Cape",}
 
     -- Song-specific recast reduction
-    --sets.midcast.SongRecast = {}
+    sets.midcast.SongRecast = {
+       }
 
     --sets.midcast.Daurdabla = set_combine(sets.midcast.FastRecast, sets.midcast.SongRecast, {range=info.ExtraSongInstrument})
 
@@ -537,36 +375,6 @@ back="Intarabus's Cape",
 
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
     sets.midcast.DaurdablaDummy = {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",
-        legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +3",
-        neck="Mnbw. Whistle +1",
-        waist="Kobo Obi",
-        left_ear="Musical Earring",
-        right_ear="Fili Earring +1",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Intarabus's Cape",
-        }
-        sets.midcast.DaurdablaDummy.AUGMENT = {
-            main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",
-        legs="Fili Rhingrave +2",
-        feet="Fili Cothurnes +2",
-        neck="Mnbw. Whistle +1",
-        waist="Kobo Obi",
-        left_ear="Musical Earring",
-        right_ear="Fili Earring +1",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Intarabus's Cape",
         }
 
     -- Other general spells and classes.
@@ -586,13 +394,9 @@ back="Intarabus's Cape",
 }
         
     sets.midcast.Curaga = sets.midcast.Cure
-    sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {head="Inyanga Tiara +2"})
-    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash", back="Grapevine Cape"})
-    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
-    sets.midcast.Protectra = sets.midcast.Protect
-    sets.midcast.Shell = sets.midcast.Protect
-    sets.midcast.Shellra = sets.midcast.Shell
+        
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {         
+      sub="Ammurapi Shield",
      neck="Nodens Gorget",
      waist="Siegel Sash",
     })
@@ -615,11 +419,11 @@ back="Intarabus's Cape",
 
     sets.midcast['Enhancing Magic'] = {
             sub="Ammurapi Shield",
-            head="Telchine Cap",
-            body="Telchine Chas.",
-            hands="Telchine Gloves",
-            legs="Telchine Braconi",
-            feet="Telchine Pigaches",
+            head="Umuthi Hat",
+            body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
+            hands="Inyan. Dastanas +2",
+            legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+            feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
             neck="Incanter's Torque",
             waist="Olympus Sash",
             left_ear="Andoaa Earring",
@@ -640,13 +444,13 @@ back="Intarabus's Cape",
         neck="Incanter's Torque",
         waist="Luminary Sash",
         left_ear="Crep. Earring",
-        right_ear="Fili Earring +1",
+        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
             back="Aurist's Cape +1",
             }
     
-    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
+    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
     
     
     -- Sets to return to when not performing an action.
@@ -669,7 +473,7 @@ back="Intarabus's Cape",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet="Fili Cothurnes +1",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -683,7 +487,7 @@ back="Intarabus's Cape",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +2",
+    feet="Fili Cothurnes +1",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -698,7 +502,7 @@ back="Intarabus's Cape",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +2",
+    feet="Fili Cothurnes +1",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -711,7 +515,7 @@ back="Intarabus's Cape",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +2",
+    feet="Fili Cothurnes +1",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -730,7 +534,7 @@ back="Intarabus's Cape",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet="Fili Cothurnes +1",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -740,6 +544,8 @@ back="Intarabus's Cape",
         back="Moonlight Cape",
     }
     sets.defense.Evasion = {
+        sub="Gleti's Knife",
+        ammo="Amar Cluster",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -751,7 +557,7 @@ back="Intarabus's Cape",
         right_ear="Eabani Earring",
         left_ring="Vengeful Ring",
         right_ring="Defending Ring",
-        back="Intarabus's Cape",
+        back={ name="Intarabus's Cape", augments={'CHR+20','Eva.+20 /Mag. Eva.+20','Weapon skill damage +10%',}},
     }
 
     sets.defense.MDT = {
@@ -759,7 +565,7 @@ back="Intarabus's Cape",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet="Fili Cothurnes +1",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -769,7 +575,7 @@ back="Intarabus's Cape",
         back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Fili Cothurnes +2",}
+    sets.Kiting = {feet="Fili Cothurnes +1",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -793,7 +599,8 @@ back="Intarabus's Cape",
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Bleating Mantle",    }
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    }
 
     -- Sets with weapons defined.
     sets.engaged.Shield = {range="Linos",
@@ -807,10 +614,10 @@ back="Intarabus's Cape",
         neck="Lissome Necklace",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
-        right_ear="Fili Earring +1",
+        right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+12','Mag. Acc.+12','Damage taken-4%',}},
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     }
     sets.engaged.Dagger = {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
@@ -826,7 +633,8 @@ back="Intarabus's Cape",
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Bleating Mantle",    }
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    }
 
     sets.engaged.Sword = {range="Linos",
         main="Naegling",
@@ -842,7 +650,8 @@ back="Intarabus's Cape",
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Bleating Mantle",    }
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    }
 
     sets.engaged.CRIT = set_combine(sets.engaged, {range="Linos",
         main={ name="Twashtar", augments={'Path: A',}},
@@ -852,8 +661,9 @@ back="Intarabus's Cape",
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
-        back="Bleating Mantle",    })
-    sets.engaged.ACC = set_combine(sets.engaged, {
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    })
+    sets.engaged.ACC = set_combine(sets.engaged, {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Aya. Manopolas +2",
@@ -865,9 +675,10 @@ back="Intarabus's Cape",
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
     })
     sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
+        ammo="Staunch Tathlum +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ayanmo Corazza +2",
         hands="Bunzi's Gloves",
@@ -897,17 +708,9 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    if spellMap == 'Utsusemi' then
-        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-            cancel_spell()
-            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = true
-            return
-        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
-            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
-        end
+    if spell.name == 'Utsusemi: Ichi' and ShadowType == 'Ni' and (buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) then
+        cancel_spell()
     end
-
     if spell.type == 'BardSong' then
         -- Auto-Pianissimo
         if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
@@ -922,12 +725,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
-end
+
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
@@ -938,6 +736,10 @@ function job_midcast(spell, action, spellMap, eventArgs)
                 equip(sets.midcast[generalClass])
             end
         end
+    end
+    if spell.name == 'Utsusemi: Ichi' and ShadowType == 'Ni' and (buffactive['Copy Image'] or buffactive['Copy Image (2)']) then
+        send_command('cancel Copy Image')
+        send_command('cancel Copy Image (2)')
     end
 end
 
@@ -980,19 +782,19 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         end
         if not spell.interrupted then
             if spell.name == 'Utsusemi: Ichi' then
-                overwrite = true
+                overwrite = false
             elseif spell.name == 'Utsusemi: Ni' then
                 overwrite = true
             end
         end
     end
-end
-function sub_job_change(new,old)
-    if user_setup then
-        user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+    if spell.name == 'Utsusemi: Ni' and spell.interrupted == false then
+        ShadowType = 'Ni'
+    elseif spell.name == 'Utsusemi: Ichi' and spell.interrupted == false then
+        ShadowType = 'Ichi'
     end
 end
+
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
@@ -1006,11 +808,6 @@ function job_state_change(stateField, newValue, oldValue)
             enable('main','sub','ammo')
         end
     end
-    if state.WeaponLock.value == true then
-        disable('main','sub')
-    else
-        enable('main','sub')
-    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1020,35 +817,6 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
    
-end
-function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
-    if state.Buff['Seigan'] then
-        if state.DefenseMode.value == 'PDT' then
-    	    meleeSet = set_combine(meleeSet, sets.thirdeye)
-        else
-            meleeSet = set_combine(meleeSet, sets.seigan)
-        end
-    end
-    if player.equipment.range == 'Yoichinoyumi' then
-        meleeSet = set_combine(meleeSet, sets.bow)
-    end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        meleeSet = set_combine(meleeSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-    end
-    return meleeSet
-end
-function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
-        equip(sets.buff[buff_name] or {})
-        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
-            equip(sets.TreasureHunter)
-        end
-        eventArgs.handled = true
-    end
 end
 
 
@@ -1076,7 +844,7 @@ end
 function get_song_class(spell)
     -- Can't use spell.targets:contains() because this is being pulled from resources
     if set.contains(spell.targets, 'Enemy') then
-        if state.CastingMode.value == 'AUGMENT' then
+        if state.CastingMode.value == 'Resistant' then
             return 'ResistantSongDebuff'
         else
             return 'SongDebuff'
@@ -1221,9 +989,10 @@ end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(1, 32)
+    set_macro_page(1, 31)
 end
-
+add_to_chat(159,'Author Aragan BRD.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 windower.raw_register_event('zone change',reset_timers)
 windower.raw_register_event('logout',reset_timers)

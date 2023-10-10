@@ -30,7 +30,6 @@ function get_sets()
         "Toolbag (Shika)",
         "Toolbag (Ino)",
         "Shihei",
-        "Toolbag (Shihe)",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -109,7 +108,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Mid', 'Acc', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana', 'Scythe', 'GS', 'Polearm')
+    state.OffenseMode:options('Normal', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana', 'Scythe', 'GS', 'Polearm')
     state.HybridMode:options('Normal', 'PDT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Mid', 'Acc')

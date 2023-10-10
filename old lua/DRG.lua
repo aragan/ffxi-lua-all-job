@@ -17,7 +17,7 @@ function get_sets()
 	include('organizer-lib')
 
     organizer_items = {"Prime Sword",
-        "Lentus Grip",
+        "Sword Strap",
         "Mafic Cudgel",
         "Angon",
         "Gyudon",
@@ -59,8 +59,9 @@ function job_setup()
 	get_combat_form()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('Tag')
+    state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 199')
+    send_command('wait 6;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
 
@@ -86,7 +87,8 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('wait 2;input /lockstyleset 199')
+    send_command('bind !w gs c toggle WeaponLock')
+    send_command('wait 2;input /lockstyleset 152')
 	select_default_macro_book()
 
 
@@ -601,9 +603,11 @@ sets.precast.JA.Jump = {
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle.Town = set_combine(sets.idle, {
-
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        right_ear="Infused Earring",
     })
-	
+    sets.Adoulin = {body="Councilor's Garb",}
+
 	sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
@@ -627,11 +631,11 @@ sets.precast.JA.Jump = {
 
 	sets.idle.Weak = set_combine(sets.idle.Field, {
 		head="Twilight Helm",
-		body="Twilight Mail",
+		body="Crepuscular Mail",
     })
     sets.Reraise = {
 		head="Twilight Helm",
-		body="Twilight Mail",
+		body="Crepuscular Mail",
     }
 
 	-- Defense sets
@@ -683,7 +687,7 @@ sets.precast.JA.Jump = {
         }
         sets.defense.Reraise = set_combine(sets.defense.PDT, {
             head="Twilight Helm",
-            body="Twilight Mail",
+            body="Crepuscular Mail",
         })
 
 	sets.Kiting = {
@@ -772,8 +776,19 @@ sets.precast.JA.Jump = {
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
-    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
-    body="Twilight Mail",})
+
+    sets.engaged.CRIT.PDT = set_combine(sets.engaged, sets.engaged.PDT)
+
+    sets.engaged.Reraise = set_combine(sets.engaged, {		
+    head="Twilight Helm",
+    body="Crepuscular Mail",})
+    sets.Doom = {    neck="Nicander's Necklace",
+    waist="Gishdubar Sash",
+    left_ring="Purity Ring",
+    right_ring="Blenmot's Ring +1",}
+
+    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+
 end
 
 
@@ -794,6 +809,10 @@ function job_pretarget(spell, action, spellMap, eventArgs)
             send_command("High Jump")
         end
     end
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
 end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -804,16 +823,24 @@ end
 -- Run after the default precast() is done.
 -- eventArgs is the same one used in job_precast, in case information needs to be persisted.
 function job_post_precast(spell, action, spellMap, eventArgs)
-	if player.hpp < 51 then
+	--[[if player.hpp < 51 then
 		classes.CustomClass = "Breath" 
-	end
+	end]]
     if spell.type == 'WeaponSkill' then
+        if spell.english == 'Stardiver' and state.WeaponskillMode.current == 'Normal' then
+            if world.day_element == 'Earth' or world.day_element == 'Light' or world.day_element == 'Dark' then
+                equip(sets.WSDayBonus)
+           end
+        end
+    end
+end
+    --[[if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
 
         end
-    end
-end
+    end]]
+
 
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -889,15 +916,18 @@ end
 function get_custom_wsmode(spell, action, spellMap)
 
 end
-
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 -- Modify the default idle set after it was constructed.
 
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-	if state.TreasureMode.value == 'Fulltime' then
-		meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-	end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -922,18 +952,6 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'Acc' then
-            equip(sets.MadrigalBonus)
-        end
-    end
-    if string.lower(buff) == "sleep" and gain and player.hp > 200 then
-        equip(sets.Berserker)
-    else
-        if not midaction() then
-            handle_equipping_gear(player.status)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -946,7 +964,25 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "weakness" then
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+    end
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
              disable('body','head')
@@ -954,13 +990,14 @@ function job_buff_change(buff, gain)
              disable('body','head')
         end
         return
+    end]]
+    if not midaction() then
+        handle_equipping_gear(player.status)
     end
 end
 
 function job_update(cmdParams, eventArgs)
-    war_sj = player.sub_job == 'WAR' or false
-	classes.CustomMeleeGroups:clear()
-	th_update(cmdParams, eventArgs)
+    handle_equipping_gear(player.status)
 	get_combat_form()
     job_self_command()
 end
@@ -970,14 +1007,26 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true
     end
     return
 end
+function customize_idle_set(idleSet)
+    -- if state.CP.current == 'on' then
+    --     equip(sets.CP)
+    --     disable('back')
+    -- else
+    --     enable('back')
+    -- end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
 
+    return idleSet
+end
 function get_combat_form()
 	--if areas.Adoulin:contains(world.area) and buffactive.ionis then
 	--	state.CombatForm:set('Adoulin')
@@ -1011,13 +1060,13 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
             equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.
@@ -1034,12 +1083,11 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 199')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 
-add_to_chat(159,'Author Aragan DRG.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

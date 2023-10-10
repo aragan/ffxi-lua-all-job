@@ -18,7 +18,6 @@ function get_sets()
     
     -- Load and initialize the include file.
     include('Mote-Include.lua')
-    include('Mote-TreasureHunter')
     include('organizer-lib')
 end
 
@@ -29,10 +28,12 @@ function job_setup()
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
-    send_command('wait 6;input /lockstyleset 199')
+    send_command('wait 6;input /lockstyleset 152')
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('Tag')
     sub_job_change()
     blue_magic_maps = {}
     
@@ -213,7 +214,7 @@ function user_setup()
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;')
     update_combat_form()
     select_default_macro_book()
-    send_command('wait 2;input /lockstyleset 199')
+    send_command('wait 2;input /lockstyleset 152')
     send_command('bind f4 input //fillmode')
 
 end
@@ -226,7 +227,21 @@ function user_unload()
     send_command('unbind @`')
 end
 
-organizer_items = {"Prime Sword",
+organizer_items = {
+    "Tumult's Blood",
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -286,7 +301,9 @@ function init_gear_sets()
         right2="Vengeful Ring",
         back="Reiki Cloak",
         }
-
+    sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
     sets.precast.JA['Provoke'] = sets.Enmity
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Mirage Bazubands +2"}
@@ -467,7 +484,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Hashishin Earring",
+        right_ear="Hashi. Earring +1",
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
@@ -815,7 +832,7 @@ sets.midcast['Blue Magic'].Healing.SIRD = set_combine(sets.SIRD, sets.midcast['B
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
-    right_ear="Hashishin Earring", 
+    right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
 }
@@ -832,7 +849,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
         legs="Hashishin Tayt +1",
     waist="Cascade Belt",
     left_ear="Andoaa Earring",
-    right_ear="Hashishin Earring", 
+    right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
     }
@@ -1012,8 +1029,8 @@ sets.midcast.phalanx.SIRD = {
     sets.Kiting = {
         ammo="Staunch Tathlum +1",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    
 }
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -- Engaged sets
 
@@ -1031,7 +1048,7 @@ sets.midcast.phalanx.SIRD = {
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         feet="Malignance Boots",
-        neck="Mirage Stole +2",
+        neck="Ainia Collar",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Dedition Earring",
         right_ear="Telos Earring",
@@ -1048,7 +1065,7 @@ sets.engaged.Acc = {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet="Malignance Boots",
-    neck="Mirage Stole +2",
+    neck="Lissome Necklace",
     waist="Olseni Belt",
     left_ear="Mache Earring +1",
     right_ear="Telos Earring",
@@ -1063,7 +1080,7 @@ sets.engaged.AccMAX = set_combine(sets.engaged, {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Gleti's Boots",
-    neck="Mirage Stole +2",
+    neck="Lissome Necklace",
     waist="Olseni Belt",
     left_ear="Mache Earring +1",
     right_ear="Telos Earring",
@@ -1103,7 +1120,7 @@ sets.engaged.DW = {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Lissome Necklace",
+    neck="Ainia Collar",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Suppanomimi",
     right_ear="Telos Earring",
@@ -1117,7 +1134,7 @@ sets.engaged.DW.PD = set_combine(sets.engaged, {
     hands="Gleti's Gauntlets",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Mirage Stole +2",
+    neck="Ainia Collar",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Mache Earring +1",
     right_ear="Dedition Earring",
@@ -1132,7 +1149,7 @@ sets.engaged.DW.Acc = set_combine(sets.engaged, {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Mirage Stole +2",
+    neck="Lissome Necklace",
     left_ear="Suppanomimi",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
@@ -1145,7 +1162,7 @@ sets.engaged.DW.Acc = set_combine(sets.engaged, {
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Malignance Tights",
         feet="Malignance Boots",
-        neck="Mirage Stole +2",
+        neck="Lissome Necklace",
         waist="Olseni Belt",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
@@ -1176,7 +1193,7 @@ sets.engaged.PD = {
             hands="Gleti's Gauntlets",
             legs="Malignance Tights",
             feet="Malignance Boots",
-            neck="Mirage Stole +2",
+            neck="Ainia Collar",
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Mache Earring +1",
             right_ear="Dedition Earring",
@@ -1191,7 +1208,7 @@ sets.engaged.PDT = {
             hands="Gleti's Gauntlets",
             legs="Malignance Tights",
             feet="Malignance Boots",
-            neck="Mirage Stole +2",
+            neck="Ainia Collar",
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear="Mache Earring +1",
             right_ear="Dedition Earring",
@@ -1248,7 +1265,12 @@ function job_precast(spell, action, spellMap, eventArgs)
         windower.send_command('input /ja "Unbridled Learning" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
     end
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
 function job_post_midcast(spell, action, spellMap, eventArgs)
@@ -1329,9 +1351,18 @@ function job_state_change(stateField, newValue, oldValue)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        set_combine(idleSet, sets.latent_refresh)
+    if state.IdleMode.current == 'PDT' then
+        idleSet = set_combine(idleSet, sets.idle.PDT)
     end
+    if state.IdleMode.current == 'Learning' then
+        idleSet = set_combine(idleSet, sets.idle.Learning)
+    end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    --if player.mpp < 51 then
+        --set_combine(idleSet, sets.latent_refresh)
+    --end
     return idleSet
 end
 
@@ -1367,11 +1398,7 @@ function display_current_job_state(eventArgs)
     eventArgs.handled = true
 end
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
 
-    return meleeSet
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1389,12 +1416,11 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 199')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 
-add_to_chat(159,'Author Aragan BLU.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

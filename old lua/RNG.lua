@@ -22,7 +22,7 @@ function get_sets()
 
 end
 
-	organizer_items = {"Prime Sword",
+	organizer_items = {
 	    "Earp",
 		"Mafic Cudgel",
 		"Perun 1+",
@@ -31,6 +31,7 @@ end
 		"Beryllium Arrow",
 		"Eminent Arrow",
 		"Chr. Bul. Pouch",
+		"Dec. Bul. Pouch",
 		"Chrono Bullet",
 		"Hauksbok Arrow",
 		"Gyudon",
@@ -73,8 +74,9 @@ function job_setup()
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 168')
+    send_command('wait 6;input /lockstyleset 152')
 	include('Mote-TreasureHunter')
+	state.TreasureMode:set('Tag')
 	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
@@ -130,7 +132,7 @@ function user_setup()
 	send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 168')
+    send_command('wait 2;input /lockstyleset 152')
 
 end
 
@@ -410,7 +412,6 @@ function init_gear_sets()
 
 	-- Ranged sets
 	sets.TreasureHunter = { 
-		ammo="Per. Lucky Egg",
 		head="White rarab cap +1", 
 		waist="Chaac Belt",
 	 }
@@ -990,11 +991,10 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
-add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

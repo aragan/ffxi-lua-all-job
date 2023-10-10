@@ -18,7 +18,22 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {        "Prime Sword",
+organizer_items = {    
+    "Reikiko",
+    "Tumult's Blood",
+    "Sarama's Hide",
+    "Hidhaegg's Scale",
+    "Sovereign's Hide",
+    "Grape Daifuku",
+    "Soy Ramen",
+    "G. Curry Bun +1",
+    "Pukatrice Egg",
+    "Moogle Amp.",
+    "Popo. con Queso",
+    "Pear Crepe",
+    "Crab Sushi",
+    "Om. Sandwich",
+    "Red Curry Bun",    
     "Drepanum",
     "Sword Strap",
     "Mafic Cudgel",
@@ -58,10 +73,10 @@ organizer_items = {        "Prime Sword",
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 166')
+    send_command('wait 6;input /lockstyleset 152')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.TreasureMode:set('Tag')
     state.MagicBurst = M(false, 'Magic Burst')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Buff.Souleater = buffactive.souleater or false
@@ -75,7 +90,7 @@ function job_setup()
     -- Weaponskills you want Gavialis helm used with (only considered if use_gavialis = true)
     wsList = S{}
     -- Greatswords you use. 
-    gsList = S{'Ragnarok','Caladbolg','Nandaka'}
+    gsList = S{'Ragnarok','Caladbolg','Nandaka','Foreshock Sword'}
     scytheList = S{'Apocalypse'}
     remaWeapons = S{'Apocalypse','Ragnarok','Nandaka'}
   
@@ -85,9 +100,9 @@ function job_setup()
     -- Offhand weapons used to activate DW mode
     swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
     sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
-
     get_combat_form()
     update_melee_groups()
+    update_combat_form()
 end
   
 -------------------------------------------------------------------------------------------------------------------
@@ -104,7 +119,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.IdleMode:options('Normal', 'Refresh')
 
-      
+    state.RP = M(false, "Reinforcement Points Mode")    
     war_sj = player.sub_job == 'WAR' or false
   
     -- Additional local binds
@@ -113,10 +128,10 @@ function user_setup()
     send_command('bind @f9 gs c toggle SouleaterMode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^- gs enable all')
-    send_command('wait 2;input /lockstyleset 166')
+    send_command('bind !/ gs enable all')
+    send_command('wait 2;input /lockstyleset 152')
     send_command('bind !w gs c toggle WeaponLock')
-
+    send_command('bind !- gs c toggle RP')  
 
     select_default_macro_book()
 end
@@ -218,7 +233,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -233,7 +248,7 @@ function init_gear_sets()
         head={ name="Nyame Helm", augments={'Path: B',}},
        body={ name="Nyame Mail", augments={'Path: B',}},
        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-       legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+       legs="Nyame Flanchard",
        feet="Heath. Sollerets +2",
         })
 
@@ -260,7 +275,7 @@ function init_gear_sets()
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     })
@@ -303,12 +318,12 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-        right_ear="Thrud Earring",
+        right_ear={ name="Heathen's Earring", augments={'Accuracy+7','Mag. Acc.+7',}},
+        left_ear="Thrud Earring",
         right_ring="Cornelia's Ring",
         left_ring="Niqmaddu Ring",
         back="Ankou's Mantle",
@@ -319,7 +334,7 @@ function init_gear_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Catastrophe'].PDL = set_combine(sets.precast.WS['Catastrophe'], {
@@ -327,7 +342,7 @@ function init_gear_sets()
         head="Heath. Burgeon. +2",
         body="Nyame Mail",
         hands="Sakpata's Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -376,7 +391,7 @@ sets.precast.WS['Insurgency'] = {
     head="Hjarrandi Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Sakpata's Leggings",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -414,7 +429,7 @@ sets.precast.WS['Insurgency'] = {
         head="Hjarrandi Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Sakpata's Leggings",
         neck="Fotia Gorget",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -449,7 +464,7 @@ sets.precast.WS['Quietus'] = {
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -463,7 +478,7 @@ sets.precast.WS['Quietus'].Mid = set_combine(sets.precast.WS['Quietus'], {
     head="Nyame Helm",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
 })
 sets.precast.WS['Quietus'].PDL = set_combine(sets.precast.WS['Quietus'], {
@@ -610,7 +625,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -624,7 +639,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], {
@@ -638,7 +653,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head="Nyame Helm",
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
     })
     sets.precast.WS['Scourge'] = set_combine(sets.precast.WS['Torcleaver'], {})
@@ -656,7 +671,7 @@ sets.precast.WS['Nightmare Scythe'] = {
     head="Sakpata's Helm",
     body="Nyame Mail",
     hands="Sakpata's Gauntlets",
-    legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+    legs="Nyame Flanchard",
     feet="Heath. Sollerets +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -689,7 +704,7 @@ sets.precast.WS['Nightmare Scythe'] = {
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -926,7 +941,6 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     sets.resting = {
         head=empty,
         body={ name="Lugra Cloak +1", augments={'Path: A',}},
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
@@ -939,7 +953,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     hands="Sakpata's Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Sakpata's Leggings",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -955,7 +969,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         hands="Sakpata's Gauntlets",
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Sakpata's Leggings",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
         left_ear="Infused Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -970,7 +984,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         hands="Sakpata's Gauntlets",
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet="Sakpata's Leggings",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
         left_ear="Infused Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -979,13 +993,12 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         back="Moonlight Cape",
     })
 
-    sets.idle.Weak = {head="Twilight Helm",body="Twilight Mail"}
-    sets.idle.Field.Weak = {head="Twilight Helm",body="Twilight Mail"}
+    sets.idle.Weak = {head="Twilight Helm",body="Crepuscular Mail",}
+    sets.idle.Field.Weak = {head="Twilight Helm",body="Crepuscular Mail",}
 
       
     sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
         body={ name="Lugra Cloak +1", augments={'Path: A',}},
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     })
@@ -1065,18 +1078,18 @@ sets.defense.SEboost = {
 }
     sets.defense.MDT = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
-        body="Tartarus Platemail",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Warder's Charm +1",
-        waist="Asklepian Belt",
+        waist="Plat. Mog. Belt",
         left_ear="Eabani Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Shadow Ring",
-        right_ring="Moonlight Ring",
-        back="Engulfer Cape +1",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
     }
     sets.defense.Enmity = {
         sub="Alber Strap",
@@ -1098,7 +1111,7 @@ sets.defense.SEboost = {
         ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
     head="Twilight Helm",
-    body="Twilight Mail",
+    body="Crepuscular Mail",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1123,7 +1136,7 @@ sets.defense.SEboost = {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
@@ -1138,7 +1151,7 @@ sets.defense.SEboost = {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
@@ -1153,7 +1166,7 @@ sets.defense.SEboost = {
     hands="Flam. Manopolas +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
@@ -1200,7 +1213,7 @@ sets.engaged.PD = set_combine(sets.engaged, {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear="Dedition Earring",
@@ -1216,7 +1229,7 @@ sets.engaged.PD = set_combine(sets.engaged, {
     hands="Sulev. Gauntlets +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist="Ioskeha Belt +1",
     left_ear="Mache Earring +1",
     right_ear="Telos Earring",
@@ -1277,7 +1290,6 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         waist="Ioskeha Belt +1",
     })
       
-  
     sets.engaged.Meva = {      
       ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Sakpata's Helm",
@@ -1285,7 +1297,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Brutal Earring",
     right_ear="Dedition Earring",
@@ -1310,7 +1322,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1326,7 +1338,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1342,7 +1354,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         hands="Sakpata's Gauntlets",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck="Abyssal Beads +2",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Cessance Earring",
         right_ear="Dedition Earring",
@@ -1357,7 +1369,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         hands="Flam. Manopolas +2",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck="Abyssal Beads +2",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
@@ -1387,7 +1399,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands="Sakpata's Gauntlets",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Cessance Earring",
@@ -1417,7 +1429,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
         hands="Sakpata's Gauntlets",
         legs="Ig. Flanchard +3",
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        neck="Abyssal Beads +2",
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Cessance Earring",
         right_ear="Dedition Earring",
@@ -1441,7 +1453,7 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands="Sulev. Gauntlets +2",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck={ name="Vim Torque +1", augments={'Path: A',}},
+    neck="Abyssal Beads +2",
     waist="Ioskeha Belt +1",
     left_ear="Mache Earring +1",
     right_ear="Telos Earring",
@@ -1496,25 +1508,17 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
 	head="Twilight Helm",
-    body="Twilight Mail",})
+    body="Crepuscular Mail",})
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-    sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
-
+    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail",}
+    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+    sets.RP = {neck="Abyssal Beads +2"}
   
 end
-  
-  
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
-end
-  
   
 function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' then
@@ -1624,7 +1628,7 @@ end
 function job_handle_equipping_gear(status, eventArgs)
 end
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
@@ -1632,26 +1636,46 @@ function job_self_command(cmdParams, eventArgs)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.IdleMode.current == 'Sphere' then
-        idleSet = set_combine(idleSet, sets.idle.Sphere)
+    if state.IdleMode.current == 'Refresh' then
+        idleSet = set_combine(idleSet, sets.idle.Refresh)
     end
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end       
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+   elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+   end
+
     return idleSet
 end
   
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TreasureMode.value == 'Fulltime' then
-        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
     if state.Buff['Souleater'] then
         meleeSet = set_combine(meleeSet, sets.buff.Souleater)
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end  
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+   elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+   end
     --meleeSet = set_combine(meleeSet, select_earring())
     return meleeSet
 end
@@ -1692,12 +1716,6 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
-  
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'MaxAcc' then
-            equip(sets.MadrigalBonus)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -1710,14 +1728,32 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "weakness" then
+    --[[if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
              disable('body', 'head')
             else
              enable('body', 'head')
         end
-        return meleeSet
+        return 
+    end]]
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
     end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
         if (buffactive['Last Resort']) then
@@ -1734,6 +1770,9 @@ function job_buff_change(buff, gain)
             if not midaction() then
                 handle_equipping_gear(player.status)
             end
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
         end
     end
     -- Drain II/III HP Boost. Set SE to stay on.
@@ -1807,25 +1846,26 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-  
     war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
     update_melee_groups()
     job_self_command()
+    update_combat_form()
 end
 
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
+
 end
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.
@@ -1859,7 +1899,11 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 function get_combat_form()
-  
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+    end
     if S{'NIN', 'DNC'}:contains(player.sub_job) and swordList:contains(player.equipment.main) then
         state.CombatForm:set("DW")
     --elseif player.equipment.sub == '' or shields:contains(player.equipment.sub) then
@@ -1889,6 +1933,7 @@ function get_combat_weapon()
     -- elseif scytheList:contains(player.equipment.main) then
     --     state.CombatWeapon:set("Scythe")
     -- end
+
 end
   
 function aw_custom_aftermath_timers_precast(spell)
@@ -1943,14 +1988,15 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 166')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 function select_default_macro_book()
       
-    if scytheList:contains(player.equipment.main) then
-        set_macro_page(7, 21)
-    elseif gsList:contains(player.equipment.main) then
+    --if scytheList:contains(player.equipment.main) then
+        --set_macro_page(7, 21)
+   -- elseif gsList:contains(player.equipment.main) then
+   if player.sub_job == 'WAR' then
         set_macro_page(7, 21)
     elseif player.sub_job == 'SAM' then
         set_macro_page(7, 21)
@@ -1958,8 +2004,7 @@ function select_default_macro_book()
         set_macro_page(7, 21)
     end
 end
-add_to_chat(159,'Author Aragan DRK.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 function update_combat_form()
-  
+
 end

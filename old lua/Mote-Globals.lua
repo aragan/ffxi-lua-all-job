@@ -20,8 +20,8 @@ function define_global_sets()
 
 	-- Staffs
 	gear.Staff = {}
-	gear.Staff.HMP = 'Chatoyant Staff'
-	gear.Staff.PDT = 'Earth Staff'
+	gear.Staff.HMP = 'Mpaca\'s Staff'
+	gear.Staff.PDT = 'Malignance Pole'
 	
 	-- Dark Rings
 	gear.DarkRing = {}
@@ -29,13 +29,15 @@ function define_global_sets()
 	gear.DarkRing.magical = {name="Dark Ring", augments={'Magic dmg. taken -6%','Breath dmg. taken -5%'}}
 	
 	-- Default items for utility gear values.
-	gear.default.weaponskill_neck = "Asperity Necklace"
-	gear.default.weaponskill_waist = "Caudata Belt"
-	gear.default.obi_waist = "Cognition Belt"
-	gear.default.obi_back = "Toro Cape"
-	gear.default.obi_ring = "Strendu Ring"
+	gear.default.weaponskill_neck = "Fotia Gorget"
+	gear.default.weaponskill_waist = "Fotia Belt"
+	gear.default.obi_waist = "Hachirin-no-Obi"
+	gear.default.obi_back = "Twilight Cape"
+	gear.default.obi_ring = ""
 	gear.default.fastcast_staff = ""
 	gear.default.recast_staff = ""
+	sets.WSDayBonus = {head="Gavialis Helm"}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -111,4 +113,20 @@ function user_buff_change(buff, gain, eventArgs)
 		end
 	end
 end
+function is_sc_element_today(spell)
+    if spell.type ~= 'WeaponSkill' then
+        return
+    end
 
+   local weaponskill_elements = S{}:
+    union(skillchain_elements[spell.skillchain_a]):
+    union(skillchain_elements[spell.skillchain_b]):
+    union(skillchain_elements[spell.skillchain_c])
+
+    if weaponskill_elements:contains(world.day_element) then
+        return true
+    else
+        return false
+    end
+
+end

@@ -44,76 +44,35 @@ function get_sets()
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
 	include('organizer-lib')
-end
-organizer_items = {
-	"Moogle Amp.",
-	ammo="Pet Food Theta",
-    ammo="Meaty Broth",
-    ammo="Livid Broth",
-    ammo="Turpid Broth",
-    ammo="Aged Humus",
-    ammo="Lyrical Broth",
-    ammo="Tant. Broth",
-    ammo="Furious Broth",
-    item="Rolan. Daifuku",
-    ammo="Dire Broth",
-    ammo="Bug-Ridden Broth",
-    ammo="C. Plasma Broth",
-    ammo="Vermihumus",
-    ammo="Bubbly Broth",
-    ammo="Putrescent Broth",
-    ammo="Pale Sap",
-	back="S. Reraiser Tank",
-	"Drepanum",
-	"Sword Strap",
-	"Maliya Sickle +1",
-	"Gyudon",
+	organizer_items = {
+	"Adapa Shield",
 	"Reraiser",
 	"Hi-Reraiser",
-	"Instant Reraise",
-	"Vile Elixir",
-	"Vile Elixir +1",
-	"Miso Ramen",
-	"Carbonara",
-	"Silent Oil",
-	"Bean Daifuku",
-	"Grape Daifuku",
 	"Panacea",
-	"Wh. Rarab Cap +1",
-	"Reraise Earring",
-	item="Mafic Cudgel",
-	item="Maliya Sickle +1",
-	item="Pixquizpan",
-	item="Drepanum",
-    "Adapa Shield",
-item="Gyudon",
-item="Reraiser",
-item="Hi-Reraiser",
-item="Vile Elixir",
-item="Vile Elixir +1",
-item="Miso Ramen",
-item="Carbonara",
-item="Silent Oil",
-item="Salt Ramen",
-item="Panacea",
-item="Sublime Sushi",
-item="Sublime Sushi 1+",
-item="Prism Powder",
-item="Antacid",
-item="Icarus Wing",
-sub="Warp Cudgel",
-item="Holy Water",
-item="Sanjaku-Tenugui",
-item="Shinobi-Tabi",
-item="Shihei",
-item="Remedy",
-head="Wh. Rarab Cap +1",
-ring="Emporox's Ring",
-item="Red Curry Bun",
-item="Instant Reraise",
-item="Black Curry Bun",
-item="Rolan. Daifuku",
-}
+	"Icarus Wing",
+	"Holy Water",
+	"Shihei",
+	"Instant Reraise",
+	"Rolan. Daifuku",
+		"Pet Food Theta",
+		"Rolan. Daifuku",
+		"Dire Broth",
+		"Bug-Ridden Broth",
+		"Bubbly Broth",
+		"Putrescent Broth",
+		"S. Reraiser Tank",
+		"Bean Daifuku",
+		"Remedy",
+		"Grape Daifuku",
+		"Bean Daifuku",
+		"Moogle Amp.",
+		"Vile Elixir",
+		"Vile Elixir +1",
+		"Wh. Rarab Cap +1",
+		"Reraise Earring",
+	}
+end
+
 function job_setup()
 	include('Mote-TreasureHunter')
 	state.TreasureMode:set('None')
@@ -1050,27 +1009,27 @@ function init_gear_sets()
 		back="Artio's Mantle",
 	}
 	sets.defense.Killer = {
-		main="Agwu's Axe",
-		sub="Adapa Shield",
-		ammo="Voluspa Tathlum",
-		head="Gleti's Mask",
-		body="Nukumi Gausape +2",
-		hands="Nukumi Manoplas +2",
-		legs="Gleti's Breeches",
-		feet="Gleti's Boots",
-		neck="Adad Amulet",
-		waist="Incarnation Sash",
-		left_ear="Enmerkar Earring",
-		right_ear="Nukumi Earring",
-		left_ring="C. Palug Ring",
-		right_ring="Tali'ah Ring",
-		back="Artio's Mantle",
-}
+		
+		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
+    sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
+    ammo="Voluspa Tathlum",
+    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
+    feet="Tali'ah Crackows +2",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash +1",
+    left_ear="Sabong Earring",
+    right_ear="Domes. Earring",
+    left_ring="Thurandaut Ring",
+    right_ring="Varar Ring +1",
+    back="Artio's Mantle",}
 	
 	sets.defense.Reraise =  {
 		ammo="Staunch Tathlum +1",
 		head="Twilight Helm",
-		body="Crepuscular Mail",
+		body="Twilight Mail",
 		hands="Gleti's Gauntlets",
 		legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1433,7 +1392,7 @@ sets.defense.Petregen = {
 
     }         
 	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
-    body="Crepuscular Mail",})
+    body="Twilight Mail",})
 
 	sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
 
@@ -1804,7 +1763,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 40 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true
@@ -2028,7 +1987,8 @@ function sub_job_change(new,old)
 end-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-
+add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
+add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 
 function select_default_macro_book()
 	-- Default macro set/book

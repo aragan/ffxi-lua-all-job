@@ -18,8 +18,9 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -57,6 +58,8 @@ function job_setup()
     state.Buff.Impetus = buffactive.Impetus or false
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.FootworkWS = M(false, 'Footwork on WS')
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('Tag')
     send_command('wait 6;input /lockstyleset 179')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
@@ -76,8 +79,10 @@ function user_setup()
 
     update_combat_form()
     update_melee_groups()
-    send_command('bind != gs c toggle CapacityMode')
+    --send_command('bind != gs c toggle CapacityMode')
     send_command('wait 2;input /lockstyleset 179')
+    send_command('bind ^= gs c cycle treasuremode')
+
     select_default_macro_book()
 end
 
@@ -127,13 +132,15 @@ function init_gear_sets()
         body="Passion Jacket",
         legs="Dashing Subligar",
     }
-        
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"}
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 
     sets.precast.Step = {waist="Chaac Belt"}
     sets.precast.Flourish1 = {waist="Chaac Belt"}
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    sets.CapacityMantle  = { }
 
 
     -- Fast cast sets for spells
@@ -176,8 +183,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Ilabrat Ring",
         right_ring="Cornelia's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-
+        back="Segomo's Mantle",
     }
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
@@ -552,7 +558,8 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Moonlight Cape",
 }
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     sets.ExtraRegen = {    head={ name="Rao Kabuto", augments={'VIT+10','Attack+20','"Counter"+3',}},
     body="Hiza. Haramaki +2",
@@ -681,8 +688,6 @@ function init_gear_sets()
 	right_ring="Defending Ring",
     left_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
-
-		
 	}
     sets.engaged.Acc.PDT = {	 main={ name="Godhands", augments={'Path: A',}},
     ammo="Coiste Bodhar",
@@ -898,10 +903,9 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-    if player.hpp < 75 then
-        idleSet = set_combine(idleSet, sets.ExtraRegen)
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    
     return idleSet
 end
 
@@ -974,8 +978,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Custom event hooks.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan MNK.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Keep track of the current hit count while Impetus is up.
 function on_action_for_impetus(action)
     if state.Buff.Impetus then

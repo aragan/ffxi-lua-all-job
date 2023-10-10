@@ -49,7 +49,8 @@ if player.main_job == 'THF' then
     state.TreasureMode:options('None','Tag','SATA','Fulltime')
     state.TreasureMode:set('Tag')
 else
-    state.TreasureMode:options('None','Tag')
+    state.TreasureMode:options('None','Tag','Fulltime')
+    state.TreasureMode:set('Tag')
 end
 
 -- Tracking vars for TH.

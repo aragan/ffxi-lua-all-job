@@ -17,6 +17,7 @@ function get_sets()
     res = require 'resources'
   end
   organizer_items = {
+    "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
     "Sovereign's Hide",
@@ -110,7 +111,7 @@ function get_sets()
   function user_setup()
     state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis'} -- , 'Priwen', 'Srivatsa' }
     --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
-  
+
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
   --state.DefenseMode:options('Normal', 'PDT')
@@ -131,6 +132,7 @@ function get_sets()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^` gs c toggle LockDT')
+    send_command('bind ^a gs c toggle CustomGearLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -139,8 +141,18 @@ function get_sets()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs disable head body hands legs feet rring ammo')
+    send_command('bind !/ gs enable all')
+    --LOCKGEAR CTRL+TAB
     state.LockDT = M(false, "LockDT")
-
+   --[[Enter the slots you would lock based on a custom set up.
+        certain pieces to change for lock dt -50 piece.
+        //gs c toggle customgearlock
+         or ctrl+A ]]
+        state.CustomGearLock = M(false, "CustomGearLock")
+        --Example customGearLock = T{"head", "body", "hands", "legs", "feet", "rring", "ammo"}
+        customGearLock = T{"head", "body", "hands", "legs", "feet", "rring", "ammo"}
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
   select_default_macro_book()
   update_combat_form()
@@ -238,13 +250,13 @@ function get_sets()
    back="Moonlight Cape",
   }
   sets.precast.FC.DT = set_combine(sets.precast.FC, {})
-   sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
+  sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
   sets.precast.FC.Enlight = sets.precast.FC
   sets.precast.FC['Enlight II'] = sets.precast.FC
   sets.precast.FC.Protect = sets.precast.FC
   sets.precast.FC.Shell = sets.precast.FC
   sets.precast.FC.Crusade = sets.precast.FC
-   sets.precast.FC.Cure = set_combine(sets.precast.FC,{
+  sets.precast.FC.Cure = set_combine(sets.precast.FC,{
    right_ear="Mendi. Earring",
    left_ring="Moonlight Ring",
    waist="Acerbic Sash +1",
@@ -585,13 +597,12 @@ function get_sets()
        main="Sakpata's Sword",
        sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
        ammo="Staunch Tathlum +1",
-       head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
+       head={ name="Odyssean Helm", augments={'INT+5','"Cure" potency +8%','Phalanx +4','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},       body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        neck="Incanter's Torque",
-       waist="Gishdubar Sash",
+       waist="Olympus Sash",
        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
        right_ear="Andoaa Earring",
        left_ring="Stikini Ring +1",
@@ -1038,7 +1049,7 @@ function get_sets()
   sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
-  sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+  sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
   sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
   sets.Breath = sets.defense.MDT
   
@@ -1134,22 +1145,6 @@ function get_sets()
     
    -- sets.Repulse = {back="Repulse Mantle"}
   --3367 HP   
-   sets.defense.PDT = {
-     main="Burtgang",
-     ammo="Eluder's Sachet",
-     head="Chev. Armet +3",
-     body="Chev. Cuirass +3",
-     hands="Chev. Gauntlets +3",
-     legs="Chev. Cuisses +3",
-     feet="Chev. Sabatons +3",
-     neck="Elite Royal Collar",
-     waist="Flume Belt +1",
-     left_ear="Tuisto Earring",
-     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-     left_ring="Warden's Ring",
-     right_ring="Fortified Ring",
-     back="Reiki Cloak",
-  }
    -- To cap MDT with Shell IV (52/256), need 76/256 in gear. Current gear set is 248/256.
    -- Shellra V can provide 75/256.
    sets.defense.MDT ={
@@ -1345,7 +1340,7 @@ function get_sets()
    waist="Plat. Mog. Belt",
   })
   
-  sets.defense.DeathSpike = {
+  --[[sets.defense.DeathSpike = {
    main="Burtgang",
    ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
@@ -1360,7 +1355,7 @@ function get_sets()
    left_ring="Shadow Ring",
    right_ring="Archon Ring",
      back="Rudianos's Mantle",
-  }
+  }]]
   
   sets.defense.Convert = {    main="Burtgang",
    ammo="Iron Gobbet",
@@ -1403,7 +1398,7 @@ function get_sets()
    sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
    sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
    sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
-   sets.defense.DeathSpike.Reraise = set_combine(sets.defense.DeathSpike, sets.Reraise)
+   --sets.defense.DeathSpike.Reraise = set_combine(sets.defense.DeathSpike, sets.Reraise)
    sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
    sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
    sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
@@ -1417,7 +1412,7 @@ function get_sets()
    sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
    sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
    sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
-   sets.defense.DeathSpike.Doom = set_combine(sets.defense.DeathSpike, sets.Doom)
+   --sets.defense.DeathSpike.Doom = set_combine(sets.defense.DeathSpike, sets.Doom)
    sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
    sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
    sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
@@ -1611,11 +1606,11 @@ function get_sets()
     end
   end
   function job_buff_change(buff,gain)
-    if buff == "terror" then
-        if gain then
-            equip(sets.defense.PDT)
-        end
-    end
+    --if buff == "terror" then
+        --if gain then
+            --equip(sets.defense.PDT)
+        --end
+    --end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -1634,6 +1629,25 @@ function get_sets()
             send_command('input /p Petrification, please Stona.')		
         else
         send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+        send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+        handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
         end
     end
   end
@@ -1810,60 +1824,23 @@ function get_sets()
     else
         enable('main','sub')
     end
-    if stateField == "LockDT" then
-        --This command overrides everything and blocks all gear changes
-        if newValue == true then
-            disable(
-                "main",
-                "sub",
-                "range",
-                "ammo",
-                "head",
-                "neck",
-                "lear",
-                "rear",
-                "body",
-                "hands",
-                "lring",
-                "rring",
-                "back",
-                "waist",
-                "legs",
-                "feet"
-            )
-    
-        else
-            enable(
-                "main",
-                "sub",
-                "range",
-                "ammo",
-                "head",
-                "neck",
-                "lear",
-                "rear",
-                "body",
-                "hands",
-                "lring",
-                "rring",
-                "back",
-                "waist",
-                "legs",
-                "feet"
-            )
-        end
+    if stateField == "CustomGearLock" then --Updates HUB and disables/enables gear from custom lock
+        disable(customGearLock)
+    else
+        enable(customGearLock)
+      
     end
   end
   function update_combat_form()
-  -- Check for H2H or single-wielding
-  if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-    if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
-    player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
-    state.CombatForm = 'DW'
-    else
-    state.CombatForm = nil
+    -- Check for H2H or single-wielding
+    if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
+      if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
+      player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
+      state.CombatForm:set('DW')
+      else
+      state.CombatForm:reset()
+      end
     end
-  end
   end
   ------------------------------------------------------------------
   -- Timer manipulation
@@ -1993,23 +1970,11 @@ function get_sets()
     eventArgs.handled = true
   end
   function job_self_command(cmdParams, eventArgs)
-    gearinfo(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'rune' then
         send_command('@input /ja '..state.Runes.value..' <me>')
     end
   end
-  function gearinfo(cmdParams, eventArgs)
-    if cmdParams[1] == 'gearinfo' then
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-  
-    end
-  end
+
   ------------------------------------------------------------------
   -- Reset events
   ------------------------------------------------------------------
