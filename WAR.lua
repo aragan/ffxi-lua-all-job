@@ -94,6 +94,8 @@ function job_setup()
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1",}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1",}
 
     get_combat_form()
     get_combat_weapon()
@@ -114,7 +116,8 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Enmity', 'MP', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
     state.drain = M(false)
-    
+    state.Auto_Kite = M(false, 'Auto_Kite')
+
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -955,41 +958,41 @@ function init_gear_sets()
         head="Nyame Helm",
         right_ring="Cornelia's Ring",})
 
-     sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+    sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
 
      -- Resting sets
-     sets.resting = {
+    sets.resting = {
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-     }
+    }
      -- Idle sets
-     sets.idle = {
+    sets.idle = {
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
-        feet="Hermes' Sandals +1",
+        feet="Sakpata's Leggings",
         ear1="Tuisto Earring",
         ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
-        right_ring="Paguroidea Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         left_ring="Defending Ring",
         back="Moonlight Cape",
-        }
+    }
         sets.idle.Town ={
         feet="Hermes' Sandals +1",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",}      
 
-     sets.idle.Field = {
+     --[[sets.idle.Field = {
          head="Sakpata's Helm",
          body="Sakpata's Plate",
          hands="Sakpata's Gauntlets",
          legs="Sakpata's Cuisses",
-         feet="Hermes' Sandals +1",
+         feet="Sakpata's Leggings",
          ear1="Tuisto Earring",
          ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
          neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -997,24 +1000,24 @@ function init_gear_sets()
          right_ring="Paguroidea Ring",
          left_ring="Defending Ring",
          back="Moonlight Cape",
-     }
-     sets.idle.Regen = set_combine(sets.idle.Field, {
+     }]]
+    sets.idle.Regen = set_combine(sets.idle, {
         body="Obviation Cuirass",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-     })
-     sets.idle.Refresh = set_combine(sets.idle.Field, {
+    })
+    sets.idle.Refresh = set_combine(sets.idle, {
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-     })
+    })
  
-     sets.idle.Weak = set_combine(sets.idle.Field, {
+     sets.idle.Weak = set_combine(sets.idle, {
         head="Twilight Helm",
         body="Crepuscular Mail",
         back="Moonlight Cape",
-     })
+    })
 
      -- Defense sets
     sets.defense.PDT = {
@@ -1031,7 +1034,7 @@ function init_gear_sets()
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Paguroidea Ring",
         back="Moonlight Cape",
-     }
+    }
 
     sets.defense.HP = {
         sub="Blurred Shield +1",
@@ -1048,8 +1051,8 @@ function init_gear_sets()
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Defending Ring",
         back="Moonlight Cape",
-     }
-     sets.defense.Evasion = {
+    }
+    sets.defense.Evasion = {
         ammo="Amar Cluster",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
@@ -1063,8 +1066,8 @@ function init_gear_sets()
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Vengeful Ring",
         back="Moonlight Cape",
-     }
-     sets.defense.Enmity = {
+    }
+    sets.defense.Enmity = {
         ammo="Iron Gobbet",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1080,9 +1083,9 @@ function init_gear_sets()
         back="Reiki Cloak",
     }
 
-     sets.defense.Reraise = sets.idle.Weak
+    sets.defense.Reraise = sets.idle.Weak
  
-     sets.defense.MDT = set_combine(sets.defense.PDT, {
+    sets.defense.MDT = set_combine(sets.defense.PDT, {
         head="Sakpata's Helm",
         body="Sakpata's Plate",
         hands="Sakpata's Gauntlets",
@@ -1091,8 +1094,8 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         left_ear="Eabani Earring",
         left_ring="Moonlight Ring",
-     })
-     sets.defense.MP = set_combine(sets.defense.PDT, {
+    })
+    sets.defense.MP = set_combine(sets.defense.PDT, {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
@@ -1106,20 +1109,20 @@ function init_gear_sets()
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         right_ring="Mephitas's Ring",
         back="Moonlight Cape",
-     })
+    })
  
-     sets.Kiting = {feet="Hermes' Sandals +1"}
-     sets.Adoulin = {body="Councilor's Garb"}
-     sets.MoveSpeed = {feet="Hermes' Sandals +1"}
-     sets.Terror = {feet="Founder's Greaves"}
+    sets.Kiting = {feet="Hermes' Sandals +1"}
+    sets.Adoulin = {body="Councilor's Garb"}
+    sets.MoveSpeed = {feet="Hermes' Sandals +1"}
+    sets.Terror = {feet="Founder's Greaves"}
 
-     sets.Reraise = {
+    sets.Reraise = {
         head="Twilight Helm",
         body="Crepuscular Mail",}
 
  
      -- Engaged set, assumes Liberator
-     sets.engaged = {
+    sets.engaged = {
         ammo="Coiste Bodhar",
         head="Hjarrandi Helm",
         body="Boii Lorica +3",
@@ -1389,12 +1392,58 @@ end
 -- Called before the Include starts constructing melee/idle/resting sets.
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
-function job_handle_equipping_gear(player,status, eventArgs)
-    customize_idle_set()
-    customize_melee_set()
-    job_state_change()
-
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    check_moving()
+    check_gear()
+    get_combat_form()
+    get_combat_weapon()
+    update_combat_form()
 end
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+    if no_swap_gear:contains(player.equipment.waist) then
+        disable("waist")
+    else
+        enable("waist")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     --if player.hpp < 90 then
@@ -1403,6 +1452,9 @@ function customize_idle_set(idleSet)
     --[[if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end]]
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
+    end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
@@ -1560,11 +1612,10 @@ function gearinfo(cmdParams, eventArgs)
         end
     end
 end
-function job_update(player,cmdParams, eventArgs)
+function job_update(cmdParams, eventArgs)
     --job_self_command()
-    get_combat_form()
-    get_combat_weapon()
-    update_combat_form()
+
+    handle_equipping_gear(player.status)
 
 end
 
@@ -1606,7 +1657,8 @@ windower.raw_register_event('prerender',function()
         end
         mov.counter = 0
     end
-end)
+end
+)
 
 function get_custom_wsmode(spell, spellMap, default_wsmode)
 end

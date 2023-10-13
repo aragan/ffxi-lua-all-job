@@ -521,7 +521,7 @@ function init_gear_sets()
         left_ring="Sroda Ring", 
     })
     sets.precast.WS.SC = set_combine(sets.precast.WS, {
-       
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -586,10 +586,7 @@ function init_gear_sets()
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Victory Smite"].SC = set_combine(sets.precast.WS["Victory Smite"], {
-        head="Kara. Cappello +2",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        left_ring="Sroda Ring",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
     sets.precast.WS["Shijin Spiral"] = { 
@@ -626,7 +623,7 @@ function init_gear_sets()
         right_ear="Friomisi Earring",
         right_ring="Cornelia's Ring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back="Argocham. Mantle",
+        back="Sacro Mantle",
     }
 
     sets.precast.WS["Howling Fist"] = {    

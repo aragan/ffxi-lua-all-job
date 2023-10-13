@@ -76,7 +76,7 @@ function job_setup()
     blue_magic_maps.Buffs = S{'Cocoon', 'Refueling'}
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1",}
 
     rayke_duration = 35
     gambit_duration = 96
@@ -430,10 +430,10 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ring="Fortified Ring",
         back="Ogma's Cape",}
 
-    sets.idle.Town = set_combine(sets.idle, {
+    sets.idle.Town = {
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},})
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
     
     sets.Adoulin = {body="Councilor's Garb",}
 

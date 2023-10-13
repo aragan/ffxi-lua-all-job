@@ -30,7 +30,9 @@ function get_sets()
 end
 
 
-organizer_items = {"Prime Sword",
+organizer_items = {
+	"Sacro Bulwark",
+	"Prime Sword",
     "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
