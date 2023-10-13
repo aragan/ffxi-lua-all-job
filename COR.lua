@@ -979,17 +979,7 @@ sets.engaged.CRIT = {
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
     ------------------------------------------------------------------------------------------------
-    sets.engaged.Hybrid = {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ring="Defending Ring",
-        }
-   
-    sets.engaged.PDT = set_combine(sets.engaged,{
+sets.engaged.Hybrid = {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -997,44 +987,54 @@ sets.engaged.CRIT = {
     feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ring="Defending Ring",
-    })
-    sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ring="Defending Ring",
-        })
-        sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
-            head="Malignance Chapeau",
-            body="Malignance Tabard",
-            hands="Malignance Gloves",
-            legs="Malignance Tights",
-            feet="Malignance Boots",
-            neck={ name="Loricate Torque +1", augments={'Path: A',}},
-            left_ring="Defending Ring",
-            })
-            sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
-                head="Malignance Chapeau",
-                body="Malignance Tabard",
-                hands="Malignance Gloves",
-                legs="Chas. Culottes +3",
-                feet="Malignance Boots",
-                neck={ name="Loricate Torque +1", augments={'Path: A',}},
-                left_ring="Defending Ring",
-                })
-    sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Reiki Yotai",
-        left_ring="Defending Ring",
-        })
+}
+   
+sets.engaged.PDT = set_combine(sets.engaged,{
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+})
+sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+})
+sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+})
+sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Chas. Culottes +3",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+})
+sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Reiki Yotai",
+    left_ring="Defending Ring",
+})
 sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -1045,39 +1045,39 @@ sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     left_ear="Suppanomimi",
     waist="Reiki Yotai",
     left_ring="Defending Ring",
-    })
-    sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ear="Suppanomimi",
-        waist="Reiki Yotai",
-        left_ring="Defending Ring",
-        })
-        sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{    
-            head="Malignance Chapeau",
-            body="Malignance Tabard",
-            hands="Malignance Gloves",
-            legs="Chas. Culottes +3",
-            feet="Malignance Boots",
-            neck={ name="Loricate Torque +1", augments={'Path: A',}},
-            left_ring="Defending Ring",
-            })
+})
+sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+    left_ring="Defending Ring",
+})
+sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{    
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Chas. Culottes +3",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+})
 
-    sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ear="Suppanomimi",
-        waist="Reiki Yotai",
-        left_ring="Defending Ring",
-        })
+sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear="Suppanomimi",
+    waist="Reiki Yotai",
+    left_ring="Defending Ring",
+})
 
         sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
         sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
@@ -1091,11 +1091,11 @@ sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
         sets.engaged.DW.Ranged.PDT.MidHaste = set_combine(sets.engaged.DW.Ranged.MidHaste, sets.engaged.Hybrid)
         sets.engaged.DW.STP.PDT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid)
 
-        sets.engaged.DW.PDT.MaxHaste = set_combine(sets.engaged.DW.PDT.MaxHaste, sets.engaged.Hybrid)
-        sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.PDT.MaxHaste, sets.engaged.Hybrid)
-        sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.PDT.MaxHaste, sets.engaged.Hybrid)
-        sets.engaged.DW.Ranged.PDT.MaxHaste = set_combine(sets.engaged.DW.Ranged.PDT.MaxHaste, sets.engaged.Hybrid)
-        sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.PDT.MaxHaste, sets.engaged.Hybrid)
+        sets.engaged.DW.PDT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
+        sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
+        sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
+        sets.engaged.DW.Ranged.PDT.MaxHaste = set_combine(sets.engaged.DW.Ranged.MaxHaste, sets.engaged.Hybrid)
+        sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 -------------
 
 sets.TripleShot = {

@@ -330,6 +330,7 @@ function init_gear_sets()
 sets.precast.Waltz = {   body="Passion Jacket", 
     waist="Gishdubar Sash",
     right_ear="Mendi. Earring",
+    legs="Dashing Subligar",
 }
           
 sets.precast.FC = {      
@@ -367,261 +368,261 @@ sets.precast.Waltz['Healing Waltz'] = {}
     -- Fast cast sets for spells
 
 sets.precast.WS = {
-        ammo="Oshasha's Treatise",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Cornelia's Ring",
-        right_ring="Ilabrat Ring",
-        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+    ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Cornelia's Ring",
+    right_ring="Ilabrat Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 }
     
-        sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-            ammo="Crepuscular Pebble",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            legs="Gleti's Breeches",
-            left_ring="Sroda Ring", 
-        })
+sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+    ammo="Crepuscular Pebble",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    left_ring="Sroda Ring", 
+})
     
-        -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-        sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
-            ammo="Coiste Bodhar",
-            head="Nyame Helm",
-            body="Nyame Mail",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Brutal Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Rufescent Ring",
-        back="Bleating Mantle",
-        })
-        sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS, {
-            ammo="Crepuscular Pebble",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            legs="Gleti's Breeches",
-        })
-
-        sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-            ammo="Oshasha's Treatise",
-            head="Nyame Helm",
-            body="Nyame Mail",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
-            neck="Fotia Gorget",
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Ishvara Earring",
-            right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            left_ring="Cornelia's Ring",
-            right_ring="Ilabrat Ring",
-            back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-        })
-        sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
-            ammo="Crepuscular Pebble",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            left_ring="Sroda Ring", 
-        })
-    
-        sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
-        
-            ammo="Pemphredo Tathlum",
-            head="Pixie Hairpin +1",
-            body="Nyame Mail",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
-            neck="Sibyl Scarf",
-            waist="Orpheus's Sash",
-            left_ear="Friomisi Earring",
-            right_ear="Hecate's Earring",
-            left_ring="Cornelia's Ring",
-            right_ring="Archon Ring",
-            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-                })
-    
-        sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
-        ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Gleti's Cuirass",
-        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Mache Earring +1",
-        right_ear="Odr Earring",
-        left_ring="Ilabrat Ring",
-        right_ring="Epona's Ring",
-        back="Annealed Mantle",
-        })
-        --sets.precast.WS['Chant du Cygn'].PDL = set_combine(sets.precast.WS['Chant du Cygn'], {
-        --ammo="Crepuscular Pebble",
-        --body="Gleti's Cuirass",
-        --hands="Gleti's Gauntlets",
-        --legs="Gleti's Breeches",
-        --feet="Gleti's Boots",
-        --left_ring="Sroda Ring", 
-        --})
-        sets.precast.WS['Chant du Cygne'].SC = set_combine(sets.precast.WS['Chant du Cygne'], {
-            ammo="Crepuscular Pebble",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            legs="Gleti's Breeches",
-            feet="Gleti's Boots",
-            left_ring="Sroda Ring", 
-            })
-    
-    sets.precast.WS['Expiacion'] = {
-        ammo="Oshasha's Treatise",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Hashi. Earring +1",
-        left_ring="Epaminondas's Ring",
-        right_ring="Cornelia's Ring",
-        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-    }
-    sets.precast.WS['Expiacion'].PDL = set_combine(sets.precast.WS['Expiacion'], {
-        ammo="Crepuscular Pebble",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        left_ring="Sroda Ring", 
-        right_ear="Ishvara Earring",
-    })
-
-    sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
+-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
+sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+    ammo="Coiste Bodhar",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    ear1="Moonshade Earring",
-    ear2="Friomisi Earring",
-    ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-    ring2="Cornelia's Ring",
+neck="Fotia Gorget",
+waist="Fotia Belt",
+left_ear="Brutal Earring",
+right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+right_ring="Rufescent Ring",
+back="Bleating Mantle",
+})
+sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS, {
+    ammo="Crepuscular Pebble",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+})
+
+sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+    ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Cornelia's Ring",
+    right_ring="Ilabrat Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+})
+sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+    ammo="Crepuscular Pebble",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    left_ring="Sroda Ring", 
+})
+    
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+        
+    ammo="Pemphredo Tathlum",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Hecate's Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+})
+    
+sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Gleti's Cuirass",
+    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Mache Earring +1",
+    right_ear="Odr Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Epona's Ring",
+    back="Annealed Mantle",
+})
+    --sets.precast.WS['Chant du Cygn'].PDL = set_combine(sets.precast.WS['Chant du Cygn'], {
+    --ammo="Crepuscular Pebble",
+    --body="Gleti's Cuirass",
+    --hands="Gleti's Gauntlets",
+    --legs="Gleti's Breeches",
+    --feet="Gleti's Boots",
+    --left_ring="Sroda Ring", 
+--})
+sets.precast.WS['Chant du Cygne'].SC = set_combine(sets.precast.WS['Chant du Cygne'], {
+    ammo="Crepuscular Pebble",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    left_ring="Sroda Ring", 
+})
+    
+sets.precast.WS['Expiacion'] = {
+    ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Hashi. Earring +1",
+    left_ring="Epaminondas's Ring",
+    right_ring="Cornelia's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 }
-    sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, {
-        ammo="Pemphredo Tathlum",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Malignance Earring",
-        left_ring="Freke Ring",
-        right_ring="Cornelia's Ring",
-        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-        })
+sets.precast.WS['Expiacion'].PDL = set_combine(sets.precast.WS['Expiacion'], {
+    ammo="Crepuscular Pebble",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    left_ring="Sroda Ring", 
+    right_ear="Ishvara Earring",
+})
 
-            sets.precast.WS['Myrkr'] = {
-            ammo="Pemphredo Tathlum",
-            head="Nyame Helm",
-            body="Nyame Mail",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
-            neck="Baetyl Pendant",
-            waist="Orpheus's Sash",
-            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
-            left_ring="Cornelia's Ring",
-            right_ring="Freke Ring",
-            back={ name="Aurist's Cape +1", augments={'Path: A',}},
-            }
-        sets.precast.WS['Cataclysm'] = {
-            ammo="Pemphredo Tathlum",
-            head="Pixie Hairpin +1",
-            body="Nyame Mail",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
-            neck="Sibyl Scarf",
-            waist="Orpheus's Sash",
-            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
-            left_ring="Cornelia's Ring",
-            right_ring="Archon Ring",
-            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-            }
+sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
+head="Nyame Helm",
+body="Nyame Mail",
+hands="Nyame Gauntlets",
+legs="Nyame Flanchard",
+feet="Nyame Sollerets",
+ear1="Moonshade Earring",
+ear2="Friomisi Earring",
+ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
+ring2="Cornelia's Ring",
+neck="Sibyl Scarf",
+waist="Orpheus's Sash",
+back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+}
+sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, {
+    ammo="Pemphredo Tathlum",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Malignance Earring",
+    left_ring="Freke Ring",
+    right_ring="Cornelia's Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+})
+
+sets.precast.WS['Myrkr'] = {
+    ammo="Pemphredo Tathlum",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Freke Ring",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
+sets.precast.WS['Cataclysm'] = {
+    ammo="Pemphredo Tathlum",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+}
         
-     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
-        ammo="Oshasha's Treatise",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Ishvara Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        right_ring="Cornelia's Ring",
-        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-        })
-    sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Black Halo'], {
-            ammo="Crepuscular Pebble",
-            body="Gleti's Cuirass",
-            hands="Gleti's Gauntlets",
-            legs="Gleti's Breeches",
-            left_ring="Sroda Ring", 
-        })
+sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
+    ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Cornelia's Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+})
+sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Black Halo'], {
+        ammo="Crepuscular Pebble",
+        body="Gleti's Cuirass",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        left_ring="Sroda Ring", 
+})
 
-    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Seraph Blade'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Burning Blade'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Shining Blade'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Vorpal Blade'] = sets.precast.WS['Chant du Cygne']
-    sets.precast.WS['Vorpal Blade'].PDL = sets.precast.WS['Chant du Cygne'].PDL
-    sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
-    sets.precast.WS['Realmrazer'].PDL = sets.precast.WS['Requiescat'].PDL
+sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Seraph Blade'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Burning Blade'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Shining Blade'] = sets.precast.WS['Myrkr']
+sets.precast.WS['Vorpal Blade'] = sets.precast.WS['Chant du Cygne']
+sets.precast.WS['Vorpal Blade'].PDL = sets.precast.WS['Chant du Cygne'].PDL
+sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
+sets.precast.WS['Realmrazer'].PDL = sets.precast.WS['Requiescat'].PDL
 
-    sets.precast.WS['Shattersoul'] = {
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Brutal Earring",
-        right_ear="Ishvara Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        left_ring="Rufescent Ring",
-        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
-        }
-    
+sets.precast.WS['Shattersoul'] = {
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Brutal Earring",
+    right_ear="Ishvara Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Rufescent Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+}
+
     
     -- Midcast Sets
     sets.SIRD = {
@@ -899,22 +900,21 @@ sets.midcast.Protectra = sets.midcast.Protect
 sets.midcast.Shell = sets.midcast.Protect
 sets.midcast.Shellra = sets.midcast.Protect
 
-sets.midcast.phalanx = {
-        sub="Sakpata's Sword",
-        ammo="Staunch Tathlum +1",
-        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-        body="Pinga Tunic",
-        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        feet="Jhakri Pigaches +2",
-        neck="Incanter's Torque",
-        waist="Rumination Sash",
-        left_ear="Andoaa Earring",
-        right_ear="Loquac. Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-}
+sets.midcast.phalanx = set_combine(sets.midcast['Enhancing Magic'],{
+    sub="Sakpata's Sword",
+    ammo="Staunch Tathlum +1",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    body="Telchine Chas.",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Andoaa Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+})
 
 sets.midcast.phalanx.SIRD = set_combine(sets.SIRD, sets.midcast.phalanx) 
     
@@ -1140,6 +1140,18 @@ sets.engaged.Refresh = set_combine(sets.engaged, {
 })
 sets.engaged.Learning = set_combine(sets.engaged, sets.Learning)
 
+------------------------------------------------------------------------------------------------
+    ---------------------------------------- DW ------------------------------------------
+------------------------------------------------------------------------------------------------
+    -- Base Dual-Wield Values:
+    -- * DW6: +37%
+    -- * DW5: +35%
+    -- * DW4: +30%
+    -- * DW3: +25% (NIN Subjob)
+    -- * DW2: +15% (DNC Subjob)
+    -- * DW1: +10%
+    -- No Magic Haste (74% DW to cap)
+
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
 
@@ -1180,19 +1192,19 @@ sets.engaged.DW.STP = set_combine(sets.engaged.STP, {
 
 
 sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, {
-        ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Gleti's Cuirass",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Thereoid Greaves",
-        neck="Nefarious Collar +1",
-        waist="Gerdr Belt",
-        left_ear="Suppanomimi",
-        right_ear="Odr Earring",
-        left_ring="Epona's Ring",
-        right_ring="Hetairoi Ring",
-        back="Annealed Mantle",})
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Thereoid Greaves",
+    neck="Nefarious Collar +1",
+    waist="Gerdr Belt",
+    left_ear="Suppanomimi",
+    right_ear="Odr Earring",
+    left_ring="Epona's Ring",
+    right_ring="Hetairoi Ring",
+    back="Annealed Mantle",})
 
 sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, { 
     body="Shamash Robe",
@@ -1203,10 +1215,111 @@ sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, {
     
 sets.engaged.DW.Learning = set_combine(sets.engaged.DW, sets.Learning)
 
+
+------------------------------------------------------------------------------------------------
+    ---------------------------------------- DW-HASTE ------------------------------------------
+------------------------------------------------------------------------------------------------
+
+    -- 15% Magic Haste (67% DW to cap)
+
+sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+
+sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+
+sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+sets.engaged.DW.Refresh.LowHaste = set_combine(sets.engaged.DW.Refresh, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+sets.engaged.DW.Learning.LowHaste = set_combine(sets.engaged.DW.Learning, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    legs="Carmine Cuisses +1", --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 28%
+
+--MID-HASTE
+sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+
+sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.Acc, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+
+sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.STP, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW.CRIT, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+sets.engaged.DW.Refresh.MidHaste = set_combine(sets.engaged.DW.Refresh, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+sets.engaged.DW.Learning.MidHaste = set_combine(sets.engaged.DW.Learning, {
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear1="Eabani Earring", --4
+    ear2="Suppanomimi", --5
+    waist="Reiki Yotai", --7
+}) -- 22%
+
+--MAX-HASTE
+
+sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
+sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.Acc)
+sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)
+sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)
+sets.engaged.DW.Refresh.MaxHaste = set_combine(sets.engaged.DW.Refresh)
+sets.engaged.DW.Learning.MaxHaste = set_combine(sets.engaged.DW.Learning)
+
+
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Hybrid Sets -------------------------------------------
 ------------------------------------------------------------------------------------------------
-
 
 sets.engaged.Hybrid = {
     head="Malignance Chapeau", --6/6
@@ -1216,32 +1329,23 @@ sets.engaged.Hybrid = {
     feet="Malignance Boots", --4/4
     left_ring="Defending Ring", --10/10
     waist="Reiki Yotai",
-
 }
 
-sets.engaged.PDT = {
-    ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Ainia Collar",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Crep. Earring",
-    right_ear="Dedition Earring",
-    left_ring="Defending Ring",
-    right_ring="Epona's Ring",
-    back="Moonlight Cape",
-}
+--[[sets.engaged.DT = {
+    head="Malignance Chapeau", --6/6
+    body="Malignance Tabard", --9/9
+    hands="Malignance Gloves", --5/5
+    legs="Malignance Tights", --7/7
+    feet="Malignance Boots", --4/4
+    left_ring="Defending Ring", --10/10
+    waist="Reiki Yotai",
+}]]
 sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
 sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
 sets.engaged.Refresh.DT = set_combine(sets.engaged.Refresh, sets.engaged.Hybrid)
 sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybrid)
-
-
 
 sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
@@ -1250,6 +1354,26 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT = set_combine(sets.engaged.DW.Refresh, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT = set_combine(sets.engaged.DW.Learning, sets.engaged.Hybrid)
 
+sets.engaged.DW.DT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Acc.DT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
+sets.engaged.DW.STP.DT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
+sets.engaged.DW.CRIT.DT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Refresh.DT.LowHaste = set_combine(sets.engaged.DW.Refresh.LowHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Learning.DT.LowHaste = set_combine(sets.engaged.DW.Learning.LowHaste, sets.engaged.Hybrid)
+
+sets.engaged.DW.DT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Acc.DT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.Hybrid)
+sets.engaged.DW.STP.DT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid)
+sets.engaged.DW.CRIT.DT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Refresh.DT.MidHaste = set_combine(sets.engaged.DW.Refresh.MidHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Learning.DT.MidHaste = set_combine(sets.engaged.DW.Learning.MidHaste, sets.engaged.Hybrid)
+
+sets.engaged.DW.DT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Acc.DT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
+sets.engaged.DW.STP.DT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
+sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Refresh.DT.MaxHaste = set_combine(sets.engaged.DW.Refresh.MaxHaste, sets.engaged.Hybrid)
+sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxHaste, sets.engaged.Hybrid)
 
   ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -1419,7 +1543,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
     update_combat_form()
     check_moving()
-
+    determine_haste_group()
 end
 
 -- Custom spell mapping.
@@ -1525,7 +1649,7 @@ function determine_haste_group()
         if DW_needed <= 11 then
             classes.CustomMeleeGroups:append('MaxHaste')
         elseif DW_needed > 11 and DW_needed <= 21 then
-            classes.CustomMeleeGroups:append('HighHaste')
+            classes.CustomMeleeGroups:append('MidHaste')
         elseif DW_needed > 21 and DW_needed <= 27 then
             classes.CustomMeleeGroups:append('MidHaste')
         elseif DW_needed > 27 and DW_needed <= 37 then
