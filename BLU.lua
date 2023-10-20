@@ -1252,38 +1252,38 @@ right_ring="Stikini Ring +1",})
 sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
     legs="Carmine Cuisses +1", --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 28%
 
 sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
     legs="Carmine Cuisses +1", --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 28%
 
 sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
     legs="Carmine Cuisses +1", --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 28%
 sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
     legs="Carmine Cuisses +1", --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 28%
 sets.engaged.DW.Refresh.LowHaste = set_combine(sets.engaged.DW.Refresh, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
     legs="Carmine Cuisses +1", --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 28%
 
@@ -1291,34 +1291,34 @@ sets.engaged.DW.Refresh.LowHaste = set_combine(sets.engaged.DW.Refresh, {
 --MID-HASTE
 sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
 
 sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.Acc, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
 
 sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.STP, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
 sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW.CRIT, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
 sets.engaged.DW.Refresh.MidHaste = set_combine(sets.engaged.DW.Refresh, {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-    ear1="Eabani Earring", --4
-    ear2="Suppanomimi", --5
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
 
