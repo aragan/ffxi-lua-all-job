@@ -592,7 +592,7 @@ function init_gear_sets()
     right_ring="Moonlight Ring",
     back="Moonlight Cape",}
     
-    sets.defense.Enmity = {
+sets.defense.Enmity = {
         ammo="Iron Gobbet",
         head="Malignance Chapeau",
         body={ name="Emet Harness +1", augments={'Path: A',}},
@@ -606,7 +606,7 @@ function init_gear_sets()
         left_ring="Eihwaz Ring",
         right_ring="Petrov Ring",
         back="Reiki Cloak",
-         }
+}
 
     sets.defense.MDT = {     
     ammo="Yamarang",
@@ -622,7 +622,7 @@ function init_gear_sets()
     left_ring="Shadow Ring",
     right_ring="Defending Ring",
     back="Engulfer Cape +1",
-    }
+}
 
     sets.Kiting = {feet="Tandava Crackows",}
     sets.Adoulin = {body="Councilor's Garb",}

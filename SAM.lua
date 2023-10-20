@@ -1184,6 +1184,9 @@ function customize_melee_set(meleeSet)
     if player.equipment.range == 'Yoichinoyumi' then
         meleeSet = set_combine(meleeSet, sets.bow)
     end
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
     if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')

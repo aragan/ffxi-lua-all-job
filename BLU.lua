@@ -293,12 +293,12 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
-    sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +1"}
+    sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +2"}
     sets.buff['Chain Affinity'] = {head="Mavi Kavuk +2", feet="Assimilator's Charuqs"}
     sets.buff.Convergence = {head="Luhlaza Keffiyeh"}
-    sets.buff.Diffusion = {feet="Luhlaza Charuqs"}
+    sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah"}
-    sets.buff.Efflux = {legs="Hashishin Tayt +1",}
+    sets.buff.Efflux = {legs="Hashishin Tayt +2",}
 
     
     -- Precast Sets
@@ -353,11 +353,10 @@ sets.precast.FC = {
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
         
-sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
-sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
-sets.precast.FC.Cure = set_combine(sets.precast.FC, { ear1="Mendi. Earring"})
-
-sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
+sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 sets.precast.FC.Cure = set_combine(sets.precast.FC, { ear1="Mendi. Earring"})
 
@@ -653,7 +652,7 @@ sets.precast.WS['Shattersoul'] = {
         ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
-        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands="Hashi. Bazu. +2",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
         feet="Jhakri Pigaches +2",
         neck="Sibyl Scarf",
@@ -739,7 +738,7 @@ sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head=empty,
     body={ name="Cohort Cloak +1", augments={'Path: A',}},
-    hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+    hands="Hashi. Bazu. +2",
     legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
     feet="Hashi. Basmak +2",
     neck="Sibyl Scarf",
@@ -761,7 +760,7 @@ sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head=empty,
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
-        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands="Hashi. Bazu. +2",
         legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
         feet="Hashi. Basmak +2",
         neck="Sibyl Scarf",
@@ -844,13 +843,14 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
     ammo="Mavi Tathlum",
     main="Iris", 
     sub="Iris",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Luh. Keffiyeh +1",
+    body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-left_ear="Andoaa Earring",
-right_ear="Hashi. Earring +1", 
-left_ring="Stikini Ring +1",
+    right_ear="Hashi. Earring +1", 
+    left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
 sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].SkillBasedBuff) 
@@ -860,23 +860,40 @@ sets.midcast['Blue Magic'].Buff = {
     ammo="Mavi Tathlum",
     main="Iris", 
     sub="Iris",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Luh. Keffiyeh +1",
+    body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-left_ear="Andoaa Earring",
-right_ear="Hashi. Earring +1", 
-left_ring="Stikini Ring +1",
-right_ring="Stikini Ring +1",
+    right_ear="Hashi. Earring +1", 
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
 }
 sets.midcast['Blue Magic'].Buff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Buff) 
-    
+sets.midcast['Blue Magic']['Occultation'] = set_combine(sets.midcast['Blue Magic'].Buff, {
+    hands="Hashi. Bazu. +2",
+}) -- 1 shadow per 50 skill
+sets.midcast['Blue Magic'].Refresh = set_combine(sets.midcast['Blue Magic'].Buff, {waist="Gishdubar Sash"})
+
 sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {
     head=empty;
     body="Cohort Cloak +1",
 })
 sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
+    ammo="Pemphredo Tathlum",
+    head="Telchine Cap",
+    body="Telchine Chas.",
     hands="Regal Cuffs",
+    legs="Telchine Braconi",
+    feet="Telchine Pigaches",
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Mendi. Earring",
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 })
 
 sets.midcast['Enhancing Magic'] = {
@@ -892,7 +909,24 @@ sets.midcast['Enhancing Magic'] = {
     right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}
+
+sets.midcast.EnhancingDuration = {
+    ammo="Pemphredo Tathlum",
+    head="Telchine Cap",
+    body="Telchine Chas.",
+    hands="Telchine Gloves",
+    legs="Telchine Braconi",
+    feet="Telchine Pigaches",
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Mendi. Earring",
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}
 
 sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.SIRD, sets.midcast['Enhancing Magic']) 
 
@@ -905,12 +939,12 @@ sets.midcast.Protectra = sets.midcast.Protect
 sets.midcast.Shell = sets.midcast.Protect
 sets.midcast.Shellra = sets.midcast.Protect
 
-sets.midcast.phalanx = set_combine(sets.midcast['Enhancing Magic'],{
-    sub="Sakpata's Sword",
+sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
+    main="Sakpata's Sword",
     ammo="Staunch Tathlum +1",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     body="Telchine Chas.",
-    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     neck="Incanter's Torque",
     waist="Olympus Sash",
@@ -921,22 +955,41 @@ sets.midcast.phalanx = set_combine(sets.midcast['Enhancing Magic'],{
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 })
 
-sets.midcast.phalanx.SIRD = set_combine(sets.SIRD, sets.midcast.phalanx) 
+sets.midcast.Phalanx.SIRD = set_combine(sets.SIRD, sets.midcast.Phalanx) 
     
+sets.midcast.Haste = {
+    ammo="Pemphredo Tathlum",
+    head="Telchine Cap",
+    body="Telchine Chas.",
+    hands="Telchine Gloves",
+    legs="Telchine Braconi",
+    feet="Telchine Pigaches",
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Mendi. Earring",
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+
     -- Sets to return to when not performing an action.
 
     -- Gear for learning spells: +skill and AF hands.
-sets.Learning = {ammo="Mavi Tathlum",
+sets.Learning = {
+    ammo="Mavi Tathlum",
+    head="Luh. Keffiyeh +1",
+    body="Assim. Jubbah +2",
     hands="Assim. Bazu. +1",
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1", 
     right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
         --head="Luhlaza Keffiyeh",  
         --body="Assimilator's Jubbah",hands="Assimilator's Bazubands +1",
-        --back="Cornflower Cape",legs="Mavi Tayt +2",feet="Luhlaza Charuqs"}
+        --back="Cornflower Cape",legs="Mavi Tayt +2",feet="Luhlaza Charuqs +3"}
 
 
 sets.latent_refresh = {waist="Fucho-no-Obi",}
@@ -1156,10 +1209,14 @@ sets.engaged.Refresh = set_combine(sets.engaged, {
 })
 sets.engaged.Learning = { 
     ammo="Mavi Tathlum",
+    head="Luh. Keffiyeh +1",
+    body="Assim. Jubbah +2",
     hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
+    neck="Incanter's Torque",
+    right_ear="Hashi. Earring +1", 
+    left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
 
@@ -1239,10 +1296,16 @@ sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, {
 })
     
 sets.engaged.DW.Learning =  set_combine(sets.engaged.DW, sets.Learning, {
-head="Malignance Chapeau",
-feet="Malignance Boots",
-left_ring="Stikini Ring +1",
-right_ring="Stikini Ring +1",})
+    head="Luh. Keffiyeh +1",
+    body="Assim. Jubbah +2",
+    hands="Assim. Bazu. +1",
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
+    neck="Incanter's Torque",
+    right_ear="Hashi. Earring +1", 
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+})
 ------------------------------------------------------------------------------------------------
     ---------------------------------------- DW-HASTE ------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -1362,12 +1425,19 @@ sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
 sets.engaged.Refresh.DT = set_combine(sets.engaged.Refresh, sets.engaged.Hybrid)
 sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybrid, {
-    ammo="Mavi Tathlum",
+    ammo="Staunch Tathlum +1",
+    head={ name="Luh. Keffiyeh +1", augments={'Enhances "Convergence" effect',}},
+    body="Assim. Jubbah +2",
     hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
+    legs="Hashishin Tayt +2",
+    feet={ name="Luhlaza Charuqs +3", augments={'Enhances "Diffusion" effect',}},
+    neck="Incanter's Torque",
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Genmei Earring",
+    left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
 
 sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
@@ -1375,56 +1445,28 @@ sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT = set_combine(sets.engaged.DW.Refresh, sets.engaged.Hybrid)
-sets.engaged.DW.Learning.DT = set_combine(sets.engaged.DW.Learning, sets.engaged.Hybrid, {
-    ammo="Mavi Tathlum",
-    hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-})
+sets.engaged.DW.Learning.DT = set_combine(sets.engaged.DW.Learning, sets.engaged.Learning.DT, {})
 
 sets.engaged.DW.DT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.LowHaste = set_combine(sets.engaged.DW.Refresh.LowHaste, sets.engaged.Hybrid)
-sets.engaged.DW.Learning.DT.LowHaste = set_combine(sets.engaged.DW.Learning.LowHaste, sets.engaged.Hybrid, {
-    ammo="Mavi Tathlum",
-    hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-})
+sets.engaged.DW.Learning.DT.LowHaste = set_combine(sets.engaged.DW.Learning.LowHaste, sets.engaged.Learning.DT, {})
 
 sets.engaged.DW.DT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.MidHaste = set_combine(sets.engaged.DW.Refresh.MidHaste, sets.engaged.Hybrid)
-sets.engaged.DW.Learning.DT.MidHaste = set_combine(sets.engaged.DW.Learning.MidHaste, sets.engaged.Hybrid, {
-    ammo="Mavi Tathlum",
-    hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-})
+sets.engaged.DW.Learning.DT.MidHaste = set_combine(sets.engaged.DW.Learning.MidHaste, sets.engaged.Learning.DT, {})
 
 sets.engaged.DW.DT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.MaxHaste = set_combine(sets.engaged.DW.Refresh.MaxHaste, sets.engaged.Hybrid)
-sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxHaste, sets.engaged.Hybrid, {
-    ammo="Mavi Tathlum",
-    hands="Assim. Bazu. +1",
-     neck="Incanter's Torque",
-    legs="Hashishin Tayt +1",
-     left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-})
+sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxHaste, sets.engaged.Hybrid, {})
 
   ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -1532,15 +1574,25 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             end
         end
     end
+    if state.CastingMode.value == 'SIRD' then
+        equip(sets.SIRD)
+    end
     if spell.skill == 'Enhancing Magic' and classes.NoSkillSpells:contains(spell.english) then
+        equip(sets.midcast['Enhancing Magic'])
         if spellMap == 'Refresh' then
             equip(sets.midcast.Refresh)
+        elseif spellMap == 'Aquaveil' then
+            equip(sets.midcast.Aquaveil)
+        elseif spellMap == 'Phalanx' then
+            equip(sets.midcast.Phalanx)
+        elseif spellMap == 'Haste' then
+            equip(sets.midcast.Haste)
         end
     end
 
 
     -- If in learning mode, keep on gear intended to help with that, regardless of action.
-    if state.OffenseMode.value == 'Learning' then
+    if state.CastingMode.value == 'Learning' then
         equip(sets.Learning)
     end
     if state.Buff['Burst Affinity'] or (spellMap == 'Magical' or spellMap == 'MagicalLight' or spellMap == 'MagicalDark' or spellMap == 'Breath') then

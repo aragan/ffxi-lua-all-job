@@ -19,6 +19,7 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {    
+    "Lycurgos",
     "Reikiko",
     "Tumult's Blood",
     "Sarama's Hide",
