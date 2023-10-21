@@ -102,26 +102,30 @@ function job_setup()
     -- Magical Spells --
 
     -- Magical spells with the typical Int mod
-    blue_magic_maps.Magical = S{
-        'Blastbomb','Blazing Bound','Bomb Toss','Cursed Sphere','Dark Orb','Death Ray',
-        'Diffusion Ray','Droning Whirlwind','Embalming Earth','Firespit','Foul Waters',
-        'Ice Break','Leafstorm','Maelstrom','Rail Cannon','Regurgitation','Rending Deluge',
-        'Retinal Glare','Subduction','Tem. Upheaval','Water Bomb'
-    }
+    blue_magic_maps.Magical = S{'Anvil Lightning','Blastbomb','Blazing Bound','Bomb Toss','Cursed Sphere',
+        'Droning Whirlwind','Embalming Earth','Entomb','Firespit','Foul Waters','Ice Break','Leafstorm',
+        'Maelstrom','Molting Plumage','Nectarous Deluge','Regurgitation','Rending Deluge','Scouring Spate',
+        'Silent Storm','Spectral Floe','Subduction','Tem. Upheaval','Water Bomb'}
+
+    blue_magic_maps.MagicalDark = S{'Dark Orb','Death Ray','Eyes On Me','Evryone. Grudge','Palling Salvo',
+        'Tenebral Crush'}
+
+    blue_magic_maps.MagicalLight = S{'Blinding Fulgor','Diffusion Ray','Radiant Breath','Rail Cannon',
+        'Retinal Glare'}
 
     -- Magical spells with a primary Mnd mod
     blue_magic_maps.MagicalMnd = S{
-        'Acrid Stream','Evryone. Grudge','Magic Hammer','Mind Blast'
+        'Acrid Stream','Magic Hammer','Mind Blast'
     }
 
     -- Magical spells with a primary Chr mod
     blue_magic_maps.MagicalChr = S{
-        'Eyes On Me','Mysterious Light'
+        'Mysterious Light'
     }
 
     -- Magical spells with a Vit stat mod (on top of Int)
     blue_magic_maps.MagicalVit = S{
-        'Tenebral Crush'
+        'Thermal Pulse'    
     }
 
     -- Magical spells with a Dex stat mod (on top of Int)
@@ -145,7 +149,7 @@ function job_setup()
     -- Breath-based spells
     blue_magic_maps.Breath = S{
         'Bad Breath','Flying Hip Press','Frost Breath','Heat Breath',
-        'Hecatomb Wave','Magnetite Cloud','Poison Breath','Radiant Breath','Self-Destruct',
+        'Hecatomb Wave','Magnetite Cloud','Poison Breath','Self-Destruct',
         'Thunder Breath','Vapor Spray','Wind Breath'
     }
 
@@ -157,21 +161,21 @@ function job_setup()
         
     -- Healing spells
     blue_magic_maps.Healing = S{
-        'Healing Breeze','Magic Fruit','Plenilune Embrace','Pollen','Restoral','White Wind',
+        'Healing Breeze','Magic Fruit','Plenilune Embrace','Pollen','Restoral',
         'Wild Carrot'
     }
     
     -- Buffs that depend on blue magic skill
     blue_magic_maps.SkillBasedBuff = S{
         'Barrier Tusk','Diamondhide','Magic Barrier','Metallic Body','Plasma Charge',
-        'Pyric Bulwark','Reactor Cool',
+        'Pyric Bulwark','Reactor Cool','Occultation'
     }
 
     -- Other general buffs
     blue_magic_maps.Buff = S{
         'Amplification','Animating Wail','Battery Charge','Carcharian Verve','Cocoon',
         'Erratic Flutter','Exuviation','Fantod','Feather Barrier','Harden Shell',
-        'Memento Mori','Nat. Meditation','Occultation','Orcish Counterstance','Refueling',
+        'Memento Mori','Nat. Meditation','Orcish Counterstance','Refueling',
         'Regeneration','Saline Coat','Triumphant Roar','Warm-Up','Winds of Promyvion',
         'Zephyr Mantle'
     }
@@ -201,9 +205,10 @@ function user_setup()
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.CastingMode:options('Normal', 'SIRD')
-    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'Learning')
+    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'EnemyCritRate', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Maxentius', 'Nuking', 'Learn'}
 
@@ -214,6 +219,7 @@ function user_setup()
     send_command('bind @` input /ja "Burst Affinity" <me>')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -649,19 +655,15 @@ sets.precast.WS['Shattersoul'] = {
     feet="Malignance Boots",
     }
     sets.midcast['Blue Magic'] = {  
-        ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Hashi. Bazu. +2",
-        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Jhakri Pigaches +2",
-        neck="Sibyl Scarf",
-        waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Hecate's Earring",
-        left_ring="Jhakri Ring",
+        head="Luh. Keffiyeh +1",
+        body="Assim. Jubbah +2",
+        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+        legs="Hashishin Tayt +2",
+        feet="Luhlaza Charuqs +3",
+        neck="Incanter's Torque",
+        right_ear="Hashi. Earring +1", 
+        left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {  
     ammo="Staunch Tathlum +1",
@@ -675,69 +677,81 @@ sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {
     
     -- Physical Spells --
     
-    sets.midcast['Blue Magic'].Physical = {
-        ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck="Caro Necklace",
-        waist="Prosilio Belt +1",
-        left_ear="Ethereal Earring",
-        right_ear="Balder Earring +1",
-        left_ring="Shukuyu Ring",
-        right_ring="Ilabrat Ring",
-        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-        }
-    sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical)
+sets.midcast['Blue Magic'].Physical = {
+    ammo="Aurgelmir Orb +1",
+    head="Gleti's Mask",
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
+    neck="Rep. Plat. Medal",
+    waist="Prosilio Belt +1",
+    left_ear="Ethereal Earring",
+    right_ear="Balder Earring +1",
+    left_ring="Shukuyu Ring",
+    right_ring="Ilabrat Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+}
+sets.midcast['Blue Magic'].Physical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Physical)
 
-    sets.midcast['Blue Magic'].PhysicalAcc = {
-        head="Gleti's Mask",
-        body="Gleti's Cuirass",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck="Incanter's Torque",
-        waist="Olseni Belt",
-        left_ear="Odr Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
-    sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc)
+sets.midcast['Blue Magic'].PhysicalAcc = {
+    head="Gleti's Mask",
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+    legs="Hashishin Tayt +2",
+    feet="Luhlaza Charuqs +3",
+    neck="Incanter's Torque",
+    waist="Olseni Belt",
+    right_ear="Hashi. Earring +1",
+    left_ear="Telos Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+}
+sets.midcast['Blue Magic'].PhysicalAcc.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].PhysicalAcc)
 
-    sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalStr = set_combine(sets.midcast['Blue Magic'].Physical,
+    {})
 
-    sets.midcast['Blue Magic'].PhysicalDex = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalDex = set_combine(sets.midcast['Blue Magic'].Physical, {
+    ear2="Mache Earring +1",
+    ear1="Mache Earring +1",
+    ring2="Ilabrat Ring",})
 
-    sets.midcast['Blue Magic'].PhysicalVit = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalVit = set_combine(sets.midcast['Blue Magic'].Physical,
+    {})
 
-    sets.midcast['Blue Magic'].PhysicalAgi = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalAgi = set_combine(sets.midcast['Blue Magic'].Physical, {
+ ring2="Ilabrat Ring",
+})
 
-    sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical, {
+    ammo="Ghastly Tathlum +1",
+    ear2="Regal Earring",
+    ring2="Metamor. Ring +1",
+    back="Aurist's Cape +1",
+    waist="Acuity Belt +1",
+})
 
-    sets.midcast['Blue Magic'].PhysicalMnd = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalMnd = set_combine(sets.midcast['Blue Magic'].Physical, {
+   left_ring="Stikini Ring +1",
+   right_ring="Stikini Ring +1",
+})
 
-    sets.midcast['Blue Magic'].PhysicalChr = set_combine(sets.midcast['Blue Magic'].Physical,
-        {})
+sets.midcast['Blue Magic'].PhysicalChr = set_combine(sets.midcast['Blue Magic'].Physical,
+{    ear1="Regal Earring",
+})
 
-    sets.midcast['Blue Magic'].PhysicalHP = set_combine(sets.midcast['Blue Magic'].Physical)
+sets.midcast['Blue Magic'].PhysicalHP = set_combine(sets.midcast['Blue Magic'].Physical, {
+})
 
 
     -- Magical Spells --
     
-    sets.midcast['Blue Magic'].Magical = {
+sets.midcast['Blue Magic'].Magical = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-    head=empty,
-    body={ name="Cohort Cloak +1", augments={'Path: A',}},
+    head="Hashishin Kavuk +2",
+    body="Hashishin Mintan +2",
     hands="Hashi. Bazu. +2",
     legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
     feet="Hashi. Basmak +2",
@@ -750,58 +764,62 @@ sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
 }
 
-    sets.midcast['Blue Magic'].Magical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Magical)
-    sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,
-        {})
+sets.midcast['Blue Magic'].Magical.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Magical)
 
-    sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical)
+sets.midcast['Blue Magic'].MagicalDark = set_combine(sets.midcast['Blue Magic'].Magical, {
+    head="Pixie Hairpin +1",
+    ring2="Archon Ring",
+})
 
-    sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical, {
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head=empty,
-        body={ name="Cohort Cloak +1", augments={'Path: A',}},
-        hands="Hashi. Bazu. +2",
-        legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-        feet="Hashi. Basmak +2",
-        neck="Sibyl Scarf",
-        waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear="Regal Earring",
-        left_ring="Jhakri Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},  
-    })
+sets.midcast['Blue Magic'].MagicalLight = set_combine(sets.midcast['Blue Magic'].Magical, {
+    --ring2="Weather. Ring +1"
+})
 
-sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical)
+sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical,{
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",})
+
+sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical, { 
+ear1="Regal Earring",
+})
+
+sets.midcast['Blue Magic'].MagicalVit = set_combine(sets.midcast['Blue Magic'].Magical, {
+    ammo="Aurgelmir Orb +1",
+})
+
+sets.midcast['Blue Magic'].MagicalDex = set_combine(sets.midcast['Blue Magic'].Magical, { 
+ammo="Aurgelmir Orb +1",
+ear2="Mache Earring +1",
+ring2="Ilabrat Ring",})
 
 sets.midcast['Blue Magic'].MagicAccuracy = {
-        main="Naegling",
-        sub="Sakpata's Sword",
-        ammo="Pemphredo Tathlum",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Incanter's Torque",
-        waist="Luminary Sash",
-        left_ear="Crep. Earring",
-        right_ear="Digni. Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},    }
+    main="Naegling",
+    sub="Sakpata's Sword",
+    ammo="Pemphredo Tathlum",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Incanter's Torque",
+    waist="Luminary Sash",
+    left_ear="Crep. Earring",
+    right_ear="Digni. Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},   
+}
 
 sets.midcast['Blue Magic'].MagicAccuracy.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].MagicAccuracy)
     -- Breath Spells --
     
 sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical, { 
-        ammo="Mavi Tathlum",
+    ammo="Mavi Tathlum",
 })
 
     -- Other Types --
     
-sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAccuracy,
-        {})
+sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {})
         
 sets.midcast['Blue Magic']['White Wind'] = {
     ammo="Staunch Tathlum +1",
@@ -841,8 +859,6 @@ sets.self_healing = set_combine(sets.midcast['Blue Magic'].Healing, {
 
 sets.midcast['Blue Magic'].SkillBasedBuff = {
     ammo="Mavi Tathlum",
-    main="Iris", 
-    sub="Iris",
     head="Luh. Keffiyeh +1",
     body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
@@ -858,8 +874,6 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
 
 sets.midcast['Blue Magic'].Buff = {
     ammo="Mavi Tathlum",
-    main="Iris", 
-    sub="Iris",
     head="Luh. Keffiyeh +1",
     body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
@@ -1037,23 +1051,45 @@ sets.idle.Evasion = {
     right_ring="Vengeful Ring",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
 }
-sets.idle.PDT = {     main="Naegling",
-sub="Sakpata's Sword",
-ammo="Amar Cluster",
-head="Malignance Chapeau",
-body="Malignance Tabard",
-hands="Malignance Gloves",
-legs="Malignance Tights",
-feet="Malignance Boots",
-neck={ name="Bathy Choker +1", augments={'Path: A',}},
-waist="Carrier's Sash",
-left_ear="Infused Earring",
-right_ear="Eabani Earring",
-left_ring="Defending Ring",
-right_ring="Vengeful Ring",
-back="Moonlight Cape",
+sets.idle.PDT = {    
+ammo="Staunch Tathlum +1",
+head="Nyame Helm",
+body="Nyame Mail",
+hands="Nyame Gauntlets",
+legs="Nyame Flanchard",
+feet="Nyame Sollerets",
+neck={ name="Loricate Torque +1", augments={'Path: A',}},
+waist="Flume Belt +1",
+left_ear="Ethereal Earring",
+right_ear="Genmei Earring",
+right_ring="Defending Ring",
+left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+back="Shadow Mantle",}
+
+sets.idle.HP = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Eihwaz Ring",
+    back="Moonlight Cape",
 }
-sets.idle.Town ={legs="Carmine Cuisses +1",
+
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+
+sets.idle.Town = {legs="Carmine Cuisses +1",
 neck={ name="Bathy Choker +1", augments={'Path: A',}},
 left_ear="Infused Earring",}
 
@@ -1077,8 +1113,7 @@ sets.defense.PDT = {
     right_ear="Ethereal Earring",
     left_ring="Defending Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Moonlight Cape",
-}
+    back="Shadow Mantle",}
 
 sets.defense.Evasion = {
     main="Naegling",
@@ -1161,6 +1196,7 @@ sets.engaged = {
 sets.engaged.DPL = set_combine(sets.engaged, {
     neck="Clotharius Torque",
     right_ear="Mache Earring +1",
+    waist="Windbuffet Belt +1",
     })
     
 sets.engaged.Acc = {
@@ -1476,7 +1512,7 @@ sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxH
     head="White rarab cap +1", 
     waist="Chaac Belt"}
 
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1632,7 +1668,7 @@ function job_buff_change(buff, gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('input /p Doomed, please Cursna.')
             send_command('input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1640,6 +1676,42 @@ function job_buff_change(buff, gain)
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify !')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "terror" then
+        if gain then
+            send_command('input /p i am TERROR cant move.')		
+            equip(sets.defense.PDT)
+        end
+        handle_equipping_gear(player.status)
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
         end
     end
 end
@@ -1655,6 +1727,11 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
     check_moving()
     determine_haste_group()
+    if state.HippoMode.value == "Hippo" then
+        equip({feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
 end
 
 -- Custom spell mapping.
@@ -1695,12 +1772,17 @@ function customize_melee_set(meleeSet)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.IdleMode.current == 'PDT' then
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+    --[[if state.IdleMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.idle.PDT)
     end
     if state.IdleMode.current == 'Learning' then
         idleSet = set_combine(idleSet, sets.idle.Learning)
-    end
+    end]]
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
