@@ -89,7 +89,9 @@ function job_setup()
     state.IgnoreTargetting = M(false, 'Ignore Targetting')
     state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
     state.SkillchainPending = M(false, 'Skillchain Pending')
-    send_command('wait 6;input /lockstyleset 168')
+    state.Moving  = M(false, "moving")
+
+    send_command('wait 6;input /lockstyleset 164')
 
     determine_haste_group()
 end
@@ -103,13 +105,13 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'DA', 'Fodder', 'PDL')
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'SubtleBlow75')
     state.WeaponskillMode:options('Normal', 'Acc', 'Fodder', 'PDL')
-    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity')
-
+    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity', 'HP')
+    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion')
 
     gear.default.weaponskill_neck = ""
     gear.default.weaponskill_waist = ""
     gear.AugQuiahuiz = {}
-    send_command('wait 2;input /lockstyleset 168')
+    send_command('wait 2;input /lockstyleset 164')
 
     -- Additional local binds
     send_command('bind ^= gs c cycle mainstep')
@@ -149,7 +151,7 @@ function init_gear_sets()
 
     sets.precast.JA['Trance'] = {}
     
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    sets.CapacityMantle  = {}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {ammo="Yamarang",
@@ -178,7 +180,9 @@ function init_gear_sets()
     left_ear="Mache Earring +1",
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",}
+    right_ring="Chirich Ring +1",
+    back="Sacro Mantle",
+}
 
     sets.precast.Step['Feather Step'] = {    ammo="C. Palug Stone",
     head="Malignance Chapeau",
@@ -191,7 +195,9 @@ function init_gear_sets()
     left_ear="Mache Earring +1",
     right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",}
+    right_ring="Chirich Ring +1",
+    back="Sacro Mantle",
+}
 
     sets.precast.Flourish1 = {    ammo="Pemphredo Tathlum",
     head="Malignance Chapeau",
@@ -313,19 +319,21 @@ function init_gear_sets()
        
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {    ammo="Aurgelmir Orb +1",
-    head="Gleti's Mask",
+    sets.precast.WS = {  
+    ammo="Aurgelmir Orb +1",
+    head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",    hands="Meg. Gloves +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
-    neck="Caro Necklace",
-    waist="Grunfeld Rope",
+    legs="Nyame Flanchard",    
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ear="Odr Earring",
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
-    back="Bleating Mantle", }
+    back="Sacro Mantle",
+}
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -420,18 +428,18 @@ function init_gear_sets()
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
+        head="Nyame Helm",
         body="Nyame Mail",
-        hands="Meg. Gloves +2",
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet={ name="Herculean Boots", augments={'Accuracy+6','Weapon skill damage +3%','AGI+10',}},
-        neck="Caro Necklace",
-        waist="Grunfeld Rope",
+        feet="Nyame Sollerets",
+        neck="Rep. Plat. Medal",
+        waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Odr Earring",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Bleating Mantle", 
+        back="Sacro Mantle",
     })
     sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {    head="Nyame Helm",
     body="Nyame Mail",
@@ -442,21 +450,17 @@ function init_gear_sets()
 
     sets.precast.WS["Rudra's Storm"].PDL = set_combine(sets.precast.WS["Rudra's Storm"], {
         ammo="Crepuscular Pebble",
-        head="Gleti's Mask",
-        body="Nyame Mail",
-        hands="Gleti's Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Gleti's Boots",
-        neck="Anu Torque",
+        body="Gleti's Cuirass",
         waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Sherida Earring",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Bleating Mantle",
+        back="Sacro Mantle",
     })
 
-    sets.precast.WS['Aeolian Edge'] = {        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    sets.precast.WS['Aeolian Edge'] = {   
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -467,7 +471,9 @@ function init_gear_sets()
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Cornelia's Ring",}
+    right_ring="Cornelia's Ring",
+    back="Sacro Mantle",
+}
     
     sets.precast.Skillchain = {   }
     
@@ -524,22 +530,74 @@ function init_gear_sets()
     waist="Flume Belt +1",
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Sheltered Ring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Paguroidea Ring",
     back="Moonlight Cape",
 }
 
-    sets.idle.Town = {    ammo="Staunch Tathlum +1",
+sets.idle.PDT = {        
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Fortified Ring",
+    back="Moonlight Cape",
+}
+
+sets.idle.Evasion = {
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}
+
+sets.idle.HP = {
+    main={ name="Twashtar", augments={'Path: A',}},
+    sub={ name="Aeneas", augments={'Path: A',}},
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+
+
+    sets.idle.Town = {   
+     ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
-    feet="Gleti's Boots",
+    feet="Tandava Crackows",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Sheltered Ring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Paguroidea Ring",
     back="Moonlight Cape",
 }
@@ -554,58 +612,77 @@ function init_gear_sets()
     waist="Flume Belt +1",
     left_ear="Infused Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Sheltered Ring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Paguroidea Ring",
     back="Moonlight Cape",
 }
     
     -- Defense sets
 
-    sets.defense.Evasion = {
-        ammo="Yamarang",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Svelt. Gouriz +1",
-        left_ear="Infused Earring",
-        right_ear="Eabani Earring",
-        left_ring="Vengeful Ring",
-        right_ring="Defending Ring",
-        back="Moonlight Cape",
-    }
-
-    sets.defense.PDT = {        
-    ammo="Staunch Tathlum +1",
+sets.defense.Evasion = {
+    ammo="Yamarang",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}
+
+sets.defense.PDT = {        
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
     left_ear="Tuisto Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonlight Ring",
-    back="Moonlight Cape",}
-    
+    right_ring="Fortified Ring",
+    back="Moonlight Cape",
+}
+
+sets.defense.HP = {
+    main={ name="Twashtar", augments={'Path: A',}},
+    sub={ name="Aeneas", augments={'Path: A',}},
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+
 sets.defense.Enmity = {
-        ammo="Iron Gobbet",
-        head="Malignance Chapeau",
-        body={ name="Emet Harness +1", augments={'Path: A',}},
-        hands="Kurys Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Ahosi Leggings",
-        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Plat. Mog. Belt",
-        left_ear="Cryptic Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Eihwaz Ring",
-        right_ring="Petrov Ring",
-        back="Reiki Cloak",
+    ammo="Iron Gobbet",
+    head="Malignance Chapeau",
+    body={ name="Emet Harness +1", augments={'Path: A',}},
+    hands="Kurys Gloves",
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Ahosi Leggings",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Cryptic Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Eihwaz Ring",
+    right_ring="Petrov Ring",
+    back="Reiki Cloak",
 }
 
     sets.defense.MDT = {     
@@ -616,14 +693,14 @@ sets.defense.Enmity = {
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
+    waist="Engraved Belt",
     left_ear="Etiolation Earring",
     right_ear="Sanare Earring",
     left_ring="Shadow Ring",
     right_ring="Defending Ring",
-    back="Engulfer Cape +1",
-}
+    back="Moonlight Cape",}
 
+    sets.MoveSpeed = {feet="Tandava Crackows",}
     sets.Kiting = {feet="Tandava Crackows",}
     sets.Adoulin = {body="Councilor's Garb",}
 
@@ -691,7 +768,7 @@ sets.defense.Enmity = {
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back="Bleating Mantle",
- }
+}
     sets.engaged.DA = {  
         ammo="Coiste Bodhar",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -1257,10 +1334,51 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 164')
     end
 end
 
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if buffactive['Mana Wall'] then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
