@@ -1014,7 +1014,7 @@ function init_gear_sets()
     })
  
      sets.idle.Weak = set_combine(sets.idle, {
-        head="Twilight Helm",
+        head="Crepuscular Helm",
         body="Crepuscular Mail",
         back="Moonlight Cape",
     })
@@ -1117,7 +1117,7 @@ function init_gear_sets()
     sets.Terror = {feet="Founder's Greaves"}
 
     sets.Reraise = {
-        head="Twilight Helm",
+        head="Crepuscular Helm",
         body="Crepuscular Mail",}
 
  
@@ -1300,8 +1300,8 @@ function init_gear_sets()
 
 
      sets.engaged.Reraise = set_combine(sets.engaged, {
-     	head="Twilight Helm",
-         body="Crepuscular Mail",     })
+     	head="Crepuscular Helm",
+        body="Crepuscular Mail",     })
      sets.buff.Berserk = { 
          --feet="Warrior's Calligae +2" 
      }

@@ -148,7 +148,7 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
-	  send_command('bind f6 gs c cycle ShieldMode')
+	send_command('bind f6 gs c cycle ShieldMode')
      --send_command('bind f1 gs c cycle TartarusdMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
@@ -1085,7 +1085,7 @@ sets.TreasureHunter = {
  sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
- sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
+ sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
  sets.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
  sets.Breath = sets.defense.MDT
   
@@ -1176,7 +1176,7 @@ sets.TreasureHunter = {
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",}
     
-   sets.idle.Weak = {head="Twilight Helm", body="Crepuscular Mail",}
+   sets.idle.Weak = {head="Crepuscular Helm", body="Crepuscular Mail",}
     
    sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
  

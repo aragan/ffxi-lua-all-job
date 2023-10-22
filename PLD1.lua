@@ -1016,7 +1016,7 @@ sets.TreasureHunter = {
   sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
   sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
   sets.Petri = {back="Sand Mantle"} 
-  sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail",}
+  sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
   sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
   sets.Breath = sets.defense.MDT
  
@@ -1060,7 +1060,7 @@ sets.TreasureHunter = {
 }
   sets.idle.Town ={legs="Carmine Cuisses +1"}
    
-  sets.idle.Weak = {head="Twilight Helm", body="Crepuscular Mail",}
+  sets.idle.Weak = {head="Crepuscular Helm", body="Crepuscular Mail",}
    
   sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
   

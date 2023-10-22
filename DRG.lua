@@ -630,11 +630,11 @@ sets.precast.JA.Jump = {
     })
 
 	sets.idle.Weak = set_combine(sets.idle.Field, {
-		head="Twilight Helm",
+		head="Crepuscular Helm",
 		body="Crepuscular Mail",
     })
     sets.Reraise = {
-		head="Twilight Helm",
+		head="Crepuscular Helm",
 		body="Crepuscular Mail",
     }
 
@@ -686,7 +686,7 @@ sets.precast.JA.Jump = {
             back="Moonlight Cape",   
         }
         sets.defense.Reraise = set_combine(sets.defense.PDT, {
-            head="Twilight Helm",
+            head="Crepuscular Helm",
             body="Crepuscular Mail",
         })
 
@@ -780,7 +780,7 @@ sets.precast.JA.Jump = {
     sets.engaged.CRIT.PDT = set_combine(sets.engaged, sets.engaged.PDT)
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		
-    head="Twilight Helm",
+    head="Crepuscular Helm",
     body="Crepuscular Mail",})
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",

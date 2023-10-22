@@ -1076,7 +1076,7 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
 		body="Twilight Mail"
 })
 			
-	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+	sets.idle.Reraise = set_combine(sets.idle, {head="Crepuscular Helm",body="Twilight Mail"})
 
 	sets.idle.Pet = set_combine(sets.idle, { 
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
@@ -1157,7 +1157,7 @@ sets.precast.WS['Aeolian Edge'].WSMedAcc = set_combine(sets.precast.WS['Aeolian 
 	sets.defense.Reraise = set_combine(sets.defense.PDT, {
 	
 		ammo="Voluspa Tathlum",
-		head="Twilight Helm",body="Twilight Mail"
+		head="Crepuscular Helm",body="Twilight Mail"
 })
 
 	sets.defense.MDT = set_combine(sets.defense.PDT, {

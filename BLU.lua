@@ -201,7 +201,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'DPL', 'CRIT', 'Refresh', 'Learning')
-    state.HybridMode:options('Normal', 'DT')
+    state.HybridMode:options('Normal', 'DT', 'STR')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.CastingMode:options('Normal', 'SIRD')
@@ -210,7 +210,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Maxentius', 'Nuking', 'Learn'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Naegling2', 'Maxentius', 'Nuking', 'Learn'}
 
     send_command('lua l azureSets')
     -- Additional local binds
@@ -249,6 +249,7 @@ function user_unload()
 end
 
 organizer_items = {
+    "Prime Sword",
     "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
@@ -260,7 +261,6 @@ organizer_items = {
     "Moogle Amp.",
     "Popo. con Queso",
     "Pear Crepe",
-    "Crab Sushi",
     "Om. Sandwich",
     "Red Curry Bun",
     "Gyudon",
@@ -993,7 +993,7 @@ sets.Learning = {
     ammo="Mavi Tathlum",
     head="Luh. Keffiyeh +1",
     body="Assim. Jubbah +2",
-    hands="Assim. Bazu. +1",
+    hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
@@ -1247,7 +1247,7 @@ sets.engaged.Learning = {
     ammo="Mavi Tathlum",
     head="Luh. Keffiyeh +1",
     body="Assim. Jubbah +2",
-    hands="Assim. Bazu. +1",
+    hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
@@ -1334,7 +1334,7 @@ sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, {
 sets.engaged.DW.Learning =  set_combine(sets.engaged.DW, sets.Learning, {
     head="Luh. Keffiyeh +1",
     body="Assim. Jubbah +2",
-    hands="Assim. Bazu. +1",
+    hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs +3",
     neck="Incanter's Torque",
@@ -1446,15 +1446,27 @@ sets.engaged.Hybrid = {
     waist="Reiki Yotai",
 }
 
---[[sets.engaged.DT = {
-    head="Malignance Chapeau", --6/6
-    body="Malignance Tabard", --9/9
-    hands="Malignance Gloves", --5/5
-    legs="Malignance Tights", --7/7
-    feet="Malignance Boots", --4/4
-    left_ring="Defending Ring", --10/10
-    waist="Reiki Yotai",
-}]]
+sets.engaged.STR = {
+    main="Fermion Sword",
+    sub="Firetongue",
+    ammo="Aurgelmir Orb +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands="Malignance Gloves",
+    legs="Jhakri Slops +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Suppanomimi",
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+}
+sets.engaged.STR = set_combine(sets.engaged, sets.engaged.STR)
+sets.engaged.DW.STR = set_combine(sets.engaged, sets.engaged.STR)
+
+
 sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
 sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
@@ -1464,7 +1476,7 @@ sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybri
     ammo="Staunch Tathlum +1",
     head={ name="Luh. Keffiyeh +1", augments={'Enhances "Convergence" effect',}},
     body="Assim. Jubbah +2",
-    hands="Assim. Bazu. +1",
+    hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet={ name="Luhlaza Charuqs +3", augments={'Enhances "Diffusion" effect',}},
     neck="Incanter's Torque",
@@ -1531,6 +1543,7 @@ sets.magic_burst = set_combine(sets.midcast['Blue Magic'].Magical, {
 })
 sets.Normal = {}
 sets.Naegling = {main="Naegling", sub="Thibron"}
+sets.Naegling2 = {main="Naegling", sub="Zantetsuken"}
 sets.Maxentius = {main="Maxentius", sub="Thibron"}
 sets.Nuking = {main="Maxentius", sub="Bunzi's Rod"}
 

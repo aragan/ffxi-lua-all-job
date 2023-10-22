@@ -361,6 +361,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ring="Stikini Ring +1",
     back="Ogma's Cape",
 }
+
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Futhark Bandeau +1"

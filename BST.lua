@@ -977,7 +977,7 @@ function init_gear_sets()
 		body="Crepuscular Mail"
 })
 			
-	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Crepuscular Mail"})
+	sets.idle.Reraise = set_combine(sets.idle, {head="Crepuscular Helm",body="Crepuscular Mail"})
 
 	sets.idle.Pet = set_combine(sets.idle, { main="Glyph Axe",
           head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
@@ -1069,7 +1069,7 @@ function init_gear_sets()
 	
 	sets.defense.Reraise =  {
 		ammo="Staunch Tathlum +1",
-		head="Twilight Helm",
+		head="Crepuscular Helm",
 		body="Crepuscular Mail",
 		hands="Gleti's Gauntlets",
 		legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1432,14 +1432,14 @@ sets.defense.Petregen = {
     body="Nukumi Gausape +2",
 
     }         
-	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
+	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Crepuscular Helm",
     body="Crepuscular Mail",})
 
-	sets.Reraise = {head="Twilight Helm", body="Crepuscular Mail"}
+	sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail"}
 
 	sets.idle.Weak = 
 	{
-		head="Twilight Helm", body="Crepuscular Mail"
+		head="Crepuscular Helm", body="Crepuscular Mail"
 	}
 	sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
 	sets.buff.Doom = {    neck="Nicander's Necklace",

@@ -771,7 +771,7 @@ function init_gear_sets()
      })
     
     sets.idle.Weak = set_combine(sets.idle.Field, {
-        head="Twilight Helm",
+        head="Crepuscular Helm",
     	body="Crepuscular Mail",
     })
     
@@ -793,7 +793,7 @@ function init_gear_sets()
     }
     
     sets.defense.Reraise = set_combine(sets.defense.PDT, {
-    	head="Twilight Helm",
+    	head="Crepuscular Helm",
     	body="Crepuscular Mail"
     })
     
@@ -830,7 +830,7 @@ function init_gear_sets()
     
     sets.Kiting = {feet="Danzo Sune-ate"}
     
-    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail"}
+    sets.Reraise = {head="Crepuscular Helm",body="Crepuscular Mail"}
     
     -- Engaged sets
     
@@ -1031,7 +1031,7 @@ function init_gear_sets()
     sets.engaged.Kogarasumaru.AM = set_combine(sets.engaged, {})
     sets.engaged.Kogarasumaru.AM3 = set_combine(sets.engaged, {})
     sets.engaged.Reraise = set_combine(sets.engaged, {
-    head="Twilight Helm",
+    head="Crepuscular Helm",
     body="Crepuscular Mail",})
     
     sets.buff.Sekkanoki = {hands="unkai kote +2"}

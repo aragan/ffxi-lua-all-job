@@ -993,8 +993,8 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         back="Moonlight Cape",
     })
 
-    sets.idle.Weak = {head="Twilight Helm",body="Crepuscular Mail"}
-    sets.idle.Field.Weak = {head="Twilight Helm",body="Crepuscular Mail"}
+    sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
+    sets.idle.Field.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
 
       
     sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
@@ -1110,7 +1110,7 @@ sets.defense.SEboost = {
     sets.defense.Reraise = set_combine(sets.defense.PDT, {
         ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
-    head="Twilight Helm",
+    head="Crepuscular Helm",
     body="Crepuscular Mail",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
@@ -1508,14 +1508,14 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
-	head="Twilight Helm",
+	head="Crepuscular Helm",
     body="Crepuscular Mail",})
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail"}
+    sets.Reraise = {head="Crepuscular Helm",body="Crepuscular Mail"}
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
     sets.RP = {neck="Abyssal Beads +2"}
   
