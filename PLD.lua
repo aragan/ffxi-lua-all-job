@@ -121,7 +121,8 @@ end
 
 function user_setup()
     state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis', 'Priwen'} -- , 'Priwen', 'Srivatsa' }
-    --state.TartarusdMode = M{['description']='Tartarus Mode', 'normal','Tartarus Platemail'}
+    state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
+    state.TartarusMode = M{['description']='Tartarus Mode', 'normal', 'Tartarus'}
     --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
@@ -130,7 +131,7 @@ function user_setup()
 	--state.DefenseMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL', 'None')
     state.CastingMode:options('Normal', 'DT', 'MB') 
-    state.IdleMode:options('Normal', 'EnemyCritRate', 'MEVA', 'ReverenceGauntlets', 'DeathSpike', 'Refresh', 'Resist', 'EnemyTPaccumulation')
+    state.IdleMode:options('Normal', 'EnemyCritRate', 'PD', 'PDH', 'MEVA', 'ReverenceGauntlets', 'Refresh', 'Resist', 'EnemyTPaccumulation')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm')
@@ -142,14 +143,14 @@ function user_setup()
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
     send_command('wait 2;input /lockstyleset 150')
-    send_command('bind f1 gs c update user')
+    send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f12 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
 	send_command('bind f6 gs c cycle ShieldMode')
-     --send_command('bind f1 gs c cycle TartarusdMode')
+    send_command('bind f7 gs c cycle TartarusMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
@@ -1148,7 +1149,24 @@ sets.TreasureHunter = {
    sets.idle.EnemyTPaccumulation ={
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
 }
-   sets.idle.DeathSpike ={
+sets.idle.PD = {    
+    main="Burtgang",
+    ammo="Staunch Tathlum +1",
+    head="Chev. Armet +3",
+    body="Chev. Cuirass +3",
+    hands="Chev. Gauntlets +3",
+    legs="Chev. Cuisses +3",
+    feet="Chev. Sabatons +3",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    right_ring="Defending Ring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Rudianos's Mantle",
+}
+
+   sets.idle.PDH ={
     main="Burtgang",
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
@@ -1162,6 +1180,7 @@ sets.TreasureHunter = {
     right_ear="Chev. Earring +1",
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Moonlight Ring"}
+
    sets.idle.MEVA ={
     ammo="Staunch Tathlum +1",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1903,6 +1922,7 @@ end
 function job_buff_change(buff,gain)
     if buff == "terror" then
         if gain then
+            send_command('input /p i am TERROR cant move.')		
             equip(sets.defense.PDT)
         end
         handle_equipping_gear(player.status)
@@ -1924,7 +1944,7 @@ function job_buff_change(buff,gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify Thank you !')
+        send_command('input /p '..player.name..' is no longer Petrify!')
         handle_equipping_gear(player.status)
         end
     end
@@ -1950,7 +1970,7 @@ function job_buff_change(buff,gain)
             disable('neck')
         else
             enable('neck')
-            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            send_command('input /p '..player.name..' is no longer Sleep!')
             handle_equipping_gear(player.status)    
         end
         if not midaction() then
@@ -1970,18 +1990,23 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 	   equip({sub="Ochain"})
 	  elseif state.ShieldMode.value == "Aegis" then
 	   equip({sub="Aegis"})
+    elseif state.ShieldMode.value == "Priwen" then
+        equip({sub="Priwen"})
     elseif state.ShieldMode.value == "normal" then
       equip({})
+    end
 	--elseif state.ShieldMode.value == "Srivatsa" then
 	   --equip({sub="Srivatsa"})
-    elseif state.ShieldMode.value == "Priwen" then
-	   equip({sub="Priwen"})
-	  end
-    --if state.TartarusdMode.value == "Tartarus Platemail" then
-      --equip({body="Tartarus Platemail"})
-    --elseif state.TartarusdMode.value == "normal" then
-     -- equip({})
-    --end
+    if state.HippoMode.value == "Hippo" then
+        equip({feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+    if state.TartarusMode.value == "Tartarus" then
+        equip({body="Tartarus Platemail"})
+    elseif state.TartarusMode.value == "normal" then
+       equip({})
+    end
 end
 
 function job_update(cmdParams, eventArgs)
@@ -1992,6 +2017,16 @@ end
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
 function customize_idle_set(idleSet)
+    if state.TartarusMode.value == "Tartarus" then
+        idleSet = set_combine(idleSet, {body="Tartarus Platemail"})
+    elseif state.TartarusMode.value == "normal" then
+       equip({})
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
     if state.IdleMode.current == 'EnemyCritRate' then
         idleSet = set_combine(idleSet, sets.idle.EnemyCritRate )
     end
@@ -2006,9 +2041,6 @@ function customize_idle_set(idleSet)
     end
     if state.IdleMode.current == 'EnemyTPaccumulation' then
         idleSet = set_combine(idleSet, sets.idle.EnemyTPaccumulation)
-    end
-    if state.IdleMode.current == 'DeathSpike' then
-        idleSet = set_combine(idleSet, sets.idle.DeathSpike)
     end
     if state.IdleMode.current == 'MEVA' then
         idleSet = set_combine(idleSet, sets.idle.MEVA)
@@ -2026,6 +2058,11 @@ function customize_idle_set(idleSet)
 end
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.TartarusMode.value == "Tartarus" then
+        meleeSet = set_combine(meleeSet, {body="Tartarus Platemail"})
+    elseif state.TartarusMode.value == "normal" then
+       equip({})
+    end
     if state.HybridMode.current == 'MDT' then
         meleeSet = set_combine(meleeSet, sets.engaged.MDT)
     end

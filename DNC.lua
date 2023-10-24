@@ -106,7 +106,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'SubtleBlow75')
     state.WeaponskillMode:options('Normal', 'Acc', 'Fodder', 'PDL')
     state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity', 'HP')
-    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion')
+    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'EnemyCritRate')
 
     gear.default.weaponskill_neck = ""
     gear.default.weaponskill_waist = ""
@@ -584,7 +584,12 @@ sets.idle.HP = {
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",
 }
-
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
 
     sets.idle.Town = {   
      ammo="Staunch Tathlum +1",

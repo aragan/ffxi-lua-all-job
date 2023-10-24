@@ -655,7 +655,7 @@ sets.precast.WS['Shattersoul'] = {
     feet="Malignance Boots",
     }
     sets.midcast['Blue Magic'] = {  
-        head="Luh. Keffiyeh +1",
+        head="Luh. Keffiyeh +2",
         body="Assim. Jubbah +2",
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         legs="Hashishin Tayt +2",
@@ -859,7 +859,7 @@ sets.self_healing = set_combine(sets.midcast['Blue Magic'].Healing, {
 
 sets.midcast['Blue Magic'].SkillBasedBuff = {
     ammo="Mavi Tathlum",
-    head="Luh. Keffiyeh +1",
+    head="Luh. Keffiyeh +2",
     body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
     legs="Hashishin Tayt +2",
@@ -874,7 +874,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.mid
 
 sets.midcast['Blue Magic'].Buff = {
     ammo="Mavi Tathlum",
-    head="Luh. Keffiyeh +1",
+    head="Luh. Keffiyeh +2",
     body="Assim. Jubbah +2",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
     legs="Hashishin Tayt +2",
@@ -991,7 +991,7 @@ sets.midcast.Haste = {
     -- Gear for learning spells: +skill and AF hands.
 sets.Learning = {
     ammo="Mavi Tathlum",
-    head="Luh. Keffiyeh +1",
+    head="Luh. Keffiyeh +2",
     body="Assim. Jubbah +2",
     hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
@@ -1245,7 +1245,7 @@ sets.engaged.Refresh = set_combine(sets.engaged, {
 })
 sets.engaged.Learning = { 
     ammo="Mavi Tathlum",
-    head="Luh. Keffiyeh +1",
+    head="Luh. Keffiyeh +2",
     body="Assim. Jubbah +2",
     hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
@@ -1332,7 +1332,7 @@ sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, {
 })
     
 sets.engaged.DW.Learning =  set_combine(sets.engaged.DW, sets.Learning, {
-    head="Luh. Keffiyeh +1",
+    head="Luh. Keffiyeh +2",
     body="Assim. Jubbah +2",
     hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
@@ -1474,7 +1474,7 @@ sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
 sets.engaged.Refresh.DT = set_combine(sets.engaged.Refresh, sets.engaged.Hybrid)
 sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybrid, {
     ammo="Staunch Tathlum +1",
-    head={ name="Luh. Keffiyeh +1", augments={'Enhances "Convergence" effect',}},
+    head={ name="Luh. Keffiyeh +2", augments={'Enhances "Convergence" effect',}},
     body="Assim. Jubbah +2",
     hands="Assim. Bazu. +2",
     legs="Hashishin Tayt +2",
