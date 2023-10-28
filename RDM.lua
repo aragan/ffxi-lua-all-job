@@ -14,6 +14,7 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- Haste/DW Detection Requires Gearinfo Addon
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -95,7 +96,7 @@ function user_setup()
 	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
     state.Moving = M(false, "moving")
     state.MagicBurst = M(false, 'Magic Burst')
-	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'IDLE'}
+	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'Crocea', 'DAGGERS', 'IDLE'}
 
 	select_default_macro_book()
     send_command('bind !w gs c toggle WeaponLock')
@@ -1505,6 +1506,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 	check_gear()
 	if state.WeaponSet.value == "SWORDS" then
         equip({main="Naegling", sub="Demers. Degen +1",})
+	elseif state.WeaponSet.value == "Crocea" then
+        equip({main="Crocea Mors", sub="Naegling",})
     elseif state.WeaponSet.value == "DAGGERS" then
         equip({main="Tauret", sub="Gleti's Knife",})
 	elseif state.WeaponSet.value == "IDLE" then

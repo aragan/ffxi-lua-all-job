@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
+-- Haste/DW Detection Requires Gearinfo Addon
 
 ---------------------------------------------------------------------------------
 -- This lua is based off of the Kinematics template and uses Motenten globals. --
@@ -189,7 +190,7 @@ function job_setup()
     }
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget",}
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
     elemental_ws = S{'Flash Nova', 'Sanguine Blade'}
 
 end
@@ -204,7 +205,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT', 'STR')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.CastingMode:options('Normal', 'SIRD')
+    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP')
     state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'EnemyCritRate', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
@@ -818,7 +819,13 @@ sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magic
 })
 
     -- Other Types --
-    
+
+sets.ConserveMP = {    
+    ammo="Pemphredo Tathlum",
+    body="Vedic Coat",
+    waist="Austerity Belt +1",
+}
+
 sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {})
         
 sets.midcast['Blue Magic']['White Wind'] = {
@@ -1516,9 +1523,9 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
 sets.engaged.DW.Refresh.DT.MaxHaste = set_combine(sets.engaged.DW.Refresh.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxHaste, sets.engaged.Hybrid, {})
 
-  ------------------------------------------------------------------------------------------------
-    ---------------------------------------- Special Sets ------------------------------------------
-    ------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+---------------------------------------- Special Sets ------------------------------------------
+------------------------------------------------------------------------------------------------
 
     sets.TreasureHunter = {ammo="Per. Lucky Egg",
     head="White rarab cap +1", 
@@ -1603,6 +1610,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         end
     end
+    if state.CastingMode.value == 'SIRD' then
+        equip(sets.SIRD)
+    elseif state.CastingMode.value == 'ConserveMP' then
+        equip(sets.ConserveMP)
+    end
 end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
@@ -1614,7 +1626,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
                 equip(sets.buff[buff])
             end
         end
-        if spellMap == 'Healing' and spell.target.type == 'SELF' and sets.self_healing then
+        if spellMap == 'Healing' and spell.target.type == 'SELF' then
             equip(sets.self_healing)
         end
         if spellMap == 'Magical' then
@@ -1622,9 +1634,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
                 equip({waist="Hachirin-no-Obi"})
             end
         end
-    end
-    if state.CastingMode.value == 'SIRD' then
-        equip(sets.SIRD)
     end
     if spell.skill == 'Enhancing Magic' and classes.NoSkillSpells:contains(spell.english) then
         equip(sets.midcast['Enhancing Magic'])
@@ -1719,7 +1728,7 @@ function job_buff_change(buff, gain)
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
-            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
+            send_command('input /p '..player.name..' is no longer Sleep!')
             handle_equipping_gear(player.status)    
         end
         if not midaction() then

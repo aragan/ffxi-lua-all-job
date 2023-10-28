@@ -4,6 +4,7 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- Haste/DW Detection Requires Gearinfo Addon
 
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
@@ -46,7 +47,7 @@ function job_setup()
     send_command('lua l AutoCOR')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
-    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch", "Cumulus Masque +1",}
+    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch", "Cumulus Masque +1", "Airmid's Gorget",}
     elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
@@ -832,7 +833,7 @@ sets.engaged.CRIT = {
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
 
-         --DW cap all set haste capped
+    --DW cap all set haste capped
 
         sets.engaged.DW = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
