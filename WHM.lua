@@ -83,6 +83,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Duration', 'Enmity')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'MP')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -92,6 +93,7 @@ function user_setup()
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 174')
+    send_command('bind f1 gs c cycle HippoMode')
 
     select_default_macro_book()
 end
@@ -1272,6 +1274,11 @@ end
 function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
     return idleSet
 end

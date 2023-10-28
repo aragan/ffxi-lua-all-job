@@ -177,9 +177,11 @@ function user_setup()
     state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'PDT', 'Regen')
     state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     gear.perp_staff = {name=""}
     send_command('wait 2;input /lockstyleset 174')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
@@ -1024,6 +1026,11 @@ function customize_idle_set(idleSet)
     end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
     return idleSet
 end

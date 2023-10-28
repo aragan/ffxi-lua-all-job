@@ -112,12 +112,15 @@ function user_setup()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
+    send_command('bind f1 gs c cycle HippoMode')
+
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Knockback = M(false, 'Knockback')
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
-	select_default_macro_book()
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    select_default_macro_book()
 end
 
 
@@ -782,9 +785,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        idleSet = set_combine(idleSet, sets.latent_refresh)
-    end
     if state.Knockback.value == true then
         idleSet = set_combine(idleSet, sets.defense.Knockback)
     end
@@ -794,6 +794,11 @@ function customize_idle_set(idleSet)
     --else
     --    enable('back')
     --end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end

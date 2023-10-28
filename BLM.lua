@@ -59,6 +59,7 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
@@ -96,6 +97,7 @@ function job_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind ^; gs enable all')
     send_command('bind !- gs c toggle RP')  
+    send_command('bind f1 gs c cycle HippoMode')
 
     select_default_macro_book()
 end
@@ -1362,6 +1364,11 @@ function customize_idle_set(idleSet)
         disable('neck')
     else
         enable('neck')
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
     return idleSet
 end

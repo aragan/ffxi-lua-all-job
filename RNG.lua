@@ -78,7 +78,7 @@ function job_setup()
 	include('Mote-TreasureHunter')
 	state.TreasureMode:set('Tag')
 	state.WeaponLock = M(false, 'Weapon Lock')
-	send_command('bind @w gs c toggle WeaponLock')
+	send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     update_combat_form()
 end
@@ -93,6 +93,7 @@ function user_setup()
 	state.HybridMode:options('Normal', 'Shield')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
 	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
@@ -133,7 +134,10 @@ function user_setup()
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 152')
-
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind ^- gs enable all')
+    send_command('bind ^/ gs disable all')
+    send_command('bind f4 input //fillmode')
 end
 
 
@@ -810,7 +814,23 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+    
+    return idleSet
+end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
 
+	return meleeSet
+end
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.

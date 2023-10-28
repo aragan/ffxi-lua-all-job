@@ -76,8 +76,7 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 152')
 	state.WeaponLock = M(false, 'Weapon Lock')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
-    "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
 	absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
 
 end
@@ -91,12 +90,15 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'Enmity')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Enmity')
+	state.PhysicalDefenseMode:options('PDT')
+    state.MagicalDefenseMode:options('MDT')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
 	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
     state.Moving = M(false, "moving")
     state.MagicBurst = M(false, 'Magic Burst')
 	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'Crocea', 'DAGGERS', 'IDLE'}
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	select_default_macro_book()
     send_command('bind !w gs c toggle WeaponLock')
@@ -105,6 +107,7 @@ function user_setup()
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
 	send_command('bind f6 gs c cycle WeaponSet')
+	send_command('bind f1 gs c cycle HippoMode')
 	send_command('wait 2;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -232,11 +235,11 @@ function init_gear_sets()
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Requiescat'] = {
 		ammo="Regal Gem",
-		head={ name="Nyame Helm", augments={'Path: B',}},
-		body={ name="Nyame Mail", augments={'Path: B',}},
+		head="Nyame Helm",
+		body="Nyame Mail",
 		hands="Bunzi's Gloves",
-		legs={ name="Nyame Flanchard", augments={'Path: B',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Malignance Earring",
@@ -864,7 +867,7 @@ sets.TreasureHunter = {
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Shamash Robe",
 		hands="Nyame Gauntlets",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
@@ -925,13 +928,30 @@ sets.TreasureHunter = {
 		back="Moonlight Cape",
 	}
 
+	sets.idle.HP={
+		main="Naegling",
+		ammo="Staunch Tathlum +1",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+		waist="Plat. Mog. Belt",
+		left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+		right_ear="Tuisto Earring",
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Ilabrat Ring",
+		back="Moonlight Cape",
+	}
+
 	sets.idle.Enmity = {
 		ammo="Sapience Orb",
-		head={ name="Nyame Helm", augments={'Path: B',}},
+		head="Nyame Helm",
 		body={ name="Emet Harness +1", augments={'Path: A',}},
 		hands={ name="Merlinic Dastanas", augments={'Magic burst dmg.+6%','MND+7','"Mag.Atk.Bns."+5',}},
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		feet="Nyame Sollerets",
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 		waist="Flume Belt +1",
 		left_ear="Trux Earring",
@@ -1208,7 +1228,7 @@ sets.TreasureHunter = {
 	}
 
 	sets.Adoulin = {body="Councilor's Garb",}
-
+	sets.Kiting = {legs = "Carmine Cuisses +1",}
     sets.MoveSpeed = {legs = "Carmine Cuisses +1",}
 		
 	sets.ConsMP = sets.precast['Impact']
@@ -1408,15 +1428,24 @@ end
 
 
 function customize_melee_set(meleeSet)
-    if (buffactive['Embrava'] or buffactive['March'] or buffactive[580] or buffactive['Mighty Guard']) then
-        meleeSet = set_combine(sets.engaged, sets.engaged.Haste_43)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
+
 	return meleeSet
 end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
+	if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+	if state.Auto_Kite.value == true then
+		idleSet = set_combine(idleSet, sets.Kiting)
+	end
+    --[[if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
         elseif state.IdleMode.value == 'PDT' then
             idleSet = sets.idle.PDT
@@ -1424,12 +1453,21 @@ function customize_idle_set(idleSet)
             idleSet = sets.idle.MDT
         elseif state.IdleMode.value == 'Normal' then
             idleSet = sets.idle.Normal
-        end
+        end]]
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
     
     return idleSet
+end
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
 end
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
@@ -1504,6 +1542,7 @@ end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
 	check_gear()
+	check_moving()
 	if state.WeaponSet.value == "SWORDS" then
         equip({main="Naegling", sub="Demers. Degen +1",})
 	elseif state.WeaponSet.value == "Crocea" then
@@ -1529,12 +1568,6 @@ function equip_gear_by_status(status)
 	end
 end
 
-mov = {counter=0}
-if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
-    mov.x = windower.ffxi.get_mob_by_index(player.index).x
-    mov.y = windower.ffxi.get_mob_by_index(player.index).y
-    mov.z = windower.ffxi.get_mob_by_index(player.index).z
-end
 
 mov = {counter=0}
 if player and player.index and windower.ffxi.get_mob_by_index(player.index) then

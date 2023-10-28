@@ -79,13 +79,18 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'PDL', 'Fodder')
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     update_combat_form()
     update_melee_groups()
     --send_command('bind != gs c toggle CapacityMode')
     send_command('wait 2;input /lockstyleset 179')
     send_command('bind ^= gs c cycle treasuremode')
-
+    send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f4 input //fillmode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     select_default_macro_book()
 end
 -- Called when this job file is unloaded (eg: job change)
@@ -875,12 +880,23 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
     return idleSet
 end
-
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    
+    return meleeSet
+end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
     update_combat_form()

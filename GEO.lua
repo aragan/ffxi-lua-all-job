@@ -42,6 +42,7 @@ function user_setup()
     state.Buff.Poison = buffactive['Poison'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
     state.CastingMode:options('Normal', 'MB')
@@ -55,7 +56,10 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 178')
-
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind ^- gs enable all')
+    send_command('bind ^/ gs disable all')
+    send_command('bind f4 input //fillmode')
 end
 
 function file_unload()
@@ -878,6 +882,11 @@ function customize_idle_set(idleSet)
     end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
     --if state.CapacityMode.value then
         --idleSet = set_combine(idleSet, sets.CapacityMantle)

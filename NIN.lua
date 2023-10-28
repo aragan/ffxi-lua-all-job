@@ -886,7 +886,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ear="Odr Earring",
         right_ring="Regal Ring",
         left_ring="Gere Ring",
-        back="Andartia's Mantle",
+        back="Sacro Mantle",
     })
     sets.precast.WS['Blade: Hi'].SC = set_combine(sets.precast.WS['Blade: Hi'], {
         body="Nyame Mail",
@@ -902,21 +902,6 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Hattori Earring +1", 
         left_ring="Cornelia's Ring",
         right_ring="Sroda Ring", 
-    })
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        ammo="Pemphredo Tathlum",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Sibyl Scarf",
-        waist="Orpheus's Sash",
-        right_ear="Hattori Earring +1", 
-        left_ear="Friomisi Earring",
-        left_ring="Cornelia's Ring",
-        right_ring="Dingir Ring",
-        back="Argocham. Mantle",
     })
     
     -- BLADE: SHUN
@@ -1046,7 +1031,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear="Ishvara Earring",
         left_ring="Cornelia's Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back="Andartia's Mantle",
+        back="Sacro Mantle",
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], { 
         ammo="Crepuscular Pebble",
@@ -1075,7 +1060,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ring="Dingir Ring",
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        back="Andartia's Mantle",
+        back="Sacro Mantle",
     })
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -1108,7 +1093,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ring="Cornelia's Ring",
         right_ring="Gere Ring",
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-        back="Argocham. Mantle",
+        back="Sacro Mantle",
        })
     sets.precast.WS['Blade: Teki'] = sets.precast.WS['Blade: Chi']
     sets.precast.WS['Blade: To'] = sets.precast.WS['Blade: Chi']
@@ -1127,7 +1112,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring="Cornelia's Ring",
-        back="Argocham. Mantle",
+        back="Sacro Mantle",
        })
        sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS)
        sets.precast.WS['Asuran Fists'].Acc = set_combine(sets.precast.WS['Blade: Shun'].Acc, sets.precast.WS)

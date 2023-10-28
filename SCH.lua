@@ -144,6 +144,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'DT')
     state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow')
     state.IdleMode:options('Normal', 'DT', 'Resist')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 
     -- Additional local binds
@@ -169,6 +170,7 @@ function user_setup()
     send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
     send_command('bind f7 gs c cycle StaffMode')
+    send_command('bind f1 gs c cycle HippoMode')
 
 
 
@@ -1203,7 +1205,12 @@ function customize_idle_set(idleSet)
         disable('neck')
     else
         enable('neck')
-    end   
+    end
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
     return idleSet
 end
 
