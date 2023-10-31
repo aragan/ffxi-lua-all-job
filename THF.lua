@@ -588,7 +588,6 @@ sets.idle.Evasion = sets.defense.Evasion
 
     sets.idle.Town = {
         feet="Jute Boots +1",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
     }
     sets.Adoulin = {body="Councilor's Garb",}
@@ -626,7 +625,7 @@ sets.idle.Evasion = sets.defense.Evasion
         legs="Malignance Tights",
         feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Reiki Yotai",
+        waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
         left_ring="Defending Ring",
         right_ring="Moonlight Ring",
@@ -641,7 +640,7 @@ sets.idle.Evasion = sets.defense.Evasion
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Reiki Yotai",
+        waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Moonlight Ring",

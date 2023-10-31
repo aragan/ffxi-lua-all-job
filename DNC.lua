@@ -173,7 +173,11 @@ function init_gear_sets()
     sets.precast.JA['Trance'] = {}
 
     sets.CapacityMantle  = {}
-
+    sets.TreasureHunter = { 
+        ammo="Per. Lucky Egg",
+        head="White rarab cap +1", 
+        waist="Chaac Belt",
+    }
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {ammo="Yamarang",
     head="Mummu Bonnet +1",
@@ -635,19 +639,8 @@ sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, {
 })
 
     sets.idle.Town = {   
-     ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
-    body="Gleti's Cuirass",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
     feet="Tandava Crackows",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
     left_ear="Infused Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Paguroidea Ring",
-    back="Moonlight Cape",
 }
     
     sets.idle.Weak = {    ammo="Staunch Tathlum +1",
