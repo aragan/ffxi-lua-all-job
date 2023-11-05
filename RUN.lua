@@ -148,10 +148,10 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark trousers +1"}
+    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark Trousers +2"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
     sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
-    sets.precast.JA['Battuta'] = {head="Futhark Bandeau +1"}
+    sets.precast.JA['Battuta'] = {head="Fu. Bandeau +3"}
     sets.precast.JA['Liement'] = {body="Futhark Coat +1"}
     sets.precast.JA['Lunge'] = {
         head="Agwu's Cap",
@@ -202,7 +202,7 @@ function init_gear_sets()
         legs="Doyen Pants",
         })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-        legs="Futhark trousers +1",
+        legs="Futhark Trousers +2",
         waist="Siegel Sash",
     })
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
@@ -354,7 +354,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Futhark trousers +1",
+    legs="Futhark Trousers +2",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     waist="Olympus Sash",
@@ -367,7 +367,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
-        head="Futhark Bandeau +1",
+        head="Fu. Bandeau +3",
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
     })
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
@@ -381,11 +381,11 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ear="Erilaz Earring +2",
     })
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
-           ammo="Staunch Tathlum +1",
-           head="Erilaz Galea +2",
-           body="Nyame Mail",
+    ammo="Staunch Tathlum +1",
+    head="Erilaz Galea +2",
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Futhark trousers +1",
+    legs="Futhark Trousers +2",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},

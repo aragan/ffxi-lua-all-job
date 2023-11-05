@@ -190,14 +190,14 @@ function init_gear_sets()
     body="Gleti's Cuirass",
     legs="Dashing Subligar",}
     
-    sets.precast.Samba = {}
+    sets.precast.Samba = {head="Maxixi Tiara +2",}
 
     sets.precast.Jig = {}
 
     sets.precast.Step = {    ammo="C. Palug Stone",
-    head="Malignance Chapeau",
+    head="Maxixi Tiara +2",
     body="Malignance Tabard",
-    hands="Malignance Gloves",
+    hands="Maxixi Bangles +2",
     legs="Malignance Tights",
     feet="Horos Toe Shoes +1",
     neck="Subtlety Spec.",
@@ -210,9 +210,9 @@ function init_gear_sets()
 }
 
     sets.precast.Step['Feather Step'] = {    ammo="C. Palug Stone",
-    head="Malignance Chapeau",
+    head="Maxixi Tiara +2",
     body="Malignance Tabard",
-    hands="Malignance Gloves",
+    hands="Maxixi Bangles +2",
     legs="Malignance Tights",
     feet="Horos Toe Shoes +1",
     neck="Subtlety Spec.",
@@ -359,6 +359,14 @@ function init_gear_sets()
 }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Passion Jacket",})
+    -- Ranged snapshot gear
+    sets.precast.RA = {        range="Trollbane",  
+        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
+        waist="Yemaya Belt",}
+
+        sets.precast.RA.Acc = {       
+        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
+        waist="Yemaya Belt",}
 
        
     -- Weaponskill sets
@@ -547,6 +555,39 @@ function init_gear_sets()
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Prolix Ring",}
+
+    
+    -- Ranged gear
+    sets.midcast.RA = {ammo=empty,
+        range="Trollbane",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Dingir Ring",
+        right_ring="Cacoethic Ring",
+    }
+
+    sets.midcast.RA.Acc = {
+        range="Ullr",
+        ammo="Beryllium Arrow",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Yemaya Belt",
+        left_ear="Telos Earring",
+        right_ear="Crep. Earring",
+        left_ring="Dingir Ring",
+        right_ring="Cacoethic Ring",
+    }
 
     
     -- Sets to return to when not performing an action.
