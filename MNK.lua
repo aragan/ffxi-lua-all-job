@@ -109,7 +109,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +1"}
     sets.precast.JA['Boost'] = {hands="Anchorite's Gloves +1"}
-    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +1"}
+    sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Focus'] = {head="Anchorite's Crown +1"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +1"}
     sets.precast.JA['Footwork'] = {feet="Tantra Gaiters +2"}
@@ -767,8 +767,8 @@ sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +2"}
-    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.footwork_kick_feet = {feet="Anch. Gaiters +3"}
+    sets.Doom = {neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}

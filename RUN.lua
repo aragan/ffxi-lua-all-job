@@ -148,13 +148,13 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark Trousers +2"}
+    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark Trousers +3"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
     sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
     sets.precast.JA['Battuta'] = {head="Fu. Bandeau +3"}
     sets.precast.JA['Liement'] = {body="Futhark Coat +1"}
     sets.precast.JA['Lunge'] = {
-        head="Agwu's Cap",
+    head="Agwu's Cap",
     body="Agwu's Robe",
     hands={ name="Agwu's Gages", augments={'Path: A',}},
     legs="Agwu's Slops",
@@ -202,7 +202,7 @@ function init_gear_sets()
         legs="Doyen Pants",
         })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-        legs="Futhark Trousers +2",
+        legs="Futhark Trousers +3",
         waist="Siegel Sash",
     })
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
@@ -354,7 +354,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Futhark Trousers +2",
+    legs="Futhark Trousers +3",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     waist="Olympus Sash",
@@ -385,7 +385,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
-    legs="Futhark Trousers +2",
+    legs="Futhark Trousers +3",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},

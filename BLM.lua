@@ -47,11 +47,11 @@ end
 -- If you're new to gearswap, the F9~12 keys and CTRL keys in combination is how you activate this stuff.
 
 function user_setup()
-    state.OffenseMode:options('None', 'Locked')
+    state.OffenseMode:options('None','Normal','TP', 'Locked')
     state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
     state.IdleMode:options('Normal', 'PDT')
+    state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
-	state.ManawallMode = M('Swaps', 'No_Swaps')
 	state.Enfeebling = M('None', 'Effect')
 	--Vorseal mode is handled simply when zoning into an escha zone--
     state.Moving  = M(false, "moving")
@@ -69,25 +69,12 @@ function user_setup()
 
  
     degrade_array = {
-        ['Fire'] = {'Fire','Fire II','Fire III','Fire IV','Fire V','Fire VI'},
-        ['Firega'] = {'Firaga','Firaga II','Firaga III','Firaja'},
-        ['Ice'] = {'Blizzard','Blizzard II','Blizzard III','Blizzard IV','Blizzard V','Blizzard VI'},
-        ['Icega'] = {'Blizzaga','Blizzaga II','Blizzaga III','Blizzaja'},
-        ['Wind'] = {'Aero','Aero II','Aero III','Aero IV','Aero V','Aero VI'},
-        ['Windga'] = {'Aeroga','Aeroga II','Aeroga III','Aeroja'},
-        ['Earth'] = {'Stone','Stone II','Stone III','Stone IV','Stone V','Stone VI'},
-        ['Earthga'] = {'Stonega','Stonega II','Stonega III','Stoneja'},
-        ['Lightning'] = {'Thunder','Thunder II','Thunder III','Thunder IV','Thunder V','Thunder VI'},
-        ['Lightningga'] = {'Thundaga','Thundaga II','Thundaga III','Thundaja'},
-        ['Water'] = {'Water', 'Water II','Water III', 'Water IV','Water V','Water VI'},
-        ['Waterga'] = {'Waterga','Waterga II','Waterga III','Waterja'},
-        ['Aspirs'] = {'Aspir','Aspir II','Aspir III'},
-        ['Sleepgas'] = {'Sleepga','Sleepga II'}
-    }
+        ['Aspirs'] = {'Aspir','Aspir II','Aspir III'}
+        }
+    
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
 	send_command('bind ^f11 gs c cycle Enfeebling')
-	send_command('bind f12 gs c cycle ManawallMode')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind ^= gs c cycle treasuremode')
@@ -184,13 +171,14 @@ function init_gear_sets()
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
 	}
+    sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
+    sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
+    sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
 
 	sets.precast['Impact'] = {
-	    ammo="Sapience Orb",
-    head={ name="Merlinic Hood", augments={'Mag. Acc.+9 "Mag.Atk.Bns."+9','Magic burst dmg.+11%','Mag. Acc.+9',}},
-        body="Agwu's Robe",
+	ammo="Sapience Orb",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
     feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
     left_ear="Etiolation Earring",
@@ -478,7 +466,7 @@ function init_gear_sets()
         body="Cohort Cloak +1",
         hands="Amalric Gages +1",
         legs="Arch. Tonban +3",
-        feet="Arch. Sabots +1",
+        feet="Arch. Sabots +3",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
         ear1="Malignance Earring",
@@ -679,7 +667,7 @@ function init_gear_sets()
         body="Twilight Cloak",
         hands="Amalric Gages +1",
         legs="Arch. Tonban +3",
-        feet="Arch. Sabots +1",
+        feet="Arch. Sabots +3",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
         ear1="Malignance Earring",
@@ -796,9 +784,12 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
 		back="Taranus's Cape",
-		}
-        --sets.idle.Field = sets.idle
-
+	}
+    --sets.idle.Field = sets.idle
+    sets.idle.ManaWall = {
+        feet="Wicce Sabots +1",
+		back="Taranus's Cape",
+    }
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {
     ammo="Staunch Tathlum +1",
@@ -828,7 +819,7 @@ function init_gear_sets()
     waist="Chaac Belt"} 
     -- Set for Conserve MP toggle, convert damage to MP body.
 	
-    sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
+    --sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
  
     --- PDT set is designed to be used for MP total set, MDT can be used for whatever you like but in MDT mode
 	--- the player.mp arguments will likely stop working properly
@@ -999,9 +990,14 @@ end
 --- function block for this file.
  
 function job_precast(spell, action, spellMap, eventArgs)
-    enable('feet','back')	
-	if spell.english == "Impact" then
-		sets.precast.FC = sets.precast['Impact']
+    if spell.english == "Impact" then
+        equip(sets.precast.FC.Impact)
+    end
+    if spell.name:startswith('Aspir') then
+        refine_various_spells(spell, action, spellMap, eventArgs)
+    end
+    if buffactive['Mana Wall'] then
+        equip(sets.precast.JA['Mana Wall'])
     end
 end
 function job_pretarget(spell, action, spellMap, eventArgs)
@@ -1011,14 +1007,8 @@ function job_pretarget(spell, action, spellMap, eventArgs)
     end
 end
 function job_post_precast(spell, action, spellMap, eventArgs)
-	if player.mp > 2000 and state.VorsealMode.value == 'Vorseal' then
-	equip(sets.precast.FC.HighMP)
-	elseif player.mp < 2000 and state.VorsealMode.value == 'Vorseal' then
-	equip(sets.precast.FC)
-	elseif player.mp > 1650 and state.VorsealMode.value == 'Normal' then
-	equip(sets.precast.FC.HighMP)
-	elseif player.mp < 1650 and state.VorsealMode.value == 'Normal' then
-	equip(sets.precast.FC)
+    if spell.name == 'Impact' then
+        equip(sets.precast.FC.Impact)
     end
 end
 
@@ -1063,17 +1053,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if (spell.skill == 'Elemental Magic' or spell.skill == 'Healing Magic') and (spell.element == world.weather_element or spell.element == world.day_element) then
         equip(sets.Obi)
 	end
-	
-	
-	if spell.english == 'Aspir' or spell.english == 'Aspir II' or spell.english == 'Aspir III' and state.VorsealMode.value == 'Vorseal' and player.mp > 1765 then
-		equip(sets.midcast.HighMP)
-	elseif spell.english == 'Aspir' or spell.english == 'Aspir II' or spell.english == 'Aspir III' and state.VorsealMode.value == 'Vorseal' and player.mp < 1765 then
-		equip(sets.midcast.LowMP)
-	elseif spell.english == 'Aspir' or spell.english == 'Aspir II' or spell.english == 'Aspir III' and state.VorsealMode.value == 'Normal' and player.mp > 1580 then
-		equip(sets.midcast.HighMP)
-	elseif spell.english == 'Aspir' or spell.english == 'Aspir II' or spell.english == 'Aspir III' and state.VorsealMode.value == 'Normal' and player.mp < 1580 then
-		equip(sets.midcast.LowMP)
-	end
+    if buffactive['Mana Wall'] then
+        equip(sets.precast.JA['Mana Wall'])
+    end
 	
     if spell.element == world.day_element or spell.element == world.weather_element then
         if string.find(spell.english,'helix') then
@@ -1094,14 +1076,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip(sets.AFBody)
 	end]]
 	
-	if spellMap == 'Cure' and state.ManawallMode.Value == 'No_Swaps' then
-		equip(sets.midcast.Mana_Wall_No_Swap)
-	elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
+	if spellMap == 'Cure' and spell.target.type == 'SELF' then
         equip(sets.midcast.CureSelf)
-	end
-	
-	if spell.skill == 'Enhancing Magic' and state.ManawallMode.Value == 'No_Swaps' then
-		equip(sets.midcast.Mana_Wall_No_Swap)
 	end
 end
  
@@ -1168,8 +1144,6 @@ end
  
 function refine_various_spells(spell, action, spellMap, eventArgs)
     local aspirs = S{'Aspir','Aspir II','Aspir III'}
-    local sleeps = S{'Sleep','Sleep II'}
-    local sleepgas = S{'Sleepga','Sleepga II'}
  
     local newSpell = spell.english
     local spell_recasts = windower.ffxi.get_spell_recasts()
@@ -1233,11 +1207,6 @@ function job_buff_change(buff, gain)
 	--if buff == "poison" and gain then
 	--send_command('input /item "antidote" <me>')
 	--end
-	if buff == "Vorseal" then
-	send_command('gs c cycle VorsealMode')
-	elseif buff == "Vorseal" and not gain then
-	send_command('gs c cycle VorsealMode')
-	end
 	--[[if buff == "Visitant" then
 	send_command('gs l blm3.lua')
 	end]]
@@ -1249,19 +1218,16 @@ function job_buff_change(buff, gain)
         enable('feet','back')
         handle_equipping_gear(player.status)
     end
-    if buff == "Commitment" and not gain then
-        equip({ring2="Capacity Ring"})
-        if player.equipment.right_ring == "Capacity Ring" then
-            disable("ring2")
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            send_command('@input /p Doomed.')
+            disable('ring1','ring2','waist')
         else
-            enable("ring2")
+            enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
         end
     end
-	if buff == "Vorseal" and gain then
-	send_command('input //setbgm 75')
-	elseif buff == "Vorseal" and not gain then
-	send_command('input //setbgm 251')
-	end
 end
  
 -- Handle notifications of general user state change.
@@ -1326,21 +1292,12 @@ end
  
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-	if buffactive['Mana Wall'] then
-        idleSet = sets.buff['Mana Wall']
-	elseif player.mpp < 51 and state.IdleMode.value == 'PDT' then
-			idleSet = sets.idle.PDT
-	elseif player.mpp < 51 and state.IdleMode.value == 'Normal' then
-		idleSet = set_combine(sets.auto_refresh, sets.latent_refresh)		
-	elseif player.mp < 1765 and state.VorsealMode.value == 'Vorseal' and state.IdleMode.value == 'PDT' then
-			idleSet = sets.idle.PDT
-	elseif player.mp < 1765 and state.VorsealMode.value == 'Vorseal' and state.IdleMode.value == 'Normal' then
-			idleSet = sets.auto_refresh
-	elseif player.mp < 1580 and state.VorsealMode.value == 'Normal' and state.IdleMode.value == 'PDT' then
-			idleSet = sets.idle.PDT
-	elseif player.mp < 1580 and state.VorsealMode.value == 'Normal' and state.IdleMode.value == 'Normal' then
-			idleSet = sets.auto_refresh
-	end
+    if buffactive['Mana Wall'] then
+        idleSet = set_combine(idleSet, sets.precast.JA['Mana Wall'])
+    end
+    if player.mpp < 51 then
+        idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
     if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
