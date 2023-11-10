@@ -19,7 +19,6 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {    
-    "Lycurgos",
     "Reikiko",
     "Tumult's Blood",
     "Sarama's Hide",
@@ -118,11 +117,16 @@ function user_setup()
     state.CastingMode:options('Normal', 'MB', 'ConserveMP', 'sird')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    state.IdleMode:options('Normal', 'Refresh')
+    state.IdleMode:options('Normal','PDT', 'Refresh')
 
     state.RP = M(false, "Reinforcement Points Mode")    
     war_sj = player.sub_job == 'WAR' or false
-  
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    state.Moving  = M(false, "moving")
+    Haste = 0
+    DW_needed = 0
+    DW = false
+    moving = false
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind != gs c toggle CapacityMode')
@@ -952,7 +956,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     head=empty,
     body={ name="Lugra Cloak +1", augments={'Path: A',}},
     hands="Sakpata's Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
@@ -983,7 +987,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         head=empty,
         body={ name="Lugra Cloak +1", augments={'Path: A',}},
         hands="Sakpata's Gauntlets",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        legs="Sakpata's Cuisses",
         feet="Sakpata's Leggings",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
@@ -993,9 +997,12 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     })
+    sets.Adoulin = {body="Councilor's Garb",}
+    sets.Kiting = {legs="Carmine Cuisses +1",}
+    sets.MoveSpeed = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
 
-    sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail",}
-    sets.idle.Field.Weak = {head="Crepuscular Helm",body="Crepuscular Mail",}
+    sets.idle.Weak = {head="Twilight Helm",body="Crepuscular Mail"}
+    sets.idle.Field.Weak = {head="Twilight Helm",body="Crepuscular Mail"}
 
       
     sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
@@ -1003,7 +1010,21 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     })
-  
+    sets.idle.PDT = {
+        ammo="Staunch Tathlum +1",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Eabani Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Moonlight Ring",
+    back="Moonlight Cape",
+}
     sets.idle.Sphere = set_combine(sets.idle, {   })
   
     --------------------------------------
@@ -1111,7 +1132,7 @@ sets.defense.SEboost = {
     sets.defense.Reraise = set_combine(sets.defense.PDT, {
         ammo="Staunch Tathlum +1",
     head="Sakpata's Helm",
-    head="Crepuscular Helm",
+    head="Twilight Helm",
     body="Crepuscular Mail",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
@@ -1124,8 +1145,7 @@ sets.defense.SEboost = {
     back="Moonlight Cape",
 })
   
-        sets.Kiting = {legs="Carmine Cuisses +1",
-    }
+
     --------------------------------------
     -- Engaged sets
     --------------------------------------
@@ -1508,14 +1528,14 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
 
     sets.engaged.Reraise = set_combine(sets.engaged, {	
-	head="Crepuscular Helm",
+	head="Twilight Helm",
     body="Crepuscular Mail",})
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-    sets.Reraise = {head="Crepuscular Helm",body="Crepuscular Mail",}
+    sets.Reraise = {head="Twilight Helm",body="Crepuscular Mail"}
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
     sets.RP = {neck="Abyssal Beads +2"}
   
@@ -1627,6 +1647,11 @@ end
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(status, eventArgs)
+    war_sj = player.sub_job == 'WAR' or false
+    update_melee_groups()
+    job_self_command()
+    update_combat_form()
+    user_job_lockstyle()
 end
 function job_self_command(cmdParams, eventArgs)
     if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
@@ -1640,6 +1665,9 @@ function customize_idle_set(idleSet)
     if state.IdleMode.current == 'Refresh' then
         idleSet = set_combine(idleSet, sets.idle.Refresh)
     end
+    if state.IdleMode.current == 'PDT' then
+        idleSet = set_combine(idleSet, sets.idle.PDT)
+    end
     if state.HybridMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.defense.PDT)
     end
@@ -1649,11 +1677,6 @@ function customize_idle_set(idleSet)
     else
         enable('neck')
     end       
-    if swordList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 152')
-   elseif gsList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 165')
-   end
 
     return idleSet
 end
@@ -1692,6 +1715,13 @@ function job_status_change(newStatus, oldStatus, eventArgs)
         --    send_command('@wait 1.0;cancel hasso')
         --end
         -- handle weapon sets
+    --[[if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    elseif gsList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 165')
+        handle_equipping_gear(player.status)
+
+    end]]
     if remaWeapons:contains(player.equipment.main) then
         state.CombatWeapon:set(player.equipment.main)
     end
@@ -1745,7 +1775,7 @@ function job_buff_change(buff, gain)
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
-    if buff == "Sleep" then
+    if buff == "sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
@@ -1847,13 +1877,49 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-    war_sj = player.sub_job == 'WAR' or false
     get_combat_form()
-    update_melee_groups()
-    job_self_command()
-    update_combat_form()
+    handle_equipping_gear(player.status)
+
+end
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
 end
 
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 
@@ -1900,11 +1966,11 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 function get_combat_form()
-    if swordList:contains(player.equipment.main) then
+    --[[if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 152')
     elseif gsList:contains(player.equipment.main) then
         send_command('input /lockstyleset 165')
-    end
+    end]]
     if S{'NIN', 'DNC'}:contains(player.sub_job) and swordList:contains(player.equipment.main) then
         state.CombatForm:set("DW")
     --elseif player.equipment.sub == '' or shields:contains(player.equipment.sub) then
@@ -1990,6 +2056,15 @@ function sub_job_change(new,old)
     if user_setup then
         user_setup()
         send_command('wait 6;input /lockstyleset 152')
+    end
+end
+function user_job_lockstyle()
+    if newStatus == "Idle" then
+        if gsList:contains(player.equipment.main) then
+            windower.chat.input('/lockstyleset 165')
+        else
+            windower.chat.input('/lockstyleset 152')
+        end
     end
 end
 function select_default_macro_book()
