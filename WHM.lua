@@ -80,14 +80,14 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'MaxAcc', 'Shield')
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
-    state.CastingMode:options('Normal', 'ConserveMP', 'sird', 'Duration', 'Enmity')
+    state.CastingMode:options('Normal', 'ConserveMP', 'SIRD', 'Duration', 'Enmity')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'MP')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('bind f7 @input /ja "Sublimation" <me>')
+    send_command('bind f3 @input /ja "Sublimation" <me>')
     send_command('bind f4 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
@@ -350,7 +350,7 @@ function init_gear_sets()
         left_ring="Freke Ring",
         right_ring="Evanescence Ring",
     }
-    sets.midcast.sird = {
+    sets.midcast.SIRD = {
         ammo="Staunch Tathlum +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
         body="Rosette Jaseran +1",
@@ -407,9 +407,10 @@ function init_gear_sets()
     right_ring="Mephitas's Ring",
     back="Alaunus's Cape",}
 
-    sets.midcast.CureSolace.sird = set_combine(sets.midcast.CureSolace, {
+    sets.midcast.CureSolace.SIRD = set_combine(sets.midcast.CureSolace, {
         ammo="Staunch Tathlum +1",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
         legs="Bunzi's Pants",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Rumination Sash",
@@ -466,8 +467,8 @@ function init_gear_sets()
     right_ring="Mephitas's Ring",
     back="Alaunus's Cape",}
 
-    sets.midcast.Cure.sird = set_combine(sets.midcast.Cure, {
-        main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
+    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Genmei Shield",
     ammo="Staunch Tathlum +1",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -531,7 +532,7 @@ function init_gear_sets()
     back="Alaunus's Cape",
 }
 
-    sets.midcast.Curaga.sird = set_combine(sets.midcast.Curaga, {
+    sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Curaga, {
     main="Daybreak",
     sub="Genmei Shield",
     ammo="Staunch Tathlum +1",
@@ -589,17 +590,18 @@ function init_gear_sets()
     sets.midcast.CureSolaceWeather = set_combine(sets.midcast.CureSolace, {
         back="Twilight Cape",
         waist="Hachirin-no-Obi",
-        })
+    })
 
     sets.midcast.CureWeather = set_combine(sets.midcast.Cure, {
         back="Twilight Cape",
         waist="Hachirin-no-Obi",
-        })
+    })
 
     sets.midcast.CuragaWeather = set_combine(sets.midcast.Curaga, {
         back="Twilight Cape",
         waist="Hachirin-no-Obi",
-        })
+    })
+    sets.midcast.CuragaWeather.SIRD = set_combine(sets.midcast.CuragaWeather,sets.SIRD) 
 
 
     sets.midcast.Cursna = {
@@ -629,7 +631,7 @@ function init_gear_sets()
         left_ring="Haoma's Ring",
         right_ring="Haoma's Ring",
         back="Alaunus's Cape",    }
-        sets.midcast.StatusRemoval.sird = set_combine(sets.midcast.StatusRemoval,sets.sird) 
+        sets.midcast.StatusRemoval.SIRD = set_combine(sets.midcast.StatusRemoval,sets.SIRD) 
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
@@ -649,7 +651,7 @@ function init_gear_sets()
     left_ring="Stikini Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
-    sets.midcast['Enhancing Magic'].sird = set_combine(sets.midcast['Enhancing Magic'],sets.sird) 
+    sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.midcast['Enhancing Magic'],sets.SIRD) 
     sets.midcast['Enhancing Magic'].Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
     sets.midcast.Stoneskin = {
@@ -667,7 +669,7 @@ function init_gear_sets()
         right_ring="Stikini Ring",
         left_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
-        sets.midcast.Stoneskin.sird = set_combine(sets.midcast.Stoneskin,sets.sird) 
+        sets.midcast.Stoneskin.SIRD = set_combine(sets.midcast.Stoneskin,sets.SIRD) 
         sets.midcast.Stoneskin.Duration = set_combine(sets.midcast.Stoneskin,sets.Duration) 
 
     sets.midcast.Blink = {
@@ -685,7 +687,7 @@ function init_gear_sets()
         right_ring="Stikini Ring",
         left_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
-        sets.midcast.Blink.sird = set_combine(sets.midcast.Blink,sets.sird) 
+        sets.midcast.Blink.SIRD = set_combine(sets.midcast.Blink,sets.SIRD) 
         sets.midcast.Blink.Duration = set_combine(sets.midcast.Blink,sets.Duration) 
 
 
@@ -706,7 +708,7 @@ function init_gear_sets()
         right_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
 
-    sets.midcast.Aquaveil.sird = set_combine(sets.midcast.Aquaveil,sets.sird)
+    sets.midcast.Aquaveil.SIRD = set_combine(sets.midcast.Aquaveil,sets.SIRD)
     sets.midcast.Aquaveil.Duration = set_combine(sets.midcast.Aquaveil,sets.Duration) 
 
     sets.midcast.Haste = set_combine(sets.midcast['Enhancing Magic'])
@@ -926,42 +928,31 @@ function init_gear_sets()
     right_ring="Stikini Ring +1",
     back="Alaunus's Cape",}
 
-        sets.defense.MP = {       
-            ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-            head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-            body="Ebers Bliaut +2",
-            hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-            legs="Inyanga Shalwar +2",
-            feet={ name="Nyame Sollerets", augments={'Path: B',}},
-            neck="Nodens Gorget",
-            waist="Luminary Sash",
-            left_ear="Andoaa Earring",
-            right_ear="Halasz Earring",
-            left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-            right_ring="Mephitas's Ring",
-            back="Alaunus's Cape",
-        }
+    sets.defense.MP = {       
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Ebers Bliaut +2",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs="Inyanga Shalwar +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Nodens Gorget",
+        waist="Luminary Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Halasz Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Mephitas's Ring",
+        back="Alaunus's Cape",
+    }
     
     sets.idle.Town = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
-    ammo="Homiliary",
-    head="Befouled Crown",
-    body="Shamash Robe",
-    hands="Inyan. Dastanas +2",
-    legs="Assid. Pants +1",
     feet="Herald's Gaiters",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
     left_ear="Infused Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Inyanga Ring",
-    back="Alaunus's Cape",}
+    }
     
     sets.idle.Weak = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
+    main="Mpaca's Staff",
+    sub="Enki Strap",
     ammo="Homiliary",
     head="Befouled Crown",
     body="Shamash Robe",
@@ -981,7 +972,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         main="Malignance Pole",
         sub="Vivid Strap",
-        ammo="Staunch Tathlum +1",
+        ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
         hands="Inyan. Dastanas +2",
@@ -991,10 +982,9 @@ function init_gear_sets()
         waist="Carrier's Sash",
         left_ear="Genmei Earring",
         right_ear="Etiolation Earring",
-        left_ring="Defending Ring",
+        left_ring="Stikini Ring +1",
         right_ring="Inyanga Ring",
-        back="Solemnity Cape",
-}
+        back="Alaunus's Cape",}
     sets.defense.Evasion = {
         ammo="Amar Cluster",
         head={ name="Nyame Helm", augments={'Path: B',}},
@@ -1185,7 +1175,13 @@ function job_pretarget(spell, action, spellMap, eventArgs)
         send_command('input /item "Remedy" <me>')
     end
 end
-
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type == 'WhiteMagic' then
+        if state.CastingMode.value == 'SIRD' then
+            equip(sets.SIRD)
+        end
+    end
+end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
     if spellMap == 'StatusRemoval' and buffactive['Divine Caress'] then
