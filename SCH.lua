@@ -252,7 +252,7 @@ function init_gear_sets()
         }
 
     sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {
-        head="Peda. M.Board +1", 
+        head="Peda. M.Board +3", 
         hands="Telchine Gloves",
         feet="Acad. Loafers +3",})
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {

@@ -82,7 +82,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options('Normal', 'ConserveMP', 'SIRD', 'Duration', 'Enmity')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
-    state.PhysicalDefenseMode:options('PDT', 'Evasion', 'MP')
+    state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -468,20 +468,22 @@ function init_gear_sets()
     back="Alaunus's Cape",}
 
     sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
-    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
-    sub="Genmei Shield",
-    ammo="Staunch Tathlum +1",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
-    legs="Bunzi's Pants",
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Rumination Sash",
-    left_ear="Mendi. Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Freke Ring",
-    right_ring="Defending Ring",})
+        main="Daybreak",
+        sub="Genmei Shield",
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        legs="Bunzi's Pants",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Rumination Sash",
+        left_ear="Mendi. Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Freke Ring",
+        right_ring="Defending Ring",
+        back="Alaunus's Cape",
+})
 
     sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -536,14 +538,14 @@ function init_gear_sets()
     main="Daybreak",
     sub="Genmei Shield",
     ammo="Staunch Tathlum +1",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Ros. Jaseran +1", augments={'Path: A',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs="Bunzi's Pants",
-    feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Rumination Sash",
-    left_ear="Glorious Earring",
+    left_ear="Mendi. Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Freke Ring",
     right_ring="Defending Ring",
@@ -551,7 +553,8 @@ function init_gear_sets()
 
     })
 
-    sets.midcast.Curaga.ConserveMP = set_combine(sets.midcast.Curaga, {     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
+    sets.midcast.Curaga.ConserveMP = set_combine(sets.midcast.Curaga, {   
+    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Pemphredo Tathlum",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -749,8 +752,8 @@ function init_gear_sets()
     sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
     sets.midcast['Divine Magic'] = {
-        main="Daybreak",
-        sub="Ammurapi Shield",
+    main="Daybreak",
+    sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head="Inyanga Tiara +2",
     body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
@@ -809,8 +812,8 @@ function init_gear_sets()
         right_ring="Freke Ring",
         back="Disperser's Cape",
     }) 
-        sets.midcast['Banish II'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
-        sets.midcast['Banish III'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
+    sets.midcast['Banish II'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
+    sets.midcast['Banish III'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
 
     sets.midcast['Banishga'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
     sets.midcast['Banishga II'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
@@ -877,8 +880,6 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
@@ -898,9 +899,9 @@ function init_gear_sets()
         main="Malignance Pole",
         sub="Enki Strap",
         ammo="Homiliary",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head="Befouled Crown",
         body="Shamash Robe",
-        hands="Inyan. Dastanas +2",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -970,20 +971,20 @@ function init_gear_sets()
     -- Defense sets
 
     sets.defense.PDT = {
-        main="Malignance Pole",
-        sub="Vivid Strap",
+        main="Daybreak",
+        sub="Genmei Shield",
         ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
-        hands="Inyan. Dastanas +2",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
-        feet="Nyame Sollerets",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Plat. Mog. Belt",
         left_ear="Genmei Earring",
-        right_ear="Etiolation Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Stikini Ring +1",
-        right_ring="Inyanga Ring",
+        right_ring="Stikini Ring +1",
         back="Alaunus's Cape",}
     sets.defense.Evasion = {
         ammo="Amar Cluster",
@@ -999,11 +1000,39 @@ function init_gear_sets()
         left_ring="Defending Ring",
         right_ring="Vengeful Ring",
         back="Alaunus's Cape",
-}
+    }
+    sets.defense.DT = {
+        ammo="Eluder's Sachet",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Fortified Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Alaunus's Cape",
+    }
+    sets.defense.HP = {
+        ammo="Eluder's Sachet",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Ilabrat Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
 
     sets.defense.MDT = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
     body="Shamash Robe",
@@ -1176,14 +1205,21 @@ function job_pretarget(spell, action, spellMap, eventArgs)
     end
 end
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WhiteMagic' then
+    if spell.action_type == 'Magic' then
         if state.CastingMode.value == 'SIRD' then
+            equip(sets.SIRD)
+        elseif spell.skill == 'Enhancing Magic' then
             equip(sets.SIRD)
         end
     end
 end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
+    if spell.action_type == 'Magic' then
+        if state.CastingMode.value == 'SIRD' then
+            equip(sets.SIRD)
+        end
+    end
     if spellMap == 'StatusRemoval' and buffactive['Divine Caress'] then
         equip(sets.buff['Divine Caress'])
     end

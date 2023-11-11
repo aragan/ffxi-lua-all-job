@@ -100,6 +100,7 @@ function job_setup()
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
     send_command('wait 6;input /lockstyleset 164')
 
+    state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
     DW_needed = 0
     DW = false
@@ -114,8 +115,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'DA')
-    state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'SubtleBlow75')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT')
+    state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'Acc', 'PDL')
     state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity', 'HP')
     state.MagicalDefenseMode:options('MDT')
@@ -536,8 +537,8 @@ function init_gear_sets()
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
-        ammo="Sapience Orb",
-    body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','Pet: Damage taken -3%',}},
+    ammo="Sapience Orb",
+    body="Taeon Tabard",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     feet="Jute Boots +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -547,7 +548,7 @@ function init_gear_sets()
         
     -- Specific spells
     sets.midcast.Utsusemi = {
-        ammo="Sapience Orb",
+    ammo="Sapience Orb",
     body="Passion Jacket",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     feet="Jute Boots +1",
@@ -837,20 +838,20 @@ sets.engaged.STP = {
     right_ring="Chirich Ring +1",
     back="Tactical Mantle",
 }
-sets.engaged.DA = {  
-    ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
-    body="Malignance Tabard",
-    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Clotharius Torque",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+sets.engaged.CRIT = {  
+    ammo="Staunch Tathlum +1",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet="Gleti's Boots",
+    neck="Nefarious Collar +1",
+    waist="Gerdr Belt",
     left_ear="Sherida Earring",
-    right_ear="Balder Earring +1",
-    left_ring="Epona's Ring",
-    right_ring="Gere Ring",
-    back="Bleating Mantle",
+    right_ear="Eabani Earring",
+    left_ring="Mummu Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
  }
 
  ------------------------------------------------------------------------------------------------
@@ -905,7 +906,7 @@ sets.engaged.DW.STP = {
     right_ring="Chirich Ring +1",
     back="Tactical Mantle",
 }
-sets.engaged.DW.DA = {  
+sets.engaged.DW.CRIT = {  
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -941,7 +942,7 @@ sets.engaged.DW.DA = {
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     }) -- 22%
-    sets.engaged.DW.DA.LowHaste = set_combine(sets.engaged.DW.DA, {
+    sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
@@ -965,7 +966,7 @@ sets.engaged.DW.DA = {
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 16%
-    sets.engaged.DW.DA.MidHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW, {
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
@@ -975,7 +976,7 @@ sets.engaged.DW.DA = {
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
     sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.Acc)
     sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)
-    sets.engaged.DW.DA.MaxHaste = set_combine(sets.engaged.DW.DA)
+    sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)
 
 
     sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW)
@@ -986,7 +987,7 @@ sets.engaged.DW.DA = {
     sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.STP, {
         left_ear="Suppanomimi",  --5
     })-- 5%
-    sets.engaged.DW.DA.HighHaste = set_combine(sets.engaged.DW.DA)
+    sets.engaged.DW.CRIT.HighHaste = set_combine(sets.engaged.DW.CRIT)
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -1002,16 +1003,16 @@ sets.engaged.DW.DA = {
     sets.engaged.PDT = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
     sets.engaged.STP.PDT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
-    sets.engaged.DA.PDT = set_combine(sets.engaged.DA, sets.engaged.Hybrid)
+    sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
-    sets.engaged.DW.DA.PDT = set_combine(sets.engaged.DW.DA, sets.engaged.Hybrid)
+    sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.DA.PDT.LowHaste = set_combine(sets.engaged.DW.DA.LowHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.CRIT.PDT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid, {
@@ -1020,7 +1021,7 @@ sets.engaged.DW.DA = {
     sets.engaged.DW.Acc.PDT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.Hybrid, {
         left_ear="Suppanomimi",  --5
     })-- 5%
-    sets.engaged.DW.DA.PDT.MidHaste = set_combine(sets.engaged.DW.DA.MidHaste, sets.engaged.Hybrid, {
+    sets.engaged.DW.CRIT.PDT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.Hybrid, {
         left_ear="Suppanomimi",  --5
     })-- 5%
     sets.engaged.DW.STP.PDT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid, {
@@ -1028,7 +1029,7 @@ sets.engaged.DW.DA = {
     })-- 5%)
     sets.engaged.DW.PDT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.DA.PDT.MaxHaste = set_combine(sets.engaged.DW.DA.MaxHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 
     --SubtleBlow 50% set
@@ -1053,7 +1054,7 @@ sets.engaged.DW.DA = {
         right_ring="Chirich Ring +1",
         back="Moonlight Cape",
     })
-    sets.engaged.DA.SubtleBlow = set_combine(sets.engaged.DA, { 
+    sets.engaged.CRIT.SubtleBlow = set_combine(sets.engaged.CRIT, { 
         ammo="Staunch Tathlum +1",  
         body="Malignance Tabard",
         legs="Malignance Tights",
@@ -1098,7 +1099,7 @@ sets.engaged.DW.DA = {
         right_ring="Chirich Ring +1",
         back="Sokolski Mantle",
     })
-    sets.engaged.DA.SubtleBlow75 = set_combine(sets.engaged.DA, {        
+    sets.engaged.CRIT.SubtleBlow75 = set_combine(sets.engaged.CRIT, {        
         ammo="Staunch Tathlum +1",         
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Malignance Tabard",
@@ -1125,12 +1126,12 @@ sets.engaged.DW.DA = {
 
     sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.DW, sets.engaged.SubtleBlow)
     sets.engaged.DW.Acc.SubtleBlow = set_combine(sets.engaged.DW.Acc, sets.engaged.SubtleBlow)
-    sets.engaged.DW.DA.SubtleBlow = set_combine(sets.engaged.DW.DA, sets.engaged.SubtleBlow)
+    sets.engaged.DW.CRIT.SubtleBlow = set_combine(sets.engaged.DW.CRIT, sets.engaged.SubtleBlow)
     sets.engaged.DW.STP.SubtleBlow = set_combine(sets.engaged.DW.STP, sets.engaged.SubtleBlow)
 
     sets.engaged.DW.SubtleBlow75 = set_combine(sets.engaged.DW, sets.engaged.SubtleBlow75)
     sets.engaged.DW.Acc.SubtleBlow75 = set_combine(sets.engaged.DW.Acc, sets.engaged.SubtleBlow75)
-    sets.engaged.DW.DA.SubtleBlow75 = set_combine(sets.engaged.DW.DA, sets.engaged.SubtleBlow75)
+    sets.engaged.DW.CRIT.SubtleBlow75 = set_combine(sets.engaged.DW.CRIT, sets.engaged.SubtleBlow75)
     sets.engaged.DW.STP.SubtleBlow75 = set_combine(sets.engaged.DW.STP, sets.engaged.SubtleBlow75)
 
 ------------------------------------------------------------------------------------------------
@@ -1245,6 +1246,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
     update_combat_form()
     determine_haste_group()
+    check_moving()
 end
 
 function job_update(cmdParams, eventArgs)
@@ -1278,6 +1280,10 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
     return idleSet
 end
 
@@ -1404,8 +1410,24 @@ function gearinfo(cmdParams, eventArgs)
                 Haste = tonumber(cmdParams[3])
             end
         end
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
         if not midaction() then
             job_update()
+        end
+    end
+end
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
         end
     end
 end
