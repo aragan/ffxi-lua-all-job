@@ -156,7 +156,7 @@ function init_gear_sets()
     sets.precast.JA['Lunge'] = {
     head="Agwu's Cap",
     body="Agwu's Robe",
-    hands={ name="Agwu's Gages", augments={'Path: A',}},
+    hands="Agwu's Gages",
     legs="Agwu's Slops",
     feet="Agwu's Pigaches",
     neck="Baetyl Pendant",
@@ -172,7 +172,7 @@ function init_gear_sets()
     sets.precast.JA['Rayke'] = {feet="Futhark Bottes +1"}
     sets.precast.JA['Elemental Sforzo'] = {body="Futhark Coat 1"}
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
-    sets.precast.JA['Embolden'] = {}
+    sets.precast.JA['Embolden'] = {back="Evasionist's Cape"}
     sets.precast.JA['Vivacious Pulse'] = {
     head="Erilaz Galea +2",
     legs="Rune. Trousers +1",
@@ -595,7 +595,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
 	sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     }
-
+    sets.defense.Parry = {
+        --hands="Turms Mittens +1",
+        legs="Eri. Leg Guards +1",
+        --feet="Turms Leggings +1",
+        back="Ogma's Cape",
+    }
 
 	--------------------------------------
 	-- Engaged sets
@@ -727,6 +732,19 @@ function job_buff_change(buff,gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
+    end
+    if buff == 'Embolden' then
+        if gain then
+            equip(sets.Embolden)
+            disable('head','legs','back')
+        else
+            enable('head','legs','back')
+            status_change(player.status)
+        end
+    end
+    
+    if buff == 'Battuta' and not gain then
+        status_change(player.status)
     end
     if not midaction() then
         handle_equipping_gear(player.status)
