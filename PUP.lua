@@ -404,7 +404,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.midcast['Elemental Magic'] = {
-        head="Nyame Helm",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -418,7 +418,7 @@ function init_gear_sets()
         back="Argocham. Mantle",
 	}
     sets.midcast['Divine Magic'] = {
-        head="Nyame Helm",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -432,7 +432,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.midcast['Blue Magic'] = { 
-        head="Nyame Helm",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body="Nyame Mail",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -571,7 +571,7 @@ function init_gear_sets()
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Asuran Fists"] = {    
-        head="Nyame Helm",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -637,7 +637,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS["Aeolian Edge"] = {
-        head="Nyame Helm",
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",

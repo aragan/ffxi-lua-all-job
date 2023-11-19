@@ -69,7 +69,7 @@ function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Moving  = M(false, "moving")
-    send_command('wait 6;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 178')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ function user_setup()
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 174')
+    send_command('wait 2;input /lockstyleset 178')
     send_command('bind f1 gs c cycle HippoMode')
 
     select_default_macro_book()
@@ -352,11 +352,12 @@ function init_gear_sets()
     }
     sets.midcast.SIRD = {
         ammo="Staunch Tathlum +1",
+        sub="Culminus",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        feet="Theo. Duckbills +2",
+        feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ring="Freke Ring",
+        left_ring="Mephitas's Ring +1",
     }
     sets.ConserveMP = {     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -406,11 +407,12 @@ function init_gear_sets()
 
     sets.midcast.CureSolace.SIRD = set_combine(sets.midcast.CureSolace, {
         ammo="Staunch Tathlum +1",
+        sub="Culminus",
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        feet="Theo. Duckbills +2",
+        feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ring="Freke Ring",
+        left_ring="Mephitas's Ring +1",
 })
 
     sets.midcast.CureSolace.ConserveMP = set_combine(sets.midcast.CureSolace, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
@@ -463,18 +465,18 @@ function init_gear_sets()
 
     sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
         main="Daybreak",
-        sub="Genmei Shield",
+        sub="Culminus",
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
         hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
         legs="Ebers Pant. +2",
-        feet="Theo. Duckbills +2",
+        feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
         left_ear="Mendi. Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Freke Ring",
+        left_ring="Mephitas's Ring +1",
         right_ring="Defending Ring",
         back="Alaunus's Cape",
 })
@@ -530,18 +532,18 @@ function init_gear_sets()
 
     sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Curaga, {
     main="Daybreak",
-    sub="Genmei Shield",
+    sub="Culminus",
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Ros. Jaseran +1", augments={'Path: A',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs="Ebers Pant. +2",
-    feet="Theo. Duckbills +2",
+    feet="Theo. Duckbills +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
     left_ear="Mendi. Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Freke Ring",
+    left_ring="Mephitas's Ring +1",
     right_ring="Defending Ring",
     back="Alaunus's Cape",
 
@@ -966,8 +968,8 @@ function init_gear_sets()
 
     sets.defense.PDT = {
         main="Daybreak",
-        sub="Genmei Shield",
-        ammo="Homiliary",
+        sub="Culminus",
+        ammo="Staunch Tathlum +1",
         head="Befouled Crown",
         body="Shamash Robe",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -1228,7 +1230,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 178')
     end
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -1249,6 +1251,7 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    handle_equipping_gear(player.status)
 end
 
 
@@ -1264,7 +1267,7 @@ function job_get_spell_map(spell, default_spell_map)
         else
             enable('main','sub')
         end        
-        if default_spell_map == 'Cure' then
+        --[[if default_spell_map == 'Cure' then
             if buffactive['Afflatus Solace'] then
                 if (world.weather_element == 'Light' or world.day_element == 'Light') then
                     return "CureSolaceWeather"
@@ -1292,7 +1295,7 @@ function job_get_spell_map(spell, default_spell_map)
             else
                 return "IntEnfeebles"
             end
-        end
+        end]]
     end
 end
 
