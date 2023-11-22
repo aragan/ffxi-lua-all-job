@@ -382,7 +382,6 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
      })
      sets.precast.WS.Acc = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
@@ -411,7 +410,6 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS['Upheaval'], {
-        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
@@ -447,7 +445,6 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS["Ukko's Fury"].Acc = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
@@ -464,7 +461,6 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS["Stardiver"].Acc = set_combine(sets.precast.WS["Stardiver"], {
-        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
@@ -479,7 +475,6 @@ function init_gear_sets()
     sets.precast.WS["Raging Rush"].Acc = set_combine(sets.precast.WS["Raging Rush"], {
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        ammo="Crepuscular Pebble",
         hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
@@ -804,8 +799,8 @@ function init_gear_sets()
     })
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
         body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
         legs="Boii Cuisses +3",
+        left_ring="Sroda Ring",
     })
     sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Mistral Axe'].Mid = set_combine(sets.precast.WS['Savage Blade'].Mid, {})
@@ -821,7 +816,6 @@ function init_gear_sets()
     })
         sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
             ammo="Knobkierrie",
-            body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
             legs="Boii Cuisses +3",
         })
@@ -837,7 +831,6 @@ function init_gear_sets()
         sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
             ammo="Knobkierrie",
             body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
             legs="Boii Cuisses +3",
         })
         sets.precast.WS["Ground Strike"] = set_combine(sets.precast.WS['Savage Blade'], {
