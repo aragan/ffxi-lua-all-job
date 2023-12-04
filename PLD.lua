@@ -302,8 +302,8 @@ right_ring="Cornelia's Ring",
 }
 sets.precast.WS.PDL = set_combine(sets.precast.WS, {
    ammo="Crepuscular Pebble",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
    left_ring="Sroda Ring", 
 })
 sets.precast.WS.None = {}
@@ -314,10 +314,10 @@ sets.precast.WS.None = {}
 sets.precast.WS['Requiescat'] = {
 ammo="Aurgelmir Orb +1",
 head="Hjarrandi Helm",
-body="Sakpata's Plate",
-hands="Sakpata's Gauntlets",
-legs="Sakpata's Cuisses",
-feet="Sakpata's Leggings",
+body={ name="Sakpata's Plate", augments={'Path: A',}},
+hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+feet={ name="Sakpata's Leggings", augments={'Path: A',}},
 neck="Fotia Gorget",
 waist="Fotia Belt",
 left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -327,7 +327,7 @@ right_ring="Regal Ring",
 back="Bleating Mantle",
 }
 sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
-   hands="Sakpata's Gauntlets",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
 })
 sets.precast.WS['Requiescat'].None = {}
 
@@ -399,7 +399,7 @@ back="Bleating Mantle",
 }
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
    ammo="Crepuscular Pebble",
-   hands="Sakpata's Gauntlets",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    left_ring="Sroda Ring", 
 })
 sets.precast.WS['Savage Blade'].None = {}
@@ -422,7 +422,7 @@ sets.precast.WS['Savage Blade'].None = {}
 }
 sets.precast.WS['Chant du Cygne'].PDL = set_combine(sets.precast.WS['Chant du Cygne'], {
    ammo="Crepuscular Pebble",
-   hands="Sakpata's Gauntlets",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
 })
 sets.precast.WS['Chant du Cygne'].None = {}
 
@@ -447,8 +447,8 @@ sets.precast.WS['Atonement'].None = {}
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {    
    ammo="Crepuscular Pebble",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
    left_ring="Sroda Ring", 
 })
 sets.precast.WS['Impulse Drive'].None = {}
@@ -475,8 +475,8 @@ sets.precast.WS['Shattersoul'] = set_combine(sets.precast.WS["Requiescat"], {
 })
 sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS["Requiescat"].PDL, {
    ammo="Crepuscular Pebble",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
    left_ring="Sroda Ring", 
 })
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS['Requiescat'], {})
@@ -647,7 +647,7 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        body="Chev. Cuirass +3",
        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-       legs="Sakpata's Cuisses",
+       legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
        feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
        neck="Moonlight Necklace",
        waist="Audumbla Sash",
@@ -699,8 +699,8 @@ sets.midcast.Cocoon = {
 sets.midcast.Cocoon.DT = {    
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -792,8 +792,8 @@ sets.midcast.Cocoon.DT = {
  sets.midcast.Raise = {       
 ammo="Staunch Tathlum +1",
 head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-body="Sakpata's Plate",
-hands="Sakpata's Gauntlets",
+body={ name="Sakpata's Plate", augments={'Path: A',}},
+hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
 legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
 feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
 neck="Moonlight Necklace",
@@ -807,8 +807,8 @@ back="Rudianos's Mantle",
 sets.midcast.Raise.DT = {       
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -824,8 +824,8 @@ sets.midcast.Raise.DT = {
  --Spell interupt down (pro shell raise)104/102
  sets.SID = {   ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -839,8 +839,8 @@ sets.midcast.Raise.DT = {
  sets.midcast.Utsusemi = {      
 ammo="Staunch Tathlum +1",
 head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-body="Sakpata's Plate",
-hands="Sakpata's Gauntlets",
+body={ name="Sakpata's Plate", augments={'Path: A',}},
+hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
 legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
 feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
 neck="Moonlight Necklace",
@@ -877,8 +877,8 @@ sets.midcast.Absorb = {
 sets.midcast['Geist Wall'].DT ={    
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -908,8 +908,8 @@ sets.midcast['Geist Wall'].DT ={
 sets.midcast['Jettatura'].DT ={    
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -939,8 +939,8 @@ sets.midcast['Jettatura'].DT ={
 sets.midcast['Sheep Song'].DT = {   
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -970,8 +970,8 @@ sets.midcast['Sheep Song'].DT = {
 sets.midcast.Soporific.DT = {   
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -1001,8 +1001,8 @@ sets.midcast.Soporific.DT = {
 sets.midcast['Stinking Gas'].DT = {   
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -1032,8 +1032,8 @@ sets.midcast['Stinking Gas'].DT = {
 sets.midcast['Bomb Toss'].DT = {   
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -1063,8 +1063,8 @@ sets.midcast['Frightful Roar'] =
 sets.midcast['Frightful Roar'].DT = {  
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
    neck="Moonlight Necklace",
@@ -1087,7 +1087,7 @@ sets.TreasureHunter = {
    sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
    sets.Petri = {back="Sand Mantle"} 
  sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
- sets.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
+ sets.buff.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
  sets.Breath = sets.defense.MDT
   
    sets.resting = {
@@ -1236,11 +1236,11 @@ sets.idle.PD = {
    sets.defense.MDT ={
    main="Burtgang",
    ammo="Staunch Tathlum +1",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck="Warder's Charm +1",
    waist="Creed Baudrier",
    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1253,11 +1253,11 @@ sets.idle.PD = {
  sets.defense.Turtle ={   
    main="Burtgang",
    ammo="Staunch Tathlum +1",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck={ name="Warder's Charm +1", augments={'Path: A',}},
    waist="Asklepian Belt",
    left_ear="Tuisto Earring",
@@ -1286,11 +1286,11 @@ sets.idle.PD = {
 
 sets.defense.Dagger = {    
    ammo="Eluder's Sachet",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
    hands="Rev. Gauntlets +3",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck={ name="Loricate Torque +1", augments={'Path: A',}},
    waist="Carrier's Sash",
    left_ear="Tuisto Earring",
@@ -1369,10 +1369,10 @@ sets.defense.PDH = {
    main="Burtgang",
    ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
-   body="Sakpata's Plate",
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
    hands="Chev. Gauntlets +3",
    legs="Chev. Cuisses +3",
-   feet="Sakpata's Leggings",
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck={ name="Loricate Torque +1", augments={'Path: A',}},
    waist="Plat. Mog. Belt",
    left_ear="Tuisto Earring",
@@ -1401,11 +1401,11 @@ sets.defense.PDH = {
 
 sets.defense.HP = set_combine(sets.defense.HPBOOST, {
    ammo="Iron Gobbet",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    waist="Plat. Mog. Belt",
 })
 
@@ -1505,11 +1505,11 @@ sets.defense.Block = {
    {main="Naegling",
    sub="Blurred Shield +1",
    ammo="Amar Cluster",
-   head="Sakpata's Helm",
-   body="Sakpata's Plate",
-   hands="Sakpata's Gauntlets",
-   legs="Sakpata's Cuisses",
-   feet="Sakpata's Leggings",
+   head={ name="Sakpata's Helm", augments={'Path: A',}},
+   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+   legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+   feet={ name="Sakpata's Leggings", augments={'Path: A',}},
    neck="Subtlety Spec.",
    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
    left_ear="Crep. Earring",
@@ -1573,9 +1573,9 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
    {   ammo="Aurgelmir Orb +1",
       head="Hjarrandi Helm",
       body="Hjarrandi Breast.",
-      hands="Sakpata's Gauntlets",
-      legs="Sakpata's Cuisses",
-      feet="Sakpata's Leggings",
+      hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+      legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+      feet={ name="Sakpata's Leggings", augments={'Path: A',}},
       neck="Ainia Collar",
       waist="Tempus Fugit +1",
       left_ear="Dedition Earring",
@@ -1965,7 +1965,7 @@ function job_buff_change(buff,gain)
     end
     if buff == "Sleep" then
         if gain then    
-            equip(sets.Sleep)
+            equip(sets.buff.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
             disable('neck')
         else
