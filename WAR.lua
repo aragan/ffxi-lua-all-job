@@ -391,14 +391,14 @@ function init_gear_sets()
     head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
     body="Nyame Mail",
     hands="Boii Mufflers +3",
-    legs="Nyame Flanchard",
+    legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Regal Ring",
+    right_ring="Niqmaddu Ring",
+    left_ring="Regal Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Upheaval'].Mid = set_combine(sets.precast.WS['Upheaval'], {
@@ -410,8 +410,9 @@ function init_gear_sets()
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Upheaval'].Acc = set_combine(sets.precast.WS['Upheaval'], {
+        head={ name="Sakpata's Helm", augments={'Path: A',}},
+        body={ name="Sakpata's Plate", augments={'Path: A',}},
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-        legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
     sets.precast.WS["King's Justice"] = set_combine(sets.precast.WS["Upheaval"], {})
