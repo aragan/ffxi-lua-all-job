@@ -126,7 +126,8 @@ end
 
 function init_gear_sets()
     sets.Enmity =    { 
-        ammo="Iron Gobbet",
+    ammo="Iron Gobbet",
+    head="Halitus Helm",
     body={ name="Emet Harness +1", augments={'Path: A',}},
     hands="Kurys Gloves",
     legs={ name="Zoar Subligar +1", augments={'Path: A',}},
@@ -464,7 +465,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         main="Aettir",
         sub="Refined Grip +1",
         head="Erilaz Galea +2",
-        body="Erilaz Surcoat +2",
+        body="Erilaz Surcoat +3",
         hands="Erilaz Gauntlets +2",
         legs="Eri. Leg Guards +2",
         feet="Erilaz Greaves +2",
@@ -515,7 +516,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     main="Aettir",
     sub="Refined Grip +1",
     head="Erilaz Galea +2",
-    body="Erilaz Surcoat +2",
+    body="Erilaz Surcoat +3",
     hands="Erilaz Gauntlets +2",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
@@ -531,7 +532,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         ammo="Iron Gobbet",
         main="Aettir",
         sub="Alber Strap",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head="Halitus Helm",
         body={ name="Emet Harness +1", augments={'Path: A',}},
         hands="Kurys Gloves",
         legs="Eri. Leg Guards +2",
