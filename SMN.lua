@@ -542,7 +542,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     feet={ name="Helios Boots", augments={'Pet: Attack+24 Pet: Rng.Atk.+24','Pet: Crit.hit rate +4','Blood Pact Dmg.+7',}},
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Incarnation Sash",
-    left_ear="Gelos Earring",
+    left_ear="Lugalbanda Earring",
     right_ear="Beck. Earring +1",
     left_ring="Varar Ring +1",
     right_ring="C. Palug Ring",
@@ -551,7 +551,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.PhysicalBloodPactRage, {
         body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
         right_ear="Beck. Earring +1",
-        left_ear="Gelos Earring",
+        left_ear="Lugalbanda Earring",
     })
 
     sets.midcast.Pet.MagicalBloodPactRage = {main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
@@ -564,7 +564,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     feet="Apogee Pumps",
     neck={ name="Smn. Collar +2", augments={'Path: A',}},
     waist="Incarnation Sash",
-    left_ear="Gelos Earring",
+    left_ear="Lugalbanda Earring",
     right_ear="Beck. Earring +1",
     left_ring="Varar Ring +1",
     right_ring="Varar Ring +1",
@@ -573,7 +573,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     sets.midcast.Pet.MagicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {
       
         right_ear="Beck. Earring +1",
-        left_ear="Gelos Earring",
+        left_ear="Lugalbanda Earring",
     })
 
 
