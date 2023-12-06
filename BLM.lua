@@ -60,6 +60,7 @@ function user_setup()
     state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
 
 
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
@@ -71,7 +72,8 @@ function user_setup()
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II','Aspir III'}
         }
-    
+    send_command('bind f4 @input /ja "Sublimation" <me>')
+    send_command('bind f3 input //Sublimator')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
 	send_command('bind ^f11 gs c cycle Enfeebling')
@@ -82,6 +84,7 @@ function user_setup()
     send_command('bind ^; gs enable all')
     send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f7 gs c cycle StaffMode')
 
     select_default_macro_book()
 end
@@ -378,8 +381,8 @@ function init_gear_sets()
     }
 
     sets.midcast['Enhancing Magic'] = {
-		main="Gada",
-		sub="Ammurapi Shield",
+        main="Oranyan",
+        sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Telchine Cap",
         body="Telchine Chas.",
@@ -1110,7 +1113,17 @@ function job_aftercast(spell, action, spellMap, eventArgs)
 	--send_command('input /item "antidote" <me>')
 	--end
 end
- 
+
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    if state.StaffMode.value == "Marin" then
+        equip({main="Marin Staff +1"})
+    elseif state.StaffMode.value == "Mpaca" then
+        equip({main="Mpaca's Staff"})
+    elseif state.StaffMode.value == "normal" then
+        equip({})
+    end
+end
+
 function nuke(spell, action, spellMap, eventArgs)
     if player.target.type == 'MONSTER' then
         if state.AOE.value then
