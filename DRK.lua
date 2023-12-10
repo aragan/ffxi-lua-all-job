@@ -880,7 +880,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     sets.midcast['Elemental Magic'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
-        body="Fall. Cuirass +2",
+        body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
         hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
         legs="Nyame Flanchard",
         feet="Heath. Sollerets +2",
@@ -917,7 +917,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
    sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Dark Magic'], {
     ammo="Pemphredo Tathlum",
     head="Befouled Crown",
-    body="Nyame Mail",
+    body="Ignominy Cuirass +3",
     hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
     feet="Nyame Sollerets",
