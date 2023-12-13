@@ -198,7 +198,7 @@ function init_gear_sets()
     sets.precast.Step = {    ammo="C. Palug Stone",
     head="Maxixi Tiara +2",
     body="Malignance Tabard",
-    hands="Maxixi Bangles +2",
+    hands="Maxixi Bangles +3",
     legs="Malignance Tights",
     feet="Horos T. Shoes +3",
     neck="Subtlety Spec.",
@@ -213,7 +213,7 @@ function init_gear_sets()
     sets.precast.Step['Feather Step'] = {    ammo="C. Palug Stone",
     head="Maxixi Tiara +2",
     body="Malignance Tabard",
-    hands="Maxixi Bangles +2",
+    hands="Maxixi Bangles +3",
     legs="Malignance Tights",
     feet="Horos T. Shoes +3",
     neck="Subtlety Spec.",
@@ -754,7 +754,7 @@ sets.defense.HP = {
 
 sets.defense.Enmity = {
     ammo="Iron Gobbet",
-    head="Malignance Chapeau",
+    head="Halitus Helm",
     body={ name="Emet Harness +1", augments={'Path: A',}},
     hands="Kurys Gloves",
     legs={ name="Zoar Subligar +1", augments={'Path: A',}},
