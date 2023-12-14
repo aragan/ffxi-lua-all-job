@@ -191,12 +191,12 @@ function init_gear_sets()
     body="Gleti's Cuirass",
     legs="Dashing Subligar",}
     
-    sets.precast.Samba = {head="Maxixi Tiara +2",}
+    sets.precast.Samba = {head="Maxixi Tiara +3",}
 
     sets.precast.Jig = {}
 
     sets.precast.Step = {    ammo="C. Palug Stone",
-    head="Maxixi Tiara +2",
+    head="Maxixi Tiara +3",
     body="Malignance Tabard",
     hands="Maxixi Bangles +3",
     legs="Malignance Tights",
@@ -211,7 +211,7 @@ function init_gear_sets()
 }
 
     sets.precast.Step['Feather Step'] = {    ammo="C. Palug Stone",
-    head="Maxixi Tiara +2",
+    head="Maxixi Tiara +3",
     body="Malignance Tabard",
     hands="Maxixi Bangles +3",
     legs="Malignance Tights",
@@ -925,52 +925,60 @@ sets.engaged.DW.CRIT = {
       ---------------------------------------- DW-HASTE ------------------------------------------
     ------------------------------------------------------------------------------------------------
     sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    })-- 22%
+    }) -- 30%
     sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
+        head="Maxixi Tiara +3", --8
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    }) -- 22%
+    }) -- 30%
     sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
+        head="Maxixi Tiara +3", --8
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    }) -- 22%
+    }) -- 30%
     sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
+        head="Maxixi Tiara +3", --8
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    }) -- 22%
+    }) -- 30%
 
     -- 30% Magic Haste (56% DW to cap)
 
     sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    })-- 16%
+    })-- 24%
     sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    })-- 16%
+    })-- 24%
     sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    })-- 16%
+    })-- 24%
     sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
-    })-- 16%
+    })-- 24%
 
 
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
@@ -1141,7 +1149,7 @@ sets.engaged.DW.CRIT = {
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Saber Dance'] = {aist="Windbuffet Belt +1",}
     sets.buff['Climactic Flourish'] = {}
-    sets.buff['Closed Position'] = {feet="Horos T. Shoes +1"}
+    sets.buff['Closed Position'] = {feet="Horos T. Shoes +3"}
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",

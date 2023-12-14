@@ -317,7 +317,7 @@ function init_gear_sets()
             body={ name="Ros. Jaseran +1", augments={'Path: A',}},
             hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
             legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-            feet="Arbatel Loafers +2",
+            feet="Arbatel Loafers +3",
             neck="Sanctity Necklace",
             waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
             left_ear="Etiolation Earring",
@@ -629,8 +629,8 @@ function init_gear_sets()
         sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
             ammo="Pemphredo Tathlum",
             head="Arbatel Bonnet +2",
-            body="Arbatel Gown +2",
-            feet="Arbatel Loafers +2",
+            body="Arbatel Gown +3",
+            feet="Arbatel Loafers +3",
             neck="Erra Pendant",
             waist="Acuity Belt +1",
             left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -644,7 +644,7 @@ function init_gear_sets()
         hands="Agwu's Gages",
         legs="Agwu's Slops",
         feet="Agwu's Pigaches",
-        neck="Sibyl Scarf",
+        neck="Argute Stole +2",
         waist="Acuity Belt +1",
         left_ear="Regal Earring",
         left_ring="Archon Ring",
@@ -677,11 +677,11 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
-        body="Arbatel Gown +2",
+        body="Arbatel Gown +3",
         hands="Agwu's Gages",
         legs="Agwu's Slops",
-        feet="Arbatel Loafers +2",
-        neck="Sibyl Scarf",
+        feet="Arbatel Loafers +3",
+        neck="Argute Stole +2",
         waist="Acuity Belt +1",
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
@@ -700,11 +700,11 @@ function init_gear_sets()
             sub="Enki Strap",
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Agwu's Cap",
-            body="Arbatel Gown +2",
+            body="Arbatel Gown +3",
             hands="Agwu's Gages",
             legs="Agwu's Slops",
-            feet="Arbatel Loafers +2",
-            neck="Mizu. Kubikazari",
+            feet="Arbatel Loafers +3",
+            neck="Argute Stole +2",
             waist="Acuity Belt +1",
             left_ear="Regal Earring",
             right_ear="Malignance Earring",
@@ -717,11 +717,11 @@ function init_gear_sets()
             sub="Enki Strap",
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Agwu's Cap",
-            body="Arbatel Gown +2",
+            body="Arbatel Gown +3",
             hands="Agwu's Gages",
             legs="Agwu's Slops",
-            feet="Arbatel Loafers +2",
-            neck="Mizu. Kubikazari",
+            feet="Arbatel Loafers +3",
+            neck="Argute Stole +2",
             waist="Acuity Belt +1",
             left_ear="Regal Earring",
             right_ear="Malignance Earring",
@@ -734,11 +734,11 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
-        body="Arbatel Gown +2",
+        body="Arbatel Gown +3",
         hands="Agwu's Gages",
         legs="Agwu's Slops",
-        feet="Arbatel Loafers +2",
-        neck="Mizu. Kubikazari",
+        feet="Arbatel Loafers +3",
+        neck="Argute Stole +2",
         waist="Acuity Belt +1",
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
@@ -755,7 +755,7 @@ function init_gear_sets()
 
     sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'], {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        neck="Mizu. Kubikazari",
+        neck="Argute Stole +2",
         waist="Skrymir Cord",
         right_ear="Arbatel Earring +1",
         left_ring="Mallquis Ring",
@@ -799,7 +799,7 @@ function init_gear_sets()
     sets.idle.DT = set_combine(sets.idle, {
         ammo="Homiliary",
         head="Nyame Helm",
-        body="Arbatel Gown +2",
+        body="Arbatel Gown +3",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -963,7 +963,7 @@ function init_gear_sets()
     sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
     sets.buff['Celerity'] = {feet="Peda. Loafers +3"}
     sets.buff['Alacrity'] = {feet="Peda. Loafers +3"}
-    sets.buff['Klimaform'] = {feet="Arbatel Loafers +2"}
+    sets.buff['Klimaform'] = {feet="Arbatel Loafers +3"}
 
     sets.buff.FullSublimation = {
        --head="Acad. Mortar. +3", --4
@@ -979,11 +979,11 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
         }
 
-    sets.LightArts = {body="Arbatel Gown +2",}
-    sets.DarkArts = {body="Arbatel Gown +2",}
+    sets.LightArts = {body="Arbatel Gown +3",}
+    sets.DarkArts = {body="Arbatel Gown +3",}
     sets.RP = {neck="Argute Stole +2"}
     sets.Obi = {waist="Hachirin-no-Obi"}
-    sets.Bookworm = {back="Lugh's Cape",}
+    sets.Bookworm = {back="Bookworm's Cape",}
     -- sets.CP = {back="Mecisto. Mantle"}
 
 end
