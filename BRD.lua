@@ -250,9 +250,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     
-    sets.precast.JA.Nightingale = {feet="Bihu Slippers +2"}
+    sets.precast.JA.Nightingale = {feet="Bihu Slippers +3"}
     sets.precast.JA.Troubadour = {body="Bihu Jstcorps. +2"}
-    sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +2"}
+    sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -266,17 +266,17 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {range="Linos",
-        head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
         ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
         back="Intarabus's Cape",
     }
     
@@ -312,63 +312,64 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Mordant Rime'] = {range="Linos",
-        head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
         ring1="Ilabrat Ring",
         ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
         back="Intarabus's Cape",
 }
 
 sets.precast.WS['Rudras Storm'] = {range="Linos",
-    head="Nyame Helm",
-    neck="Fotia Gorget",
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}}, 
+   neck="Fotia Gorget",
     ear1="Ishvara Earring",
     ear2="Moonshade Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
     ring1="Ilabrat Ring",
     ring2="Cornelia's Ring",
     waist="Kentarch Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
     back="Intarabus's Cape",
 }
 
 
 sets.precast.WS['Aeolian Edge'] = {range="Linos",
     head="C. Palug Crown",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     ear1="Moonshade Earring",
     ear2="Friomisi Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
     ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
     ring2="Cornelia's Ring",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
     back="Intarabus's Cape",
 }
 
 sets.precast.WS['Savage Blade'] = {range="Linos",
-    head="Nyame Helm",
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Rep. Plat. Medal",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
     ring1="Sroda Ring", 
     ring2="Cornelia's Ring",
     waist="Sailfi Belt +1",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
     back="Intarabus's Cape",
 }
 
@@ -376,11 +377,11 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
 body="Bunzi's Robe",
 })
 sets.precast.WS['Flash Nova'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -391,11 +392,11 @@ sets.precast.WS['Flash Nova'] = {
 }
 
         sets.precast.WS['Myrkr'] = {
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+            head={ name="Nyame Helm", augments={'Path: B',}},
+            body={ name="Nyame Mail", augments={'Path: B',}},
+            hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+            legs={ name="Nyame Flanchard", augments={'Path: B',}},
+            feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -406,10 +407,10 @@ sets.precast.WS['Flash Nova'] = {
 
     sets.precast.WS['Cataclysm'] = {
         head="Pixie Hairpin +1",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -420,11 +421,11 @@ sets.precast.WS['Flash Nova'] = {
     }
     
  sets.precast.WS['Black Halo'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -442,11 +443,11 @@ sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
 sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
 
 sets.precast.WS['Shattersoul'] = {
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Brutal Earring",
@@ -490,11 +491,11 @@ sets.precast.WS['Shattersoul'] = {
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
-    waist="Kobo Obi",
-    left_ear="Musical Earring",
-    right_ear="Fili Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    ear1="Odnowa Earring +1",
+    ear2="Etiolation Earring",
+    ring1="Moonlight Ring",
+    ring2="Defending Ring",
+    waist="Flume Belt +1",
     back="Intarabus's Cape",
 }
 sets.midcast.SongEffect.AUGMENT = {
@@ -506,11 +507,11 @@ hands="Fili Manchettes +2",
 legs="Fili Rhingrave +2",
 feet="Fili Cothurnes +2",
 neck="Mnbw. Whistle +1",
-waist="Kobo Obi",
-left_ear="Musical Earring",
-right_ear="Fili Earring +1",
-left_ring="Stikini Ring +1",
-right_ring="Stikini Ring +1",
+ear1="Odnowa Earring +1",
+ear2="Etiolation Earring",
+ring1="Moonlight Ring",
+ring2="Defending Ring",
+waist="Flume Belt +1",
 back="Intarabus's Cape",
 }
 
@@ -568,11 +569,11 @@ back="Intarabus's Cape",
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +3",
         neck="Mnbw. Whistle +1",
-        waist="Kobo Obi",
-        left_ear="Musical Earring",
-        right_ear="Fili Earring +1",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+        ear1="Odnowa Earring +1",
+        ear2="Etiolation Earring",
+        ring1="Moonlight Ring",
+        ring2="Defending Ring",
+        waist="Flume Belt +1",
         back="Intarabus's Cape",
         }
         sets.midcast.DaurdablaDummy.AUGMENT = {
@@ -584,11 +585,11 @@ back="Intarabus's Cape",
         legs="Fili Rhingrave +2",
         feet="Fili Cothurnes +2",
         neck="Mnbw. Whistle +1",
-        waist="Kobo Obi",
-        left_ear="Musical Earring",
-        right_ear="Fili Earring +1",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+        ear1="Odnowa Earring +1",
+        ear2="Etiolation Earring",
+        ring1="Moonlight Ring",
+        ring2="Defending Ring",
+        waist="Flume Belt +1",
         back="Intarabus's Cape",
         }
 
