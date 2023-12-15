@@ -120,7 +120,8 @@ function user_setup()
     state.UseCustomTimers = M(true, 'Use Custom Timers')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
@@ -130,7 +131,7 @@ function user_setup()
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
-
+    send_command('bind f1 gs c cycle HippoMode')
 
 
     select_default_macro_book()
@@ -152,8 +153,7 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {       main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sets.precast.FC = {    
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
@@ -166,12 +166,10 @@ function init_gear_sets()
     left_ring="Prolix Ring",
     right_ring="Kishar Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-
 }
+    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -189,8 +187,6 @@ function init_gear_sets()
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -443,7 +439,7 @@ sets.precast.WS['Shattersoul'] = {
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-    sets.midcast.Ballad = {}
+    sets.midcast.Ballad = {legs="Fili Rhingrave +2"}
     sets.midcast.Lullaby = {}
     sets.midcast.Madrigal = {head="Fili Calot +2", back="Intarabus's Cape",}
     sets.midcast.March = {hands="Fili Manchettes +2",}
@@ -632,7 +628,7 @@ back="Intarabus's Cape",
     sets.midcast['Enfeebling Magic'] = {
         main="Arendsi Fleuret",
         sub="Ammurapi Shield",
-        range={ name="Linos", augments={'Attack+15','Weapon skill damage +1%','Quadruple Attack +2',}},
+        head=empty,
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
         hands="Inyan. Dastanas +2",
         legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
@@ -646,7 +642,7 @@ back="Intarabus's Cape",
             back="Aurist's Cape +1",
             }
     
-    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
+    sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
     
     
     -- Sets to return to when not performing an action.
@@ -694,18 +690,9 @@ back="Intarabus's Cape",
        
     }
 
-    sets.idle.Town = {       head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    sets.idle.Town = {    
     feet="Fili Cothurnes +2",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",}
+}
     
     sets.idle.Weak = {       head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
@@ -901,7 +888,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
             add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = false
+            eventArgs.handled = true
             return
         elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
             send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
@@ -951,9 +938,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     end
     if not spell.interrupted then
         if spell.name == 'Utsusemi: Ichi' then
-            overwrite = false
+            overwrite = true
         elseif spell.name == 'Utsusemi: Ni' then
-            overwrite = false
+            overwrite = true
         end
     end
 end
@@ -980,9 +967,9 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         end
         if not spell.interrupted then
             if spell.name == 'Utsusemi: Ichi' then
-                overwrite = false
+                overwrite = true
             elseif spell.name == 'Utsusemi: Ni' then
-                overwrite = false
+                overwrite = true
             end
         end
     end
@@ -1054,8 +1041,10 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
-        idleSet = set_combine(idleSet, sets.latent_refresh)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
     
     return idleSet
@@ -1223,8 +1212,7 @@ end
 function select_default_macro_book()
     set_macro_page(1, 32)
 end
-add_to_chat(159,'Author Aragan BRD.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 windower.raw_register_event('zone change',reset_timers)
 windower.raw_register_event('logout',reset_timers)
