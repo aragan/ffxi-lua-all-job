@@ -109,10 +109,13 @@ function user_setup()
     send_command('wait 2;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind ^- gs enable all')
+    send_command('bind ^/ gs disable all')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
     send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f6 gs c cycle WeaponSet')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
@@ -120,11 +123,20 @@ function user_setup()
     state.Knockback = M(false, 'Knockback')
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+
+    state.WeaponSet = M{['description']='Weapon Set', 'Aettir', 'Naegling', 'Lycurgos'}
+
     select_default_macro_book()
 end
 
 
 function init_gear_sets()
+
+    --sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
+    sets.Naegling = {main="Naegling", sub="Chanter's Shield"}
+    sets.Aettir = {main="Aettir", sub="Refined Grip +1",}
+    sets.Lycurgos = {main="Lycurgos", sub="Refined Grip +1",}
+
     sets.Enmity =    { 
     ammo="Iron Gobbet",
     head="Halitus Helm",
@@ -149,7 +161,7 @@ function init_gear_sets()
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-    sets.precast.JA['Vallation'] = {body="Runeist coat +2", legs="Futhark Trousers +3"}
+    sets.precast.JA['Vallation'] = {body="Runeist coat +3", legs="Futhark Trousers +3"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
     sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
     sets.precast.JA['Battuta'] = {head="Fu. Bandeau +3"}
@@ -176,7 +188,7 @@ function init_gear_sets()
     sets.precast.JA['Embolden'] = {back="Evasionist's Cape"}
     sets.precast.JA['Vivacious Pulse'] = {
     head="Erilaz Galea +2",
-    legs="Rune. Trousers +1",
+    legs="Rune. Trousers +2",
     neck="Incanter's Torque",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
@@ -188,7 +200,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head="Rune. Bandeau +1",
+        head="Rune. Bandeau +2",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         body="Agwu's Robe",
         neck="Baetyl Pendant",
@@ -373,12 +385,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
-        head="Rune. Bandeau +1",
+        head="Rune. Bandeau +2",
         neck="Sacro Gorget",
         right_ear="Erilaz Earring +2",
     })
     sets.midcast['Regen'].SIRD = set_combine(sets.midcast.SIRD, {
-        head="Rune. Bandeau +1",
+        head="Rune. Bandeau +2",
         right_ear="Erilaz Earring +2",
     })
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
@@ -842,6 +854,8 @@ function customize_melee_set(meleeSet)
         meleeSet = set_combine(meleeSet, sets.defense.Knockback)
     end
 
+    check_weaponset()
+
     return meleeSet
 end
 
@@ -964,8 +978,18 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-end
+ 
+    check_weaponset()
 
+end
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        equip(sets.DefaultShield)
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        equip(sets.DefaultShield)
+    end
+end
 ------------------------------------------------------------------
 -- Timer manipulation
 ------------------------------------------------------------------

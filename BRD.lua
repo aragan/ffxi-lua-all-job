@@ -109,6 +109,20 @@ function user_setup()
     state.CastingMode:options('Normal', 'AUGMENT')
     state.IdleMode:options('Normal', 'PDT','MDT')
 
+    state.Carol = M{['description']='Carol',
+        'Fire Carol', 'Fire Carol II', 'Ice Carol', 'Ice Carol II', 'Wind Carol', 'Wind Carol II',
+        'Earth Carol', 'Earth Carol II', 'Lightning Carol', 'Lightning Carol II', 'Water Carol', 'Water Carol II',
+        'Light Carol', 'Light Carol II', 'Dark Carol', 'Dark Carol II',
+        }
+
+    state.Threnody = M{['description']='Threnody',
+        'Fire Threnody II', 'Ice Threnody II', 'Wind Threnody II', 'Earth Threnody II',
+        'Ltng. Threnody II', 'Water Threnody II', 'Light Threnody II', 'Dark Threnody II',
+        }
+
+    state.Etude = M{['description']='Etude', 'Sinewy Etude', 'Herculean Etude', 'Learned Etude', 'Sage Etude',
+        'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
+        'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
 
     
     -- Adjust this if using the Terpander (new +song instrument)
@@ -122,6 +136,9 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
+    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'Tauret', 'Naegling'}
+
+
     -- Additional local binds
     send_command('bind ^` gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
@@ -132,7 +149,10 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
     send_command('bind f1 gs c cycle HippoMode')
-
+    send_command('bind f2 gs c cycle Etude')
+    send_command('bind f3 gs c cycle Carol')
+    send_command('bind f4 gs c cycle Threnody')
+    send_command('bind f6 gs c cycle WeaponSet')
 
     select_default_macro_book()
 end
@@ -150,11 +170,17 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     
+    --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
+    sets.Twashtar = {main="Twashtar", sub="Ternion Dagger +1"}
+    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
+    sets.Naegling = {main="Naegling", sub="Ternion Dagger +1"}
+
+    sets.DefaultShield = {sub="Genmei Shield"}
+
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {       main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sets.precast.FC = {      
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
@@ -171,8 +197,6 @@ function init_gear_sets()
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
     hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
@@ -190,8 +214,6 @@ function init_gear_sets()
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Inyanga Jubbah +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -228,9 +250,9 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     
-    sets.precast.JA.Nightingale = {feet="Bihu Slippers"}
-    sets.precast.JA.Troubadour = {body="Bihu Justaucorps"}
-    sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions"}
+    sets.precast.JA.Nightingale = {feet="Bihu Slippers +2"}
+    sets.precast.JA.Troubadour = {body="Bihu Jstcorps. +2"}
+    sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +2"}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
@@ -929,6 +951,28 @@ function job_pretarget(spell, action, spellMap, eventArgs)
         send_command('input /item "Remedy" <me>')
     end
 end
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type == 'WeaponSkill' then
+        if elemental_ws:contains(spell.name) then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
+    end
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
@@ -937,6 +981,9 @@ function job_midcast(spell, action, spellMap, eventArgs)
             local generalClass = get_song_class(spell)
             if generalClass and sets.midcast[generalClass] then
                 equip(sets.midcast[generalClass])
+            end
+            if spell.name == 'Honor March' then
+                equip({range="Marsyas"})
             end
         end
     end
@@ -987,6 +1034,9 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             end
         end
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
 end
 function sub_job_change(new,old)
     if user_setup then
@@ -1000,18 +1050,13 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
-    if stateField == 'Offense Mode' then
-        if newValue == 'Normal' then
-            disable('main','sub','ammo')
-        else
-            enable('main','sub','ammo')
-        end
-    end
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
     end
+
+    check_weaponset()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1040,6 +1085,9 @@ function customize_melee_set(meleeSet)
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
+
+    check_weaponset()
+
     return meleeSet
 end
 function check_buff(buff_name, eventArgs)
@@ -1173,15 +1221,28 @@ function calculate_duration(spellName, spellMap)
     local mult = 1
     if player.equipment.range == 'Daurdabla' then mult = mult + 0.3 end -- change to 0.25 with 90 Daur
     if player.equipment.range == "Gjallarhorn" then mult = mult + 0.4 end -- change to 0.3 with 95 Gjall
-    
-    if player.equipment.main == "Carnwenhan" then mult = mult + 0.1 end -- 0.1 for 75, 0.4 for 95, 0.5 for 99/119
+    if player.equipment.range == "Marsyas" then mult = mult + 0.5 end
+
+    if player.equipment.main == "Carnwenhan" then mult = mult + 0.5 end -- 0.1 for 75, 0.4 for 95, 0.5 for 99/119
     if player.equipment.main == "Legato Dagger" then mult = mult + 0.05 end
+    if player.equipment.main == "Kali" then mult = mult + 0.05 end
+    if player.equipment.sub == "Kali" then mult = mult + 0.05 end
     if player.equipment.sub == "Legato Dagger" then mult = mult + 0.05 end
     if player.equipment.neck == "Aoidos' Matinee" then mult = mult + 0.1 end
-    if player.equipment.body == "Aoidos' Hngrln. +2" then mult = mult + 0.1 end
-    if player.equipment.legs == "Mdk. Shalwar +1" then mult = mult + 0.1 end
+    if player.equipment.neck == "Mnbw. Whistle" then mult = mult + 0.2 end
+    if player.equipment.neck == "Mnbw. Whistle +1" then mult = mult + 0.3 end
+    if player.equipment.body == "Fili Hongreline +1" then mult = mult + 0.12 end
+    if player.equipment.body == "Fili Hongreline +2" then mult = mult + 0.12 end
+    if player.equipment.body == "Fili Hongreline +3" then mult = mult + 0.12 end
+    if player.equipment.legs == "Inyanga Shalwar +1" then mult = mult + 0.15 end
+    if player.equipment.legs == "Inyanga Shalwar +2" then mult = mult + 0.17 end
     if player.equipment.feet == "Brioso Slippers" then mult = mult + 0.1 end
     if player.equipment.feet == "Brioso Slippers +1" then mult = mult + 0.11 end
+    if player.equipment.feet == "Brioso Slippers +2" then mult = mult + 0.13 end
+    if player.equipment.feet == "Brioso Slippers +3" then mult = mult + 0.15 end
+    if player.equipment.hands == 'Brioso Cuffs +1' then mult = mult + 0.1 end
+    if player.equipment.hands == 'Brioso Cuffs +2' then mult = mult + 0.1 end
+    if player.equipment.hands == 'Brioso Cuffs +3' then mult = mult + 0.2 end
     
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet" then mult = mult + 0.1 end
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +1" then mult = mult + 0.1 end
@@ -1220,8 +1281,24 @@ function reset_timers()
     end
     custom_timers = {}
 end
-
-
+-- Called for direct player commands.
+function job_self_command(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'etude' then
+        send_command('@input /ma "'..state.Etude.value..'" <stpc>')
+    elseif cmdParams[1]:lower() == 'carol' then
+        send_command('@input /ma "'..state.Carol.value..'" <stpc>')
+    elseif cmdParams[1]:lower() == 'threnody' then
+        send_command('@input /ma "'..state.Threnody.value..'" <stnpc>')
+    end
+end
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        equip(sets.DefaultShield)
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        equip(sets.DefaultShield)
+    end
+end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(1, 32)
