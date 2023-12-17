@@ -149,7 +149,7 @@ function init_gear_sets()
      
     -- Precast sets to enhance JAs
 	
-    sets.precast.JA['Mana Wall'] = {back="Taranus's cape",feet="Wicce Sabots +1"}
+    sets.precast.JA['Mana Wall'] = {back="Taranus's cape",feet="Wicce Sabots +2"}
  
     sets.precast.JA.Manafont = {body={ name="Arch. Coat", augments={'Enhances "Manafont" effect',}},}
      
@@ -405,7 +405,7 @@ function init_gear_sets()
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
-		feet="Wicce Sabots +1",
+		feet="Wicce Sabots +2",
 		neck="Warder's Charm +1",
 		waist="Carrier's Sash",
 		left_ear="Eabani Earring",
@@ -790,7 +790,7 @@ function init_gear_sets()
 	}
     --sets.idle.Field = sets.idle
     sets.idle.ManaWall = {
-        feet="Wicce Sabots +1",
+        feet="Wicce Sabots +2",
 		back="Taranus's Cape",
     }
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
@@ -884,7 +884,7 @@ function init_gear_sets()
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
-		feet="Wicce Sabots +1",
+		feet="Wicce Sabots +2",
 		neck="Warder's Charm +1",
 		waist="Carrier's Sash",
 		left_ear="Eabani Earring",

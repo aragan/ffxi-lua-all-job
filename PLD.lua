@@ -510,7 +510,7 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
    ammo="Staunch Tathlum +1",
    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
    body="Shab. Cuirass +1",
-   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+   hands="Regal Gauntlets",
    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    neck="Enhancing Torque",
@@ -612,7 +612,7 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    body="Shab. Cuirass +1",
-   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+   hands="Regal Gauntlets",
    legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
@@ -661,6 +661,7 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
    main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
    sub={ name="Ajax +1", augments={'Path: A',}},
    body="Shab. Cuirass +1",
+   hands="Regal Gauntlets",
  })
  
    sets.midcast.Banish = sets.midcast.MAB
@@ -672,7 +673,7 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        sub={ name="Ajax +1", augments={'Path: A',}},
        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
        body="Shab. Cuirass +1",
-       hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+       hands="Regal Gauntlets",
        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        neck="Enhancing Torque",
@@ -687,7 +688,7 @@ sets.midcast.Cocoon = {
    ammo="Staunch Tathlum +1",
    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
    body="Shab. Cuirass +1",
-   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+   hands="Regal Gauntlets",
    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    neck="Enhancing Torque",
@@ -1094,7 +1095,7 @@ sets.TreasureHunter = {
        ammo="Homiliary",
        head="Chev. Armet +3",
        body="Rev. Surcoat +3",
-       hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+       hands="Regal Gauntlets",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -1136,6 +1137,7 @@ sets.TreasureHunter = {
 }
    sets.idle.Refresh ={
        ammo="Homiliary",
+       hands="Regal Gauntlets",
        left_ring="Stikini Ring +1",
        right_ring="Stikini Ring +1",
 }
@@ -1143,6 +1145,7 @@ sets.TreasureHunter = {
     ammo="Staunch Tathlum +1",
     head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
     body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands="Macabre Gaunt. +1",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
 }
@@ -1387,7 +1390,7 @@ sets.defense.PDH = {
    ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    body="Rev. Surcoat +3",
-   hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+   hands="Regal Gauntlets",
    legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    neck={ name="Unmoving Collar +1", augments={'Path: A',}},

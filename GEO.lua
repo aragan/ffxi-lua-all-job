@@ -28,7 +28,7 @@ function job_setup()
     indi_timer = ''
     indi_duration = 180
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
-    --state.CapacityMode = M(false, 'Capacity Point Mantle')
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 6;input /lockstyleset 178')
 
 end
@@ -80,12 +80,10 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Bolster = {body="Bagua Tunic"}
-    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +1", body="Geomancy Tunic +1", back="Nantosuelta's Cape"}
+    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geomancy Tunic +1", back="Nantosuelta's Cape"}
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
     sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +1"}
-    sets.precast.JA['Sublimation'] = {
-        waist="Embla Sash",
-    }
+    sets.precast.JA['Sublimation'] = {waist="Embla Sash"}
     --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     organizer_items = {
         "Sarama's Hide",
@@ -308,7 +306,7 @@ function init_gear_sets()
     sets.midcast.Geomancy = {
         main="Solstice",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head="Azimuth Hood +1",
+        head="Azimuth Hood +2",
         body="Geo. Tunic +1",
         hands="Geo. Mitaines +3",
         legs="Geomancy Pants +2",
@@ -326,7 +324,7 @@ function init_gear_sets()
         main="Solstice",
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head="Azimuth Hood +1",
+        head="Azimuth Hood +2",
         body="Geo. Tunic +1",
         hands="Geo. Mitaines +3",
         legs={ name="Bagua Pants +1", augments={'Enhances "Mending Halation" effect',}},
@@ -602,7 +600,7 @@ function init_gear_sets()
     main="Solstice",
     sub="Genmei Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-    head="Azimuth Hood +1",
+    head="Azimuth Hood +2",
     body="Shamash Robe",
     hands="Geo. Mitaines +3",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
@@ -620,7 +618,7 @@ function init_gear_sets()
     main="Solstice",
     sub="Genmei Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-    head="Azimuth Hood +1",
+    head="Azimuth Hood +2",
     body="Shamash Robe",
     hands="Geo. Mitaines +3",
     legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
@@ -888,12 +886,12 @@ function customize_idle_set(idleSet)
     elseif state.HippoMode.value == "normal" then
        equip({})
     end
-    --if state.CapacityMode.value then
-        --idleSet = set_combine(idleSet, sets.CapacityMantle)
-    --end
-    --if state.OffenseMode.value == 'Melee' then
-        --idleSet = set_combine(sets.idle, sets.idle.Melee)
-    --end
+    if state.CapacityMode.value then
+        idleSet = set_combine(idleSet, sets.CapacityMantle)
+    end
+    if state.OffenseMode.value == 'Melee' then
+        idleSet = set_combine(sets.idle, sets.idle.Melee)
+    end
     return idleSet
 end
 

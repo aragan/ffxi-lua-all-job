@@ -137,7 +137,7 @@ function init_gear_sets()
     -- Special sets (required by rules)
     --------------------------------------
 
-    sets.TreasureHunter = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1", 
+    sets.TreasureHunter = {hands={ name="Plun. Armlets +3", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +2", 
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
     sets.ExtraRegen = {neck="Sanctity Necklace",
@@ -146,11 +146,11 @@ function init_gear_sets()
     right_ring="Sheltered Ring",}
     sets.Kiting = {feet="Jute Boots +1"}
 
-    sets.buff['Sneak Attack'] = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1", 
+    sets.buff['Sneak Attack'] = {hands={ name="Plun. Armlets +3", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +2", 
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 
-    sets.buff['Trick Attack'] = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +1", 
+    sets.buff['Trick Attack'] = {hands={ name="Plun. Armlets +3", augments={'Enhances "Perfect Dodge" effect',}}, waist="Chaac Belt", feet="Skulk. Poulaines +2", 
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 
@@ -170,9 +170,9 @@ function init_gear_sets()
     sets.precast.JA['Flee'] = {feet="Pillager's Poulaines +1"}
     sets.precast.JA['Hide'] = {body="Pillager's Vest +3"}
     sets.precast.JA['Conspirator'] = {} -- {body="Raider's Vest +2"}
-    sets.precast.JA['Steal'] = {head="Plunderer's Bonnet",hands="Pillager's Armlets +1",}
-    sets.precast.JA['Despoil'] = {legs="Raider's Culottes +2",feet="Skulk. Poulaines +1",}
-    sets.precast.JA['Perfect Dodge'] = {hands={ name="Plun. Armlets +2", augments={'Enhances "Perfect Dodge" effect',}},}
+    sets.precast.JA['Steal'] = {hands="Thief's Kote",neck="Pentalagus Charm",}
+    sets.precast.JA['Despoil'] = {legs="Raider's Culottes +2",feet="Skulk. Poulaines +2",}
+    sets.precast.JA['Perfect Dodge'] = {hands={ name="Plun. Armlets +3", augments={'Enhances "Perfect Dodge" effect',}},}
     sets.precast.JA['Feint'] = {} -- {legs="Assassin's Culottes +2"}
 
     sets.precast.JA['Sneak Attack'] = sets.buff['Sneak Attack']

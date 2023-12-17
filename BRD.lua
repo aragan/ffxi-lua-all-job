@@ -251,7 +251,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     
     sets.precast.JA.Nightingale = {feet="Bihu Slippers +3"}
-    sets.precast.JA.Troubadour = {body="Bihu Jstcorps. +2"}
+    sets.precast.JA.Troubadour = {body="Bihu Jstcorps. +3"}
     sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 
     -- Waltz set (chr and vit)
@@ -463,7 +463,7 @@ sets.precast.WS['Shattersoul'] = {
 
     -- General set for recast times.
     sets.midcast.FastRecast = {   
-
+        range="Gjallarhorn",
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.

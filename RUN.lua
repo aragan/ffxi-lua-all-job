@@ -19,6 +19,7 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {"Prime Sword",
+"Lycurgos",
 "Foreshock Sword",
 "Hepatizon Axe +1",
     "Aettir",
@@ -366,7 +367,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Regal Gauntlets",
     legs="Futhark Trousers +3",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
@@ -397,7 +398,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Regal Gauntlets",
     legs="Futhark Trousers +3",
     feet="Nyame Sollerets",
     neck="Incanter's Torque",
@@ -460,6 +461,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.idle.Refresh = set_combine(sets.idle, {
     ammo="Homiliary",
     body="Agwu's Robe",
+    hands="Regal Gauntlets",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     neck="Sanctity Necklace",
@@ -467,6 +469,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Infused Earring",})
 
     sets.idle.Regen = set_combine(sets.idle, {
+        hands="Regal Gauntlets",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         right_ear="Infused Earring",
         left_ring="Chirich Ring +1",
