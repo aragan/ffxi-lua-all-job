@@ -76,7 +76,6 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 152')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     state.MagicBurst = M(false, 'Magic Burst')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Buff.Souleater = buffactive.souleater or false

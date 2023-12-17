@@ -69,7 +69,6 @@ organizer_items = {
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 	include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
 	send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
 	send_command('bind !` gs c toggle MagicBurst')
@@ -947,7 +946,7 @@ sets.TreasureHunter = {
 
 	sets.idle.Enmity = {
 		ammo="Sapience Orb",
-		head="Nyame Helm",
+		head="Halitus Helm",
 		body={ name="Emet Harness +1", augments={'Path: A',}},
 		hands={ name="Merlinic Dastanas", augments={'Magic burst dmg.+6%','MND+7','"Mag.Atk.Bns."+5',}},
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},

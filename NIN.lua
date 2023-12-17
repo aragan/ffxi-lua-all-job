@@ -22,7 +22,6 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     organizer_items = {
         "Hachimonji",
         "Mafic Cudgel",

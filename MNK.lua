@@ -62,7 +62,6 @@ function job_setup()
     state.Moving  = M(false, "moving")
 
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     send_command('wait 6;input /lockstyleset 179')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
@@ -849,7 +848,42 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    
+    if buff == "terror" then
+        if gain then
+            send_command('input /p i am TERROR cant move.')		
+            equip(sets.defense.PDT)
+        end
+        handle_equipping_gear(player.status)
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
+        end
+    end
     -- Hundred Fists and Impetus modify the custom melee groups
     if buff == "Hundred Fists" or buff == "Impetus" then
         classes.CustomMeleeGroups:clear()

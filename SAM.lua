@@ -89,7 +89,6 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('bind @w gs c toggle WeaponLock')
     get_combat_form()

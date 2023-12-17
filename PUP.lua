@@ -214,7 +214,7 @@ end
 function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
+    state.Moving  = M(false, "moving")
     sub_job_change()
 end
 
@@ -333,7 +333,7 @@ function init_gear_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Hermes' Sandals +1",
+    feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -405,10 +405,10 @@ function init_gear_sets()
     }
     sets.midcast['Elemental Magic'] = {
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Eschan Stone",
         left_ear="Friomisi Earring",
@@ -419,10 +419,10 @@ function init_gear_sets()
 	}
     sets.midcast['Divine Magic'] = {
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Incanter's Torque",
         waist="Skrymir Cord",
         left_ear="Crematio Earring",
@@ -433,9 +433,9 @@ function init_gear_sets()
     }
     sets.midcast['Blue Magic'] = { 
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Nyame Mail",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Incanter's Torque",
         waist="Eschan Stone",
@@ -452,7 +452,8 @@ function init_gear_sets()
      }
 
     -------------------------------------Kiting
-    sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.MoveSpeed = {feet="Hermes' Sandals +1",}
     sets.Adoulin = {body="Councilor's Garb",}
 
     -------------------------------------JA
@@ -528,10 +529,10 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {    
         head="Mpaca's Cap",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -572,10 +573,10 @@ function init_gear_sets()
     })
     sets.precast.WS["Asuran Fists"] = {    
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Brutal Earring",
@@ -618,7 +619,7 @@ function init_gear_sets()
         head="Mpaca's Cap",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Nyame Flanchard",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet="Mpaca's Boots",
             neck="Fotia Gorget",
             waist="Moonbow Belt +1",
@@ -632,16 +633,16 @@ function init_gear_sets()
         head="Kara. Cappello +2",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Nyame Sollerets",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         left_ring="Sroda Ring",
     })
 
     sets.precast.WS["Aeolian Edge"] = {
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -653,10 +654,10 @@ function init_gear_sets()
 
     sets.precast.WS["Howling Fist"] = {    
         head="Mpaca's Cap",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Mpaca's Hose",
-        feet="Nyame Sollerets",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -669,7 +670,7 @@ function init_gear_sets()
         head="Kara. Cappello +2",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Nyame Sollerets",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Tornado Kick"] = sets.precast.WS["Victory Smite"]
@@ -1020,7 +1021,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Hermes' Sandals +1",
+        feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1549,6 +1550,52 @@ function job_self_command(cmdParams, eventArgs)
     end
     eventArgs.handled = true
 end
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+function job_handle_equipping_gear(playerStatus, eventArgs)   
+
+    if state.HippoMode.value == "Hippo" then
+        equip({feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+end
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(8, 39)

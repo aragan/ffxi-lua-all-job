@@ -77,7 +77,6 @@ end
 function job_setup()
     send_command('wait 6;input /lockstyleset 152')
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.Moving  = M(false, "moving")
@@ -1570,8 +1569,8 @@ function job_buff_change(buff, gain)
                 equip(sets.defense.PDT)
                 send_command('input /p Petrification, please Stona.')		
             else
-            send_command('input /p '..player.name..' is no longer Petrify!')
-            handle_equipping_gear(player.status)
+                send_command('input /p '..player.name..' is no longer Petrify!')
+                handle_equipping_gear(player.status)
             end
         end
         if not midaction() then

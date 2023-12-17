@@ -58,7 +58,6 @@ end
 function job_setup()
 	get_combat_form()
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 6;input /lockstyleset 152')
