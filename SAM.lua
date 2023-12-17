@@ -207,7 +207,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Purity Ring",
         right_ring="Ilabrat Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
 
     }
     sets.midcast.RA = { ammo=empty,
@@ -223,7 +223,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Purity Ring",
         right_ring="Ilabrat Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
     }	
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
@@ -854,7 +854,7 @@ function init_gear_sets()
     left_ear="Dedition Earring",
     right_ring="Chirich Ring +1",
     left_ring="Niqmaddu Ring",
-    back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+    back="Takaha Mantle",
     }
 
     sets.engaged.Acc = set_combine(sets.engaged.Mid, { range=empty,
@@ -870,7 +870,7 @@ function init_gear_sets()
         right_ear="Kasuga Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
     })
     sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, { range=empty,
     ammo="Amar Cluster",
@@ -885,7 +885,7 @@ function init_gear_sets()
     right_ear={ name="Kasuga Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Regal Ring",
     right_ring="Chirich Ring +1",
-    back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+    back="Takaha Mantle",
     })
 
     sets.engaged.Fullhaste = set_combine(sets.engaged, {
@@ -901,7 +901,7 @@ function init_gear_sets()
         left_ear="Dedition Earring",
         right_ring="Chirich Ring +1",
         left_ring="Niqmaddu Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
          })
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
         body="Flamma Korazin +2",
@@ -940,7 +940,7 @@ function init_gear_sets()
             right_ear="Telos Earring",
             left_ring="Purity Ring",
             right_ring="Ilabrat Ring",
-            back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+            back="Takaha Mantle",
         }
 
     sets.engaged.Counter = set_combine(sets.engaged, {
@@ -956,7 +956,7 @@ function init_gear_sets()
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Defending Ring",
         right_ring="Hizamaru Ring",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
 
     })
 
@@ -1007,7 +1007,7 @@ function init_gear_sets()
         right_ear="Kasuga Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Takaha Mantle", augments={'STR+1','"Zanshin"+2','"Store TP"+2',}},
+        back="Takaha Mantle",
     }
     sets.engaged.triple = {range=empty,
         ammo="Coiste Bodhar",

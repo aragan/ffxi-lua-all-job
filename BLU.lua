@@ -665,6 +665,7 @@ sets.precast.WS['Shattersoul'] = {
         right_ear="Hashi. Earring +1", 
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
+        back="Cornflower Cape",
 }
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {  
     ammo="Staunch Tathlum +1",
@@ -875,6 +876,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
     right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Cornflower Cape",
 }
 sets.midcast['Blue Magic'].SkillBasedBuff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].SkillBasedBuff) 
 
@@ -890,6 +892,7 @@ sets.midcast['Blue Magic'].Buff = {
     right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Cornflower Cape",
 }
 sets.midcast['Blue Magic'].Buff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].Buff) 
 sets.midcast['Blue Magic']['Occultation'] = set_combine(sets.midcast['Blue Magic'].Buff, {
@@ -1007,6 +1010,7 @@ sets.Learning = {
     right_ear="Hashi. Earring +1", 
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Cornflower Cape",
 }
         --head="Luhlaza Keffiyeh",  
         --body="Assimilator's Jubbah",hands="Assimilator's Bazubands +1",
