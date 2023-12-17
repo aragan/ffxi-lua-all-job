@@ -63,7 +63,6 @@ function job_setup()
 
     send_command('wait 6;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
-	state.TreasureMode:set('Tag')
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
@@ -103,10 +102,11 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'DD', 'Acc', 'PDT', 'MDT')
     state.WeaponskillMode:options('Normal', 'Acc')
-    state.PhysicalDefenseMode:options('PDT','PDH', 'HP', 'Evasion', 'Enmity')
+    state.HybridMode:options('Normal', 'DT', 'MDT')
+    state.PhysicalDefenseMode:options('PDT','PDH', 'HP', 'Evasion', "Resist", 'Enmity')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'SIRD') 
-    state.IdleMode:options('Normal', 'PDH', 'PDT', 'Regen', 'Refresh')
+    state.IdleMode:options('Normal', 'PDH', 'PDT', "EnemyCritRate", "Resist", 'Regen', 'Refresh')
     send_command('wait 2;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -125,7 +125,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Aettir', 'Naegling', 'Lycurgos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Aettir', 'Naegling', 'Lycurgos'}
 
     select_default_macro_book()
 end
@@ -462,11 +462,13 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     ammo="Homiliary",
     body="Agwu's Robe",
     hands="Regal Gauntlets",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Erilaz Earring +2",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    neck="Sanctity Necklace",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Fucho-no-Obi",
-    right_ear="Infused Earring",})
+    })
 
     sets.idle.Regen = set_combine(sets.idle, {
         hands="Regal Gauntlets",
@@ -491,8 +493,9 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         left_ring="Defending Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Ogma's Cape",
-        }
-        sets.idle.PDT = {   
+    }
+
+    sets.idle.PDT = {   
         ammo="Staunch Tathlum +1",
         main="Aettir",
         sub="Refined Grip +1",
@@ -508,6 +511,22 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         left_ring="Defending Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Ogma's Cape",}
+
+    sets.idle.Resist = set_combine(sets.defense.MDT, {
+        main="Malignance Sword",
+        sub="Chanter's Shield",
+        ammo="Staunch Tathlum +1",
+        hands="Erilaz Gauntlets +2",
+        legs="Rune. Trousers +2",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Engraved Belt",
+    })
+    sets.idle.EnemyCritRate ={
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+     }
 
 	sets.defense.PDT = {   
     ammo="Staunch Tathlum +1",
@@ -590,23 +609,33 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
-
+    sets.defense.Resist = set_combine(sets.defense.MDT, {
+        main="Malignance Sword",
+        sub="Chanter's Shield",
+        ammo="Staunch Tathlum +1",
+        head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
+        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        hands="Erilaz Gauntlets +2",
+        legs="Rune. Trousers +2",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Engraved Belt",
+    })
 	sets.defense.MDT = {
     main="Aettir",
     sub="Refined Grip +1",
-    ammo="Yamarang",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    ammo="Staunch Tathlum +1",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body="Runeist Coat +3",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Engraved Belt",
     left_ear="Eabani Earring",
-    right_ear="Erilaz Earring +2",
-    left_ring="Defending Ring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
     right_ring="Shadow Ring",
-    back="Ogma's Cape",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
 }
 
 	sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -666,22 +695,49 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ring="Moonlight Ring",
     back="Ogma's Cape",
 }
-    sets.engaged.MDT = {
-        ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Ayanmo Corazza +2",
-        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+
+    sets.engaged.repulse = {}
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.Hybrid = {
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Anu Torque",
         waist="Ioskeha Belt +1",
         left_ear="Telos Earring",
         right_ear="Sherida Earring",
-        left_ring="Niqmaddu Ring",
+        left_ring="Defending Ring",
         right_ring="Moonlight Ring",
-        back="Ogma's Cape",
+        back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
     }
-    sets.engaged.repulse = {}
+    sets.MDT = {
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Engraved Belt",
+        left_ear="Telos Earring",
+        right_ear="Sherida Earring",
+        left_ring="Defending Ring",
+        right_ring="Moonlight Ring",
+        back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
+    }
+    sets.engaged.DT = set_combine(sets.engaged, sets.Hybrid)
+    sets.engaged.MDT = set_combine(sets.engaged, sets.MDT)
+
+
+
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
@@ -828,6 +884,9 @@ function customize_idle_set(idleSet)
     --else
     --    enable('back')
     --end
+    if state.IdleMode.current == 'EnemyCritRate' then
+        idleSet = set_combine(idleSet, sets.idle.EnemyCritRate )
+    end
     if state.HippoMode.value == "Hippo" then
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     elseif state.HippoMode.value == "normal" then
@@ -1124,7 +1183,7 @@ function display_current_job_state(eventArgs)
         m_msg = m_msg .. '/' ..state.HybridMode.value
     end
 
-    local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
+    --local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
 
     local ws_msg = state.WeaponskillMode.value
 
@@ -1145,7 +1204,7 @@ function display_current_job_state(eventArgs)
 
     add_to_chat(r_color, string.char(129,121).. '  ' ..string.upper(r_msg).. '  ' ..string.char(129,122)
         ..string.char(31,210).. ' Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002).. ' |'
-        ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
+      --  ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
         ..string.char(31,060)
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002).. ' |'
         ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002).. ' |'
