@@ -18,7 +18,9 @@ function get_sets()
     include('organizer-lib')
     res = require 'resources'
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
+"Reikiko",
+"Prime Sword",
 "Lycurgos",
 "Foreshock Sword",
 "Hepatizon Axe +1",
@@ -100,8 +102,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.OffenseMode:options('Normal', 'DD', 'Acc', 'PDT', 'MDT')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal', 'DD', 'CRIT', 'PDT', 'MDT')
+    state.WeaponskillMode:options('Normal', 'PDL')
     state.HybridMode:options('Normal', 'DT', 'MDT')
     state.PhysicalDefenseMode:options('PDT','PDH', 'HP', 'Evasion', "Resist", 'Enmity')
     state.MagicalDefenseMode:options('MDT')
@@ -243,7 +245,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Regal Ring",
     back="Bleating Mantle",
 }
-    sets.precast.WS.Acc = {
+    sets.precast.WS.PDL = {
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",
     }
@@ -263,7 +265,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Epona's Ring",
     back="Bleating Mantle",
 }
-    sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'], {
+    sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Resolution'], {
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",})
 
@@ -282,11 +284,11 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Regal Ring",
     back="Bleating Mantle",
 }
-    sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'],
-        {        ammo="Crepuscular Pebble",
-        left_ring="Sroda Ring",})
+    sets.precast.WS['Dimidiation'].PDL = set_combine(sets.precast.WS['Dimidiation'], {
+    ammo="Crepuscular Pebble",
+    left_ring="Sroda Ring",})
     sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {hands="Umuthi Gloves"})
-    sets.precast.WS['Herculean Slash'].Acc = set_combine(sets.precast.WS['Herculean Slash'], {})
+    sets.precast.WS['Herculean Slash'].PDL = set_combine(sets.precast.WS['Herculean Slash'], {})
     sets.precast.WS['Ground Strike'] = set_combine(sets.precast.WS, { 
            ammo="Knobkierrie",
            head="Nyame Helm",
@@ -302,7 +304,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ring="Regal Ring",
     back="Bleating Mantle",
 })
-    sets.precast.WS['Ground Strike'].Acc = set_combine(sets.precast.WS['Ground Strike'], { 
+    sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], { 
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",
 })
@@ -321,12 +323,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ring="Cornelia's Ring",
     back="Bleating Mantle",
     })
-    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",
     })
     sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
-    sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
+    sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
         ammo="Crepuscular Pebble",
         left_ring="Sroda Ring",
     })
@@ -382,6 +384,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Fu. Bandeau +3",
+        body={ name="Herculean Vest", augments={'Phys. dmg. taken -1%','Accuracy+11 Attack+11','Phalanx +2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
     })
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
@@ -512,7 +515,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Ogma's Cape",}
 
-    sets.idle.Resist = set_combine(sets.defense.MDT, {
+    sets.idle.Resist = set_combine(sets.idle.PDT, {
         main="Malignance Sword",
         sub="Chanter's Shield",
         ammo="Staunch Tathlum +1",
@@ -521,12 +524,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Engraved Belt",
     })
-    sets.idle.EnemyCritRate ={
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDH, {
         ammo="Eluder's Sachet",
         left_ring="Warden's Ring",
         right_ring="Fortified Ring",
         back="Reiki Cloak",
-     }
+     })
 
 	sets.defense.PDT = {   
     ammo="Staunch Tathlum +1",
@@ -667,7 +670,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ring="Epona's Ring",
     back="Tactical Mantle",
 }
-    sets.engaged.Acc = set_combine(sets.engaged.DD, {       ammo="Yetshila +1",
+    sets.engaged.CRIT = set_combine(sets.engaged.DD, {       ammo="Yetshila +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
