@@ -94,6 +94,8 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 168')
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
+    elemental_ws = S{"Aeolian Edge"}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -108,6 +110,8 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'AUGMENT')
     state.IdleMode:options('Normal', 'PDT','MDT')
+
+    state.LullabyMode = M{['description']='Lullaby Instrument', 'Harp', 'Horn'}
 
     state.Carol = M{['description']='Carol',
         'Fire Carol', 'Fire Carol II', 'Ice Carol', 'Ice Carol II', 'Wind Carol', 'Wind Carol II',
@@ -153,6 +157,7 @@ function user_setup()
     send_command('bind f3 gs c cycle Carol')
     send_command('bind f4 gs c cycle Threnody')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind @` gs c cycle LullabyMode')
 
     select_default_macro_book()
 end
@@ -463,7 +468,6 @@ sets.precast.WS['Shattersoul'] = {
 
     -- General set for recast times.
     sets.midcast.FastRecast = {   
-        range="Gjallarhorn",
         }
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
@@ -514,7 +518,10 @@ ring2="Defending Ring",
 waist="Flume Belt +1",
 back="Intarabus's Cape",
 }
-
+sets.midcast.SongStringSkill = {
+    ring1="Stikini Ring +1",
+    ring2="Stikini Ring +1",
+}
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {        range="Gjallarhorn",
     sub="Ammurapi Shield",
@@ -933,6 +940,18 @@ function job_precast(spell, action, spellMap, eventArgs)
     end
 
     if spell.type == 'BardSong' then
+        if spell.name == 'Honor March' then
+            equip({range="Marsyas"})
+        end
+        if string.find(spell.name,'Lullaby') then
+            if buffactive.Troubadour then
+                equip({range="Marsyas"})
+            elseif state.LullabyMode.value == 'Harp' and spell.english:contains('Horde') then
+                equip({range="Daurdabla"})
+            else
+                equip({range="Gjallarhorn"})
+            end
+        end
         -- Auto-Pianissimo
         if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
             not state.Buff['Pianissimo'] then
@@ -985,6 +1004,16 @@ function job_midcast(spell, action, spellMap, eventArgs)
             end
             if spell.name == 'Honor March' then
                 equip({range="Marsyas"})
+            end
+            if string.find(spell.name,'Lullaby') then
+                if buffactive.Troubadour then
+                    equip({range="Marsyas"})
+                elseif state.LullabyMode.value == 'Harp' and spell.english:contains('Horde') then
+                    equip({range="Daurdabla"})
+                    equip(sets.midcast.SongStringSkill)
+                else
+                    equip({range="Gjallarhorn"})
+                end
             end
         end
     end
@@ -1268,7 +1297,9 @@ function calculate_duration(spellName, spellMap)
 
     return totalDuration
 end
+function gearinfo(cmdParams, eventArgs)
 
+end
 
 -- Examine equipment to determine what our current TP weapon is.
 function pick_tp_weapon()
