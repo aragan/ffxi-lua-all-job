@@ -142,7 +142,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'DT')
-    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow')
+    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow', 'Proc')
     state.IdleMode:options('Normal', 'DT', 'Resist')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
@@ -229,9 +229,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Tabula Rasa'] = {legs="Pedagogy Pants"}
     sets.precast.JA['Enlightenment'] = {body="Peda. Gown +3"}
-    sets.precast.JA['Sublimation'] = {
-        waist="Embla Sash",
-    }
+    sets.precast.JA['Sublimation'] = {waist="Embla Sash",}
 
     -- Fast cast sets for spells
     sets.precast.FC = {
@@ -711,7 +709,36 @@ function init_gear_sets()
             left_ring="Mujin Band",
             right_ring="Freke Ring",
             back="Lugh's Cape",
-            }
+        }
+        sets.Proc = {
+            head=empty,
+            body=empty,
+            hands=empty,
+            legs=empty,
+            feet=empty,
+            neck=empty,
+            waist=empty,
+            left_ear=empty,
+            right_ear=empty,
+            left_ring=empty,
+            right_ring=empty,
+            back=empty,
+        }
+        sets.midcast['Elemental Magic'].Proc = {
+            head=empty,
+            body=empty,
+            hands=empty,
+            legs=empty,
+            feet=empty,
+            neck=empty,
+            waist=empty,
+            left_ear=empty,
+            right_ear=empty,
+            left_ring=empty,
+            right_ring=empty,
+            back=empty,
+        }
+    
         sets.midcast['magic burst'] = {
             main={ name="Marin Staff +1", augments={'Path: A',}},
             sub="Enki Strap",

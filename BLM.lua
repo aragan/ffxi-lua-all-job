@@ -632,8 +632,6 @@ function init_gear_sets()
     })
 
     sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast['Elemental Magic'], {
-        main=empty,
-        ammo=empty,
         head=empty,
         body=empty,
         hands=empty,
@@ -649,8 +647,6 @@ function init_gear_sets()
     })
 
     sets.midcast['Elemental Magic'].HighTierNuke.Proc = set_combine(sets.midcast['Elemental Magic'], {
-        main=empty,
-        ammo=empty,
         head=empty,
         body=empty,
         hands=empty,
