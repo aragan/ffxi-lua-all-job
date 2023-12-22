@@ -1,0 +1,35 @@
+function user_setup()
+
+    state.Carol = M{['description']='Carol',
+        'Fire Carol', 'Fire Carol II', 'Ice Carol', 'Ice Carol II', 'Wind Carol', 'Wind Carol II',
+        'Earth Carol', 'Earth Carol II', 'Lightning Carol', 'Lightning Carol II', 'Water Carol', 'Water Carol II',
+        'Light Carol', 'Light Carol II', 'Dark Carol', 'Dark Carol II',
+        }
+
+    state.Threnody = M{['description']='Threnody',
+        'Fire Threnody II', 'Ice Threnody II', 'Wind Threnody II', 'Earth Threnody II',
+        'Ltng. Threnody II', 'Water Threnody II', 'Light Threnody II', 'Dark Threnody II',
+        }
+
+    state.Etude = M{['description']='Etude', 'Sinewy Etude', 'Herculean Etude', 'Learned Etude', 'Sage Etude',
+        'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
+        'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
+    --add command in macro to use spell /console gs c etude /console gs c carol /console gs c threnody
+    send_command('bind f2 gs c cycle Etude')
+    send_command('bind f3 gs c cycle Carol')
+    send_command('bind f4 gs c cycle Threnody')
+
+end
+
+function job_self_command(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'etude' then
+        send_command('@input /ma "'..state.Etude.value..'" <stpc>')
+    elseif cmdParams[1]:lower() == 'carol' then
+        send_command('@input /ma "'..state.Carol.value..'" <stpc>')
+    elseif cmdParams[1]:lower() == 'threnody' then
+        send_command('@input /ma "'..state.Threnody.value..'" <stnpc>')
+    end
+
+    --gearinfo(cmdParams, eventArgs)
+ 
+end

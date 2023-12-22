@@ -1,0 +1,150 @@
+react cose for ou
+        ["Unfaltering Bravado"]={
+            ["complete_reaction"]="", 
+            ["ready_reaction"]="input /p RUN FROM CONAL TO RIGHT OR LEFT FAST <call7>"
+        },
+
+--code rp neck jSE
+
+function user_setup()
+
+    state.RP = M(false, "Reinforcement Points Mode")    
+--command ctrl+-
+    send_command('bind !- gs c toggle RP')  
+
+end
+
+    sets.RP = {neck="Abyssal Beads +2"}
+
+
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end         
+end
+
+
+
+
+
+
+
+
+Code
+1
+	
+state.Sacro = M(false, 'Sacro Mantle')
+
+
+Create a post precast check to equip mantle if toggle is true:
+Code
+1
+2
+3
+4
+5
+6
+7
+8
+	
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if state.Sacro.value == true then
+            equip({back="Sacro Mantle"})
+            state.Sacro:reset()
+        end
+    end
+end
+
+
+Then set up your macro like this:
+Code
+1
+2
+	
+/console gs c set Sacro true
+/ws "Rudra's Storm" <t>
+
+
+Or you can use a keybind:
+Code
+1
+	
+send_command('bind ^YOURK
+
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+                send_command('gs c update')
+-----------------
+
+    if buff == 'Copy Image' or 'Copy Image (1)' or 'Copy Image (2)' or 'Copy Image (3)' or 'Copy Image (4+)' then
+        if lose then
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+        else
+            send_command('@input /ma "Utsusemi: Ichi" <me>')
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+            handle_equipping_gear(player.status)
+        end
+    end
+============
+
+test 
+
+        send_command('cancel Copy Image|Copy Image (2)|Copy Image (3)')
+===========
+
+    if player.sub_job == 'WAR' then
+==========
+    if buff == 'Copy Image' or 'Copy Image (1)' or 'Copy Image (2)' or 'Copy Image (3)' or 'Copy Image (4+)' then
+        if false then
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+        else
+            send_command('@input /ma "Utsusemi: Ichi" <me>')
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+            handle_equipping_gear(player.status)
+        end
+    end
+
+=============
+
+-- CODE AUTO RERAISE --Aragan (Asura)  [Author Primary] THIS CODE
+sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+ 
+windower.register_event('hpp change',function(new_hpp,old_hpp)
+    if new_hpp < 8 then
+        equip(sets.Reraise)
+    end
+)
+
+unction define_rune_info()
+    rune_info = {
+        ["Ignis"]   = {damage="Fire", resistance="Ice"},
+        ["Gelus"]   = {damage="Ice", resistance="Wind"},
+        ["Flabra"]  = {damage="Wind", resistance="Earth"},
+        ["Tellus"]  = {damage="Earth", resistance="Lightning"},
+        ["Sulpor"]  = {damage="Lightning", resistance="Water"},
+        ["Unda"]    = {damage="Water", resistance="Fire"},
+        ["Lux"]     = {damage="Light", resistance="Darkness"},
+        ["Tenebrae"]= {damage="Darkness", resistance="Light"},
+    }
+end
+
+
+
+--code lockstyle engage
