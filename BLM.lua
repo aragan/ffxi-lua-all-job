@@ -57,7 +57,7 @@ function user_setup()
     state.Moving  = M(false, "moving")
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    state.RP = M(false, "Reinforcement Points Mode")
+    --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
@@ -82,7 +82,7 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^/ gs disable all')
     send_command('bind ^; gs enable all')
-    send_command('bind !- gs c toggle RP')  
+    --send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f7 gs c cycle StaffMode')
 
@@ -974,7 +974,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 
-    sets.RP = {neck="Src. Stole +2"}
+    --sets.RP = {neck="Src. Stole +2"}
 
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -1307,12 +1307,12 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
-    if state.RP.current == 'on' then
+    --[[if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end
+    end]]
     if state.HippoMode.value == "Hippo" then
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     elseif state.HippoMode.value == "normal" then
@@ -1325,12 +1325,12 @@ function customize_melee_set(meleeSet)
     if buffactive['Mana Wall'] then
         meleeSet = set_combine(meleeSet, sets.buff['Mana Wall'])
     end
-    if state.RP.current == 'on' then
+    --[[if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end
+    end]]
     return meleeSet
 end
 function sub_job_change(new,old)
