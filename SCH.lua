@@ -116,22 +116,21 @@ function job_setup()
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
     state.HelixMode = M{['description']='Helix Mode', 'Potency', 'Duration'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
-    state.RP = M(false, "Reinforcement Points Mode")
+    --state.RP = M(false, "Reinforcement Points Mode")
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.StormSurge = M(false, 'Stormsurge')
+    state.Moving  = M(false, "moving")
+
     -- state.CP = M(false, "Capacity Points Mode")
 -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     update_active_strategems()
 
-    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II'}
         }
 
-    lockstyleset = 10
 
 end
 
@@ -141,10 +140,10 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'DT')
-    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' ,'Sird', 'SubtleBlow', 'Proc')
-    state.IdleMode:options('Normal', 'DT', 'Resist')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.OffenseMode:options('None', 'Normal', 'Acc', 'DT')
+    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' , 'Sird', 'SubtleBlow', 'Proc')
+    state.IdleMode:options('Normal', 'DT', 'Resist', 'vagary')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
 
 
     -- Additional local binds
@@ -167,18 +166,19 @@ function user_setup()
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind @s gs c toggle StormSurge')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind !- gs c toggle RP')  
+    --send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
     send_command('bind f7 gs c cycle StaffMode')
     send_command('bind f1 gs c cycle HippoMode')
-
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
 
 
     select_default_macro_book()
     set_lockstyle()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
-    moving = false
+    --moving = false
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -246,12 +246,11 @@ function init_gear_sets()
     right_ear="Malignance Earring",
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
-    back="Lugh's Cape",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
         }
 
     sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {
         head="Peda. M.Board +3", 
-        hands="Telchine Gloves",
         feet="Acad. Loafers +3",})
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
        feet="Acad. Loafers +3", waist="Siegel Sash"})
@@ -711,6 +710,9 @@ function init_gear_sets()
             back="Lugh's Cape",
         }
         sets.Proc = {
+            ammo=empty,
+            main=empty,
+            sub=empty,
             head=empty,
             body=empty,
             hands=empty,
@@ -725,6 +727,9 @@ function init_gear_sets()
             back=empty,
         }
         sets.midcast['Elemental Magic'].Proc = {
+            ammo=empty,
+            main=empty,
+            sub=empty,
             head=empty,
             body=empty,
             hands=empty,
@@ -755,6 +760,22 @@ function init_gear_sets()
             left_ring="Mujin Band",
             right_ring="Freke Ring",
             back="Lugh's Cape",
+        }
+        sets.midcast['magic burst'].Proc = {
+            main=empty,
+            sub=empty,
+            head=empty,
+            body=empty,
+            hands=empty,
+            legs=empty,
+            feet=empty,
+            neck=empty,
+            waist=empty,
+            left_ear=empty,
+            right_ear=empty,
+            left_ring=empty,
+            right_ring=empty,
+            back=empty,
             }
     sets.magic_burst = {
         main={ name="Marin Staff +1", augments={'Path: A',}},
@@ -806,11 +827,10 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        
         sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
-        body="Shamash Robe",
+        body="Arbatel Gown +3",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
@@ -837,7 +857,7 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
-        })
+    })
 
     sets.idle.Resist = set_combine(sets.idle, {
     ammo="Staunch Tathlum +1",
@@ -853,6 +873,23 @@ function init_gear_sets()
     right_ring="Defending Ring",
     back="Moonlight Cape",})
 
+    sets.idle.vagary =  {
+    main="Oranyan", 
+    ammo="Sapience Orb",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Pinga Tunic",
+    hands="Agwu's Gages",
+    legs="Pinga Pants",
+    feet={ name="Regal Pumps +1", augments={'Path: A',}},
+    neck="Baetyl Pendant",
+    waist="Embla Sash",
+    left_ear="Loquac. Earring",
+    right_ear="Malignance Earring",
+    left_ring="Kishar Ring",
+    right_ring="Prolix Ring",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}
+
     sets.idle.Town = set_combine(sets.idle, {
         main="Mpaca's Staff",
         body="Shamash Robe",
@@ -860,7 +897,7 @@ function init_gear_sets()
         left_ear="Infused Earring",
         feet="Herald's Gaiters"})
         
-        sets.Adoulin = {body="Councilor's Garb",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     sets.resting = set_combine(sets.idle, {
         main="Contemplator +1",
@@ -908,14 +945,16 @@ function init_gear_sets()
     right_ring="Shadow Ring",
     back="Moonlight Cape",
 }
+sets.Adoulin = {body="Councilor's Garb", feet="Herald's Gaiters"}
 
+sets.MoveSpeed = {feet="Herald's Gaiters"}
     sets.Kiting = {feet="Herald's Gaiters"}
     sets.latent_refresh = {waist="Fucho-no-obi",}
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-
+    sets.engaged.None = {}
     sets.engaged = {
         ammo="Homiliary",
         head="Befouled Crown",
@@ -985,6 +1024,24 @@ function init_gear_sets()
         right_ear="Assuage Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",}
+    sets.buff['Immanence'].Enmity = {
+}
+    
+    sets.buff['Immanence'].Proc = {
+        main=empty,
+        sub=empty,
+        head=empty,
+        body=empty,
+        hands=empty,
+        legs=empty,
+        feet=empty,
+        neck=empty,
+        waist=empty,
+        left_ear=empty,
+        right_ear=empty,
+        left_ring=empty,
+        right_ring=empty,
+        back=empty,}
 
     sets.buff['Penury'] = {legs="Arbatel Pants +1"}
     sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
@@ -1008,7 +1065,7 @@ function init_gear_sets()
 
     sets.LightArts = {body="Arbatel Gown +3",}
     sets.DarkArts = {body="Arbatel Gown +3",}
-    sets.RP = {neck="Argute Stole +2"}
+    --sets.RP = {neck="Argute Stole +2"}
     sets.Obi = {waist="Hachirin-no-Obi"}
     sets.Bookworm = {back="Bookworm's Cape",}
     -- sets.CP = {back="Mecisto. Mantle"}
@@ -1163,8 +1220,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
-    check_rings()
-    check_moving()
+
     if state.StaffMode.value == "Marin" then
         equip({main="Marin Staff +1"})
     elseif state.StaffMode.value == "Mpaca" then
@@ -1176,7 +1232,7 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    handle_equipping_gear(player.status)
+    --handle_equipping_gear(player.status)
 end
 
 -- Custom spell mapping.
@@ -1200,12 +1256,12 @@ function customize_melee_set(meleeSet)
     --[[if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end]]
-    if state.RP.current == 'on' then
+    --[[if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end  
+    end]]  
     return meleeSet
 end
 function customize_idle_set(idleSet)
@@ -1227,12 +1283,12 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    if state.RP.current == 'on' then
+    --[[if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end
+    end]]
     if state.HippoMode.value == "Hippo" then
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     elseif state.HippoMode.value == "normal" then
@@ -1298,16 +1354,6 @@ end
 
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-        if not midaction() then
-            job_update()
-        end
     end
 end
 
@@ -1341,7 +1387,13 @@ function apply_grimoire_bonuses(spell, action, spellMap)
         if state.Buff.Ebullience and spell.english ~= 'Impact' then
             equip(sets.buff['Ebullience'])
         end
-        if state.Buff.Immanence then
+        if state.Buff.Immanence and state.CastingMode.value == "Proc" then
+            equip(sets.buff['Immanence'].Proc)
+        elseif state.Buff.Immanence and state.CastingMode.value == "SubtleBlow" then
+            equip(sets.buff['Immanence'].SubtleBlow)
+        elseif state.Buff.Immanence and state.CastingMode.value == "Enmity" then
+            equip(sets.buff['Immanence'].Enmity)
+        elseif state.Buff.Immanence then
             equip(sets.buff['Immanence'])
         end
         if state.Buff.Klimaform and spell.element == world.weather_element then
@@ -1469,55 +1521,59 @@ function refine_various_spells(spell, action, spellMap, eventArgs)
     end
 end
 
-function check_moving()
-    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
-        if state.Auto_Kite.value == false and moving then
-            state.Auto_Kite:set(true)
-        elseif state.Auto_Kite.value == true and moving == false then
-            state.Auto_Kite:set(false)
-        end
-    end
-end
 
-function check_rings()
-    rings = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 
-    if rings:contains(player.equipment.left_ring) then
-        disable("left_ring")
-    else
-        enable("left_ring")
-    end
 
-    if rings:contains(player.equipment.right_ring) then
-        disable("right_ring")
-    else
-        enable("right_ring")
-    end
-end
-
-windower.register_event('zone change',
-    function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
-            enable("ring1")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.right_ring) then
-            enable("ring2")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.waist) then
-            enable("waist")
-            equip(sets.idle)
-        end
-    end
-)
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
         send_command('wait 2;input /lockstyleset 174')
     end
 end
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if buffactive['Mana Wall'] then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+ 
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(8, 15)
