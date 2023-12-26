@@ -710,6 +710,7 @@ function init_gear_sets()
             back="Lugh's Cape",
         }
         sets.Proc = {
+            ammo=empty,
             main=empty,
             sub=empty,
             head=empty,
@@ -726,6 +727,7 @@ function init_gear_sets()
             back=empty,
         }
         sets.midcast['Elemental Magic'].Proc = {
+            ammo=empty,
             main=empty,
             sub=empty,
             head=empty,
@@ -825,11 +827,10 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        
         sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
-        body="Shamash Robe",
+        body="Arbatel Gown +3",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
