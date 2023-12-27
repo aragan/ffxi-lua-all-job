@@ -77,7 +77,7 @@ function job_setup()
     state.UseRune = M(false, 'Use Rune')
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
-    send_command('wait 2;input /lockstyleset 200')
+    send_command('wait 2;input /lockstyleset 144')
     run_sj = player.sub_job == 'RUN' or false
 
     select_ammo()
@@ -399,19 +399,21 @@ function init_gear_sets()
     -- Defense sets
     sets.defense.PDT = {
 
-        ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Tuisto Earring",
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Paguroidea Ring",
-    back="Moonlight Cape",
+        main={ name="Ternion Dagger +1", augments={'Path: A',}},
+        sub="Kunimitsu",
+        ammo="Per. Lucky Egg",
+        head="Wh. Rarab Cap +1",
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Malignance Tights",
+        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        neck="Moonbeam Nodowa",
+        waist="Chaac Belt",
+        left_ear="Telos Earring",
+        right_ear="Cessance Earring",
+        left_ring="Ilabrat Ring",
+        right_ring="Epona's Ring",
+        back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Occ. inc. resist. to stat. ailments+10',}},
     }
 
     sets.defense.TreasureHunter = {
@@ -501,7 +503,7 @@ function init_gear_sets()
         waist="Olseni Belt",
     })
         sets.engaged.Sword = set_combine(sets.engaged, {
-            main="Excalipoor II",
+            main="Fermion Sword",
             sub=empty,
         })
         sets.engaged.GK = set_combine(sets.engaged, {
@@ -529,7 +531,7 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.GS = set_combine(sets.engaged, {
-            main="Lament",
+            main="Irradiance Blad",
             sub=empty,
         })
         sets.engaged.Polearm = set_combine(sets.engaged, {

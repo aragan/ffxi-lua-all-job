@@ -191,7 +191,7 @@ function init_gear_sets()
     sets.precast.JA['Embolden'] = {back="Evasionist's Cape"}
     sets.precast.JA['Vivacious Pulse'] = {
     head="Erilaz Galea +2",
-    legs="Rune. Trousers +2",
+    legs="Rune. Trousers +3",
     neck="Incanter's Torque",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
@@ -203,7 +203,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head="Rune. Bandeau +2",
+        head="Rune. Bandeau +3",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         body="Agwu's Robe",
         neck="Baetyl Pendant",
@@ -389,12 +389,12 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
     sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
-        head="Rune. Bandeau +2",
+        head="Rune. Bandeau +3",
         neck="Sacro Gorget",
         right_ear="Erilaz Earring +2",
     })
     sets.midcast['Regen'].SIRD = set_combine(sets.midcast.SIRD, {
-        head="Rune. Bandeau +2",
+        head="Rune. Bandeau +3",
         right_ear="Erilaz Earring +2",
     })
     sets.midcast['Stoneskin'] = set_combine(sets.midcast['Enhancing Magic'], {
@@ -520,7 +520,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         sub="Chanter's Shield",
         ammo="Staunch Tathlum +1",
         hands="Erilaz Gauntlets +2",
-        legs="Rune. Trousers +2",
+        legs="Rune. Trousers +3",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Engraved Belt",
     })
@@ -619,7 +619,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
         body={ name="Sakpata's Plate", augments={'Path: A',}},
         hands="Erilaz Gauntlets +2",
-        legs="Rune. Trousers +2",
+        legs="Rune. Trousers +3",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Engraved Belt",
     })
