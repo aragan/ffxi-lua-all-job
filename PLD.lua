@@ -1535,7 +1535,7 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
    left_ear="Cessance Earring",
    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring="Moonbeam Ring",
+   left_ring="Moonlight Ring",
    right_ring="Moonlight Ring",
    back="Tactical Mantle",
   }
@@ -1743,7 +1743,7 @@ sets.engaged.DW.Hybrid.MaxHaste = set_combine(sets.engaged.DW.Hybrid)-- 12%
     waist="Carrier's Sash",
     left_ear="Trux Earring",
     right_ear="Cryptic Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring="Moonlight Ring",
     back="Rudianos's Mantle",
 }
