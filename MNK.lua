@@ -182,10 +182,10 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -212,7 +212,7 @@ function init_gear_sets()
 
     sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Nyame Flanchard",
@@ -234,7 +234,7 @@ function init_gear_sets()
 
     sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
     ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -292,7 +292,7 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Mpaca's Doublet",
       hands="Mpaca's Gloves",
-    legs="Mpaca's Hose",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
     feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
@@ -314,7 +314,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -332,7 +332,7 @@ function init_gear_sets()
 
     sets.precast.WS['Dragon Kick'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -354,7 +354,7 @@ function init_gear_sets()
 
     sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -437,7 +437,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -667,7 +667,7 @@ function init_gear_sets()
 
     sets.engaged.Acc.PDT = {	
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs="Malignance Tights",

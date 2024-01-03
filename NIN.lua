@@ -869,7 +869,10 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     sets.Adoulin = {body="Councilor's Garb",}
     sets.MoveSpeed = {feet="Danzo Sune-Ate",}
 
-    sets.idle.Town = set_combine(sets.idle, {feet="Danzo Sune-Ate",})
+    sets.idle.Town = {
+        feet="Danzo Sune-Ate",
+        ear2="Infused Earring",
+    }
     
     sets.idle.Weak = sets.idle
 
@@ -1383,9 +1386,6 @@ function customize_idle_set(idleSet)
     -- if state.CraftingMode then
     --     idleSet = set_combine(idleSet, sets.crafting)
     -- end
-    if state.Buff.Migawari then
-        idleSet = set_combine(idleSet, sets.buff.Migawari)
-    end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
@@ -1408,9 +1408,6 @@ function customize_melee_set(meleeSet)
     end
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
-    if state.Buff.Migawari then
-        meleeSet = set_combine(meleeSet, sets.buff.Migawari)
     end
     if state.HybridMode.value == 'Proc' then
         meleeSet = set_combine(meleeSet, sets.NoDW)
@@ -1449,9 +1446,6 @@ function job_buff_change(buff, gain)
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
         end
-    end
-    if buff == "Migawari" and not gain then
-        add_to_chat(61, "*** MIGAWARI DOWN ***")
     end
     if not midaction() then
         handle_equipping_gear(player.status)

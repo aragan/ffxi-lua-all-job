@@ -528,7 +528,7 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -552,10 +552,10 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS["Stringing Pummel"] = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -592,10 +592,10 @@ function init_gear_sets()
         left_ring="Sroda Ring",
     })
     sets.precast.WS["Victory Smite"] = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -616,7 +616,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS["Shijin Spiral"] = { 
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -653,10 +653,10 @@ function init_gear_sets()
     }
 
     sets.precast.WS["Howling Fist"] = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -818,10 +818,10 @@ function init_gear_sets()
     
     sets.engaged.Master.Regen = {    range="Neo Animator",
     
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
@@ -892,7 +892,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",
         head="Heyoka Cap",
         hands="Karagoz Guanti +2",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
@@ -972,10 +972,10 @@ function init_gear_sets()
      }
 
     sets.midcast.Pet["Enfeebling Magic"] = {
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Adad Amulet",
         waist="Ukko Sash",
@@ -1280,7 +1280,7 @@ function init_gear_sets()
     sets.midcast.Pet.WSNoFTP = {                main={ name="Xiucoatl", augments={'Path: C',}},
 
     ammo="Automat. Oil +3",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         hands="Mpaca's Gloves",
         legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},

@@ -239,7 +239,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
     ammo="Knobkierrie",
-    head="Mpaca's Cap",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -273,7 +273,7 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Namas Arrow'] = {
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -295,7 +295,7 @@ function init_gear_sets()
     })
     
     sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -317,7 +317,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Empyreal Arrow'] = set_combine(sets.precast.WS['Namas Arrow'], {
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -340,7 +340,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -415,7 +415,7 @@ function init_gear_sets()
 
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -445,7 +445,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Shoha'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -488,7 +488,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -541,7 +541,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -571,7 +571,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Gekko'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -588,7 +588,7 @@ function init_gear_sets()
     
     sets.precast.WS['Tachi: Yukikaze'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -905,7 +905,7 @@ function init_gear_sets()
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
         body="Flamma Korazin +2",
         hands="Kobo Kote",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
@@ -914,7 +914,7 @@ function init_gear_sets()
     sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {        
         body="Flamma Korazin +2",
         hands="Kobo Kote",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
@@ -922,7 +922,7 @@ function init_gear_sets()
     sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.MaxAcc, {        
         body="Flamma Korazin +2",
         hands="Kobo Kote",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
@@ -964,7 +964,7 @@ function init_gear_sets()
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mpaca's Doublet",
     hands="Flam. Manopolas +2",
-    legs="Mpaca's Hose",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
     feet="Thereoid Greaves",
     neck="Nefarious Collar +1",
     waist="Gerdr Belt",
