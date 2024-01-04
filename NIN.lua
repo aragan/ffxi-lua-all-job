@@ -110,7 +110,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'TP','CRIT')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'TP', 'ZANISH', 'DOUBLE','CRIT')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'SIRD')
@@ -1046,8 +1046,37 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back="Tactical Mantle",
-        })
-
+    })
+    sets.engaged.ZANISH = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck="Moonbeam Nodowa",
+        waist="Sailfi Belt +1",
+        left_ear="Telos Earring",
+        right_ear="Dedition Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Tactical Mantle",
+    })
+    sets.engaged.DOUBLE = set_combine(sets.engaged,{
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
+        body={ name="Tatena. Harama. +1", augments={'Path: A',}},
+        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+        feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+        neck="Clotharius Torque",
+        waist="Sailfi Belt +1",
+        left_ear="Balder Earring +1",
+        right_ear="Cessance Earring",
+        left_ring="Gere Ring",
+        right_ring="Epona's Ring",
+        back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    })
     sets.engaged.CRIT =  {
         ammo="Yetshila +1",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
