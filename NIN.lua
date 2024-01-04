@@ -573,6 +573,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
+    sets.precast.WS['Exenterator'] = set_combine(sets.Shun, {})
+    sets.precast.WS['Viper Bite'] = set_combine(sets.Shun, {})
 
     
     -- BLADE: Rin
@@ -685,6 +687,13 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
+
+    sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
+    sets.precast.WS['Shining Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+
+    })
+
     sets.precast.WS.Evisceration = {
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -723,6 +732,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     sets.precast.WS['Aeolian Edge'].vagary = {}
     sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'],{})
     sets.precast.WS['Cyclone'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
+    sets.precast.WS['Gust Slash'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
+
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Nyame Helm",
@@ -746,6 +757,26 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Tachi: Jinpu'].vagary =  {}
+    sets.precast.WS['Tachi: Kagero'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
+    sets.precast.WS['Tachi: Koki'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
+    sets.precast.WS['Tachi: Goten'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
+    sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS['Tachi: Ageha'] = set_combine(sets.precast.WS, {
+    ammo="Pemphredo Tathlum",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Sanctity Necklace",
+    waist="Eschan Stone",
+    left_ear="Crep. Earring",
+    right_ear="Digni. Earring",
+    left_ring="Stikini Ring +1",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Sacro Mantle",
+    })
+
     sets.precast.WS['Blade: Chi'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
