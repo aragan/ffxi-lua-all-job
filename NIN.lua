@@ -133,7 +133,7 @@ function user_setup()
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^; gs enable all')
+    send_command('bind !/ gs enable all')
     send_command('wait 2;input /lockstyleset 144')
     -- send_command('bind !- gs equip sets.crafting')
     select_default_macro_book()
@@ -1022,7 +1022,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     })
     sets.engaged.TP = {
         ammo="Coiste Bodhar",
-        head="Malignance Chapeau",
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
@@ -1037,12 +1037,12 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     }
     sets.engaged.STP = set_combine(sets.engaged, {
         ammo="Aurgelmir Orb +1",
-        head="Malignance Chapeau",
+        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
-        waist="Gerdr Belt",
+        waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
         back="Tactical Mantle",
