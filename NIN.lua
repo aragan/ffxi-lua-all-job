@@ -444,7 +444,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
-        legs={ name="Mpaca's Hose", augments={'Path: A',}},        right_ear="Hattori Earring +1", 
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        right_ear="Hattori Earring +1", 
         right_ear="Hattori Earring +1", 
         right_ring="Sroda Ring", 
     })
@@ -475,7 +476,8 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},    })
     sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS, sets.Kamu, {
         ammo="Crepuscular Pebble",
-        legs={ name="Mpaca's Hose", augments={'Path: A',}},        right_ear="Hattori Earring +1", 
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        right_ear="Hattori Earring +1", 
         right_ear="Hattori Earring +1", 
         right_ring="Sroda Ring",     })
     
@@ -688,12 +690,6 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
-    sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
-    sets.precast.WS['Shining Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-
-    })
-
     sets.precast.WS.Evisceration = {
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -733,7 +729,10 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
     sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'],{})
     sets.precast.WS['Cyclone'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
     sets.precast.WS['Gust Slash'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
-
+    sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
+    sets.precast.WS['Shining Blade'] = set_combine(sets.precast.WS['Aeolian Edge'], {
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    })
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Nyame Helm",
@@ -1052,7 +1051,7 @@ sets.midcast.SelfNinjutsu.SIRD = {       sub="Tancho",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body={ name="Tatena. Harama. +1", augments={'Path: A',}},
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs={ name="Ryuo Hakama", augments={'Accuracy+20','"Store TP"+4','Phys. dmg. taken -3',}},
         feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck="Moonbeam Nodowa",
         waist="Sailfi Belt +1",
