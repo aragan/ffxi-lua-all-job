@@ -164,15 +164,17 @@ function init_gear_sets()
 	-- So dont forget to do that.
  
     sets.precast.FC = {
-	    ammo="Sapience Orb",
-    head={ name="Merlinic Hood", augments={'Mag. Acc.+9 "Mag.Atk.Bns."+9','Magic burst dmg.+11%','Mag. Acc.+9',}},
-        body="Agwu's Robe",
-    legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-    feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
-    left_ear="Etiolation Earring",
+	ammo="Sapience Orb",
+    head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
+    body="Agwu's Robe",
+    hands={ name="Agwu's Gages", augments={'Path: A',}},
+    legs="Agwu's Slops",
+    feet={ name="Regal Pumps +1", augments={'Path: A',}},
+    left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 	}
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
@@ -180,29 +182,11 @@ function init_gear_sets()
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
 
-	sets.precast['Impact'] = {
-	ammo="Sapience Orb",
-    legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-    feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
-    left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    left_ring="Kishar Ring",
-    right_ring="Prolix Ring",
-	}
-
-		
+	sets.precast['Impact'] = set_combine(sets.precast.FC, {
+	})
 	
-	sets.precast.FC.HighMP = {
-		ammo="Sapience Orb",
-		head={ name="Merlinic Hood", augments={'Mag. Acc.+9 "Mag.Atk.Bns."+9','Magic burst dmg.+11%','Mag. Acc.+9',}},
-		body="Shango Robe",
-		legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
-		left_ear="Etiolation Earring",
-		right_ear="Loquac. Earring",
-		left_ring="Kishar Ring",
-		right_ring="Prolix Ring",
-	}
+	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {
+	})
 		
 		
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
