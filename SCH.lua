@@ -235,7 +235,7 @@ function init_gear_sets()
     sets.precast.FC = {
     --    /RDM --15
     ammo="Sapience Orb",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
     body="Pinga Tunic",
     hands="Acad. Bracers +3",
     legs="Pinga Pants",

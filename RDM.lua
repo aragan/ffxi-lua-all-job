@@ -181,11 +181,11 @@ function init_gear_sets()
 }
 	sets.precast.FC = {
 		ammo="Sapience Orb",
-        head="Carmine Mask +1",
+		head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
 		body="Shango Robe",
 		hands="Leyline Gloves",
 		legs="Psycloth Lappas",
-		feet={ name="Merlinic Crackows", augments={'Magic burst dmg.+9%','Mag. Acc.+9',}},
+		feet="Merlinic Crackows",
 		waist="Witful Belt",
 		neck="Baetyl Pendant",
 		ear1="Loquacious Earring",
@@ -808,8 +808,8 @@ sets.TreasureHunter = {
 		waist="Fucho-no-Obi",
 		head="Pixie Hairpin +1",
 		neck="Erra Pendant",
-		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+8%','Mag. Acc.+11',}}})
-
+		feet="Merlinic Crackows",
+	})
     sets.midcast.Aspir = sets.midcast.Drain
 
     sets.midcast.Stun = {
@@ -948,7 +948,7 @@ sets.TreasureHunter = {
 		ammo="Sapience Orb",
 		head="Halitus Helm",
 		body={ name="Emet Harness +1", augments={'Path: A',}},
-		hands={ name="Merlinic Dastanas", augments={'Magic burst dmg.+6%','MND+7','"Mag.Atk.Bns."+5',}},
+		hands="Merlinic Dastanas",
 		legs={ name="Zoar Subligar +1", augments={'Path: A',}},
 		feet="Nyame Sollerets",
 		neck={ name="Unmoving Collar +1", augments={'Path: A',}},
