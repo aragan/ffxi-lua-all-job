@@ -233,6 +233,7 @@ function init_gear_sets()
         organizer_items = {
             "Moogle Amp.",
             "Mafic Cudgel",
+            "Varga Purnikawa",
             "Sakpata's Fists",
             "Automat. Oil +3",
             "Dawn Mulsum",   

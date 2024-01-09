@@ -20,6 +20,7 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {
+            "Agwu's Claymore",
             "Reikiko",
             "Tumult's Blood",
             "Sarama's Hide",
@@ -204,7 +205,7 @@ function init_gear_sets()
      sets.precast.FC = {
         ammo="Sapience Orb",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body={ name="Odyss. Chestplate", augments={'Attack+23','"Fast Cast"+5','STR+8','Accuracy+15',}},
+        body="Odyss. Chestplate",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
         feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
@@ -298,12 +299,26 @@ function init_gear_sets()
         body="Shab. Cuirass +1",
         neck="Incanter's Torque",
         waist="Olympus Sash",
+        left_ear="Brachyura Earring",
         right_ear="Andoaa Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
 	}
-
+    sets.midcast.Phalanx = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Odyssean Helm", augments={'INT+5','"Cure" potency +8%','Phalanx +4','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},
+        body="Shab. Cuirass +1",
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+    } 
      sets.midcast['Enfeebling Magic'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Hjarrandi Helm",
@@ -1324,6 +1339,16 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
+            eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
 end
  
 function job_post_precast(spell, action, spellMap, eventArgs)

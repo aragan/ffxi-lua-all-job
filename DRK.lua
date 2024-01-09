@@ -18,7 +18,8 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {    
+organizer_items = {
+    "Agwu's Claymore",
     "Reikiko",
     "Tumult's Blood",
     "Sarama's Hide",
