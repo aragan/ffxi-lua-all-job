@@ -104,7 +104,8 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Shield', 'Sword', 'ACC', 'Dagger', 'ACC', 'CRIT', 'PD')
+    state.OffenseMode:options('None', 'Normal', 'Acc', 'Shield', 'CRIT')
+    state.HybridMode:options('Normal', 'DT')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
     state.WeaponskillMode:options('Normal', 'PDL')
@@ -141,6 +142,7 @@ function user_setup()
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'Tauret', 'Naegling'}
+    state.Moving = M(false, "moving")
 
 
     -- Additional local binds
@@ -151,7 +153,7 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
-    send_command('bind f4 input //fillmode')
+    send_command('bind f7 input //fillmode')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f2 gs c cycle Etude')
     send_command('bind f3 gs c cycle Carol')
@@ -160,6 +162,9 @@ function user_setup()
     send_command('bind @` gs c cycle LullabyMode')
 
     select_default_macro_book()
+    update_combat_form()
+	DW_needed = 0
+    DW = false
 end
 
 
@@ -725,18 +730,11 @@ sets.midcast.SongStringSkill = {
        
     }
 
-    sets.idle.Town = {       head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    sets.idle.Town = {    
     feet="Fili Cothurnes +2",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",}
+}
     
     sets.idle.Weak = {       head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
@@ -750,7 +748,6 @@ sets.midcast.SongStringSkill = {
     left_ring="Stikini Ring +1",
     right_ring="Defending Ring",
     back="Moonlight Cape",
-        
     }
     
     
@@ -801,6 +798,8 @@ sets.midcast.SongStringSkill = {
     }
 
     sets.Kiting = {feet="Fili Cothurnes +2",}
+	sets.Adoulin = {body="Councilor's Garb",}
+    sets.MoveSpeed = {feet="Fili Cothurnes +2",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -814,15 +813,15 @@ sets.midcast.SongStringSkill = {
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
+        body="Volte Harness",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Battlecast Gaiters",
         neck="Lissome Necklace",
-        waist="Reiki Yotai",
-        left_ear="Suppanomimi",
-        right_ear="Balder Earring +1",
-        left_ring="Chirich Ring +1",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        right_ear="Cessance Earring",
+        left_ear="Telos Earring",
+        left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
         back="Bleating Mantle",    }
 
@@ -831,7 +830,7 @@ sets.midcast.SongStringSkill = {
         main="Naegling",
         sub="Genmei Shield",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
+        body="Volte Harness",
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -843,50 +842,68 @@ sets.midcast.SongStringSkill = {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.engaged.Dagger = {range="Linos",
-        main={ name="Twashtar", augments={'Path: A',}},
-        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
-        waist="Reiki Yotai",
-        left_ear="Suppanomimi",
-        right_ear="Balder Earring +1",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Bleating Mantle",    }
 
-    sets.engaged.Sword = {range="Linos",
-        main="Naegling",
-        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
-        waist="Reiki Yotai",
-        left_ear="Suppanomimi",
-        right_ear="Balder Earring +1",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Bleating Mantle",    }
-
-    sets.engaged.CRIT = set_combine(sets.engaged, {range="Linos",
-        main={ name="Twashtar", augments={'Path: A',}},
-        sub={ name="Ternion Dagger +1", augments={'Path: A',}},
+    sets.engaged.CRIT = set_combine(sets.engaged, {
+        range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
         back="Bleating Mantle",    })
-    sets.engaged.ACC = set_combine(sets.engaged, {
+    sets.engaged.Acc = set_combine(sets.engaged, {        range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
+        body="Volte Harness",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck="Lissome Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Telos Earring",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })
+    sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Volte Harness",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Battlecast Gaiters",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Balder Earring +1",
+        left_ring="Moonlight Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    })
+
+    ---------------------------------------- DW-HASTE ------------------------------------------
+    -- * DNC Subjob DW Trait: +15%
+    -- * NIN Subjob DW Trait: +25%
+    --DW cap all set haste capped
+
+    sets.engaged.DW = set_combine(sets.engaged ,{
+        range="Linos",
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Volte Harness",
+        hands="Bunzi's Gloves",
+        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        feet="Battlecast Gaiters",
+        neck="Lissome Necklace",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
+        right_ear="Balder Earring +1",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+        back="Bleating Mantle",    
+    })
+
+    sets.engaged.DW.Acc = set_combine(sets.engaged.Acc ,{
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        body="Volte Harness",
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +2",
@@ -898,25 +915,49 @@ sets.midcast.SongStringSkill = {
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
-    sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-        feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
-        waist="Reiki Yotai",
-        left_ear="Suppanomimi",
-        right_ear="Balder Earring +1",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Defending Ring",
-        back="Moonlight Cape",
+    sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, {
+    range="Linos",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Aya. Gambieras +2",
+    neck="Nefarious Collar +1",
+    waist="Reiki Yotai",
+    left_ear="Suppanomimi",
+    right_ring="Hetairoi Ring",
+    back="Bleating Mantle",    
     })
+------------------------------------------------------------------------------------------------
+---------------------------------------- Hybrid Sets -------------------------------------------
+------------------------------------------------------------------------------------------------
+
+sets.engaged.Hybrid = {
+    hands="Bunzi's Gloves",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    ring1="Moonlight Ring", --5/5
+    ring2="Moonlight Ring", --5/5
+    }
+
+    sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
+    sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
+    sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
+
+    sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
+    sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
+    sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
+
+
+
+
+
+
+
+
+
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-
 
 end
 
@@ -1089,6 +1130,23 @@ function job_state_change(stateField, newValue, oldValue)
     check_weaponset()
 end
 
+function update_offense_mode()
+    if (player.sub_job == 'NIN' and player.sub_job_level > 9) or (player.sub_job == 'DNC' and player.sub_job_level > 19) then
+        state.CombatForm:set('DW')
+    else
+        state.CombatForm:reset()
+    end
+end
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    update_combat_form()
+end
+function update_combat_form()
+    if DW == true then
+        state.CombatForm:set('DW')
+    elseif DW == false then
+        state.CombatForm:reset()
+    end
+end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
@@ -1100,20 +1158,6 @@ end
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
-    if state.Buff['Seigan'] then
-        if state.DefenseMode.value == 'PDT' then
-    	    meleeSet = set_combine(meleeSet, sets.thirdeye)
-        else
-            meleeSet = set_combine(meleeSet, sets.seigan)
-        end
-    end
-    if player.equipment.range == 'Yoichinoyumi' then
-        meleeSet = set_combine(meleeSet, sets.bow)
-    end
-    if player.hpp < 10 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        meleeSet = set_combine(meleeSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
     end
 
     check_weaponset()
@@ -1142,6 +1186,46 @@ function customize_idle_set(idleSet)
     return idleSet
 end
 
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+                moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
@@ -1298,6 +1382,20 @@ function calculate_duration(spellName, spellMap)
     return totalDuration
 end
 function gearinfo(cmdParams, eventArgs)
+    if type(tonumber(cmdParams[2])) == 'number' then
+        if tonumber(cmdParams[2]) ~= DW_needed then
+        DW_needed = tonumber(cmdParams[2])
+        DW = true
+        end
+    elseif type(cmdParams[2]) == 'string' then
+        if cmdParams[2] == 'false' then
+            DW_needed = 0
+            DW = false
+        end
+    end
+    if not midaction() then
+        job_update()
+    end
 
 end
 
@@ -1315,6 +1413,8 @@ function reset_timers()
 end
 -- Called for direct player commands.
 function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+
     if cmdParams[1]:lower() == 'etude' then
         send_command('@input /ma "'..state.Etude.value..'" <stpc>')
     elseif cmdParams[1]:lower() == 'carol' then
