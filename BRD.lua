@@ -141,8 +141,8 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'Tauret', 'Naegling'}
-    state.Moving = M(false, "moving")
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling'}
+    --state.Moving = M(false, "moving")
 
 
     -- Additional local binds
@@ -165,6 +165,9 @@ function user_setup()
     update_combat_form()
 	DW_needed = 0
     DW = false
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
+
 end
 
 
@@ -181,6 +184,7 @@ function init_gear_sets()
     --------------------------------------
     
     --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
+    sets.normal = {}
     sets.Twashtar = {main="Twashtar", sub="Ternion Dagger +1"}
     sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Naegling = {main="Naegling", sub="Ternion Dagger +1"}
@@ -705,7 +709,7 @@ sets.midcast.SongStringSkill = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -797,9 +801,9 @@ sets.midcast.SongStringSkill = {
         back="Moonlight Cape",
     }
 
-    sets.Kiting = {feet="Fili Cothurnes +2",}
-	sets.Adoulin = {body="Councilor's Garb",}
-    sets.MoveSpeed = {feet="Fili Cothurnes +2",}
+    sets.Kiting = {feet="Fili Cothurnes +2"}
+	--sets.Adoulin = {body="Councilor's Garb",}
+    --sets.MoveSpeed = {feet="Fili Cothurnes +2",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -1139,12 +1143,19 @@ function update_offense_mode()
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
+    check_moving()
 end
 function update_combat_form()
     if DW == true then
         state.CombatForm:set('DW')
+
     elseif DW == false then
         state.CombatForm:reset()
+
+    end
+    if player.equipment.sub:endswith('Shield') then
+        state.CombatForm:reset()
+
     end
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -1153,7 +1164,20 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-   
+    check_moving()
+end
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+            send_command('gs c update')
+
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+            send_command('gs c update')
+
+        end
+    end
 end
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
@@ -1182,54 +1206,30 @@ function customize_idle_set(idleSet)
     elseif state.HippoMode.value == "normal" then
        equip({})
     end
-    
+    if state.Auto_Kite.value == true then
+		idleSet = set_combine(idleSet, sets.Kiting)
+	end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     return idleSet
 end
 
-mov = {counter=0}
-if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
-    mov.x = windower.ffxi.get_mob_by_index(player.index).x
-    mov.y = windower.ffxi.get_mob_by_index(player.index).y
-    mov.z = windower.ffxi.get_mob_by_index(player.index).z
-end
-
-
-moving = false
-windower.raw_register_event('prerender',function()
-    mov.counter = mov.counter + 1;
-    if mov.counter>15 then
-        local pl = windower.ffxi.get_mob_by_index(player.index)
-        if pl and pl.x and mov.x then
-            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
-            if dist > 1 and not moving then
-                state.Moving.value = true
-                send_command('gs c update')
-				if world.area:contains("Adoulin") then
-                send_command('gs equip sets.Adoulin')
-				else
-                send_command('gs equip sets.MoveSpeed')
-                end
-
-                moving = true
-
-            elseif dist < 1 and moving then
-                state.Moving.value = false
-                send_command('gs c update')
-                moving = false
-            end
-        end
-        if pl and pl.x then
-            mov.x = pl.x
-            mov.y = pl.y
-            mov.z = pl.z
-        end
-        mov.counter = 0
-    end
-end)
 
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
     display_current_caster_state()
+
+    local i_msg = state.IdleMode.value
+
+    local msg = ''
+    if state.Kiting.value then
+        msg = msg .. ' Kiting: On |'
+    end
+
+    add_to_chat(002, '| ' ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
+    ..string.char(31,002)..msg)
+
     eventArgs.handled = true
 end
 
@@ -1382,21 +1382,34 @@ function calculate_duration(spellName, spellMap)
     return totalDuration
 end
 function gearinfo(cmdParams, eventArgs)
-    if type(tonumber(cmdParams[2])) == 'number' then
-        if tonumber(cmdParams[2]) ~= DW_needed then
-        DW_needed = tonumber(cmdParams[2])
-        DW = true
+    if cmdParams[1] == 'gearinfo' then
+        if type(tonumber(cmdParams[2])) == 'number' then
+            if tonumber(cmdParams[2]) ~= DW_needed then
+            DW_needed = tonumber(cmdParams[2])
+            DW = true
+            end
+        elseif type(cmdParams[2]) == 'string' then
+            if cmdParams[2] == 'false' then
+                DW_needed = 0
+                DW = false
+            end
         end
-    elseif type(cmdParams[2]) == 'string' then
-        if cmdParams[2] == 'false' then
-            DW_needed = 0
-            DW = false
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
         end
     end
-    if not midaction() then
-        job_update()
-    end
-
 end
 
 -- Examine equipment to determine what our current TP weapon is.
