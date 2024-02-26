@@ -1109,6 +1109,18 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
         end
     end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
+        end
+    end
 end
 
 -- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.

@@ -215,7 +215,7 @@ function init_gear_sets()
     back="Camulus's Mantle",}
     
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Chas. Culottes +3",})
-    sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +1"})
+    sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
     sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Chass. Tricorne +2",})
     sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2",})
     sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +3",})
@@ -536,7 +536,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         body="Lanun Frac +3",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+        feet="Chass. Bottes +2",
         neck="Baetyl Pendant",
         waist="Skrymir Cord",
         left_ear="Friomisi Earring",
@@ -552,7 +552,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         body="Laksa. Frac +3",
         hands="Malignance Gloves",
         legs="Chas. Culottes +3",
-        feet="Malignance Boots",
+        feet="Chass. Bottes +2",
         neck="Sanctity Necklace",
         waist="Eschan Stone",
         left_ear="Crep. Earring",
