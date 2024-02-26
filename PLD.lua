@@ -1544,7 +1544,7 @@ sets.engaged.Tp = --1179 / 1315 avec enlight up
 {  
    ammo="Aurgelmir Orb +1",
    head="Flam. Zucchetto +2",
-   body="Flamma Korazin +2",
+   body="Volte Harness",
    hands="Flam. Manopolas +2",
    legs="Flamma Dirs +2",
    feet="Flam. Gambieras +2",
@@ -1583,7 +1583,7 @@ sets.engaged.CRIT = --1179 / 1315 avec enlight up
       waist="Tempus Fugit +1",
       left_ear="Dedition Earring",
       right_ear="Telos Earring",
-      left_ring="Petrov Ring",
+      left_ring="Moonlight Ring",
       right_ring="Moonlight Ring",
       back="Tactical Mantle",
    }

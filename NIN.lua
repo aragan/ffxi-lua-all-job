@@ -1567,6 +1567,23 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
+        end
+    end
     if not midaction() then
         handle_equipping_gear(player.status)
     end

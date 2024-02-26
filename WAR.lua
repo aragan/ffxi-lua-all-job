@@ -1339,6 +1339,10 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    -- Replace Moonshade Earring if we're at cap TP
+    if spell.type == 'Weaponskill' and player.tp == 3000 then
+        equip({right_ear="Ishvara Earring"})
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1596,6 +1600,13 @@ function job_buff_change(buff, gain)
             else
                 send_command('input /p '..player.name..' is no longer Petrify!')
                 handle_equipping_gear(player.status)
+            end
+        end
+        if buff == "Charm" then
+            if gain then  			
+               send_command('input /p Charmd, please Sleep me.')		
+            else	
+               send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
             end
         end
         if not midaction() then

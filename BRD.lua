@@ -125,7 +125,7 @@ function user_setup()
         'Ltng. Threnody II', 'Water Threnody II', 'Light Threnody II', 'Dark Threnody II',
         }
 
-    state.Etude = M{['description']='Etude', 'Sinewy Etude', 'Herculean Etude', 'Learned Etude', 'Sage Etude',
+    state.Etude = M{['description']='Etude',  'Herculean Etude', 'Sage Etude', 'Sinewy Etude', 'Learned Etude',
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
 
@@ -1093,6 +1093,22 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
 end
 
 -- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.
@@ -1148,14 +1164,11 @@ end
 function update_combat_form()
     if DW == true then
         state.CombatForm:set('DW')
-
     elseif DW == false then
         state.CombatForm:reset()
-
     end
     if player.equipment.sub:endswith('Shield') then
         state.CombatForm:reset()
-
     end
 end
 -------------------------------------------------------------------------------------------------------------------
