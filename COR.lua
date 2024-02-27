@@ -107,6 +107,7 @@ function job_setup()
     elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+    state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Enhance', 'Potency', 'TH'}
 
 end
 
@@ -146,6 +147,7 @@ function user_setup()
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind @q gs c cycle QDMode')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('wait 2;input /lockstyleset 151')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -196,6 +198,8 @@ function init_gear_sets()
     sets.Earp = {range="Earp"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
+    sets.FullTP = {ear1="Crematio Earring"}
+
     -- Precast Sets
 
     -- Precast sets to enhance JAs
@@ -545,7 +549,22 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         right_ring="Cornelia's Ring",
         back="Camulus's Mantle",
 }
+    sets.midcast.CorsairShot.STP = {
+        ammo=gear.QDbullet,
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        ear1="Dedition Earring",
+        ear2="Telos Earring",
+        ring1="Chirich Ring +1",
+        ring2="Chirich Ring +1",
+        waist="Kentarch Belt +1",
+        back="Tactical Mantle",
 
+        }
     sets.midcast.CorsairShot['Light Shot'] = {
         ammo=gear.QDbullet,
         head="Malignance Chapeau",
@@ -563,6 +582,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 }
 
     sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot['Light Shot']
+    sets.midcast.CorsairShot.Enhance = {feet="Chass. Bottes +2"}
 
 
     -- Ranged gear
@@ -1200,9 +1220,9 @@ function job_precast(spell, action, spellMap, eventArgs)
             special_ammo_check()
         end
         -- Replace TP-bonus gear if not needed.
-        --[[if spell.english == 'Leaden Salute' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
+        if spell.english == 'Leaden Salute' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
             equip(sets.FullTP)
-        end]]
+        end
     end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
@@ -1343,6 +1363,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             -- Match day or weather.
             elseif spell.element == world.day_element or spell.element == world.weather_element then
                 equip({waist="Hachirin-no-Obi"})
+            end
+            if state.QDMode.value == 'Enhance' then
+                equip(sets.midcast.CorsairShot.Enhance)
+            elseif state.QDMode.value == 'TH' then
+                equip(sets.midcast.CorsairShot)
+                equip(sets.TreasureHunter)
+            elseif state.QDMode.value == 'STP' then
+                equip(sets.midcast.CorsairShot.STP)
             end
         end
     elseif spell.action_type == 'Ranged Attack' then
