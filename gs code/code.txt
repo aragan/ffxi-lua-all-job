@@ -148,3 +148,18 @@ end
 
 
 --code lockstyle engage
+
+
+--code ody v25
+
+if buff == "Max HP Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+
+if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
