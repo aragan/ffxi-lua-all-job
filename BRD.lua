@@ -41,6 +41,7 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {
+    "Airmid's Gorget",
     "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
@@ -294,22 +295,27 @@ function init_gear_sets()
         back="Intarabus's Cape",
     }
     
+    sets.precast.WS.PDL = set_combine(sets.precast.WS,{
+        body="Bunzi's Robe",
+        })
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = { range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         neck="Fotia Gorget",
-        left_ear="Brutal Earring",
-    right_ear="Balder Earring +1",
+        left_ear="Moonshade Earring",
+        right_ear="Mache Earring +1",
     body="Bihu Jstcorps. +3",
     hands="Bunzi's Gloves",
     ring1="Hetairoi Ring",
-    ring2="Cornelia's Ring",
+    ring2="Ilabrat Ring",
     back="Bleating Mantle",
     waist="Fotia Belt",
     legs="Lustr. Subligar +1",
     feet="Lustra. Leggings +1",
     }
-    
+    sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'],{
+        body="Bunzi's Robe",
+        })
     sets.precast.WS['Exenterator'] = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Bihu Jstcorps. +3",
@@ -324,7 +330,9 @@ function init_gear_sets()
     waist="Fotia Belt",
     back="Bleating Mantle",
     }
-
+    sets.precast.WS['Exenterator'].PDL = set_combine(sets.precast.WS['Exenterator'],{
+        body="Bunzi's Robe",
+        })
     sets.precast.WS['Mordant Rime'] = {range="Linos",
     head={ name="Nyame Helm", augments={'Path: B',}},
     body="Bihu Jstcorps. +3",
@@ -333,13 +341,15 @@ function init_gear_sets()
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
-        ear2="Moonshade Earring",
-        ring1="Ilabrat Ring",
+        ear2="Regal Earring",
+        ring1="Sroda Ring", 
         ring2="Cornelia's Ring",
-        waist="Kentarch Belt +1",
+        waist="Sailfi Belt +1",
         back="Intarabus's Cape",
 }
-
+sets.precast.WS['Mordant Rime'].PDL = set_combine(sets.precast.WS['Mordant Rime'],{
+    body="Bunzi's Robe",
+    })
 sets.precast.WS['Rudras Storm'] = {range="Linos",
 head={ name="Nyame Helm", augments={'Path: B',}},
 body="Bihu Jstcorps. +3",
@@ -354,7 +364,9 @@ feet={ name="Nyame Sollerets", augments={'Path: B',}},
     waist="Kentarch Belt +1",
     back="Intarabus's Cape",
 }
-
+sets.precast.WS['Rudras Storm'].PDL = set_combine(sets.precast.WS['Rudras Storm'],{
+    body="Bunzi's Robe",
+    })
 
 sets.precast.WS['Aeolian Edge'] = {range="Linos",
     head="C. Palug Crown",
@@ -954,11 +966,13 @@ sets.engaged.Hybrid = {
 
 
 
+    --------------------------------------
+    -- Custom buff sets
+    --------------------------------------
 
 
 
-
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1062,6 +1076,9 @@ function job_midcast(spell, action, spellMap, eventArgs)
             end
         end
     end
+    if spell.skill == 'Enhancing Magic' then
+        equip(sets.midcast['Enhancing Magic'])
+    end
 end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
@@ -1083,7 +1100,7 @@ end
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1109,17 +1126,53 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
         end
     end
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
     if buff == "Sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
             send_command('input /p '..player.name..' is no longer Sleep!')
-            handle_equipping_gear(player.status)    
         end
-        if not midaction() then
-            handle_equipping_gear(player.status)
-            job_update()
-        end
+    end
+    if not midaction() then
+        job_update()
     end
 end
 

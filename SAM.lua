@@ -38,6 +38,7 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {     
+    "Airmid's Gorget",
     "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
@@ -1041,10 +1042,9 @@ function init_gear_sets()
     --sets.seigan = {hands="Otronif Gloves +1"}
     sets.bow = {ammo=gear.RAarrow}
     
-    sets.MadrigalBonus = {}
     sets.Terror = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
     sets.Stun = {feet={ name="Founder's Greaves", augments={'VIT+8','Accuracy+13','"Mag.Atk.Bns."+14','Mag. Evasion+14',}},}
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1238,12 +1238,6 @@ function job_buff_change(buff, gain)
     	state.Buff[buff] = gain
         handle_equipping_gear(player.status)
     end
-
-    if S{'madrigal'}:contains(buff:lower()) then
-        if buffactive.madrigal and state.OffenseMode.value == 'Acc' then
-            equip(sets.MadrigalBonus)
-        end
-    end
     if S{'aftermath'}:contains(buff:lower()) then
         classes.CustomMeleeGroups:clear()
        
@@ -1259,7 +1253,7 @@ function job_buff_change(buff, gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1275,6 +1269,7 @@ function job_buff_change(buff, gain)
              disable('feet')
             else
              enable('feet')
+             handle_equipping_gear(player.status)    
         end
     end
     if buff == "Sleep" then
@@ -1304,8 +1299,46 @@ function job_buff_change(buff, gain)
         end
         return meleeSet
     end]]
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+            send_command('input /item "Holy Water" <me>')
+        end
+    end
     if not midaction() then
-        handle_equipping_gear(player.status)
+        job_update()
     end
 
 end

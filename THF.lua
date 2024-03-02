@@ -32,7 +32,8 @@ function get_sets()
     include('Mote-Include.lua')
 end
     include('organizer-lib')
-    organizer_items = {       
+    organizer_items = {      
+        "Airmid's Gorget", 
         "Mafic Cudgel",
         "Gyudon",
         "Reraiser",
@@ -91,7 +92,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT', 'Ranger')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
+    state.WeaponskillMode:options('Normal', 'PDL', 'Mod')
     state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT')
     state.PhysicalDefenseMode:options('Evasion', 'PDT')
     state.MagicalDefenseMode:options('MDT')
@@ -235,7 +236,7 @@ function init_gear_sets()
     right_ring="Ilabrat Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS.PDL= set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -259,7 +260,7 @@ function init_gear_sets()
     right_ring="Regal Ring",
     back="Bleating Mantle",
     })
-    sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {range=empty,
+    sets.precast.WS['Exenterator'].PDL= set_combine(sets.precast.WS['Exenterator'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
@@ -273,7 +274,7 @@ function init_gear_sets()
     sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
 
     sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS.Acc, {range=empty})
-    sets.precast.WS['Dancing Edge'].Acc = set_combine(sets.precast.WS['Dancing Edge'], {})
+    sets.precast.WS['Dancing Edge'].PDL= set_combine(sets.precast.WS['Dancing Edge'], {})
     sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
     sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
     sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
@@ -294,7 +295,7 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back="Bleating Mantle",
     })
-    sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {range=empty,
+    sets.precast.WS['Evisceration'].PDL= set_combine(sets.precast.WS['Evisceration'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
@@ -321,7 +322,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
-    sets.precast.WS["Rudra's Storm"].Acc = set_combine(sets.precast.WS["Rudra's Storm"], {
+    sets.precast.WS["Rudra's Storm"].PDL= set_combine(sets.precast.WS["Rudra's Storm"], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -352,7 +353,7 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
-    sets.precast.WS['Shark Bite'].Acc = set_combine(sets.precast.WS['Shark Bite'], {
+    sets.precast.WS['Shark Bite'].PDL= set_combine(sets.precast.WS['Shark Bite'], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -384,7 +385,7 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
-    sets.precast.WS['Mandalic Stab'].Acc = set_combine(sets.precast.WS['Mandalic Stab'], {
+    sets.precast.WS['Mandalic Stab'].PDL= set_combine(sets.precast.WS['Mandalic Stab'], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -414,7 +415,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
 
-    sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS['Aeolian Edge'])
+    sets.precast.WS['Aeolian Edge'].PDL= set_combine(sets.precast.WS['Aeolian Edge'])
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {range=empty,
     ammo="Yetshila +1",
@@ -431,7 +432,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
-    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {range=empty,
+    sets.precast.WS['Savage Blade'].PDL= set_combine(sets.precast.WS['Savage Blade'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
@@ -452,7 +453,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
+sets.precast.WS['Judgment'].PDL= set_combine(sets.precast.WS['Black Halo'], {
         ammo="Crepuscular Pebble",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
@@ -477,7 +478,7 @@ sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Black Halo'], {
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
-    sets.precast.WS["Empyreal Arrow"].Acc = set_combine(sets.precast.WS["Empyreal Arrow"], {
+    sets.precast.WS["Empyreal Arrow"].PDL= set_combine(sets.precast.WS["Empyreal Arrow"], {
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
@@ -998,7 +999,7 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
     sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
     body="Malignance Tabard",
     })
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1071,7 +1072,7 @@ function job_buff_change(buff, gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1093,8 +1094,8 @@ function job_buff_change(buff, gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     if buff == "Sleep" then
@@ -1102,15 +1103,48 @@ function job_buff_change(buff, gain)
             send_command('input /p ZZZzzz, please cure.')		
         else
             send_command('input /p '..player.name..' is no longer Sleep!')
-            handle_equipping_gear(player.status)    
         end
-        if not midaction() then
-            handle_equipping_gear(player.status)
-            job_update()
+    end
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+            send_command('input /item "Holy Water" <me>')
         end
     end
     if not midaction() then
-        handle_equipping_gear(player.status)
+        job_update()
     end
 end
 

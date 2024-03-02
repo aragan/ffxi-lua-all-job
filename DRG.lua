@@ -16,7 +16,9 @@ function get_sets()
 	include('Mote-Include.lua')
 	include('organizer-lib')
 
-    organizer_items = {"Prime Sword",
+    organizer_items = {
+        "Airmid's Gorget",
+        "Prime Sword",
         "Sword Strap",
         "Mafic Cudgel",
         "Angon",
@@ -77,7 +79,7 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'Mid', 'Acc', 'CRIT')
 	state.IdleMode:options('Normal', 'Sphere')
 	state.HybridMode:options('Normal', 'PDT', 'Reraise')
-	state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
+	state.WeaponskillMode:options('Normal', 'SC', 'PDL')
 	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
 	state.MagicalDefenseMode:options('MDT')
     
@@ -220,7 +222,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     }
-    sets.precast.WS.Mid = set_combine(sets.precast.WS, {
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -228,7 +230,7 @@ sets.precast.JA.Jump = {
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +2",
@@ -250,7 +252,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Bleating Mantle",
     })
-	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
+	sets.precast.WS['Stardiver'].SC = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -258,7 +260,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {
+	sets.precast.WS['Stardiver'].PDL = set_combine(sets.precast.WS.PDL, {
         head="Nyame Helm",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
@@ -283,7 +285,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
+	sets.precast.WS["Camlann's Torment"].SC = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -291,7 +293,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS["Camlann's Torment"], {
+	sets.precast.WS["Camlann's Torment"].PDL = set_combine(sets.precast.WS["Camlann's Torment"], {
         head="Nyame Helm",
         body="Pelt. Plackart +2",
         hands="Nyame Gauntlets",
@@ -315,7 +317,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS['Drakesbane'].Mid = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
+	sets.precast.WS['Drakesbane'].SC = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -323,7 +325,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS['Drakesbane'], {
+	sets.precast.WS['Drakesbane'].PDL = set_combine(sets.precast.WS['Drakesbane'], {
         ammo="Crepuscular Pebble",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
@@ -347,7 +349,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Brigantia's Mantle",
     })
-    sets.precast.WS['Geirskogul'].Mid = set_combine(sets.precast.WS['Geirskogul'], {    head="Nyame Helm",
+    sets.precast.WS['Geirskogul'].SC = set_combine(sets.precast.WS['Geirskogul'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -355,7 +357,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Geirskogul'].Acc = set_combine(sets.precast.WS['Geirskogul'], {
+	sets.precast.WS['Geirskogul'].PDL = set_combine(sets.precast.WS['Geirskogul'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         right_ear="Peltast's Earring",
@@ -377,14 +379,14 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
+	sets.precast.WS['Impulse Drive'].SC = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     right_ring="Mujin Band",
     })
-	sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
+	sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +2",
@@ -421,7 +423,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
-    sets.precast.WS['Raiden Thrust'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Raiden Thrust'].PDL = set_combine(sets.precast.WS, {
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
@@ -439,7 +441,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
-    sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'].PDL = set_combine(sets.precast.WS, {
     })
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
@@ -456,7 +458,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
@@ -479,7 +481,7 @@ sets.precast.JA.Jump = {
         back="Argocham. Mantle",
     })
 
-    sets.precast.WS['Cataclysm'].Acc = set_combine(sets.precast.WS, {})
+    sets.precast.WS['Cataclysm'].PDL = set_combine(sets.precast.WS, {})
 
     sets.precast.WS['Myrkr'] = {
         ammo="Pemphredo Tathlum",
@@ -526,7 +528,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     }
-    sets.precast.WS['Judgment'].Mid = set_combine(sets.precast.WS['Judgment'], {
+    sets.precast.WS['Judgment'].SC = set_combine(sets.precast.WS['Judgment'], {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -534,7 +536,7 @@ sets.precast.JA.Jump = {
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-    sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
+    sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
@@ -781,7 +783,7 @@ sets.precast.JA.Jump = {
     sets.engaged.Reraise = set_combine(sets.engaged, {		
     head="Crepuscular Helm",
     body="Crepuscular Mail",})
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -953,7 +955,7 @@ end
 function job_buff_change(buff, gain)
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -986,8 +988,8 @@ function job_buff_change(buff, gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     --[[if buff == "weakness" then
@@ -999,8 +1001,46 @@ function job_buff_change(buff, gain)
         end
         return
     end]]
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
     if not midaction() then
-        handle_equipping_gear(player.status)
+        job_update()
     end
 end
 

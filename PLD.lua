@@ -26,6 +26,7 @@ function get_sets()
     res = require 'resources'
 end
 organizer_items = {
+    "Airmid's Gorget",
     "Tumult's Blood",
     "Sarama's Hide",
     "Hidhaegg's Scale",
@@ -84,7 +85,7 @@ function job_setup()
     state.TreasureMode:set('None')
     send_command('wait 6;input /lockstyleset 150')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Nexus Cape"}
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Nexus Cape", "Airmid's Gorget",}
     
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
@@ -120,12 +121,10 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Aegis', 'Priwen'} -- , 'Priwen', 'Srivatsa' }
+    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Srivatsa', 'Aegis', 'Priwen'} -- , 'Priwen' }
     state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
     state.TartarusMode = M{['description']='Tartarus Mode', 'normal', 'Tartarus'}
     --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
-    state.Auto_Kite = M(false, 'Auto_Kite')
-    moving = false
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Tp', 'Acc', 'Hybrid', 'STP', 'CRIT')
 	--state.DefenseMode:options('Normal', 'PDT')
@@ -1947,8 +1946,8 @@ function job_buff_change(buff,gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     if buff == "Rampart" then
@@ -1963,7 +1962,6 @@ function job_buff_change(buff,gain)
            send_command('input /p Charmd, please Sleep me.')		
         else	
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
-           handle_equipping_gear(player.status)
         end
     end
     if buff == "Sleep" then
@@ -1981,6 +1979,47 @@ function job_buff_change(buff,gain)
             job_update()
         end
     end
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if not midaction() then
+        job_update()
+    end
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
     determine_haste_group()
@@ -1995,19 +2034,15 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 	   equip({sub="Aegis"})
     elseif state.ShieldMode.value == "Priwen" then
         equip({sub="Priwen"})
+    elseif state.ShieldMode.value == "Srivatsa" then
+	    equip({sub="Srivatsa"})
     elseif state.ShieldMode.value == "normal" then
       equip({})
     end
-	--elseif state.ShieldMode.value == "Srivatsa" then
-	   --equip({sub="Srivatsa"})
+
     if state.HippoMode.value == "Hippo" then
         equip({feet="Hippo. Socks +1"})
     elseif state.HippoMode.value == "normal" then
-       equip({})
-    end
-    if state.TartarusMode.value == "Tartarus" then
-        equip({body="Tartarus Platemail"})
-    elseif state.TartarusMode.value == "normal" then
        equip({})
     end
 end
@@ -2020,11 +2055,6 @@ end
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
 function customize_idle_set(idleSet)
-    if state.TartarusMode.value == "Tartarus" then
-        idleSet = set_combine(idleSet, {body="Tartarus Platemail"})
-    elseif state.TartarusMode.value == "normal" then
-       equip({})
-    end
     if state.HippoMode.value == "Hippo" then
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     elseif state.HippoMode.value == "normal" then
@@ -2057,15 +2087,15 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    if state.TartarusMode.value == "Tartarus" then
+        idleSet = set_combine(idleSet, {body="Tartarus Platemail"})
+    elseif state.TartarusMode.value == "normal" then
+       equip({})
+    end
   return idleSet
 end
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.TartarusMode.value == "Tartarus" then
-        meleeSet = set_combine(meleeSet, {body="Tartarus Platemail"})
-    elseif state.TartarusMode.value == "normal" then
-       equip({})
-    end
     if state.HybridMode.current == 'MDT' then
         meleeSet = set_combine(meleeSet, sets.engaged.MDT)
     end
@@ -2074,6 +2104,11 @@ function customize_melee_set(meleeSet)
     end
     if state.HybridMode.current == 'ReverenceGauntlets' then
         meleeSet = set_combine(meleeSet, sets.engaged.ReverenceGauntlets)
+    end
+    if state.TartarusMode.value == "Tartarus" then
+        meleeSet = set_combine(meleeSet, {body="Tartarus Platemail"})
+    elseif state.TartarusMode.value == "normal" then
+       equip({})
     end
   return meleeSet
 end

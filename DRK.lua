@@ -19,6 +19,7 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {
+    "Airmid's Gorget",
     "Agwu's Claymore",
     "Reikiko",
     "Tumult's Blood",
@@ -1614,7 +1615,7 @@ sets.engaged.Haste.Apocalypse.CRIT.DT = set_combine(sets.engaged.Haste.Apocalyps
 	head="Crepuscular Helm",
     body="Crepuscular Mail",})
 
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1841,7 +1842,7 @@ function job_buff_change(buff, gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1872,8 +1873,8 @@ function job_buff_change(buff, gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     if buff == "sleep" then
@@ -1885,6 +1886,44 @@ function job_buff_change(buff, gain)
             enable('neck')
             send_command('input /p '..player.name..' is no longer Sleep Thank you !')
             handle_equipping_gear(player.status)    
+        end
+    end
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
         end
     end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
@@ -1968,6 +2007,9 @@ function job_buff_change(buff, gain)
     --        end
     --    end
     --end
+    if not midaction() then
+        job_update()
+    end
 end
   
   

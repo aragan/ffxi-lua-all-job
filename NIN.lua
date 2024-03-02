@@ -23,6 +23,7 @@ function get_sets()
     include('organizer-lib')
     include('Mote-TreasureHunter')
     organizer_items = {
+        "Airmid's Gorget",
         "Hachimonji",
         "Mafic Cudgel",
         "Toolbag (Shihe)",
@@ -91,7 +92,9 @@ function job_setup()
     state.unProc = M(false, 'unProc')
 
 
-    swordList = S{"Naegling"}
+    swordList = S{'Naegling'}
+    GKList = S{'Naegling','Zanmato +1'}
+
     wsList = S{'Blade: Hi', 'Blade: Kamu', 'Blade: Ten'}
     nukeList = S{'Katon: San', 'Doton: San', 'Suiton: San', 'Raiton: San', 'Hyoton: San', 'Huton: San'}
 
@@ -129,7 +132,7 @@ function user_setup()
     send_command('bind @f9 gs c cycle HasteMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
-    send_command('bind f2 input //gs c rune')
+    send_command('bind f2 input //gs c UseRune')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
@@ -1354,7 +1357,7 @@ sets.Naegling = {main="Naegling", sub="Kunimitsu"}
 sets.Hachimonji = {main="Hachimonji", sub="Alber Strap",}
 sets.Zanmato = {main="Zanmato +1",sub="Sword Strap",}
 
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1474,7 +1477,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     end
     if state.Buff.Doom then
-        equip(sets.Doom)
+        equip(sets.buff.Doom)
     end
 end
 
@@ -1557,7 +1560,7 @@ function job_buff_change(buff, gain)
     end
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1582,6 +1585,52 @@ function job_buff_change(buff, gain)
         else	
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
         end
     end
     if not midaction() then

@@ -184,6 +184,7 @@ function user_setup()
     send_command('bind f1 gs c cycle HippoMode')
 
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
 
 
     select_default_macro_book()
@@ -231,6 +232,7 @@ function init_gear_sets()
 
    
         organizer_items = {
+            "Airmid's Gorget",
             "Moogle Amp.",
             "Mafic Cudgel",
             "Varga Purnikawa",
@@ -700,7 +702,7 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'] = sets.precast.WS["Stringing Pummel"]
 
 
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -1497,7 +1499,7 @@ end
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
-            equip(sets.Doom)
+            equip(sets.buff.Doom)
             send_command('@input /p Doomed, please Cursna.')
             send_command('@input /item "Holy Water" <me>')	
              disable('ring1','ring2','waist','neck')
@@ -1519,8 +1521,8 @@ function job_buff_change(buff,gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     if buff == "Sleep" then
@@ -1528,14 +1530,49 @@ function job_buff_change(buff,gain)
             send_command('input /p ZZZzzz, please cure.')		
         else
             send_command('input /p '..player.name..' is no longer Sleep!')
-            handle_equipping_gear(player.status)    
-        end
-        if not midaction() then
-            handle_equipping_gear(player.status)
-            job_update()
         end
     end
-
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+            send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if not midaction() then
+        job_update()
+    end
 end
 function check_buff(buff_name, eventArgs)
     --[[if state.Buff[buff_name] then
