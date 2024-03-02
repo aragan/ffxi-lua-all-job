@@ -1263,11 +1263,6 @@ function update_combat_form()
     elseif DW == false then
         state.CombatForm:reset()
     end
-	if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
-        equip(sets.DefaultShield)
-    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
-        equip(sets.DefaultShield)
-    end
 	if player.equipment.sub:endswith('Shield') then
         state.CombatForm:reset()
     end
