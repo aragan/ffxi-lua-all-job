@@ -30,9 +30,12 @@ end
 		"Decimating Bullet",
 		"Beryllium Arrow",
 		"Eminent Arrow",
+		"Eminent Quiver",
 		"Chr. Bul. Pouch",
 		"Dec. Bul. Pouch",
+	    "Em. Bul. Pouch",
 		"Chrono Bullet",
+		"Eminent Bullet",
 		"Hauksbok Arrow",
 		"Gyudon",
 		"Reraiser",
@@ -77,9 +80,8 @@ function job_setup()
     send_command('wait 6;input /lockstyleset 152')
 	include('Mote-TreasureHunter')
 	state.WeaponLock = M(false, 'Weapon Lock')
-	send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind ^= gs c cycle treasuremode')
-    update_combat_form()
+	-- Whether a warning has been given for low ammo
+	state.warned = M(false)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -89,10 +91,13 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	state.RangedMode:options('Normal', 'Acc', 'MAXAcc', 'Critical')
-	state.HybridMode:options('Normal', 'Shield')
-    state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
-	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HybridMode:options('Normal', 'PDT')
+    state.WeaponskillMode:options('Normal', 'PDL', 'SC')
+	state.OffenseMode:options('Normal', 'Acc', 'DA', 'STP', 'Ranged')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion')
+    state.MagicalDefenseMode:options('MDT')
+
+	state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
@@ -102,41 +107,63 @@ function user_setup()
 		"Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
 		"Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Fomalhaut", "Ullr", "Perun 1+", "Naegling", "Gleti's Crossbow", "Anarchy +2", "Trollbane", 
 	"Nusku Shield", "Malevolence", "Kustawi +1", "Arendsi Fleuret", "Gleti's Knife", "Dolichenus", "Tauret", 
-	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi",
+	"Blurred Knife +1", "Ternion Dagger +1", "Beryllium Arrow", "Eminent Arrow", "Hangaku-no-Yumi", "Decimating bullett",
 
 }
     elemental_ws = S{'Aeolian Edge', 'Trueflight', 'Wildfire'}
 	no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
-	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
-	              ['Ullr'] = "Eminent Arrow",
-				  ['Fomalhaut'] = "Decimating Bullett",
+	DefaultAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow",
+	               ['Ullr'] = "Eminent Arrow",
+				   ['Fomalhaut'] = "Eminent Bullet",
+				   ['Earp'] = "Eminent Bullet",
+				   ['Holliday'] = "Eminent Bullet",
 				}
-	WSAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
+	WSAmmo = {     ['Hangaku-no-Yumi'] = "Beryllium Arrow",
 	               ['Ullr'] = "Beryllium Arrow",
 				   ['Fomalhaut'] = "Chrono Bullet",
+				   ['Earp'] = "Chrono Bullet",
+				   ['Holliday'] = "Chrono Bullet",
 				}
-	AccAmmo = {['Hangaku-no-Yumi'] = "Eminent Arrow", 
+	AccAmmo = {   ['Hangaku-no-Yumi'] = "Eminent Arrow",
 	              ['Ullr'] = "Eminent Arrow",
-				  ['Fomalhaut'] = "Decimating Bullett",
+				  ['Fomalhaut'] = "Eminent Bullet",
+				  ['Earp'] = "Eminent Bullet",
+				  ['Holliday'] = "Eminent Bullet",
 				}
-	MagicAmmo = {['Hangaku-no-Yumi'] = "Beryllium Arrow", 
+	MagicAmmo = { ['Hangaku-no-Yumi'] = "Beryllium Arrow",
 	              ['Ullr'] = "Beryllium Arrow",
 	              ['Fomalhaut'] = "Chrono Bullet",
+				  ['Earp'] = "Chrono Bullet",
+				  ['Holliday'] = "Chrono Bullet",
 				}
 
 
 	select_default_macro_book()
-	send_command('bind f12 gs c auto---------------------------------------------------------------') --Gearset update toggle--
-	send_command('bind f9 gs c cycle RangedMode')
-	send_command('bind ^f9 gs c cycle OffenseMode')
+	--send_command('bind f12 gs c auto---------------------------------------------------------------') --Gearset update toggle--
+	--send_command('bind f9 gs c cycle RangedMode')
+	--send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 152')
     send_command('bind f1 gs c cycle HippoMode')
-    send_command('bind ^- gs enable all')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind f7 gs c cycle Weapongun')
+    send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     send_command('bind f4 input //fillmode')
+
+	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'AXE'}
+    state.Weapongun = M{['description']='Weapon Set', 'normal', 'Holliday', 'Hangaku', 'Fomalhaut', 'Earp','Ullr'}
+    
+	update_combat_form()
+
+	Haste = 0
+    DW_needed = 0
+    DW = false
+    moving = false
 end
 
 
@@ -154,7 +181,23 @@ function init_gear_sets()
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    
+	sets.normal = {}
+    sets.SWORDS = {main="Naegling", sub="Blurred Knife +1"}
+    sets.DAGGERS = {main="Ternion Dagger +1", sub="Malevolence"}
+    sets.AXE = {main="Perun 1+", sub="Nusku Shield"}
+
+    sets.normal = {}
+    sets.Holliday = {range="Holliday"}
+    sets.Hangaku = {range="Hangaku-no-Yumi", ammo="Hauksbok Arrow"}
+    sets.Fomalhaut = {range="Fomalhaut"}
+    sets.Earp = {range="Earp"}
+	sets.Ullr = {range="Ullr"}
+	
+	sets.DefaultShield = {sub="Nusku Shield"}
+
+	
+	sets.CapacityMantle  = {}
 
 	-- Precast sets to enhance JAs
 	sets.precast.JA['Bounty Shot'] = {hands="Sylvan Glovelettes +2"}
@@ -476,13 +519,14 @@ function init_gear_sets()
 
 	})
 
-	sets.midcast.RA.Annihilator = set_combine(sets.midcast.RA)
+	sets.midcast.RA.Fomalhaut = set_combine(sets.midcast.RA)
 
-	sets.midcast.RA.Annihilator.Acc = set_combine(sets.midcast.RA.Acc)
+	sets.midcast.RA.Earp = set_combine(sets.midcast.RA)
+	sets.midcast.RA.Holliday = set_combine(sets.midcast.RA)
 
-	sets.midcast.RA.Yoichinoyumi = set_combine(sets.midcast.RA, {})
+	sets.midcast.RA.Ullr = set_combine(sets.midcast.RA, {})
 
-	sets.midcast.RA.Yoichinoyumi.Acc = set_combine(sets.midcast.RA.Acc, {})
+	sets.midcast.RA['Hangaku-no-Yumi'] = set_combine(sets.midcast.RA, {})
 	
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
@@ -525,7 +569,7 @@ function init_gear_sets()
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
-		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Flume Belt +1",
@@ -540,7 +584,7 @@ function init_gear_sets()
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		legs="Malignance Tights",
         eet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
@@ -560,21 +604,7 @@ function init_gear_sets()
 	-- Engaged sets
 	--------------------------------------
 
-	sets.engaged.DW = {
 
-		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-		neck="Clotharius Torque",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Suppanomimi",
-		right_ear="Sherida Earring",
-		left_ring="Petrov Ring",
-		right_ring="Epona's Ring",
-		back="Annealed Mantle",
-	}
 	sets.engaged = {
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -583,12 +613,13 @@ function init_gear_sets()
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
 		back="Annealed Mantle",
 	}
+
 	sets.engaged.DD = {
 		sub="Blurred Knife +1",
 		range="Hangaku-no-Yumi",
@@ -600,7 +631,7 @@ function init_gear_sets()
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
@@ -621,7 +652,7 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 
-	sets.engaged.Range = {	
+	sets.engaged.Ranged = {	
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -633,7 +664,7 @@ function init_gear_sets()
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 
 	sets.engaged.ShieldAcc = {	
@@ -661,7 +692,7 @@ function init_gear_sets()
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
 		neck="Subtlety Spec.",
 		waist="Olseni Belt",
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
@@ -675,13 +706,13 @@ function init_gear_sets()
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
 		neck="Subtlety Spec.",
 		waist="Olseni Belt",
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
 		back="Annealed Mantle",
 	}
-	sets.engaged.DA = {	
+	sets.engaged.CRIT = {	
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -689,7 +720,7 @@ function init_gear_sets()
 		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
 		neck="Clotharius Torque",
 		waist="Windbuffet Belt +1",
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Eabani Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
@@ -704,12 +735,179 @@ function init_gear_sets()
 		feet="Malignance Boots",
 		neck="Iskur Gorget",
 		waist="Olseni Belt",
-		left_ear="Suppanomimi",
+		left_ear="Telos Earring",
 		right_ear="Dedition Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
+		back="Tactical Mantle",
+	}
+
+	-- * DNC Subjob DW Trait: +15%
+    -- * NIN Subjob DW Trait: +25%
+
+    --DW cap all set haste capped
+
+	sets.engaged.DW = {
+		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+		legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+		feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+		neck="Clotharius Torque",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		right_ear="Sherida Earring",
+		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
 		back="Annealed Mantle",
 	}
+
+	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
+		waist="Reiki Yotai",
+		left_ear="Suppanomimi",
+})
+sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
+		waist="Reiki Yotai",
+		left_ear="Suppanomimi",
+})
+sets.engaged.DW.Ranged = {    
+	head="Malignance Chapeau",
+	body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+	hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+	legs="Malignance Tights",
+	feet="Malignance Boots",
+	neck="Iskur Gorget",
+	waist="Windbuffet Belt +1",
+	left_ear="Cessance Earring",
+	right_ear="Telos Earring",
+	left_ring="Epona's Ring",
+	right_ring="Petrov Ring",
+	back="Tactical Mantle",
+		}
+sets.engaged.DW.STP = set_combine(sets.engaged, {
+	waist="Reiki Yotai",
+	left_ear="Suppanomimi",
+	ring1="Chirich Ring +1",
+	ring2="Chirich Ring +1",
+})
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+	sets.engaged.Hybrid = {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	}
+	   
+	sets.engaged.PDT = set_combine(sets.engaged,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Chas. Culottes +3",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	sets.engaged.STP.PDT = set_combine(sets.engaged.STP,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Reiki Yotai",
+		left_ring="Defending Ring",
+	})
+	sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		waist="Reiki Yotai",
+		left_ring="Defending Ring",
+	})
+	sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		waist="Reiki Yotai",
+		left_ring="Defending Ring",
+	})
+	sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{    
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Chas. Culottes +3",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ring="Defending Ring",
+	})
+	
+	sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		left_ear="Suppanomimi",
+		waist="Reiki Yotai",
+		left_ring="Defending Ring",
+	})
+
+
+
+
+
+
 
 	--------------------------------------
 	-- Custom buff sets
@@ -729,6 +927,9 @@ function init_gear_sets()
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
 
+
+	sets.DefaultShield = {sub="Nusku Shield"}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -745,8 +946,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         equip(sets.CapacityMantle)
     end
 
-	if spell.action_type == 'Ranged Attack' or
-	  (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
+    if spell.action_type == 'Ranged Attack' or (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
 		check_ammo(spell, action, spellMap, eventArgs)
 	end
 	if spellMap == 'Utsusemi' then
@@ -787,7 +987,23 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 		end
 	end
 end
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if spell.english == "Shadowbind" then
+        send_command('@timers c "Shadowbind ['..spell.target.name..']" 42 down abilities/00122.png')
+    end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+end
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
 
+    check_weaponset()
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
 	if spell.action_type == 'Ranged Attack' and state.Buff.Barrage then
@@ -813,6 +1029,16 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    equip(sets[state.Weapongun.current])
+    if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        equip(sets.DefaultShield)
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        equip(sets.DefaultShield)
+    end
+end
+
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if state.HippoMode.value == "Hippo" then
@@ -827,6 +1053,7 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
+    check_weaponset()
 
 	return meleeSet
 end
@@ -876,8 +1103,8 @@ function job_buff_change(buff, gain)
             equip(sets.defense.PDT)
             send_command('input /p Petrification, please Stona.')		
         else
-        send_command('input /p '..player.name..' is no longer Petrify!')
-        handle_equipping_gear(player.status)
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
         end
     end
     if buff == "Sleep" then
@@ -885,14 +1112,51 @@ function job_buff_change(buff, gain)
             send_command('input /p ZZZzzz, please cure.')		
         else
             send_command('input /p '..player.name..' is no longer Sleep!')
-            handle_equipping_gear(player.status)    
-        end
-        if not midaction() then
-            handle_equipping_gear(player.status)
-            job_update()
         end
     end
+	if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if not midaction() then
+        job_update()
+    end
 end
+
 windower.register_event('action',
     function(act)
         --check if you are a target of spell
@@ -925,6 +1189,40 @@ windower.register_event('action',
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
 
+end
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(tonumber(cmdParams[2])) == 'number' then
+            if tonumber(cmdParams[2]) ~= DW_needed then
+            DW_needed = tonumber(cmdParams[2])
+            DW = true
+            end
+        elseif type(cmdParams[2]) == 'string' then
+            if cmdParams[2] == 'false' then
+                DW_needed = 0
+                DW = false
+            end
+        end
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
 end
 function display_current_job_state(eventArgs)
 	local cf_msg = ''
@@ -965,6 +1263,14 @@ function update_combat_form()
     elseif DW == false then
         state.CombatForm:reset()
     end
+	if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        equip(sets.DefaultShield)
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        equip(sets.DefaultShield)
+    end
+	if player.equipment.sub:endswith('Shield') then
+        state.CombatForm:reset()
+    end
 end
 function update_offense_mode()
     if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
@@ -974,6 +1280,7 @@ function update_offense_mode()
     end
 end
 function job_update(cmdParams, eventArgs)
+	update_combat_form()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
@@ -989,9 +1296,12 @@ function check_ammo(spell, action, spellMap, eventArgs)
                     equip({ammo=DefaultAmmo[player.equipment.range]})
                 else
                     add_to_chat(3,"Default ammo unavailable.  Leaving empty.")
+                    equip({ammo=WSAmmo[player.equipment.range]})
+
                 end
             else
                 add_to_chat(3,"Unable to determine default ammo for current weapon.  Leaving empty.")
+
             end
         end
     elseif spell.type == 'WeaponSkill' then
