@@ -1,0 +1,486 @@
+react cose for ou
+        ["Unfaltering Bravado"]={
+            ["complete_reaction"]="", 
+            ["ready_reaction"]="input /p RUN FROM CONAL TO RIGHT OR LEFT FAST <call7>"
+        },
+
+--code rp neck jSE
+
+function user_setup()
+
+    state.RP = M(false, "Reinforcement Points Mode")    
+--command ctrl+-
+    send_command('bind !- gs c toggle RP')  
+
+end
+
+    sets.RP = {neck="Abyssal Beads +2"}
+
+
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end         
+end
+
+Code
+1
+	
+state.Sacro = M(false, 'Sacro Mantle')
+
+
+Create a post precast check to equip mantle if toggle is true:
+Code
+1
+2
+3
+4
+5
+6
+7
+8
+	
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if state.Sacro.value == true then
+            equip({back="Sacro Mantle"})
+            state.Sacro:reset()
+        end
+    end
+end
+
+
+Then set up your macro like this:
+Code
+1
+2
+	
+/console gs c set Sacro true
+/ws "Rudra's Storm" <t>
+
+
+Or you can use a keybind:
+Code
+1
+	
+send_command('bind ^YOURK
+------------
+
+                send_command('gs c update')
+-----------------
+
+    if buff == 'Copy Image' or 'Copy Image (1)' or 'Copy Image (2)' or 'Copy Image (3)' or 'Copy Image (4+)' then
+        if lose then
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+        else
+            send_command('@input /ma "Utsusemi: Ichi" <me>')
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+            handle_equipping_gear(player.status)
+        end
+    end
+============
+
+test 
+
+        send_command('cancel Copy Image|Copy Image (2)|Copy Image (3)')
+===========
+
+    if player.sub_job == 'WAR' then
+==========
+    if buff == 'Copy Image' or 'Copy Image (1)' or 'Copy Image (2)' or 'Copy Image (3)' or 'Copy Image (4+)' then
+        if false then
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+        else
+            send_command('@input /ma "Utsusemi: Ichi" <me>')
+            send_command('@input /ma "Utsusemi: Ni" <me>')
+            handle_equipping_gear(player.status)
+        end
+    end
+
+=============
+
+-- CODE AUTO RERAISE --Aragan (Asura)  [Author Primary] THIS CODE
+sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+ 
+windower.register_event('hpp change',function(new_hpp,old_hpp)
+    if new_hpp < 8 then
+        equip(sets.Reraise)
+    end
+)
+
+function define_rune_info()
+    rune_info = {
+        ["Ignis"]   = {damage="Fire", resistance="Ice"},
+        ["Gelus"]   = {damage="Ice", resistance="Wind"},
+        ["Flabra"]  = {damage="Wind", resistance="Earth"},
+        ["Tellus"]  = {damage="Earth", resistance="Lightning"},
+        ["Sulpor"]  = {damage="Lightning", resistance="Water"},
+        ["Unda"]    = {damage="Water", resistance="Fire"},
+        ["Lux"]     = {damage="Light", resistance="Darkness"},
+        ["Tenebrae"]= {damage="Darkness", resistance="Light"},
+    }
+end
+
+
+
+--code lockstyle engage
+
+-- auto remedy for silence
+
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+
+--code ody v25
+
+if buff == "Max HP Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+
+if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+if buff == "Magic Def. Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+if buff == "Magic Evasion Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+if buff == "Evasion Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+if buff == "Attack Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+if buff == "Accuracy Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+end
+
+    if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
+
+So in the mapping file i put this:
+
+Panacea = S{
+    'Emporox\'s Gift',-- Just to test it.
+    'Bind',
+    'Bio',
+    'Dia',
+    'Accuracy Down',
+    'Attack Down',
+    'Evasion Down',
+    'Defense Down',
+    'Magic Evasion Down',
+    'Magic Def. Down',
+    'Magic Acc. Down',
+    'Magic Atk. Down',
+    'Max HP Down',
+    'Max MP Down',
+    'slow',
+    'weight'}
+
+
+
+    elseif str == 'medicines' then
+        if check_buffs('paralysis') then
+            send_command('input /item "Remedy" <me>')
+        elseif check_buffs('doom') then
+            equip(sets.misc.holywater)
+            send_command('input /item "Holy Water" <me>')
+        elseif check_buffs('curse') then
+            send_command('input /item "Holy Water" <me>')
+        elseif check_buffs(
+                'blindness',
+                'disease',
+                'poison',
+                'silence') then
+            send_command('input /item "Remedy" <me>')
+        --Not all Eraseable debuffs are listed below, add to list as needed
+        elseif not S(buffactive):intersection(Panacea):empty() then --- SECTION I NEED HELP ON
+            send_command('input /item "Panacea" <me>')
+        else
+            add_to_chat(8,string.char(0x81,0x9A)..' No medicines used, '
+                ..'update list if needed '..string.char(0x81,0x9A))
+        end
+    end
+
+
+-- 'Out of Range' distance; WS will auto-cancel
+
+function user_setup()
+
+        -- 'Out of Range' distance; WS will auto-cancel
+        target_distance = 6
+
+function job_precast(spell, action, spellMap, eventArgs)
+	cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
+
+        if spell.type == "WeaponSkill" and spell.name ~= 'Mistral Axe' and spell.name ~= 'Bora Axe' and spell.target.distance > target_distance then
+                cancel_spell()
+                add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+                return
+        end
+
+
+----- 
+
+function job_pretarget(spell, action, spellMap, eventArgs)
+
+    if spell.target.distance > 8 and player.status == 'Engaged' then
+       eventArgs.cancel = true
+       add_to_chat(122,"Outside WS Range! /Canceling")
+    end
+
+
+---- Replace Moonshade Earring if we're at cap TP 3000
+
+function job_precast(spell, action, spellMap, eventArgs)
+    -- Replace Moonshade Earring if we're at cap TP
+    if spell.type == 'Weaponskill' and player.tp == 3000 then
+        equip({right_ear="Ishvara Earring"})
+    end
+
+
+function job_status_change(newStatus, oldStatus, eventArgs)
+    if newStatus == "Engaged" then
+        if buffactive.Berserk and not state.Buff.Retaliation then
+            equip(sets.buff.Berserk)
+        end
+        get_combat_weapon()
+    --elseif newStatus == 'Idle' then
+    --    determine_idle_group()
+    end
+end
+ 
+
+-- buff == buff gained or lost
+
+function job_buff_change(buff, gain)
+    if state.Buff[buff] ~= nil then
+        handle_equipping_gear(player.status)
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "doom" then
+        if gain then
+            equip(sets.Doom)
+            send_command('@input /p Doomed, please Cursna.')
+            send_command('@input /item "Holy Water" <me>')	
+            disable('ring1','ring2','waist','neck')
+        else
+            enable('ring1','ring2','waist','neck')
+            send_command('input /p Doom removed.')
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "weakness" then
+        if gain then
+            equip(sets.Reraise)
+            disable('body','head')
+            else
+            enable('body','head')
+        end
+        return meleeSet
+    end
+    if buff == "Sleep" then
+        if gain then    
+            equip(sets.Sleep)
+            disable('neck')
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            enable('neck')
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if buff == "petrification" then
+            if gain then    
+                equip(sets.defense.PDT)
+                send_command('input /p Petrification, please Stona.')		
+            else
+                send_command('input /p '..player.name..' is no longer Petrify!')
+                handle_equipping_gear(player.status)
+            end
+        end
+        if buff == "Charm" then
+            if gain then  			
+               send_command('input /p Charmd, please Sleep me.')		
+            else	
+               send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+            end
+        end
+        if buff == "curse" then
+            if gain then  
+            send_command('input /item "Holy Water" <me>')
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+        end
+    end
+end
+
+---auto change kitting gear when move
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+            send_command('gs c update')
+
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+            send_command('gs c update')
+
+        end
+    end
+end
+
+
+-- dw code
+
+if dw == true then
+    if S{'NIN'}:contains(player.sub_job) then
+        if DW_needed <= 11 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 11 and DW_needed <= 26 then
+            classes.CustomMeleeGroups:append('HighHaste')
+        elseif DW_needed > 26 and DW_needed <= 31 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 31 and DW_needed <= 42 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 42 then
+            classes.CustomMeleeGroups:append('')
+        end
+    elseif S{'DNC'}:contains(player.sub_job) then
+        if DW_needed <= 21 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 21 and DW_needed <= 36 then
+            classes.CustomMeleeGroups:append('HighHaste')
+        elseif DW_needed > 36 and DW_needed <= 41 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 41 and DW_needed <= 52 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 52 then
+            classes.CustomMeleeGroups:append('')
+        end
+    end
+end
+
+------------------
+
+--weapon set code
+
+function user_setup()
+    
+	state.CombatWeapon= M('Tizona','TizonaAcc','Savage','Chant','Nuke')
+
+
+
+function init_gear_sets()
+
+---weapon sets---
+sets.weapons = {}
+sets.weapons.Tizona = {main= "Tizona", sub ='Thibron'}
+sets.weapons.TizonaAcc = {main="Tizona", sub='Tanmogayi +1'}
+sets.weapons.Savage = {main= "Naegling", sub ='Thibron'}
+sets.weapons.Chant  = {main= "Tanmogayi +1", sub ='Tizona'}
+sets.weapons.Nuke =   {main = "Maxentius", sub = 'Kaja rod'}
+
+function customize_idle_set(idleSet)
+
+	if state.CombatWeapon.value == 'Tizona' then
+	idleSet = set_combine(idleSet, sets.weapons.Tizona)
+	end
+	if state.CombatWeapon.value == 'TizonaAcc' then
+	idleSet = set_combine(idleSet, sets.weapons.TizonaAcc)
+	end
+	if state.CombatWeapon.value == 'Savage' then
+	idleSet = set_combine(idleSet, sets.weapons.Savage)
+	end
+	if state.CombatWeapon.value == 'Chant' then
+	idleSet = set_combine(idleSet, sets.weapons.Chant)
+	end
+	if state.CombatWeapon.value == 'Nuke' then
+	idleSet = set_combine(idleSet, sets.weapons.Nuke)
+	end
+
+function customize_melee_set(meleeSet)
+
+	if state.CombatWeapon.value == 'Tizona' then
+	meleeSet = set_combine(meleeSet, sets.weapons.Tizona)
+	end
+	if state.CombatWeapon.value == 'TizonaAcc' then
+	meleeSet = set_combine(meleeSet, sets.weapons.TizonaAcc)
+	end
+	if state.CombatWeapon.value == 'Savage' then
+	meleeSet = set_combine(meleeSet, sets.weapons.Savage)
+	end
+	if state.CombatWeapon.value == 'Chant' then
+	meleeSet = set_combine(meleeSet, sets.weapons.Chant)
+	end
+	if state.CombatWeapon.value == 'Nuke' then
+	meleeSet = set_combine(meleeSet, sets.weapons.Nuke)
+	end
+    return meleeSet
+end
+
