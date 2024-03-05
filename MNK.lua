@@ -112,7 +112,7 @@ function init_gear_sets()
     sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Focus'] = {head="Anchorite's Crown +1"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +1"}
-    sets.precast.JA['Footwork'] = {feet="Tantra Gaiters +2"}
+    sets.precast.JA['Footwork'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas"}
     sets.precast.JA['Mantra'] = {feet="Hesychast's Gaiters +1"}
 
@@ -749,12 +749,16 @@ sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
     -- Hundred Fists/Impetus melee set mods
     sets.engaged.HF = set_combine(sets.engaged)
     sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Bhikku Cyclas +2"})
+    sets.engaged.Impetus = set_combine(sets.engaged, {body="Bhikku Cyclas +2"})
+    sets.engaged.Acc.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.HF = set_combine(sets.engaged.Acc)
     sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +2"})
     sets.engaged.Counter.HF = set_combine(sets.engaged.Counter)
     sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
     sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +2"})
+    sets.engaged.Acc.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +2"})
+
     --sets.engaged.SubtleBlow.HF = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
     --sets.engaged.SubtleBlow.HF.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
     --sets.engaged.SubtleBlow.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
@@ -762,8 +766,8 @@ sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
 
 
     -- Footwork combat form
-    sets.engaged.Footwork = {}
-    sets.engaged.Footwork.Acc = {}
+    --sets.engaged.Footwork = {}
+    --sets.engaged.Footwork.Acc = {} 
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +2"}
@@ -806,11 +810,18 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
         -- Replace Moonshade Earring if we're at cap TP
     end
+    
 end
 
 function job_aftercast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
         send_command('cancel Footwork')
+    end
+    if (buff == "Impetus" and gain) or buffactive.impetus then
+        equip({body="Bhikku Cyclas +2"})
+    end
+    if state.Buff["Impetus"] then
+        equip({body="Bhikku Cyclas +2"})
     end
 end
 
@@ -965,7 +976,12 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
-    
+    if (buff == "Impetus" and gain) or buffactive.impetus then
+        equip({body="Bhikku Cyclas +2"})
+    end
+    if state.Buff["Impetus"] then
+        equip({body="Bhikku Cyclas +2"})
+    end
     return meleeSet
 end
 -- Called by the 'update' self-command.
@@ -979,6 +995,12 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if (buff == "Impetus" and gain) or buffactive.impetus then
+        equip({body="Bhikku Cyclas +2"})
+    end
+    if state.Buff["Impetus"] then
+        equip({body="Bhikku Cyclas +2"})
     end
 end
 

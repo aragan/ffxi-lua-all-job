@@ -81,19 +81,33 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'MaxAcc', 'Shield')
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options('Normal', 'ConserveMP', 'SIRD', 'Duration', 'Enmity')
+    state.WeaponskillMode:options('Normal', 'PDL')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
     state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('bind f3 @input /ja "Sublimation" <me>')
-    send_command('bind f4 input //Sublimator')
+
+    
+    state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
+    state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
+    state.BoostSpell = M{['description']='BoostSpell', 'Boost-STR', 'Boost-INT', 'Boost-AGI', 'Boost-VIT', 'Boost-DEX', 'Boost-MND', 'Boost-CHR'}
+
+    --send_command('bind f3 @input /ja "Sublimation" <me>')
+    send_command('bind f7 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 178')
     send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f2 gs c cycle BoostSpell')
+    send_command('bind !f2 gs c BoostSpell')
+    send_command('bind f3 gs c cycle BarElement')
+    send_command('bind !f3 gs c BarElement')
+    send_command('bind f4 gs c cycle BarStatus')
+    send_command('bind !f4 gs c BarStatus')
+
 
     select_default_macro_book()
 end
@@ -177,6 +191,10 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     
+	sets.precast.WS.PDL = set_combine(sets.precast.WS,{
+		ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+	})
     sets.precast.WS['Flash Nova'] = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
@@ -186,12 +204,18 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Baetyl Pendant",
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     }
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Flash Nova']
+    sets.precast.WS['Starburst'] = sets.precast.WS['Flash Nova']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Flash Nova']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Flash Nova']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Flash Nova']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Flash Nova']
 
     sets.precast.WS['Myrkr'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -218,7 +242,7 @@ function init_gear_sets()
             neck="Sibyl Scarf",
             waist="Orpheus's Sash",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            right_ear="Friomisi Earring",
+            right_ear="Regal Earring",
             right_ring="Cornelia's Ring",
             left_ring="Archon Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -232,13 +256,25 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
-        waist="Fotia Belt",
+        waist="Prosilio Belt +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ear="Malignance Earring",
+        right_ear="Regal Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Black Halo'],{
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+    })
+    sets.precast.WS['Mystic Boon'] = set_combine(sets.precast.WS['Black Halo'],{
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+    })
+    sets.precast.WS['Mystic Boon'].PDL = set_combine(sets.precast.WS['Mystic Boon'],{
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+    })
     sets.precast.WS['Judgment'] = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
@@ -249,12 +285,15 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Ishvara Earring",
-        left_ring="Epaminondas's Ring",
+        right_ear="Regal Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-
+    sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'],{
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+    })
     sets.precast.WS['Realmrazer'] = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
@@ -264,19 +303,16 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Malignance Earring",
+        left_ear="Regal Earring",
         right_ear="Telos Earring",
         left_ring="Rufescent Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-
-    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Realmrazer'].PDL = set_combine(sets.precast.WS['Realmrazer'],{
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+    })
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -287,42 +323,45 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Malignance Earring",
+        left_ear="Regal Earring",
         right_ear="Brutal Earring",
         left_ring="Rufescent Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.precast.WS['True Strike'] = {
+    sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS['Realmrazer'],{
         ammo="Crepuscular Pebble",
-        head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
-        legs="Nyame Flanchard",
-        feet="Aya. Gambieras +2",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Mache Earring +1",
-        right_ear="Mache Earring +1",
-        left_ring="Rufescent Ring",
-        right_ring="Hetairoi Ring",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+    })
     sets.precast.WS['Hexa Strike'] = {
         ammo="Crepuscular Pebble",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
-        body="Ayanmo Corazza +2",
-        hands="Bunzi's Gloves",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Aya. Gambieras +2",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Mache Earring +1",
         right_ear="Mache Earring +1",
         left_ring="Rufescent Ring",
-        right_ring="Hetairoi Ring",
+        right_ring="Begrudging Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.precast.WS['Hexa Strike'].PDL = set_combine(sets.precast.WS['Hexa Strik'],{
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+        right_ear="Brutal Earring",
+        left_ear="Regal Earring",
+    })
+    sets.precast.WS['True Strike'] = set_combine(sets.precast.WS['Hexa Strik'],{
+    })
+    sets.precast.WS['True Strike'].PDL = set_combine(sets.precast.WS['True Strike'], {
+        ammo="Crepuscular Pebble",
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+        right_ear="Brutal Earring",
+        left_ear="Regal Earring",
+    })
     sets.precast.WS.Dagan = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -1396,24 +1435,41 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    if cmdParams[1] == 'user' and not areas.Cities:contains(world.area) then
-        local needsArts = 
-            player.sub_job:lower() == 'sch' and
-            not buffactive['Light Arts'] and
-            not buffactive['Addendum: White'] and
-            not buffactive['Dark Arts'] and
-            not buffactive['Addendum: Black']
-            
-        if not buffactive['Afflatus Solace'] and not buffactive['Afflatus Misery'] then
-            if needsArts then
-                send_command('@input /ja "Afflatus Solace" <me>;wait 1.2;input /ja "Light Arts" <me>')
-            else
-                send_command('@input /ja "Afflatus Solace" <me>')
+
+end
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'scholar' then
+        handle_strategems(cmdParams)
+        eventArgs.handled = true
+    elseif cmdParams[1]:lower() == 'nuke' then
+        handle_nuking(cmdParams)
+        eventArgs.handled = true
+    elseif cmdParams[1]:lower() == 'barelement' then
+        send_command('@input /ma '..state.BarElement.value..' <me>')
+    elseif cmdParams[1]:lower() == 'barstatus' then
+        send_command('@input /ma '..state.BarStatus.value..' <me>')
+    elseif cmdParams[1]:lower() == 'boostspell' then
+        send_command('@input /ma '..state.BoostSpell.value..' <me>')
+    end
+
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
             end
+        end
+        if not midaction() then
+            job_update()
         end
     end
 end
-
 
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)

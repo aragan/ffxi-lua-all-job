@@ -9,9 +9,9 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 -----------------------------------------------------------------------------------
--- alt+F8 cycles through designated Jug Pets
+-- F1 cycles through designated Jug Pets
 -- ctrl+F8 toggles Monster Correlation between Neutral and Favorable
--- 'Windows Key'+F8 switches between Pet stances for Master/Pet hybrid gearsets
+-- F4 switches between Pet stances for Master/Pet hybrid gearsets
 -- alt+= cycles through Pet Food types
 -- ctrl+= can swap in the usage of Chaac Belt for Treasure Hunter on common subjob abilities.
 -- ctrl+F11 cycles between Magical Defense Modes
@@ -19,7 +19,7 @@
 -- General Gearswap Commands:
 -- F9 cycles Accuracy modes
 -- ctrl+F9 cycles Hybrid modes
--- 'Windows Key'+F9 cycles Weapon Skill modes
+-- F5 cycles Weapon Skill modes
 -- F10 equips Physical Defense
 -- alt+F10 toggles Kiting on or off
 -- ctrl+F10 cycles Physical Defense modes
@@ -122,9 +122,19 @@ function job_setup()
 	state.Buff.Doom = buffactive.doom or false
 	state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-	send_command('bind @w gs c toggle WeaponLock')
+	state.RP = M(false, "Reinforcement Points Mode")  
+    state.CapacityMode = M(false, 'Capacity Point Mantle')  
+	send_command('bind !w gs c toggle WeaponLock')
 	send_command('bind ^= gs c cycle treasuremode')
-	send_command('wait 6;input /lockstyleset 171')
+	send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind f6 gs c cycle WeaponSet')
+	send_command('bind f7 gs c cycle Weaponshield')
+    send_command('bind !- gs c toggle RP')  
+
+	send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
+	send_command('wait 6;input /lockstyleset 147')
+
 	get_combat_form()
 end
 
@@ -139,7 +149,10 @@ function user_setup()
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
 		--send_command('lua l PetCharges')
 		--send_command('lua l mob')
-        send_command('wait 2;input /lockstyleset 171')
+        send_command('wait 2;input /lockstyleset 147')
+
+		state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'AXE', 'SCYTHE', 'DAGGERS', 'CLUB',}
+		state.Weaponshield = M{['description']='Weapon Set', 'normal', 'SACRO',}
 
 		select_default_macro_book()
 
@@ -149,9 +162,11 @@ function user_setup()
 
         -- Set up Jug Pet cycling and keybind Alt+F8
         -- INPUT PREFERRED JUG PETS HERE
-        state.JugMode = M{['description']='Jug Mode', 'ChoralLeera',
+        state.JugMode = M{['description']='Jug Mode', 'GenerousArthur','BouncingBertha','WarlikePatrick',
+		'BlackbeardRandy','VivaciousVickie','FatsoFargann',
                 }
-        send_command('bind !f8 gs c cycle JugMode')
+        send_command('bind f1 gs c cycle JugMode')
+        send_command('bind !f1 gs c cycleback JugMode')
 
 	-- Set up Monster Correlation Modes and keybind Ctrl+F8
         state.CorrelationMode = M{['description']='Correlation Mode', 'Neutral', 'DA', 'Favorable', 'Killer', 'HighAcc', 'ArktoiAcc', 'MaxAcc', 'Vagary'}
@@ -159,7 +174,7 @@ function user_setup()
 
         -- Set up Pet Modes for Hybrid sets and keybind 'Windows Key'+F8
         state.PetMode = M{['description']='Pet Mode', 'Normal', 'PetStance', 'PetTank'}
-        send_command('bind @f8 gs c cycle PetMode')
+        send_command('bind f4 gs c cycle PetMode')
 
 	-- Keybind Ctrl+F11 to cycle Magical Defense Modes
 	send_command('bind ^f11 gs c cycle MagicalDefenseMode')
@@ -220,8 +235,6 @@ function file_unload()
 	end
 
 	-- Unbinds the Jug Pet, Reward, Correlation, Treasure, PetMode, MDEF Mode hotkeys.
-	send_command('unbind !=')
-	send_command('unbind ^=')
 	send_command('unbind !f8')
 	send_command('unbind ^f8')
 	send_command('unbind @f8')
@@ -230,6 +243,18 @@ end
 
 -- BST gearsets
 function init_gear_sets()
+
+
+    sets.normal = {}
+    sets.SWORDS = {main="Naegling"}
+    sets.AXE = {main="Dolichenus"}
+    sets.SCYTHE = {main="Drepanum"}
+    sets.DAGGERS = {main="Ternion Dagger +1",}
+    sets.CLUB = {main="Mafic Cudgel"}
+
+    sets.SACRO = {sub="Sacro Bulwark",}
+
+
 	-- PRECAST SETS
         sets.precast.JA['Killer Instinct'] = {   
 		main={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},	
@@ -1024,7 +1049,7 @@ function init_gear_sets()
 		back="Artio's Mantle",
 })
 
-		-- sub="Beatific Shield +1",
+		-- sub="Sacro Bulwark",
 		
 		-- sub="Astolfo",
 			
@@ -1081,7 +1106,7 @@ function init_gear_sets()
 	}
 	sets.defense.Killer = {
 		main="Agwu's Axe",
-		sub="Adapa Shield",
+		sub="Sacro Bulwark",
 		ammo="Voluspa Tathlum",
 		head="Gleti's Mask",
 		body="Nukumi Gausape +2",
@@ -1131,7 +1156,7 @@ function init_gear_sets()
 
 	sets.defense.MDTShell =  {
 		main={ name="Astolfo", augments={'VIT+11','Pet: Phys. dmg. taken -11%',}},
-		sub="Beatific Shield +1",
+		sub="Sacro Bulwark",
 		ammo="Staunch Tathlum +1",
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Attack+3','Pet: "Regen"+1',}},
 		body="Tot. Jackcoat +3",
@@ -1859,24 +1884,26 @@ if spell.type == "Monster" and not spell.interrupted then
  equip(set_combine(sets.midcast.Pet.WS, sets.midcast.Pet[state.CorrelationMode.value]))
 
 	if mab_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
- equip(sets.midcast.Pet.MabReady)
- end
+      equip(sets.midcast.Pet.MabReady)
+    end
  
 	if buffactive['Unleash'] then
 	        	hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}}
 	end
  
 	if macc_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
- equip(sets.midcast.Pet.MaccReady)
- end
+      equip(sets.midcast.Pet.MaccReady)
+    end
  
- if breath_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
- equip(sets.midcast.Pet.BreathReady)
- end
+    if breath_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
+      equip(sets.midcast.Pet.BreathReady)
+    end
 
- eventArgs.handled = true
- end
- 
+    eventArgs.handled = true
+    end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+	  check_weaponset()
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1909,18 +1936,21 @@ function job_state_change(stateField, newValue, oldValue)
         elseif stateField == 'Jug Mode' then
                 state.JugMode:set(newValue)
         end
-    if stateField == 'Offense Mode' then
+    --[[if stateField == 'Offense Mode' then
         if newValue == 'Normal' then
             disable('main','sub','range')
         else
             enable('main','sub','range')
         end
-    end
+    end]]
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
     end
+
+	check_weaponset()
+
 end
 
 function get_custom_wsmode(spell, spellMap, default_wsmode)
@@ -1930,7 +1960,26 @@ function get_custom_wsmode(spell, spellMap, default_wsmode)
                 end
         end
 end
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
 
+
+    check_weaponset()
+
+    return meleeSet
+end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
@@ -1954,10 +2003,19 @@ function job_self_command(cmdParams, eventArgs)
     end
     return 
 end
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    equip(sets[state.Weaponshield.current])
+    if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        equip(sets.DefaultShield)
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        equip(sets.DefaultShield)
+    end
+end
 function get_combat_form()
 	if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
         state.CombatForm:set('DW')
-	elseif player.equipment.sub == 'Beatific Shield +1' or player.equipment.sub == 'Kaidate' then
+	elseif player.equipment.sub == 'Sacro Bulwark' or player.equipment.sub == 'Kaidate' then
         state.CombatForm:reset()
 	else
 		state.CombatForm:reset()
@@ -2166,7 +2224,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 171')
+        send_command('wait 6;input /lockstyleset 147')
     end
 end-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
