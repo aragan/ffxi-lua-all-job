@@ -1138,9 +1138,8 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
     if spell.type == 'WeaponSkill' then
         -- Replace TP-bonus gear if not needed.
-            if spell.english == 'Aeolian Edge' and player.tp > 2900 then
+        if spell.english == 'Aeolian Edge' and player.tp > 2900 then
             equip({ear1="Crematio Earring"})
-            end
         end
     end
     if spell.english == "Seigan" then
