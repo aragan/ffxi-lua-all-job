@@ -58,10 +58,9 @@ end
 function job_setup()
 	get_combat_form()
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('Tag')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 199')
+    send_command('wait 6;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
 
@@ -78,7 +77,7 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'Mid', 'Acc', 'CRIT')
 	state.IdleMode:options('Normal', 'Sphere')
 	state.HybridMode:options('Normal', 'PDT', 'Reraise')
-	state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
+	state.WeaponskillMode:options('Normal', 'SC', 'PDL')
 	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
 	state.MagicalDefenseMode:options('MDT')
     
@@ -88,7 +87,7 @@ function user_setup()
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 199')
+    send_command('wait 2;input /lockstyleset 152')
 	select_default_macro_book()
 
 
@@ -221,7 +220,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     }
-    sets.precast.WS.Mid = set_combine(sets.precast.WS, {
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -229,7 +228,7 @@ sets.precast.JA.Jump = {
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +2",
@@ -251,7 +250,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Bleating Mantle",
     })
-	sets.precast.WS['Stardiver'].Mid = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
+	sets.precast.WS['Stardiver'].SC = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -259,7 +258,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {
+	sets.precast.WS['Stardiver'].PDL = set_combine(sets.precast.WS.PDL, {
         head="Nyame Helm",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
@@ -284,7 +283,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS["Camlann's Torment"].Mid = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
+	sets.precast.WS["Camlann's Torment"].SC = set_combine(sets.precast.WS["Camlann's Torment"], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -292,7 +291,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS["Camlann's Torment"].Acc = set_combine(sets.precast.WS["Camlann's Torment"], {
+	sets.precast.WS["Camlann's Torment"].PDL = set_combine(sets.precast.WS["Camlann's Torment"], {
         head="Nyame Helm",
         body="Pelt. Plackart +2",
         hands="Nyame Gauntlets",
@@ -316,7 +315,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS['Drakesbane'].Mid = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
+	sets.precast.WS['Drakesbane'].SC = set_combine(sets.precast.WS['Drakesbane'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -324,7 +323,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS['Drakesbane'], {
+	sets.precast.WS['Drakesbane'].PDL = set_combine(sets.precast.WS['Drakesbane'], {
         ammo="Crepuscular Pebble",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
@@ -348,7 +347,7 @@ sets.precast.JA.Jump = {
         right_ring="Niqmaddu Ring",
         back="Brigantia's Mantle",
     })
-    sets.precast.WS['Geirskogul'].Mid = set_combine(sets.precast.WS['Geirskogul'], {    head="Nyame Helm",
+    sets.precast.WS['Geirskogul'].SC = set_combine(sets.precast.WS['Geirskogul'], {    head="Nyame Helm",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -356,7 +355,7 @@ sets.precast.JA.Jump = {
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-	sets.precast.WS['Geirskogul'].Acc = set_combine(sets.precast.WS['Geirskogul'], {
+	sets.precast.WS['Geirskogul'].PDL = set_combine(sets.precast.WS['Geirskogul'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         right_ear="Peltast's Earring",
@@ -378,14 +377,14 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-	sets.precast.WS['Impulse Drive'].Mid = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
+	sets.precast.WS['Impulse Drive'].SC = set_combine(sets.precast.WS['Impulse Drive'], {    head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     right_ring="Mujin Band",
     })
-	sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
+	sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +2",
@@ -422,7 +421,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
-    sets.precast.WS['Raiden Thrust'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Raiden Thrust'].PDL = set_combine(sets.precast.WS, {
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
@@ -440,7 +439,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Argocham. Mantle",
     })
-    sets.precast.WS['Aeolian Edge'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'].PDL = set_combine(sets.precast.WS, {
     })
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         ammo="Knobkierrie",
@@ -457,7 +456,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     })
-    sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
@@ -480,7 +479,7 @@ sets.precast.JA.Jump = {
         back="Argocham. Mantle",
     })
 
-    sets.precast.WS['Cataclysm'].Acc = set_combine(sets.precast.WS, {})
+    sets.precast.WS['Cataclysm'].PDL = set_combine(sets.precast.WS, {})
 
     sets.precast.WS['Myrkr'] = {
         ammo="Pemphredo Tathlum",
@@ -527,7 +526,7 @@ sets.precast.JA.Jump = {
         right_ring="Cornelia's Ring",
         back="Brigantia's Mantle",
     }
-    sets.precast.WS['Judgment'].Mid = set_combine(sets.precast.WS['Judgment'], {
+    sets.precast.WS['Judgment'].SC = set_combine(sets.precast.WS['Judgment'], {
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
@@ -535,7 +534,7 @@ sets.precast.JA.Jump = {
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-    sets.precast.WS['Judgment'].Acc = set_combine(sets.precast.WS['Judgment'], {
+    sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
@@ -603,9 +602,11 @@ sets.precast.JA.Jump = {
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle.Town = set_combine(sets.idle, {
-
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        right_ear="Infused Earring",
     })
-	
+    sets.Adoulin = {body="Councilor's Garb",}
+
 	sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
@@ -628,12 +629,12 @@ sets.precast.JA.Jump = {
     })
 
 	sets.idle.Weak = set_combine(sets.idle.Field, {
-		head="Twilight Helm",
-		body="Twilight Mail",
+		head="Crepuscular Helm",
+		body="Crepuscular Mail",
     })
     sets.Reraise = {
-		head="Twilight Helm",
-		body="Twilight Mail",
+		head="Crepuscular Helm",
+		body="Crepuscular Mail",
     }
 
 	-- Defense sets
@@ -684,8 +685,8 @@ sets.precast.JA.Jump = {
             back="Moonlight Cape",   
         }
         sets.defense.Reraise = set_combine(sets.defense.PDT, {
-            head="Twilight Helm",
-            body="Twilight Mail",
+            head="Crepuscular Helm",
+            body="Crepuscular Mail",
         })
 
 	sets.Kiting = {
@@ -774,12 +775,17 @@ sets.precast.JA.Jump = {
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
     })
-    sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
-    body="Twilight Mail",})
+
+    sets.engaged.CRIT.PDT = set_combine(sets.engaged, sets.engaged.PDT)
+
+    sets.engaged.Reraise = set_combine(sets.engaged, {		
+    head="Crepuscular Helm",
+    body="Crepuscular Mail",})
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
+
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
 end
@@ -816,16 +822,24 @@ end
 -- Run after the default precast() is done.
 -- eventArgs is the same one used in job_precast, in case information needs to be persisted.
 function job_post_precast(spell, action, spellMap, eventArgs)
-	if player.hpp < 51 then
+	--[[if player.hpp < 51 then
 		classes.CustomClass = "Breath" 
-	end
+	end]]
     if spell.type == 'WeaponSkill' then
+        if spell.english == 'Stardiver' and state.WeaponskillMode.current == 'Normal' then
+            if world.day_element == 'Earth' or world.day_element == 'Light' or world.day_element == 'Dark' then
+                equip(sets.WSDayBonus)
+           end
+        end
+    end
+end
+    --[[if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
 
         end
-    end
-end
+    end]]
+
 
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -913,9 +927,6 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-	if state.TreasureMode.value == 'Fulltime' then
-		meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-	end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -959,7 +970,7 @@ function job_buff_change(buff, gain)
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
-    if buff == "sleep" then
+    if buff == "Sleep" then
         if gain then    
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
@@ -968,6 +979,15 @@ function job_buff_change(buff, gain)
             enable('neck')
             send_command('input /p '..player.name..' is no longer Sleep Thank you !')
             handle_equipping_gear(player.status)    
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
         end
     end
     --[[if buff == "weakness" then
@@ -985,9 +1005,7 @@ function job_buff_change(buff, gain)
 end
 
 function job_update(cmdParams, eventArgs)
-    war_sj = player.sub_job == 'WAR' or false
-	classes.CustomMeleeGroups:clear()
-	th_update(cmdParams, eventArgs)
+    handle_equipping_gear(player.status)
 	get_combat_form()
     job_self_command()
 end
@@ -997,14 +1015,26 @@ end
 
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 8 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true
     end
     return
 end
+function customize_idle_set(idleSet)
+    -- if state.CP.current == 'on' then
+    --     equip(sets.CP)
+    --     disable('back')
+    -- else
+    --     enable('back')
+    -- end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
 
+    return idleSet
+end
 function get_combat_form()
 	--if areas.Adoulin:contains(world.area) and buffactive.ionis then
 	--	state.CombatForm:set('Adoulin')
@@ -1038,13 +1068,13 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
             equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end
+    end]]
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.
@@ -1061,12 +1091,11 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 199')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
 
-add_to_chat(159,'Author Aragan DRG.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

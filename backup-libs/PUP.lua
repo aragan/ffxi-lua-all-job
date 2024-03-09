@@ -8,16 +8,17 @@
 --                                                         | |   | |
 --                                                         |_|   |_|
 -----------------------------------------------------------------------------------------
---[[
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
 
-    Originally Created By: Faloun
-    Programmers: Arrchie, Kuroganashi, Byrne, Tuna
-    Testers:Arrchie, Kuroganashi, Haxetc, Patb, Whirlin, Petsmart
-    Contributors: Xilkk, Byrne, Blackhalo714
+-----------------------------Authors of this file--------------------------------
+------           ******************************************                ------
+---                                                                           ---
+--	  Aragan (Asura) --------------- [Author Primary]                          -- 
+--                                                                             --
+---------------------------------------------------------------------------------
 
-    ASCII Art Generator: http://www.network-science.de/ascii/
-    
-]]
 
 -- Initialization function for this job file.
 -- IMPORTANT: Make sure to also get the Mote-Include.lua file (and its supplementary files) to go with this.
@@ -26,6 +27,7 @@ function get_sets()
 
     -- Load and initialize the include file.
     include("Mote-Include.lua")
+    include('organizer-lib')
     send_command('wait 6;input /lockstyleset 179')
 end
 
@@ -179,6 +181,10 @@ function user_setup()
     send_command("bind = gs c clear")
     send_command('wait 2;input /lockstyleset 179')
     send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind f1 gs c cycle HippoMode')
+
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
 
 
     select_default_macro_book()
@@ -209,7 +215,7 @@ end
 function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
-    state.TreasureMode:set('None')
+    state.Moving  = M(false, "moving")
     sub_job_change()
 end
 
@@ -220,14 +226,15 @@ function init_gear_sets()
     ---Hybrid Only Sets
     ---Pet Only Sets
     ---Misc Sets
-    include('organizer-lib')
     Animators = {"Animator P +1", "Animator P II +1", "Neo Animator",}
     Animators.Range = "Animator P II +1"
     Animators.Melee = "Animator P +1"
 
    
         organizer_items = {
-        "Mafic Cudgel",
+            "Moogle Amp.",
+            "Mafic Cudgel",
+            "Varga Purnikawa",
             "Sakpata's Fists",
             "Automat. Oil +3",
             "Dawn Mulsum",   
@@ -239,7 +246,7 @@ function init_gear_sets()
             "Miso Ramen",
             "Carbonara",
             "Silent Oil",
-            "Salt Ramen",
+            "Bean Daifuku",
             "Panacea",
             "Sublime Sushi",
             "Sublime Sushi 1+",
@@ -258,6 +265,7 @@ function init_gear_sets()
             "Instant Reraise",
             "Black Curry Bun",
             "Rolan. Daifuku",
+            "Grape Daifuku",
             "Qutrub Knife",
             "Wind Knife +1",
             "Reraise Earring",}
@@ -327,7 +335,7 @@ function init_gear_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Hermes' Sandals +1",
+    feet="Malignance Boots",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -342,7 +350,6 @@ function init_gear_sets()
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         feet={ name="Regal Pumps +1", augments={'Path: A',}},
         neck="Baetyl Pendant",
-        waist="Carrier's Sash",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Prolix Ring",
@@ -399,11 +406,11 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.midcast['Elemental Magic'] = {
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Eschan Stone",
         left_ear="Friomisi Earring",
@@ -413,11 +420,11 @@ function init_gear_sets()
         back="Argocham. Mantle",
 	}
     sets.midcast['Divine Magic'] = {
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Incanter's Torque",
         waist="Skrymir Cord",
         left_ear="Crematio Earring",
@@ -427,10 +434,10 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.midcast['Blue Magic'] = { 
-        head="Nyame Helm",
-        body="Nyame Mail",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
         neck="Incanter's Torque",
         waist="Eschan Stone",
@@ -441,13 +448,15 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     sets.TreasureHunter = { 
-        ammo="Per. Lucky Egg",
+        --ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
         waist="Chaac Belt",
      }
 
     -------------------------------------Kiting
-    sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.MoveSpeed = {feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -------------------------------------JA
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads", body="Passion Jacket"})
@@ -481,7 +490,7 @@ function init_gear_sets()
 
     sets.precast.JA["Activate"] = {range="Animator P +1",
         feet="Mpaca's Boots",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 
@@ -520,8 +529,8 @@ function init_gear_sets()
     -------------------------------------WS
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
-    sets.precast.WS = {   
-        head="Mpaca's Cap",
+    sets.precast.WS = {    
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -532,111 +541,107 @@ function init_gear_sets()
         right_ear="Ishvara Earring",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+        head="Kara. Cappello +2",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring", 
+    })
+    sets.precast.WS.SC = set_combine(sets.precast.WS, {
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS["Stringing Pummel"] = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
+        left_ear="Brutal Earring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
-        right_ring="Gere Ring",
-        back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
+        right_ring="Regal Ring",
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
-    sets.precast.WS["Asuran Fists"] = {    
-        ammo="Automat. Oil +3",
+    sets.precast.WS["Stringing Pummel"].PDL = set_combine(sets.precast.WS["Stringing Pummel"], {
         head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS["Asuran Fists"] = {    
+        head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs="Mpaca's Hose",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
+        left_ear="Brutal Earring",
+        right_ear="Sherida Earring",
         left_ring="Regal Ring",
-        right_ring="Cornelia's Ring",
-        back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
+        right_ring="Gere Ring",
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
+    sets.precast.WS["Asuran Fists"].PDL = set_combine(sets.precast.WS["Asuran Fists"], {
+        head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring",
+    })
     sets.precast.WS["Victory Smite"] = {    
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        left_ear="Schere Earring",
-        right_ear="Karagoz Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Gere Ring",
-        back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
-    }
-
-    sets.precast.WS["Shijin Spiral"] = {    
-            head="Malignance Chapeau",
-            body="Tali'ah Manteel +2",
-            hands="Malignance Gloves",
-            legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
-            feet="Mpaca's Boots",
-            neck="Fotia Gorget",
-            waist="Fotia Belt",
-            left_ear="Schere Earring",
-            right_ear="Karagoz Earring",
-            left_ring="Niqmaddu Ring",
-            right_ring="Gere Ring",
-            back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
-         }
-
-    sets.precast.WS["Aeolian Edge"] = {
-                main="Tauret",
-                head="Kara. Cappello +2",
-                body={ name="Nyame Mail", augments={'Path: B',}},
-                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-                legs={ name="Nyame Flanchard", augments={'Path: B',}},
-                feet={ name="Nyame Sollerets", augments={'Path: B',}},
-                neck="Fotia Gorget",
-                waist="Fotia Belt",
-                left_ear="Schere Earring",
-                right_ear="Karagoz Earring",
-                left_ring="Regal Ring",
-                right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-                back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
-    }
-
-    sets.precast.WS["Howling Fist"] = {    
-        head="Mpaca's Cap",
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs="Mpaca's Hose",
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
+        right_ear="Brutal Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Schere Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
-        back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
-    sets.precast.WS["Tornado Kick"] = sets.precast.WS["Victory Smite"]
-    sets.precast.WS["Dragon Kick"] = sets.precast.WS["Victory Smite"]
-    sets.precast.WS["Raging Fists"] = sets.precast.WS["Victory Smite"]
-    sets.precast.WS["Combo"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Victory Smite"].PDL = set_combine(sets.precast.WS["Victory Smite"], {
+        head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS["Victory Smite"].SC = set_combine(sets.precast.WS["Victory Smite"], {
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
 
-    sets.precast.WS["Spinning Attack"] = sets.precast.WS["Victory Smite"]
-    sets.precast.WS["One Inch Punch"] = sets.precast.WS["Victory Smite"]
-    sets.precast.WS["Shoulder Tackle"] = sets.precast.WS["One Inch Punch"]
-    sets.precast.WS["Backhand Blow"] = sets.precast.WS["Victory Smite"]
-   
-    sets.precast.WS["Aeolian Edge"] = {    
-        body={ name="Cohort Cloak +1", augments={'Path: A',}},
+    sets.precast.WS["Shijin Spiral"] = { 
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
+        body="Mpaca's Doublet",
+        hands="Mpaca's Gloves",
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet="Mpaca's Boots",
+            neck="Fotia Gorget",
+            waist="Moonbow Belt +1",
+            left_ear="Brutal Earring",
+            left_ear="Mache Earring +1",
+            left_ring="Niqmaddu Ring",
+            right_ring="Gere Ring",
+            back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    }
+    sets.precast.WS["Shijin Spiral"].PDL = set_combine(sets.precast.WS["Shijin Spiral"], {
+        head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        left_ring="Sroda Ring",
+    })
+
+    sets.precast.WS["Aeolian Edge"] = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -644,10 +649,57 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
-        left_ring="Cornelia's Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        right_ring="Cornelia's Ring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Sacro Mantle",
     }
+
+    sets.precast.WS["Howling Fist"] = {    
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Fotia Gorget",
+        waist="Moonbow Belt +1",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Brutal Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Gere Ring",
+        back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    }
+    sets.precast.WS["Howling Fist"].PDL = set_combine(sets.precast.WS["Howling Fist"], {
+        head="Kara. Cappello +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        left_ring="Sroda Ring",
+    })
+    sets.precast.WS["Tornado Kick"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Tornado Kick"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["Dragon Kick"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Dragon Kick"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["Raging Fists"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Raging Fists"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["Combo"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Combo"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["Spinning Attack"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Spinning Attack"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["One Inch Punch"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["One Inch Punch"].PDL = sets.precast.WS["Victory Smite"].PDL
+
+    sets.precast.WS["Shoulder Tackle"] = sets.precast.WS["One Inch Punch"]
+    sets.precast.WS["Shoulder Tackle"].PDL = sets.precast.WS["One Inch Punch"].PDL
+
+    sets.precast.WS["Backhand Blow"] = sets.precast.WS["Victory Smite"]
+    sets.precast.WS["Backhand Blow"].PDL = sets.precast.WS["Victory Smite"].PDL
+    sets.precast.WS['Evisceration'] = sets.precast.WS["Stringing Pummel"]
+
 
     sets.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
@@ -721,7 +773,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
@@ -741,7 +793,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
@@ -765,12 +817,13 @@ function init_gear_sets()
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
+    
     sets.engaged.Master.Regen = {    range="Neo Animator",
     
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
@@ -818,9 +871,7 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.engaged.MasterPet.Acc = {
-    
-        
-        head="Kara. Cappello +2",
+    head="Kara. Cappello +2",
     body="Malignance Tabard",
     hands="Karagoz Guanti +2",
     legs="Kara. Pantaloni +2",
@@ -843,7 +894,7 @@ function init_gear_sets()
         ammo="Automat. Oil +3",
         head="Heyoka Cap",
         hands="Karagoz Guanti +2",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
@@ -878,7 +929,7 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Gere Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},    }
@@ -916,17 +967,17 @@ function init_gear_sets()
     neck="Adad Amulet",
     waist="Ukko Sash",
     left_ear="Enmerkar Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
     back="Argocham. Mantle",
      }
 
     sets.midcast.Pet["Enfeebling Magic"] = {
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Adad Amulet",
         waist="Ukko Sash",
@@ -972,7 +1023,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Hermes' Sandals +1",
+        feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -991,18 +1042,18 @@ function init_gear_sets()
     sets.idle.Pet.MasterDT = {
     
     ammo="Automat. Oil +3",
-    head={ name="Herculean Helm", augments={'Pet: Mag. Acc.+14','Pet: "Dbl. Atk."+4','Pet: INT+3','Pet: Attack+6 Pet: Rng.Atk.+6','Pet: "Mag.Atk.Bns."+6',}},
+    head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
-    hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Dbl. Atk."+5','Pet: INT+4',}},
-    legs={ name="Herculean Trousers", augments={'Pet: "Dbl. Atk."+5','Pet: DEX+4','Pet: "Mag.Atk.Bns."+1',}},
-    feet={ name="Herculean Boots", augments={'Pet: Attack+15 Pet: Rng.Atk.+15','Pet: "Dbl. Atk."+4','Pet: AGI+10','Pet: "Mag.Atk.Bns."+11',}},
+    hands={ name="Herculean Gloves", augments={'Pet: Mag. Acc.+25','Pet: "Store TP"+11','Pet: VIT+9','Pet: Attack+14 Pet: Rng.Atk.+14','Pet: "Mag.Atk.Bns."+5',}},
+    legs={ name="Herculean Trousers", augments={'Pet: Accuracy+28 Pet: Rng. Acc.+28','Pet: "Store TP"+11',}},
+    feet={ name="Herculean Boots", augments={'Pet: Accuracy+12 Pet: Rng. Acc.+12','Pet: "Store TP"+11','Pet: MND+2','Pet: "Mag.Atk.Bns."+13',}},
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
     right_ear="Enmerkar Earring",
     left_ring="Varar Ring +1 +1",
     right_ring="Varar Ring +1 +1",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 
     -------------------------------------Enmity
@@ -1030,7 +1081,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1099,7 +1150,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="Varar Ring +1",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1156,7 +1207,7 @@ function init_gear_sets()
         right_ear="Enmerkar Earring",
         left_ring="Thurandaut Ring",
         right_ring="Varar Ring +1",
-        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}},
+        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 
     --[[        Idle Mode = Idle
@@ -1197,7 +1248,7 @@ function init_gear_sets()
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
-    right_ear="Karagoz Earring",
+    right_ear="Kara. Earring +1",
     left_ring="Thurandaut Ring",
     right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
@@ -1231,7 +1282,7 @@ function init_gear_sets()
     sets.midcast.Pet.WSNoFTP = {                main={ name="Xiucoatl", augments={'Path: C',}},
 
     ammo="Automat. Oil +3",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         hands="Mpaca's Gloves",
         legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1248,9 +1299,8 @@ function init_gear_sets()
         If we have a pet weaponskill that can benefit from WSFTP
         then this set will be equipped
     ]]
-    sets.midcast.Pet.WSFTP = {        main={ name="Xiucoatl", augments={'Path: C',}},
-
-        
+    sets.midcast.Pet.WSFTP = {        
+        main={ name="Xiucoatl", augments={'Path: C',}},
         ammo="Automat. Oil +3",
         head="Kara. Cappello +2",
         hands="Mpaca's Gloves",
@@ -1258,7 +1308,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Klouskap Sash +1",
-        left_ear="Karagoz Earring",
+        left_ear="Kara. Earring +1",
         left_ear="Kyrene's Earring",
         left_ring="Thurandaut Ring",
         right_ring="C. Palug Ring",
@@ -1280,7 +1330,7 @@ function init_gear_sets()
         neck="Adad Amulet",
         waist="Ukko Sash",
         left_ear="Kyrene's Earring",
-        right_ear="Karagoz Earring",
+        right_ear="Kara. Earring +1",
         left_ring="C. Palug Ring",
         right_ring="Tali'ah Ring",
         back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},   
@@ -1315,7 +1365,7 @@ function init_gear_sets()
             feet="Mpaca's Boots",
             waist="Incarnation Sash",
             left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-            left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+            left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
            
          
         }
@@ -1331,7 +1381,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
         left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
     }
     )
 
@@ -1346,7 +1396,7 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
         left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Karagoz Earring",
+        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
         }
     )
 
@@ -1361,7 +1411,7 @@ function init_gear_sets()
             hands="Mpaca's Gloves",
             legs="Kara. Pantaloni +2",
             feet="Mpaca's Boots",left_ear="Kyrene's Earring",
-            right_ear="Karagoz Earring",
+            right_ear="Kara. Earring +1",
             left_ring="Thurandaut Ring",
             right_ring="C. Palug Ring",
             back={ name="Dispersal Mantle", augments={'STR+1','Pet: TP Bonus+480',}},        }
@@ -1429,9 +1479,6 @@ function init_gear_sets()
         back="Moonlight Cape",}
 
     sets.defense.PetMDT = set_combine(sets.pet.EmergencyDT, {
-
-
-    
     ammo="Automat. Oil +3",
     head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
     body={ name="Rao Togi +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
@@ -1444,9 +1491,10 @@ function init_gear_sets()
     right_ear="Enmerkar Earring",
     left_ring="Thurandaut Ring",
     right_ring="Overbearing Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     })
 end
+
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
@@ -1460,24 +1508,63 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
+        end
+    end
 
 end
 function check_buff(buff_name, eventArgs)
-    if state.Buff[buff_name] then
+    --[[if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
+    end]]
+end
+function customize_idle_set(idleSet)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    return idleSet
 end
 function sub_job_change(new,old)
    -- if user_setup then
      --   user_setup()
        -- send_command('wait 5;input /lockstyleset 168')
    -- end
-    if job_sub_job_change then
-        job_sub_job_change(newSubjob, oldSubjob)
+   if user_setup then
+        user_setup()
         send_command('wait 6;input /lockstyleset 168')
     end
 end
@@ -1487,20 +1574,69 @@ function job_update(cmdParams, eventArgs)
 end
 function job_self_command(cmdParams, eventArgs)
     if player.equipment.main == 'Tauret' then
+        send_command('input /lockstyleset 164')
+    else
+        send_command('input /lockstyleset 168')
     end
     eventArgs.handled = true
 end
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+function job_handle_equipping_gear(playerStatus, eventArgs)   
+
+    if state.HippoMode.value == "Hippo" then
+        equip({feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+end
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
+    set_macro_page(8, 39)
     -- Default macro set/book
-    if player.sub_job == "WAR" then
+    --[[if player.sub_job == "WAR" then
         set_macro_page(8, 39)
     elseif player.sub_job == "NIN" then
         set_macro_page(8, 39)
     elseif player.sub_job == "DNC" then
         set_macro_page(8, 39)
-    else
-        set_macro_page(8, 39)
-    end
+    else]]
+    --end
 end
 

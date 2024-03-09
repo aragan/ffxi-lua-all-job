@@ -46,6 +46,7 @@ function get_sets()
 	include('organizer-lib')
 end
 organizer_items = {
+	"Moogle Amp.",
 	ammo="Pet Food Theta",
     ammo="Meaty Broth",
     ammo="Livid Broth",
@@ -62,15 +63,30 @@ organizer_items = {
     ammo="Bubbly Broth",
     ammo="Putrescent Broth",
     ammo="Pale Sap",
-}
-organizer_items = {
+	back="S. Reraiser Tank",
+	"Airmid's Gorget",
+	"Drepanum",
+	"Sword Strap",
+	"Maliya Sickle +1",
+	"Gyudon",
+	"Reraiser",
+	"Hi-Reraiser",
+	"Instant Reraise",
+	"Vile Elixir",
+	"Vile Elixir +1",
+	"Miso Ramen",
+	"Carbonara",
+	"Silent Oil",
+	"Bean Daifuku",
+	"Grape Daifuku",
+	"Panacea",
+	"Wh. Rarab Cap +1",
+	"Reraise Earring",
 	item="Mafic Cudgel",
 	item="Maliya Sickle +1",
 	item="Pixquizpan",
-	item=
 	item="Drepanum",
-	item="Lentus Grip",
-sub="Adapa Shield",
+    "Adapa Shield",
 item="Gyudon",
 item="Reraiser",
 item="Hi-Reraiser",
@@ -81,7 +97,6 @@ item="Carbonara",
 item="Silent Oil",
 item="Salt Ramen",
 item="Panacea",
-item="Toolbag (Shika)",
 item="Sublime Sushi",
 item="Sublime Sushi 1+",
 item="Prism Powder",
@@ -109,14 +124,14 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
 	send_command('bind @w gs c toggle WeaponLock')
 	send_command('bind ^= gs c cycle treasuremode')
-	send_command('wait 2;input /lockstyleset 171')
+	send_command('wait 6;input /lockstyleset 171')
 	get_combat_form()
 end
 
 function user_setup()
         state.OffenseMode:options('Normal', 'Shield', 'MedAcc', 'MedAccHaste', 'HighAcc', 'HighAccHaste')
         state.HybridMode:options('Normal', 'Hybrid')
-        state.WeaponskillMode:options('Normal', 'WSMedAcc', 'WSHighAcc')
+        state.WeaponskillMode:options('Normal', 'Acc', 'PDL')
         state.CastingMode:options('Normal')
         state.IdleMode:options('Normal', 'MNormal', 'MDTMaster', 'Turtle', 'MEva')
         state.RestingMode:options('Normal')
@@ -124,6 +139,8 @@ function user_setup()
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
 		--send_command('lua l PetCharges')
 		--send_command('lua l mob')
+        send_command('wait 2;input /lockstyleset 171')
+
 		select_default_macro_book()
 
 
@@ -515,20 +532,20 @@ function init_gear_sets()
 	sets.precast.WS = {
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-			body="Nyame Mail",
-			hands="Nyame Gauntlets",
-			legs="Nyame Flanchard",
-			feet="Nyame Sollerets",
-			neck="Shulmanu Collar",
-			waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-			left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-			right_ear="Thrud Earring",
-			left_ring="Regal Ring",
-			right_ring="Cornelia's Ring",
-			back="Annealed Mantle",
-		}
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		neck="Shulmanu Collar",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Regal Ring",
+		right_ring="Cornelia's Ring",
+		back="Annealed Mantle",
+	}
 
-	sets.precast.WS.WSMedAcc = {
+	sets.precast.WS.Acc = {
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 		body="Nyame Mail",
@@ -544,68 +561,94 @@ function init_gear_sets()
 		back="Annealed Mantle",
 	}
 
-	sets.precast.WS.WSHighAcc = {
+	sets.precast.WS.PDL = {
+		ammo="Crepuscular Pebble",
+		head={ name="Gleti's Mask", augments={'Path: A',}},
+		body={ name="Gleti's Cuirass", augments={'Path: A',}},
+		hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+		legs={ name="Gleti's Breeches", augments={'Path: A',}},
+		feet="Gleti's Boots",
+		right_ear="Nukumi Earring",
+		left_ring="Sroda Ring",
+	}
+
+    -- Specific weaponskill sets.
+    sets.precast.WS['Ruinator'] = set_combine(sets.precast.WS, {
 		ammo="Coiste Bodhar",
 		head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-		neck="Shulmanu Collar",
-		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-		right_ear="Thrud Earring",
-		left_ring="Regal Ring",
-		right_ring="Cornelia's Ring",
-		back="Annealed Mantle",
-		}
-
-        -- Specific weaponskill sets.
-        sets.precast.WS['Ruinator'] = set_combine(sets.precast.WS, {
-		    ammo="Coiste Bodhar",
-             head={ name="Blistering Sallet +1", augments={'Path: A',}},
-            body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-             neck="Fotia Gorget",
-            waist="Fotia Belt",
-            left_ear="Brutal Earring",
-            right_ear="Sherida Earring",
-            left_ring="Epona's Ring",
-            right_ring="Gere Ring",
-            back="Annealed Mantle",
-		})
-		
-		sets.precast.WS['Ruinator'].Mekira = set_combine(sets.precast.WS['Ruinator'], {head="Gavialis Helm"})
-		
-        sets.precast.WS['Ruinator'].WSMedAcc = set_combine(sets.precast.WS.WSMedAcc, {})
-		
-        sets.precast.WS['Ruinator'].WSHighAcc = set_combine(sets.precast.WS.WSHighAcc, {})
-
-        sets.precast.WS['Onslaught'] = set_combine(sets.precast.WS, {})
-			
-    sets.precast.WS['Onslaught'].WSMedAcc = set_combine(sets.precast.WSMedAcc, {})
-	
-    sets.precast.WS['Onslaught'].WSHighAcc = set_combine(sets.precast.WSHighAcc, {})
-
-	sets.precast.WS['Decimation'] = set_combine(sets.precast.WS, {
-		ammo="Coiste Bodhar",
-		head="Skormoth Mask",
-		body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-		hands="Meg. Gloves +2",
-		legs="Meg. Chausses +2",
-		feet={ name="Lustra. Leggings +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-		right_ear="Balder Earring +1",
-		left_ring="Epona's Ring",
+		right_ear="Sherida Earring",
+		left_ring="Sroda Ring",
 		right_ring="Gere Ring",
 		back="Annealed Mantle",
 	})
+		
+	sets.precast.WS['Ruinator'].Mekira = set_combine(sets.precast.WS['Ruinator'], {head="Gavialis Helm"})
+		
+	sets.precast.WS['Ruinator'].Acc = set_combine(sets.precast.WS.Acc, {})
+	
+	sets.precast.WS['Ruinator'].PDL = set_combine(sets.precast.WS.PDL, {})
 
+	sets.precast.WS['Onslaught'] = set_combine(sets.precast.WS, {})
+			
+    sets.precast.WS['Onslaught'].Acc = set_combine(sets.precast.Acc, {})
+	
+    sets.precast.WS['Onslaught'].PDL = set_combine(sets.precast.PDL, {})
+
+	sets.precast.WS['Decimation'] = set_combine(sets.precast.WS, {
+		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Fotia Gorget",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Sherida Earring",
+		right_ear="Nukumi Earring",
+		left_ring="Sroda Ring",
+		right_ring="Gere Ring",
+		back="Annealed Mantle",
+	})
+	sets.precast.WS['Decimation'].PDL = set_combine(sets.precast.WS['Decimation'], {
+		ammo="Crepuscular Pebble",
+		head={ name="Gleti's Mask", augments={'Path: A',}},
+		body={ name="Gleti's Cuirass", augments={'Path: A',}},
+		hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+		legs={ name="Gleti's Breeches", augments={'Path: A',}},
+		feet="Gleti's Boots",
+		right_ear="Nukumi Earring",
+		left_ring="Sroda Ring",
+	})
+	sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+		ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck="Rep. Plat. Medal",
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Thrud Earring",
+		left_ring="Sroda Ring",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+		back="Sacro Mantle",
+    })
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
+		ammo="Crepuscular Pebble",
+		hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+		right_ear="Nukumi Earring",
+		left_ring="Sroda Ring",
+	})
 	sets.precast.WS['Rampage '] = set_combine(sets.precast.WS['Decimation'], {})
+	sets.precast.WS['Rampage '].PDL = set_combine(sets.precast.WS['Decimation'].PDL, {})
 
 
 	sets.precast.WS['Calamity'] = set_combine(sets.precast.WS, {
@@ -640,6 +683,8 @@ function init_gear_sets()
 		right_ear="Friomisi Earring",
 		left_ring="Epaminondas's Ring",
 		right_ring="Cornelia's Ring",
+		back="Sacro Mantle",
+
 }   
         sets.precast.WS['Cataclysm'] = {
         ammo="Pemphredo Tathlum",
@@ -654,6 +699,7 @@ function init_gear_sets()
         right_ear="Friomisi Earring",
         left_ring="Cornelia's Ring",
         right_ring="Archon Ring",
+		back="Sacro Mantle",
         
     }
 
@@ -695,8 +741,8 @@ function init_gear_sets()
     back="Artio's Mantle",}
 			
 	sets.midcast.Pet.DA = {
-		main="Agwu's Axe",
-		sub={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
+	main="Agwu's Axe",
+	sub={ name="Arktoi", augments={'Accuracy+50','Pet: Accuracy+50','Pet: Attack+30',}},
     ammo="Voluspa Tathlum",
     head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
 	body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -755,7 +801,7 @@ function init_gear_sets()
 	
 	sets.midcast.Pet.BreathReady = set_combine(sets.midcast.Pet.WS, {
 			--MAB
-			main="Deacon Tabar",
+	main="Deacon Tabar",
     sub="Mdomo Axe +1",
     ammo="Voluspa Tathlum",
     head={ name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Subtle Blow"+10','Pet: STR+2',}},
@@ -784,7 +830,7 @@ function init_gear_sets()
     left_ring="C. Palug Ring",
     right_ring="Tali'ah Ring",
 	back="Artio's Mantle",
-			})
+	})
 			
 		
 	sets.midcast.Pet.Neutral = {  }
@@ -859,18 +905,18 @@ function init_gear_sets()
 		-- main="Charmer's Merlin",legs="Desultor Tassets",body="Tali'ah Manteel +2",feet="Totemic Gaiters +3",neck="Shulmanu Collar"}
 
         -- RESTING
-        sets.resting = {	
-			head="Gleti's Mask",
-			body="Meg. Cuirie +2",
-			hands="Meg. Gloves +2",
-			legs="Gleti's Breeches",
-			feet="Gleti's Boots",
-			neck="Empath Necklace",
-			waist="Isa Belt",
-			left_ear="Infused Earring",
-			right_ear="Hypaspist Earring",
-			left_ring="Chirich Ring +1",
-			right_ring="Chirich Ring +1",
+    sets.resting = {	
+		head="Gleti's Mask",
+		body="Meg. Cuirie +2",
+		hands="Meg. Gloves +2",
+		legs="Gleti's Breeches",
+		feet="Gleti's Boots",
+		neck="Empath Necklace",
+		waist="Isa Belt",
+		left_ear="Infused Earring",
+		right_ear="Hypaspist Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
 	}
         
         -- IDLE SETS
@@ -896,7 +942,7 @@ function init_gear_sets()
 	sets.idle.MDTMaster = {		
 		main="Izizoeksi",
 		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
-          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+        head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -958,15 +1004,15 @@ function init_gear_sets()
 		})
 			
     sets.idle.Refresh = set_combine(sets.idle, {
-		body="Twilight Mail"
+		body="Crepuscular Mail"
 })
 			
-	sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+	sets.idle.Reraise = set_combine(sets.idle, {head="Crepuscular Helm",body="Crepuscular Mail"})
 
 	sets.idle.Pet = set_combine(sets.idle, { main="Glyph Axe",
-          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		  body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-		  hands="Gleti's Gauntlets",
+        head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+		body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
 		neck="Empath Necklace",
@@ -988,15 +1034,15 @@ function init_gear_sets()
 		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
 		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands={ name="Taeon Gloves", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-			  legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-			  feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-			neck="Shepherd's Chain",
-			waist="Isa Belt",
-			left_ear="Hypaspist Earring",
-			right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
-			left_ring="Thurandaut Ring",
-			right_ring="Defending Ring",
-			back="Artio's Mantle",
+		legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Shepherd's Chain",
+		waist="Isa Belt",
+		left_ear="Hypaspist Earring",
+		right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
+		left_ring="Thurandaut Ring",
+		right_ring="Defending Ring",
+		back="Artio's Mantle",
 	})
         
         -- DEFENSE SETS
@@ -1020,9 +1066,9 @@ function init_gear_sets()
 		main={ name="Astolfo", augments={'VIT+11','Pet: Phys. dmg. taken -11%',}},
 	    sub="Izizoeksi",
 		ammo="Staunch Tathlum +1",
-          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-		  body="Tot. Jackcoat +3",
-		  hands="Gleti's Gauntlets",
+        head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+		body="Tot. Jackcoat +3",
+		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
 		neck="Shepherd's Chain",
@@ -1034,27 +1080,27 @@ function init_gear_sets()
 		back="Artio's Mantle",
 	}
 	sets.defense.Killer = {
-		
-		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-    sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-    ammo="Voluspa Tathlum",
-    head={ name="Emicho Coronet +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    body={ name="Emicho Haubert +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
-    hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    legs={ name="Emicho Hose", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
-    feet="Tali'ah Crackows +2",
-    neck="Shulmanu Collar",
-    waist="Klouskap Sash +1",
-    left_ear="Sabong Earring",
-    right_ear="Domes. Earring",
-    left_ring="Thurandaut Ring",
-    right_ring="Varar Ring +1",
-    back="Artio's Mantle",}
+		main="Agwu's Axe",
+		sub="Adapa Shield",
+		ammo="Voluspa Tathlum",
+		head="Gleti's Mask",
+		body="Nukumi Gausape +2",
+		hands="Nukumi Manoplas +2",
+		legs="Gleti's Breeches",
+		feet="Gleti's Boots",
+		neck="Adad Amulet",
+		waist="Incarnation Sash",
+		left_ear="Enmerkar Earring",
+		right_ear="Nukumi Earring",
+		left_ring="C. Palug Ring",
+		right_ring="Tali'ah Ring",
+		back="Artio's Mantle",
+}
 	
 	sets.defense.Reraise =  {
 		ammo="Staunch Tathlum +1",
-		head="Twilight Helm",
-		body="Twilight Mail",
+		head="Crepuscular Helm",
+		body="Crepuscular Mail",
 		hands="Gleti's Gauntlets",
 		legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1104,18 +1150,18 @@ function init_gear_sets()
 	sets.defense.PetMDT =  {
 		main="Izizoeksi",
 		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
-	          head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
-			  body="Tot. Jackcoat +3",
-			  hands="Gleti's Gauntlets",
-			legs="Tali'ah Sera. +2",
-			feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-			neck="Shepherd's Chain",
-			waist="Isa Belt",
-			left_ear="Rimeice Earring",
-			right_ear="Enmerkar Earring",
-			left_ring="Thurandaut Ring",
-			right_ring="Defending Ring",
-			back="Artio's Mantle",
+		head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+		body="Tot. Jackcoat +3",
+		hands="Gleti's Gauntlets",
+		legs="Tali'ah Sera. +2",
+		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+		neck="Shepherd's Chain",
+		waist="Isa Belt",
+		left_ear="Rimeice Earring",
+		right_ear="Enmerkar Earring",
+		left_ring="Thurandaut Ring",
+		right_ring="Defending Ring",
+		back="Artio's Mantle",
 }
 
 sets.defense.Petregen = {			
@@ -1155,10 +1201,9 @@ sets.defense.Petregen = {
 		back="Annealed Mantle",
 }
 		
-		
 	--1172 ACC
 	sets.engaged.Shield = {
-			main="Izizoeksi",
+	main="Izizoeksi",
     sub={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
     ammo="Voluspa Tathlum",
     head={ name="Taeon Chapeau", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+2','Pet: Damage taken -3%',}},
@@ -1204,24 +1249,51 @@ sets.defense.Petregen = {
 	-- MELEE (SINGLE-WIELD) HYBRID SETS
 	
 	sets.engaged.Hybrid = set_combine(sets.engaged, {
-
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.Shield.Hybrid = set_combine(sets.engaged.Shield, {
-
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.MedAcc.Hybrid = set_combine(sets.engaged.MedAcc, {
-
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.MedAccHaste.Hybrid = set_combine(sets.engaged.MedAccHaste, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.HighAcc.Hybrid = set_combine(sets.engaged.HighAcc, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.HighAccHaste.Hybrid = set_combine(sets.engaged.HighAccHaste, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 
         -- MELEE (DUAL-WIELD) SETS FOR DNC AND NIN SUBJOB
@@ -1240,25 +1312,25 @@ sets.defense.Petregen = {
 		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
 		back="Annealed Mantle",
-			}
+	}
 			
 			
 	sets.engaged.DW.Shield = {
-			ammo="Staunch Tathlum",
-			head="Skormoth Mask",
-			body={ name="Valorous Mail", augments={'Enmity+1','CHR+15','Quadruple Attack +3','Accuracy+13 Attack+13',}},
-			hands="Tali'ah Gages +2",
-			legs={ name="Valor. Hose", augments={'Phys. dmg. taken -3%','Accuracy+30','Quadruple Attack +3','Mag. Acc.+4 "Mag.Atk.Bns."+4',}},
-			feet={ name="Valorous Greaves", augments={'Accuracy+23 Attack+23','Sklchn.dmg.+2%','STR+11','Accuracy+5','Attack+2',}},
-			neck="Shulmanu Collar",
-			waist="Windbuffet Belt +1",
-			left_ear="Brutal Earring",
-			right_ear="Sherida Earring",
-			left_ring="Gere Ring",
-			right_ring="Epona's Ring",
-			back="Artio's Mantle",}
+		ammo="Staunch Tathlum",
+		head="Skormoth Mask",
+		body={ name="Valorous Mail", augments={'Enmity+1','CHR+15','Quadruple Attack +3','Accuracy+13 Attack+13',}},
+		hands="Tali'ah Gages +2",
+		legs={ name="Valor. Hose", augments={'Phys. dmg. taken -3%','Accuracy+30','Quadruple Attack +3','Mag. Acc.+4 "Mag.Atk.Bns."+4',}},
+		feet={ name="Valorous Greaves", augments={'Accuracy+23 Attack+23','Sklchn.dmg.+2%','STR+11','Accuracy+5','Attack+2',}},
+		neck="Shulmanu Collar",
+		waist="Windbuffet Belt +1",
+		left_ear="Brutal Earring",
+		right_ear="Sherida Earring",
+		left_ring="Gere Ring",
+		right_ring="Epona's Ring",
+		back="Artio's Mantle",}
 	
-		-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
+	-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
 		
 	sets.engaged.DW.MedAcc = {
 		ammo="Paeapua",
@@ -1277,7 +1349,7 @@ sets.defense.Petregen = {
 }
 			
 	sets.engaged.DW.MedAccHaste = {
-			}
+		}
 			
 	sets.engaged.DW.HighAcc = {
 			
@@ -1305,23 +1377,48 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.DW.Shield.Hybrid = set_combine(sets.engaged.DW.Shield, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.DW.MedAcc.Hybrid = set_combine(sets.engaged.DW.MedAcc, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.DW.MedAccHaste.Hybrid = set_combine(sets.engaged.DW.MedAccHaste, {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
 		})
 			
 	sets.engaged.DW.HighAcc.Hybrid = set_combine(sets.engaged.DW.HighAcc, {
-			})
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		})
 			
 	sets.engaged.DW.HighAccHaste.Hybrid = set_combine(sets.engaged.DW.HighAccHaste, {
-			})
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		})
 
 	-- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET ENGAGED
 	sets.engaged.PetStance = set_combine(sets.engaged, {
-	    head="Gleti's Mask",
+	head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
@@ -1334,10 +1431,10 @@ sets.defense.Petregen = {
 			})
 			
 	sets.engaged.PetStance.MedAcc = set_combine(sets.engaged.MedAcc, {
-                    })
+            })
 			
 	sets.engaged.PetStance.MedAccHaste = set_combine(sets.engaged.MedAccHaste, {
-                     })
+            })
 			
 	sets.engaged.PetStance.HighAcc = set_combine(sets.engaged.HighAcc, {
 			})
@@ -1367,7 +1464,7 @@ sets.defense.Petregen = {
 
 	-- GEARSETS FOR MASTER ENGAGED (DUAL-WIELD) & PET ENGAGED
 	sets.engaged.DW.PetStance = set_combine(sets.engaged.DW, {
-	    head="Gleti's Mask",
+	head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
@@ -1380,10 +1477,10 @@ sets.defense.Petregen = {
 		})
 			
 	sets.engaged.DW.PetStance.MedAcc = set_combine(sets.engaged.DW.MedAcc, {
-                   })
+            })
 			
 	sets.engaged.DW.PetStance.MedAccHaste = set_combine(sets.engaged.DW.MedAccHaste, {
-                   })
+            })
 			
 	sets.engaged.DW.PetStance.HighAcc = set_combine(sets.engaged.DW.HighAcc, {
 			})
@@ -1416,14 +1513,13 @@ sets.defense.Petregen = {
     body="Nukumi Gausape +2",
 
     }         
-	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Twilight Helm",
-    body="Twilight Mail",})
+	sets.engaged.Reraise = set_combine(sets.engaged, {		head="Crepuscular Helm",
+    body="Crepuscular Mail",})
 
-	sets.Reraise = {head="Twilight Helm", body="Twilight Mail"}
+	sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail"}
 
-	sets.idle.Weak = 
-	{
-		head="Twilight Helm", body="Twilight Mail"
+	sets.idle.Weak = {
+		head="Crepuscular Helm", body="Crepuscular Mail"
 	}
 	sets.idle.Weak.Reraise = set_combine(sets.idle.Weak, sets.Reraise)
 	sets.buff.Doom = {    neck="Nicander's Necklace",
@@ -1662,6 +1758,29 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+	if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+            send_command('input /p '..player.name..' is no longer Petrify!')
+            handle_equipping_gear(player.status)
+        end
+    end
+	if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+        end
+    end
 	if buff == "weakness" then
         if gain then
             equip(sets.Reraise)
@@ -1669,7 +1788,47 @@ function job_buff_change(buff,gain)
             else
              enable('body','head')
         end
-        return meleeSet
+    end
+	if buff == "Defense Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Attack Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Evasion Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Magic Def. Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Accuracy Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "Max HP Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "INT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "MND Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "VIT Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "STR Down" then
+            send_command('@input /item "panacea" <me>')
+        elseif buff == "AGI Down" then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if not midaction() then
+        job_update()
     end
 end
 
@@ -1788,7 +1947,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 40 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
+    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true
@@ -2007,13 +2166,12 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 171')
+        send_command('wait 6;input /lockstyleset 171')
     end
 end-------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan BST.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 function select_default_macro_book()
 	-- Default macro set/book
