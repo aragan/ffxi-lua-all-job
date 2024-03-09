@@ -145,22 +145,6 @@ function user_setup()
     Haste = 0
     DW_needed = 0
     DW = false
-    Panacea = T{
-        'Bind',
-        'Bio',
-        'Dia',
-        'Accuracy Down',
-        'Attack Down',
-        'Evasion Down',
-        'Defense Down',
-        'Magic Evasion Down',
-        'Magic Def. Down',
-        'Magic Acc. Down',
-        'Magic Atk. Down',
-        'Max HP Down',
-        'Max MP Down',
-        'slow',
-        'weight'}
         -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
             [0] = 0,
@@ -1635,44 +1619,78 @@ function job_buff_change(buff, gain)
         end
     end
     if buff == "Defense Down" then
-        if gain then
+        if gain then  			
+            send_command('input /item "Panacea" <me>')
+        end
+    elseif buff == "Magic Def. Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Attack Down" then
+        end
+    elseif buff == "Max HP Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Evasion Down" then
+        end
+    elseif buff == "Evasion Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Evasion Down" then
+        end
+    elseif buff == "Magic Evasion Downn" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Def. Down" then
+        end
+    elseif buff == "Dia" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Accuracy Down" then
+        end  
+    elseif buff == "Bio" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Max HP Down" then
+        end
+    elseif buff == "Bind" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "slow" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "weight" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Attack Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Accuracy Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
         end
     end
-    
+
     if buff == "VIT Down" then
         if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "INT Down" then
+        end
+    elseif buff == "INT Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "MND Down" then
+        end
+    elseif buff == "MND Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "VIT Down" then
+        end
+    elseif buff == "STR Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "STR Down" then
-            send_command('@input /item "panacea" <me>')
-        elseif buff == "AGI Down" then
+        end
+    elseif buff == "AGI Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
         end
     end
-    if not S(buffactive):intersection(Panacea):empty() then
-        send_command('input /item "Panacea" <me>')
 
-        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
-            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
-    end
+
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -1691,7 +1709,7 @@ function job_buff_change(buff, gain)
 end
 
 function check_buffs(check)
-    return 
+     
 end
 
 function job_status_change(newStatus, oldStatus, eventArgs)
