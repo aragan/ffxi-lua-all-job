@@ -122,7 +122,37 @@ function user_setup()
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ input /lockstyle on')
@@ -231,8 +261,8 @@ function init_gear_sets()
     --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     --sets.Berserker       = { neck="Berserker's Torque" }
     sets.WSDayBonus      = { head="Gavialis Helm" }
-    sets.LugraMoonshade  = { ear1="Lugra Earring +1", ear2="Moonshade Earring" }
-    sets.BrutalMoonshade = { ear1="Brutal Earring", ear2="Moonshade Earring" }
+    sets.LugraMoonshade  = { ear2="Lugra Earring +1", ear1="Moonshade Earring" }
+    sets.BrutalMoonshade = { ear2="Brutal Earring", ear1="Moonshade Earring" }
     --sets.LugraFlame      = { ear1="Lugra Earring +1", ear2="Flame Pearl" }
     --sets.FlameFlame      = { ear1="Flame Pearl", ear2="Flame Pearl" }
        
@@ -281,8 +311,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -303,8 +333,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -325,8 +355,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -348,8 +378,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -423,8 +453,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -453,8 +483,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -496,8 +526,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -549,8 +579,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -579,8 +609,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -596,8 +626,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -612,8 +642,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -627,8 +657,8 @@ function init_gear_sets()
         feet="Kas. Sune-Ate +2",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -643,8 +673,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
@@ -1069,6 +1099,13 @@ function job_pretarget(spell, action, spellMap, eventArgs)
 end
 
 function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     --if spell.english == 'Third Eye' and not buffactive.Seigan then
     --    cancel_spell()
     --    send_command('@wait 0.5;input /ja Seigan <me>')
@@ -1078,6 +1115,7 @@ end
 -- Run after the default precast() is done.
 -- eventArgs is the same one used in job_precast, in case information needs to be persisted.
 function job_post_precast(spell, action, spellMap, eventArgs)
+
 	if spell.type:lower() == 'weaponskill' then
 		if state.Buff.Sekkanoki then
 			equip(sets.buff.Sekkanoki)
@@ -1109,6 +1147,17 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 			equip(sets.buff['Meikyo Shisui'])
 		end
 	end
+    -- Replace Moonshade Earring if we're at cap TP
+    if spell.type == 'Weaponskill' and player.tp == 3000 then
+        equip({left_ear="Lugra Earring +1"})
+    end
+    if spell.type == 'WeaponSkill' then
+        -- Replace TP-bonus gear if not needed.
+            if spell.english == 'Aeolian Edge' and player.tp > 2900 then
+            equip({ear1="Crematio Earring"})
+            end
+        end
+    end
     if spell.english == "Seigan" then
         -- Third Eye gearset is only called if we're in PDT mode
         if state.HybridMode.value == 'PDT' or state.PhysicalDefenseMode.value == 'PDT' then
@@ -1272,8 +1321,15 @@ function job_buff_change(buff, gain)
              handle_equipping_gear(player.status)    
         end
     end
-    if buff == "Sleep" then
-        if gain then    
+    if S{'terror','petrification','sleep','stun'}:contains(name) then
+        if gain then
+            equip(sets.defense.PDT)
+        elseif not gain then 
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == 'sleep' then
+        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
             disable('neck')
@@ -1332,6 +1388,12 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
             send_command('input /item "Holy Water" <me>')
@@ -1341,6 +1403,9 @@ function job_buff_change(buff, gain)
         job_update()
     end
 
+end
+function check_buffs(check)
+    return 
 end
 function sub_job_change(new,old)
     if user_setup then

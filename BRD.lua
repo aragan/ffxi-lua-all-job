@@ -129,7 +129,37 @@ function user_setup()
     state.Etude = M{['description']='Etude',  'Herculean Etude', 'Sage Etude', 'Sinewy Etude', 'Learned Etude',
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
-
+        Panacea = T{
+            'Bind',
+            'Bio',
+            'Dia',
+            'Accuracy Down',
+            'Attack Down',
+            'Evasion Down',
+            'Defense Down',
+            'Magic Evasion Down',
+            'Magic Def. Down',
+            'Magic Acc. Down',
+            'Magic Atk. Down',
+            'Max HP Down',
+            'Max MP Down',
+            'slow',
+            'weight'}
+            -- 'Out of Range' distance; WS will auto-cancel
+        range_mult = {
+                [0] = 0,
+                [2] = 1.70,
+                [3] = 1.490909,
+                [4] = 1.44,
+                [5] = 1.377778,
+                [6] = 1.30,
+                [7] = 1.20,
+                [8] = 1.30,
+                [9] = 1.377778,
+                [10] = 1.45,
+                [11] = 1.490909,
+                [12] = 1.70,
+            } 
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
@@ -290,8 +320,8 @@ function init_gear_sets()
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Fotia Gorget",
-        ear1="Ishvara Earring",
-        ear2="Moonshade Earring",
+        ear2="Ishvara Earring",
+        ear1="Moonshade Earring",
         ring1="Ilabrat Ring",
         ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
@@ -360,8 +390,8 @@ hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 legs={ name="Nyame Flanchard", augments={'Path: B',}},
 feet={ name="Nyame Sollerets", augments={'Path: B',}}, 
    neck="Fotia Gorget",
-    ear1="Ishvara Earring",
-    ear2="Moonshade Earring",
+    ear2="Ishvara Earring",
+    ear1="Moonshade Earring",
     ring1="Ilabrat Ring",
     ring2="Cornelia's Ring",
     waist="Kentarch Belt +1",
@@ -986,10 +1016,22 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1027,13 +1069,13 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
-end
+
 function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
     if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
@@ -1162,12 +1204,18 @@ function job_buff_change(buff,gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
         end
     end
-    if buff == "Sleep" then
+    if buff == "sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
@@ -1178,7 +1226,9 @@ function job_buff_change(buff,gain)
         job_update()
     end
 end
-
+function check_buffs(check)
+    return 
+end
 -- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
     if spell.type == 'BardSong' and not spell.interrupted then

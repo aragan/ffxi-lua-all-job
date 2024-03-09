@@ -92,6 +92,37 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }
 end
 -- Called when this job file is unloaded (eg: job change)
 function file_unload()
@@ -220,8 +251,8 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Rep. Plat. Medal",
         waist="Moonbow Belt +1",
-        left_ear="Schere Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Schere Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
@@ -242,8 +273,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
-    left_ear="Schere Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Schere Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Gere Ring",
     right_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
@@ -265,8 +296,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
-        left_ear="Schere Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Schere Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
@@ -474,8 +505,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Sacro Mantle",
@@ -651,8 +682,8 @@ function init_gear_sets()
 
     -- Defensive melee hybrid sets
     sets.engaged.PDT = {       
-        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head="Malignance Chapeau",
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
@@ -790,10 +821,22 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' and state.DefenseMode.current ~= 'None' then
         eventArgs.handled = true
     end
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
 end
 
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Lugra Earring +1"})
+		end
+	end
     if spell.type == 'WeaponSkill' and state.DefenseMode.current ~= 'None' then
         if state.Buff.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
             -- Need 6 hits at capped dDex, or 9 hits if dDex is uncapped, for Tantra to tie or win.
@@ -923,6 +966,12 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -955,7 +1004,9 @@ function job_buff_change(buff, gain)
         job_update()
     end
 end
-
+function check_buffs(check)
+    return 
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.

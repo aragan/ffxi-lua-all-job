@@ -157,8 +157,37 @@ function user_setup()
 		select_default_macro_book()
 
 
-        -- 'Out of Range' distance; WS will auto-cancel
-        target_distance = 6
+		Panacea = T{
+			'Bind',
+			'Bio',
+			'Dia',
+			'Accuracy Down',
+			'Attack Down',
+			'Evasion Down',
+			'Defense Down',
+			'Magic Evasion Down',
+			'Magic Def. Down',
+			'Magic Acc. Down',
+			'Magic Atk. Down',
+			'Max HP Down',
+			'Max MP Down',
+			'slow',
+			'weight'}
+		-- 'Out of Range' distance; WS will auto-cancel
+		range_mult = {
+			[0] = 0,
+			[2] = 1.70,
+			[3] = 1.490909,
+			[4] = 1.44,
+			[5] = 1.377778,
+			[6] = 1.30,
+			[7] = 1.20,
+			[8] = 1.30,
+			[9] = 1.377778,
+			[10] = 1.45,
+			[11] = 1.490909,
+			[12] = 1.70,
+		}
 
         -- Set up Jug Pet cycling and keybind Alt+F8
         -- INPUT PREFERRED JUG PETS HERE
@@ -1625,11 +1654,13 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
 	cancel_conflicting_buffs(spell, action, spellMap, eventArgs)
 
-        if spell.type == "WeaponSkill" and spell.name ~= 'Mistral Axe' and spell.name ~= 'Bora Axe' and spell.target.distance > target_distance then
-                cancel_spell()
-                add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
-                return
+	if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
         end
+    end
 
 	if spell.english == 'Reward' then
 		if state.RewardMode.value == 'Theta' then
@@ -1640,7 +1671,9 @@ function job_precast(spell, action, spellMap, eventArgs)
 			equip(sets.precast.JA.Reward.Eta)
 		end
 	end
-
+	if spell.type == 'Weaponskill' and player.tp == 3000 then
+		equip({left_ear="Lugra Earring +1"})
+	end
 	if spell.english == 'Bestial Loyalty' or spell.english == 'Call Beast' then
                 if state.JugMode.value == 'FunguarFamiliar' then
 			equip(sets.precast.JA['Bestial Loyalty'].FunguarFamiliar)
@@ -1759,6 +1792,12 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
+	if spell.type:lower() == 'weaponskill' then
+        -- Replace Moonshade Earring if we're at cap TP
+        if player.tp == 3000 and spell.name ~= 'Decimation' then
+            equip({left_ear="Lugra Earring +1"})
+        end
+	end
 -- If Killer Instinct is active during WS, equip Nukumi Gausape +2.
 	if spell.type:lower() == 'weaponskill' and buffactive['Killer Instinct'] then
                 equip(sets.buff['Killer Instinct'])
@@ -1847,6 +1886,12 @@ function job_buff_change(buff,gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+	if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -1856,7 +1901,9 @@ function job_buff_change(buff,gain)
         job_update()
     end
 end
-
+function check_buffs(check)
+    return 
+end
 function job_pet_midcast(spell, action, spellMap, eventArgs)
 -- Equip monster correlation gear, as appropriate
         

@@ -39,6 +39,7 @@ function user_setup()
         When you are IDLE and Pet is ENGAGED that is handled by the Idle Sets
     ]]
     state.OffenseMode:options("MasterPet", "Master", "Trusts")
+	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
 
     --[[
         Ctrl-F9 - Cycle Hybrid Mode (the defensive half of all 'hybrid' melee modes).
@@ -182,7 +183,37 @@ function user_setup()
 
 
     select_default_macro_book()
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }
     -- Adjust the X (horizontal) and Y (vertical) position here to adjust the window
     pos_x = 0
     pos_y = 0
@@ -1378,6 +1409,21 @@ function init_gear_sets()
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     })
 end
+
+
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+-- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
+end
+
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then

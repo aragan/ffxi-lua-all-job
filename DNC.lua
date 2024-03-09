@@ -100,7 +100,37 @@ function job_setup()
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
     send_command('wait 6;input /lockstyleset 164')
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
     DW_needed = 0
@@ -525,8 +555,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
     right_ring="Cornelia's Ring",
     back="Sacro Mantle",
@@ -1172,7 +1202,13 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    --auto_presto(spell)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1187,6 +1223,17 @@ end
 
 
 function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
+    if spell.type == 'WeaponSkill' then
+        -- Replace TP-bonus gear if not needed.
+        if spell.english == 'Aeolian Edge' and player.tp > 2900 then
+            equip({ear1="Crematio Earring"})
+        end
+    end
     if spell.type == "WeaponSkill" then
         if state.Buff['Sneak Attack'] == true then
             equip(sets.precast.WS.Critical)

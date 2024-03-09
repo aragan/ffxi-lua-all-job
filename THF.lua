@@ -114,9 +114,38 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f1 gs c cycle HippoMode')
 
-
     select_default_macro_book()
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
     DW_needed = 0
@@ -230,8 +259,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Epona's Ring",
     right_ring="Ilabrat Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -409,8 +438,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
     neck="Baetyl Pendant",
     waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
@@ -1018,7 +1047,15 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-
+function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
+end
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
     --[[if spell.english == 'Aeolian Edge' and state.TreasureMode.value ~= 'None' then
@@ -1098,7 +1135,7 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "Sleep" then
+    if buff == "sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
@@ -1138,6 +1175,12 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
             send_command('input /item "Holy Water" <me>')
@@ -1147,7 +1190,9 @@ function job_buff_change(buff, gain)
         job_update()
     end
 end
-
+function check_buffs(check)
+    return 
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.

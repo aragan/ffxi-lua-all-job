@@ -91,7 +91,37 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('wait 2;input /lockstyleset 152')
 	select_default_macro_book()
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }
 
 end
 
@@ -819,6 +849,13 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
 end
 
 -- Run after the default precast() is done.
@@ -834,6 +871,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
            end
         end
     end
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
 end
     --[[if spell.type == 'WeaponSkill' then
         if state.CapacityMode.value then
@@ -972,8 +1014,15 @@ function job_buff_change(buff, gain)
            send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
-    if buff == "Sleep" then
-        if gain then    
+    if S{'terror','petrification','sleep','stun'}:contains(name) then
+        if gain then
+            equip(sets.defense.PDT)
+        elseif not gain then 
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == 'sleep' then
+        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
             disable('neck')

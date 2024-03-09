@@ -20,6 +20,7 @@ function get_sets()
     include('organizer-lib')
 
         organizer_items = {
+            "Airmid's Gorget",
             "Agwu's Claymore",
             "Reikiko",
             "Tumult's Blood",
@@ -117,7 +118,37 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.drain = M(false)
     state.Auto_Kite = M(false, 'Auto_Kite')
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -192,7 +223,7 @@ function init_gear_sets()
      --sets.Berserker       = { neck="Berserker's Torque" }
      sets.WSDayBonus      = { head="Gavialis Helm" }
      -- TP ears for night and day, AM3 up and down. 
-     sets.BrutalLugra     = { ear1="Brutal Earring", ear2="Lugra Earring +1" }
+     sets.BrutalLugra     = { ear2="Brutal Earring", ear1="Lugra Earring +1" }
      sets.Lugra           = { ear1="Lugra Earring +1" }
      sets.Brutal          = { ear1="Brutal Earring" }
  
@@ -380,8 +411,8 @@ function init_gear_sets()
         feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -409,8 +440,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Thrud Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Thrud Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     right_ring="Niqmaddu Ring",
     left_ring="Regal Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -499,14 +530,14 @@ function init_gear_sets()
     })
     sets.precast.WS["Sturmwind"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Vorpal Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
-    sets.precast.WS["Fast Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+    sets.precast.WS["Fast Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Swift Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
     sets.precast.WS["Rampage"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Vorpal Scythe"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Vorpal Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         ammo="Aurgelmir Orb +1",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Evisceration"].SC= set_combine(sets.precast.WS["Evisceration"], {
             head="Nyame Helm",
             body="Nyame Mail",
@@ -538,8 +569,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck={ name="War. Beads +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Thrud Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Thrud Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -592,7 +623,7 @@ function init_gear_sets()
          left_ring="Niqmaddu Ring",
          right_ring="Sroda Ring", 
          left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-         left_ear="Schere Earring",
+         right_ear="Schere Earring",
          back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      })
     sets.precast.WS['Resolution'].SC= set_combine(sets.precast.WS['Resolution'], {
@@ -631,7 +662,7 @@ function init_gear_sets()
      sets.precast.WS["Double Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
      sets.precast.WS["Bora Axe"] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
 
         sets.precast.WS["Decimation"] = set_combine(sets.precast.WS["Resolution"], {
             ammo="Coiste Bodhar",
@@ -723,8 +754,8 @@ function init_gear_sets()
         feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
-        left_ear="Kyrene's Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Tuisto Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Moonlight Ring",
         back="Moonlight Cape",
@@ -773,7 +804,7 @@ function init_gear_sets()
         })
     sets.precast.WS["Sonic Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        right_ear="Lugra Earring +1",
+        left_ear="Lugra Earring +1",
     })
     sets.precast.WS["Sonic Thrust"].SC= set_combine(sets.precast.WS["Sonic Thrust"], {
         head="Nyame Helm",
@@ -818,7 +849,8 @@ function init_gear_sets()
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
-    sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {
+        left_ring="Sroda Ring",})
     sets.precast.WS['Mistral Axe'].SC= set_combine(sets.precast.WS['Savage Blade'].Mid, {})
     sets.precast.WS['Mistral Axe'].PDL= set_combine(sets.precast.WS['Savage Blade'].Acc, {})
     sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
@@ -888,8 +920,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Baetyl Pendant",
     waist="Hachirin-no-Obi",
-    left_ear="Friomisi Earring",
-    right_ear="Thrud Earring",
+    right_ear="Friomisi Earring",
+    left_ear="Thrud Earring",
     right_ring="Archon Ring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},   
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -903,43 +935,43 @@ function init_gear_sets()
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Sanguine Blade"],{
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Gale Axe"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         head="Nyame Helm",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ring="Cornelia's Ring",})
     sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
         right_ring="Cornelia's Ring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Sanguine Blade"], {
             ammo="Aurgelmir Orb +1",
             head="Nyame Helm",
             right_ring="Cornelia's Ring",
-            right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+            left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Sanguine Blade"], {
                 ammo="Aurgelmir Orb +1",
                 head="Nyame Helm",
                 right_ring="Cornelia's Ring",
-                right_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
+                left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Sanguine Blade"], {
         ammo="Aurgelmir Orb +1",
         head="Nyame Helm",
@@ -1339,10 +1371,14 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
-    -- Replace Moonshade Earring if we're at cap TP
-    if spell.type == 'Weaponskill' and player.tp == 3000 then
-        equip({right_ear="Ishvara Earring"})
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
     end
+
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1365,6 +1401,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
                 equip(sets.WSDayBonus)
             end
         end
+        -- Replace Moonshade Earring if we're at cap TP
+        if player.tp == 3000 and spell.name ~= 'Decimation' then
+            equip({left_ear="Lugra Earring +1"})
+        end
         -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
@@ -1384,6 +1424,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip(sets.reive)
         end]]
     end
+
 end
  
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -1418,7 +1459,6 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_moving()
-    check_gear()
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
@@ -1428,46 +1468,16 @@ function check_moving()
     if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
         if state.Auto_Kite.value == false and moving then
             state.Auto_Kite:set(true)
+            send_command('gs c update')
+
         elseif state.Auto_Kite.value == true and moving == false then
             state.Auto_Kite:set(false)
+            send_command('gs c update')
+
         end
     end
 end
 
-function check_gear()
-    if no_swap_gear:contains(player.equipment.left_ring) then
-        disable("ring1")
-    else
-        enable("ring1")
-    end
-    if no_swap_gear:contains(player.equipment.right_ring) then
-        disable("ring2")
-    else
-        enable("ring2")
-    end
-    if no_swap_gear:contains(player.equipment.waist) then
-        disable("waist")
-    else
-        enable("waist")
-    end
-end
-
-windower.register_event('zone change',
-    function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
-            enable("ring1")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.right_ring) then
-            enable("ring2")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.waist) then
-            enable("waist")
-            equip(sets.idle)
-        end
-    end
-)
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     --if player.hpp < 90 then
@@ -1583,14 +1593,21 @@ function job_buff_change(buff, gain)
         end
         return meleeSet
     end]]
-    if buff == "Sleep" then
-        if gain then    
+    if S{'terror','petrification','sleep','stun'}:contains(name) then
+        if gain then
+            equip(sets.defense.PDT)
+        elseif not gain then 
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == 'sleep' then
+        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
             equip(sets.Sleep)
-            disable('neck')
             send_command('input /p ZZZzzz, please cure.')		
+            disable('neck')
         else
             enable('neck')
-            send_command('input /p '..player.name..' is no longer Sleep!')
+            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
             handle_equipping_gear(player.status)    
         end
     end
@@ -1643,6 +1660,13 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+    
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -1653,7 +1677,9 @@ function job_buff_change(buff, gain)
     end
 end
  
- 
+function check_buffs(check)
+    return 
+end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
@@ -1687,10 +1713,7 @@ function gearinfo(cmdParams, eventArgs)
     end
 end
 function job_update(cmdParams, eventArgs)
-    --job_self_command()
-
-    handle_equipping_gear(player.status)
-
+    check_moving()
 end
 
 mov = {counter=0}

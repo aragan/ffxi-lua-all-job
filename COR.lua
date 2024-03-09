@@ -28,6 +28,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items  = {
+        "Airmid's Gorget",
         "Molybdosis",
         "Tumult's Blood",
         "Sarama's Hide",
@@ -118,7 +119,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.GunMode = M{['description']='Gun Mode', 'normal','DeathPenalty', 'Anarchy', 'Fomalhaut', 'Earp'} -- , 'Priwen', 'Anarchy_+2' }
+    state.GunMode = M{['description']='Gun Mode', 'normal','DeathPenalty', 'Anarchy', 'Fomalhaut', 'Earp'} 
 
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'Ranged', 'CRIT')
     state.RangedMode:options('Normal', 'Molybdosis', 'Acc', 'MaxAcc', 'STP', 'NOENMITY', 'Critical')
@@ -142,7 +143,37 @@ function user_setup()
     gear.MAbullet = "Living Bullet"
     gear.QDbullet = "Living Bullet"
     options.ammo_warning_limit = 15
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }
     -- Additional local binds
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
@@ -347,7 +378,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 	})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Evisceration'] = sets.precast.WS, {
+    sets.precast.WS['Evisceration'] = {
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -356,18 +387,17 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     neck="Fotia Gorget",
     waist="Fotia Belt",
     right_ear="Odr Earring",
-    left_ring="Ilabrat Ring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
     back="Bleating Mantle",
     }
     sets.precast.WS['Evisceration'].PDL = sets.precast.WS['Evisceration'], {
         body="Ikenga's Vest",
-        right_ear="Mache Earring +1",
+        left_ear="Mache Earring +1",
     }
 
-    sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Savage Blade'] = {
         head="Nyame Helm",
 		body="Nyame Mail",
         hands="Chasseur's Gants +3",
@@ -375,19 +405,19 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back="Camulus's Mantle",
-    })
+    }
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         body="Ikenga's Vest",
 		left_ring="Sroda Ring", 
         waist="Kentarch Belt +1",
 	})
 
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Aeolian Edge'] = {
 		head="Nyame Helm",
         body="Lanun Frac +3",
 		hands="Nyame Gauntlets",
@@ -395,14 +425,14 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Baetyl Pendant",
         waist="Orpheus's Sash",
-        left_ear="Friomisi Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Dingir Ring",
         right_ring="Cornelia's Ring",
         back="Camulus's Mantle",
-    })
+    }
 
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Requiescat'] = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands="Meg. Gloves +2",
@@ -410,12 +440,12 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Telos Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Telos Earring",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
         back="Bleating Mantle",
-})
+}
 
     sets.precast.WS['Last Stand'] = {
     ammo=gear.WSbullet,
@@ -426,8 +456,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Rep. Plat. Medal",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
     right_ring="Regal Ring",
     back="Camulus's Mantle",
@@ -440,8 +470,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Sroda Ring", 
     right_ring="Cornelia's Ring",
     back="Camulus's Mantle",
@@ -458,7 +488,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         neck="Baetyl Pendant",
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
-        right_ear="Hecate's Earring",
+        right_ear="Crematio Earring",
         left_ring="Dingir Ring",
         right_ring="Cornelia's Ring",
         back="Camulus's Mantle",
@@ -475,8 +505,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Baetyl Pendant",
     waist="Svelt. Gouriz +1",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
     right_ring="Cornelia's Ring",
     back="Camulus's Mantle",
@@ -491,8 +521,8 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Baetyl Pendant",
     waist="Svelt. Gouriz +1",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
     right_ring="Cornelia's Ring",
     back="Camulus's Mantle",
@@ -883,15 +913,15 @@ sets.engaged.CRIT = {
         right_ring="Petrov Ring",
         back="Tactical Mantle",
     }
-        sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
+    sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
             waist="Reiki Yotai",
             left_ear="Suppanomimi",
-        })
-        sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
+    })
+    sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
             waist="Reiki Yotai",
             left_ear="Suppanomimi",
-            })
-            sets.engaged.DW.Ranged = {    
+    })
+    sets.engaged.DW.Ranged = {    
                 head="Malignance Chapeau",
                 body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
                 hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -904,13 +934,13 @@ sets.engaged.CRIT = {
                 left_ring="Epona's Ring",
                 right_ring="Petrov Ring",
                 back="Camulus's Mantle",
-                }
+    }
     sets.engaged.DW.STP = set_combine(sets.engaged, {
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
         ring1="Chirich Ring +1",
         ring2="Chirich Ring +1",
-        })
+    })
 
     -- No Magic Haste (74% DW to cap)
 
@@ -1175,39 +1205,40 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Ranged Attack' or spell.type == 'WeaponSkill' or spell.type == 'CorsairShot' then
         do_bullet_checks(spell, spellMap, eventArgs)
     end
-    -- Replace Moonshade Earring if we're at cap TP
-    if spell.type == 'Weaponskill' and player.tp == 3000 then
-        equip({right_ear="Ishvara Earring"})
-    end
-    if elemental_ws:contains(spell.name) then
-        -- Matching double weather (w/o day conflict).
-        if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
-            equip({waist="Hachirin-no-Obi"})
-        -- Target distance under 1.7 yalms.
-        elseif spell.target.distance < (1.7 + spell.target.model_size) then
-            equip({waist="Orpheus's Sash"})
-        -- Matching day and weather.
-        elseif spell.element == world.day_element and spell.element == world.weather_element then
-            equip({waist="Hachirin-no-Obi"})
-        -- Target distance under 8 yalms.
-        elseif spell.target.distance < (8 + spell.target.model_size) then
-            equip({waist="Orpheus's Sash"})
-        -- Match day or weather.
-        elseif spell.element == world.day_element or spell.element == world.weather_element then
-            equip({waist="Hachirin-no-Obi"})
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
         end
     end
-    -- gear sets
-    if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") and state.LuzafRing.value then
-        equip(sets.precast.LuzafRing)
-    elseif spell.type == 'CorsairShot' and state.CastingMode.value == 'Resistant' then
-        classes.CustomClass = 'Acc'
-    elseif spell.english == 'Fold' and buffactive['Bust'] == 2 then
-        if sets.precast.FoldDoubleBust then
-            equip(sets.precast.FoldDoubleBust)
+
+
+    if spellMap == 'Utsusemi' then
+        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
+            cancel_spell()
+            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
             eventArgs.handled = true
+            return
+        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
+            send_command('cancel 66; cancel 444; cancel 445; cancel ; Copy Image; cancel Copy Image (2); cancel Copy Image (3)')
         end
     end
+end
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") then
+        if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+            equip(sets.precast.CorsairRoll.Duration)
+        end
+        if state.LuzafRing.value then
+            equip(sets.precast.LuzafRing)
+        end
+    end
+	if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
     if spell.action_type == 'Ranged Attack' then
         special_ammo_check()
         if flurry == 2 then
@@ -1223,16 +1254,70 @@ function job_precast(spell, action, spellMap, eventArgs)
         if spell.english == 'Leaden Salute' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
             equip(sets.FullTP)
         end
-    end
-    if spellMap == 'Utsusemi' then
-        if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
-            cancel_spell()
-            add_to_chat(123, '**!! '..spell.english..' Canceled: [3+ IMAGES] !!**')
-            eventArgs.handled = true
-            return
-        elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
-            send_command('cancel 66; cancel 444; cancel 445; cancel ; Copy Image; cancel Copy Image (2); cancel Copy Image (3)')
+        if elemental_ws:contains(spell.name) then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
         end
+    end
+end
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    if spell.type == 'CorsairShot' then
+        if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+            if state.QDMode.value == 'Enhance' then
+                equip(sets.midcast.CorsairShot.Enhance)
+            elseif state.QDMode.value == 'TH' then
+                equip(sets.midcast.CorsairShot)
+                equip(sets.TreasureHunter)
+            elseif state.QDMode.value == 'STP' then
+                equip(sets.midcast.CorsairShot.STP)
+            end
+        end
+    elseif spell.action_type == 'Ranged Attack' then
+        if buffactive['Triple Shot'] then
+            equip(sets.TripleShot)
+        end
+    end
+end
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") and not spell.interrupted then
+        display_roll_info(spell)
+    end
+    if spell.english == "Light Shot" then
+        send_command('@timers c "Light Shot ['..spell.target.name..']" 60 down abilities/00195.png')
+    end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
     end
 end
 function job_buff_change(buff,gain)
@@ -1313,7 +1398,13 @@ function job_buff_change(buff,gain)
         send_command('input /item "Holy Water" <me>')
         end
     end
-    if buff == "Sleep" then
+    if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
+    if buff == "sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
@@ -1323,6 +1414,9 @@ function job_buff_change(buff,gain)
     if not midaction() then
         handle_equipping_gear(player.status)
     end
+end
+function check_buffs(check)
+    return 
 end
 --Read incoming packet to differentiate between Haste/Flurry I and II
 windower.register_event('action',
@@ -1379,52 +1473,7 @@ end
         state.CombatForm:reset()
     end
 end]]
-function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spell.type == 'CorsairShot' then
-        if (spell.english ~= 'Light Shot' and spell.english ~= 'Dark Shot') then
-            -- Matching double weather (w/o day conflict).
-            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
-                equip({waist="Hachirin-no-Obi"})
-            -- Target distance under 1.7 yalms.
-            elseif spell.target.distance < (1.7 + spell.target.model_size) then
-                equip({waist="Orpheus's Sash"})
-            -- Matching day and weather.
-            elseif spell.element == world.day_element and spell.element == world.weather_element then
-                equip({waist="Hachirin-no-Obi"})
-            -- Target distance under 8 yalms.
-            elseif spell.target.distance < (8 + spell.target.model_size) then
-                equip({waist="Orpheus's Sash"})
-            -- Match day or weather.
-            elseif spell.element == world.day_element or spell.element == world.weather_element then
-                equip({waist="Hachirin-no-Obi"})
-            end
-            if state.QDMode.value == 'Enhance' then
-                equip(sets.midcast.CorsairShot.Enhance)
-            elseif state.QDMode.value == 'TH' then
-                equip(sets.midcast.CorsairShot)
-                equip(sets.TreasureHunter)
-            elseif state.QDMode.value == 'STP' then
-                equip(sets.midcast.CorsairShot.STP)
-            end
-        end
-    elseif spell.action_type == 'Ranged Attack' then
-        if buffactive['Triple Shot'] then
-            equip(sets.TripleShot)
-        end
-    end
-end
--- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
-function job_aftercast(spell, action, spellMap, eventArgs)
-    if (spell.type == 'CorsairRoll' or spell.english == "Double-Up") and not spell.interrupted then
-        display_roll_info(spell)
-    end
-    if spell.english == "Light Shot" then
-        send_command('@timers c "Light Shot ['..spell.target.name..']" 60 down abilities/00195.png')
-    end
-    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
-        check_weaponset()
-    end
-end
+
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
     if state.WeaponLock.value == true then
@@ -1510,7 +1559,7 @@ function determine_haste_group()
         elseif DW_needed > 40 and DW_needed <= 42 then
             classes.CustomMeleeGroups:append('LowHaste')
         elseif DW_needed > 42 then
-            classes.CustomMeleeGroups:append('')
+            classes.CustomMeleeGroups:append('LowHaste')
         end
     end
 end
@@ -1787,5 +1836,5 @@ function sub_job_change(new,old)
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
-    set_macro_page(4, 26)
+    set_macro_page(5, 26)
 end

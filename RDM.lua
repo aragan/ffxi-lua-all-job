@@ -109,7 +109,37 @@ function user_setup()
 	send_command('bind f1 gs c cycle HippoMode')
 	send_command('wait 2;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
 	DW_needed = 0
     DW = false
 
@@ -250,7 +280,6 @@ function init_gear_sets()
 	sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
 		ammo="Crepuscular Pebble",
 		hands="Malignance Gloves",
-		left_ear="Ishvara Earring",
 		left_ring="Sroda Ring", 
 	})
 
@@ -279,8 +308,8 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-		left_ear="Sherida Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Sherida Earring",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
@@ -288,7 +317,6 @@ function init_gear_sets()
 	sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
 		ammo="Crepuscular Pebble",
 		hands="Malignance Gloves",
-		left_ear="Ishvara Earring",
 		left_ring="Sroda Ring", 
 	})
 		
@@ -318,8 +346,8 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
 		neck="Sibyl Scarf",
 		waist="Orpheus's Sash",
-		left_ear="Regal Earring",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Regal Earring",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
@@ -334,8 +362,8 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Ishvara Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
     back="Sucellos's Cape",
@@ -343,7 +371,6 @@ function init_gear_sets()
 	sets.precast.WS['Death Blossom'].PDL = set_combine(sets.precast.WS['Death Blossom'], {
 		ammo="Crepuscular Pebble",
 		hands="Malignance Gloves",
-		left_ear="Ishvara Earring",
 		left_ring="Sroda Ring", 
 	})
 	
@@ -357,8 +384,8 @@ function init_gear_sets()
 		feet="Thereoid Greaves",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
-		left_ear="Mache Earring +1",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
@@ -379,8 +406,8 @@ function init_gear_sets()
 		feet="Thereoid Greaves",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
-		left_ear="Mache Earring +1",
-		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		right_ear="Mache Earring +1",
+		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
 		back="Sucellos's Cape",
@@ -426,7 +453,6 @@ function init_gear_sets()
 sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
 	ammo="Crepuscular Pebble",
 	hands="Malignance Gloves",
-	left_ear="Ishvara Earring",
 	left_ring="Sroda Ring", 
 })
 
@@ -455,7 +481,6 @@ sets.precast.WS['Shattersoul'] = {
 sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS['Shattersoul'], {
 	ammo="Crepuscular Pebble",
 	hands="Malignance Gloves",
-	left_ear="Ishvara Earring",
 	left_ring="Sroda Ring", 
 })
 	
@@ -1279,11 +1304,23 @@ function refine_various_spells(spell, action, spellMap, eventArgs)
     local spell_index
  
 end
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 function job_precast(spell, action, spellMap, eventArgs)
 	--[[if spell.english == 'Refresh' then
 		equip(sets.midcast['Enhancing Magic'].Duration)
 	end]]
+	if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
 	if spell.english == 'Aeolian Edge' then
 		equip(sets.precast.WS['Aeolian Edge'])
 	end
@@ -1292,14 +1329,19 @@ function job_precast(spell, action, spellMap, eventArgs)
 		sets.precast.FC = sets.precast['Impact']
     end
 end
-	
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
+function job_post_precast(spell, action, spellMap, eventArgs)
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
+    if spell.type == 'WeaponSkill' then
+	-- Replace TP-bonus gear if not needed.
+	    if spell.english == 'Aeolian Edge' and player.tp > 2900 then
+		equip({ear1="Crematio Earring"})
+	    end
+	end
 end
-
 function job_midcast(spell, action, spellMap, eventArgs)
 	if spell.english == "Impact" then
         equip({head=empty,body="Twilight Cloak"})
@@ -1467,7 +1509,7 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "Sleep" then
+    if buff == "sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
         else
@@ -1507,6 +1549,12 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+	if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -1516,7 +1564,9 @@ function job_buff_change(buff, gain)
         job_update()
     end
 end
-
+function check_buffs(check)
+    return 
+end
 
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then

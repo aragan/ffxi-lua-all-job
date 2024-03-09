@@ -138,7 +138,37 @@ function user_setup()
 				  ['Holliday'] = "Chrono Bullet",
 				}
 
-
+				Panacea = T{
+					'Bind',
+					'Bio',
+					'Dia',
+					'Accuracy Down',
+					'Attack Down',
+					'Evasion Down',
+					'Defense Down',
+					'Magic Evasion Down',
+					'Magic Def. Down',
+					'Magic Acc. Down',
+					'Magic Atk. Down',
+					'Max HP Down',
+					'Max MP Down',
+					'slow',
+					'weight'}
+					-- 'Out of Range' distance; WS will auto-cancel
+				range_mult = {
+						[0] = 0,
+						[2] = 1.70,
+						[3] = 1.490909,
+						[4] = 1.44,
+						[5] = 1.377778,
+						[6] = 1.30,
+						[7] = 1.20,
+						[8] = 1.30,
+						[9] = 1.377778,
+						[10] = 1.45,
+						[11] = 1.490909,
+						[12] = 1.70,
+					}
 	select_default_macro_book()
 	--send_command('bind f12 gs c auto---------------------------------------------------------------') --Gearset update toggle--
 	--send_command('bind f9 gs c cycle RangedMode')
@@ -336,7 +366,7 @@ function init_gear_sets()
 		feet="Nyame Sollerets",
     neck="Scout's Gorget +2",
     waist="Orpheus's Sash",
-    left_ear="Hecate's Earring",
+    left_ear="Crematio Earring",
     right_ear="Friomisi Earring",
     left_ring="Cornelia's Ring",
 	right_ring="Dingir Ring",
@@ -417,8 +447,8 @@ function init_gear_sets()
 		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Sibyl Scarf",
 		waist="Orpheus's Sash",
-		left_ear="Ishvara Earring",
-		right_ear="Moonshade Earring",
+		right_ear="Ishvara Earring",
+		left_ear="Moonshade Earring",
 		left_ring="Cornelia's Ring",
 		right_ring="Ilabrat Ring",
 		back="Belenus's Cape",
@@ -945,7 +975,13 @@ function job_precast(spell, action, spellMap, eventArgs)
 	if state.CapacityMode.value then
         equip(sets.CapacityMantle)
     end
-
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     if spell.action_type == 'Ranged Attack' or (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
 		check_ammo(spell, action, spellMap, eventArgs)
 	end
@@ -965,6 +1001,11 @@ function job_precast(spell, action, spellMap, eventArgs)
 	end
 end
 function job_post_precast(spell, action, spellMap, eventArgs)
+	if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Ishvara Earring"})
+		end
+	end
     if spell.action_type == 'Ranged Attack' then
         special_ammo_check()
         if flurry == 2 then
@@ -976,6 +1017,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if spell.skill == 'Marksmanship' then
             special_ammo_check()
         end
+		-- Replace TP-bonus gear if not needed.
+		if spell.english == 'Trueflight' or spell.english == 'Wildfire' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
+			equip({ear1="Crematio Earring"})
+		end
 	end
 	if spell.type == 'WeaponSkill' then
 		if spell.english == 'Trueflight' then
@@ -1147,6 +1192,12 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     end
+	if not S(buffactive):intersection(Panacea):empty() then
+        send_command('input /item "Panacea" <me>')
+
+        add_to_chat(8,string.char(0x81,0x9A)..' Using Panacea '
+            ..'for Eraseable debuffs '..string.char(0x81,0x9A))
+    end
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
@@ -1155,6 +1206,9 @@ function job_buff_change(buff, gain)
     if not midaction() then
         job_update()
     end
+end
+function check_buffs(check)
+    return 
 end
 
 windower.register_event('action',

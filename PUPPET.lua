@@ -39,6 +39,7 @@ function user_setup()
         When you are IDLE and Pet is ENGAGED that is handled by the Idle Sets
     ]]
     state.OffenseMode:options("MasterPet", "Master", "Trusts")
+	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
 
     --[[
         Ctrl-F9 - Cycle Hybrid Mode (the defensive half of all 'hybrid' melee modes).
@@ -178,9 +179,42 @@ function user_setup()
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
     send_command('wait 2;input /lockstyleset 168')
+    send_command('bind f1 gs c cycle HippoMode')
+
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     select_default_macro_book()
-
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }
     -- Adjust the X (horizontal) and Y (vertical) position here to adjust the window
     pos_x = 0
     pos_y = 0
@@ -206,6 +240,7 @@ end
 
 function job_setup()
     include("PUP-LIB.lua")
+    state.Moving  = M(false, "moving")
 end
 
 function init_gear_sets()
@@ -398,7 +433,9 @@ function init_gear_sets()
      }
 
     -------------------------------------Kiting
-    sets.Kiting = {right_ring="Defending Ring",feet="Hermes' Sandals +1",}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.MoveSpeed = {feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     -------------------------------------JA
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck = "Magoraga Beads", body = "Passion Jacket"})
@@ -969,7 +1006,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Hermes' Sandals +1",
+        feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -988,18 +1025,18 @@ function init_gear_sets()
     sets.idle.Pet.MasterDT = {
     
     ammo="Automat. Oil +3",
-    head={ name="Herculean Helm", augments={'Pet: Mag. Acc.+14','Pet: "Dbl. Atk."+4','Pet: INT+3','Pet: Attack+6 Pet: Rng.Atk.+6','Pet: "Mag.Atk.Bns."+6',}},
+    head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
-    hands={ name="Herculean Gloves", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Dbl. Atk."+5','Pet: INT+4',}},
-    legs={ name="Herculean Trousers", augments={'Pet: "Dbl. Atk."+5','Pet: DEX+4','Pet: "Mag.Atk.Bns."+1',}},
-    feet={ name="Herculean Boots", augments={'Pet: Attack+15 Pet: Rng.Atk.+15','Pet: "Dbl. Atk."+4','Pet: AGI+10','Pet: "Mag.Atk.Bns."+11',}},
+    hands={ name="Herculean Gloves", augments={'Pet: Mag. Acc.+25','Pet: "Store TP"+11','Pet: VIT+9','Pet: Attack+14 Pet: Rng.Atk.+14','Pet: "Mag.Atk.Bns."+5',}},
+    legs={ name="Herculean Trousers", augments={'Pet: Accuracy+28 Pet: Rng. Acc.+28','Pet: "Store TP"+11',}},
+    feet={ name="Herculean Boots", augments={'Pet: Accuracy+12 Pet: Rng. Acc.+12','Pet: "Store TP"+11','Pet: MND+2','Pet: "Mag.Atk.Bns."+13',}},
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
     left_ear="Rimeice Earring",
     right_ear="Enmerkar Earring",
     left_ring="Varar Ring +1 +1",
     right_ring="Varar Ring +1 +1",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     }
 
     -------------------------------------Enmity
@@ -1069,9 +1106,7 @@ function init_gear_sets()
         Hybrid Mode = Acc
     ]]
     sets.idle.Pet.Engaged.Acc = {                main={ name="Xiucoatl", augments={'Path: C',}},
-
     ammo="Automat. Oil +3",
-    
     head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
     hands={ name="Taeon Gloves", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1424,9 +1459,23 @@ function init_gear_sets()
     right_ear="Enmerkar Earring",
     left_ring="Thurandaut Ring",
     right_ring="Overbearing Ring",
-    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+10 /Mag. Eva.+10','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Pet: Damage taken -5%',}},
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10',}},
     })
 end
+
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+-- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
+end
+
 function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
@@ -1442,7 +1491,68 @@ function job_buff_change(buff,gain)
     end
 
 end
+function customize_idle_set(idleSet)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+        disable('feet')
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+       enable('feet')
+    end
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    return idleSet
+end
+function job_self_command(cmdParams, eventArgs)
+    if player.equipment.main == 'Tauret' then
+        send_command('input /lockstyleset 164')
+    else
+        send_command('input /lockstyleset 168')
+    end
+    eventArgs.handled = true
+end
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
 
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if buffactive['Mana Wall'] then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

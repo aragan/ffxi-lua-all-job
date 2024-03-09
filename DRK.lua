@@ -128,6 +128,37 @@ function user_setup()
     DW_needed = 0
     DW = false
     moving = false
+    Panacea = T{
+        'Bind',
+        'Bio',
+        'Dia',
+        'Accuracy Down',
+        'Attack Down',
+        'Evasion Down',
+        'Defense Down',
+        'Magic Evasion Down',
+        'Magic Def. Down',
+        'Magic Acc. Down',
+        'Magic Atk. Down',
+        'Max HP Down',
+        'Max MP Down',
+        'slow',
+        'weight'}
+        -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+            [0] = 0,
+            [2] = 1.70,
+            [3] = 1.490909,
+            [4] = 1.44,
+            [5] = 1.377778,
+            [6] = 1.30,
+            [7] = 1.20,
+            [8] = 1.30,
+            [9] = 1.377778,
+            [10] = 1.45,
+            [11] = 1.490909,
+            [12] = 1.70,
+        }   
     -- Additional local binds
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind != gs c toggle CapacityMode')
@@ -759,8 +790,8 @@ sets.precast.WS['Aeolian Edge'] = {
     feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -1648,6 +1679,13 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1662,10 +1700,6 @@ function job_precast(spell, action, spellMap, eventArgs)
         if state.WeaponskillMode.value == "None" then
             equip() 
         end
-    end
-    -- Replace Moonshade Earring if we're at cap TP
-    if spell.type == 'Weaponskill' and player.tp == 3000 then
-        equip({right_ear="Ishvara Earring"})
     end
 end
   
@@ -1683,6 +1717,16 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             --classes.CustomClass = 'OhShit'
         --end
     --end
+    if spell.type == 'WeaponSkill' then
+        if state.WeaponskillMode.value == "None" then
+            equip() 
+        end
+    end
+    if spell.type:lower() == 'weaponskill' then
+		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
+            equip({left_ear="Lugra Earring +1"})
+		end
+	end
     if (state.HybridMode.current == 'PDT' and state.PhysicalDefenseMode.current == 'Reraise') then
         equip(sets.Reraise)
     end
@@ -1877,8 +1921,15 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "sleep" then
-        if gain then    
+    if S{'terror','petrification','sleep','stun'}:contains(name) then
+        if gain then
+            equip(sets.defense.PDT)
+        elseif not gain then 
+            handle_equipping_gear(player.status)
+        end
+    end
+    if buff == 'sleep' then
+        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
             disable('neck')
