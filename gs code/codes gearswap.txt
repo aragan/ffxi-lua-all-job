@@ -605,4 +605,76 @@ if longrangeWS:contains(spell.english) and spell.target.distance > 10+target_dis
     end
 
 
+------------
 
+    if buff == "Defense Down" then
+        if gain then  			
+            send_command('input /item "Panacea" <me>')
+        end
+    elseif buff == "Magic Def. Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Max HP Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Evasion Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Magic Evasion Downn" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Dia" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end  
+    elseif buff == "Bio" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Bind" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "slow" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "weight" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Attack Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Accuracy Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    end
+
+    if buff == "VIT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "INT Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "MND Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "STR Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "AGI Down" then
+        if gain then
+            send_command('@input /item "panacea" <me>')
+        end
+    end
