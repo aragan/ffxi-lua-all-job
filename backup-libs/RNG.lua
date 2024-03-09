@@ -74,10 +74,10 @@ function job_setup()
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 168')
+    send_command('wait 6;input /lockstyleset 152')
 	include('Mote-TreasureHunter')
 	state.WeaponLock = M(false, 'Weapon Lock')
-	send_command('bind @w gs c toggle WeaponLock')
+	send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     update_combat_form()
 end
@@ -92,6 +92,7 @@ function user_setup()
 	state.HybridMode:options('Normal', 'Shield')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
 	state.OffenseMode:options('Normal', 'DD', 'DDACC', 'Shield', 'ShieldAcc', 'Range', 'Acc', 'DA', 'STP')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
@@ -131,8 +132,11 @@ function user_setup()
 	send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 168')
-
+    send_command('wait 2;input /lockstyleset 152')
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind ^- gs enable all')
+    send_command('bind ^/ gs disable all')
+    send_command('bind f4 input //fillmode')
 end
 
 
@@ -411,7 +415,6 @@ function init_gear_sets()
 
 	-- Ranged sets
 	sets.TreasureHunter = { 
-		ammo="Per. Lucky Egg",
 		head="White rarab cap +1", 
 		waist="Chaac Belt",
 	 }
@@ -810,7 +813,23 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
+    end
+    
+    return idleSet
+end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
 
+	return meleeSet
+end
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
@@ -843,6 +862,34 @@ function job_buff_change(buff, gain)
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
+        end
+    end
+	if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+        end
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
         end
     end
 end
@@ -991,11 +1038,10 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 152')
     end
 end
-add_to_chat(159,'Author Aragan RNG.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

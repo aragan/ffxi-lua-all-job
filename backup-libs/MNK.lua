@@ -18,6 +18,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+
 end
 organizer_items = {
     "Gyudon",
@@ -57,6 +58,10 @@ function job_setup()
     state.Buff.Impetus = buffactive.Impetus or false
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.FootworkWS = M(false, 'Footwork on WS')
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.Moving  = M(false, "moving")
+
+    include('Mote-TreasureHunter')
     send_command('wait 6;input /lockstyleset 179')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
@@ -69,18 +74,28 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder', 'Mod')
-    state.WeaponskillMode:options('Normal', 'SomeAcc', 'Acc', 'Fodder')
+    state.OffenseMode:options('Normal', 'Acc', 'Fodder')
+    state.WeaponskillMode:options('Normal', 'PDL', 'Fodder')
     state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
+    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     update_combat_form()
     update_melee_groups()
-    send_command('bind != gs c toggle CapacityMode')
+    --send_command('bind != gs c toggle CapacityMode')
     send_command('wait 2;input /lockstyleset 179')
+    send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f4 input //fillmode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     select_default_macro_book()
 end
-
+-- Called when this job file is unloaded (eg: job change)
+function file_unload()
+    send_command('lua u AutoCOR')
+end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
@@ -93,7 +108,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs on use
     sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +1"}
     sets.precast.JA['Boost'] = {hands="Anchorite's Gloves +1"}
-    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +1"}
+    sets.precast.JA['Dodge'] = {feet="Anch. Gaiters +3"}
     sets.precast.JA['Focus'] = {head="Anchorite's Crown +1"}
     sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +1"}
     sets.precast.JA['Footwork'] = {feet="Tantra Gaiters +2"}
@@ -118,7 +133,7 @@ function init_gear_sets()
         left_ear={ name="Handler's Earring +1", augments={'Path: A',}},
         right_ear="Tuisto Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Regal Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
 
@@ -127,13 +142,15 @@ function init_gear_sets()
         body="Passion Jacket",
         legs="Dashing Subligar",
     }
-        
+    sets.TreasureHunter = {ammo="Per. Lucky Egg",
+    head="White rarab cap +1", 
+    waist="Chaac Belt"}
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 
     sets.precast.Step = {waist="Chaac Belt"}
     sets.precast.Flourish1 = {waist="Chaac Belt"}
-    sets.CapacityMantle  = { back="Mecistopins Mantle" }
+    sets.CapacityMantle  = { }
 
 
     -- Fast cast sets for spells
@@ -165,10 +182,10 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
@@ -176,10 +193,9 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Ilabrat Ring",
         right_ring="Cornelia's Ring",
-        back={ name="Segomo's Mantle", augments={'DEX+5','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-
+        back="Segomo's Mantle",
     }
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -196,7 +212,7 @@ function init_gear_sets()
 
     sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Nyame Flanchard",
@@ -209,7 +225,7 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
     })
-    sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], {
+    sets.precast.WS["Raging Fists"].PDL = set_combine(sets.precast.WS["Raging Fists"], {
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -218,7 +234,7 @@ function init_gear_sets()
 
     sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
     ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -231,7 +247,7 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
     })
-    sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], {
+    sets.precast.WS["Howling Fist"].PDL = set_combine(sets.precast.WS["Howling Fist"], {
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -254,7 +270,7 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
     })
-    sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"],{
+    sets.precast.WS["Asuran Fists"].PDL = set_combine(sets.precast.WS["Asuran Fists"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -264,7 +280,7 @@ function init_gear_sets()
     sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS, {
        
     })
-    sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"],{
+    sets.precast.WS["Ascetic's Fury"].PDL = set_combine(sets.precast.WS["Ascetic's Fury"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -276,7 +292,7 @@ function init_gear_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Mpaca's Doublet",
       hands="Mpaca's Gloves",
-    legs="Mpaca's Hose",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
     feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
@@ -286,7 +302,7 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
     })
-    sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"],{
+    sets.precast.WS["Victory Smite"].PDL = set_combine(sets.precast.WS["Victory Smite"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -298,7 +314,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -308,7 +324,7 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
     })
-    sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"],{
+    sets.precast.WS["Shijin Spiral"].PDL = set_combine(sets.precast.WS["Shijin Spiral"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -316,7 +332,7 @@ function init_gear_sets()
 
     sets.precast.WS['Dragon Kick'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-        head="Mpaca's Cap",
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -329,7 +345,7 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
     })
-    sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"],{
+    sets.precast.WS["Dragon Kick"].PDL = set_combine(sets.precast.WS["Dragon Kick"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -338,7 +354,7 @@ function init_gear_sets()
 
     sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -351,7 +367,7 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back="Segomo's Mantle",
     })
-    sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"],{
+    sets.precast.WS["Tornado Kick"].PDL = set_combine(sets.precast.WS["Tornado Kick"],{
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -372,7 +388,7 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Segomo's Mantle",  
     })
-    sets.precast.WS["Black Halo"].Acc = set_combine(sets.precast.WS["Black Halo"], {
+    sets.precast.WS["Black Halo"].PDL = set_combine(sets.precast.WS["Black Halo"], {
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -393,11 +409,27 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back="Segomo's Mantle",   
     })
-    sets.precast.WS["Retribution"].Acc = set_combine(sets.precast.WS["Retribution"], {
+    sets.precast.WS["Retribution"].PDL = set_combine(sets.precast.WS["Retribution"], {
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
         left_ring="Sroda Ring", 
+    })
+
+    sets.precast.WS["Shell Crusher"] = set_combine(sets.precast.WS, {
+        ammo="Pemphredo Tathlum",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Moonlight Necklace",
+        waist="Acuity Belt +1",
+        left_ear="Digni. Earring",
+        right_ear="Crep. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Sacro Mantle",
     })
 
     sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, { 
@@ -405,7 +437,7 @@ function init_gear_sets()
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
           hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
@@ -415,7 +447,7 @@ function init_gear_sets()
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",  
     })
-    sets.precast.WS['Spinning Attack'].Acc = set_combine(sets.precast.WS, {   
+    sets.precast.WS['Spinning Attack'].PDL = set_combine(sets.precast.WS, {   
         ammo="Crepuscular Pebble",
         hands="Bhikku Gloves +2",
         legs="Malignance Tights",
@@ -444,8 +476,8 @@ function init_gear_sets()
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Archon Ring",
-        right_ring="Cornelia's Ring",
-        back="Argocham. Mantle",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back="Sacro Mantle",
     }
     
     
@@ -483,7 +515,7 @@ function init_gear_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Hermes' Sandals +1",        
+        feet="Malignance Boots",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Moonbow Belt +1",
         left_ear="Odnowa Earring",
@@ -494,13 +526,9 @@ function init_gear_sets()
 
     }
 
-    sets.idle.Town = {
-        feet="Hermes' Sandals +1",        
-    }
+    sets.idle.Town = {feet="Hermes' Sandals +1"}
     
-    sets.idle.Weak = {
-        
-    }
+    sets.idle.Weak = sets.idle
     
     -- Defense sets
     sets.defense.PDT = {
@@ -514,27 +542,25 @@ function init_gear_sets()
         waist="Moonbow Belt +1",
         left_ear="Odnowa Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Patricius Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
 
     sets.defense.HP = {
-        ammo="Coiste Bodhar",
+        ammo="Staunch Tathlum +1",
         head="Genmei Kabuto",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Moonbow Belt +1",
-        left_ear="Cryptic Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ear="Tuisto Earring",
+        right_ring="Defending Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
-   
-        
     }
 
     sets.defense.MDT = {	      
@@ -545,14 +571,16 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Archon Ring",
-        right_ring="Cornelia's Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 }
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.MoveSpeed = {feet="Hermes' Sandals +1",}
+    sets.Kiting = {feet="Hermes' Sandals +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 
     sets.ExtraRegen = {    head={ name="Rao Kabuto", augments={'VIT+10','Attack+20','"Counter"+3',}},
     body="Hiza. Haramaki +2",
@@ -572,7 +600,7 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {
-        ammo="Coiste Bodhar",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -581,33 +609,17 @@ function init_gear_sets()
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Schere Earring",
+        right_ear="Mache Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
-
     }
-    sets.engaged.SomeAcc = {
-        ammo="Coiste Bodhar",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Mpaca's Doublet",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs="Bhikku Hose +2",
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck="Moonbeam Nodowa",
-        waist="Moonbow Belt +1",
-        left_ear="Brutal Earring",
-        right_ear="Sherida Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Segomo's Mantle",
 
-    }
     sets.engaged.Acc = {
-        ammo="Falcon Eye",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
         head="Malignance Chapeau",
         body="Mpaca's Doublet",
-		hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs="Bhikku Hose +2",
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Moonbeam Nodowa",
@@ -618,25 +630,9 @@ function init_gear_sets()
         right_ring="Chirich Ring +1",
         back="Segomo's Mantle",
     }
-    sets.engaged.Mod = {
-        ammo="Coiste Bodhar",
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Bhikku Hose +2",
-        feet="Malignance Boots",
-        neck="Moonbeam Nodowa",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Schere Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Segomo's Mantle",
-
-    }
 
     sets.engaged.Fodder = {
-        ammo="Coiste Bodhar",
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
 		head="Hiza. Somen +2",
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
@@ -645,7 +641,7 @@ function init_gear_sets()
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
-        right_ear="Schere Earring",
+        right_ear="Mache Earring +1",
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
@@ -653,48 +649,33 @@ function init_gear_sets()
     }
 
     -- Defensive melee hybrid sets
-    sets.engaged.PDT = {                  ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
+    sets.engaged.PDT = {       
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Bhikku Hose +2",
+    legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Schere Earring",
+    right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
 	right_ring="Defending Ring",
     back="Segomo's Mantle",
 }
-    sets.engaged.SomeAcc.PDT = {          
-    ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Mpaca's Doublet",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Bhikku Hose +2",
-    feet="Mpaca's Boots",
-    neck="Moonbeam Nodowa",
-    waist="Moonbow Belt +1",
-    left_ear="Schere Earring",
-    right_ear="Mache Earring +1",
-	right_ring="Defending Ring",
-    left_ring="Niqmaddu Ring",
-    back="Segomo's Mantle",
 
-		
-	}
-    sets.engaged.Acc.PDT = {	 main={ name="Godhands", augments={'Path: A',}},
-    ammo="Coiste Bodhar",
-    head="Mpaca's Cap",
+    sets.engaged.Acc.PDT = {	
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Bhikku Hose +2",
+    legs="Malignance Tights",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
-    left_ear="Mache Earring +1",
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
     left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
     back="Segomo's Mantle",
@@ -709,8 +690,8 @@ function init_gear_sets()
 		feet="Hiza. Sune-Ate +2",
 		neck={ name="Bathy Choker +1", augments={'Path: A',}},
 		waist="Moonbow Belt +1",
-		left_ear="Sherida Earring",
-		right_ear="Cryptic Earring",
+        right_ear="Mache Earring +1",
+		left_ear="Cryptic Earring",
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
 		back="Segomo's Mantle",
@@ -722,45 +703,45 @@ function init_gear_sets()
 	hands={ name="Rao Kote", augments={'Accuracy+10','Attack+10','Evasion+15',}},
     legs="Bhikku Hose +2",
 	feet="Hiza. Sune-Ate +2",
+    neck="Anu Torque",
 	waist="Moonbow Belt +1",
-	right_ear="Cryptic Earring",
+    right_ear="Mache Earring +1",
+    left_ear="Cryptic Earring",
 	left_ring="Niqmaddu Ring",
 	right_ring="Defending Ring",
-	neck="Anu Torque",
-    left_ear="Dominance Earring",
-    back="Tantalic Cape",
+    back="Segomo's Mantle",
 }
 sets.engaged.SubtleBlow = set_combine(sets.engaged, {
-    legs="Mpaca's Hose",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
-})
-sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
-    legs="Mpaca's Hose",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
-})
-sets.engaged.SomeAcc.SubtleBlow = set_combine(sets.engaged, {
-    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Malignance Chapeau",
+    ammo="Staunch Tathlum +1",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
-    left_ear="Digni. Earring",
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
+    right_ring="Defending Ring",
     back="Segomo's Mantle",
 })
+sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
+    ammo="Staunch Tathlum +1",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs={ name="Mpaca's Hose", augments={'Path: A',}},
+    feet="Malignance Boots",
+    neck="Moonbeam Nodowa",
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Mache Earring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Segomo's Mantle",
+})
+
 
 
 
@@ -785,8 +766,8 @@ sets.engaged.SomeAcc.SubtleBlow = set_combine(sets.engaged, {
         
     -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
     sets.impetus_body = {body="Bhikku Cyclas +2"}
-    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
-    sets.Doom = {    neck="Nicander's Necklace",
+    sets.footwork_kick_feet = {feet="Anch. Gaiters +3"}
+    sets.Doom = {neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
@@ -867,7 +848,42 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    
+    if buff == "terror" then
+        if gain then
+            send_command('input /p i am TERROR cant move.')		
+            equip(sets.defense.PDT)
+        end
+        handle_equipping_gear(player.status)
+    end
+    if buff == "petrification" then
+        if gain then    
+            equip(sets.defense.PDT)
+            send_command('input /p Petrification, please Stona.')		
+        else
+        send_command('input /p '..player.name..' is no longer Petrify!')
+        handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Charm" then
+        if gain then  			
+           send_command('input /p Charmd, please Sleep me.')		
+        else	
+           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
+           handle_equipping_gear(player.status)
+        end
+    end
+    if buff == "Sleep" then
+        if gain then    
+            send_command('input /p ZZZzzz, please cure.')		
+        else
+            send_command('input /p '..player.name..' is no longer Sleep!')
+            handle_equipping_gear(player.status)    
+        end
+        if not midaction() then
+            handle_equipping_gear(player.status)
+            job_update()
+        end
+    end
     -- Hundred Fists and Impetus modify the custom melee groups
     if buff == "Hundred Fists" or buff == "Impetus" then
         classes.CustomMeleeGroups:clear()
@@ -898,19 +914,36 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-    if player.hpp < 75 then
-        idleSet = set_combine(idleSet, sets.ExtraRegen)
+    if state.HippoMode.value == "Hippo" then
+        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    elseif state.HippoMode.value == "normal" then
+       equip({})
     end
-    
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
     return idleSet
 end
-
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    
+    return meleeSet
+end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
     update_combat_form()
     update_melee_groups()
 end
-
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
@@ -954,28 +987,53 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 179')
     end
 end
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    -- Default macro set/book
-    if player.sub_job == 'DNC' then
-        set_macro_page(2, 12)
-    elseif player.sub_job == 'NIN' then
-        set_macro_page(2, 12)
-    elseif player.sub_job == 'THF' then
-        set_macro_page(2, 12)
-    elseif player.sub_job == 'RUN' then
-        set_macro_page(2, 12)
-    else
-        set_macro_page(2, 12)
-    end
-end
-
 
 -------------------------------------------------------------------------------------------------------------------
 -- Custom event hooks.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan MNK.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if buffactive['Mana Wall'] then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+
 -- Keep track of the current hit count while Impetus is up.
 function on_action_for_impetus(action)
     if state.Buff.Impetus then
@@ -1042,3 +1100,18 @@ function on_action_for_impetus(action)
     
 end
 
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'DNC' then
+        set_macro_page(2, 12)
+    elseif player.sub_job == 'NIN' then
+        set_macro_page(2, 12)
+    elseif player.sub_job == 'THF' then
+        set_macro_page(2, 12)
+    elseif player.sub_job == 'RUN' then
+        set_macro_page(2, 12)
+    else
+        set_macro_page(2, 12)
+    end
+end
