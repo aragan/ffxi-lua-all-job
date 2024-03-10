@@ -517,6 +517,9 @@ function init_gear_sets()
     sets.precast.WS["Fast Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
     sets.precast.WS["Swift Blade"] = set_combine(sets.precast.WS["Ukko's Fury"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
     sets.precast.WS["Rampage"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Rampage"].PDL = set_combine(sets.precast.WS["Ukko's Fury"].PDL, {})
+    sets.precast.WS["Hexa Strike"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
+    sets.precast.WS["Hexa Strike"].PDL = set_combine(sets.precast.WS["Ukko's Fury"].PDL, {})
     sets.precast.WS["Vorpal Scythe"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Vorpal Thrust"] = set_combine(sets.precast.WS["Ukko's Fury"], {})
     sets.precast.WS["Evisceration"] = set_combine(sets.precast.WS["Ukko's Fury"], {
@@ -755,7 +758,7 @@ function init_gear_sets()
      sets.precast.WS.Torcleaver.SC= set_combine(sets.precast.WS.Mid, {
         neck="Fotia Gorget",
      })
-     sets.precast.WS.Torcleaver.PDL= set_combine(sets.precast.WS.Torcleaver.Mid, sets.precast.WS.Acc)
+     sets.precast.WS.Torcleaver.PDL= set_combine(sets.precast.WS.Torcleaver.Mid, sets.precast.WS.PDL)
 
 
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
@@ -836,7 +839,11 @@ function init_gear_sets()
     sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ring="Sroda Ring",})
     sets.precast.WS['Mistral Axe'].SC= set_combine(sets.precast.WS['Savage Blade'].Mid, {})
-    sets.precast.WS['Mistral Axe'].PDL= set_combine(sets.precast.WS['Savage Blade'].Acc, {})
+    sets.precast.WS['Mistral Axe'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
+    sets.precast.WS['Calamity'] = set_combine(sets.precast.WS['Savage Blade'], {
+        left_ring="Sroda Ring",})
+    sets.precast.WS['Calamity'].SC= set_combine(sets.precast.WS['Savage Blade'].Mid, {})
+    sets.precast.WS['Calamity'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
     sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Judgment'].SC= set_combine(sets.precast.WS['Judgment'], {
         head="Nyame Helm",
@@ -1677,18 +1684,6 @@ function job_buff_change(buff, gain)
             send_command('@input /item "panacea" <me>')
         end
     elseif buff == "AGI Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
-    elseif buff == "INT Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
-    elseif buff == "INT Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
-    elseif buff == "INT Down" then
         if gain then
             send_command('@input /item "panacea" <me>')
         end

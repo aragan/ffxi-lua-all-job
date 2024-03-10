@@ -1993,18 +1993,6 @@ function job_buff_change(buff, gain)
         if gain then
             send_command('@input /item "panacea" <me>')
         end
-    elseif buff == "INT Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
-    elseif buff == "INT Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
-    elseif buff == "INT Down" then
-        if gain then
-            send_command('@input /item "panacea" <me>')
-        end
     end
     if buff == "curse" then
         if gain then  

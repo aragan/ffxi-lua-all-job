@@ -421,9 +421,8 @@ function init_gear_sets()
         body="Telchine Chas.",
         hands="Telchine Gloves",
         legs="Telchine Braconi",
-        feet="Telchine Pigaches",
+        feet="Theo. Duckbills +3",
         waist="Embla Sash",
-
     }
     -- Cure sets
     sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape"}
@@ -655,8 +654,6 @@ function init_gear_sets()
         right_ring="Haoma's Ring",
         back="Alaunus's Cape",
     }
-    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
-    sets.midcast.Refresh.Duration = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
 
     sets.midcast.StatusRemoval = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -693,6 +690,9 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.midcast['Enhancing Magic'],sets.SIRD) 
     sets.midcast['Enhancing Magic'].Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
+    sets.midcast.Refresh.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration, {waist="Gishdubar Sash",})
+
     sets.midcast.Stoneskin = {
         main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
         ammo="Pemphredo Tathlum",
@@ -700,7 +700,7 @@ function init_gear_sets()
         body="Telchine Chas.",
         hands="Telchine Gloves",
         legs="Telchine Braconi",
-        feet="Telchine Pigaches",
+        feet="Theo. Duckbills +3",
         neck="Nodens Gorget",
         waist="Siegel Sash",
         left_ear="Andoaa Earring",
@@ -718,7 +718,7 @@ function init_gear_sets()
         body="Telchine Chas.",
         hands="Telchine Gloves",
         legs="Telchine Braconi",
-        feet="Telchine Pigaches",
+        feet="Theo. Duckbills +3",
         neck="Incanter's Torque",
         waist="Embla Sash",
         left_ear="Andoaa Earring",
@@ -738,7 +738,7 @@ function init_gear_sets()
         body="Telchine Chas.",
         hands="Regal Cuffs",
         legs="Telchine Braconi",
-        feet="Telchine Pigaches",
+        feet="Theo. Duckbills +3",
         neck="Incanter's Torque",
         waist="Embla Sash",
         left_ear="Gifted Earring",
@@ -763,7 +763,7 @@ function init_gear_sets()
     body="Telchine Chas.",
     hands="Telchine Gloves",
     legs="Telchine Braconi",
-    feet="Telchine Pigaches",
+    feet="Theo. Duckbills +3",
     neck="Incanter's Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
@@ -780,7 +780,7 @@ function init_gear_sets()
         body="Telchine Chas.",
         hands="Telchine Gloves",
         legs="Telchine Braconi",
-        feet="Telchine Pigaches",
+        feet="Theo. Duckbills +3",
         waist="Embla Sash",})
     sets.midcast.Regen.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
@@ -1215,7 +1215,12 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
@@ -1234,12 +1239,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         equip(sets.CapacityMantle)
     end]]
 end
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
-end
+
 function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
         if state.CastingMode.value == 'SIRD' then
@@ -1259,11 +1259,33 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spellMap == 'StatusRemoval' and buffactive['Divine Caress'] then
         equip(sets.buff['Divine Caress'])
     end
+    if spell.skill == 'Enhancing Magic' then
+        if classes.NoSkillSpells:contains(spell.english) then
+            equip(sets.midcast.Duration)
+            if spellMap == 'Refresh' then
+                equip(sets.midcast.Refresh.Duration)
+            end
+        end
+        if spellMap == "Regen" and state.CastingMode.value == 'Duration' then
+            equip(sets.midcast.Regen.Duration)
+        end
+    end
     if spellMap == 'Banish' or spellMap == "Holy" then
         if (world.weather_element == 'Light' or world.day_element == 'Light') then
             equip(sets.Obi)
     elseif state.MagicBurst.value then
             equip(sets.magic_burst)
+        end
+    end
+end
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if not spell.interrupted then
+        if spell.english == "Sleep II" then
+            send_command('@timers c "Sleep II ['..spell.target.name..']" 90 down spells/00259.png')
+        elseif spell.english == "Sleep" or spell.english == "Sleepga" then -- Sleep & Sleepga Countdown --
+            send_command('@timers c "Sleep ['..spell.target.name..']" 60 down spells/00253.png')
+        elseif spell.english == "Repose" then
+            send_command('@timers c "Repose ['..spell.target.name..']" 90 down spells/00098.png')
         end
     end
 end
@@ -1317,36 +1339,79 @@ function job_buff_change(buff, gain)
         end
     end
     if buff == "Defense Down" then
-        if gain then
+        if gain then  			
+            send_command('input /item "Panacea" <me>')
+        end
+    elseif buff == "Magic Def. Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Attack Down" then
+        end
+    elseif buff == "Max HP Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Evasion Down" then
+        end
+    elseif buff == "Evasion Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Evasion Down" then
+        end
+    elseif buff == "Magic Evasion Downn" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Def. Down" then
+        end
+    elseif buff == "Dia" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Accuracy Down" then
+        end  
+    elseif buff == "Bio" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Max HP Down" then
+        end
+    elseif buff == "Bind" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "slow" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "weight" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Attack Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Accuracy Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
         end
     end
-    
+
     if buff == "VIT Down" then
         if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "INT Down" then
+        end
+    elseif buff == "INT Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "MND Down" then
+        end
+    elseif buff == "MND Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "VIT Down" then
+        end
+    elseif buff == "STR Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "STR Down" then
+        end
+    elseif buff == "AGI Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "AGI Down" then
-            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+        send_command('input /item "Holy Water" <me>')
         end
     end
     if buff == "curse" then
