@@ -126,8 +126,8 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'Refresh')
-    state.PhysicalDefenseMode:options('PDT', 'Evasion')
+    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'Regen')
+    state.PhysicalDefenseMode:options('PDT', 'Evasion', 'HP')
     state.MagicalDefenseMode:options('MDT')
     swordList = S{"Naegling", "Demers. Degen +1"}
     daggerList = S{"Tauret", "Demers. Degen +1"}
@@ -737,7 +737,7 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         back="Moonlight Cape",
         }
 
-        sets.idle.Evasion = set_combine(sets.idle, {
+    sets.idle.Evasion = set_combine(sets.idle, {
             head="Malignance Chapeau",
             body="Malignance Tabard",
             hands="Malignance Gloves",
@@ -750,11 +750,30 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
             left_ring="Defending Ring",
             right_ring="Vengeful Ring",
             back="Camulus's Mantle",
-        })
-        sets.idle.Town ={legs="Carmine Cuisses +1",
+    })
+    sets.idle.Town ={legs="Carmine Cuisses +1",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",}
-    
+    sets.idle.HP =  {
+            head={ name="Nyame Helm", augments={'Path: B',}},
+            body={ name="Nyame Mail", augments={'Path: B',}},
+            hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+            legs={ name="Nyame Flanchard", augments={'Path: B',}},
+            feet={ name="Nyame Sollerets", augments={'Path: B',}},
+            neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+            waist="Plat. Mog. Belt",
+            left_ear="Tuisto Earring",
+            right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+            left_ring="Ilabrat Ring",
+            right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+            back="Moonlight Cape",
+    }
+    sets.idle.Regen ={
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+}
     -- Defense sets
 sets.defense.PDT = {
     head="Nyame Helm",
@@ -798,6 +817,20 @@ sets.defense.Evasion =  {
     left_ring="Defending Ring",
     right_ring="Vengeful Ring",
     back="Camulus's Mantle",
+}
+sets.defense.HP =  {
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Ilabrat Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
 }
     
     sets.Adoulin = {body="Councilor's Garb",

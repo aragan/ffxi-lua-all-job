@@ -185,9 +185,7 @@ function init_gear_sets()
         back="Reiki Cloak",
     }
 
-    sets.MadrigalBonus = {
-        hands="Composer's Mitts"
-    }
+
      -- Precast Sets
      -- Precast sets to enhance JAs
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
