@@ -88,16 +88,17 @@ function job_setup()
     state.Buff.Retaliation = buffactive.retaliation or false
     
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
-    swordList = S{"Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
-    gsList = S{'Macbain', 'Nandaka', 'Nativus Halberd'}
-    war_sub_weapons = S{"Sangarius +1", "Usonmunku", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
+    swordList = S{"Naegling", "Sangarius +1", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
+    gsList = S{'Macbain', 'Nandaka', 'Agwu\'s Claymore'}
+    war_sub_weapons = S{"Sangarius +1", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1",}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Thr. Tomahawk",}
-
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling','Chango', 'Shining', 'AgwuClaymore', 'Drepanum', 'Loxotic', 'TernionDagger','IkengaAxe'}
+    state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
@@ -137,6 +138,8 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind f7 gs c cycle shield')
+    send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
@@ -163,6 +166,21 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
+--Weaponsets
+sets.Normal = {}
+sets.Chango = {main="Chango", sub="Utu Grip"}
+sets.AgwuClaymore = {main="Agwu's Claymore", sub="Utu Grip"}
+sets.Shining = {main="Shining One", sub="Utu Grip"}
+sets.Naegling = {main="Naegling", sub="Demers. Degen +1",}
+sets.Loxotic = {main="Loxotic Mace +1", sub="Demers. Degen +1",}
+sets.TernionDagger = {main="Ternion Dagger +1", sub="Demers. Degen +1",}
+sets.Drepanum = {main="Drepanum", sub="Utu Grip",}
+sets.IkengaAxe = {main="Ikenga's Axe", sub="Demers. Degen +1",}
+
+sets.Normal = {}
+sets.shield = {sub="Blurred Shield +1"}
+sets.DefaultShield = {sub="Blurred Shield +1"}
+
 
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
@@ -1435,6 +1453,8 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = not spell.interrupted or buffactive[spell.english]
     end
+    check_weaponset()
+
 end
 
 function job_post_aftercast(spell, action, spellMap, eventArgs)
@@ -1505,7 +1525,10 @@ function customize_melee_set(meleeSet)
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
+    check_weaponset()
+
     return meleeSet
+
 end
  
 function check_buff(buff_name, eventArgs)
@@ -1528,11 +1551,15 @@ function job_status_change(newStatus, oldStatus, eventArgs)
             equip(sets.buff.Berserk)
         end
         get_combat_weapon()
-    --elseif newStatus == 'Idle' then
-    --    determine_idle_group()
+
     end
+
+
 end
- 
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    equip(sets[state.shield.current])
+end
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
@@ -1588,17 +1615,15 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == 'sleep' then
-        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
-            equip(sets.Sleep)
-            send_command('input /p ZZZzzz, please cure.')		
-            disable('neck')
-        else
-            enable('neck')
-            send_command('input /p '..player.name..' is no longer Sleep Thank you !')
-            handle_equipping_gear(player.status)    
+    if name == 'sleep' then
+        if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep
+            equip({neck="Vim Torque +1"})
+			disable('neck')
+        elseif not gain then 
+			enable('neck')
+            handle_equipping_gear(player.status)
         end
-    end
+    end	
     if buff == "petrification" then
         if gain then    
             equip(sets.defense.PDT)
@@ -1795,7 +1820,7 @@ function get_combat_form()
     end]]
     if S{'NIN', 'DNC'}:contains(player.sub_job) and war_sub_weapons:contains(player.equipment.sub) then
         state.CombatForm:set("DW")
-    elseif S{'SAM', 'DRK', 'PLD', 'DRG', 'RUN'}:contains(player.sub_job) and player.equipment.sub == 'Blurred Shield +1' then
+    elseif S{'SAM', 'DRK', 'PLD', 'DRG', 'RUN'}:contains(player.sub_job) and player.equipment.sub ~= 'Blurred Shield +1' then
         state.CombatForm:set("OneHand")
     else
         state.CombatForm:reset()
@@ -1835,6 +1860,8 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    check_weaponset()
+
 end
 function sub_job_change(new,old)
     if user_setup then

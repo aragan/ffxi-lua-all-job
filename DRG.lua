@@ -17,6 +17,7 @@ function get_sets()
 	include('organizer-lib')
 
     organizer_items = {
+        "Regis",
         "Airmid's Gorget",
         "Prime Sword",
         "Sword Strap",
@@ -58,27 +59,35 @@ end
 
 -- Setup vars that are user-independent.
 function job_setup()
-	get_combat_form()
+
+
     include('Mote-TreasureHunter')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 6;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
+    swordList = S{"Naegling", "Sangarius +1", "Malevolence", "Demers. Degen +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
+    shields = S{'Regis'}
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
 
 	state.Buff = {}
 	-- JA IDs for actions that always have TH: Provoke, Animated Flourish
 	info.default_ja_ids = S{35, 204}
 	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Trishula', 'Shining', 'Naegling', 'TernionDagger'}
+    state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
+    get_combat_form()
+    update_melee_groups()
 end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal', 'Mid', 'Acc', 'CRIT')
+	state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT')
 	state.IdleMode:options('Normal', 'Sphere')
-	state.HybridMode:options('Normal', 'PDT', 'Reraise')
+	state.HybridMode:options('Normal', 'DT', 'Reraise')
 	state.WeaponskillMode:options('Normal', 'SC', 'PDL')
 	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
 	state.MagicalDefenseMode:options('MDT')
@@ -88,9 +97,20 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind f7 gs c cycle shield')
+    send_command('bind f6 gs c cycle WeaponSet')
     send_command('wait 2;input /lockstyleset 152')
 	select_default_macro_book()
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    state.Moving  = M(false, "moving")
+    Haste = 0
+    DW_needed = 0
+    DW = false
+    moving = false
         -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
             [0] = 0,
@@ -123,7 +143,15 @@ function init_gear_sets()
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
+--Weaponsets
+sets.Normal = {}
+sets.Trishula = {main="Trishula", sub="Utu Grip"}
+sets.Shining = {main="Shining One", sub="Utu Grip"}
+sets.Naegling = {main="Naegling", sub="Demers. Degen +1",}
+sets.TernionDagger = {main="Ternion Dagger +1", sub="Demers. Degen +1",}
 
+sets.Normal = {}
+sets.shield = {sub="Regis"}
 
     -- Precast Sets
 	-- Precast sets to enhance JAs
@@ -245,7 +273,6 @@ sets.precast.JA.Jump = {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +2",
     right_ear="Peltast's Earring",
@@ -401,9 +428,10 @@ sets.precast.JA.Jump = {
     right_ring="Mujin Band",
     })
 	sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
-        ammo="Crepuscular Pebble",
-    hands="Gleti's Gauntlets",
-    body="Pelt. Plackart +2",
+        head="Gleti's Mask",
+        hands="Gleti's Gauntlets",
+        body="Pelt. Plackart +2",
+        feet="Gleti's Boots",
     right_ear="Peltast's Earring",
     left_ring="Sroda Ring", 
     })
@@ -473,7 +501,6 @@ sets.precast.JA.Jump = {
         back="Brigantia's Mantle",
     })
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS, {
-        ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
         right_ear="Peltast's Earring",
@@ -551,7 +578,6 @@ sets.precast.JA.Jump = {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
-        ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +2",
         right_ear="Peltast's Earring",
@@ -605,7 +631,7 @@ sets.precast.JA.Jump = {
         head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        legs="Nyame Flanchard",
         feet="Gleti's Boots",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
@@ -621,14 +647,13 @@ sets.precast.JA.Jump = {
         legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         right_ear="Infused Earring",
     })
-    sets.Adoulin = {body="Councilor's Garb",}
 
 	sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        legs="Nyame Flanchard",
         feet="Gleti's Boots",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Carrier's Sash",
@@ -709,6 +734,9 @@ sets.precast.JA.Jump = {
         legs="Carmine Cuisses +1",
     }
 
+    sets.Adoulin = {body="Councilor's Garb",}
+    sets.Kiting = {legs="Carmine Cuisses +1",}
+    sets.MoveSpeed = {legs="Carmine Cuisses +1",}
 	-- Engaged sets
 
 	-- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
@@ -733,7 +761,7 @@ sets.precast.JA.Jump = {
         back="Annealed Mantle",
     }
 
-	sets.engaged.Mid = set_combine(sets.engaged, {
+	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body="Pelt. Plackart +2",
@@ -746,15 +774,24 @@ sets.precast.JA.Jump = {
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",
+        back="Annealed Mantle",  
     })
 
-	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
-        ear1="Cessance Earring",
-        hands="Flamma Manopolas +2",
+    sets.engaged.STP = set_combine(sets.engaged.Mid, {
+        ammo="Coiste Bodhar",
+        head="Flam. Zucchetto +2",
+        body="Pelt. Plackart +2",
+        hands="Flam. Manopolas +2",
+        legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
+        feet="Flam. Gambieras +2",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
+        waist="Tempus Fugit +1",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",    })
+        back="Annealed Mantle",  
+    })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
         ammo="Coiste Bodhar",
@@ -771,13 +808,50 @@ sets.precast.JA.Jump = {
         right_ring="Hetairoi Ring",
         back="Annealed Mantle",    })
 
+---------------------------------------- DW-HASTE ------------------------------------------
+sets.DW =  {
+    left_ear="Suppanomimi",  --5
+    right_ear="Eabani Earring",
+}
+sets.engaged.DW = set_combine(sets.engaged, sets.DW)
+
+sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, sets.DW)
+sets.engaged.DW.STP = set_combine(sets.engaged.STP, sets.DW)
+sets.engaged.DW.DA = set_combine(sets.engaged.DA, sets.DW)
+sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, sets.DW)
+
+
+
+------------------------------------------------------------------------------------------------
+---------------------------------------- Hybrid Sets -------------------------------------------
+------------------------------------------------------------------------------------------------
+sets.engaged.Hybrid = {
+    head="Hjarrandi Helm",
+    body="Hjarrandi Breast.",
+    hands="Sulev. Gauntlets +2",
+    left_ring="Moonlight Ring",
+    right_ring="Defending Ring",
+}
+
+sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
+sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
+sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
+--sets.engaged.DA.DT = set_combine(sets.engaged.DA, sets.engaged.Hybrid)
+sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
+
+sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
+sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
+sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
+--sets.engaged.DW.DA.DT = set_combine(sets.engaged.DW.DA, sets.engaged.Hybrid)
+sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
+
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
         back="Annealed Mantle",    })
-	sets.engaged.Mid.PDT = set_combine(sets.engaged.Mid, {
+	sets.engaged.STP.PDT = set_combine(sets.engaged.STP, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
@@ -907,6 +981,8 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     (state.HybridMode.value == 'Physical' and state.PhysicalDefenseMode.value == 'Reraise') then
 		equip(sets.Reraise)
 	end
+    check_weaponset()
+
 end
 
 -- Run after the default aftercast() is done.
@@ -949,16 +1025,28 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    check_weaponset()
+
+end
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    equip(sets[state.shield.current])
 end
 -- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)   
 
+    return idleSet
+end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
+    check_weaponset()
+
 	return meleeSet
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1005,7 +1093,7 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == 'sleep' then
+    if name == 'sleep' then
         if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
             equip(sets.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
@@ -1110,6 +1198,12 @@ function job_buff_change(buff, gain)
         send_command('input /item "Holy Water" <me>')
         end
     end
+    if state.CombatForm.current ~= 'DW' and state.CombatForm.current ~= 'SW' then
+        state.CombatForm:reset()
+    end
+    if not midaction() then
+        handle_equipping_gear(player.status)
+    end
     if not midaction() then
         job_update()
     end
@@ -1120,7 +1214,7 @@ end
 function job_update(cmdParams, eventArgs)
     handle_equipping_gear(player.status)
 	get_combat_form()
-    job_self_command()
+    update_melee_groups()
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
@@ -1149,18 +1243,59 @@ function customize_idle_set(idleSet)
     return idleSet
 end
 function get_combat_form()
-	--if areas.Adoulin:contains(world.area) and buffactive.ionis then
-	--	state.CombatForm:set('Adoulin')
-	--end
-
-    if war_sj then
-        state.CombatForm:set("War")
+    if S{'NIN', 'DNC'}:contains(player.sub_job) and swordList:contains(player.equipment.sub) then
+        state.CombatForm:set("DW")
+    elseif player.equipment.sub == '' or player.equipment.sub == 'Regis' then
+        state.CombatForm:set("SW")
     else
         state.CombatForm:reset()
     end
 end
 
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
 
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.Kiting')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+
+function update_melee_groups()
+    classes.CustomMeleeGroups:clear()
+
+end
 -- Job-specific toggles.
 function job_toggle(field)
 
