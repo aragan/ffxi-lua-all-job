@@ -65,12 +65,18 @@ end
         "Qutrub Knife",
         "Wind Knife +1",
         "Reraise Earring",}
+        -- for Rune Fencer sub, you need to create two macros. One cycles runes, and gives you descrptive text in the log.
+-- The other macro will use the actual rune you cycled to. 
+-- Macro #1 //console gs c cycle Runes
+-- Macro #2 //console gs c toggle UseRune
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.Runes = M{['description']='Runes', "Ignis", "Gelus", "Flabra", "Tellus", "Sulpor", "Unda", "Lux", "Tenebrae"}
+    state.UseRune = M(false, 'Use Rune')
     send_command('wait 6;input /lockstyleset 164')
     include('Mote-TreasureHunter')
 
@@ -113,7 +119,9 @@ function user_setup()
     send_command('wait 2;input /lockstyleset 164')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f1 gs c cycle HippoMode')
-
+    send_command('bind f4 gs c cycle Runes')
+    send_command('bind f3 gs c cycleback Runes')
+    send_command('bind f2 input //gs c toggle UseRune')
     select_default_macro_book()
     Panacea = T{
         'Bind',
@@ -1418,6 +1426,37 @@ function check_buff(buff_name, eventArgs)
     end
 end
 function job_state_change(stateField, newValue, oldValue)
+    if stateField == 'Runes' then
+        local msg = ''
+        if newValue == 'Ignis' then
+            msg = msg .. 'Increasing resistence against ICE and deals FIRE damage.'
+        elseif newValue == 'Gelus' then
+            msg = msg .. 'Increasing resistence against WIND and deals ICE damage.'
+        elseif newValue == 'Flabra' then
+            msg = msg .. 'Increasing resistence against EARTH and deals WIND damage.'
+        elseif newValue == 'Tellus' then
+            msg = msg .. 'Increasing resistence against LIGHTNING and deals EARTH damage.'
+        elseif newValue == 'Sulpor' then
+            msg = msg .. 'Increasing resistence against WATER and deals LIGHTNING damage.'
+        elseif newValue == 'Unda' then
+            msg = msg .. 'Increasing resistence against FIRE and deals WATER damage.'
+        elseif newValue == 'Lux' then
+            msg = msg .. 'Increasing resistence against DARK and deals LIGHT damage.'
+        elseif newValue == 'Tenebrae' then
+            msg = msg .. 'Increasing resistence against LIGHT and deals DARK damage.'
+        end
+        add_to_chat(123, msg)
+
+    elseif stateField == 'Use Rune' then
+        send_command('@input /ja '..state.Runes.value..' <me>')
+    elseif stateField == 'Use Warp' then
+        add_to_chat(8, '------------WARPING-----------')
+        --equip({ring1="Warp Ring"})
+        send_command('input //gs equip sets.Warp;@wait 10.0;input /item "Warp Ring" <me>;')
+    end
+    
+
+
     if state.WeaponLock.value == true then
         disable('main','sub')
     else

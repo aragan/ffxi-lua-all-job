@@ -747,18 +747,18 @@ sets.precast.JA.Jump = {
 	-- Normal melee group
 	sets.engaged = {
         ammo="Coiste Bodhar",
-        head="Hjarrandi Helm",
+        head="Flam. Zucchetto +2",
         body="Pelt. Plackart +2",
         hands="Flamma Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist="Tempus Fugit +1",
+        neck="Anu Torque",
+        waist="Ioskeha Belt +1",
         left_ear="Sherida Earring",
         right_ear="Balder Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Petrov Ring",
-        back="Annealed Mantle",
+        back="Tactical Mantle",
     }
 
 	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
@@ -768,13 +768,13 @@ sets.precast.JA.Jump = {
         hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist="Tempus Fugit +1",
+        neck="Anu Torque",
+        waist="Ioskeha Belt +1",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",  
+        back="Tactical Mantle",
     })
 
     sets.engaged.STP = set_combine(sets.engaged.Mid, {
@@ -784,13 +784,13 @@ sets.precast.JA.Jump = {
         hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
-        neck={ name="Vim Torque +1", augments={'Path: A',}},
-        waist="Tempus Fugit +1",
+        neck="Anu Torque",
+        waist="Ioskeha Belt +1",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",  
+        back="Tactical Mantle",
     })
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
@@ -827,8 +827,9 @@ sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, sets.DW)
 ------------------------------------------------------------------------------------------------
 sets.engaged.Hybrid = {
     head="Hjarrandi Helm",
-    body="Hjarrandi Breast.",
-    hands="Sulev. Gauntlets +2",
+    hands="Gleti's Gauntlets",
+    body="Gleti's Cuirass",
+    waist="Tempus Fugit +1",
     left_ring="Moonlight Ring",
     right_ring="Defending Ring",
 }
@@ -850,13 +851,16 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
-        back="Annealed Mantle",    })
+        waist="Tempus Fugit +1",
+    })
 	sets.engaged.STP.PDT = set_combine(sets.engaged.STP, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
+        waist="Tempus Fugit +1",
+
     })
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {
         head="Hjarrandi Helm",
@@ -864,9 +868,11 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
         hands="Sulev. Gauntlets +2",
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
+        waist="Tempus Fugit +1",
+
     })
 
-    sets.engaged.CRIT.PDT = set_combine(sets.engaged, sets.engaged.PDT)
+    sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.PDT)
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		
     head="Crepuscular Helm",
