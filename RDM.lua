@@ -97,6 +97,8 @@ function user_setup()
     state.Moving = M(false, "moving")
     state.MagicBurst = M(false, 'Magic Burst')
 	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'Crocea', 'DAGGERS', 'IDLE'}
+	state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
+
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	select_default_macro_book()
@@ -106,6 +108,7 @@ function user_setup()
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
 	send_command('bind f6 gs c cycle WeaponSet')
+	send_command('bind f7 gs c cycle shield')
 	send_command('bind f1 gs c cycle HippoMode')
 	send_command('wait 2;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -143,7 +146,8 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-    
+	sets.DefaultShield = {sub="Sacro Bulwark"}
+
     -- Precast Sets
     
     -- Precast sets to enhance JAs
@@ -1710,6 +1714,11 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 	elseif state.WeaponSet.value == "IDLE" then
         equip({main="Daybreak", sub="Sacro Bulwark",})
     elseif state.WeaponSet.value == "normal" then
+        equip({})
+    end
+	if state.shield.value == "shield" then
+        equip({sub="Sacro Bulwark",})
+    elseif state.shield.value == "normal" then
         equip({})
     end
 end
