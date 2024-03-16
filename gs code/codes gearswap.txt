@@ -1,8 +1,3 @@
-react cose for ou
-        ["Unfaltering Bravado"]={
-            ["complete_reaction"]="", 
-            ["ready_reaction"]="input /p RUN FROM CONAL TO RIGHT OR LEFT FAST <call7>"
-        },
 
 --code rp neck jSE
 
@@ -568,7 +563,7 @@ end
             handle_equipping_gear(player.status)
         end
     end
-    if name == 'sleep' then
+    if buff == 'sleep' then
         if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep
             equip({neck="Vim Torque +1"})
 			disable('neck')
@@ -678,3 +673,66 @@ if longrangeWS:contains(spell.english) and spell.target.distance > 10+target_dis
             send_command('@input /item "panacea" <me>')
         end
     end
+
+----------
+function customize_melee_set(meleeSet)
+    if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Berserker's Torque When You Are Asleep
+        meleeSet = set_combine(meleeSet,{neck="Berserker's Torque"})
+    end
+    return meleeSet
+end
+
+------------
+
+-- Auto toggle Magic burst set.
+function user_setup()
+
+    state.AutoEquipBurst = M(true)
+end
+
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
+        equip(sets.magic_burst)
+        if spell.english == "Impact" then
+            equip(sets.midcast.Impact)
+        end
+    end
+
+
+-- Auto toggle Magic burst set.
+MB_Window = 0
+time_start = 0
+AEBurst = false
+
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+
+    windower.raw_register_event('action', function(act)
+        for _, target in pairs(act.targets) do
+            local battle_target = windower.ffxi.get_mob_by_target("t")
+            if battle_target ~= nil and target.id == battle_target.id then
+                for _, action in pairs(target.actions) do
+                    if action.add_effect_message > 287 and action.add_effect_message < 302 then
+                        --last_skillchain = skillchains[action.add_effect_message]
+                        MB_Window = 11
+                        MB_Time = os.time()
+                    end
+                end
+            end
+        end
+    end)
+
+    windower.raw_register_event('prerender', function()
+        --Items we want to check every second
+        if os.time() > time_start then
+            time_start = os.time()
+            if MB_Window > 0 then
+                MB_Window = 11 - (os.time() - MB_Time)
+                if state.AutoEquipBurst.value then
+                    AEBurst = true
+                end
+            else
+                AEBurst = false
+            end
+        end
+    end)
+end
