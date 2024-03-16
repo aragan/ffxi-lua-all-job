@@ -1097,7 +1097,12 @@ sets.TreasureHunter = {
    -- Idle/resting/defense/etc sets
    --------------------------------------
  sets.Cover = set_combine(sets.precast.JA['Rampart'], { head="Rev. Coronet +2", body="Cab. Surcoat +1"})
-   sets.Doom = {neck="Nicander's Necklace",left_ring="Eshmun's Ring",right_ring="Blenmot's Ring +1", waist="Gishdubar Sash"} -- +65%
+   sets.Doom = {neck="Nicander's Necklace",
+   left_ring="Eshmun's Ring",
+   right_ring="Blenmot's Ring +1", 
+   waist="Gishdubar Sash",
+   legs="Shabti Cuisses +1",
+} -- +65%
    sets.Petri = {back="Sand Mantle"} 
  sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
  sets.buff.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}

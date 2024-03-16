@@ -1658,7 +1658,9 @@ sets.engaged.Haste.Apocalypse.CRIT.DT = set_combine(sets.engaged.Haste.Apocalyps
     sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
-    right_ring="Blenmot's Ring +1",}
+    right_ring="Blenmot's Ring +1",
+    legs="Shabti Cuisses +1",
+}
     sets.Reraise = {head="Crepuscular Helm",body="Crepuscular Mail"}
     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
     sets.RP = {neck="Abyssal Beads +2"}
@@ -2129,7 +2131,7 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
     get_combat_form()
-    --handle_equipping_gear(player.status)
+    handle_equipping_gear(player.status)
 
 end
 mov = {counter=0}

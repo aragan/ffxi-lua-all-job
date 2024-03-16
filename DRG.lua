@@ -70,6 +70,9 @@ function job_setup()
     swordList = S{"Naegling", "Sangarius +1", "Malevolence", "Demers. Degen +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
     shields = S{'Regis'}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+    wyv_breath_spells = S{'Dia', 'Poison', 'Blaze Spikes', 'Protect', 'Sprout Smack', 'Head Butt', 'Cocoon',
+        'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
+    wyv_elem_breath = S{'Flame Breath', 'Frost Breath', 'Sand Breath', 'Hydro Breath', 'Gust Breath', 'Lightning Breath'}
 
 	state.Buff = {}
 	-- JA IDs for actions that always have TH: Provoke, Animated Flourish
@@ -168,7 +171,7 @@ sets.precast.JA.Jump = {
         ear2="Telos Earring",
         hands="Flamma Manopolas +2",
         --hands="Vishap Finger Gauntlets +1",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         ring1="Niqmaddu Ring",
         ring2="Petrov Ring",
         waist="Ioskeha Belt",
@@ -199,11 +202,11 @@ sets.precast.JA.Jump = {
         --hands="Lancer's Vambraces +2", 
         --head="Vishap Armet +1"
     }
-	sets.precast.JA['Call Wyvern'] = {body="Pelt. Plackart +2"}
+	sets.precast.JA['Call Wyvern'] = {body="Pelt. Plackart +3"}
 	sets.precast.JA['Deep Breathing'] = {--head="Wyrm Armet +1" or Petroslaver Armet +1
     }
     sets.precast.JA['Spirit Surge'] = { --body="Wyrm Mail +2"
-        body="Pelt. Plackart +2"
+        body="Pelt. Plackart +3"
     }
 	
 	-- Healing Breath sets
@@ -274,7 +277,7 @@ sets.precast.JA.Jump = {
     })
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
     hands="Gleti's Gauntlets",
-    body="Pelt. Plackart +2",
+    body="Pelt. Plackart +3",
     right_ear="Peltast's Earring",
     left_ring="Sroda Ring", 
     })
@@ -336,7 +339,7 @@ sets.precast.JA.Jump = {
     })
 	sets.precast.WS["Camlann's Torment"].PDL = set_combine(sets.precast.WS["Camlann's Torment"], {
         head="Nyame Helm",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         hands="Nyame Gauntlets",
         legs="Gleti's Breeches",
         left_ear="Thrud Earring",
@@ -430,7 +433,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
         head="Gleti's Mask",
         hands="Gleti's Gauntlets",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         feet="Gleti's Boots",
     right_ear="Peltast's Earring",
     left_ring="Sroda Ring", 
@@ -502,7 +505,7 @@ sets.precast.JA.Jump = {
     })
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS, {
         hands="Gleti's Gauntlets",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         right_ear="Peltast's Earring",
         left_ring="Sroda Ring", 
     })
@@ -579,7 +582,7 @@ sets.precast.JA.Jump = {
     })
     sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
         hands="Gleti's Gauntlets",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         right_ear="Peltast's Earring",
         left_ring="Sroda Ring", 
     })
@@ -644,7 +647,7 @@ sets.precast.JA.Jump = {
 
 	-- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 	sets.idle.Town = set_combine(sets.idle, {
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        legs="Carmine Cuisses +1",
         right_ear="Infused Earring",
     })
 
@@ -730,9 +733,7 @@ sets.precast.JA.Jump = {
             body="Crepuscular Mail",
         })
 
-	sets.Kiting = {
-        legs="Carmine Cuisses +1",
-    }
+
 
     sets.Adoulin = {body="Councilor's Garb",}
     sets.Kiting = {legs="Carmine Cuisses +1",}
@@ -748,7 +749,7 @@ sets.precast.JA.Jump = {
 	sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         hands="Flamma Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
@@ -764,7 +765,7 @@ sets.precast.JA.Jump = {
 	sets.engaged.Acc = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
@@ -780,7 +781,7 @@ sets.precast.JA.Jump = {
     sets.engaged.STP = set_combine(sets.engaged.Mid, {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body="Pelt. Plackart +2",
+        body="Pelt. Plackart +3",
         hands="Flam. Manopolas +2",
         legs={ name="Ptero. Brais +3", augments={'Enhances "Strafe" effect',}},
         feet="Flam. Gambieras +2",
@@ -1040,7 +1041,12 @@ function check_weaponset()
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)   
-
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
+     end
+     if world.area:contains("Adoulin") then
+         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+     end
     return idleSet
 end
 
@@ -1218,7 +1224,7 @@ function check_buffs(check)
      
 end
 function job_update(cmdParams, eventArgs)
-    handle_equipping_gear(player.status)
+    --handle_equipping_gear(player.status)
 	get_combat_form()
     update_melee_groups()
 end
@@ -1278,7 +1284,7 @@ windower.raw_register_event('prerender',function()
 				if world.area:contains("Adoulin") then
                 send_command('gs equip sets.Adoulin')
 				else
-                send_command('gs equip sets.Kiting')
+                send_command('gs equip sets.MoveSpeed')
                 end
 
         moving = true
@@ -1348,7 +1354,18 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 152')
     end
 end
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
 
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+
+        if not midaction() then
+            job_update()
+        end
+    end
+end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

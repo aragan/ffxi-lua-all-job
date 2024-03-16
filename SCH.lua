@@ -121,6 +121,7 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.StormSurge = M(false, 'Stormsurge')
     state.Moving  = M(false, "moving")
+    state.AutoEquipBurst = M(true)
 
     -- state.CP = M(false, "Capacity Points Mode")
 -- Mote has capitalization errors in the default Absorb mappings, so we use our own
@@ -249,9 +250,8 @@ function init_gear_sets()
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
         }
 
-    sets.precast.FC.Grimoire = set_combine(sets.precast.FC, {
-        head="Peda. M.Board +3", 
-        feet="Acad. Loafers +3",})
+        sets.precast.FC.Grimoire = {head="Peda. M.Board +3", feet="Acad. Loafers +3"}
+
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
        feet="Acad. Loafers +3", waist="Siegel Sash"})
 
@@ -1011,7 +1011,8 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
     sets.buff['Rapture'] = {head="Arbatel Bonnet +2"}
     sets.buff['Perpetuance'] = {hands="Arbatel Bracers +1"}
     sets.buff['Immanence'] = {
-        head="Jhakri Coronal +2",
+        head="Peda. M.Board +3", 
+        feet="Acad. Loafers +3",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -1120,7 +1121,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip(sets.DarkArts)
         end
     end
-    if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
+    if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
         equip(sets.magic_burst)
         if spell.english == "Impact" then
             equip(sets.midcast.Impact)
@@ -1395,6 +1396,44 @@ function display_current_job_state(eventArgs)
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
+end
+
+-- Auto toggle Magic burst set.
+MB_Window = 0
+time_start = 0
+AEBurst = false
+
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+
+    windower.raw_register_event('action', function(act)
+        for _, target in pairs(act.targets) do
+            local battle_target = windower.ffxi.get_mob_by_target("t")
+            if battle_target ~= nil and target.id == battle_target.id then
+                for _, action in pairs(target.actions) do
+                    if action.add_effect_message > 287 and action.add_effect_message < 302 then
+                        --last_skillchain = skillchains[action.add_effect_message]
+                        MB_Window = 11
+                        MB_Time = os.time()
+                    end
+                end
+            end
+        end
+    end)
+
+    windower.raw_register_event('prerender', function()
+        --Items we want to check every second
+        if os.time() > time_start then
+            time_start = os.time()
+            if MB_Window > 0 then
+                MB_Window = 11 - (os.time() - MB_Time)
+                if state.AutoEquipBurst.value then
+                    AEBurst = true
+                end
+            else
+                AEBurst = false
+            end
+        end
+    end)
 end
 
 -------------------------------------------------------------------------------------------------------------------

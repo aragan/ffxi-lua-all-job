@@ -62,6 +62,7 @@ function global_on_load()
 
 	send_command('bind ^- gs c toggle selectnpctargets')
 	send_command('bind ^= gs c cycle pctargetmode')
+
 end
 
 -- Function to revert binds when unloading.
@@ -83,6 +84,7 @@ function global_on_unload()
 	send_command('unbind ^=')
 	send_command('lua u AutoCOR')
 	send_command('input //parse reset')
+	send_command('input //gs org')
 
 
 end

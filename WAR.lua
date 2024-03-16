@@ -1360,7 +1360,9 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      sets.buff.Doom = {    neck="Nicander's Necklace",
      waist="Gishdubar Sash",
      left_ring="Purity Ring",
-     right_ring="Blenmot's Ring +1",}
+     right_ring="Blenmot's Ring +1",
+     legs="Shabti Cuisses +1",
+    }
      sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
     

@@ -69,9 +69,10 @@ organizer_items = {
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 	include('Mote-TreasureHunter')
-	send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind ^= gs c cycle treasuremode')
-	send_command('bind !` gs c toggle MagicBurst')
+	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
+    state.Moving = M(false, "moving")
+    state.MagicBurst = M(false, 'Magic Burst')
+	state.AutoEquipBurst = M(true)
     send_command('wait 6;input /lockstyleset 152')
 	state.WeaponLock = M(false, 'Weapon Lock')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -93,16 +94,12 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
-	state.Enfeeb = M('None', 'Macc', 'Potency', 'Skill')
-    state.Moving = M(false, "moving")
-    state.MagicBurst = M(false, 'Magic Burst')
 	state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'Crocea', 'DAGGERS', 'IDLE'}
 	state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
 
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
 	select_default_macro_book()
-    send_command('bind !w gs c toggle WeaponLock')
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
@@ -110,6 +107,10 @@ function user_setup()
 	send_command('bind f6 gs c cycle WeaponSet')
 	send_command('bind f7 gs c cycle shield')
 	send_command('bind f1 gs c cycle HippoMode')
+	send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind !` gs c toggle MagicBurst')
+	send_command('bind @q gs c toggle AutoEquipBurst')
 	send_command('wait 2;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -1272,7 +1273,6 @@ sets.TreasureHunter = {
 	sets.Kiting = {legs = "Carmine Cuisses +1",}
     sets.MoveSpeed = {legs = "Carmine Cuisses +1",}
 		
-	sets.ConsMP = sets.precast['Impact']
 	sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
@@ -1338,14 +1338,25 @@ function job_midcast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
-
+	if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
+		equip(sets.magic_burst)
+		if spell.english == "Impact" then
+			equip(sets.midcast.Impact)
+		end
+	end
 	--[[if spell.skill == 'Enfeebling Magic' and buffactive['Saboteur'] then
         equip(sets.Saboteur)]]
 	if spell.skill == 'Enfeebling Magic' and state.Enfeeb.Value == 'None' then
 		equip(sets.midcast['Enfeebling Magic'])
 	elseif spell.skill == 'Enfeebling Magic' and state.Enfeeb.Value == 'Potency' then
 		equip(sets.midcast['Enfeebling Magic'].Potency)
-	end
+	elseif spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
+        equip(sets.magic_burst)
+	elseif spell.skill == 'Elemental Magic' and (spell.element == world.weather_element or spell.element == world.day_element) then
+        equip(sets.Obi)
+	
+    end
+	
 	
 	if spell.english == "Dia III" then
 		equip(set_combine(sets.midcast['Enfeebling Magic'].Potency, sets.Dia))
@@ -1356,14 +1367,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	elseif spell.skill == 'Enfeebling Magic' and (spell.english:startswith('Paralyze') and (state.Enfeeb.Value == 'None' or state.Enfeeb.Value == 'Skill')) then
 		equip(set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].ParalyzeDuration))
 	end
-	
-	if spell.skill == 'Elemental Magic' and spell.english ~= 'Impact' and (player.mp-spell.mp_cost) < 600 then
-		equip(sets.ConsMP)
-	end		
-	
-	if spell.skill == 'Elemental Magic' and (spell.element == world.weather_element or spell.element == world.day_element) then
-        equip(sets.Obi)
-	end
+
 	
 	if spell.skill == 'Healing Magic' and (spell.element == world.weather_element or spell.element == world.day_element) and spell.target.type == 'PLAYER' then
 		equip(set_combine(sets.midcast.Cure, sets.Obi))
@@ -1800,6 +1804,9 @@ function display_current_job_state(eventArgs)
     if state.Kiting.value then
         msg = msg .. ' Kiting: On |'
     end
+    if state.AutoEquipBurst.value then
+        msg = msg ..'Auto Equip Magic Burst Set: On'
+    end
 
     add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
@@ -1807,6 +1814,44 @@ function display_current_job_state(eventArgs)
         ..string.char(31,002)..msg)
 
     eventArgs.handled = true
+end
+
+-- Auto toggle Magic burst set.
+MB_Window = 0
+time_start = 0
+AEBurst = false
+
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+
+    windower.raw_register_event('action', function(act)
+        for _, target in pairs(act.targets) do
+            local battle_target = windower.ffxi.get_mob_by_target("t")
+            if battle_target ~= nil and target.id == battle_target.id then
+                for _, action in pairs(target.actions) do
+                    if action.add_effect_message > 287 and action.add_effect_message < 302 then
+                        --last_skillchain = skillchains[action.add_effect_message]
+                        MB_Window = 11
+                        MB_Time = os.time()
+                    end
+                end
+            end
+        end
+    end)
+
+    windower.raw_register_event('prerender', function()
+        --Items we want to check every second
+        if os.time() > time_start then
+            time_start = os.time()
+            if MB_Window > 0 then
+                MB_Window = 11 - (os.time() - MB_Time)
+                if state.AutoEquipBurst.value then
+                    AEBurst = true
+                end
+            else
+                AEBurst = false
+            end
+        end
+    end)
 end
 
 function midcast(spell)
