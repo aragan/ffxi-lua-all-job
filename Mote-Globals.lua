@@ -84,10 +84,11 @@ function global_on_unload()
 	send_command('unbind ^=')
 	send_command('lua u AutoCOR')
 	send_command('input //parse reset')
-	send_command('input //gs org')
+	--send_command('input //gs org')
 
 
 end
+send_command('input //gs org')
 
 -------------------------------------------------------------------------------------------------------------------
 -- Global event-handling functions.
