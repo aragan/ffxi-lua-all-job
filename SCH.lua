@@ -122,7 +122,21 @@ function job_setup()
     state.StormSurge = M(false, 'Stormsurge')
     state.Moving  = M(false, "moving")
     state.AutoEquipBurst = M(true)
-
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     -- state.CP = M(false, "Capacity Points Mode")
 -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
@@ -152,6 +166,7 @@ function user_setup()
     send_command('bind f3 input //Sublimator')
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind ^- gs c scholar light')
     send_command('bind ^= gs c scholar dark')
     send_command('bind ^[ gs c scholar power')
@@ -1080,6 +1095,13 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.name:startswith('Aspir') then
         refine_various_spells(spell, action, spellMap, eventArgs)
     end
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
@@ -1217,36 +1239,79 @@ function job_buff_change(buff, gain)
         end
     end
     if buff == "Defense Down" then
-        if gain then
+        if gain then  			
+            send_command('input /item "Panacea" <me>')
+        end
+    elseif buff == "Magic Def. Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Attack Down" then
+        end
+    elseif buff == "Max HP Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Evasion Down" then
+        end
+    elseif buff == "Evasion Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Evasion Down" then
+        end
+    elseif buff == "Magic Evasion Downn" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Def. Down" then
+        end
+    elseif buff == "Dia" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Accuracy Down" then
+        end  
+    elseif buff == "Bio" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Max HP Down" then
+        end
+    elseif buff == "Bind" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "slow" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "weight" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Attack Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Accuracy Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
         end
     end
-    
+
     if buff == "VIT Down" then
         if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "INT Down" then
+        end
+    elseif buff == "INT Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "MND Down" then
+        end
+    elseif buff == "MND Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "VIT Down" then
+        end
+    elseif buff == "STR Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "STR Down" then
+        end
+    elseif buff == "AGI Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "AGI Down" then
-            send_command('@input /item "panacea" <me>')
+        end
+    end
+    if buff == "curse" then
+        if gain then  
+            send_command('input /item "Holy Water" <me>')
         end
     end
     if buff == "curse" then
@@ -1386,6 +1451,9 @@ function display_current_job_state(eventArgs)
     end
     if state.Kiting.value then
         msg = msg .. ' Kiting: On |'
+    end
+    if state.AutoEquipBurst.value then
+        msg = msg ..'Auto Equip Magic Burst Set: On'
     end
 
     add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'

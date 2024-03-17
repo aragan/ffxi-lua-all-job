@@ -1850,7 +1850,10 @@ function customize_melee_set(meleeSet)
         disable('neck')
     else
         enable('neck')
-    end  
+    end
+    if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
+        meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
+    end
     if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 152')
     elseif gsList:contains(player.equipment.main) then

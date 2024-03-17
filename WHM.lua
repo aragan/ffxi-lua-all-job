@@ -88,7 +88,7 @@ function user_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-
+    state.AutoEquipBurst = M(true)
     
     state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
     state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
@@ -97,6 +97,7 @@ function user_setup()
     --send_command('bind f3 @input /ja "Sublimation" <me>')
     send_command('bind f7 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -109,7 +110,21 @@ function user_setup()
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind !f4 gs c BarStatus')
 
-
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    }
     select_default_macro_book()
 end
 
@@ -854,7 +869,16 @@ function init_gear_sets()
     sets.midcast['Banishga'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
     sets.midcast['Banishga II'] = set_combine(sets.midcast['Divine Magic'].Banish, {})
 
-
+    sets.magic_burst = set_combine(sets.midcast['Divine Magic'],{
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Bunzi's Robe", augments={'Path: A',}},
+        hands={ name="Bunzi's Gloves", augments={'Path: A',}},
+        legs={ name="Bunzi's Pants", augments={'Path: A',}},
+        feet={ name="Bunzi's Sabots", augments={'Path: A',}},
+        neck="Mizu. Kubikazari",
+        left_ring="Locus Ring",
+        right_ring="Mujin Band",
+    })
 
     sets.midcast['Dark Magic'] = {
     main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -1224,6 +1248,13 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
+    if spell.type == "WeaponSkill" then
+        if (spell.target.model_size + spell.range * range_mult[spell.range]) < spell.target.distance then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
+            return
+        end
+    end
     if spell.english == "Paralyna" and buffactive.Paralyzed then
         -- no gear swaps if we're paralyzed, to avoid blinking while trying to remove it.
         eventArgs.handled = true
@@ -1251,6 +1282,12 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
+    if (spell.skill == 'Elemental Magic' or spell.skill == 'Divine Magic') and (state.MagicBurst.value or AEBurst) then
+        equip(sets.magic_burst)
+        if spell.english == "Impact" then
+            equip(sets.midcast.Impact)
+        end
+    end
     if spell.action_type == 'Magic' then
         if state.CastingMode.value == 'SIRD' then
             equip(sets.SIRD)
@@ -1270,12 +1307,10 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip(sets.midcast.Regen.Duration)
         end
     end
-    if spellMap == 'Banish' or spellMap == "Holy" then
-        if (world.weather_element == 'Light' or world.day_element == 'Light') then
-            equip(sets.Obi)
+	if (spell.skill == 'Elemental Magic' or spell.skill == 'Healing Magic' or spell.skill == 'Divine Magic') and (spell.element == world.weather_element or spell.element == world.day_element) then
+        equip(sets.Obi)
     elseif state.MagicBurst.value then
             equip(sets.magic_burst)
-        end
     end
 end
 function job_aftercast(spell, action, spellMap, eventArgs)
@@ -1557,6 +1592,9 @@ function display_current_job_state(eventArgs)
     if state.Kiting.value then
         msg = msg .. ' Kiting: On |'
     end
+    if state.AutoEquipBurst.value then
+        msg = msg ..'Auto Equip Magic Burst Set: On'
+    end
 
     add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
@@ -1609,6 +1647,43 @@ end)
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
+-- Auto toggle Magic burst set.
+MB_Window = 0
+time_start = 0
+AEBurst = false
+
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+
+    windower.raw_register_event('action', function(act)
+        for _, target in pairs(act.targets) do
+            local battle_target = windower.ffxi.get_mob_by_target("t")
+            if battle_target ~= nil and target.id == battle_target.id then
+                for _, action in pairs(target.actions) do
+                    if action.add_effect_message > 287 and action.add_effect_message < 302 then
+                        --last_skillchain = skillchains[action.add_effect_message]
+                        MB_Window = 11
+                        MB_Time = os.time()
+                    end
+                end
+            end
+        end
+    end)
+
+    windower.raw_register_event('prerender', function()
+        --Items we want to check every second
+        if os.time() > time_start then
+            time_start = os.time()
+            if MB_Window > 0 then
+                MB_Window = 11 - (os.time() - MB_Time)
+                if state.AutoEquipBurst.value then
+                    AEBurst = true
+                end
+            else
+                AEBurst = false
+            end
+        end
+    end)
+end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
