@@ -511,6 +511,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     })
     sets.precast.WS["Stardiver"].PDL= set_combine(sets.precast.WS["Stardiver"], {
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+        body={ name="Sakpata's Plate", augments={'Path: A',}},
         legs="Boii Cuisses +3",
         left_ring="Sroda Ring",
     })
@@ -1352,7 +1353,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      	head="Crepuscular Helm",
         body="Crepuscular Mail",     })
      sets.buff.Berserk = { 
-         --feet="Warrior's Calligae +2" 
+        back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
      }
      sets.buff.Retaliation = { 
          hands="Pummeler's Mufflers +1"
@@ -1363,7 +1364,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      right_ring="Blenmot's Ring +1",
      legs="Shabti Cuisses +1",
     }
-     sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+     sets.buff.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
     
 end
@@ -1528,7 +1529,7 @@ function customize_melee_set(meleeSet)
         send_command('input //gs equip sets.Reraise')
     end
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
-        meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
+        meleeSet = set_combine(meleeSet, sets.buff.Sleep)
     end
     check_weaponset()
 
@@ -1537,13 +1538,13 @@ function customize_melee_set(meleeSet)
 end
  
 function check_buff(buff_name, eventArgs)
-    --[[if state.Buff[buff_name] then
+    if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end]]
+    end
 end
 -------------------------------------------------------------------------------------------------------------------
 -- General hooks for other events.
@@ -1569,6 +1570,14 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+    buff = string.lower(buff)
+    if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
+        equip({neck="Vim Torque +1"})
+    else
+        if not midaction() then
+            status_change(player.status)
+        end
+    end
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
@@ -1622,7 +1631,7 @@ function job_buff_change(buff, gain)
     end
     if name == 'sleep' then
         if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep
-            equip({neck="Vim Torque +1"})
+            equip(sets.buff.Sleep)
 			disable('neck')
         elseif not gain then 
 			enable('neck')

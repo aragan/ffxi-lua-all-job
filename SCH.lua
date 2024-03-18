@@ -5,7 +5,6 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 
--- Original: Motenten / Modified: Arislan
 
 -------------------------------------------------------------------------------------------------------------------
 --  Keybinds
@@ -39,7 +38,7 @@
 --  WS:         [ CTRL+Numpad0 ]    Myrkr
 --
 --
---              (Global-Binds.lua contains additional non-job-related keybinds)
+--           
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1560,12 +1559,16 @@ function apply_grimoire_bonuses(spell, action, spellMap)
         end
         if state.Buff.Immanence and state.CastingMode.value == "Proc" then
             equip(sets.buff['Immanence'].Proc)
+            send_command('@input /p <t> <recast=Stratagems>')
         elseif state.Buff.Immanence and state.CastingMode.value == "SubtleBlow" then
             equip(sets.buff['Immanence'].SubtleBlow)
+            send_command('@input /p <t> <recast=Stratagems>')
         elseif state.Buff.Immanence and state.CastingMode.value == "Enmity" then
             equip(sets.buff['Immanence'].Enmity)
+            send_command('@input /p <t> <recast=Stratagems>')
         elseif state.Buff.Immanence then
             equip(sets.buff['Immanence'])
+            send_command('@input /p <t> <recast=Stratagems>')
         end
         if state.Buff.Klimaform and spell.element == world.weather_element then
             equip(sets.buff['Klimaform'])

@@ -1,8 +1,3 @@
--------------------------------------------------------------------------------------------------------------------
--- Setup functions for this job.  Generally should not be modified.
--------------------------------------------------------------------------------------------------------------------
--- Haste/DW Detection Requires Gearinfo Addon
-
 ---------------------------------------------------------------------------------
 -- This lua is based off of the Kinematics template and uses Motenten globals. --
 --                                                                             --
@@ -12,6 +7,12 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
+-- Haste/DW Detection Requires Gearinfo Addon
+
 
 -- Initialization function for this job file.
 function get_sets()

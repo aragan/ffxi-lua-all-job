@@ -1,13 +1,9 @@
--------------------------------------------------------------------------------------------------------------------
--- Initialization function that defines sets and variables to be used.
--------------------------------------------------------------------------------------------------------------------
 -----------------------------Authors of this file--------------------------------
 ------           ******************************************                ------
 ---                                                                           ---
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
--- IMPORTANT: Make sure to also get the Mote-Include.lua file (and its supplementary files) to go with this.
 
 -- Initialization function for this job file.
 function get_sets()
@@ -297,12 +293,12 @@ sets.precast.JA.Jump = {
         back="Bleating Mantle",
     })
 	sets.precast.WS['Stardiver'].SC = set_combine(sets.precast.WS['Stardiver'], {    head="Nyame Helm",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    left_ring="Begrudging Ring",
     })
 	sets.precast.WS['Stardiver'].PDL = set_combine(sets.precast.WS.PDL, {
         head="Nyame Helm",
@@ -883,7 +879,7 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
 
-    sets.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+    sets.buff.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
 
 end
 
@@ -1110,7 +1106,7 @@ function job_buff_change(buff, gain)
     end
     if name == 'sleep' then
         if gain and player.hp > 120 and player.status == 'Engaged' then -- Equip Vim Torque When You Are Asleep   
-            equip(sets.Sleep)
+            equip(sets.buff.Sleep)
             send_command('input /p ZZZzzz, please cure.')		
             disable('neck')
         else
