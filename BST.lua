@@ -284,8 +284,8 @@ function init_gear_sets()
 		
 		sets.precast.JA.Tame = {head="Totemic Helm +1",ear1="Tamer's Earring",legs="Stout Kecks"}
 		
-		sets.precast.JA.Spur = {main={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
-		sub={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
+		sets.precast.JA.Spur = {main="Skullrender",
+		sub="Skullrender",
 		feet="Nukumi Ocreae +1",back="Artio's Mantle"
 	}
 
@@ -906,8 +906,8 @@ function init_gear_sets()
 		}
 			
 	sets.midcast.Pet.Vagary = {
-		main={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
-        sub={ name="Skullrender", augments={'DMG:+15','Pet: Accuracy+20','Pet: Attack+20',}},
+		main="Skullrender",
+		sub="Skullrender",
 		head="Tali'ah Turban +2",
 		body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
 		hands={ name="Emicho Gauntlets", augments={'Pet: Accuracy+15','Pet: Attack+15','Pet: "Dbl. Atk."+3',}},
@@ -974,7 +974,8 @@ function init_gear_sets()
 	sets.idle.MDTMaster = {		
 		main="Izizoeksi",
 		sub={ name="Digirbalag", augments={'Pet: Damage taken -4%','Pet: Accuracy+15 Pet: Rng. Acc.+15','Pet: Attack+19 Pet: Rng.Atk.+19',}},
-        head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+        head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','ATTACK+3','PET: "REGEN"+1',}},		
+		body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
 		hands="Gleti's Gauntlets",
 		legs="Tali'ah Sera. +2",
 		feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -1236,13 +1237,13 @@ sets.defense.Petregen = {
 	--1172 ACC
 	sets.engaged.Shield = {
 	main="Izizoeksi",
-    sub={ name="Skullrender", augments={'DMG:+13','Pet: Accuracy+18','Pet: Attack+18',}},
+	sub="Skullrender",
     ammo="Voluspa Tathlum",
-    head={ name="Taeon Chapeau", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+2','Pet: Damage taken -3%',}},
-    body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','Pet: Damage taken -3%',}},
-    hands={ name="Taeon Gloves", augments={'Pet: Mag. Evasion+22','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-    legs={ name="Taeon Tights", augments={'Pet: Mag. Evasion+24','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Regen"+3','Pet: Damage taken -3%',}},
+    head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    hands={ name="Taeon Gloves", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    feet={ name="Taeon Boots", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     neck="Empath Necklace",
     waist="Isa Belt",
     left_ear="Enmerkar Earring",
@@ -1348,19 +1349,20 @@ sets.defense.Petregen = {
 			
 			
 	sets.engaged.DW.Shield = {
-		ammo="Staunch Tathlum",
-		head="Skormoth Mask",
-		body={ name="Valorous Mail", augments={'Enmity+1','CHR+15','Quadruple Attack +3','Accuracy+13 Attack+13',}},
-		hands="Tali'ah Gages +2",
-		legs={ name="Valor. Hose", augments={'Phys. dmg. taken -3%','Accuracy+30','Quadruple Attack +3','Mag. Acc.+4 "Mag.Atk.Bns."+4',}},
-		feet={ name="Valorous Greaves", augments={'Accuracy+23 Attack+23','Sklchn.dmg.+2%','STR+11','Accuracy+5','Attack+2',}},
-		neck="Shulmanu Collar",
-		waist="Windbuffet Belt +1",
-		left_ear="Brutal Earring",
+		ammo="Coiste Bodhar",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck="Ainia Collar",
+		waist="Reiki Yotai",
+		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
 		left_ring="Gere Ring",
 		right_ring="Epona's Ring",
-		back="Artio's Mantle",}
+		back="Annealed Mantle",
+	}
 	
 	-- MedAcc intended for but not limited to Hybrid pet DT/DW use 
 		
@@ -2053,13 +2055,17 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
-    end
-    return 
+
 end
+
+windower.register_event('hpp change',
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+end
+)
+
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
     equip(sets[state.Weaponshield.current])

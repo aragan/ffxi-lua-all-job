@@ -196,7 +196,7 @@ function init_gear_sets()
     }
     sets.precast.JA['Swipe'] = sets.precast.JA['Lunge']
     sets.precast.JA['Gambit'] = {hands="Runeist Mitons +1"}
-    sets.precast.JA['Rayke'] = {feet="Futhark Bottes +1"}
+    sets.precast.JA['Rayke'] = {feet="Futhark Bottes +3"}
     sets.precast.JA['Elemental Sforzo'] = {body="Futhark Coat 1"}
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
     sets.precast.JA['Embolden'] = {back="Evasionist's Cape"}
