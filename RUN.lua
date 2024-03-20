@@ -130,6 +130,7 @@ function user_setup()
     send_command('bind f2 input //gs c rune')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f6 gs c cycle WeaponSet')
+    state.Moving  = M(false, "moving")
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
@@ -764,7 +765,8 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     back="Evasionist's Cape"}
     
     sets.Obi = {waist="Hachirin-no-Obi"}
-
+    sets.MoveSpeed = {legs="Carmine Cuisses +1",}
+    sets.Adoulin = {body="Councilor's Garb",}
 end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
@@ -1086,57 +1088,20 @@ function check_moving()
     if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
         if state.Auto_Kite.value == false and moving then
             state.Auto_Kite:set(true)
-            send_command('gs c update')
 
         elseif state.Auto_Kite.value == true and moving == false then
             state.Auto_Kite:set(false)
-            send_command('gs c update')
 
         end
     end
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_moving()
-    check_gear()
 end
 function job_update(cmdParams, eventArgs)
     check_moving()
 end
 
-function check_gear()
-    if no_swap_gear:contains(player.equipment.left_ring) then
-        disable("ring1")
-    else
-        enable("ring1")
-    end
-    if no_swap_gear:contains(player.equipment.right_ring) then
-        disable("ring2")
-    else
-        enable("ring2")
-    end
-    if no_swap_gear:contains(player.equipment.waist) then
-        disable("waist")
-    else
-        enable("waist")
-    end
-end
-
-windower.register_event('zone change',
-    function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
-            enable("ring1")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.right_ring) then
-            enable("ring2")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.waist) then
-            enable("waist")
-            equip(sets.idle)
-        end
-    end
-)
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
@@ -1372,18 +1337,52 @@ function job_self_command(cmdParams, eventArgs)
 end
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
+
         if not midaction() then
             job_update()
         end
     end
 end
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 ------------------------------------------------------------------
 -- Reset events
 ------------------------------------------------------------------
