@@ -90,7 +90,9 @@ function job_setup()
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
     swordList = S{"Naegling", "Sangarius +1", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
     gsList = S{'Macbain', 'Nandaka', 'Agwu\'s Claymore'}
-    war_sub_weapons = S{"Sangarius +1", "Perun 1+", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
+    Hand_weapon = S{'Naegling', 'Ikenga\'s Axe', 'Ternion Dagger +1' ,'Loxotic Mace +1','Dolichenus','Zantetsuken',
+    'Reikiko','Perun +1','Demers. Degen +1','Sangarius +1'}
+    war_sub_weapons = S{"Sangarius +1", "Perun +1", "Tanmogayi +1", "Reikiko", "Digirbalag", "Twilight Knife",
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1",}
@@ -1473,6 +1475,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     get_combat_form()
     get_combat_weapon()
     update_combat_form()
+    check_weaponset()
 end
 
 function check_moving()
@@ -1552,34 +1555,52 @@ end
  
 -- Called when the player's status changes.
 function job_status_change(newStatus, oldStatus, eventArgs)
+    handle_equipping_gear(player.status)
     if newStatus == "Engaged" then
         if buffactive.Berserk and not state.Buff.Retaliation then
             equip(sets.buff.Berserk)
+        end
+        if not buffactive['Restraint'] then
+            send_command('@input /ja "Restraint" <me>')
+        end
+        if not buffactive['Berserk'] then
+            send_command('@wait 1.5;input /ja "Berserk" <me>')
         end
         get_combat_weapon()
 
     end
 
-
 end
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
     equip(sets[state.shield.current])
+    if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' and Hand_weapon:contains(player.equipment.main) ) then
+        equip(sets.DefaultShield)
+    elseif (player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 and Hand_weapon:contains(player.equipment.main) ) then
+        equip(sets.DefaultShield)
+    end
+
 end
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+    job_handle_equipping_gear(player.status)
     buff = string.lower(buff)
-    if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
-        equip({neck="Vim Torque +1"})
-    else
-        if not midaction() then
-            status_change(player.status)
-        end
-    end
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
+    end
+    if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
+        equip({neck="Vim Torque +1"})
+    end
+    if buff == "Restraint" and not gain then
+        if player.status == 'Engaged' then
+            send_command('@input /ja "Restraint" <me>')		
+        else
+            if not midaction() then
+                status_change(player.status)
+            end
+        end
     end
     -- Warp ring rule, for any buff being lost
     if S{'Warp', 'Vocation', 'Capacity'}:contains(player.equipment.ring2) then
@@ -1749,12 +1770,6 @@ function job_self_command(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'rune' then
         send_command('@input /ja '..state.Runes.value..' <me>')
     end
-    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = true
-    end
-    return 
 end
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
@@ -1772,6 +1787,8 @@ function gearinfo(cmdParams, eventArgs)
 end
 function job_update(cmdParams, eventArgs)
     check_moving()
+    check_weaponset()
+
 end
 
 mov = {counter=0}
@@ -1839,7 +1856,7 @@ function get_combat_form()
     else
         state.CombatForm:reset()
     end
-
+    check_weaponset()
 end
 
 function get_combat_weapon()
@@ -1857,6 +1874,8 @@ function update_combat_form()
     else
         state.CombatForm:set('DW')
     end
+    check_weaponset()
+
 end
 
 -- Handle notifications of general user state change.
@@ -1875,6 +1894,7 @@ function job_state_change(stateField, newValue, oldValue)
         enable('main','sub')
     end
     check_weaponset()
+    job_handle_equipping_gear(player.status)
 
 end
 function sub_job_change(new,old)
