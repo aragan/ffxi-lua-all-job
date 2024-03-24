@@ -1582,7 +1582,7 @@ end
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
     if buff == "Migawari" and not gain then
-        add_to_chat(61, "*** MIGAWARI DOWN ***")
+        add_to_chat(123, "*** MIGAWARI DOWN ***")
     end
     if buff == "doom" then
         if gain then
