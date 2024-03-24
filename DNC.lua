@@ -1183,7 +1183,24 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
+-- Automatically use Presto for steps when it's available and we have less than 3 finishing moves
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type == 'Step' then
+        local allRecasts = windower.ffxi.get_ability_recasts()
+        local prestoCooldown = allRecasts[236]
+        local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
 
+        --local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
+        
+        if player.main_job_level >= 77 and prestoCooldown < 1 and under3FMs then
+            cast_delay(1.1)
+            send_command('@input /ja "Presto" <me>')
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
@@ -1620,19 +1637,7 @@ windower.register_event('zone change',
     end
 )
 
--- Automatically use Presto for steps when it's available and we have less than 3 finishing moves
-function auto_presto(spell)
-    if spell.type == 'Step' then
-        local allRecasts = windower.ffxi.get_ability_recasts()
-        local prestoCooldown = allRecasts[236]
-        local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
-        
-        if player.main_job_level >= 77 and prestoCooldown < 1 and under3FMs then
-            cast_delay(1.1)
-            send_command('@input /ja "Presto" <me>')
-        end
-    end
-end
+
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
