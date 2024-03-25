@@ -1230,7 +1230,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
-
+    if spell.english == 'Fold' and buffactive['Bust'] == 2 then
+        if sets.precast.FoldDoubleBust then
+            equip(sets.precast.FoldDoubleBust)
+            eventArgs.handled = true
+        end
+    end
 
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then

@@ -82,7 +82,7 @@ organizer_items = {
     "Reraise Earring",}
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
+    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength', 'Marsyas'}
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
@@ -90,7 +90,7 @@ function job_setup()
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
     elemental_ws = S{"Aeolian Edge"}
-
+    staff = S{"Xoanon"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -157,28 +157,29 @@ function user_setup()
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
+
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
-    
+
     -- Set this to false if you don't want to use custom timers.
     state.UseCustomTimers = M(true, 'Use Custom Timers')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling', 'Xoanon'}
     --state.Moving = M(false, "moving")
 
 
     -- Additional local binds
-    send_command('bind ^` gs c cycle ExtraSongsMode')
+    send_command('bind f7 gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
     send_command('wait 2;input /lockstyleset 168')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
-    send_command('bind f7 input //fillmode')
+    --send_command('bind f7 input //fillmode')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f2 gs c cycle Etude')
     send_command('bind !f2 gs c Etude')
@@ -194,6 +195,7 @@ function user_setup()
 	DW_needed = 0
     DW = false
     state.Auto_Kite = M(false, 'Auto_Kite')
+    state.Moving  = M(false, "moving")
     moving = false
 
 end
@@ -216,6 +218,7 @@ function init_gear_sets()
     sets.Twashtar = {main="Twashtar", sub="Ternion Dagger +1"}
     sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Naegling = {main="Naegling", sub="Ternion Dagger +1"}
+    sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}
 
@@ -287,7 +290,7 @@ function init_gear_sets()
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
 
-    sets.precast.FC.Daurdabla = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
+    sets.precast.FC.DaurdablaDummy = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
         
     
     -- Precast sets to enhance JAs
@@ -527,7 +530,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
-    sets.midcast["Sentinel's Scherzo"] = {feet="Fili Cothurnes +2",}
+    sets.midcast["Sentinel's Scherzo"] = {}
     sets.midcast['Magic Finale'] = {}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
@@ -615,38 +618,10 @@ sets.midcast.SongStringSkill = {
     sets.midcast.Daurdabla = {range=info.ExtraSongInstrument}
 
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
-    sets.midcast.DaurdablaDummy = {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",
-        legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +3",
-        neck="Mnbw. Whistle +1",
-        ear1="Odnowa Earring +1",
-        ear2="Etiolation Earring",
-        ring1="Moonlight Ring",
-        ring2="Defending Ring",
-        waist="Flume Belt +1",
-        back="Intarabus's Cape",
-        }
-        sets.midcast.DaurdablaDummy.AUGMENT = {
-            main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Fili Calot +2",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +2",
-        legs="Fili Rhingrave +2",
-        feet="Fili Cothurnes +2",
-        neck="Mnbw. Whistle +1",
-        ear1="Odnowa Earring +1",
-        ear2="Etiolation Earring",
-        ring1="Moonlight Ring",
-        ring2="Defending Ring",
-        waist="Flume Belt +1",
-        back="Intarabus's Cape",
-        }
+    sets.midcast.DaurdablaDummy = set_combine(sets.midcast.SongEffect, {range=info.ExtraSongInstrument})
+
+    sets.midcast.DaurdablaDummy.AUGMENT = set_combine(sets.midcast.SongEffect.AUGMENT, {range=info.ExtraSongInstrument})
+
 
     -- Other general spells and classes.
     sets.midcast.Cure = {
@@ -711,7 +686,7 @@ sets.midcast.SongStringSkill = {
     sets.midcast['Enfeebling Magic'] = {
         main="Arendsi Fleuret",
         sub="Ammurapi Shield",
-        range={ name="Linos", augments={'Attack+15','Weapon skill damage +1%','Quadruple Attack +2',}},
+        range="Linos",
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
         hands="Inyan. Dastanas +2",
         legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
@@ -762,7 +737,7 @@ sets.midcast.SongStringSkill = {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -783,7 +758,7 @@ sets.midcast.SongStringSkill = {
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Fili Cothurnes +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear="Tuisto Earring",
@@ -801,7 +776,7 @@ sets.midcast.SongStringSkill = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -830,7 +805,7 @@ sets.midcast.SongStringSkill = {
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Fili Cothurnes +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
@@ -841,8 +816,8 @@ sets.midcast.SongStringSkill = {
     }
 
     sets.Kiting = {feet="Fili Cothurnes +2"}
-	--sets.Adoulin = {body="Councilor's Garb",}
-    --sets.MoveSpeed = {feet="Fili Cothurnes +2",}
+	sets.Adoulin = {body="Councilor's Garb",}
+    sets.MoveSpeed = {feet="Fili Cothurnes +2",}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -1051,7 +1026,7 @@ function job_precast(spell, action, spellMap, eventArgs)
             end
         end
         -- Auto-Pianissimo
-        if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
+        --[[if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC' and spell.target.in_party)) and
             not state.Buff['Pianissimo'] then
             
             local spell_recasts = windower.ffxi.get_spell_recasts()
@@ -1060,7 +1035,7 @@ function job_precast(spell, action, spellMap, eventArgs)
                 eventArgs.cancel = true
                 return
             end
-        end
+        end]]
     end
 end
 
@@ -1123,10 +1098,12 @@ end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.type == 'BardSong' then
         if state.ExtraSongsMode.value == 'FullLength' then
-            equip(sets.midcast.Daurdabla)
+            equip({range="Gjallarhorn"})
+        elseif state.ExtraSongsMode.value == 'Marsyas' then
+            equip({range="Marsyas"})
         end
 
-        state.ExtraSongsMode:reset()
+        --state.ExtraSongsMode:reset()
     end
     if not spell.interrupted then
         if spell.name == 'Utsusemi: Ichi' then
@@ -1135,6 +1112,25 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             overwrite = true
         end
     end
+end
+-- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if spell.type == 'BardSong' and not spell.interrupted then
+        if spell.target and spell.target.type == 'SELF' then
+            adjust_timers(spell, spellMap)
+        end
+        if not spell.interrupted then
+            if spell.name == 'Utsusemi: Ichi' then
+                overwrite = true
+            elseif spell.name == 'Utsusemi: Ni' then
+                overwrite = true
+            end
+        end
+    end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+    check_weaponset()
 end
 function job_buff_change(buff,gain)
     if buff == "doom" then
@@ -1255,24 +1251,7 @@ end
 function check_buffs(check)
      
 end
--- Set eventArgs.handled to true if we don't want automatic gear equipping to be done.
-function job_aftercast(spell, action, spellMap, eventArgs)
-    if spell.type == 'BardSong' and not spell.interrupted then
-        if spell.target and spell.target.type == 'SELF' then
-            adjust_timers(spell, spellMap)
-        end
-        if not spell.interrupted then
-            if spell.name == 'Utsusemi: Ichi' then
-                overwrite = true
-            elseif spell.name == 'Utsusemi: Ni' then
-                overwrite = true
-            end
-        end
-    end
-    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
-        check_weaponset()
-    end
-end
+
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
@@ -1300,10 +1279,13 @@ function update_offense_mode()
     else
         state.CombatForm:reset()
     end
+    check_weaponset()
+
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
     check_moving()
+    check_weaponset()
 end
 function update_combat_form()
     if DW == true then
@@ -1314,6 +1296,8 @@ function update_combat_form()
     if player.equipment.sub:endswith('Shield') then
         state.CombatForm:reset()
     end
+    check_weaponset()
+
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -1322,6 +1306,8 @@ end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
     check_moving()
+    check_weaponset()
+
 end
 function check_moving()
     if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
@@ -1369,6 +1355,8 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    check_weaponset()
+
     return idleSet
 end
 
@@ -1556,16 +1544,6 @@ function gearinfo(cmdParams, eventArgs)
                 Haste = tonumber(cmdParams[3])
             end
         end
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-        if not midaction() then
-            job_update()
-        end
     end
 end
 
@@ -1596,11 +1574,58 @@ end
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
     if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
-        equip(sets.DefaultShield)
+        if player.equipment.main ~= 'Xoanon' then
+          equip(sets.DefaultShield)
+        end
     elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
-        equip(sets.DefaultShield)
+        if player.equipment.main ~= 'Xoanon' then
+          equip(sets.DefaultShield)
+        end
     end
 end
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if state.HippoMode.value == "Hippo" then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(1, 32)

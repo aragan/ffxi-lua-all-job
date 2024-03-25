@@ -99,7 +99,7 @@ function job_setup()
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Thr. Tomahawk",}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling','Chango', 'Shining', 'AgwuClaymore', 'Drepanum', 'Loxotic', 'TernionDagger','IkengaAxe'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Loxotic', 'Shining','Chango', 'AgwuClaymore', 'Drepanum', 'TernionDagger','IkengaAxe'}
     state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
     get_combat_form()
     get_combat_weapon()
@@ -140,8 +140,9 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind f7 gs c cycle shield')
+    send_command('bind !f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind f7 gs c cycleback WeaponSet')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')

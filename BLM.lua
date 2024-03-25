@@ -242,11 +242,13 @@ function init_gear_sets()
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Pixie Hairpin +1",
             body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+            hands="Regal Cuffs",
             legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+            feet="Nyame Sollerets",
             neck="Sanctity Necklace",
             waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
-            left_ear="Etiolation Earring",
-            right_ear="Evans Earring",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Etiolation Earring",
             left_ring="Mephitas's Ring",
             right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
             back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -326,12 +328,12 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
-    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Starburst'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Cataclysm']
     sets.precast.WS['Vidohunir'] = sets.precast.WS['Cataclysm']
 
     sets.precast.WS['Shattersoul'] = {

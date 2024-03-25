@@ -267,7 +267,7 @@ function init_gear_sets()
     right_ring="Ilabrat Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
-    sets.precast.WS.PDL= set_combine(sets.precast.WS, {
+    sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -291,7 +291,7 @@ function init_gear_sets()
     right_ring="Regal Ring",
     back="Bleating Mantle",
     })
-    sets.precast.WS['Exenterator'].PDL= set_combine(sets.precast.WS['Exenterator'], {range=empty,
+    sets.precast.WS['Exenterator'].PDL = set_combine(sets.precast.WS['Exenterator'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
@@ -299,17 +299,19 @@ function init_gear_sets()
     left_ring="Sroda Ring", 
 
     })
-    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'].Acc, {})
-    sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
-    sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
-    sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Yetshila +1"})
+    sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {})
+    sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'], {ammo="Yetshila +1"})
+    sets.precast.WS['Exenterator'].TA = set_combine(sets.precast.WS['Exenterator'], {ammo="Yetshila +1"})
+    sets.precast.WS['Exenterator'].SATA = set_combine(sets.precast.WS['Exenterator'], {ammo="Yetshila +1"})
 
     sets.precast.WS['Dancing Edge'] = set_combine(sets.precast.WS.Acc, {range=empty})
-    sets.precast.WS['Dancing Edge'].PDL= set_combine(sets.precast.WS['Dancing Edge'], {})
+    sets.precast.WS['Dancing Edge'].PDL = set_combine(sets.precast.WS['Dancing Edge'], {})
     sets.precast.WS['Dancing Edge'].Mod = set_combine(sets.precast.WS['Dancing Edge'], {})
-    sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
-    sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
-    sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'].Mod, {ammo="Yetshila +1"})
+    sets.precast.WS['Dancing Edge'].SA = set_combine(sets.precast.WS['Dancing Edge'], {ammo="Yetshila +1"})
+    sets.precast.WS['Dancing Edge'].TA = set_combine(sets.precast.WS['Dancing Edge'], {ammo="Yetshila +1"})
+    sets.precast.WS['Dancing Edge'].SATA = set_combine(sets.precast.WS['Dancing Edge'], {ammo="Yetshila +1"})
+
+    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS['Dancing Edge'], {})
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
@@ -326,17 +328,20 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back="Bleating Mantle",
     })
-    sets.precast.WS['Evisceration'].PDL= set_combine(sets.precast.WS['Evisceration'], {range=empty,
+    sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     left_ring="Sroda Ring", 
     })
-    sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'].Acc, {})
-    sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
-    sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
-    sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
+    sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {})
+    sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'], {})
+    sets.precast.WS['Evisceration'].TA = set_combine(sets.precast.WS['Evisceration'], {})
+    sets.precast.WS['Evisceration'].SATA = set_combine(sets.precast.WS['Evisceration'], {})
+
+    sets.precast.WS['True Strike'] = set_combine(sets.precast.WS['Evisceration'], {})
+
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {range=empty,
         ammo="Yetshila +1",
@@ -353,19 +358,19 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
-    sets.precast.WS["Rudra's Storm"].PDL= set_combine(sets.precast.WS["Rudra's Storm"], {
+    sets.precast.WS["Rudra's Storm"].PDL = set_combine(sets.precast.WS["Rudra's Storm"], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         left_ring="Sroda Ring", 
     })
-    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"].Acc)
-    sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
+    sets.precast.WS["Rudra's Storm"].Mod = set_combine(sets.precast.WS["Rudra's Storm"])
+    sets.precast.WS["Rudra's Storm"].SA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
+    sets.precast.WS["Rudra's Storm"].TA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"].Mod, {ammo="Yetshila +1",
+    sets.precast.WS["Rudra's Storm"].SATA = set_combine(sets.precast.WS["Rudra's Storm"], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
 
     sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {
@@ -384,7 +389,7 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
-    sets.precast.WS['Shark Bite'].PDL= set_combine(sets.precast.WS['Shark Bite'], {
+    sets.precast.WS['Shark Bite'].PDL = set_combine(sets.precast.WS['Shark Bite'], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
@@ -392,12 +397,12 @@ function init_gear_sets()
         left_ring="Sroda Ring", 
     })
 
-    sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'].Acc, {})
-    sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Shark Bite'].Mod = set_combine(sets.precast.WS['Shark Bite'], {})
+    sets.precast.WS['Shark Bite'].SA = set_combine(sets.precast.WS['Shark Bite'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Shark Bite'].TA = set_combine(sets.precast.WS['Shark Bite'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Shark Bite'].SATA = set_combine(sets.precast.WS['Shark Bite'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
 
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {range=empty,
@@ -416,19 +421,19 @@ function init_gear_sets()
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
-    sets.precast.WS['Mandalic Stab'].PDL= set_combine(sets.precast.WS['Mandalic Stab'], {
+    sets.precast.WS['Mandalic Stab'].PDL = set_combine(sets.precast.WS['Mandalic Stab'], {
         ammo="Crepuscular Pebble",
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         left_ring="Sroda Ring", 
     })
-    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'].Acc, {})
-    sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Mandalic Stab'].Mod = set_combine(sets.precast.WS['Mandalic Stab'], {})
+    sets.precast.WS['Mandalic Stab'].SA = set_combine(sets.precast.WS['Mandalic Stab'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Mandalic Stab'].TA = set_combine(sets.precast.WS['Mandalic Stab'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
-    sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'].Mod, {ammo="Yetshila +1",
+    sets.precast.WS['Mandalic Stab'].SATA = set_combine(sets.precast.WS['Mandalic Stab'], {ammo="Yetshila +1",
         body="Pillager's Vest +3",})
 
     sets.precast.WS['Aeolian Edge'] = {
@@ -446,7 +451,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
 
-    sets.precast.WS['Aeolian Edge'].PDL= set_combine(sets.precast.WS['Aeolian Edge'])
+    sets.precast.WS['Aeolian Edge'].PDL = set_combine(sets.precast.WS['Aeolian Edge'])
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {range=empty,
     ammo="Yetshila +1",
@@ -463,7 +468,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
-    sets.precast.WS['Savage Blade'].PDL= set_combine(sets.precast.WS['Savage Blade'], {range=empty,
+    sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {range=empty,
     ammo="Crepuscular Pebble",
     head="Skulker's Bonnet +2",
     hands="Gleti's Gauntlets",
@@ -484,7 +489,7 @@ function init_gear_sets()
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
-sets.precast.WS['Judgment'].PDL= set_combine(sets.precast.WS['Black Halo'], {
+sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Black Halo'], {
         ammo="Crepuscular Pebble",
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
@@ -509,7 +514,7 @@ sets.precast.WS['Judgment'].PDL= set_combine(sets.precast.WS['Black Halo'], {
     right_ring="Cornelia's Ring",
     back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
-    sets.precast.WS["Empyreal Arrow"].PDL= set_combine(sets.precast.WS["Empyreal Arrow"], {
+    sets.precast.WS["Empyreal Arrow"].PDL = set_combine(sets.precast.WS["Empyreal Arrow"], {
         head="Skulker's Bonnet +2",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
@@ -608,8 +613,8 @@ sets.precast.WS['Judgment'].PDL= set_combine(sets.precast.WS['Black Halo'], {
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Defending Ring",
-        right_ring="Moonlight Ring",
+        right_ring="Defending Ring",
+        left_ring="Moonlight Ring",
         back="Moonlight Cape",
 
 }
@@ -659,8 +664,8 @@ sets.idle.Evasion = sets.defense.Evasion
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
-        left_ring="Defending Ring",
-        right_ring="Moonlight Ring",
+        right_ring="Defending Ring",
+        left_ring="Moonlight Ring",
         back={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
 
