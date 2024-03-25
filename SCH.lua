@@ -156,7 +156,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'DT')
     state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' , 'Sird', 'SubtleBlow', 'Proc')
-    state.IdleMode:options('Normal', 'DT', 'Resist', 'vagary')
+    state.IdleMode:options('Normal', 'DT', 'Resist','BoostMB', 'vagary')
     state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
 
 
@@ -244,7 +244,21 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Tabula Rasa'] = {legs="Pedagogy Pants"}
     sets.precast.JA['Enlightenment'] = {body="Peda. Gown +3"}
-    sets.precast.JA['Sublimation'] = {waist="Embla Sash",}
+    sets.precast.JA['Sublimation'] = {
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head={ name="Peda. M.Board +3", augments={'Enh. "Altruism" and "Focalization"',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands="Regal Cuffs",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    waist="Plat. Mog. Belt",
+    neck="Unmoving Collar +1",
+    ear1="Eabani Earring",
+    ear2="Etiolation Earring",
+    ring1="Gelatinous Ring +1",
+    ring2="Eihwaz Ring",
+    back="Moonlight Cape",    
+}
 
     -- Fast cast sets for spells
     sets.precast.FC = {
@@ -331,7 +345,7 @@ function init_gear_sets()
             feet="Arbatel Loafers +3",
             neck="Sanctity Necklace",
             waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
-            left_ear="Etiolation Earring",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Evans Earring",
             left_ring="Mephitas's Ring",
             right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
@@ -370,12 +384,12 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
 
-    sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-    sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
+    sets.precast.WS['Starburst'] = sets.precast.WS['Omniscience']
+    sets.precast.WS['Sunburst'] = sets.precast.WS['Omniscience']
+    sets.precast.WS['Earth Crusher'] = sets.precast.WS['Omniscience']
+    sets.precast.WS['Rock Crusher'] = sets.precast.WS['Omniscience']
+    sets.precast.WS['Seraph Strike'] = sets.precast.WS['MyOmnisciencerkr']
+    sets.precast.WS['Shining Strike'] = sets.precast.WS['Omniscience']
 
     sets.precast.WS['Shattersoul'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -525,6 +539,8 @@ function init_gear_sets()
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
         waist="Embla Sash",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+
         })
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
@@ -684,8 +700,6 @@ function init_gear_sets()
 
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {
-        main={ name="Marin Staff +1", augments={'Path: A',}},
-        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Arbatel Gown +3",
@@ -706,8 +720,6 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {})
     sets.midcast['Elemental Magic'].magicburst = {
-        main={ name="Marin Staff +1", augments={'Path: A',}},
-        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Arbatel Gown +3",
@@ -758,13 +770,11 @@ function init_gear_sets()
     }
 
     sets.midcast['magic burst'] = {
-        main={ name="Marin Staff +1", augments={'Path: A',}},
-        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Agwu's Cap",
-        body="Arbatel Gown +3",
-        hands="Agwu's Gages",
-        legs="Agwu's Slops",
+        head={ name="Agwu's Cap", augments={'Path: A',}},
+        body={ name="Agwu's Robe", augments={'Path: A',}},
+        hands={ name="Agwu's Gages", augments={'Path: A',}},
+        legs={ name="Agwu's Slops", augments={'Path: A',}},
         feet="Arbatel Loafers +3",
         neck="Argute Stole +2",
         waist="Acuity Belt +1",
@@ -791,11 +801,9 @@ function init_gear_sets()
         back=empty,
         }
     sets.magic_burst = {
-        main={ name="Marin Staff +1", augments={'Path: A',}},
-        sub="Enki Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Agwu's Cap", augments={'Path: A',}},
-        body={ name="Agwu's Robe", augments={'Path: A',}},
+        body="Arbatel Gown +3",
         hands={ name="Agwu's Gages", augments={'Path: A',}},
         legs={ name="Agwu's Slops", augments={'Path: A',}},
         feet="Arbatel Loafers +3",
@@ -840,7 +848,6 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
         body="Arbatel Gown +3",
@@ -885,6 +892,22 @@ function init_gear_sets()
     left_ring="Stikini Ring +1",
     right_ring="Defending Ring",
     back="Moonlight Cape",})
+
+    sets.idle.BoostMB = set_combine(sets.idle, {
+        ammo="Homiliary",
+        head="Befouled Crown",
+        body="Arbatel Gown +3",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs={ name="Assid. Pants +1", augments={'Path: A',}},
+        feet="Arbatel Loafers +3",
+        neck="Sanctity Necklace",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Evans Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    })
 
     sets.idle.vagary =  {
     main="Oranyan", 
@@ -1023,6 +1046,12 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
     sets.buff['Ebullience'] = {head="Arbatel Bonnet +2"}
     sets.buff['Rapture'] = {head="Arbatel Bonnet +2"}
     sets.buff['Perpetuance'] = {hands="Arbatel Bracers +1"}
+    sets.buff['Penury'] = {legs="Arbatel Pants +1"}
+    sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
+    sets.buff['Celerity'] = {feet="Peda. Loafers +3"}
+    sets.buff['Alacrity'] = {feet="Peda. Loafers +3"}
+    sets.buff['Klimaform'] = {feet="Arbatel Loafers +3"}
+
     sets.buff['Immanence'] = {
         head="Peda. M.Board +3", 
         feet="Acad. Loafers +3",
@@ -1056,12 +1085,6 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
         left_ring=empty,
         right_ring=empty,
         back=empty,}
-
-    sets.buff['Penury'] = {legs="Arbatel Pants +1"}
-    sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
-    sets.buff['Celerity'] = {feet="Peda. Loafers +3"}
-    sets.buff['Alacrity'] = {feet="Peda. Loafers +3"}
-    sets.buff['Klimaform'] = {feet="Arbatel Loafers +3"}
 
     sets.buff.FullSublimation = {
        --head="Acad. Mortar. +3", --4
@@ -1207,7 +1230,13 @@ function job_buff_change(buff, gain)
     if buff == "Sublimation: Activated" then
         handle_equipping_gear(player.status)
     end
-
+    if buff == "Tabula Rasa" then
+        if gain then
+            send_command('@input /p Tabula Rasa [ON]')
+        else	
+            send_command('@input /p Tabula Rasa [OFF]')        
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1351,9 +1380,9 @@ end
 function job_handle_equipping_gear(playerStatus, eventArgs)
 
     if state.StaffMode.value == "Marin" then
-        equip({main="Marin Staff +1"})
+        equip({main="Marin Staff +1",sub="Enki Strap"})
     elseif state.StaffMode.value == "Mpaca" then
-        equip({main="Mpaca's Staff"})
+        equip({main="Mpaca's Staff",sub="Enki Strap"})
     elseif state.StaffMode.value == "normal" then
         equip({})
     end
@@ -1715,7 +1744,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if buffactive['Mana Wall'] then
+	if state.HippoMode.value == "Hippo" then
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)
