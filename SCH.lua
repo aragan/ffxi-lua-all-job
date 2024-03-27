@@ -1044,7 +1044,7 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
 
     sets.buff['Ebullience'] = {head="Arbatel Bonnet +2"}
     sets.buff['Rapture'] = {head="Arbatel Bonnet +2"}
-    sets.buff['Perpetuance'] = {hands="Arbatel Bracers +1"}
+    sets.buff['Perpetuance'] = {hands="Arbatel Bracers +2"}
     sets.buff['Penury'] = {legs="Arbatel Pants +1"}
     sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
     sets.buff['Celerity'] = {feet="Peda. Loafers"}
@@ -1055,7 +1055,7 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
         head="Peda. M.Board +3", 
         feet="Acad. Loafers +3",
         body="Nyame Mail",
-        hands="Arbatel Bracers +1",
+        hands="Arbatel Bracers +2",
         legs="Nyame Flanchard",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         back="Lugh's Cape",}

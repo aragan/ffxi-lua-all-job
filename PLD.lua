@@ -17,7 +17,6 @@ function get_sets()
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
     include('organizer-lib')
-    res = require 'resources'
 end
 organizer_items = {
     "Airmid's Gorget",
@@ -168,14 +167,14 @@ function user_setup()
         [11] = 1.490909,
         [12] = 1.70,
     }
-    --state.Auto_Kite = M(false, 'Auto_Kite')
+    state.Auto_Kite = M(false, 'Auto_Kite')
     state.AutoEquipBurst = M(true)
     state.Moving  = M(false, "moving")
 
     Haste = 0
     DW_needed = 0
     DW = false
-    --moving = false
+    moving = false
 
     determine_haste_group()
     
@@ -493,7 +492,7 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
    ------------------------------------------------------------------------------------------------
    -----------------------------------------Midcast sets-------------------------------------------
    ------------------------------------------------------------------------------------------------
-   sets.midcast.FastRecast = sets.SID
+   sets.midcast.FastRecast = sets.SIRD
    -- Divine Skill 590/594 142 Acc
    sets.midcast.Divine = {
        head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
@@ -504,7 +503,7 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
        left_ring="Stikini Ring +1",
        right_ring="Stikini Ring +1",
 }
-   sets.midcast.Divine.DT = set_combine(sets.SID, {
+   sets.midcast.Divine.DT = set_combine(sets.SIRD, {
        head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
        body="Rev. Surcoat +3",
        hands="Eschite Gauntlets",
@@ -527,7 +526,7 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
    right_ring="Stikini Ring +1",
    back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
-   sets.midcast['Enhancing Magic'].DT = set_combine(sets.SID, {    
+   sets.midcast['Enhancing Magic'].DT = set_combine(sets.SIRD, {    
    left_ear="Andoaa Earring",
    right_ring="Stikini Ring +1",
 })
@@ -565,8 +564,6 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        back="Argocham. Mantle",
    }
    sets.magic_burst = {
-       main="Nandaka",
-       sub="Niobid Strap",
        ammo="Pemphredo Tathlum",
        head={ name="Jumalik Helm", augments={'MND+1','Magic burst dmg.+8%',}},
        body="Nyame Mail",
@@ -736,7 +733,7 @@ sets.midcast.Cocoon.DT = {
        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
        back="Solemnity Cape",
 }
-   sets.midcast.Cure.DT = set_combine(sets.SID, {
+   sets.midcast.Cure.DT = set_combine(sets.SIRD, {
        hands="Macabre Gaunt. +1",
        left_ear="Mendi. Earring",
        right_ear="Chev. Earring +1",
@@ -766,7 +763,7 @@ sets.midcast.Cocoon.DT = {
        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
        back="Solemnity Cape",
 }
- sets.self_healing.DT = set_combine(sets.SID, {
+ sets.self_healing.DT = set_combine(sets.SIRD, {
        hands="Macabre Gaunt. +1",
        right_ear="Chev. Earring +1",
    })
@@ -831,7 +828,7 @@ sets.midcast.Raise.DT = {
    sets.midcast.Stun = sets.midcast.Flash
  
  --Spell interupt down (pro shell raise)104/102
- sets.SID = {   ammo="Staunch Tathlum +1",
+ sets.SIRD = {   ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    body={ name="Sakpata's Plate", augments={'Path: A',}},
    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
@@ -1054,9 +1051,8 @@ sets.midcast['Bomb Toss'].DT = {
    back="Rudianos's Mantle",
 }
 
-sets.midcast['Frightful Roar'] = 
-{   main="Naegling",
-   range="Ullr",
+sets.midcast['Frightful Roar'] = {
+   ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
    body="Chev. Cuirass +3",
    hands="Chev. Gauntlets +3",
@@ -1099,7 +1095,6 @@ sets.TreasureHunter = {
    waist="Gishdubar Sash",
    legs="Shabti Cuisses +1",
 } -- +65%
-   sets.Petri = {back="Sand Mantle"} 
  sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
  sets.buff.Sleep = {neck={ name="Vim Torque +1", augments={'Path: A',}},left_ear="Infused Earring",}
  sets.Breath = sets.defense.MDT
@@ -1349,7 +1344,6 @@ sets.defense.Evasion = {
 }
 sets.defense.Enmitymax = {     ammo="Iron Gobbet",
    main="Burtgang",
-   ammo="Staunch Tathlum +1",
    head={ name="Loess Barbuta +1", augments={'Path: A',}},
    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1425,23 +1419,6 @@ sets.defense.HP = set_combine(sets.defense.HPBOOST, {
    waist="Plat. Mog. Belt",
 })
 
-sets.defense.DeathSpike = {
-   main="Burtgang",
-   ammo="Staunch Tathlum +1",
-   head="Chev. Armet +3",
-   body="Tartarus Platemail",
-   hands="Chev. Gauntlets +3",
-   legs="Chev. Cuisses +3",
-   feet="Chev. Sabatons +3",
-   neck={ name="Warder's Charm +1", augments={'Path: A',}},
-   waist="Carrier's Sash",
-   left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   right_ear="Sanare Earring",
-   left_ring="Shadow Ring",
-   right_ring="Archon Ring",
-     back="Rudianos's Mantle",
-}
-
 sets.defense.Convert = {    
    main="Burtgang",
    ammo="Staunch Tathlum +1",
@@ -1484,7 +1461,6 @@ sets.defense.Block = {
    sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
    sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
    sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
-   sets.defense.DeathSpike.Reraise = set_combine(sets.defense.DeathSpike, sets.Reraise)
    sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
    sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
    sets.defense.Dagger.Reraise = set_combine(sets.defense.Dagger, sets.Reraise)
@@ -1498,7 +1474,6 @@ sets.defense.Block = {
    sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
    sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
    sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
-   sets.defense.DeathSpike.Doom = set_combine(sets.defense.DeathSpike, sets.Doom)
    sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
    sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
    sets.defense.Dagger.Doom = set_combine(sets.defense.Dagger, sets.Doom)
@@ -2104,7 +2079,7 @@ function check_buffs(check)
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
     determine_haste_group()
-    --check_moving()
+    check_moving()
     update_combat_form()
     if state.ShieldMode.value == "Duban" then
 	   equip({sub="Duban"})
@@ -2128,7 +2103,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
 end
 
 function job_update(cmdParams, eventArgs)
-    --check_moving()
+    check_moving()
     --handle_equipping_gear(player.status)
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -2193,18 +2168,50 @@ function customize_melee_set(meleeSet)
     end
   return meleeSet
 end
-
-windower.register_event('hpp change',
-function(new_hpp,old_hpp)
-    if new_hpp < 5 then
-        equip(sets.Reraise)
-    end
-end
-)
 ---------------------------------------------------------------------------------------------
 -- General hooks for other events.
 -------------------------------------------------------------------------------------------------------------------
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
 
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+	if state.DefenseMode.value ~= 'None' then
+		moving = false
+    elseif mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements self-commands.
 -------------------------------------------------------------------------------------------------------------------
@@ -2250,8 +2257,9 @@ function update_combat_form()
         state.CombatForm:reset()
   end 
   if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-    if player.equipment.sub and not player.equipment.sub:endswith('Shield') and
-    player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' then
+    if player.equipment.sub and not player.equipment.sub:endswith('Shield') and not player.equipment.sub:endswith('Strap') and
+    player.equipment.sub ~= 'empty' and player.equipment.sub ~= 'Aegis' and player.equipment.sub ~= 'Ochain' and player.equipment.sub ~= 'Duban' and player.equipment.sub ~= 'Priwen' and 
+    player.equipment.sub ~= 'Blurred Shield +1' and player.equipment.sub ~= 'Beatific Shield +1' and player.equipment.sub ~= 'Srivatsa' then
     state.CombatForm:set('DW')
     else
     state.CombatForm:reset()
@@ -2307,45 +2315,7 @@ function check_moving()
     end
 end
 
-mov = {counter=0}
-if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
-    mov.x = windower.ffxi.get_mob_by_index(player.index).x
-    mov.y = windower.ffxi.get_mob_by_index(player.index).y
-    mov.z = windower.ffxi.get_mob_by_index(player.index).z
-end
 
-moving = false
-windower.raw_register_event('prerender',function()
-    mov.counter = mov.counter + 1;
-    if mov.counter>15 then
-        local pl = windower.ffxi.get_mob_by_index(player.index)
-        if pl and pl.x and mov.x then
-            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
-            if dist > 1 and not moving then
-                state.Moving.value = true
-                send_command('gs c update')
-				if world.area:contains("Adoulin") then
-                send_command('gs equip sets.Adoulin')
-				else
-                send_command('gs equip sets.MoveSpeed')
-                end
-
-        moving = true
-
-            elseif dist < 1 and moving then
-                state.Moving.value = false
-                send_command('gs c update')
-                moving = false
-            end
-        end
-        if pl and pl.x then
-            mov.x = pl.x
-            mov.y = pl.y
-            mov.z = pl.z
-        end
-        mov.counter = 0
-    end
-end)
 ------------------------------------------------------------------
 -- Timer manipulation
 ------------------------------------------------------------------
