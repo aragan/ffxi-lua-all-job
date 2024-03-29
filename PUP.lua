@@ -347,7 +347,7 @@ function init_gear_sets()
     ]]
     sets.idle = {       
     head="Malignance Chapeau",
-    body="Malignance Tabard",
+    body="Adamantite Armor",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
@@ -739,7 +739,7 @@ function init_gear_sets()
     sets.idle.MasterDT = {
         main="Tauret",
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Adamantite Armor",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -1445,7 +1445,7 @@ function init_gear_sets()
         main="Tauret",
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body="Malignance Tabard",
+        body="Adamantite Armor",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Hermes' Sandals +1",

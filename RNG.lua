@@ -564,7 +564,7 @@ function init_gear_sets()
 	-- Idle sets
 	sets.idle = {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Malignance Boots",
@@ -581,7 +581,7 @@ function init_gear_sets()
 	-- Defense sets
 	sets.defense.PDT = {
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",

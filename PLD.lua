@@ -1181,7 +1181,7 @@ sets.idle.PD = {
     main="Burtgang",
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
-    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    body="Adamantite Armor",
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs="Chev. Cuisses +3",
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1202,7 +1202,9 @@ sets.idle.PD = {
     right_ring="Purity Ring",
     back="Rudianos's Mantle",}
 
-    sets.idle.Town ={legs="Carmine Cuisses +1",
+    sets.idle.Town ={
+    
+    legs="Carmine Cuisses +1",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",}
     
@@ -1230,7 +1232,7 @@ sets.idle.PD = {
     main="Burtgang",
     ammo="Staunch Tathlum +1",
     head="Chev. Armet +3",
-    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    body="Adamantite Armor",
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs="Chev. Cuisses +3",
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1379,7 +1381,7 @@ sets.defense.PDH = {
    main="Burtgang",
    ammo="Staunch Tathlum +1",
    head="Chev. Armet +3",
-   body={ name="Sakpata's Plate", augments={'Path: A',}},
+   body="Adamantite Armor",
    hands="Chev. Gauntlets +3",
    legs="Chev. Cuisses +3",
    feet={ name="Sakpata's Leggings", augments={'Path: A',}},

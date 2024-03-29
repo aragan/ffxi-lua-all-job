@@ -958,7 +958,7 @@ function init_gear_sets()
     sets.idle = {
 		ammo="Iron Gobbet",
 		head="Gleti's Mask",
-		body="Gleti's Cuirass",
+		body="Adamantite Armor",
 		hands="Gleti's Gauntlets",
 		legs="Gleti's Breeches",
 		feet="Gleti's Boots",
@@ -988,10 +988,10 @@ function init_gear_sets()
 		back="Artio's Mantle",
 }
 			
-	sets.idle.MNormal = set_combine(sets.idle, {
+	sets.idle.Normal = set_combine(sets.idle, {
 		ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1007,7 +1007,7 @@ function init_gear_sets()
 	sets.idle.Turtle = set_combine(sets.idle, {
 		ammo="Staunch Tathlum +1",
 		head="Malignance Chapeau",
-		body="Malignance Tabard",
+		body="Adamantite Armor",
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
@@ -1082,7 +1082,7 @@ function init_gear_sets()
    sets.defense.PDT = {
     ammo="Iron Gobbet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",

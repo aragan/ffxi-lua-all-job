@@ -94,7 +94,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Enmity')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Evasion', 'Enmity')
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
@@ -156,10 +156,10 @@ end
  
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-    send_command('unbind f12')
+    --[[send_command('unbind f12')
     send_command('unbind f11')
 	send_command('unbind f10')
-	send_command('unbind f8')
+	send_command('unbind f8')]]
 
 end
 
@@ -1031,7 +1031,21 @@ sets.TreasureHunter = {
 		right_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
 		back="Reiki Cloak",
 	}
-    
+    sets.idle.Evasion = {
+		ammo="Amar Cluster",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		waist="Svelt. Gouriz +1",
+		left_ear="Infused Earring",
+		right_ear="Eabani Earring",
+		left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+		right_ring="Vengeful Ring",
+		back="Moonlight Cape",
+	}
     
     -- Defense sets
     sets.defense.PDT = {
@@ -1494,6 +1508,20 @@ function job_buff_change(buff, gain)
 	if (buff and gain) or (buff and not gain) then
 	send_command('gs c update')
 	end
+	if buff == "Stymie" then
+        if gain then  			
+            send_command('input /p "Stymie" [ON]')		
+        else	
+            send_command('input /p "Stymie" [OFF]')
+        end
+    end
+	if buff == "Saboteur" then
+        if gain then  			
+            send_command('input /p "Saboteur" [ON]')		
+        else	
+            send_command('input /p "Saboteur" [OFF]')
+        end
+    end
 	if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)

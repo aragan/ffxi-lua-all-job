@@ -154,7 +154,7 @@ sets.shield = {sub="Regis"}
 
     -- Precast Sets
 	-- Precast sets to enhance JAs
-sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +1"}
+sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +3"}
 --sets.CapacityMantle = {back="Mecistopins Mantle"}
     --sets.Berserker = {neck="Berserker's Torque"}
 sets.WSDayBonus = {head="Gavialis Helm"}
@@ -174,7 +174,7 @@ sets.precast.JA.Jump = {
         legs="Pteroslaver Brais +3",
     }
 
-	sets.precast.JA['Ancient Circle'] = {  }
+	sets.precast.JA['Ancient Circle'] = {legs="Vishap Brais +1"}
     sets.TreasureHunter = {
         ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
@@ -182,7 +182,7 @@ sets.precast.JA.Jump = {
      }
 
 	sets.precast.JA['High Jump'] = set_combine(sets.precast.JA.Jump, {
-        --legs="Vishap Brais +3",
+        legs="Vishap Brais +1",
     }) 
 	sets.precast.JA['Soul Jump'] = set_combine(sets.precast.JA.Jump, {
 		--body="Vishap Mail +2",
@@ -628,7 +628,7 @@ sets.precast.JA.Jump = {
 	sets.idle = {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Adamantite Armor",
         hands="Gleti's Gauntlets",
         legs="Nyame Flanchard",
         feet="Gleti's Boots",
@@ -650,7 +650,7 @@ sets.precast.JA.Jump = {
 	sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Adamantite Armor",
         hands="Gleti's Gauntlets",
         legs="Nyame Flanchard",
         feet="Gleti's Boots",
@@ -681,7 +681,7 @@ sets.precast.JA.Jump = {
 	sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
         head="Gleti's Mask",
-        body="Gleti's Cuirass",
+        body="Adamantite Armor",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         feet="Gleti's Boots",
@@ -1078,6 +1078,20 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+    if buff == "Dragon Breaker" then
+        if gain then  			
+            send_command('input /p "Dragon Breaker" [ON]')		
+        else	
+            send_command('input /p "Dragon Breaker" [OFF]')
+        end
+    end
+    if buff == "Ancient Circle" then
+        if gain then  			
+            send_command('input /p "Ancient Circle" [ON]')		
+        else	
+            send_command('input /p "Ancient Circle" [OFF]')
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)

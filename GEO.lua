@@ -823,6 +823,13 @@ function job_buff_change(buff, gain)
         classes.CustomIdleGroups:clear()
         handle_equipping_gear(player.status)
     end
+    if buff == "Bolster" then
+        if gain then  			
+            send_command('input /p "Bolster" [ON]')		
+        else	
+            send_command('input /p "Bolster" [OFF]')
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -852,41 +859,79 @@ function job_buff_change(buff, gain)
         end
     end
     if buff == "Defense Down" then
-        if gain then
+        if gain then  			
+            send_command('input /item "Panacea" <me>')
+        end
+    elseif buff == "Magic Def. Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Attack Down" then
+        end
+    elseif buff == "Max HP Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Evasion Down" then
+        end
+    elseif buff == "Evasion Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Evasion Down" then
+        end
+    elseif buff == "Magic Evasion Downn" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Magic Def. Down" then
+        end
+    elseif buff == "Dia" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Accuracy Down" then
+        end  
+    elseif buff == "Bio" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
-        elseif buff == "Max HP Down" then
+        end
+    elseif buff == "Bind" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "slow" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "weight" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Attack Down" then
+        if gain then  			
+            send_command('@input /item "panacea" <me>')
+        end
+    elseif buff == "Accuracy Down" then
+        if gain then  			
             send_command('@input /item "panacea" <me>')
         end
     end
-    
+
     if buff == "VIT Down" then
         if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "INT Down" then
+        end
+    elseif buff == "INT Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "MND Down" then
+        end
+    elseif buff == "MND Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "VIT Down" then
+        end
+    elseif buff == "STR Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
-        elseif buff == "STR Down" then
-            send_command('@input /item "panacea" <me>')
-        elseif buff == "AGI Down" then
+        end
+    elseif buff == "AGI Down" then
+        if gain then
             send_command('@input /item "panacea" <me>')
         end
     end
     if buff == "curse" then
         if gain then  
-            send_command('input /item "Holy Water" <me>')
+        send_command('input /item "Holy Water" <me>')
         end
     end
     if buff == "Sleep" then

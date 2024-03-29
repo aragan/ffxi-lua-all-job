@@ -212,15 +212,14 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
      sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3",}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
-     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3"}
+     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3",feet="Agoge Calligae +3"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
-     sets.precast.JA['Mighty Strikes'] = {}
+     sets.precast.JA['Mighty Strikes'] = {hands="Boii Mufflers"}
      sets.precast.JA['Retaliation'] = {}
      sets.precast.JA['Aggressor'] = {}
      sets.precast.JA['Restraint'] = { hands="Boii Mufflers +3"}
      sets.precast.JA['Warrior\'s Charge'] = {}
-     sets.precast.JA.Tomahawk = set_combine(sets.precast.JA, {ammo="Thr. Tomahawk"})
-
+     sets.precast.JA.Tomahawk = set_combine(sets.precast.JA, {ammo="Thr. Tomahawk",feet="Agoge Calligae +3"})
 
      --sets.CapacityMantle  = { back="Mecistopins Mantle" }
      --sets.Berserker       = { neck="Berserker's Torque" }
@@ -1024,7 +1023,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      -- Idle sets
     sets.idle = {
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        body="Adamantite Armor",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1037,6 +1036,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         back="Moonlight Cape",
     }
         sets.idle.Town ={
+        body="Adamantite Armor",
         feet="Hermes' Sandals +1",
         left_ear="Infused Earring",}      
 
@@ -1076,7 +1076,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        body="Adamantite Armor",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1093,7 +1093,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         sub="Blurred Shield +1",
         ammo="Staunch Tathlum +1",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-        body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        body="Adamantite Armor",
         hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1151,7 +1151,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.defense.MP = set_combine(sets.defense.PDT, {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
+        body="Adamantite Armor",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -1591,6 +1591,27 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
+    if buff == "Mighty Strikes" then
+        if gain then  			
+            send_command('input /p "Mighty Strikes" [ON]')		
+        else	
+            send_command('input /p "Mighty Strikes" [OFF]')
+        end
+    end
+	if buff == "Warcry" then
+        if gain then  			
+            send_command('input /p "Warcry" [ON]')		
+        else	
+            send_command('input /p "Warcry" [OFF]')
+        end
+    end
+    if buff == "Blood Rage" then
+        if gain then  			
+            send_command('input /p "Blood Rage" [ON]')		
+        else	
+            send_command('input /p "Blood Rage" [OFF]')
+        end
+    end    
     if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
         equip({neck="Vim Torque +1"})
     end

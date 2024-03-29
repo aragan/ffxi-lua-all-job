@@ -627,7 +627,7 @@ function init_gear_sets()
 
     sets.idle = {ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
+    body="Adamantite Armor",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -643,7 +643,7 @@ function init_gear_sets()
 sets.idle.PDT = {        
     ammo="Eluder's Sachet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -677,7 +677,7 @@ sets.idle.HP = {
     sub={ name="Aeneas", augments={'Path: A',}},
     ammo="Eluder's Sachet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -703,7 +703,7 @@ sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, {
     
     sets.idle.Weak = {    ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
+    body="Adamantite Armor",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -737,7 +737,7 @@ sets.defense.Evasion = {
 sets.defense.PDT = {        
     ammo="Eluder's Sachet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -755,7 +755,7 @@ sets.defense.HP = {
     sub={ name="Aeneas", augments={'Path: A',}},
     ammo="Eluder's Sachet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",

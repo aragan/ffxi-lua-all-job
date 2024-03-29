@@ -196,7 +196,7 @@ function init_gear_sets()
     back="Argocham. Mantle",
     }
     sets.precast.JA['Swipe'] = sets.precast.JA['Lunge']
-    sets.precast.JA['Gambit'] = {hands="Runeist Mitons +1"}
+    sets.precast.JA['Gambit'] = {hands="Runeist Mitons +3"}
     sets.precast.JA['Rayke'] = {feet="Futhark Bottes +3"}
     sets.precast.JA['Elemental Sforzo'] = {body="Futhark Coat 1"}
     sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
@@ -454,7 +454,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.idle = {   
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Adamantite Armor",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -515,7 +515,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         main="Aettir",
         sub="Refined Grip +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Adamantite Armor",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -548,7 +548,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     main="Aettir",
     sub="Refined Grip +1",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -612,7 +612,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.defense.HP = {
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Adamantite Armor",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",

@@ -745,7 +745,7 @@ function init_gear_sets()
     
     sets.idle.Field = {        
     head="Valorous Mask",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Danzo Sune-Ate",
@@ -788,7 +788,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -1279,6 +1279,13 @@ function job_buff_change(buff, gain)
             end
         elseif buff == "Aftermath" and gain or buffactive.Aftermath then
             classes.CustomMeleeGroups:append('AM')
+        end
+    end
+    if buff == "Yaegasumi" then
+        if gain then  			
+            send_command('input /p "Yaegasumi" [ON]')		
+        else	
+            send_command('input /p "Yaegasumi" [OFF]')
         end
     end
     if buff == "doom" then

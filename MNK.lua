@@ -523,7 +523,7 @@ function init_gear_sets()
     sets.idle = {
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body="Malignance Tabard",
+        body="Adamantite Armor",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
@@ -545,7 +545,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
         head="Malignance Chapeau",
-        body="Malignance Tabard",
+        body="Adamantite Armor",
         hands="Malignance Gloves",
         legs="Malignance Tights",
         feet="Malignance Boots",
@@ -561,7 +561,7 @@ function init_gear_sets()
     sets.defense.HP = {
         ammo="Staunch Tathlum +1",
         head="Genmei Kabuto",
-        body="Nyame Mail",
+        body="Adamantite Armor",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
@@ -577,7 +577,7 @@ function init_gear_sets()
     sets.defense.MDT = {	      
         ammo="Staunch Tathlum +1",
         head="Nyame Helm",
-        body="Nyame Mail",
+        body="Adamantite Armor",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",

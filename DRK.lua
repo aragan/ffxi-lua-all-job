@@ -68,7 +68,7 @@ organizer_items = {
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 8;input /lockstyleset 152')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -80,7 +80,8 @@ function job_setup()
     -- state.LastResortMode = M(false, 'Last Resort Mode')
     -- Use Gavialis helm?
     use_gavialis = true
-  
+
+
     -- Weaponskills you want Gavialis helm used with (only considered if use_gavialis = true)
     wsList = S{}
     -- Greatswords you use. 
@@ -1006,7 +1007,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     sets.idle = {
         ammo="Staunch Tathlum +1",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        body="Adamantite Armor",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1037,7 +1038,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     sets.idle.Field = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        body="Adamantite Armor",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1065,7 +1066,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     sets.idle.PDT = {
     ammo="Staunch Tathlum +1",
     head={ name="Sakpata's Helm", augments={'Path: A',}},
-    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    body="Adamantite Armor",
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1089,7 +1090,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
     head={ name="Sakpata's Helm", augments={'Path: A',}},
-    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    body="Adamantite Armor",
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1902,6 +1903,20 @@ function job_buff_change(buff, gain)
   
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
+    end
+    if buff == "Soul Enslavement" then
+        if gain then  			
+            send_command('input /p "Soul Enslavement" [ON]')		
+        else	
+            send_command('input /p "Soul Enslavement" [OFF]')
+        end
+    end
+    if buff == "Souleater" then
+        if gain then  			
+            send_command('input /p "Souleater" [ON]')		
+        else	
+            send_command('input /p "Souleater" [OFF]')
+        end
     end
     if buff == "doom" then
         if gain then

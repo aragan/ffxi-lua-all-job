@@ -1083,7 +1083,7 @@ sets.idle.Evasion = {
 sets.idle.PDT = {    
 ammo="Staunch Tathlum +1",
 head="Nyame Helm",
-body="Nyame Mail",
+body="Adamantite Armor",
 hands="Nyame Gauntlets",
 legs="Nyame Flanchard",
 feet="Nyame Sollerets",
@@ -1132,7 +1132,7 @@ sets.idle.Learning = set_combine(sets.idle, sets.Learning, {
 sets.defense.PDT = {
     ammo="Staunch Tathlum +1",
     head={ name="Gleti's Mask", augments={'Path: A',}},
-    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    body="Adamantite Armor",
     hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
     legs={ name="Gleti's Breeches", augments={'Path: A',}},
     feet="Gleti's Boots",
