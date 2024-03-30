@@ -150,7 +150,9 @@ function init_gear_sets()
     left_ring="Kishar Ring",
     right_ring="Prolix Ring",
     back="Alaunus's Cape",}
-        
+    
+    sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
@@ -893,7 +895,12 @@ function init_gear_sets()
     ring2="Archon Ring",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-
+    sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {
+        head=empty,
+        body="Twilight Cloak",
+        ring2="Archon Ring",
+        waist="Shinjutsu-no-Obi +1",
+        })
     -- Custom spell classes
     sets.midcast.MndEnfeebles = set_combine(sets.midcast['Divine Magic'], {
         head=empty,
@@ -1275,6 +1282,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip(sets.SIRD)
         end
     end
+    if spell.name == 'Impact' then
+		equip(sets.precast.FC.Impact)
+	end
 end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.

@@ -139,6 +139,7 @@ function init_gear_sets()
         legs="Geomancy Pants +2",
         feet="Merlinic Crackows"
     }
+    sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         --main="Tamaxchi",
@@ -193,7 +194,7 @@ function init_gear_sets()
         back="Argocham. Mantle",
     }
 
-            sets.precast.WS['Myrkr'] = {
+    sets.precast.WS['Myrkr'] = {
             ammo="Pemphredo Tathlum",
             head="Nyame Helm",
             body="Nyame Mail",
@@ -208,7 +209,7 @@ function init_gear_sets()
             right_ring="Freke Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
 
-        sets.precast.WS['Cataclysm'] = {
+    sets.precast.WS['Cataclysm'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
@@ -291,10 +292,6 @@ function init_gear_sets()
 
     }
 
-     sets.midcast["Apururu (UC)"] = set_combine(sets.midcast.Trust, {
-         body="Apururu Unity shirt",
-     })
-
     sets.midcast.Geomancy = {
         main="Solstice",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -353,6 +350,30 @@ function init_gear_sets()
     --sets.midcast.Protectra = sets.midcast['Enhancing Magic']
     --sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
+    sets.midcast['Elemental Magic'] = {
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head="Agwu's Cap",
+        body="Agwu's Robe",
+        hands="Agwu's Gages",
+        legs="Agwu's Slops",
+        feet="Bagua Sandals +3",
+        neck="Sibyl Scarf",
+		waist="Sacro Cord",
+        left_ear="Regal Earring",
+        right_ear="Malignance Earring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Freke Ring",
+        back="Argocham. Mantle",
+    }
+
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
+        head=empty,
+        body="Twilight Cloak",
+        ring2="Archon Ring",
+        waist="Shinjutsu-no-Obi +1",
+        })
     sets.midcast.HighTierNuke = {
         main="Bunzi's Rod",
         sub="Ammurapi Shield",
@@ -520,6 +541,9 @@ function init_gear_sets()
     right_ring="Stikini Ring",
     left_ring="Stikini Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+
+    sets.Obi = {waist="Hachirin-no-Obi",}
+
     --------------------------------------
     -- Idle/resting/defense/etc sets
     --------------------------------------
@@ -759,20 +783,24 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
-function job_precast(spell, action, spellMap, eventArgs)
-	refine_various_spells(spell, action, spellMap, eventArgs)
-    --if state.Buff.Poison then
-    --    classes.CustomClass = 'Mindmelter'
-    --end
-end
 function job_pretarget(spell, action, spellMap, eventArgs)
     if spell.type:endswith('Magic') and buffactive.silence then
         eventArgs.cancel = true
         send_command('input /item "Remedy" <me>')
     end
 end
+function job_precast(spell, action, spellMap, eventArgs)
+	refine_various_spells(spell, action, spellMap, eventArgs)
+    --if state.Buff.Poison then
+    --    classes.CustomClass = 'Mindmelter'
+    --end
+end
+
 function job_post_precast(spell, action, spellMap, eventArgs)
     -- Make sure abilities using head gear don't swap 
+    if spell.name == 'Impact' then
+        equip(sets.precast.FC.Impact)
+    end
 	if spell.type:lower() == 'weaponskill' then
         -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
         if state.CapacityMode.value then
@@ -780,7 +808,17 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-
+function job_post_midcast(spell, action, spellMap, eventArgs)
+    if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
+        equip(sets.magic_burst)
+        if spell.english == "Impact" then
+            equip(sets.midcast.Impact)
+        end
+    end
+    if (spell.element == world.day_element or spell.element == world.weather_element) then
+        equip(sets.Obi)
+	end
+end
 function job_aftercast(spell, action, spellMap, eventArgs)
     if not spell.interrupted then
         if spell.english:startswith('Indi') then
@@ -798,6 +836,44 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     elseif not player.indi then
         classes.CustomIdleGroups:clear()
     end
+end
+
+-- Auto toggle Magic burst set.
+MB_Window = 0
+time_start = 0
+AEBurst = false
+
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+
+    windower.raw_register_event('action', function(act)
+        for _, target in pairs(act.targets) do
+            local battle_target = windower.ffxi.get_mob_by_target("t")
+            if battle_target ~= nil and target.id == battle_target.id then
+                for _, action in pairs(target.actions) do
+                    if action.add_effect_message > 287 and action.add_effect_message < 302 then
+                        --last_skillchain = skillchains[action.add_effect_message]
+                        MB_Window = 11
+                        MB_Time = os.time()
+                    end
+                end
+            end
+        end
+    end)
+
+    windower.raw_register_event('prerender', function()
+        --Items we want to check every second
+        if os.time() > time_start then
+            time_start = os.time()
+            if MB_Window > 0 then
+                MB_Window = 11 - (os.time() - MB_Time)
+                if state.AutoEquipBurst.value then
+                    AEBurst = true
+                end
+            else
+                AEBurst = false
+            end
+        end
+    end)
 end
 
 
@@ -979,15 +1055,6 @@ function job_get_spell_map(spell, default_spell_map)
             if spell.english:startswith('Indi') then
                 return 'Indi'
             end
-        elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
-            if lowTierNukes:contains(spell.english) then
-                return 'LowTierNuke'
-            else
-                return 'HighTierNuke'
-            end
-        elseif spell.type == 'Trust' then
-            return 'Trust'
-
         end
     end
 end

@@ -182,10 +182,6 @@ function init_gear_sets()
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
-
-
-	sets.precast['Impact'] = set_combine(sets.precast.FC, {
-	})
 	
 	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {
 	})
@@ -649,7 +645,7 @@ function init_gear_sets()
         back=empty,
     })
  
-    sets.midcast['Impact'] = {
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
 		head=empty,
         body="Twilight Cloak",
         hands="Amalric Gages +1",
@@ -661,7 +657,7 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring2="Kishar Ring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},}
+		back="Taranus's Cape",    })
 	
 	sets.midcast['Comet'] = set_combine(sets.midcast['Elemental Magic'], {
 		main="Marin Staff +1",
@@ -1029,10 +1025,6 @@ function job_midcast(spell, action, spellMap, eventArgs)
     if spell.english == 'Death' then
         equip(sets.midcast['Death'])
 	end
-	
-	if spell.english == "Impact" then
-        equip({head=empty,body="Twilight Cloak"})
-    end
 end
 
 

@@ -227,7 +227,6 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {ammo="Sapience Orb",
-    body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','Pet: Damage taken -3%',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     feet="Jute Boots +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -530,7 +529,6 @@ sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Black Halo'], {
 
     sets.midcast.FastRecast = {
         ammo="Sapience Orb",
-    body="Taeon Tabard",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     feet="Jute Boots +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},

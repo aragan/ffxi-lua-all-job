@@ -85,7 +85,7 @@ function job_setup()
     -- Weaponskills you want Gavialis helm used with (only considered if use_gavialis = true)
     wsList = S{}
     -- Greatswords you use. 
-    gsList = S{'Ragnarok','Caladbolg','Nandaka','Foreshock Sword'}
+    gsList = S{'Ragnarok','Caladbolg','Nandaka','Foreshock Sword','Agwu\'s Claymore'}
     scytheList = S{'Apocalypse'}
     remaWeapons = S{'Apocalypse','Ragnarok','Nandaka'}
   
@@ -228,8 +228,9 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         left_ring="Kishar Ring",
         right_ring="Rahab Ring",
         back="Solemnity Cape",
-}
-  
+    }
+    sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
   
     
@@ -878,8 +879,8 @@ sets.precast.WS['Red Lotus Blade'].None = {}
         waist="Carrier's Sash",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Moonlight Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Moonlight Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 }
     sets.midcast['Dark Magic'] = {
@@ -960,6 +961,12 @@ sets.precast.WS['Red Lotus Blade'].None = {}
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Argocham. Mantle",
     }
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
+        head=empty,
+        body="Twilight Cloak",
+        ring2="Archon Ring",
+        waist="Shinjutsu-no-Obi +1",
+        })
     sets.magic_burst = set_combine(sets.midcast['Elemental Magic'], {
         head="Nyame Helm",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
@@ -1050,9 +1057,9 @@ sets.precast.WS['Red Lotus Blade'].None = {}
         right_ring="Moonlight Ring",
         back="Moonlight Cape",
     })
-    sets.Adoulin = {body="Councilor's Garb",}
-    sets.Kiting = {legs="Carmine Cuisses +1",}
-    sets.MoveSpeed = {legs="Carmine Cuisses +1",}
+    sets.Adoulin = {body="Councilor's Garb"}
+    sets.Kiting = {legs="Carmine Cuisses +1"}
+    sets.MoveSpeed = {legs="Carmine Cuisses +1"}
 
     sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
     sets.idle.Field.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
@@ -1214,8 +1221,8 @@ sets.defense.SEboost = {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Chirich Ring +1",
+    right_ring="Moonlight Ring",
+    left_ring="Chirich Ring +1",
     back="Annealed Mantle",
     }
     sets.engaged.Mid = {          
@@ -1229,8 +1236,8 @@ sets.defense.SEboost = {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Chirich Ring +1",
+    right_ring="Moonlight Ring",
+    left_ring="Chirich Ring +1",
     back="Annealed Mantle",}
   
     sets.engaged.STP = {
@@ -1399,8 +1406,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
-    leftring="Moonlight Ring",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
     back="Annealed Mantle",
 }
       
@@ -1415,8 +1422,8 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
-    left_ring="Moonlight Ring",
+    left_ring="Defending Ring",
+    right_ring="Moonlight Ring",
     back="Annealed Mantle",
 }       
 
@@ -1478,8 +1485,8 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Cessance Earring",
         right_ear="Dedition Earring",
-        left_ring="Moonlight Ring",
-        right_ring="Niqmaddu Ring",
+        right_ring="Moonlight Ring",
+        left_ring="Niqmaddu Ring",
         back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
     sets.engaged.Apocalypse.STP = {
@@ -1523,8 +1530,8 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Cessance Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Chirich Ring +1",
+    right_ring="Moonlight Ring",
+    left_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 }   
     sets.engaged.Apocalypse.CRIT = set_combine(sets.engaged, {
@@ -1708,6 +1715,9 @@ function job_precast(spell, action, spellMap, eventArgs)
             equip() 
         end
     end
+    if spell.name == 'Impact' then
+		equip(sets.precast.FC.Impact)
+	end
 end
   
   
@@ -1768,7 +1778,25 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = not spell.interrupted or buffactive[spell.english]
     end
-
+    if not spell.interrupted then
+        if spell.english == "Sleep" then
+            send_command('timers create "Sleep ' ..tostring(spell.target.name).. ' " 60 down spells/00235.png')
+        elseif spell.english == "Sleepga" then
+            send_command('timers create "Sleepga ' ..tostring(spell.target.name).. ' " 60 down spells/00273.png')
+        elseif spell.english == "Sleep II" then
+            send_command('timers create "Sleep II ' ..tostring(spell.target.name).. ' " 90 down spells/00259.png')
+        elseif spell.english == "Sleepga II" then
+            send_command('timers create "Sleepga II ' ..tostring(spell.target.name).. ' " 90 down spells/00274.png')
+        elseif spell.english == 'Impact' then
+                send_command('timers create "Impact ' ..tostring(spell.target.name).. ' " 180 down spells/00502.png')
+        elseif spell.english == "Bind" then
+            send_command('timers create "Bind" 60 down spells/00258.png')
+        elseif spell.english == "Break" then
+            send_command('timers create "Break Petrification" 33 down spells/00255.png')
+        elseif spell.english == "Breakga" then
+            send_command('timers create "Breakga Petrification" 33 down spells/00365.png') 
+        end
+    end
     check_weaponset()
 end
 function job_state_change(stateField, newValue, oldValue)
@@ -1797,7 +1825,6 @@ end
 function job_handle_equipping_gear(status, eventArgs)
     war_sj = player.sub_job == 'WAR' or false
     update_melee_groups()
-    job_self_command()
     update_combat_form()
     user_job_lockstyle()
 end
@@ -1850,12 +1877,7 @@ function customize_melee_set(meleeSet)
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
     end
-    if swordList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 152')
-    elseif gsList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 165')
-    end
-    --meleeSet = set_combine(meleeSet, select_earring())
+    
     check_weaponset()
 
     return meleeSet
@@ -2143,10 +2165,11 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
+    check_weaponset()
     get_combat_form()
-    handle_equipping_gear(player.status)
-
+    --handle_equipping_gear(player.status)
 end
+
 mov = {counter=0}
 if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
     mov.x = windower.ffxi.get_mob_by_index(player.index).x

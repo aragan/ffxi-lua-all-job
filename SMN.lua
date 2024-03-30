@@ -233,6 +233,8 @@ function init_gear_sets()
 		right_ring="Kishar Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     legs="Doyen Pants",
     left_ear="Mendi. Earring",
@@ -428,7 +430,13 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         left_ring="Stikini Ring +1",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Argocham. Mantle",
-}
+    }
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
+        head=empty,
+        body="Twilight Cloak",
+        ring2="Archon Ring",
+        waist="Shinjutsu-no-Obi +1",
+        })
     sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
 
     sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {
@@ -896,13 +904,21 @@ function job_precast(spell, action, spellMap, eventArgs)
         eventArgs.useMidcastGear = true
     end
 end
-
+function job_post_precast(spell, action, spellMap, eventArgs)
+    -- Make sure abilities using head gear don't swap 
+    if spell.name == 'Impact' then
+        equip(sets.precast.FC.Impact)
+    end
+end
 function job_midcast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
         eventArgs.useMidcastGear = true
     end
     if spell.type=="SummonerPact" then
        equip(sets.midcast.Summon)
+    end
+    if spell.name == 'Impact' then
+        equip(sets.midcast.Impact)
     end
 end
 

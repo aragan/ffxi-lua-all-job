@@ -198,17 +198,6 @@ function init_gear_sets()
     
     -- 80% Fast Cast (including trait) for all spells, plus 5% quick cast
     -- No other FC sets necessary.
-    
-	sets.precast['Impact'] = {
-		head=empty,
-		body="Twilight Cloak",
-		hands="Gendewitha Gages +1",
-		ring1="Prolix Ring",
-		ring2="Kishar Ring",
-        back="Swith Cape +1",
-		waist="Witful Belt",
-		legs="Psycloth Lappas",
-		feet="Carmine Greaves +1"}
 
 	sets.SIRD = {
 			ammo="Staunch Tathlum +1",
@@ -243,6 +232,8 @@ function init_gear_sets()
 		ring2="Kishar Ring",
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},	}
 		
+	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
      })
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -802,8 +793,7 @@ sets.TreasureHunter = {
         hands="Amalric Gages +1",
 		legs="Jhakri Slops +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-		neck="Sibyl Scarf",
-		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+        waist="Sacro Cord",
 		left_ear="Regal Earring",
 		right_ear="Regal Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -814,7 +804,7 @@ sets.TreasureHunter = {
 		head="C. Palug Crown",
 		body="Lethargy Sayon +3",
         hands="Amalric Gages +1",
-		legs="Jhakri Slops +2",
+		legs="Ea Slops",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
@@ -856,7 +846,15 @@ sets.TreasureHunter = {
 	
 	sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape",}
 	
-    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {head=empty,body="Twilight Cloak"})
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
+		head=empty,
+		body="Twilight Cloak",
+		neck={ name="Dls. Torque +2", augments={'Path: A',}},
+		right_ear="Snotra Earring",
+		left_ring="Stikini Ring +1",
+		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	})
 
     sets.midcast['Dark Magic'] = {
 		ammo="Regal Gem",
@@ -1364,12 +1362,18 @@ function job_precast(spell, action, spellMap, eventArgs)
 	if spell.english == 'Aeolian Edge' then
 		equip(sets.precast.WS['Aeolian Edge'])
 	end
-	
-	if spell.english == "Impact" then
-		sets.precast.FC = sets.precast['Impact']
-    end
 end
 function job_post_precast(spell, action, spellMap, eventArgs)
+	if spell.name == 'Impact' then
+		equip(sets.precast.FC.Impact)
+	end
+	if spell.type:lower() == 'weaponskill' then
+		-- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
+		if state.CapacityMode.value then
+			equip(sets.CapacityMantle)
+		end
+	end
+
     if spell.type:lower() == 'weaponskill' then
 		if player.tp == 3000 then  -- Replace Moonshade Earring if we're at cap TP
             equip({left_ear="Ishvara Earring"})

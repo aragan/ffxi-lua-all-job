@@ -1599,6 +1599,7 @@ function job_update(cmdParams, eventArgs)
     --end
     --handle_equipping_gear(player.status)
     check_moving()
+    check_weaponset()
 end
 
 function determine_haste_group()

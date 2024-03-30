@@ -192,7 +192,7 @@ function init_gear_sets()
     sets.precast.JA.Seigan = {head="Kasuga Kabuto +2"}
     sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +1"}
     sets.precast.JA['Third Eye'] = {legs="Sakonji Haidate +3"}
-    --sets.precast.JA['Blade Bash'] = {hands="Saotome Kote +2"}
+    sets.precast.JA['Blade Bash'] = {hands="Saotome Kote +3"}
    
     sets.precast.FC = {
         ear1="Etiolation Earring",

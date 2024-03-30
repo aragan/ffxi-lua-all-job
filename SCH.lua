@@ -817,8 +817,11 @@ function init_gear_sets()
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
         head=empty,
         body="Twilight Cloak",
-        ring2="Archon Ring",
+        right_ring="Archon Ring",
+        left_ring="Stikini Ring +1",
         waist="Shinjutsu-no-Obi +1",
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+
         })
 
     sets.midcast.Helix = set_combine(sets.midcast['Elemental Magic'], {
@@ -1213,6 +1216,14 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             send_command('@timers c "Sleep ['..spell.target.name..']" 60 down spells/00253.png')
         elseif spell.english == "Break" then
             send_command('@timers c "Break ['..spell.target.name..']" 30 down spells/00255.png')
+        elseif spell.english == 'Impact' then
+            send_command('timers create "Impact ' ..tostring(spell.target.name).. ' " 180 down spells/00502.png')
+        elseif spell.english == "Bind" then
+            send_command('timers create "Bind" 60 down spells/00258.png')
+        elseif spell.english == "Break" then
+            send_command('timers create "Break Petrification" 33 down spells/00255.png')
+        elseif spell.english == "Breakga" then
+            send_command('timers create "Breakga Petrification" 33 down spells/00365.png') 
         end
     end
 end
