@@ -1131,7 +1131,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if buffactive['Mana Wall'] then
+	if state.HippoMode.value == "Hippo" then
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)

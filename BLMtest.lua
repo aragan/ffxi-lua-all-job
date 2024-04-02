@@ -24,6 +24,7 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     send_command('wait 2;input /lockstyleset 174')
+    state.BrachyuraEarring = M(true,false)
 
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -37,7 +38,7 @@ end
 function user_setup()
     state.OffenseMode:options('None','Normal','TP', 'Locked')
     state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.Enfeebling = M('None', 'Effect')
@@ -75,10 +76,10 @@ function user_setup()
     }
     send_command('bind f4 @input /ja "Sublimation" <me>')
     send_command('bind f3 input //Sublimator')
-	send_command('bind f10 gs c cycle IdleMode')
+	--send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
 	send_command('bind ^f11 gs c cycle Enfeebling')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind ^= gs c cycle treasuremode')
@@ -87,6 +88,7 @@ function user_setup()
     --send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f7 gs c cycle StaffMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
 
     select_default_macro_book()
 end
@@ -95,7 +97,7 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind @`')
-	send_command('unbind f10')
+	--send_command('unbind f10')
 	send_command('unbind ^`f11')
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
@@ -182,10 +184,6 @@ function init_gear_sets()
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
-
-
-	sets.precast['Impact'] = set_combine(sets.precast.FC, {
-	})
 	
 	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {
 	})
@@ -649,7 +647,7 @@ function init_gear_sets()
         back=empty,
     })
  
-    sets.midcast['Impact'] = {
+    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
 		head=empty,
         body="Twilight Cloak",
         hands="Amalric Gages +1",
@@ -661,7 +659,7 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring2="Kishar Ring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},}
+		back="Taranus's Cape",    })
 	
 	sets.midcast['Comet'] = set_combine(sets.midcast['Elemental Magic'], {
 		main="Marin Staff +1",
@@ -793,6 +791,70 @@ function init_gear_sets()
     right_ring="Shadow Ring",
     back="Moonlight Cape",
 	}
+    sets.idle.MDT = {
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm +1",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Shadow Ring",
+        back="Moonlight Cape",
+    }
+
+    sets.idle.MB={
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Pixie Hairpin +1",
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Wicce Chausses +3",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Sanctity Necklace",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Evans Earring",
+        left_ring="Mephitas's Ring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.idle.HB={
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
+
+    sets.idle.DT={
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+    }
+
     sets.idle.Town = {
         feet="Herald's Gaiters",left_ear="Infused Earring",
         right_ring="Stikini Ring +1",}
@@ -815,17 +877,17 @@ function init_gear_sets()
         main="Malignance Pole",
         sub="Alber Strap",
         ammo="Staunch Tathlum +1",
-        body="Shamash Robe",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Warder's Charm +1",
-        waist="Carrier's Sash",
-        left_ear="Eabani Earring",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
         right_ear="Ethereal Earring",
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        right_ring="Shadow Ring",
+        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
  
@@ -863,7 +925,7 @@ function init_gear_sets()
     sets.buff['Mana Wall'] = {
 		main="Malignance Pole",
 		sub="Alber Strap",
-		ammo="Amar Cluster",
+        ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
 		body="Nyame Mail",
 		hands="Nyame Gauntlets",
@@ -877,6 +939,7 @@ function init_gear_sets()
 		right_ring="Shadow Ring",
 		back="Taranus's Cape",
 	}
+    
 	
 	sets.midcast.Cure = {
 	ammo="Sapience Orb",
@@ -1029,10 +1092,6 @@ function job_midcast(spell, action, spellMap, eventArgs)
     if spell.english == 'Death' then
         equip(sets.midcast['Death'])
 	end
-	
-	if spell.english == "Impact" then
-        equip({head=empty,body="Twilight Cloak"})
-    end
 end
 
 
@@ -1202,7 +1261,9 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if buffactive['Mana Wall'] then
+    if state.HippoMode.value == "Hippo" then
+        moving = false
+	elseif buffactive['Mana Wall'] then
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)
@@ -1256,6 +1317,12 @@ function job_buff_change(buff, gain)
     if buff == "Mana Wall" and not gain then
         enable('feet','back')
         handle_equipping_gear(player.status)
+    end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
     end
     if buff == "doom" then
         if gain then
@@ -1384,6 +1451,13 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
 end
 

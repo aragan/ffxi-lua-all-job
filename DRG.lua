@@ -810,11 +810,9 @@ sets.precast.JA.Jump = {
         sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
             body="Dagon Breast.",
             hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
             left_ear={ name="Schere Earring", augments={'Path: A',}},
-            right_ear="Boii Earring +1",
             left_ring="Chirich Ring +1",
-            right_ring="Chirich Ring +1",
+            right_ring="Niqmaddu Ring",
         })
 ---------------------------------------- DW-HASTE ------------------------------------------
 sets.DW =  {

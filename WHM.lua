@@ -371,8 +371,7 @@ function init_gear_sets()
         right_ear="Brutal Earring",
         left_ear="Regal Earring",
     })
-    sets.precast.WS['True Strike'] = set_combine(sets.precast.WS['Hexa Strik'],{
-    })
+    sets.precast.WS['True Strike'] = set_combine(sets.precast.WS['Hexa Strik'],{})
     sets.precast.WS['True Strike'].PDL = set_combine(sets.precast.WS['True Strike'], {
         ammo="Crepuscular Pebble",
         body={ name="Bunzi's Robe", augments={'Path: A',}},
@@ -431,18 +430,8 @@ function init_gear_sets()
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back="Solemnity Cape",}
     
-    sets.Duration = {
-        sub="Ammurapi Shield",
-        head="Telchine Cap",
-        body="Telchine Chas.",
-        hands="Telchine Gloves",
-        legs="Telchine Braconi",
-        feet="Theo. Duckbills +3",
-        waist="Embla Sash",
-    }
     -- Cure sets
     sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape"}
-    
 
     sets.midcast.CureSolace = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -468,7 +457,7 @@ function init_gear_sets()
         feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         left_ring="Mephitas's Ring +1",
-})
+    })
 
     sets.midcast.CureSolace.ConserveMP = set_combine(sets.midcast.CureSolace, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -534,7 +523,7 @@ function init_gear_sets()
         left_ring="Mephitas's Ring +1",
         right_ring="Defending Ring",
         back="Alaunus's Cape",
-})
+    })
 
     sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure, {    main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
@@ -583,7 +572,7 @@ function init_gear_sets()
     left_ring="Naji's Loop",
     right_ring="Mephitas's Ring",
     back="Alaunus's Cape",
-}
+    }
 
     sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Curaga, {
     main="Daybreak",
@@ -601,7 +590,6 @@ function init_gear_sets()
     left_ring="Mephitas's Ring +1",
     right_ring="Defending Ring",
     back="Alaunus's Cape",
-
     })
 
     sets.midcast.Curaga.ConserveMP = set_combine(sets.midcast.Curaga, {   
@@ -685,6 +673,16 @@ function init_gear_sets()
         back="Alaunus's Cape",    }
         sets.midcast.StatusRemoval.SIRD = set_combine(sets.midcast.StatusRemoval,sets.SIRD) 
 
+    sets.Duration = {
+        sub="Ammurapi Shield",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Theo. Duckbills +3",
+        waist="Embla Sash",
+    }
+
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
     main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -698,7 +696,6 @@ function init_gear_sets()
     neck="Incanter's Torque",
     waist="Olympus Sash",
     left_ear="Andoaa Earring",
-    right_ear="Gifted Earring",
     right_ring="Stikini Ring",
     left_ring="Stikini Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
@@ -769,8 +766,20 @@ function init_gear_sets()
     sets.midcast.Haste = set_combine(sets.midcast['Enhancing Magic'])
     sets.midcast.Haste.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
 
-    sets.midcast.Auspice = sets.midcast['Enhancing Magic']
-    sets.midcast.Auspice.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
+    sets.midcast.Auspice = set_combine(sets.midcast['Enhancing Magic'], {feet="Ebers Duckbills +1"})
+    sets.midcast.Auspice.Duration = set_combine(sets.midcast['Enhancing Magic'].Duration, {
+        ammo="Pemphredo Tathlum",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Ebers Duckbills +2",
+        neck="Incanter's Torque",
+        left_ear="Andoaa Earring",
+        right_ring="Stikini Ring",
+        left_ring="Stikini Ring",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+}) 
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
     main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
@@ -1575,14 +1584,7 @@ end
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
         if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-        if not midaction() then
-            job_update()
+
         end
     end
 end
@@ -1628,7 +1630,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if buffactive['Mana Wall'] then
+	if state.HippoMode.value == "Hippo" then
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)

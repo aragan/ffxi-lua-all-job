@@ -76,10 +76,10 @@ function user_setup()
     }
     send_command('bind f4 @input /ja "Sublimation" <me>')
     send_command('bind f3 input //Sublimator')
-	send_command('bind f10 gs c cycle IdleMode')
+	--send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
 	send_command('bind ^f11 gs c cycle Enfeebling')
-    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind !w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind ^= gs c cycle treasuremode')
@@ -97,7 +97,7 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind @`')
-	send_command('unbind f10')
+	--send_command('unbind f10')
 	send_command('unbind ^`f11')
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
@@ -791,6 +791,21 @@ function init_gear_sets()
     right_ring="Shadow Ring",
     back="Moonlight Cape",
 	}
+    sets.idle.MDT = {
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm +1",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Shadow Ring",
+        back="Moonlight Cape",
+        }
     sets.idle.Town = {
         feet="Herald's Gaiters",left_ear="Infused Earring",
         right_ring="Stikini Ring +1",}
@@ -813,17 +828,17 @@ function init_gear_sets()
         main="Malignance Pole",
         sub="Alber Strap",
         ammo="Staunch Tathlum +1",
-        body="Shamash Robe",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Warder's Charm +1",
-        waist="Carrier's Sash",
-        left_ear="Eabani Earring",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
         right_ear="Ethereal Earring",
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        right_ring="Shadow Ring",
+        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
  
@@ -859,22 +874,23 @@ function init_gear_sets()
     -- Mana Wall idle set
 
     sets.buff['Mana Wall'] = {
-		main="Malignance Pole",
-		sub="Alber Strap",
-		ammo="Amar Cluster",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Wicce Sabots +2",
-		neck="Warder's Charm +1",
-		waist="Carrier's Sash",
-		left_ear="Eabani Earring",
-		right_ear="Ethereal Earring",
-		left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-		right_ring="Shadow Ring",
+        main="Malignance Pole",
+        sub="Alber Strap",
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet="Wicce Sabots +2",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Stikini Ring +1",
 		back="Taranus's Cape",
 	}
+
 	
 	sets.midcast.Cure = {
 	ammo="Sapience Orb",
@@ -1196,8 +1212,10 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if buffactive['Mana Wall'] then
+	elseif buffactive['Mana Wall'] then
 		moving = false
+    elseif state.HippoMode.value == "Hippo" then
+        moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)
         if pl and pl.x and mov.x then
