@@ -179,7 +179,7 @@ function user_setup()
     send_command("bind PAGEDOWN gs c hide keybinds")
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
-    send_command('wait 2;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 179')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f1 gs c cycle HippoMode')
 
@@ -229,6 +229,7 @@ end
 function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
+    send_command('wait 2;input /lockstyleset 150')
     state.Moving  = M(false, "moving")
     sub_job_change()
 end

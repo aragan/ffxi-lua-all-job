@@ -86,6 +86,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
+    state.BrachyuraEarring = M(true,false)
     send_command('wait 6;input /lockstyleset 168')
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
@@ -189,6 +190,7 @@ function user_setup()
     send_command('bind !f4 gs c Threnody')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind @` gs c cycle LullabyMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
 
     select_default_macro_book()
     update_combat_form()
@@ -1133,6 +1135,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     check_weaponset()
 end
 function job_buff_change(buff,gain)
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1269,7 +1277,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 end
 

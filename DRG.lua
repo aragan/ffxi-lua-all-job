@@ -59,8 +59,9 @@ function job_setup()
 
     include('Mote-TreasureHunter')
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.BrachyuraEarring = M(true,false)
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 2;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
     swordList = S{"Naegling", "Sangarius +1", "Malevolence", "Demers. Degen +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
@@ -84,7 +85,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
 	-- Options: Override default values
-	state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT')
+	state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT', 'SubtleBlow')
 	state.IdleMode:options('Normal', 'Sphere')
 	state.HybridMode:options('Normal', 'DT', 'Reraise')
 	state.WeaponskillMode:options('Normal', 'SC', 'PDL')
@@ -101,7 +102,8 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
-    send_command('wait 2;input /lockstyleset 152')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('wait 6;input /lockstyleset 152')
 	select_default_macro_book()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -805,6 +807,15 @@ sets.precast.JA.Jump = {
         right_ring="Hetairoi Ring",
         back="Annealed Mantle",    })
 
+        sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+            body="Dagon Breast.",
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear={ name="Schere Earring", augments={'Path: A',}},
+            right_ear="Boii Earring +1",
+            left_ring="Chirich Ring +1",
+            right_ring="Chirich Ring +1",
+        })
 ---------------------------------------- DW-HASTE ------------------------------------------
 sets.DW =  {
     left_ear="Suppanomimi",  --5
@@ -816,6 +827,7 @@ sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, sets.DW)
 sets.engaged.DW.STP = set_combine(sets.engaged.STP, sets.DW)
 sets.engaged.DW.DA = set_combine(sets.engaged.DA, sets.DW)
 sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, sets.DW)
+sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.SubtleBlow, sets.DW)
 
 
 
@@ -836,12 +848,14 @@ sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 --sets.engaged.DA.DT = set_combine(sets.engaged.DA, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
+sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
 
 sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 --sets.engaged.DW.DA.DT = set_combine(sets.engaged.DW.DA, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
+sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid)
 
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
@@ -870,6 +884,7 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     })
 
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.PDT)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.PDT)
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		
     head="Crepuscular Helm",
@@ -1028,6 +1043,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 
 end
@@ -1090,6 +1112,12 @@ function job_buff_change(buff, gain)
             send_command('input /p "Ancient Circle" [ON]')		
         else	
             send_command('input /p "Ancient Circle" [OFF]')
+        end
+    end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
         end
     end
     if buff == "doom" then

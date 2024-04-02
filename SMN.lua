@@ -88,7 +88,7 @@ function job_setup()
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    send_command('wait 6;input /lockstyleset 174')
+    send_command('wait 2;input /lockstyleset 174')
 
     spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
     avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
@@ -172,7 +172,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     gear.perp_staff = {name=""}
-    send_command('wait 2;input /lockstyleset 174')
+    send_command('wait 6;input /lockstyleset 174')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^/ gs disable all')

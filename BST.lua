@@ -128,7 +128,7 @@ function job_setup()
 
 	send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
-	send_command('wait 6;input /lockstyleset 147')
+	send_command('wait 2;input /lockstyleset 147')
 
 	get_combat_form()
 end
@@ -144,7 +144,7 @@ function user_setup()
         state.MagicalDefenseMode:options('PetMDT', 'MDTShell', 'MDT', 'Petregen')
 		--send_command('lua l PetCharges')
 		--send_command('lua l mob')
-        send_command('wait 2;input /lockstyleset 147')
+        send_command('wait 6;input /lockstyleset 147')
 
 		state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'AXE', 'SCYTHE', 'DAGGERS', 'CLUB',}
 		state.Weaponshield = M{['description']='Weapon Set', 'normal', 'SACRO',}

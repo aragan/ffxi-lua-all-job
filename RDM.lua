@@ -66,8 +66,9 @@ function job_setup()
     state.Buff.Saboteur = buffactive.Saboteur or false
     state.Buff.Stymie = buffactive.Stymie or false
 	state.AutoEquipBurst = M(true)
+    state.BrachyuraEarring = M(true,false)
 
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 2;input /lockstyleset 152')
 	state.WeaponLock = M(false, 'Weapon Lock')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
@@ -128,8 +129,9 @@ function user_setup()
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind @a gs c toggle NM')
     send_command('bind @s gs c cycle SleepMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
 
-	send_command('wait 2;input /lockstyleset 152')
+	send_command('wait 6;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
     -- 'Out of Range' distance; WS will auto-cancel
@@ -1497,7 +1499,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
 	check_weaponset()
 end
 
@@ -1524,6 +1532,12 @@ function job_buff_change(buff, gain)
             send_command('input /p "Saboteur" [ON]')		
         else	
             send_command('input /p "Saboteur" [OFF]')
+        end
+    end
+	if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
         end
     end
 	if buff == "doom" then

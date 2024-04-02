@@ -69,9 +69,10 @@ function job_setup()
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.BrachyuraEarring = M(true,false)
     state.Runes = M{['description']='Runes', "Ignis", "Gelus", "Flabra", "Tellus", "Sulpor", "Unda", "Lux", "Tenebrae"}
     state.UseRune = M(false, 'Use Rune')
-    send_command('wait 6;input /lockstyleset 164')
+    send_command('wait 2;input /lockstyleset 164')
     include('Mote-TreasureHunter')
 
     -- For th_action_check():
@@ -110,12 +111,13 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
-    send_command('wait 2;input /lockstyleset 164')
+    send_command('wait 6;input /lockstyleset 164')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c toggle UseRune')
+    send_command('bind delete gs c toggle BrachyuraEarring')
     select_default_macro_book()
     Panacea = T{
         'Bind',
@@ -1123,6 +1125,12 @@ function job_buff_change(buff, gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1452,14 +1460,18 @@ function job_state_change(stateField, newValue, oldValue)
         send_command('input //gs equip sets.Warp;@wait 10.0;input /item "Warp Ring" <me>;')
     end
     
-
-
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
     end
-
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 
 end

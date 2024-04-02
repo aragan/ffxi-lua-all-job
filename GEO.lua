@@ -20,7 +20,8 @@ function job_setup()
     indi_duration = 180
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 178')
+    state.BrachyuraEarring = M(true,false)
+    send_command('wait 2;input /lockstyleset 178')
 
 end
 
@@ -48,11 +49,13 @@ function user_setup()
     select_default_macro_book()
     --send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 178')
+    send_command('wait 6;input /lockstyleset 178')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+
 end
 
 function file_unload()
@@ -899,6 +902,12 @@ function job_buff_change(buff, gain)
         classes.CustomIdleGroups:clear()
         handle_equipping_gear(player.status)
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "Bolster" then
         if gain then  			
             send_command('input /p "Bolster" [ON]')		
@@ -1023,17 +1032,17 @@ function job_buff_change(buff, gain)
 end
 
 function job_state_change(stateField, newValue, oldValue)
-    if stateField == 'Offense Mode' then
-        if newValue == 'Normal' then
-            disable('main','sub','range')
-        else
-            enable('main','sub','range')
-        end
-    end
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
 end
 

@@ -65,7 +65,9 @@ function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Moving  = M(false, "moving")
-    send_command('wait 6;input /lockstyleset 178')
+    state.BrachyuraEarring = M(true,false)
+
+    send_command('wait 2;input /lockstyleset 178')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -97,7 +99,7 @@ function user_setup()
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('wait 2;input /lockstyleset 178')
+    send_command('wait 6;input /lockstyleset 178')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f2 gs c cycle BoostSpell')
     send_command('bind !f2 gs c BoostSpell')
@@ -105,6 +107,7 @@ function user_setup()
     send_command('bind !f3 gs c BarElement')
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind !f4 gs c BarStatus')
+    send_command('bind delete gs c toggle BrachyuraEarring')
 
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -1344,6 +1347,12 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.Doom)
@@ -1467,17 +1476,17 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
-    if stateField == 'Offense Mode' then
-        if newValue == 'Normal' then
-            disable('main','sub','range')
-        else
-            enable('main','sub','range')
-        end
-    end
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
     handle_equipping_gear(player.status)
 end

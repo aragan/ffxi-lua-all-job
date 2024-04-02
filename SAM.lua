@@ -89,8 +89,9 @@ function job_setup()
     get_combat_form()
     --get_combat_weapon()
     update_melee_groups()
-    send_command('wait 6;input /lockstyleset 172')
+    send_command('wait 2;input /lockstyleset 172')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
+    state.BrachyuraEarring = M(true,false)
 
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')
     -- list of weaponskills that make better use of otomi helm in low acc situations
@@ -141,7 +142,8 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind ^; gs enable all')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('wait 2;input /lockstyleset 172')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('wait 6;input /lockstyleset 172')
     select_default_macro_book()
 end
 
@@ -913,29 +915,29 @@ function init_gear_sets()
         back="Takaha Mantle",
          })
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
-        body="Flamma Korazin +2",
-        hands="Kobo Kote",
+        body="Dagon Breast.",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
+        right_ring="Niqmaddu Ring",
     })
 
     sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {        
-        body="Flamma Korazin +2",
-        hands="Kobo Kote",
+        body="Dagon Breast.",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
+        right_ring="Niqmaddu Ring",
     })
     sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.MaxAcc, {        
-        body="Flamma Korazin +2",
-        hands="Kobo Kote",
+        body="Dagon Breast.",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
+        right_ring="Niqmaddu Ring",
     })
          sets.engaged.Range = {
             head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
@@ -1002,6 +1004,7 @@ function init_gear_sets()
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,sets.engaged.Hybrid)
     sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.MaxAcc,sets.engaged.Hybrid)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
 
     sets.engaged.STP = {range=empty,
         ammo="Aurgelmir Orb +1",
@@ -1238,6 +1241,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1249,7 +1259,9 @@ end
 -------------------------------------------------------------------------------------------------------------------
 function job_status_change(newStatus, oldStatus, eventArgs)
     if newStatus == 'Engaged' then
-        if player.inventory['Eminent Arrow'] then
+        if not buffactive['hasso '] then
+            send_command('@input /ja "hasso " <me>')
+        elseif player.inventory['Eminent Arrow'] then
             gear.RAarrow.name = 'Eminent Arrow'
         elseif player.inventory['Eminent Arrow'] then
             gear.RAarrow.name = 'Eminent Arrow'
@@ -1267,6 +1279,17 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
     	state.Buff[buff] = gain
         handle_equipping_gear(player.status)
+    end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
+    if not buffactive.hasso then
+        if player.status == 'Engaged' then
+            send_command('@wait 0.2;input /ja "hasso" <me>')
+        end
     end
     if S{'aftermath'}:contains(buff:lower()) then
         classes.CustomMeleeGroups:clear()

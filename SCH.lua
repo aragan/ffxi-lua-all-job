@@ -121,6 +121,7 @@ function job_setup()
     state.StormSurge = M(false, 'Stormsurge')
     state.Moving  = M(false, "moving")
     state.AutoEquipBurst = M(true)
+    state.BrachyuraEarring = M(true,false)
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -145,6 +146,7 @@ function job_setup()
     "Aurorastorm II", "Voidstorm II", "Firestorm II", "Sandstorm II", "Rainstorm II", "Windstorm II", "Hailstorm II", "Thunderstorm II"}
    
     update_active_strategems()
+    send_command('wait 2;input /lockstyleset 174')
 
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II'}
@@ -164,6 +166,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT', 'Resist','BoostMB', 'vagary')
     state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
 
+    send_command('wait 6;input /lockstyleset 174')
 
     -- Additional local binds
     --send_command('bind f4 @input /ja "Sublimation" <me>')
@@ -195,6 +198,7 @@ function user_setup()
     send_command('bind f4 gs c cycle Storms')
     send_command('bind f3 gs c cycleback Storms')
     send_command('bind f2 input //gs c Storms')
+    send_command('bind delete gs c toggle BrachyuraEarring')
 
     select_default_macro_book()
     set_lockstyle()
@@ -1240,6 +1244,12 @@ function job_buff_change(buff, gain)
     if buff == "Sublimation: Activated" then
         handle_equipping_gear(player.status)
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "Tabula Rasa" then
         if gain then
             send_command('@input /p Tabula Rasa [ON]')
@@ -1380,6 +1390,13 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
 end
 
@@ -1742,7 +1759,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 2;input /lockstyleset 174')
+        send_command('wait 6;input /lockstyleset 174')
     end
 end
 

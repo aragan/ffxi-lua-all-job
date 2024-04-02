@@ -59,8 +59,9 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Knockback = M(false, 'Knockback')
+    state.BrachyuraEarring = M(true,false)
 
-    send_command('wait 6;input /lockstyleset 165')
+    send_command('wait 2;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
@@ -120,7 +121,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'SIRD') 
     state.IdleMode:options('Normal', 'PDH', 'PDT', "EnemyCritRate", "Resist", 'Regen', 'Refresh')
-    send_command('wait 2;input /lockstyleset 165')
+    send_command('wait 6;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind ^- gs enable all')
@@ -130,6 +131,8 @@ function user_setup()
     send_command('bind f2 input //gs c rune')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+
     state.Moving  = M(false, "moving")
 
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -869,6 +872,12 @@ function job_aftercast(spell)
     end
 end
 function job_buff_change(buff,gain)
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "terror" then
         if gain then
             equip(sets.defense.PDT)
@@ -1157,7 +1166,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
- 
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 
 end

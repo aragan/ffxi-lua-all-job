@@ -74,7 +74,7 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
-    send_command('wait 6;input /lockstyleset 150')
+    send_command('wait 2;input /lockstyleset 150')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Nexus Cape", "Airmid's Gorget",}
     
@@ -132,7 +132,7 @@ function user_setup()
     --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
-    send_command('wait 2;input /lockstyleset 150')
+    send_command('wait 6;input /lockstyleset 150')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')

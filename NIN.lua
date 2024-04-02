@@ -68,6 +68,7 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.Buff.Innin = buffactive.innin or false
     state.Buff.Yonin = buffactive.Yonin or false
+    state.BrachyuraEarring = M(true,false)
 
 
 
@@ -77,7 +78,7 @@ function job_setup()
     state.UseWarp = M(false, 'Use Warp')
     state.Adoulin = M(false, 'Adoulin')
     state.Moving  = M(false, "moving")
-    send_command('wait 6;input /lockstyleset 144')
+    send_command('wait 2;input /lockstyleset 144')
     run_sj = player.sub_job == 'RUN' or false
     elemental_ws = S{"Aeolian Edge", "Blade: Teki", "Blade: To", "Blade: Chi", "Blade: Ei", "Blade: Yu"}
 
@@ -131,9 +132,10 @@ function user_setup()
     send_command('bind f2 input //gs c toggle UseRune')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
-    send_command('wait 2;input /lockstyleset 144')
+    send_command('wait 6;input /lockstyleset 144')
     -- send_command('bind !- gs equip sets.crafting')
     select_default_macro_book()
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -1584,6 +1586,12 @@ function job_buff_change(buff, gain)
     if buff == "Migawari" and not gain then
         add_to_chat(123, "*** MIGAWARI DOWN ***")
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1902,6 +1910,13 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     if stateField == 'Capacity Point Mantle' then
         gear.Back = newValue
     elseif stateField == 'Proc' then

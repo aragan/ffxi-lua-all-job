@@ -30,10 +30,11 @@ function job_setup()
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 2;input /lockstyleset 152')
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.BrachyuraEarring = M(true,false)
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     blue_magic_maps = {}
@@ -226,9 +227,10 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smouldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .6;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;')
-    send_command('wait 2;input /lockstyleset 152')
+    send_command('wait 6;input /lockstyleset 152')
     send_command('bind f4 input //fillmode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
@@ -1722,6 +1724,12 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         state.Buff[buff] = gain
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1884,7 +1892,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 end
 function check_weaponset()

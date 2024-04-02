@@ -88,6 +88,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.BrachyuraEarring = M(true,false)
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep', 'Feather Step', 'Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Quickstep', 'Feather Step', 'Stutter Step', 'Box Step'}
@@ -131,7 +132,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT', 'SubtleBlow')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
     state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity', 'HP')
@@ -158,6 +159,8 @@ function user_setup()
     send_command('bind !- gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+
     --send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
@@ -869,7 +872,10 @@ sets.engaged.CRIT = {
     right_ring="Defending Ring",
     back="Moonlight Cape",
  }
-
+ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
+ left_ear="Sherida Earring",    
+ left_ring="Chirich Ring +1",
+ })
  ------------------------------------------------------------------------------------------------
     ---------------------------------------- DW ------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -936,7 +942,10 @@ sets.engaged.DW.CRIT = {
     right_ring="Gere Ring",
     back="Bleating Mantle",
  }
-
+ sets.engaged.DW.SubtleBlow = set_combine(sets.engaged, { 
+    left_ear="Sherida Earring",    
+    left_ring="Chirich Ring +1",
+ })
     ------------------------------------------------------------------------------------------------
       ---------------------------------------- DW-HASTE ------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -968,7 +977,20 @@ sets.engaged.DW.CRIT = {
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     }) -- 30%
-
+    sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
+        head="Maxixi Tiara +3", --8
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+        left_ear="Suppanomimi",  --5
+        right_ear="Eabani Earring", --4
+        waist="Reiki Yotai", --7
+    }) -- 30%
+    sets.engaged.DW.SubtleBlow.LowHaste = set_combine(sets.engaged.DW.SubtleBlow, {
+        head="Maxixi Tiara +3", --8
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+        left_ear="Suppanomimi",  --5
+        right_ear="Sherida Earring",
+        waist="Reiki Yotai", --7
+    }) -- 30%
     -- 30% Magic Haste (56% DW to cap)
 
     sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
@@ -995,12 +1017,19 @@ sets.engaged.DW.CRIT = {
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 24%
+    sets.engaged.DW.SubtleBlow.MidHaste = set_combine(sets.engaged.DW, {
+        head="Maxixi Tiara +3", --8
+        left_ear="Suppanomimi",  --5
+        right_ear="Sherida Earring",
+        waist="Reiki Yotai", --7
+    })-- 24%
 
 
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW)
     sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.Acc)
     sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)
     sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)
+    sets.engaged.DW.SubtleBlow.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow)
 
 
     sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW)
@@ -1012,6 +1041,7 @@ sets.engaged.DW.CRIT = {
         left_ear="Suppanomimi",  --5
     })-- 5%
     sets.engaged.DW.CRIT.HighHaste = set_combine(sets.engaged.DW.CRIT)
+    sets.engaged.DW.SubtleBlow.HighHaste = set_combine(sets.engaged.DW.SubtleBlow)
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -1028,16 +1058,19 @@ sets.engaged.DW.CRIT = {
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
     sets.engaged.STP.PDT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT.LowHaste = set_combine(sets.engaged.DW.SubtleBlow.LowHaste, sets.engaged.Hybrid)
 
     sets.engaged.DW.PDT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid, {
         left_ear="Suppanomimi",  --5
@@ -1055,108 +1088,33 @@ sets.engaged.DW.CRIT = {
     sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow.MaxHaste, sets.engaged.Hybrid)
 
-    --SubtleBlow 50% set
+    --SubtleBlow 55% set
 
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {  
-        ammo="Staunch Tathlum +1",  
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck="Loricate Torque +1",     
+        right_ear="Sherida Earring",    
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
     })
     sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {   
-        ammo="Staunch Tathlum +1",  
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1",     
+        right_ear="Sherida Earring",    
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Moonlight Cape",
     })
     sets.engaged.CRIT.SubtleBlow = set_combine(sets.engaged.CRIT, { 
-        ammo="Staunch Tathlum +1",  
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1",     
+        right_ear="Sherida Earring",    
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Moonlight Cape",
     })
     sets.engaged.STP.SubtleBlow = set_combine(sets.engaged.STP, {  
-        ammo="Staunch Tathlum +1",  
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1",     
+        right_ear="Sherida Earring",    
         left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Moonlight Cape",
-    })
-    --SubtleBlow 75% set
-
-    sets.engaged.SubtleBlow75 = set_combine(sets.engaged, { 
-        ammo="Staunch Tathlum +1",         
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1", 
-        waist="Sarissapho. Belt",
-        left_ear="Sherida Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Sokolski Mantle",
     })
 
-    sets.engaged.Acc.SubtleBlow75 = set_combine(sets.engaged.Acc, {        
-        ammo="Staunch Tathlum +1",         
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1", 
-        waist="Sarissapho. Belt",
-        left_ear="Sherida Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Sokolski Mantle",
-    })
-    sets.engaged.CRIT.SubtleBlow75 = set_combine(sets.engaged.CRIT, {        
-        ammo="Staunch Tathlum +1",         
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1", 
-        waist="Sarissapho. Belt",
-        left_ear="Sherida Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Sokolski Mantle",
-    })
-    sets.engaged.STP.SubtleBlow75 = set_combine(sets.engaged.STP, {        
-        ammo="Staunch Tathlum +1",         
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body="Malignance Tabard",
-        legs="Malignance Tights",
-        neck="Loricate Torque +1", 
-        waist="Sarissapho. Belt",
-        left_ear="Sherida Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Sokolski Mantle",
-    })
 
     sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.DW, sets.engaged.SubtleBlow)
     sets.engaged.DW.Acc.SubtleBlow = set_combine(sets.engaged.DW.Acc, sets.engaged.SubtleBlow)
     sets.engaged.DW.CRIT.SubtleBlow = set_combine(sets.engaged.DW.CRIT, sets.engaged.SubtleBlow)
     sets.engaged.DW.STP.SubtleBlow = set_combine(sets.engaged.DW.STP, sets.engaged.SubtleBlow)
 
-    sets.engaged.DW.SubtleBlow75 = set_combine(sets.engaged.DW, sets.engaged.SubtleBlow75)
-    sets.engaged.DW.Acc.SubtleBlow75 = set_combine(sets.engaged.DW.Acc, sets.engaged.SubtleBlow75)
-    sets.engaged.DW.CRIT.SubtleBlow75 = set_combine(sets.engaged.DW.CRIT, sets.engaged.SubtleBlow75)
-    sets.engaged.DW.STP.SubtleBlow75 = set_combine(sets.engaged.DW.STP, sets.engaged.SubtleBlow75)
 
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Special Sets ------------------------------------------
@@ -1283,6 +1241,12 @@ end
 function job_buff_change(buff,gain)
     if buff == 'Saber Dance' or buff == 'Climactic Flourish' or buff == 'Fan Dance' then
         handle_equipping_gear(player.status)
+    end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
     end
     if buff == "doom" then
         if gain then
@@ -1428,7 +1392,13 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
+    end
     check_weaponset()
 end
 function check_weaponset()

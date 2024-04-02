@@ -95,11 +95,12 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Moving  = M(false, "moving")
     state.RP = M(false, "Reinforcement Points Mode")  
-    state.CapacityMode = M(false, 'Capacity Point Mantle')  
+    state.CapacityMode = M(false, 'Capacity Point Mantle') 
+    state.BrachyuraEarring = M(true,false)
+
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
     include('Mote-TreasureHunter')
-    send_command('wait 6;input /lockstyleset 151')
     define_roll_values()
     send_command('lua l AutoCOR')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -165,7 +166,6 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind @q gs c cycle QDMode')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
-    send_command('wait 2;input /lockstyleset 151')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^/ gs disable all')
@@ -173,6 +173,8 @@ function user_setup()
     send_command('bind f7 gs c cycle Weapongun')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !- gs c toggle RP')  
+    send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('@wait 6;input /lockstyleset 151')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -180,7 +182,8 @@ function user_setup()
     DW_needed = 0
     DW = false
     moving = false
-
+    
+    lockstyle()
     determine_haste_group()
     update_combat_form()
     select_default_macro_book()
@@ -1354,6 +1357,12 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "Charm" then
         if gain then  			
            send_command('input /p Charmd, please Sleep me.')		
@@ -1517,8 +1526,7 @@ function update_combat_form()
         state.CombatForm:set('DW')
     elseif DW == false then
         state.CombatForm:reset()
-    end
-    if player.equipment.sub:endswith('Shield') then
+    elseif player.equipment.sub:endswith('Shield') then
         state.CombatForm:reset()
     end
 end
@@ -1536,6 +1544,13 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
 
     check_weaponset()
@@ -1600,6 +1615,7 @@ function job_update(cmdParams, eventArgs)
     --handle_equipping_gear(player.status)
     check_moving()
     check_weaponset()
+    job_state_change()
 end
 
 function determine_haste_group()
@@ -1885,12 +1901,10 @@ function special_ammo_check()
         return
     end
 end
-function sub_job_change(new,old)
-    if user_setup then
-        user_setup()
-        send_command('wait 6;input /lockstyleset 151')
-    end
+function lockstyle()
+    send_command('wait 2;input /lockstyleset 151')
 end
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(5, 26)

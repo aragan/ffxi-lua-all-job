@@ -55,9 +55,10 @@ function job_setup()
     state.FootworkWS = M(false, 'Footwork on WS')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Moving  = M(false, "moving")
+    state.BrachyuraEarring = M(true,false)
 
     include('Mote-TreasureHunter')
-    send_command('wait 6;input /lockstyleset 179')
+    send_command('wait 2;input /lockstyleset 160')
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
 end
@@ -69,19 +70,20 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Fodder')
+    state.OffenseMode:options('Normal', 'Acc', 'Fodder', 'SubtleBlow')
     state.WeaponskillMode:options('Normal', 'PDL', 'Fodder')
-    state.HybridMode:options('Normal', 'PDT', 'SubtleBlow', 'Counter')
+    state.HybridMode:options('Normal', 'PDT', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     update_combat_form()
     update_melee_groups()
     --send_command('bind != gs c toggle CapacityMode')
-    send_command('wait 2;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 160')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind f4 input //fillmode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
@@ -616,7 +618,7 @@ function init_gear_sets()
         body="Mpaca's Doublet",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs="Bhikku Hose +2",
-        feet="Malignance Boots",
+        feet="Anch. Gaiters +3",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -632,7 +634,7 @@ function init_gear_sets()
         body="Mpaca's Doublet",
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         legs="Bhikku Hose +2",
-		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+        feet="Anch. Gaiters +3",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Mache Earring +1",
@@ -644,11 +646,11 @@ function init_gear_sets()
 
     sets.engaged.Fodder = {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-		head="Hiza. Somen +2",
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body="Mpaca's Doublet",
         hands="Mpaca's Gloves",
         legs="Bhikku Hose +2",
-        feet="Mpaca's Boots",
+        feet="Anch. Gaiters +3",
         neck="Moonbeam Nodowa",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -656,42 +658,48 @@ function init_gear_sets()
         left_ring="Gere Ring",
         right_ring="Niqmaddu Ring",
         back="Segomo's Mantle",
-
     }
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        waist="Moonbow Belt +1",
+        left_ear="Sherida Earring",
+        left_ring="Niqmaddu Ring",
+    })
 
     -- Defensive melee hybrid sets
-    sets.engaged.PDT = {       
+
+    sets.DT = {
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
+        body="Bhikku Cyclas +2",
+        hands="Mpaca's Gloves",
+        legs="Bhikku Hose +2",
+        feet="Malignance Boots",
+        right_ring="Defending Ring",
+        back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    }
+    sets.engaged.PDT = set_combine(sets.engaged, sets.DT)
+    sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.DT)
+    sets.engaged.Fodder.PDT = set_combine(sets.engaged.Fodder, sets.DT)
+    --sets.engaged.STP.PDT = set_combine(sets.engaged.STP, sets.DT)
+    --sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.Defensive)
+    sets.engaged.SubtleBlow.PDT = { 
     ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
+    head={ name="Mpaca's Cap", augments={'Path: A',}},
+    body="Bhikku Cyclas +2",
+    hands="Mpaca's Gloves",
+    legs="Bhikku Hose +2",
     feet="Malignance Boots",
     neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-	right_ring="Defending Ring",
-    back="Segomo's Mantle",
-}
-
-    sets.engaged.Acc.PDT = {	
-        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head={ name="Mpaca's Cap", augments={'Path: A',}},
-    body="Mpaca's Doublet",
-    hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-    legs="Malignance Tights",
-    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-    neck="Moonbeam Nodowa",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
+    right_ear={ name="Schere Earring", augments={'Path: A',}},
     left_ring="Niqmaddu Ring",
-	right_ring="Defending Ring",
-    back="Segomo's Mantle",
-		
-	}
+    right_ring="Defending Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+}
+    
+    --Counter
+
     sets.engaged.Counter = {
 		ammo="Amar Cluster",
 		head="Hiza. Somen +2",
@@ -706,7 +714,6 @@ function init_gear_sets()
 		left_ring="Niqmaddu Ring",
 		right_ring="Defending Ring",
 		back="Segomo's Mantle",
-		
 	}
     sets.engaged.Acc.Counter = {ammo="Amar Cluster",
 	head="Hiza. Somen +2",
@@ -722,39 +729,12 @@ function init_gear_sets()
 	right_ring="Defending Ring",
     back="Segomo's Mantle",
 }
-sets.engaged.SubtleBlow = set_combine(sets.engaged, {
-    ammo="Staunch Tathlum +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
+sets.engaged.SubtleBlow.Counter = set_combine(sets.engaged, {
     legs={ name="Mpaca's Hose", augments={'Path: A',}},
-    feet="Malignance Boots",
-    neck="Moonbeam Nodowa",
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Defending Ring",
-    back="Segomo's Mantle",
+    left_ring="Niqmaddu Ring",
 })
-sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
-    ammo="Staunch Tathlum +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs={ name="Mpaca's Hose", augments={'Path: A',}},
-    feet="Malignance Boots",
-    neck="Moonbeam Nodowa",
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Mache Earring +1",
-    left_ring="Chirich Ring +1",
-    right_ring="Defending Ring",
-    back="Segomo's Mantle",
-})
-
-
-
 
     -- Hundred Fists/Impetus melee set mods
     sets.engaged.HF = set_combine(sets.engaged)
@@ -768,7 +748,9 @@ sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {
     sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
     sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Bhikku Cyclas +2"})
     sets.engaged.Acc.Impetus = set_combine(sets.engaged.Acc, {body="Bhikku Cyclas +2"})
-
+    sets.engaged.SubtleBlow.Counter.HF = set_combine(sets.engaged.SubtleBlow.Counter)
+    sets.engaged.SubtleBlow.Counter.HF.Impetus = set_combine(sets.engaged.SubtleBlow.Counter, {body="Bhikku Cyclas +2"})
+    sets.engaged.SubtleBlow.Impetus = set_combine(sets.engaged.SubtleBlow, {body="Bhikku Cyclas +2"})
     --sets.engaged.SubtleBlow.HF = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
     --sets.engaged.SubtleBlow.HF.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
     --sets.engaged.SubtleBlow.Impetus = set_combine(sets.SubtleBlow, {body="Bhikku Cyclas +2"})
@@ -855,6 +837,21 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff, gain)
+    if not buffactive['Impetus'] then
+        if player.status == 'Engaged' then
+            send_command('@wait 0.2;input /ja "Impetus" <me>')
+        else
+            if not midaction() then
+                status_change(player.status)
+            end
+        end
+    end
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     -- Set Footwork as combat form any time it's active and Hundred Fists is not.
     if buff == 'Footwork' and gain and not buffactive['hundred fists'] then
         state.CombatForm:set('Footwork')
@@ -863,11 +860,6 @@ function job_buff_change(buff, gain)
     else
         state.CombatForm:reset()
     end
-
-    if state.CapacityMode.value then
-        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
-    end
-    return meleeSet
 
     end
     if buff == "doom" then
@@ -1046,6 +1038,15 @@ function customize_melee_set(meleeSet)
     end
     return meleeSet
 end
+-- Called when the player's status changes.
+function job_status_change(newStatus, oldStatus, eventArgs)
+    handle_equipping_gear(player.status)
+    if newStatus == "Engaged" then
+        if not buffactive['Impetus'] then
+            send_command('@input /ja "Impetus" <me>')
+        end
+    end
+end
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
     update_combat_form()
@@ -1057,6 +1058,13 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
     if (buff == "Impetus" and gain) or buffactive.impetus then
         equip({body="Bhikku Cyclas +2"})
@@ -1105,7 +1113,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 179')
+        send_command('wait 6;input /lockstyleset 160')
     end
 end
 

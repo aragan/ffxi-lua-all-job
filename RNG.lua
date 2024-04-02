@@ -77,7 +77,7 @@ function job_setup()
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 2;input /lockstyleset 152')
 	include('Mote-TreasureHunter')
 	state.WeaponLock = M(false, 'Weapon Lock')
 	-- Whether a warning has been given for low ammo
@@ -159,7 +159,7 @@ function user_setup()
 	--send_command('bind ^f9 gs c cycle OffenseMode')
 	send_command('bind != gs c toggle CapacityMode')
 	send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 2;input /lockstyleset 152')
+    send_command('wait 6;input /lockstyleset 152')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
