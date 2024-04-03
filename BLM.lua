@@ -38,7 +38,7 @@ end
 function user_setup()
     state.OffenseMode:options('None','Normal','TP', 'Locked')
     state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.Enfeebling = M('None', 'Effect')
@@ -761,7 +761,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
-        feet="Inyan. Crackows +2",
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
@@ -805,7 +805,56 @@ function init_gear_sets()
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         right_ring="Shadow Ring",
         back="Moonlight Cape",
-        }
+    }
+
+    sets.idle.MB={
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Pixie Hairpin +1",
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Wicce Chausses +3",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Sanctity Necklace",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Evans Earring",
+        left_ring="Mephitas's Ring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    }
+
+    sets.idle.HB={
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
+
+    sets.idle.DT={
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+    }
+
     sets.idle.Town = {
         feet="Herald's Gaiters",left_ear="Infused Earring",
         right_ring="Stikini Ring +1",}
@@ -874,23 +923,23 @@ function init_gear_sets()
     -- Mana Wall idle set
 
     sets.buff['Mana Wall'] = {
-        main="Malignance Pole",
-        sub="Alber Strap",
+		main="Malignance Pole",
+		sub="Alber Strap",
         ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Adamantite Armor",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Wicce Sabots +2",
-        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
-        left_ear="Etiolation Earring",
-        right_ear="Ethereal Earring",
-        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        right_ring="Stikini Ring +1",
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Wicce Sabots +2",
+		neck="Warder's Charm +1",
+		waist="Carrier's Sash",
+		left_ear="Eabani Earring",
+		right_ear="Ethereal Earring",
+		left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+		right_ring="Shadow Ring",
 		back="Taranus's Cape",
 	}
-
+    
 	
 	sets.midcast.Cure = {
 	ammo="Sapience Orb",
@@ -921,7 +970,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Inyan. Dastanas +2",
         legs="Assid. Pants +1",
-        feet="Inyan. Crackows +2",
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear="Etiolation Earring",
@@ -1212,10 +1261,10 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
+    if state.HippoMode.value == "Hippo" then
+        moving = false
 	elseif buffactive['Mana Wall'] then
 		moving = false
-    elseif state.HippoMode.value == "Hippo" then
-        moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)
         if pl and pl.x and mov.x then

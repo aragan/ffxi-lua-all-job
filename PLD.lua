@@ -72,6 +72,8 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.BrachyuraEarring = M(true,false)
+
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     send_command('wait 2;input /lockstyleset 150')
@@ -144,6 +146,8 @@ function user_setup()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
+    send_command('bind delete gs c toggle BrachyuraEarring')
+
      -- ctrl+/ gs disable all
     send_command('bind ^/ gs disable all')
      --Alt+; disable head body hands legs feet rring ammo
@@ -1938,6 +1942,12 @@ function job_aftercast(spell)
     end
 end
 function job_buff_change(buff,gain)
+    if buff == "Protect" then
+        if gain then
+            enable('ear1')
+            state.BrachyuraEarring:set(false)
+        end
+    end
     if buff == "terror" then
         if gain then
             send_command('input /p i am TERROR cant move.')		
@@ -2249,6 +2259,13 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+    if state.BrachyuraEarring .value == true then
+        equip({left_ear="Brachyura Earring"})
+        disable('ear1')
+    else 
+        enable('ear1')
+        state.BrachyuraEarring:set(false)
     end
 end
 function update_combat_form()
