@@ -656,7 +656,7 @@ function init_gear_sets()
         right_ring="Archon Ring",
         back="Lugh's Cape",
     }
-        sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
+    sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
             ammo="Pemphredo Tathlum",
             head="Arbatel Bonnet +2",
             body="Arbatel Gown +3",
@@ -665,7 +665,7 @@ function init_gear_sets()
             waist="Acuity Belt +1",
             left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
             right_ring="Kishar Ring",
-        })
+    })
 
     sets.midcast.Kaustra = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -681,25 +681,19 @@ function init_gear_sets()
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Freke Ring",
         back="Lugh's Cape",
-        }
-
+    }
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
+        feet={ name="Agwu's Pigaches", augments={'Path: A',}},
+        neck="Erra Pendant",
         ring1="Evanescence Ring",
         ring2="Archon Ring",
         waist="Fucho-no-obi",
-        })
+    })
+    
+    sets.midcast.Aspir = sets.midcast.Drain
 
-    sets.midcast.Aspir =  set_combine(sets.midcast['Dark Magic'], {
-        head="Pixie Hairpin +1",
-        ring1="Evanescence Ring",
-        ring2="Archon Ring",
-        waist="Fucho-no-obi",
-        })
-
-
-    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
-        })
+    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {

@@ -497,15 +497,16 @@ function init_gear_sets()
         body="Geo. Tunic +2",
     })
     
-    sets.midcast.Aspir = set_combine(sets.midcast.Macc, { 
+    sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
-        feet="Agwu's Pigaches",
+        feet={ name="Agwu's Pigaches", augments={'Path: A',}},
         neck="Erra Pendant",
-        waist="Fucho-no-Obi",
         ring1="Evanescence Ring",
-
+        ring2="Archon Ring",
+        waist="Fucho-no-obi",
     })
-    sets.midcast.Drain = sets.midcast.Aspir
+    
+    sets.midcast.Aspir = sets.midcast.Drain
     sets.midcast.Stun = sets.midcast.Macc
     
     sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc, {

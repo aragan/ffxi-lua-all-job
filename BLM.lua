@@ -47,6 +47,7 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.AutoEquipBurst = M(true)
+    state.DeathMode = M(false, 'Death Mode')
 
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
@@ -56,7 +57,7 @@ function user_setup()
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
 	Elemental_Debuffs = S {'Shock', 'Rasp', 'Choke', 'Frost', 'Burn', 'Drown'}
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
-	absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+	Absorb = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder'}
     degrade_array = {['Aspirs'] = {'Aspir','Aspir II','Aspir III'}}
     -- 'Out of Range' distance; WS will auto-cancel
@@ -74,7 +75,6 @@ function user_setup()
         [11] = 1.490909,
         [12] = 1.70,
     }
-    send_command('bind f4 @input /ja "Sublimation" <me>')
     send_command('bind f3 input //Sublimator')
 	--send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
@@ -89,6 +89,7 @@ function user_setup()
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f7 gs c cycle StaffMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
 end
@@ -184,10 +185,24 @@ function init_gear_sets()
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
-	
-	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {
-	})
-		
+    sets.precast.FC.Impact.DeathMode = set_combine(sets.precast.FC.DeathMode, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+
+	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {})
+	sets.precast.FC.DeathMode = {
+        ammo="Sapience Orb",
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Agwu's Gages", augments={'Path: A',}},
+        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+        feet={ name="Regal Pumps +1", augments={'Path: A',}},
+        neck="Baetyl Pendant",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Malignance Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Mephitas's Ring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+    }
 		
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
     sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
@@ -199,25 +214,7 @@ function init_gear_sets()
         left_ear="Mendi. Earring",
     })
  
-    -- Midcast set for Death, Might as well only have one set, unless you plan on free-nuking death for some unexplainable reason.
-
-    sets.midcast['Death'] = {
-		main="Marin Staff +1",
-		sub="Alber Strap",
-		ammo="Pemphredo Tathlum",
-		head="Pixie Hairpin +1",
-        body="Wicce Coat +3",
-        hands="Amalric Gages +1",
-        legs="Wicce Chausses +3",
-        feet="Agwu's Pigaches",
-		neck="Mizu. Kubikazari",
-		waist={ name="Acuity Belt +1", augments={'Path: A',}},
-		left_ear="Regal Earring",
-		right_ear="Malignance Earring",
-		left_ring="Archon Ring",
-		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-		back="Taranus's Cape",
-    }
+  
     sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
 
     -- Sets for WS, Feel free to add one for Vidohunir if you have Laevateinn
@@ -466,8 +463,6 @@ function init_gear_sets()
     })
  
     sets.midcast['Dark Magic'] = {
-		main="Marin Staff +1",
-		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
         body="Shango Robe",
@@ -482,18 +477,23 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
 	}
-    sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {
+    sets.midcast.Absorb = {
         ammo="Pemphredo Tathlum",
+        head={ name="Agwu's Cap", augments={'Path: A',}},
+        body={ name="Agwu's Robe", augments={'Path: A',}},
+        hands={ name="Agwu's Gages", augments={'Path: A',}},
+        legs={ name="Agwu's Slops", augments={'Path: A',}},
+        feet={ name="Agwu's Pigaches", augments={'Path: A',}},
         neck="Erra Pendant",
-        waist="Acuity Belt +1",
+        waist={ name="Acuity Belt +1", augments={'Path: A',}},
+        left_ear="Regal Earring",
+        right_ear="Malignance Earring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Kishar Ring",
-    })
+    }
     -- Elemental Magic sets
      
     sets.midcast['Elemental Magic'] = {
-        main="Marin Staff +1",
-		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
         body="Wicce Coat +3",
@@ -509,8 +509,6 @@ function init_gear_sets()
         back="Taranus's Cape",
 	}
     sets.magic_burst = {
-		main="Marin Staff +1",
-		sub="Alber Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Ea Hat +1",
         body="Wicce Coat +3",
@@ -528,8 +526,6 @@ function init_gear_sets()
 
 
     sets.midcast['Elemental Magic'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
-	main="Marin Staff +1",
-    sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
     body="Wicce Coat +3",
@@ -546,8 +542,6 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		main="Marin Staff +1",
-		sub="Alber Strap",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
         body="Wicce Coat +3",
@@ -564,8 +558,6 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
-		main="Marin Staff +1",
-		sub="Alber Strap",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
         body="Wicce Coat +3",
@@ -582,8 +574,6 @@ function init_gear_sets()
     })
 	
     sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-	main="Marin Staff +1",
-    sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
     body="Wicce Coat +3",
@@ -591,7 +581,7 @@ function init_gear_sets()
     legs="Wicce Chausses +3",
     feet="Jhakri Pigaches +2",
     neck={ name="Src. Stole +2", augments={'Path: A',}},
-    waist="Eschan Stone",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
     left_ring="Freke Ring",
@@ -600,20 +590,18 @@ function init_gear_sets()
     })
 		
     sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-		main="Marin Staff +1",
-		sub="Alber Strap",
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head="Agwu's Cap",
+        ammo="Pemphredo Tathlum",
+        head="Jhakri Coronal +2",
         body="Wicce Coat +3",
         hands="Amalric Gages +1",
         legs="Wicce Chausses +3",
-        feet="Ea Pigaches +1",
+        feet="Jhakri Pigaches +2",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
         waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring="Mujin Band",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Taranus's Cape",
     })
 
@@ -659,11 +647,9 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring2="Kishar Ring",
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back="Taranus's Cape",    })
+		back="Taranus's Cape"})
 	
 	sets.midcast['Comet'] = set_combine(sets.midcast['Elemental Magic'], {
-		main="Marin Staff +1",
-		sub="Alber Strap",
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
         body="Wicce Coat +3",
@@ -678,10 +664,22 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
     })
- 
+    sets.midcast['Comet'].magic_burst = set_combine(sets.midcast['Elemental Magic'], {
+		ammo="Pemphredo Tathlum",
+		head="Pixie Hairpin +1",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
+        feet="Ea Pigaches +1",
+        neck={ name="Src. Stole +2", augments={'Path: A',}},
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+		left_ear="Regal Earring",
+		right_ear="Malignance Earring",
+		left_ring="Archon Ring",
+		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+		back="Taranus's Cape",
+    })
 	sets.midcast['Comet'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
-	main="Marin Staff +1",
-    sub="Alber Strap",
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
@@ -696,7 +694,38 @@ function init_gear_sets()
     right_ring="Freke Ring",
     back="Taranus's Cape",
     })
-	
+	-- Midcast set for Death, Might as well only have one set, unless you plan on free-nuking death for some unexplainable reason.
+
+    sets.midcast['Death'] = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head="Pixie Hairpin +1",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
+        feet="Ea Pigaches +1",
+        neck={ name="Src. Stole +2", augments={'Path: A',}},
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+		left_ear="Regal Earring",
+		right_ear="Malignance Earring",
+		left_ring="Archon Ring",
+		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+		back="Taranus's Cape",
+    }
+    sets.midcast['Death'].magic_burst = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head="Pixie Hairpin +1",
+        body="Wicce Coat +3",
+        hands="Amalric Gages +1",
+        legs="Wicce Chausses +3",
+        feet="Ea Pigaches +1",
+        neck={ name="Src. Stole +2", augments={'Path: A',}},
+		waist={ name="Acuity Belt +1", augments={'Path: A',}},
+		left_ear="Regal Earring",
+		right_ear="Malignance Earring",
+		left_ring="Archon Ring",
+		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+		back="Taranus's Cape",
+    }
 	sets.midcast.Klimaform = {
 		ammo="Pemphredo Tathlum",
         body="Shango Robe",
@@ -731,6 +760,16 @@ function init_gear_sets()
 -- SPECIFICALLY for Aspir spells.  In the LowMP set, put your best Aspir+ gear, in the other set put your best Max MP gear.
 -- Find out how much your maximum MP is in each set, and adjust the MP values in the function area accordingly
 -- (CTRL+F: Aspir Handling)
+sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
+    head="Pixie Hairpin +1",
+    feet={ name="Agwu's Pigaches", augments={'Path: A',}},
+    neck="Erra Pendant",
+    ring1="Evanescence Ring",
+    ring2="Archon Ring",
+    waist="Fucho-no-obi",
+    })
+
+sets.midcast.Aspir = sets.midcast.Drain
 
 	sets.midcast.HighMP = {}
 	sets.midcast.LowMP = {}
@@ -807,7 +846,7 @@ function init_gear_sets()
         back="Moonlight Cape",
     }
 
-    sets.idle.MB={
+    sets.idle.MB = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Pixie Hairpin +1",
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
@@ -822,8 +861,24 @@ function init_gear_sets()
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-
-    sets.idle.HB={
+    sets.idle.DeathMode = {
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head="Pixie Hairpin +1",
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Wicce Chausses +3",
+        feet="Wicce Sabots +2",
+        neck="Sanctity Necklace",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Etiolation Earring",
+        right_ear="Evans Earring",
+        left_ring="Mephitas's Ring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+		back="Taranus's Cape",
+        }
+    sets.idle.HB = {
+        main="Malignance Pole",
+        sub="Alber Strap",
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body="Adamantite Armor",
@@ -839,10 +894,11 @@ function init_gear_sets()
         back="Moonlight Cape",
     }
 
-    sets.idle.DT={
+    sets.idle.DT = {
+        sub="Alber Strap",
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Adamantite Armor",
+        body="Shamash Robe",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -850,7 +906,7 @@ function init_gear_sets()
         waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
         right_ear="Ethereal Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
@@ -1044,7 +1100,12 @@ end
 --- preserve your MP total if you are above the amount at which equiping your standard set would decrease your
 --- maximum MP. Due to a rework in how these arguments are organised, all gearsets are being handled above the
 --- function block for this file.
- 
+function job_pretarget(spell, action, spellMap, eventArgs)
+    if spell.type:endswith('Magic') and buffactive.silence then
+        eventArgs.cancel = true
+        send_command('input /item "Remedy" <me>')
+    end
+end
 function job_precast(spell, action, spellMap, eventArgs)
     local spell_recasts = windower.ffxi.get_spell_recasts()
     if spell.type == "WeaponSkill" then
@@ -1052,6 +1113,13 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+    if spell.action_type == 'Magic' and state.DeathMode.value then
+        eventArgs.handled = true
+        equip(sets.precast.FC.DeathMode)
+        if spell.english == "Impact" then
+            equip(sets.precast.FC.Impact.DeathMode)
         end
     end
     if spell.english == "Impact" then
@@ -1064,12 +1132,7 @@ function job_precast(spell, action, spellMap, eventArgs)
         equip(sets.precast.JA['Mana Wall'])
     end
 end
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type:endswith('Magic') and buffactive.silence then
-        eventArgs.cancel = true
-        send_command('input /item "Remedy" <me>')
-    end
-end
+
 function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.name == 'Impact' then
         equip(sets.precast.FC.Impact)
@@ -1088,7 +1151,11 @@ function job_midcast(spell, action, spellMap, eventArgs)
 	or spell.english == 'Cursed Sphere' or spell.english == 'Flash' then
 	equip(sets.midcast.Flash)
 	end
-	
+    if spell.skill == 'Dark Magic' then
+        if Absorb:contains(spell.english) then	
+            equip(sets.midcast.Absorb)
+        end
+    end
     if spell.english == 'Death' then
         equip(sets.midcast['Death'])
 	end
@@ -1108,11 +1175,18 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.magic_burst)
         if spell.english == "Impact" then
             equip(sets.midcast.Impact)
+        elseif spell.english == "Death" then
+            equip(sets.midcast['Death'])
         end
     end
 	if (spell.skill == 'Elemental Magic' or spell.skill == 'Healing Magic') and (spell.element == world.weather_element or spell.element == world.day_element) then
         equip(sets.Obi)
 	end
+    if spell.skill == 'Dark Magic' then
+        if Absorb:contains(spell.english) then	
+            equip(sets.midcast.Absorb)
+        end
+    end
     if buffactive['Mana Wall'] then
         equip(sets.precast.JA['Mana Wall'])
     end
@@ -1149,9 +1223,9 @@ end
 function job_aftercast(spell, action, spellMap, eventArgs)
     -- Lock feet after using Mana Wall.
     if buffactive['Mana Wall'] then
-        enable('feet','back')
+        enable('back')
         equip(sets.buff['Mana Wall'])
-        disable('feet','back')
+        disable('back')
     end
     if spell.action_type == 'Magic' then
         if Elemental_Aja:contains(spell.english) then	
@@ -1557,6 +1631,9 @@ function customize_idle_set(idleSet)
     end
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.DeathMode.value then
+        idleSet = sets.idle.DeathMode
     end
     --[[if state.RP.current == 'on' then
         equip(sets.RP)
