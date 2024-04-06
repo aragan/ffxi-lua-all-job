@@ -78,7 +78,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'MaxAcc', 'Shield')
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
-    state.CastingMode:options('Normal', 'ConserveMP', 'SIRD', 'Duration', 'Enmity')
+    state.CastingMode:options( 'Duration', 'Normal', 'ConserveMP', 'SIRD', 'Enmity')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.IdleMode:options('Normal', 'PDT', 'Refresh')
     state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
@@ -971,8 +971,6 @@ function init_gear_sets()
     }
     
     sets.idle.PDT = {
-        main="Malignance Pole",
-        sub="Enki Strap",
         ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
@@ -988,8 +986,6 @@ function init_gear_sets()
         back="Alaunus's Cape",}
     
     sets.idle.Refresh = {
-        main="Mpaca's Staff",
-        sub="Enki Strap",
     ammo="Homiliary",
     head="Befouled Crown",
     body="Shamash Robe",
@@ -1027,8 +1023,6 @@ function init_gear_sets()
     }
     
     sets.idle.Weak = {
-    main="Mpaca's Staff",
-    sub="Enki Strap",
     ammo="Homiliary",
     head="Befouled Crown",
     body="Shamash Robe",
@@ -1118,7 +1112,7 @@ function init_gear_sets()
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
+    left_ring="Stikini Ring +1",
     right_ring="Shadow Ring",
     back="Alaunus's Cape",}
 

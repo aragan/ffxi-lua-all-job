@@ -190,7 +190,7 @@ function init_gear_sets()
 	sets.precast.FC.HighMP = set_combine(sets.precast.FC, {})
 	sets.precast.FC.DeathMode = {
         ammo="Sapience Orb",
-        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
         hands={ name="Agwu's Gages", augments={'Path: A',}},
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
@@ -348,7 +348,7 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
     ---- Midcast Sets ----
-    sets.midcast.FastRecast = sets.precast.FC
+    sets.midcast.FastRecast = {} 
  
     sets.midcast['Healing Magic'] = {
         ammo="Pemphredo Tathlum",
@@ -514,13 +514,13 @@ function init_gear_sets()
         body="Wicce Coat +3",
         hands="Amalric Gages +1",
         legs="Wicce Chausses +3",
-        feet="Ea Pigaches +1",
+        feet="Agwu's Pigaches",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
         waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Freke Ring",
-        right_ring="Mujin Band",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Taranus's Cape",
     }
 
@@ -705,8 +705,8 @@ function init_gear_sets()
         feet="Ea Pigaches +1",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
-		left_ear="Regal Earring",
-		right_ear="Malignance Earring",
+        left_ear="Etiolation Earring",
+        right_ear="Barkaro. Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
@@ -720,8 +720,8 @@ function init_gear_sets()
         feet="Ea Pigaches +1",
         neck={ name="Src. Stole +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
-		left_ear="Regal Earring",
-		right_ear="Malignance Earring",
+        left_ear="Etiolation Earring",
+        right_ear="Barkaro. Earring",
 		left_ring="Archon Ring",
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
@@ -741,20 +741,7 @@ function init_gear_sets()
 		right_ring="Stikini Ring",
 		back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}}
 	
-	sets.midcast.Flash = {
-		ammo="Sapience Orb",
-		head={ name="Kaabnax Hat", augments={'Phys. dmg. taken -2%','Magic dmg. taken -2%','Phys. dmg. taken -2%',}},
-		body="Mallquis Saio +2",
-		hands="Jhakri Cuffs +2",
-		legs={ name="Hagondes Pants +1", augments={'Phys. dmg. taken -4%',}},
-		feet="Mallquis Clogs +2",
-		neck="Unmoving Collar",
-		waist="Goading Belt",
-		left_ear="Regal Earring",
-		right_ear="Merman's Earring",
-		left_ring="Petrov Ring",
-		right_ring="Begrudging Ring",
-		back="Taranus's Cape",}
+	sets.midcast.Flash = {}
 	
 -- These next two sets are used later in the functions to determine what gear will be used in High MP and Low MP situations
 -- SPECIFICALLY for Aspir spells.  In the LowMP set, put your best Aspir+ gear, in the other set put your best Max MP gear.
@@ -1156,9 +1143,7 @@ function job_midcast(spell, action, spellMap, eventArgs)
             equip(sets.midcast.Absorb)
         end
     end
-    if spell.english == 'Death' then
-        equip(sets.midcast['Death'])
-	end
+
 end
 
 
