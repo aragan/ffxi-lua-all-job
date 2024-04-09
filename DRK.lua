@@ -2133,6 +2133,11 @@ function job_buff_change(buff, gain)
         send_command('input /item "Holy Water" <me>')
         end
     end
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
+        end
+    end
     if S{'haste', 'march', 'embrava', 'geo-haste', 'indi-haste', 'last resort'}:contains(buff:lower()) then
         if (buffactive['Last Resort']) then
             if (buffactive.embrava or buffactive.haste) and buffactive.march then

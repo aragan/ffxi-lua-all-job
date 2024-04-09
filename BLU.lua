@@ -1478,8 +1478,6 @@ sets.engaged.Hybrid = {
 }
 
 sets.engaged.STR = {
-    main="Fermion Sword",
-    sub="Firetongue",
     ammo="Aurgelmir Orb +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -1847,6 +1845,11 @@ function job_buff_change(buff, gain)
     if buff == "curse" then
         if gain then  
             send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
         end
     end
     if not midaction() then

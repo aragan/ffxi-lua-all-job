@@ -1357,7 +1357,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      right_ring="Blenmot's Ring +1",
      legs="Shabti Cuisses +1",
     }
-     sets.buff.Sleep = {neck="Vim Torque +1",left_ear="Infused Earring",}
+     sets.buff.sleep = {neck="Vim Torque +1"}
 
     
 end
@@ -1522,7 +1522,7 @@ function customize_melee_set(meleeSet)
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
-    if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
+    if state.buff.sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet, sets.buff.Sleep)
     end
     check_weaponset()
@@ -1610,6 +1610,10 @@ function job_buff_change(buff, gain)
     end    
     if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
         equip({neck="Vim Torque +1"})
+        disable('neck')
+    elseif not gain then 
+        enable('neck')
+        handle_equipping_gear(player.status)
     end
     if buff == "Restraint" and not gain then
         if player.status == 'Engaged' then
@@ -1767,6 +1771,18 @@ function job_buff_change(buff, gain)
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if buffactive["sleep"] then
+        if player.hp > 200 and player.status == "Engaged" then -- Equip Vim's Torque When You Are Asleep & Have 200+ HP --
+            equip({ neck="Vim Torque +1"})
+        end
+        
+    end
+```
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
         end
     end
     if not midaction() then

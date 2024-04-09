@@ -1716,6 +1716,11 @@ function job_buff_change(buff, gain)
         send_command('input /item "Holy Water" <me>')
         end
     end
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
+        end
+    end
     if buff == "Sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		

@@ -232,8 +232,13 @@ function init_gear_sets()
     main={ name="Rostam", augments={'Path: C',}},
     range={ name="Compensator", augments={'DMG:+9','Rng.Acc.+9','Rng.Atk.+9',}},
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
+    body="Adamantite Armor",
     hands="Chasseur's Gants +3",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Regal Necklace",
+    right_ear="Genmei Earring",
+    left_ring="Defending Ring",
     right_ring="Luzaf's Ring",
     back="Camulus's Mantle",}
     
@@ -913,7 +918,7 @@ sets.engaged.CRIT = {
             ring1="Chirich Ring +1",
             ring2="Chirich Ring +1",
             waist="Kentarch Belt +1",
-            })
+        })
 
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
@@ -935,26 +940,26 @@ sets.engaged.CRIT = {
         back="Tactical Mantle",
     }
     sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{
-            waist="Reiki Yotai",
-            left_ear="Suppanomimi",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
     })
     sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT,{
-            waist="Reiki Yotai",
-            left_ear="Suppanomimi",
+        waist="Reiki Yotai",
+        left_ear="Suppanomimi",
     })
     sets.engaged.DW.Ranged = {    
-                head="Malignance Chapeau",
-                body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-                hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
-                legs="Chas. Culottes +3",
-                feet="Malignance Boots",
-                neck="Iskur Gorget",
-                waist="Windbuffet Belt +1",
-                left_ear="Cessance Earring",
-                right_ear="Telos Earring",
-                left_ring="Epona's Ring",
-                right_ring="Petrov Ring",
-                back="Camulus's Mantle",
+        head="Malignance Chapeau",
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
+        legs="Chas. Culottes +3",
+        feet="Malignance Boots",
+        neck="Iskur Gorget",
+        waist="Windbuffet Belt +1",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Petrov Ring",
+        back="Camulus's Mantle",
     }
     sets.engaged.DW.STP = set_combine(sets.engaged, {
         waist="Reiki Yotai",
@@ -1071,9 +1076,9 @@ sets.engaged.Hybrid = {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 }
    
@@ -1081,27 +1086,27 @@ sets.engaged.PDT = set_combine(sets.engaged,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
@@ -1110,37 +1115,34 @@ sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{
     hands="Malignance Gloves",
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.STP.PDT = set_combine(sets.engaged.STP,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Reiki Yotai",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs="Malignance Tights",
+    legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    left_ear="Suppanomimi",
-    waist="Reiki Yotai",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
@@ -1149,7 +1151,6 @@ sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Suppanomimi",
     waist="Reiki Yotai",
     left_ring="Defending Ring",
@@ -1160,7 +1161,7 @@ sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{
     hands="Malignance Gloves",
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Defending Ring",
 })
 
@@ -1170,7 +1171,6 @@ sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Suppanomimi",
     waist="Reiki Yotai",
     left_ring="Defending Ring",
@@ -1468,7 +1468,11 @@ function job_buff_change(buff,gain)
         send_command('input /item "Holy Water" <me>')
         end
     end
-
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
+        end
+    end
     if buff == "sleep" then
         if gain then    
             send_command('input /p ZZZzzz, please cure.')		
