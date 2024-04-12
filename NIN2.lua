@@ -21,6 +21,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items = {
+        "Irradiance Blad",
         "Toolbag (Shihe)",
         "Chonofuda",
         "Shikanofuda",
@@ -562,11 +563,10 @@ function init_gear_sets()
     sets.Proc = {
         -- main="Knife",
         sub=empty,
-        ammo="Ginsen",
       
     }
     sets.unProc = set_combine(sets.engaged, {
-  
+
     })
 
     sets.engaged.Innin = set_combine(sets.engaged, {

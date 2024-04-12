@@ -65,6 +65,60 @@ organizer_items = {
     "Qutrub Knife",
     "Wind Knife +1",
     "Reraise Earring",}
+
+--[[
+-- Scythe Light:
+Insurgency > Vorpal Scythe > Entropy > Guillotine > Entropy > Insurgency 
+Vorpal Scythe > Entropy > Guillotine > Entropy > Insurgency 
+Entropy > Guillotine > Entropy > Insurgency 
+Guillotine > Entropy > Insurgency
+
+-- Scythe Darkness: 
+Insurgency (M) > Vorpal Scythe > Vorpal Scythe > Insurgency (M) > Entropy (MM) > Cross Reaper
+Entropy (MM) > Guillotine > Entropy (MM) > Cross Reaper > Entropy (MM)
+Cross Reaper > Insurgency (M) > Entropy (MM) > Cross Reaper
+Insurgency (M) > Entropy (MM) > Cross Reaper
+Cross Reaper > Entropy (MM)
+Entropy (MM) > Cross Reaper
+
+-- Apoc Darkness
+Entropy (MM) > Guillotine > Entropy (MM) > Cross Reaper > Entropy (MM) > Catastrophe (R)
+Entropy (MM) > Guillotine > Entropy (MM) > Cross Reaper > Entropy (MM)
+Insurgency (M) > Entropy (MM) > Cross Reaper > Catastrophe (R)
+Insurgency (M) > Catastrophe (R) > Cross Reaper > Catastrophe (R)
+Cross Reaper > Insurgency (M) > Catastrophe (R) > Cross Reaper
+Catastrophe (R) > Cross Reaper > Catastrophe (R)
+Insurgency (M) > Catastrophe (R) > Cross Reaper
+Cross Reaper > Catastrophe (R) > Catastrophe (R)
+Cross Reaper > Entropy (MM) > Catastrophe (R)
+Entropy (MM) > Cross Reaper > Catastrophe (R)
+Catastrophe (R) > Catastrophe (R)
+Catastrophe (R) > Cross Reaper
+Cross Reaper > Catastrophe (R)
+
+-- Other Light
+Catastrophe (R) > Savage Blade (Q) > Insurgency (M)
+Entropy (MM) > Savage Blade (Q) > Insurgency (M)
+Savage Blade (Q) > Insurgency (M)
+Chant du Cygne (E) > Torcleaver (E)
+
+-- Other Dark
+Atonement (M) > Entropy (MM) > Cross Reaper
+Savage Blade (Q) > Cross Reaper > Entropy (MM)
+Chant du Cygne (E) > Catastrophe (R)
+Chant du Cygne (E) > Entropy (MM)
+Requiescat (MM) > Cross Reaper
+Requiescat (MM) > Torcleaver (E)
+
+-- GreatSword Light
+Resolution (MM) > Torcleaver (E) > Scourge (R) > Resolution (MM) > Torcleaver (E)
+Resolution (MM) > Torcleaver (E) > Scourge (R) > Resolution (MM)
+Resolution (MM) > Scourge (R) > Torcleaver (E)
+Scourge (R) > Resolution (MM) > Torcleaver (E)
+Torcleaver (E) > Torcleaver (E)
+Scourge (R) > Resolution (MM)
+--]]
+
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')

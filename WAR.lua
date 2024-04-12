@@ -643,11 +643,13 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
     sets.precast.WS['Resolution'].PDL= set_combine(sets.precast.WS['Resolution'], {
+        head={ name="Sakpata's Helm", augments={'Path: A',}},
         body={ name="Sakpata's Plate", augments={'Path: A',}},
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs="Boii Cuisses +3",
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-        right_ring="Sroda Ring", 
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
     })
      
      sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
