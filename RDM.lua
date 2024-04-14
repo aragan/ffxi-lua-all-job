@@ -65,6 +65,7 @@ function job_setup()
 	state.Buff.Composure = buffactive.Composure or false
     state.Buff.Saboteur = buffactive.Saboteur or false
     state.Buff.Stymie = buffactive.Stymie or false
+	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	state.AutoEquipBurst = M(true)
     state.BrachyuraEarring = M(true,false)
 
@@ -204,7 +205,7 @@ function init_gear_sets()
 	sets.SIRD = {
 			ammo="Staunch Tathlum +1",
 			body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-			hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+			hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 			legs="Bunzi's Pants",
 			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Rumination Sash",
@@ -213,7 +214,7 @@ function init_gear_sets()
 	sets.midcast.SIRD = {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -540,7 +541,7 @@ sets.TreasureHunter = {
 		ammo="Staunch Tathlum +1",
 		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
 		body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		neck="Incanter's Torque",
@@ -554,7 +555,7 @@ sets.TreasureHunter = {
 	sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -565,7 +566,7 @@ sets.TreasureHunter = {
 	sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -575,8 +576,7 @@ sets.TreasureHunter = {
     sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-		body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		neck="Incanter's Torque",
@@ -590,7 +590,7 @@ sets.TreasureHunter = {
 	sets.midcast.CureSelf.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -608,7 +608,7 @@ sets.TreasureHunter = {
 		sub="Ammurapi Shield",
 		head="Befouled Crown",
 		body="Telchine Chas.",
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Telchine Pigaches",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
@@ -655,7 +655,7 @@ sets.TreasureHunter = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
 		head="Befouled Crown",
-		hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
+        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",

@@ -182,6 +182,7 @@ function user_setup()
     send_command('wait 6;input /lockstyleset 179')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f1 gs c cycle HippoMode')
+    --send_command('bind delete gs c toggle setftp')
 
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
@@ -224,6 +225,7 @@ function file_unload()
     send_command("unbind PAGEDOWN")       
     send_command("unbind end")
     send_command("unbind =")
+
 end
 
 function job_setup()
