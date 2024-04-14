@@ -92,7 +92,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell')
+    state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell', 'EnspellDBL', 'SubtleBlow')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Evasion', 'Enmity')
@@ -173,7 +173,7 @@ function init_gear_sets()
 
 	sets.Normal = {}
 	sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
-	sets.Crocea = {main="Crocea Mors", sub="Naegling",}
+	sets.Crocea = {main="Crocea Mors", sub="Demers. Degen +1"}
 	sets.Club = {main="Daybreak", sub="Sacro Bulwark"}
 	sets.DAGGERS = {main="Tauret", sub="Gleti's Knife",}
 
@@ -220,18 +220,11 @@ function init_gear_sets()
 		right_ring="Freke Ring",
 }
 	sets.precast.FC = {
-		ammo="Sapience Orb",
 		head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
-		body="Shango Robe",
 		hands="Leyline Gloves",
-		legs="Psycloth Lappas",
-		feet="Merlinic Crackows",
 		waist="Witful Belt",
-		neck="Baetyl Pendant",
 		ear1="Loquacious Earring",
 		ear2="Leth. Earring +1",
-		ring1="Prolix Ring",
-		ring2="Kishar Ring",
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},	}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
@@ -1136,7 +1129,6 @@ sets.TreasureHunter = {
 			back="Annealed Mantle",	} 
 
 		sets.engaged.Enspell = {
-		main={ name="Crocea Mors", augments={'Path: C',}},
 		ammo="Coiste Bodhar",
 		head="Umuthi Hat",
 		body="Malignance Tabard",
@@ -1145,12 +1137,34 @@ sets.TreasureHunter = {
 		feet="Malignance Boots",
 		neck="Sanctity Necklace",
 		waist="Orpheus's Sash",
-		left_ear="Eabani Earring",
-		right_ear="Suppanomimi",
+		left_ear="Sherida Earring",
+		right_ear="Brutal Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 		}
+		sets.engaged.EnspellDBL = {
+			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+			head="Umuthi Hat",
+			body="Ayanmo Corazza +2",
+			hands="Aya. Manopolas +2",
+			legs="Malignance Tights",
+			feet={ name="Nyame Sollerets", augments={'Path: B',}},
+			neck="Asperity Necklace",
+			waist="Orpheus's Sash",
+			left_ear="Sherida Earring",
+			right_ear="Brutal Earring",
+			left_ring="Hetairoi Ring",
+			right_ring="Petrov Ring",
+			back="Annealed Mantle",
+		}
+
+		sets.engaged.SubtleBlow = set_combine(sets.engaged ,{
+			neck={ name="Bathy Choker +1", augments={'Path: A',}},
+			right_ear="Sherida Earring",
+			left_ring="Chirich Ring +1",
+			right_ring="Chirich Ring +1",
+		})
 
 		
     -- * DNC Subjob DW Trait: +15%
@@ -1216,7 +1230,30 @@ sets.TreasureHunter = {
 			left_ring="Chirich Ring +1",
 			right_ring="Chirich Ring +1",
 			back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-			}
+		}
+
+		sets.engaged.DW.EnspellDBL = {
+			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+			head="Umuthi Hat",
+			body="Ayanmo Corazza +2",
+			hands="Aya. Manopolas +2",
+			legs="Malignance Tights",
+			feet={ name="Nyame Sollerets", augments={'Path: B',}},
+			neck="Asperity Necklace",
+			waist="Orpheus's Sash",
+			left_ear="Suppanomimi",
+			right_ear="Eabani Earring",
+			left_ring="Hetairoi Ring",
+			right_ring="Petrov Ring",
+			back="Annealed Mantle",
+		}
+		sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.DW ,{
+			neck={ name="Bathy Choker +1", augments={'Path: A',}},
+			right_ear="Sherida Earring",
+			left_ring="Chirich Ring +1",
+			right_ring="Chirich Ring +1",
+		})
+
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -1240,8 +1277,8 @@ sets.TreasureHunter = {
 		feet="Malignance Boots",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		left_ring="Defending Ring",
-		})
-		sets.engaged.Acc.PDT = set_combine(sets.engaged , {
+	})
+	sets.engaged.Acc.PDT = set_combine(sets.engaged , {
 			ammo="Staunch Tathlum +1",
 			head="Malignance Chapeau",
 			body="Malignance Tabard",
@@ -1250,8 +1287,33 @@ sets.TreasureHunter = {
 			feet="Malignance Boots",
 			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			left_ring="Defending Ring",
-			})
-			sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT , {
+	})
+	sets.engaged.Enspell.PDT =  set_combine(sets.engaged.Enspell , {
+		ammo="Coiste Bodhar",
+		head="Umuthi Hat",
+		body="Malignance Tabard",
+		ands="Aya. Manopolas +2",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Orpheus's Sash",
+		left_ring="Chirich Ring +1",
+		left_ring="Defending Ring",
+		})
+		sets.engaged.EnspellDBL.PDT = set_combine(sets.engaged.EnspellDBL , {
+			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+			head="Umuthi Hat",
+			body="Malignance Tabard",
+			hands="Aya. Manopolas +2",
+			legs="Malignance Tights",
+			feet={ name="Nyame Sollerets", augments={'Path: B',}},
+			neck={ name="Loricate Torque +1", augments={'Path: A',}},
+			waist="Orpheus's Sash",
+			left_ring="Hetairoi Ring",
+			left_ring="Defending Ring",
+			back="Annealed Mantle",
+		})
+	sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT , {
 				ammo="Staunch Tathlum +1",
 				head="Malignance Chapeau",
 				body="Malignance Tabard",
@@ -1260,8 +1322,20 @@ sets.TreasureHunter = {
 				feet="Malignance Boots",
 				neck={ name="Loricate Torque +1", augments={'Path: A',}},
 				left_ring="Defending Ring",
-				})
-		sets.engaged.DW.PDT = set_combine(sets.engaged.DW , {
+	})
+	sets.engaged.SubtleBlow.PDT = set_combine(sets.SubtleBlow ,{
+		ammo="Staunch Tathlum +1",
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
+		feet="Malignance Boots",
+		neck={ name="Bathy Choker +1", augments={'Path: A',}},
+		right_ear="Sherida Earring",
+		left_ring="Chirich Ring +1",
+		right_ring="Chirich Ring +1",
+	})
+	sets.engaged.DW.PDT = set_combine(sets.engaged.DW , {
 			ammo="Staunch Tathlum +1",
 			head="Malignance Chapeau",
 			body="Malignance Tabard",
@@ -1272,8 +1346,8 @@ sets.TreasureHunter = {
 			waist="Reiki Yotai",
 			left_ear="Suppanomimi",
 			left_ring="Defending Ring",
-			})
-			sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.Acc , {
+		})
+		sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.Acc , {
 				ammo="Staunch Tathlum +1",
 				head="Malignance Chapeau",
 				body="Malignance Tabard",
@@ -1284,8 +1358,8 @@ sets.TreasureHunter = {
 				waist="Reiki Yotai",
 				left_ear="Suppanomimi",
 				left_ring="Defending Ring",
-				})
-			sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.CRIT , {
+		})
+		sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.CRIT , {
 				ammo="Staunch Tathlum +1",
 				head="Malignance Chapeau",
 				body="Malignance Tabard",
@@ -1296,8 +1370,48 @@ sets.TreasureHunter = {
 				waist="Reiki Yotai",
 				left_ear="Suppanomimi",
 				left_ring="Defending Ring",
-				})
-
+		})
+		sets.engaged.DW.Enspell.PDT =  set_combine(sets.engaged.Enspell , {
+			ammo="Coiste Bodhar",
+			head="Umuthi Hat",
+			body="Malignance Tabard",
+			ands="Aya. Manopolas +2",
+			legs="Malignance Tights",
+			feet="Malignance Boots",
+			neck={ name="Loricate Torque +1", augments={'Path: A',}},
+			waist="Orpheus's Sash",
+			left_ear="Suppanomimi",
+			left_ear="Eabani Earring",
+			left_ring="Chirich Ring +1",
+			left_ring="Defending Ring",
+		})
+		sets.engaged.DW.EnspellDBL.PDT = set_combine(sets.engaged.EnspellDBL , {
+			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+			head="Umuthi Hat",
+			body="Malignance Tabard",
+			hands="Aya. Manopolas +2",
+			legs="Malignance Tights",
+			feet={ name="Nyame Sollerets", augments={'Path: B',}},
+			neck={ name="Loricate Torque +1", augments={'Path: A',}},
+			waist="Orpheus's Sash",
+			left_ear="Suppanomimi",
+			right_ear="Eabani Earring",
+			left_ring="Hetairoi Ring",
+			left_ring="Defending Ring",
+			back="Annealed Mantle",
+		})
+		sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.SubtleBlow ,{
+			ammo="Staunch Tathlum +1",
+			head="Malignance Chapeau",
+			body="Malignance Tabard",
+			hands="Malignance Gloves",
+			legs="Malignance Tights",
+			feet="Malignance Boots",
+			neck={ name="Bathy Choker +1", augments={'Path: A',}},
+			right_ear="Sherida Earring",
+			left_ring="Chirich Ring +1",
+			right_ring="Chirich Ring +1",
+		})
     sets.engaged.Defense = {
                 ammo="Aurgelmir Orb +1",
 				head="Malignance Chapeau",
