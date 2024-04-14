@@ -114,6 +114,7 @@ function user_setup()
 
 	select_default_macro_book()
 	send_command('bind f10 gs c cycle IdleMode')
+	send_command('bind ^f10 gs c set DefenseMode Physical')
 	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
@@ -963,7 +964,7 @@ sets.TreasureHunter = {
     sets.idle.PDT = {
 		ammo="Homiliary",
 		head="Nyame Helm",
-		body="Shamash Robe",
+        body="Adamantite Armor",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
@@ -977,18 +978,18 @@ sets.TreasureHunter = {
 	} 
 
     sets.idle.MDT = {
-		ammo="Homiliary",
-		head="Malignance Chapeau",
-		body="Malignance Tabard",
-		hands="Bunzi's Gloves",
+		ammo="Staunch Tathlum +1",
+		head={ name="Bunzi's Hat", augments={'Path: A',}},
+		body={ name="Bunzi's Robe", augments={'Path: A',}},
+		hands={ name="Bunzi's Gloves", augments={'Path: A',}},
 		legs="Malignance Tights",
-		feet="Nyame Sollerets",
+		feet={ name="Bunzi's Sabots", augments={'Path: A',}},
 		neck={ name="Warder's Charm +1", augments={'Path: A',}},
 		waist="Carrier's Sash",
 		left_ear="Sanare Earring",
 		right_ear="Eabani Earring",
 		left_ring="Purity Ring",
-		right_ring="Vengeful Ring",
+		right_ring="Shadow Ring",
 		back="Moonlight Cape",
 	}
 
@@ -1044,7 +1045,7 @@ sets.TreasureHunter = {
     sets.defense.PDT = {
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Shamash Robe",
+        body="Adamantite Armor",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
