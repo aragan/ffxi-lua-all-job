@@ -171,7 +171,7 @@ function user_setup()
     state.CastingMode:options('Normal', 'MB', 'ConserveMP', 'sird')
     state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    state.IdleMode:options('Normal','PDT', 'Refresh')
+    state.IdleMode:options('Normal','PDT', 'Refresh' ,'Regen')
     
     state.AutoEquipBurst = M(true)
     state.RP = M(false, "Reinforcement Points Mode")    
@@ -1085,62 +1085,56 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     sets.idle = {
         ammo="Staunch Tathlum +1",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body="Adamantite Armor",
+        body="Sacro Breastplate",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
-        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Eabani Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Moonlight Ring",
-        back="Moonlight Cape",
-}
-  
-    sets.idle.Town = {
-        ammo="Staunch Tathlum +1",
-        head=empty,
-        body={ name="Lugra Cloak +1", augments={'Path: A',}},
-        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Flume Belt +1",
         left_ear="Infused Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
         back="Moonlight Cape",
 }
-    sets.idle.Field = set_combine(sets.idle, {
-        ammo="Staunch Tathlum +1",
-        head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body="Adamantite Armor",
-        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
-        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Eabani Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Moonlight Ring",
-        back="Moonlight Cape",
-    })
+  
+    sets.idle.Town = {
+        head="Crepuscular Helm",
+        body="Sacro Breastplate",
+        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+        left_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+}
+
     sets.Adoulin = {body="Councilor's Garb"}
     sets.Kiting = {legs="Carmine Cuisses +1"}
     sets.MoveSpeed = {legs="Carmine Cuisses +1"}
 
     sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
-    sets.idle.Field.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
 
       
-    sets.idle.Refresh = set_combine(sets.idle, {        head=empty,
-        body={ name="Lugra Cloak +1", augments={'Path: A',}},
+    sets.idle.Refresh = set_combine(sets.idle, {       
+    head=empty,
+    body={ name="Lugra Cloak +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     })
+    sets.idle.Regen = { 
+        ammo="Staunch Tathlum +1",
+        head="Crepuscular Helm",
+        body="Sacro Breastplate",
+        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Infused Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    }
     sets.idle.PDT = {
     ammo="Staunch Tathlum +1",
     head={ name="Sakpata's Helm", augments={'Path: A',}},

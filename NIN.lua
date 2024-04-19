@@ -1739,7 +1739,7 @@ end
 
 function job_status_change(newStatus, oldStatus, eventArgs)
     if swordList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 152')
+        send_command('input /lockstyleset 138')
     elseif GKList:contains(player.equipment.main) then
         send_command('input /lockstyleset 172')
 
