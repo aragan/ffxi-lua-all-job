@@ -659,9 +659,9 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 	sets.Kiting = {legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     }
     sets.defense.Parry = {
-        --hands="Turms Mittens +1",
+        hands="Turms Mittens +1",
         legs="Eri. Leg Guards +2",
-        --feet="Turms Leggings +1",
+        feet="Turms Leggings +1",
         back="Ogma's Cape",
     }
 

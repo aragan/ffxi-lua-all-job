@@ -78,7 +78,7 @@ function init_gear_sets()
     sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
     sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +2", back="Nantosuelta's Cape"}
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
-    sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +1"}
+    sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +3"}
     sets.precast.JA['Sublimation'] = {waist="Embla Sash"}
     --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     organizer_items = {
@@ -319,7 +319,7 @@ function init_gear_sets()
         head="Azimuth Hood +2",
         body="Geo. Tunic +2",
         hands="Geo. Mitaines +3",
-        legs={ name="Bagua Pants +1", augments={'Enhances "Mending Halation" effect',}},
+        legs={ name="Bagua Pants +3", augments={'Enhances "Mending Halation" effect',}},
         feet="Azimuth Gaiters +2",
         neck="Incanter's Torque",
         waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},

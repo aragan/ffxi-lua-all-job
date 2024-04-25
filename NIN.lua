@@ -183,6 +183,14 @@ end
 
 function init_gear_sets()
 
+    sets.Normal = {}
+    sets.Heishi = {main="Heishi Shorinken", sub="Kunimitsu"}
+    sets.Tauret = {main="Tauret", sub="Kunimitsu"}
+    sets.Naegling = {main="Naegling", sub="Kunimitsu"}
+    sets.Hachimonji = {main="Hachimonji", sub="Alber Strap",}
+    sets.Zanmato = {main="Zanmato +1",sub="Sword Strap",}
+    
+
     --------------------------------------
     -- Job Abilties
     --------------------------------------
@@ -1378,14 +1386,6 @@ right_ring="Stikini Ring +1",
 back="Andartia's Mantle",
 }
     
-
-sets.Normal = {}
-sets.Heishi = {main="Heishi Shorinken", sub="Kunimitsu"}
-sets.Tauret = {main="Tauret", sub="Kunimitsu"}
-sets.Naegling = {main="Naegling", sub="Kunimitsu"}
-sets.Hachimonji = {main="Hachimonji", sub="Alber Strap",}
-sets.Zanmato = {main="Zanmato +1",sub="Sword Strap",}
-
     sets.buff.Doom = {    neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
@@ -1742,8 +1742,18 @@ function job_status_change(newStatus, oldStatus, eventArgs)
         send_command('input /lockstyleset 138')
     elseif GKList:contains(player.equipment.main) then
         send_command('input /lockstyleset 172')
-
+    elseif katanaList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 144')
+    elseif daggerList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 157')
     end
+    --[[if newStatus == "Idle" then
+        if gsList:contains(player.equipment.main) then
+            windower.chat.input('/lockstyleset 165')
+        else
+            windower.chat.input('/lockstyleset 152')
+        end
+    end]]
 end
 
 mov = {counter=0}

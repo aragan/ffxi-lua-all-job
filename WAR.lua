@@ -1524,9 +1524,9 @@ function customize_melee_set(meleeSet)
         meleeSet = set_combine(meleeSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end
-    if state.buff.sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
+    --[[if state.buff.sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet, sets.buff.Sleep)
-    end
+    end]]
     check_weaponset()
 
     return meleeSet
@@ -1781,7 +1781,7 @@ function job_buff_change(buff, gain)
         end
         
     end
-```
+
     if buff == "poison" then
         if gain then  
         send_command('input /item "remedy" <me>')
