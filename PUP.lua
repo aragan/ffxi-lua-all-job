@@ -28,7 +28,7 @@ function get_sets()
     -- Load and initialize the include file.
     include("Mote-Include.lua")
     include('organizer-lib')
-    send_command('wait 6;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 160')
 end
 
 function user_setup()
@@ -179,7 +179,7 @@ function user_setup()
     send_command("bind PAGEDOWN gs c hide keybinds")
     send_command("bind end gs c toggle CP") 
     send_command("bind = gs c clear")
-    send_command('wait 6;input /lockstyleset 179')
+    send_command('wait 6;input /lockstyleset 160')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f1 gs c cycle HippoMode')
     --send_command('bind delete gs c toggle setftp')
@@ -231,7 +231,7 @@ end
 function job_setup()
     include("PUP-LIB.lua")
     include('Mote-TreasureHunter')
-    send_command('wait 2;input /lockstyleset 150')
+    send_command('wait 2;input /lockstyleset 160')
     state.Moving  = M(false, "moving")
     sub_job_change()
 end
@@ -249,6 +249,7 @@ function init_gear_sets()
 
    
         organizer_items = {
+            "Kustawi +1",
             "Airmid's Gorget",
             "Moogle Amp.",
             "Mafic Cudgel",
@@ -1299,7 +1300,6 @@ function init_gear_sets()
     ]]
     sets.midcast.Pet.WSNoFTP = {                main={ name="Xiucoatl", augments={'Path: C',}},
 
-    ammo="Automat. Oil +3",
         head={ name="Mpaca's Cap", augments={'Path: A',}},
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         hands="Mpaca's Gloves",
@@ -1307,9 +1307,10 @@ function init_gear_sets()
         feet="Mpaca's Boots",
         neck="Shulmanu Collar",
         waist="Incarnation Sash",
-        left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Sroda Earring",
-    
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        left_ear="Kyrene's Earring",    
+        right_ear="Sroda Earring",
     
     }
 
@@ -1365,8 +1366,10 @@ function init_gear_sets()
         legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
-        left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Sroda Earring",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        left_ear="Kyrene's Earring",  
+        right_ear="Sroda Earring",
     })
 
     -- Bone crusher, String Shredder
@@ -1382,8 +1385,10 @@ function init_gear_sets()
             legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
             feet="Mpaca's Boots",
             waist="Incarnation Sash",
-            left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-            left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
+            left_ring="Thurandaut Ring",
+            right_ring="C. Palug Ring",
+            left_ear="Kyrene's Earring",    
+            right_ear="Kara. Earring +1",
            
          
         }
@@ -1398,23 +1403,26 @@ function init_gear_sets()
         legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
-        left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        left_ear="Kyrene's Earring",    
+        right_ear="Kara. Earring +1",
     }
     )
 
     -- Armor Piercer, Armor Shatterer
     sets.midcast.Pet.WS["DEX"] = set_combine(sets.midcast.Pet.WSNoFTP, {
         main={ name="Xiucoatl", augments={'Path: C',}},
-
         head={ name="Taeon Chapeau", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         hands="Mpaca's Gloves",
         legs={ name="Taeon Tights", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         feet="Mpaca's Boots",
         waist="Incarnation Sash",
-        left_ring="Thurandaut Ring",right_ring="C. Palug Ring",
-        left_ear="Kyrene's Earring",    right_ear="Kara. Earring +1",
+        left_ring="Thurandaut Ring",
+        right_ring="C. Palug Ring",
+        left_ear="Kyrene's Earring",    
+        right_ear="Kara. Earring +1",
         }
     )
 
@@ -1428,7 +1436,8 @@ function init_gear_sets()
             head="Kara. Cappello +2",
             hands="Mpaca's Gloves",
             legs="Kara. Pantaloni +2",
-            feet="Mpaca's Boots",left_ear="Kyrene's Earring",
+            feet="Mpaca's Boots",
+            left_ear="Kyrene's Earring",
             right_ear="Kara. Earring +1",
             left_ring="Thurandaut Ring",
             right_ring="C. Palug Ring",
@@ -1446,18 +1455,16 @@ function init_gear_sets()
     -- Town Set
     sets.idle.Town = {
         main="Tauret",
-        ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
-        body="Adamantite Armor",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
+        body="Hizamaru Haramaki +2",
+        ear2="Infused Earring",
+        ring2="Paguroidea Ring",
         feet="Hermes' Sandals +1",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         right_ear="Odnowa Earring",
-        left_ring="Warden's Ring",
-        right_ring="Defending Ring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
         back="Moonlight Cape",
     }
 
@@ -1666,7 +1673,7 @@ function sub_job_change(new,old)
    -- end
    if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 168')
+        send_command('wait 6;input /lockstyleset 160')
     end
 end
 
@@ -1677,7 +1684,7 @@ function job_self_command(cmdParams, eventArgs)
     if player.equipment.main == 'Tauret' then
         send_command('input /lockstyleset 164')
     else
-        send_command('input /lockstyleset 168')
+        send_command('input /lockstyleset 160')
     end
     eventArgs.handled = true
 end

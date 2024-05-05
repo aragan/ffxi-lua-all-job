@@ -2517,6 +2517,15 @@ function gearinfo(cmdParams, eventArgs)
         end
     end
 end
+
+--[[windower.register_event('hpp change',
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+end
+)]]
+
 ------------------------------------------------------------------
 -- Reset events
 ------------------------------------------------------------------

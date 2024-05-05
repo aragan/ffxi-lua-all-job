@@ -675,7 +675,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Ebers Bliaut +2",
-        hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
+        hands="Ebers Mitts +2",
         legs="Ebers Pant. +2",
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Cleric's Torque",
@@ -814,11 +814,12 @@ function init_gear_sets()
         ammo="Sapience Orb",
         head="Inyanga Tiara +2",
         body="Telchine Chas.",
-        hands="Telchine Gloves",
+        hands="Ebers Mitts +2",
         legs="Telchine Braconi",
         feet="Theo. Duckbills +3",
         waist="Embla Sash",})
-    sets.midcast.Regen.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration) 
+    sets.midcast.Regen.Duration = set_combine(sets.midcast['Enhancing Magic'],sets.Duration, { 
+        hands="Ebers Mitts +2",}) 
 
     sets.midcast.Protectra = sets.midcast['Enhancing Magic']
     sets.midcast.Shellra = sets.midcast['Enhancing Magic']
@@ -1251,7 +1252,7 @@ function init_gear_sets()
     })
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    sets.buff['Divine Caress'] = {back="Mending Cape"}
+    sets.buff['Divine Caress'] = {hands="Ebers Mitts +2", back="Mending Cape"}
     sets.buff.Sublimation = {waist="Embla Sash"}
 
 end

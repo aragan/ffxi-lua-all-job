@@ -116,7 +116,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'Counter', 'ressistwater')
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
     state.CastingMode:options('Normal', 'sird', 'ConserveMP')
-    state.IdleMode:options('Normal', 'Refresh', 'Regen')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Enmity', 'MP', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
@@ -1058,8 +1058,20 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
          left_ring="Defending Ring",
          back="Moonlight Cape",
      }]]
+
+     sets.idle.PDT = sets.defense.PDT
+     sets.idle.MDT = sets.defense.MDT
+     sets.idle.Evasion = sets.defense.Evasion
+     sets.idle.HP = sets.defense.HP
+
+     sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+    })
     sets.idle.Regen = set_combine(sets.idle, {
-        body="Obviation Cuirass",
+        body="Sacro Breastplate",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         left_ring="Chirich Ring +1",
@@ -1085,7 +1097,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Flume Belt +1",
         left_ear="Tuisto Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -1094,7 +1106,6 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     }
 
     sets.defense.HP = {
-        sub="Blurred Shield +1",
         ammo="Staunch Tathlum +1",
         head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         body="Adamantite Armor",
@@ -1102,7 +1113,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Plat. Mog. Belt",
         left_ear="Kyrene's Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -1143,14 +1154,15 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.defense.Reraise = sets.idle.Weak
  
     sets.defense.MDT = set_combine(sets.defense.PDT, {
+        ammo="Staunch Tathlum +1",
         head={ name="Sakpata's Helm", augments={'Path: A',}},
         body={ name="Sakpata's Plate", augments={'Path: A',}},
-        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+        hands="Macabre Gaunt. +1",
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         left_ear="Eabani Earring",
-        left_ring="Moonlight Ring",
+        left_ring="Shadow Ring",
     })
     sets.defense.MP = set_combine(sets.defense.PDT, {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -1873,6 +1885,15 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
+
+windower.register_event('hpp change',
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+end
+)
+
 function get_combat_form()
     --if war_sj then
         --state.CombatForm:set("War")

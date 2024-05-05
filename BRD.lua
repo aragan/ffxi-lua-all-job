@@ -106,7 +106,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'AUGMENT')
-    state.IdleMode:options('Normal', 'PDT','MDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
 
     state.LullabyMode = M{['description']='Lullaby Instrument', 'Harp', 'Horn'}
 
@@ -718,59 +718,6 @@ sets.midcast.SongStringSkill = {
         right_ring="Stikini Ring +1",
            }
     
-    
-    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body="Adamantite Armor",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Stikini Ring +1",
-        right_ring="Defending Ring",
-        back="Moonlight Cape",
-    }
-
-    sets.idle.PDT = {        head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    body="Adamantite Armor",
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
-       
-    }
-
-    sets.idle.Town = {    
-    feet="Fili Cothurnes +2",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-}
-    
-    sets.idle.Weak = {       head={ name="Nyame Helm", augments={'Path: B',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
-    }
-    
-    
     -- Defense sets
 
     sets.defense.PDT = {
@@ -816,6 +763,85 @@ sets.midcast.SongStringSkill = {
         right_ring="Defending Ring",
         back="Moonlight Cape",
     }
+
+    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
+    sets.idle = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Adamantite Armor",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    }
+
+    sets.idle.PDT = {        head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    body="Adamantite Armor",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+    }
+
+    sets.idle.Town = {    
+    feet="Fili Cothurnes +2",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    left_ring="Stikini Ring +1",
+}
+sets.idle.HP = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+sets.idle.MDT = sets.defense.MDT
+sets.idle.Evasion = sets.defense.Evasion
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+sets.idle.Regen = set_combine(sets.idle, {
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    right_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
+    sets.idle.Weak = {       head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+    }
+
 
     sets.Kiting = {feet="Fili Cothurnes +2"}
 	sets.Adoulin = {body="Councilor's Garb",}

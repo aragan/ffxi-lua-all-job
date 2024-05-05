@@ -94,8 +94,8 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'Mod')
-    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT')
-    state.PhysicalDefenseMode:options('Evasion', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT', 'Regen', 'EnemyCritRate')
+    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'HP')
     state.MagicalDefenseMode:options('MDT')
     state.TreasureMode:options('None','Tag','SATA','Fulltime')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Aeneas', 'Naegling'}
@@ -600,42 +600,6 @@ sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Black Halo'], {
         back="Moonlight Cape",    }
 
 
-    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-
-    sets.idle = {range=empty,
-        ammo="Staunch Tathlum +1",
-        head="Gleti's Mask",
-        body="Adamantite Armor",
-        hands="Gleti's Gauntlets",
-        legs="Gleti's Breeches",
-        feet="Gleti's Boots",
-        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ring="Defending Ring",
-        left_ring="Moonlight Ring",
-        back="Moonlight Cape",
-
-}
-sets.idle.PDT = sets.defense.PDT
-sets.idle.HP = sets.defense.HP
-sets.idle.MDT = sets.defense.MDT
-sets.idle.Evasion = sets.defense.Evasion
-
-    sets.idle.Town = {
-        feet="Jute Boots +1",
-        left_ear="Infused Earring",
-    }
-    sets.Adoulin = {body="Councilor's Garb",}
-
-    sets.idle.Weak = set_combine(sets.idle, {
-        neck="Sanctity Necklace",
-    left_ear="Infused Earring",
-    left_ring="Paguroidea Ring",
-  })
-
-
     -- Defense sets
 
     sets.defense.Evasion = {
@@ -699,6 +663,67 @@ sets.idle.Evasion = sets.defense.Evasion
     right_ring="Purity Ring",
     back="Engulfer Cape +1",}
 
+
+    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
+
+    sets.idle = {range=empty,
+        ammo="Staunch Tathlum +1",
+        head="Gleti's Mask",
+        body="Adamantite Armor",
+        hands="Gleti's Gauntlets",
+        legs="Gleti's Breeches",
+        feet="Gleti's Boots",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        left_ring="Moonlight Ring",
+        back="Moonlight Cape",
+
+}
+sets.idle.PDT = sets.defense.PDT
+sets.idle.HP = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+sets.idle.MDT = sets.defense.MDT
+sets.idle.Evasion = sets.defense.Evasion
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+sets.idle.Regen = set_combine(sets.idle, {
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    right_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
+    sets.idle.Town = {
+        feet="Jute Boots +1",
+        left_ear="Infused Earring",
+    }
+    sets.Adoulin = {body="Councilor's Garb",}
+
+    sets.idle.Weak = set_combine(sets.idle, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
 
     --------------------------------------
     -- Melee sets

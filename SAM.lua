@@ -1201,6 +1201,14 @@ function customize_idle_set(idleSet)
 	return idleSet
 end
 
+windower.register_event('hpp change',
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+end
+)
+
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
     if state.Buff['Seigan'] then
@@ -1468,12 +1476,7 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 5 then --if have lag click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-        eventArgs.handled = false
-    end
-    return 
+
 end
 function job_update(cmdParams, eventArgs)
 	get_combat_form()

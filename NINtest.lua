@@ -18,6 +18,7 @@ function get_sets()
     include('organizer-lib')
     include('Mote-TreasureHunter')
     organizer_items = {
+        "Irradiance Blade",
         "Airmid's Gorget",
         "Hachimonji",
         "Mafic Cudgel",
@@ -112,13 +113,13 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'TP', 'ZANISH', 'DOUBLE','CRIT')
-    state.HybridMode:options('Normal', 'DT')
+    state.OffenseMode:options('Normal','Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana', 'Scythe', 'GS', 'Polearm')
+    state.HybridMode:options('Normal', 'DT', 'Proc')
     state.RangedMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'SIRD')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'vagary')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'EnemyCritRate')
-    state.PhysicalDefenseMode:options('PDT', 'Evasion', 'HP', 'Enmity')
+    state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion', 'HP', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Heishi', 'Tauret', 'Naegling', 'Hachimonji', 'Zanmato'}
 
@@ -467,6 +468,77 @@ sets.midcast.Absorb = {
             right_ring="Chirich Ring +1",
     }
 
+
+    sets.engaged.Sword = set_combine(sets.engaged, {
+        main="Fermion Sword",
+        sub=empty,
+    })
+    sets.engaged.GK = set_combine(sets.engaged, {
+        main="Zanmato +1",
+        sub=empty,
+    })
+    sets.engaged.Club = set_combine(sets.engaged, {
+        main="Caduceus",
+        sub=empty,
+    })
+    sets.engaged.Staff = set_combine(sets.engaged, {
+        main="Profane Staff",
+        sub=empty,
+    })
+    sets.engaged.Katana = set_combine(sets.engaged, {
+        main="Debahocho +1",
+        sub=empty,
+    })
+    sets.engaged.Dagger = set_combine(sets.engaged, {
+        main="Qutrub Knife",
+        sub=empty,
+    })
+    sets.engaged.Scythe = set_combine(sets.engaged, {
+        main="Lost Sickle",
+        sub=empty,
+    })
+    sets.engaged.GS = set_combine(sets.engaged, {
+        main="Irradiance Blade",
+        sub=empty,
+    })
+    sets.engaged.Polearm = set_combine(sets.engaged, {
+        main="Sha Wujing's La. +1",
+        sub=empty,
+    })
+    
+    sets.Katanas = {    
+    }
+    sets.Dagger = {
+    
+    }
+    sets.Daggers = {
+    
+    }
+    sets.Proc = {
+        -- main="Knife",
+        sub=empty,
+    }
+    sets.unProc = set_combine(sets.engaged, {
+    
+    })
+        -- set for fooling around without dual wield
+        -- using this as weak / proc set now
+        sets.NoDW = set_combine(sets.engaged, {  ammo="Coiste Bodhar",
+            neck="Lissome Necklace",
+            ear2="Cessance Earring",
+            body="Adhemar Jacket +1",
+            hands="Adhemar Wristbands +1",
+            waist="Windbuffet Belt +1",
+            back="Andartia's Mantle", 
+    
+        })
+    
+
+
+
+
+
+
     -- Weaponskills 
     sets.precast.WS = {
         ammo="Yamarang",
@@ -750,7 +822,7 @@ sets.midcast.Absorb = {
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ring="Regal Ring",
         right_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back="Andartia's Mantle", 
     }
     sets.precast.WS.Evisceration.PDL = set_combine(sets.precast.WS.Evisceration, {
         right_ear="Hattori Earring +1", 
@@ -1013,6 +1085,15 @@ sets.midcast.Absorb = {
     right_ring="Paguroidea Ring",
     back="Moonlight Cape",
     }
+
+    sets.defense.TreasureHunter = set_combine(sets.engaged, {
+        main={ name="Heishi Shorinken", augments={'Path: A',}},
+        sub="Kunimitsu",
+        ammo="Per. Lucky Egg", 
+        head="Wh. Rarab Cap +1",
+        waist="Chaac Belt",
+        })
+
     sets.defense.Enmity = {
         ammo="Iron Gobbet",
         head="Malignance Chapeau",
@@ -1043,20 +1124,10 @@ sets.midcast.Absorb = {
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
-    sets.defense.MDT = set_combine(sets.defense.PDT, {
-        ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Tuisto Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Purity Ring",
-        back="Moonlight Cape",
+    sets.defense.MDT = set_combine(sets.engaged, {
+        main="Tauret",
+        sub="Kunimitsu",
+
     })
 
     sets.defense.Evasion = {
@@ -1165,7 +1236,7 @@ sets.midcast.Absorb = {
         right_ear="Cessance Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back="Andartia's Mantle", 
     })
     sets.engaged.CRIT =  {
         ammo="Yetshila +1",
@@ -1367,6 +1438,9 @@ sets.engaged.DW.Acc.DT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets
 sets.engaged.DW.STP.DT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
 
+
+
+
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Special Sets ------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -1535,9 +1609,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if midaction() then
         return
     end
-    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
-        check_weaponset()
-    end
+
     -- Aftermath timer creation
     aw_custom_aftermath_timers_aftercast(spell)
     --if spell.type == 'WeaponSkill' then
@@ -1560,6 +1632,7 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
+
     --local res = require('resources')
     --local info = windower.ffxi.get_info()
     --local zone = res.zones[info.zone].name
@@ -1582,17 +1655,11 @@ function customize_melee_set(meleeSet)
     end
 
 
-
-
     meleeSet = set_combine(meleeSet, select_ammo())
-
-    check_weaponset()
 
     return meleeSet
 end
-function check_weaponset()
-    equip(sets[state.WeaponSet.current])
-end
+
 -------------------------------------------------------------------------------------------------------------------
 -- General hooks for other events.
 -------------------------------------------------------------------------------------------------------------------
@@ -1715,6 +1782,11 @@ function job_buff_change(buff, gain)
     if buff == "curse" then
         if gain then  
         send_command('input /item "Holy Water" <me>')
+        end
+    end
+    if buff == "poison" then
+        if gain then  
+        send_command('input /item "remedy" <me>')
         end
     end
     if buff == "Sleep" then
@@ -1844,6 +1916,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
     determine_haste_group()
     check_moving()
+
 end
 
 function job_update(cmdParams, eventArgs)
@@ -1851,7 +1924,7 @@ function job_update(cmdParams, eventArgs)
     th_update(cmdParams, eventArgs)
 end
 function check_moving()
-    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+    if state.Kiting.value == false then
         if state.Auto_Kite.value == false and moving then
             state.Auto_Kite:set(true)
             send_command('gs c update')
@@ -1869,7 +1942,6 @@ function update_combat_form()
     elseif DW == false then
         state.CombatForm:reset()
     end
-
 end
 function check_gear()
     if no_swap_gear:contains(player.equipment.left_ring) then
@@ -1934,10 +2006,6 @@ end
 
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
-
-
-
-    
     if state.BrachyuraEarring .value == true then
         equip({left_ear="Brachyura Earring"})
         disable('ear1')
@@ -2005,7 +2073,6 @@ function job_state_change(stateField, newValue, oldValue)
         enable('main','sub')
     end
 
-    check_weaponset()
 
 end
 

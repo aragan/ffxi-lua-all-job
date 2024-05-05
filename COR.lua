@@ -127,7 +127,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'Regen')
+    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'Regen', 'EnemyCritRate')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'HP')
     state.MagicalDefenseMode:options('MDT')
     swordList = S{"Naegling", "Demers. Degen +1"}
@@ -235,7 +235,7 @@ function init_gear_sets()
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Adamantite Armor",
     hands="Chasseur's Gants +3",
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    legs="Desultor Tassets",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Regal Necklace",
     right_ear="Genmei Earring",
@@ -523,7 +523,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
     right_ear="Friomisi Earring",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
     back="Camulus's Mantle",
 }
     
@@ -539,7 +539,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
     right_ear="Friomisi Earring",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Dingir Ring",
-    right_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
     back="Camulus's Mantle",
     }
     sets.precast.WS['Leaden Salute'].SC = set_combine(sets.precast.WS['Leaden Salute'],  {
@@ -771,12 +771,19 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
             right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
             back="Moonlight Cape",
     }
-    sets.idle.Regen ={
+    sets.idle.Regen = set_combine(sets.idle, {
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         right_ear="Infused Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-}
+})
+sets.idle.EnemyCritRate = set_combine(sets.idle, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+
     -- Defense sets
 sets.defense.PDT = {
     head="Nyame Helm",

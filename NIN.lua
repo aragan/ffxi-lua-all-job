@@ -120,7 +120,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'EnemyCritRate')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'HP', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Heishi', 'Tauret', 'Naegling', 'Hachimonji', 'Zanmato'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Heishi', 'Tauret', 'Naegling', 'Hachimonji', 'Zanmato', 'CLUB', 'H2H'}
 
     
     send_command('bind @w gs c toggle WeaponLock')
@@ -189,7 +189,9 @@ function init_gear_sets()
     sets.Naegling = {main="Naegling", sub="Kunimitsu"}
     sets.Hachimonji = {main="Hachimonji", sub="Alber Strap",}
     sets.Zanmato = {main="Zanmato +1",sub="Sword Strap",}
-    
+    sets.CLUB = {main="Mafic Cudgel",sub="Kunimitsu",}
+    sets.H2H = {main="Karambit"}
+
 
     --------------------------------------
     -- Job Abilties
@@ -602,12 +604,12 @@ sets.midcast.Absorb = {
     
     -- BLADE: SHUN
     sets.Shun = {
-        ammo="Aurgelmir Orb +1",
+        ammo="Coiste Bodhar",
         head={ name="Mpaca's Cap", augments={'Path: A',}},
-        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body="Malignance Tabard",
         hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        feet={ name="Mochi. Kyahan +3", augments={'Enh. Ninj. Mag. Acc/Cast Time Red.',}},
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -620,8 +622,12 @@ sets.midcast.Absorb = {
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, sets.Shun)
     sets.precast.WS['Blade: Shun'].PDL = set_combine(sets.Shun, {
         ammo="Crepuscular Pebble",
-        legs={ name="Mpaca's Hose", augments={'Path: A',}},       
-        right_ring="Sroda Ring", 
+        head="Malignance Chapeau",
+        hands="Malignance Gloves",
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},   
+        feet="Malignance Boots",    
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+
     })
     sets.precast.WS['Blade: Shun'].SC = set_combine(sets.Shun, {
         body="Nyame Mail",
@@ -656,7 +662,6 @@ sets.midcast.Absorb = {
         ammo="Crepuscular Pebble",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},        
         right_ear="Hattori Earring +1", 
-        right_ring="Sroda Ring", 
     })
     
     -- BLADE: KU 
@@ -681,7 +686,6 @@ sets.midcast.Absorb = {
         ammo="Crepuscular Pebble",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},       
         right_ear="Hattori Earring +1", 
-        right_ring="Sroda Ring", 
     })
     
     sets.Ten = {
@@ -713,7 +717,6 @@ sets.midcast.Absorb = {
         ammo="Crepuscular Pebble",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
         right_ear="Hattori Earring +1", 
-        right_ring="Sroda Ring", 
     })
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, { 
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -745,6 +748,10 @@ sets.midcast.Absorb = {
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
 
+    sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'],{})
+    sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Savage Blade'].PDL,{})
+
+
     sets.precast.WS.Evisceration = {
         ammo="Yetshila +1",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -758,12 +765,16 @@ sets.midcast.Absorb = {
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ring="Regal Ring",
         right_ring="Gere Ring",
-        back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back="Andartia's Mantle", 
     }
     sets.precast.WS.Evisceration.PDL = set_combine(sets.precast.WS.Evisceration, {
         right_ear="Hattori Earring +1", 
         right_ring="Sroda Ring", 
     })
+
+    sets.precast.WS["True Strike"] = set_combine(sets.precast.WS.Evisceration, {})
+    sets.precast.WS["True Strike"].PDL= set_combine(sets.precast.WS.Evisceration, {})
+
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {       
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
@@ -800,8 +811,11 @@ sets.midcast.Absorb = {
     sets.precast.WS['Shining Blade'].PDL = set_combine(sets.precast.WS['Aeolian Edge'], {
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    })
+    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
+    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
+    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
 
-        })
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head="Nyame Helm",
@@ -814,7 +828,6 @@ sets.midcast.Absorb = {
     sets.precast.WS['Tachi: Jinpu'].PDL = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         --range="Wingcutter +1",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
-
     })
     sets.precast.WS['Tachi: Jinpu'].SC = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         head="Nyame Helm",
@@ -920,91 +933,6 @@ sets.midcast.Absorb = {
        sets.precast.WS['Combo'].PDL = set_combine(sets.precast.WS['Blade: Shun'].PDL, sets.precast.WS) 
 
 
---idle - defense
-
-    sets.idle = {
-        ammo="Yamarang",
-        head="Malignance Chapeau",
-        body="Adamantite Armor",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Svelt. Gouriz +1",
-        left_ear="Eabani Earring",
-        right_ear="Infused Earring",
-        left_ring="Vengeful Ring",
-        right_ring="Hizamaru Ring",
-        back="Andartia's Mantle",
-
-    }
-    sets.idle.PDT = {
-        ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Adamantite Armor",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Tuisto Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Paguroidea Ring",
-        back="Moonlight Cape",
-        }
-    sets.idle.MDT = {
-        ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Tuisto Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Purity Ring",
-        back="Moonlight Cape",
-    }
-    sets.idle.HP = {
-        ammo="Coiste Bodhar",
-        head="Nyame Helm",
-        body="Adamantite Armor",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Plat. Mog. Belt",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Eihwaz Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        back="Moonlight Cape",
-    }
-    sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
-        ammo="Eluder's Sachet",
-        left_ring="Warden's Ring",
-        right_ring="Fortified Ring",
-        back="Reiki Cloak",
-    })
-    sets.idle.Regen = set_combine(sets.idle, {
-        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        body="Hizamaru Haramaki +2",
-        ear2="Infused Earring",
-        ring2="Paguroidea Ring"
-    })
-    sets.Adoulin = {body="Councilor's Garb",}
-    sets.MoveSpeed = {feet="Danzo Sune-Ate",}
-
-    sets.idle.Town = {
-        feet="Danzo Sune-Ate",
-        ear2="Infused Earring",
-    }
-    
-    sets.idle.Weak = sets.idle
-
     -- Defense sets
     sets.defense.PDT = {
     ammo="Staunch Tathlum +1",
@@ -1083,9 +1011,97 @@ sets.midcast.Absorb = {
         back="Moonlight Cape",
     }
 
+--idle - defense
+
+sets.idle = {
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Adamantite Armor",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Eabani Earring",
+    right_ear="Infused Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Hizamaru Ring",
+    back="Andartia's Mantle",
+
+}
+sets.idle.PDT = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+    }
+sets.idle.MDT = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Purity Ring",
+    back="Moonlight Cape",
+}
+sets.idle.HP = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Eihwaz Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+sets.idle.Regen = set_combine(sets.idle, {
+    head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+    body="Hizamaru Haramaki +2",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    ear2="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    })
+
+sets.idle.Town = {
+    feet="Danzo Sune-Ate",
+    ear2="Infused Earring",
+}
+sets.idle.Evasion = sets.defense.Evasion
+
+sets.idle.Weak = sets.idle
+
     sets.DayMovement = {feet="Danzo sune-ate"}
     sets.NightMovement = {feet="Danzo sune-ate"}
-
+    sets.Adoulin = {body="Councilor's Garb",}
+    sets.MoveSpeed = {feet="Danzo Sune-Ate",}
+    
 
 
     --------------------------------------
@@ -1173,7 +1189,7 @@ sets.midcast.Absorb = {
         right_ear="Cessance Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
-        back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        back="Andartia's Mantle", 
     })
     sets.engaged.CRIT =  {
         ammo="Yetshila +1",

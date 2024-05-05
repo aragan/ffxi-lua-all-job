@@ -151,7 +151,7 @@ function job_setup()
     -- Offhand weapons used to activate DW mode
     swordList = S{"Naegling", "Sangarius +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
     sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Apocalypse', 'AgwuClaymore', 'Lycurgos', 'Naegling', 'Loxotic', 'TernionDagger'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Lycurgos', 'Naegling', 'Loxotic', 'TernionDagger'}
     state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
 
     get_combat_form()
@@ -169,9 +169,9 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT', 'DreadSP')
     state.WeaponskillMode:options('Normal', 'Mid', 'PDL', 'SC', 'Dread', 'None')  ---Mid for Scythe removes Ratri for safer WS---For Resolution removes Agrosy for Meva---
     state.CastingMode:options('Normal', 'MB', 'ConserveMP', 'sird')
-    state.PhysicalDefenseMode:options('PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
-    state.MagicalDefenseMode:options('MDT')
-    state.IdleMode:options('Normal','PDT', 'Refresh' ,'Regen')
+    state.PhysicalDefenseMode:options('Normal', 'PDT', 'HP', 'Enmity', 'Dread Spikes', 'SEboost', 'Reraise')
+    state.MagicalDefenseMode:options('Normal','MDT')
+    state.IdleMode:options('Normal','PDT' ,'Regen', 'MDT', 'HP', 'Evasion', 'EnemyCritRate', 'Refresh')
     
     state.AutoEquipBurst = M(true)
     state.RP = M(false, "Reinforcement Points Mode")    
@@ -211,6 +211,7 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !- gs c toggle RP')  
     send_command('bind delete gs c toggle BrachyuraEarring')
+	--send_command('bind f12 gs c cycle IdleMode')
 
     select_default_macro_book()
 end
@@ -230,6 +231,7 @@ function init_gear_sets()
 
 --Weaponsets
 sets.Normal = {}
+sets.Anguta = {main="Anguta", sub="Utu Grip"}
 sets.Apocalypse = {main="Apocalypse", sub="Utu Grip"}
 sets.AgwuClaymore = {main="Agwu's Claymore", sub="Utu Grip"}
 sets.Lycurgos = {main="Lycurgos", sub="Utu Grip",}
@@ -253,7 +255,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
     sets.precast.JA['Weapon Bash'] = {hands="Ignominy Gauntlets +3"}
     sets.precast.JA['Souleater'] = {head="Ig. Burgeonet +3"}
-    sets.precast.JA['Dark Seal'] = {head="Fallen's Burgeonet"}
+    sets.precast.JA['Dark Seal'] = {head="Fall. Burgeonet +1"}
     sets.precast.JA['Diabolic Eye'] = {hands="Fall. Fin. Gaunt. +3"}
       
     
@@ -951,7 +953,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     right_ear="Dignitary's Earring",
     left_ring="Evanescence Ring",
     right_ring="Stikini Ring +1",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back={ name="Niht Mantle", augments={'Attack+10','Dark magic skill +10','"Drain" and "Aspir" potency +18',}},
     }
     sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
 
@@ -1069,94 +1071,11 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
-    --------------------------------------
-    -- Idle/resting/defense/etc sets
-    --------------------------------------
-  
-         -- Resting sets
-    sets.resting = {
-        head=empty,
-        body={ name="Lugra Cloak +1", augments={'Path: A',}},
-        left_ear="Infused Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-    }
-    -- Idle sets
-    sets.idle = {
-        ammo="Staunch Tathlum +1",
-        head={ name="Sakpata's Helm", augments={'Path: A',}},
-        body="Sacro Breastplate",
-        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
-        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear="Infused Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Defending Ring",
-        back="Moonlight Cape",
-}
-  
-    sets.idle.Town = {
-        head="Crepuscular Helm",
-        body="Sacro Breastplate",
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        left_ear="Infused Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-}
 
-    sets.Adoulin = {body="Councilor's Garb"}
-    sets.Kiting = {legs="Carmine Cuisses +1"}
-    sets.MoveSpeed = {legs="Carmine Cuisses +1"}
-
-    sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
-
-      
-    sets.idle.Refresh = set_combine(sets.idle, {       
-    head=empty,
-    body={ name="Lugra Cloak +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    })
-    sets.idle.Regen = { 
-        ammo="Staunch Tathlum +1",
-        head="Crepuscular Helm",
-        body="Sacro Breastplate",
-        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
-        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear="Infused Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Chirich Ring +1",
-        right_ring="Defending Ring",
-        back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
-    sets.idle.PDT = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Sakpata's Helm", augments={'Path: A',}},
-    body="Adamantite Armor",
-    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-    legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
-    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Eabani Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Moonlight Ring",
-    back="Moonlight Cape",
-}
-    sets.idle.Sphere = set_combine(sets.idle, {   })
-  
     --------------------------------------
     -- Defense sets
     --------------------------------------
-  
-  
+
     -- Basic defense sets.
           
     sets.defense.PDT = {
@@ -1175,9 +1094,9 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     back="Moonlight Cape",
 }
     sets.defense.HP = {
-        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        head="Hjarrandi Helm",
-        body="Hjarrandi Breast.",
+        ammo="Staunch Tathlum +1",
+        head="Crepuscular Helm",
+        body="Adamantite Armor",
         hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
         legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
         feet={ name="Sakpata's Leggings", augments={'Path: A',}},
@@ -1189,9 +1108,22 @@ sets.precast.WS['Red Lotus Blade'].None = {}
         right_ring="Moonlight Ring",
         back="Moonlight Cape",
     }
-
+    sets.defense.Evasion = {
+        ammo="Amar Cluster",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Vengeful Ring",
+        back="Moonlight Cape",
+    }
 sets.defense['Dread Spikes'] = {
-
     ammo={ name="Coiste Bodhar", augments={'Path: A',}},
     head="Ratri Sallet",
     body="Heath. Cuirass +2",
@@ -1208,7 +1140,6 @@ sets.defense['Dread Spikes'] = {
 }
 
 sets.defense.SEboost = {
-
     ammo="Eluder's Sachet",
     head="Ratri Sallet",
     body="Ratri Plate",
@@ -1234,8 +1165,8 @@ sets.defense.SEboost = {
         waist="Plat. Mog. Belt",
         left_ear="Eabani Earring",
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Shadow Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Shadow Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
     sets.defense.Enmity = {
@@ -1270,6 +1201,99 @@ sets.defense.SEboost = {
     back="Moonlight Cape",
 })
   
+    --------------------------------------
+    -- Idle/resting/defense/etc sets
+    --------------------------------------
+  
+         -- Resting sets
+         sets.resting = {
+            head=empty,
+            body={ name="Lugra Cloak +1", augments={'Path: A',}},
+            left_ear="Infused Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Stikini Ring +1",
+        }
+        -- Idle sets
+        sets.idle = {
+            ammo="Staunch Tathlum +1",
+            head={ name="Sakpata's Helm", augments={'Path: A',}},
+            body="Sacro Breastplate",
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+            feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+            neck={ name="Loricate Torque +1", augments={'Path: A',}},
+            waist="Flume Belt +1",
+            left_ear="Infused Earring",
+            right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+            left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+            right_ring="Defending Ring",
+            back="Moonlight Cape",
+    }
+      
+        sets.idle.Town = {
+            head="Crepuscular Helm",
+            body="Sacro Breastplate",
+            legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+            left_ear="Infused Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Stikini Ring +1",
+    }
+    
+        sets.Adoulin = {body="Councilor's Garb"}
+        sets.Kiting = {legs="Carmine Cuisses +1"}
+        sets.MoveSpeed = {legs="Carmine Cuisses +1"}
+    
+        sets.idle.Weak = {head="Crepuscular Helm",body="Crepuscular Mail"}
+    
+          
+        sets.idle.Refresh = set_combine(sets.idle, {       
+        head=empty,
+        body={ name="Lugra Cloak +1", augments={'Path: A',}},
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        })
+        sets.idle.Regen = { 
+            ammo="Staunch Tathlum +1",
+            head="Crepuscular Helm",
+            body="Sacro Breastplate",
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+            feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+            neck={ name="Bathy Choker +1", augments={'Path: A',}},
+            waist="Flume Belt +1",
+            left_ear="Infused Earring",
+            right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+            left_ring="Chirich Ring +1",
+            right_ring="Defending Ring",
+            back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+        }
+        sets.idle.PDT = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Sakpata's Helm", augments={'Path: A',}},
+        body="Adamantite Armor",
+        hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+        feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Moonlight Ring",
+        back="Moonlight Cape",
+    }
+    sets.idle.MDT = sets.defense.MDT
+    sets.idle.Evasion = sets.defense.Evasion
+    sets.idle.HP = sets.defense.HP
+    
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+       ammo="Eluder's Sachet",
+       left_ring="Warden's Ring",
+       right_ring="Fortified Ring",
+       back="Reiki Cloak",
+    })
+        sets.idle.Sphere = set_combine(sets.idle, {   })
+      
 
     --------------------------------------
     -- Engaged sets
@@ -1354,7 +1378,6 @@ sets.engaged.CRIT = set_combine(sets.engaged, {
 })
 
 sets.engaged.PD = set_combine(sets.engaged, {
-
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Hjarrandi Helm",
     body="Hjarrandi Breast.",
@@ -2383,7 +2406,7 @@ function get_combat_form()
         state.CombatForm:set("SW")
     elseif buffactive['Last Resort'] then
         if (buffactive.embrava or buffactive.haste) and buffactive.march then
-            add_to_chat(8, '-------------Delay Capped-------------')
+            --add_to_chat(8, '-------------Delay Capped-------------')
             state.CombatForm:set("Haste")
         else
             state.CombatForm:reset()

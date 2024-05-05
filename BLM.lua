@@ -36,9 +36,10 @@ end
 -- If you're new to gearswap, the F9~12 keys and CTRL keys in combination is how you activate this stuff.
 
 function user_setup()
-    state.OffenseMode:options('None','Normal','TP', 'Locked')
+    state.OffenseMode:options('None','Normal','TP', 'CRIT', 'Locked')
+    state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.Enfeebling = M('None', 'Effect')
@@ -52,7 +53,7 @@ function user_setup()
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
-    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
+    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya'} 
 
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
 	Elemental_Debuffs = S {'Shock', 'Rasp', 'Choke', 'Frost', 'Burn', 'Drown'}
@@ -251,11 +252,11 @@ function init_gear_sets()
         }
         sets.precast.WS['Spinning Scythe'] = {
             ammo="Oshasha's Treatise",
-            head="Jhakri Coronal +2",
-            body="Jhakri Robe +2",
-            hands="Jhakri Cuffs +2",
-            legs="Jhakri Slops +2",
-            feet="Jhakri Pigaches +2",
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
             neck="Fotia Gorget",
             waist="Fotia Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -331,6 +332,7 @@ function init_gear_sets()
     sets.precast.WS['Seraph Strike'] = sets.precast.WS['Cataclysm']
     sets.precast.WS['Shining Strike'] = sets.precast.WS['Cataclysm']
     sets.precast.WS['Vidohunir'] = sets.precast.WS['Cataclysm']
+    sets.precast.WS['Dark Harvest'] = sets.precast.WS['Cataclysm']
 
     sets.precast.WS['Shattersoul'] = {
         ammo="Oshasha's Treatise",
@@ -347,6 +349,14 @@ function init_gear_sets()
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+
+    sets.precast.WS['Vorpal Scythe'] = set_combine(sets.precast.WS['Spinning Scythe'], {
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        neck="Nefarious Collar +1",
+        left_ring="Hetairoi Ring",
+        })
+    
     ---- Midcast Sets ----
     sets.midcast.FastRecast = {} 
  
@@ -809,8 +819,8 @@ sets.midcast.Aspir = sets.midcast.Drain
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist="Carrier's Sash",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
     left_ear="Eabani Earring",
     right_ear="Ethereal Earring",
     right_ring="Stikini Ring +1",
@@ -897,15 +907,38 @@ sets.midcast.Aspir = sets.midcast.Drain
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
     }
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        back="Reiki Cloak",
+    })
+
+    sets.idle.Evasion = set_combine(sets.idle.PDT, { 
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Eabani Earring",
+        right_ear="Ethereal Earring",
+        left_ring={ name="Cacoethic Ring +1", augments={'Path: A',}},
+        right_ring="Vengeful Ring",
+        back="Moonlight Cape",
+    })
 
     sets.idle.Town = {
-        feet="Herald's Gaiters",left_ear="Infused Earring",
+        feet="Herald's Gaiters",
+        left_ear="Infused Earring",
         right_ring="Stikini Ring +1",}
 
     sets.Adoulin = {body="Councilor's Garb", feet="Herald's Gaiters"}
-
     sets.MoveSpeed = {feet="Herald's Gaiters"}
-    
     sets.TreasureHunter = {ammo="Per. Lucky Egg",
     head="White rarab cap +1", 
     waist="Chaac Belt"} 
@@ -1038,6 +1071,11 @@ sets.midcast.Aspir = sets.midcast.Drain
         right_ring="Chirich Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.engaged.CRIT = set_combine(sets.engaged.TP, {
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
+        neck="Nefarious Collar +1",
+        left_ring="Hetairoi Ring",
+    })
     sets.engaged.TH = {
         ammo="Per. Lucky Egg",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -1259,6 +1297,10 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
         equip({main="Marin Staff +1",sub="Enki Strap"})
     elseif state.StaffMode.value == "Mpaca" then
         equip({main="Mpaca's Staff",sub="Enki Strap"})
+    elseif state.StaffMode.value == "Drepanum" then
+        equip({main="Drepanum",sub="Alber Strap"})
+    elseif state.StaffMode.value == "Maliya" then
+        equip({main="Maliya Sickle +1",sub="Alber Strap"})
     elseif state.StaffMode.value == "normal" then
         equip({})
     end
