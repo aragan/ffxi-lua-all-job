@@ -762,7 +762,6 @@ function init_gear_sets()
         Hybrid Mode = Normal
     ]]
     sets.engaged.Master = {
-        range="Neo Animator",
         ammo="Automat. Oil +3",
         head="Malignance Chapeau",
         body="Malignance Tabard",
@@ -802,7 +801,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = TP
     ]]
-    sets.engaged.Master.TP = {    range="Neo Animator",
+    sets.engaged.Master.TP = {    
         ammo="Automat. Oil +3",
         head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         body="Mpaca's Doublet",
@@ -822,7 +821,7 @@ function init_gear_sets()
         Offense Mode = Master
         Hybrid Mode = DT
     ]]
-    sets.engaged.Master.DT = {        range="Neo Animator",
+    sets.engaged.Master.DT = {     
 
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -837,7 +836,7 @@ function init_gear_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},    }
     
-    sets.engaged.Master.Regen = {    range="Neo Animator",
+    sets.engaged.Master.Regen = {   
     
         head={ name="Mpaca's Cap", augments={'Path: A',}},
         body="Mpaca's Doublet",
@@ -1213,7 +1212,6 @@ function init_gear_sets()
     }
     sets.idle.Pet.Engaged.Empy = {          
         main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
-        range="Animator P +1",
         ammo="Automat. Oil +3",
         head="Kara. Cappello +2",
         body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
@@ -1257,7 +1255,6 @@ function init_gear_sets()
     sets.idle.Pet.Engaged.Regen = {          
     
         main={ name="Xiucoatl", augments={'Path: C',}},
-    range="Animator P +1",
     ammo="Automat. Oil +3",
     head="Kara. Cappello +2",
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
