@@ -521,8 +521,8 @@ sets.midcast.Absorb = {
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         right_ear="Hattori Earring +1", 
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS, sets.Kamu)
@@ -551,8 +551,8 @@ sets.midcast.Absorb = {
         waist="Gerdr Belt",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ear="Odr Earring",
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Jin'] = set_combine(sets.precast.WS, sets.Jin)
@@ -583,8 +583,8 @@ sets.midcast.Absorb = {
         waist="Gerdr Belt",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ear="Odr Earring",
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Sacro Mantle",
     })
     sets.precast.WS['Blade: Hi'].SC = set_combine(sets.precast.WS['Blade: Hi'], {
@@ -614,8 +614,8 @@ sets.midcast.Absorb = {
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Hattori Earring +1", 
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Andartia's Mantle",
     }
     
@@ -652,8 +652,8 @@ sets.midcast.Absorb = {
         waist="Gerdr Belt",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ear="Odr Earring",
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Rin'] = set_combine(sets.precast.WS, sets.Rin)
@@ -676,8 +676,8 @@ sets.midcast.Absorb = {
         waist="Fotia Belt",
         right_ear="Brutal Earring",
         left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-        right_ring="Regal Ring",
-        left_ring="Gere Ring",
+        left_ring="Regal Ring",
+        right_ring="Gere Ring",
         back="Andartia's Mantle",
     }
     sets.precast.WS['Blade: Ku'] = set_combine(sets.precast.WS, sets.Ku)
@@ -973,8 +973,8 @@ sets.midcast.Absorb = {
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Tuisto Earring",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Eihwaz Ring",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
@@ -1062,13 +1062,14 @@ sets.idle.MDT = {
 sets.idle.HP = {
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Eihwaz Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",
@@ -1118,8 +1119,8 @@ sets.idle.Weak = sets.idle
         waist="Windbuffet Belt +1",
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        left_ring="Epona's Ring",
         back="Andartia's Mantle",
     }
 
@@ -1143,8 +1144,8 @@ sets.idle.Weak = sets.idle
         waist="Windbuffet Belt +1",
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        left_ring="Epona's Ring",
         back="Andartia's Mantle",
     }
     sets.engaged.STP = set_combine(sets.engaged, {
@@ -1185,8 +1186,8 @@ sets.idle.Weak = sets.idle
         waist="Sailfi Belt +1",
         left_ear="Balder Earring +1",
         right_ear="Cessance Earring",
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        right_ring="Gere Ring",
+        left_ring="Epona's Ring",
         back="Andartia's Mantle", 
     })
     sets.engaged.CRIT =  {
@@ -1223,8 +1224,8 @@ sets.engaged.DW = {
     waist="Windbuffet Belt +1",
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
-    left_ring="Gere Ring",
-    right_ring="Epona's Ring",
+    right_ring="Gere Ring",
+    left_ring="Epona's Ring",
     back="Andartia's Mantle",
 }
 
