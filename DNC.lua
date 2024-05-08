@@ -137,7 +137,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
     state.PhysicalDefenseMode:options('Evasion', 'PDT', 'Enmity', 'HP')
     state.MagicalDefenseMode:options('MDT')
-    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'EnemyCritRate')
+    state.IdleMode:options('Normal', 'PDT','Regen', 'HP', 'Evasion', 'Enmity', 'EnemyCritRate')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Aeneas'}
 
     gear.default.weaponskill_neck = ""
@@ -625,100 +625,6 @@ function init_gear_sets()
     back="Moonlight Cape", }
     sets.ExtraRegen = {eft_ear="Infused Earring",}
     
-
-    -- Idle sets
-
-    sets.idle = {ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
-    body="Adamantite Armor",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Gleti's Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Infused Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Paguroidea Ring",
-    back="Moonlight Cape",
-}
-
-sets.idle.PDT = {        
-    ammo="Eluder's Sachet",
-    head="Nyame Helm",
-    body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Fortified Ring",
-    back="Moonlight Cape",
-}
-
-sets.idle.Evasion = {
-    ammo="Yamarang",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Svelt. Gouriz +1",
-    left_ear="Infused Earring",
-    right_ear="Eabani Earring",
-    left_ring="Vengeful Ring",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
-}
-
-sets.idle.HP = {
-    main={ name="Twashtar", augments={'Path: A',}},
-    sub={ name="Aeneas", augments={'Path: A',}},
-    ammo="Eluder's Sachet",
-    head="Nyame Helm",
-    body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Plat. Mog. Belt",
-    left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Moonlight Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Moonlight Cape",
-}
-sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
-    ammo="Eluder's Sachet",
-    left_ring="Warden's Ring",
-    right_ring="Fortified Ring",
-    back="Reiki Cloak",
-})
-
-    sets.idle.Town = {   
-    feet="Tandava Crackows",
-    left_ear="Infused Earring",
-}
-    
-    sets.idle.Weak = {    ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
-    body="Adamantite Armor",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Gleti's Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Infused Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    right_ring="Paguroidea Ring",
-    back="Moonlight Cape",
-}
-    
     -- Defense sets
 
 sets.defense.Evasion = {
@@ -801,6 +707,105 @@ sets.defense.Enmity = {
     left_ring="Shadow Ring",
     right_ring="Defending Ring",
     back="Moonlight Cape",}
+
+    -- Idle sets
+
+    sets.idle = {ammo="Staunch Tathlum +1",
+    head="Gleti's Mask",
+    body="Adamantite Armor",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Infused Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+}
+
+sets.idle.PDT = {        
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Fortified Ring",
+    back="Moonlight Cape",
+}
+sets.idle.MDT = set_combine(sets.defense.MDT, {})
+sets.idle.Evasion = {
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}
+
+sets.idle.HP = {
+    main={ name="Twashtar", augments={'Path: A',}},
+    sub={ name="Aeneas", augments={'Path: A',}},
+    ammo="Eluder's Sachet",
+    head="Nyame Helm",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonlight Cape",
+}
+sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+    ammo="Eluder's Sachet",
+    left_ring="Warden's Ring",
+    right_ring="Fortified Ring",
+    back="Reiki Cloak",
+})
+sets.idle.Regen = set_combine(sets.idle, {
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    right_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
+    sets.idle.Town = {   
+    feet="Tandava Crackows",
+    left_ear="Infused Earring",
+}
+    
+    sets.idle.Weak = {    ammo="Staunch Tathlum +1",
+    head="Gleti's Mask",
+    body="Adamantite Armor",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Infused Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Paguroidea Ring",
+    back="Moonlight Cape",
+}
+sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
 
     sets.MoveSpeed = {feet="Tandava Crackows",}
     sets.Kiting = {feet="Tandava Crackows",}

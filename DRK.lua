@@ -1924,12 +1924,17 @@ function check_weaponset()
     equip(sets[state.shield.current])
 end
 function job_self_command(cmdParams, eventArgs)
-    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        equip(sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
-    end
-    return
+
 end
+
+windower.register_event('hpp change',
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+end
+)
+
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if state.IdleMode.current == 'Refresh' then

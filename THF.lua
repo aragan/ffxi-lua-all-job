@@ -659,7 +659,7 @@ sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Black Halo'], {
     waist="Plat. Mog. Belt",
     left_ear="Eabani Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    left_ring="Vengeful Ring",
+    left_ring="Shadow Ring",
     right_ring="Purity Ring",
     back="Engulfer Cape +1",}
 

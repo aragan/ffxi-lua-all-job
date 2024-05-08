@@ -209,7 +209,7 @@ function user_setup()
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
     state.CastingMode:options('Normal', 'SIRD', 'ConserveMP')
-    state.IdleMode:options('Normal', 'PDT', 'Evasion', 'HP', 'EnemyCritRate', 'Learning')
+    state.IdleMode:options('Normal', 'PDT','MDT', 'Evasion','Regen', 'HP', 'EnemyCritRate', 'Enmity', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
@@ -1047,8 +1047,75 @@ sets.resting = {
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
 }
+
     
-    -- Idle sets
+    -- Defense sets
+sets.defense.PDT = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Gleti's Mask", augments={'Path: A',}},
+    body="Adamantite Armor",
+    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet="Gleti's Boots",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Genmei Earring",
+    right_ear="Ethereal Earring",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Shadow Mantle",}
+
+sets.defense.Evasion = {
+    main="Naegling",
+    sub="Sakpata's Sword",
+    ammo="Amar Cluster",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Defending Ring",
+    right_ring="Vengeful Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+}
+
+sets.defense.Enmity = {
+    ammo="Iron Gobbet",        --2
+    head="Halitus Helm", --8
+    body="Emet Harness +1", --10
+    hands="Kurys Gloves", --9
+    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+    feet="Ahosi Leggings", --7
+    neck="Unmoving Collar +1", --10
+    ear1="Cryptic Earring", --4
+    ear2="Trux Earring", --5
+    left_ring="Eihwaz Ring",
+    right_ring="Vengeful Ring",
+    back="Reiki Cloak",
+}
+
+    
+sets.defense.MDT = { 
+    ammo="Staunch Tathlum +1",
+    head={ name="Gleti's Mask", augments={'Path: A',}},
+    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet="Gleti's Boots",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Sanare Earring",
+    left_ring="Defending Ring",
+    left_ring="Shadow Ring",
+    back="Moonlight Cape",
+}
+    
+-- Idle sets
 sets.idle = {     
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
@@ -1119,7 +1186,14 @@ sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, {
     right_ring="Fortified Ring",
     back="Reiki Cloak",
 })
-
+sets.idle.Regen = set_combine(sets.idle, {
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    right_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
+sets.idle.MDT = set_combine(sets.defense.MDT, {})
+sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
 sets.idle.Town = {legs="Carmine Cuisses +1",
 neck={ name="Bathy Choker +1", augments={'Path: A',}},
 left_ear="Infused Earring",}
@@ -1128,74 +1202,7 @@ sets.idle.Learning = set_combine(sets.idle, sets.Learning, {
     main="Iris", 
     sub="Iris",
 })
-
     
-    -- Defense sets
-sets.defense.PDT = {
-    ammo="Staunch Tathlum +1",
-    head={ name="Gleti's Mask", augments={'Path: A',}},
-    body="Adamantite Armor",
-    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
-    legs={ name="Gleti's Breeches", augments={'Path: A',}},
-    feet="Gleti's Boots",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Genmei Earring",
-    right_ear="Ethereal Earring",
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Shadow Mantle",}
-
-sets.defense.Evasion = {
-    main="Naegling",
-    sub="Sakpata's Sword",
-    ammo="Amar Cluster",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Svelt. Gouriz +1",
-    left_ear="Infused Earring",
-    right_ear="Eabani Earring",
-    left_ring="Defending Ring",
-    right_ring="Vengeful Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-}
-
-sets.defense.Enmity = {
-    ammo="Iron Gobbet",        --2
-    head="Halitus Helm", --8
-    body="Emet Harness +1", --10
-    hands="Kurys Gloves", --9
-    legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-    feet="Ahosi Leggings", --7
-    neck="Unmoving Collar +1", --10
-    ear1="Cryptic Earring", --4
-    ear2="Trux Earring", --5
-    left_ring="Eihwaz Ring",
-    right_ring="Vengeful Ring",
-    back="Reiki Cloak",
-}
-
-    
-sets.defense.MDT = { 
-    ammo="Staunch Tathlum +1",
-    head={ name="Gleti's Mask", augments={'Path: A',}},
-    body={ name="Gleti's Cuirass", augments={'Path: A',}},
-    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
-    legs={ name="Gleti's Breeches", augments={'Path: A',}},
-    feet="Gleti's Boots",
-    neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Sanare Earring",
-    left_ring="Defending Ring",
-    left_ring="Shadow Ring",
-    back="Moonlight Cape",
-}
-
 sets.Kiting = {ammo="Staunch Tathlum +1",
 legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 }

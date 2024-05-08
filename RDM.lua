@@ -96,7 +96,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell', 'EnspellDBL', 'SubtleBlow')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Evasion', 'Enmity')
+    state.IdleMode:options('Normal', 'PDT', 'MDT','Regen', 'HP', 'EnemyCritRate', 'Evasion', 'Enmity')
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
@@ -1040,7 +1040,12 @@ sets.TreasureHunter = {
 		right_ring="Vengeful Ring",
 		back="Moonlight Cape",
 	}
-    
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+		ammo="Eluder's Sachet",
+		left_ring="Warden's Ring",
+		right_ring="Fortified Ring",
+		back="Reiki Cloak",
+	})
     -- Defense sets
     sets.defense.PDT = {
 		ammo="Staunch Tathlum +1",
