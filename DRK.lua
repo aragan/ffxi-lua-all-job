@@ -122,7 +122,7 @@ Scourge (R) > Resolution (MM)
 -- Setup vars that are user-independent.
 function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    send_command('wait 2;input /lockstyleset 152')
+    send_command('wait 2;input /lockstyleset 165')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -150,7 +150,7 @@ function job_setup()
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     -- Offhand weapons used to activate DW mode
     swordList = S{"Naegling", "Sangarius +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
-    sets.weaponList = {"Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
+    sets.weaponList = {"Caladbolg", "Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Caladbolg', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Lycurgos', 'Naegling', 'Loxotic', 'TernionDagger'}
     state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
 
@@ -205,7 +205,7 @@ function user_setup()
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
-    send_command('wait 6;input /lockstyleset 152')
+    send_command('wait 6;input /lockstyleset 165')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
@@ -2487,7 +2487,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 152')
+        send_command('wait 6;input /lockstyleset 165')
     end
 end
 
