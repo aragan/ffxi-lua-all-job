@@ -226,6 +226,7 @@ function init_gear_sets()
 	-- Fast cast sets for spells
 
 	sets.precast.FC = {
+		neck="Orunmila's Torque",
 		ear2="Loquacious Earring",
 		ring1="Prolix Ring"}
 

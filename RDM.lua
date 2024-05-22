@@ -869,12 +869,14 @@ sets.TreasureHunter = {
     --sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
+
+		head="Pixie Hairpin +1",
+		hands={ name="Merlinic Dastanas", augments={'"Mag.Atk.Bns."+1','"Drain" and "Aspir" potency +10','CHR+5','Mag. Acc.+4',}},
+		feet="Merlinic Crackows",
 		ring1="Evanescence ring",
 		ring2="Archon Ring",
-		waist="Fucho-no-Obi",
-		head="Pixie Hairpin +1",
 		neck="Erra Pendant",
-		feet="Merlinic Crackows",
+		waist="Fucho-no-Obi",
 	})
     sets.midcast.Aspir = sets.midcast.Drain
 

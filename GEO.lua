@@ -138,9 +138,10 @@ function init_gear_sets()
         ring1="Prolix Ring",
         ring2="Kishar Ring",
         back="Lifestream Cape",
+        neck="Orunmila's Torque",        
         waist="Witful Belt",
         legs="Geomancy Pants +2",
-        feet="Merlinic Crackows"
+        feet={ name="Regal Pumps +1", augments={'Path: A',}},
     }
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
@@ -499,6 +500,7 @@ function init_gear_sets()
     
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
+        hands={ name="Merlinic Dastanas", augments={'"Mag.Atk.Bns."+1','"Drain" and "Aspir" potency +10','CHR+5','Mag. Acc.+4',}},
         feet={ name="Agwu's Pigaches", augments={'Path: A',}},
         neck="Erra Pendant",
         ring1="Evanescence Ring",

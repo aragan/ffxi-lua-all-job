@@ -18,8 +18,6 @@ function get_sets()
     include('organizer-lib')
     organizer_items = {
         "Airmid's Gorget",
-        "Hachimonji",
-        "Mafic Cudgel",
         "Toolbag (Shihe)",
         "Chonofuda",
         "Shikanofuda",
@@ -48,7 +46,6 @@ function get_sets()
         "Warp Cudgel",
         "Holy Water",
         "Remedy",
-        "Wh. Rarab Cap +1",
         "Emporox's Ring",
         "Red Curry Bun",
         "Instant Reraise",
@@ -275,7 +272,7 @@ function init_gear_sets()
         right_ear="Loquac. Earring",
         left_ring="Rahab Ring",
         right_ring="Kishar Ring",
-        
+        neck="Orunmila's Torque",        
     }
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
         body="Passion Jacket",
@@ -1747,7 +1744,7 @@ end
 
 
 function job_status_change(newStatus, oldStatus, eventArgs)
-    if swordList:contains(player.equipment.main) then
+    --[[if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 138')
     elseif GKList:contains(player.equipment.main) then
         send_command('input /lockstyleset 172')
@@ -1755,7 +1752,7 @@ function job_status_change(newStatus, oldStatus, eventArgs)
         send_command('input /lockstyleset 144')
     elseif daggerList:contains(player.equipment.main) then
         send_command('input /lockstyleset 157')
-    end
+    end]]
     --[[if newStatus == "Idle" then
         if gsList:contains(player.equipment.main) then
             windower.chat.input('/lockstyleset 165')

@@ -209,7 +209,7 @@ function init_gear_sets()
     sets.normal = {}
     sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
     sets.DAGGERS = {main="Tauret", sub="Gleti's Knife"}
-    sets.RANGED = {main="Kustawi +1", sub="Rostam"}
+    sets.RANGED = {main="Kustawi +1"}
 
     sets.normal = {}
     sets.DeathPenalty = {range="Death Penalty"}

@@ -253,7 +253,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Tabula Rasa'] = {legs="Pedagogy Pants"}
+    sets.precast.JA['Tabula Rasa'] = {legs="Peda. Pants +3"}
     sets.precast.JA['Enlightenment'] = {body="Peda. Gown +3"}
     sets.precast.JA['Sublimation'] = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -599,7 +599,7 @@ function init_gear_sets()
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
 
-    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet={ name="Peda. Loafers", augments={'Enhances "Stormsurge" effect',}},})
+    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet={ name="Peda. Loafers +1", augments={'Enhances "Stormsurge" effect',}},})
 
     sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {left_ear="Brachyura Earring",})
     sets.midcast.Protectra = sets.midcast.Protect
@@ -646,7 +646,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body="Agwu's Robe",
         hands="Agwu's Gages",
-        legs="Agwu's Slops",
+        legs="Peda. Pants +3",
         feet="Agwu's Pigaches",
         neck="Baetyl Pendant",
         waist="Fucho-no-obi",
@@ -684,6 +684,8 @@ function init_gear_sets()
     }
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
+        hands={ name="Merlinic Dastanas", augments={'"Mag.Atk.Bns."+1','"Drain" and "Aspir" potency +10','CHR+5','Mag. Acc.+4',}},
+        legs="Peda. Pants +3",
         feet={ name="Agwu's Pigaches", augments={'Path: A',}},
         neck="Erra Pendant",
         ring1="Evanescence Ring",

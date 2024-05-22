@@ -368,11 +368,12 @@ sets.precast.Waltz = {   body="Passion Jacket",
 sets.precast.FC = {      
         ammo="Sapience Orb",
         head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-        body="Pinga Tunic",
+        body="Pinga Tunic +1",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-        legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-        feet="Jhakri Pigaches +2",
-        neck="Baetyl Pendant",
+        legs="Pinga Pants +1",
+        feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
+        neck="Orunmila's Torque",
+        waist="Witful Belt",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Kishar Ring",
@@ -389,7 +390,6 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, { ear1="Mendi. Earring"})
 
 
 sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
-    ring1="Lebeche Ring",
     waist="Rumination Sash",
 })
 

@@ -469,7 +469,7 @@ function init_gear_sets()
             sub=empty,
         })
         sets.engaged.Scythe = set_combine(sets.engaged, {
-            main="Lost Sickle",
+            main="Maven's Scythe",
             sub=empty,
         })
         sets.engaged.GS = set_combine(sets.engaged, {

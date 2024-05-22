@@ -38,7 +38,7 @@ end
 function user_setup()
     state.OffenseMode:options('None','Normal','TP', 'CRIT', 'Locked')
     state.HybridMode:options('Normal', 'DT')
-    state.CastingMode:options('Normal', 'OccultAcumen', 'FreeNuke', 'Proc')
+    state.CastingMode:options('Normal', 'Spaekona', 'Proc')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
@@ -53,7 +53,7 @@ function user_setup()
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
-    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya'} 
+    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
 
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
 	Elemental_Debuffs = S {'Shock', 'Rasp', 'Choke', 'Frost', 'Burn', 'Drown'}
@@ -176,6 +176,8 @@ function init_gear_sets()
     hands={ name="Agwu's Gages", augments={'Path: A',}},
     legs="Agwu's Slops",
     feet={ name="Regal Pumps +1", augments={'Path: A',}},
+    neck="Orunmila's Torque",
+    waist="Witful Belt",
     left_ear="Malignance Earring",
     right_ear="Loquac. Earring",
     left_ring="Kishar Ring",
@@ -566,54 +568,6 @@ function init_gear_sets()
         right_ring="Mujin Band",
         back="Taranus's Cape",
     })
-		
-    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
-        ammo="Pemphredo Tathlum",
-        head="Agwu's Cap",
-        body="Wicce Coat +3",
-        hands="Amalric Gages +1",
-        legs="Wicce Chausses +3",
-        feet="Agwu's Pigaches",
-        neck={ name="Src. Stole +2", augments={'Path: A',}},
-        waist={ name="Acuity Belt +1", augments={'Path: A',}},
-        left_ear="Regal Earring",
-        right_ear="Malignance Earring",
-        left_ring="Freke Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back="Taranus's Cape",
-    })
-	
-    sets.midcast['Elemental Magic'].HighTierNuke.FreeNuke = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-    ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",
-    body="Wicce Coat +3",
-    hands="Amalric Gages +1",
-    legs="Wicce Chausses +3",
-    feet="Jhakri Pigaches +2",
-    neck={ name="Src. Stole +2", augments={'Path: A',}},
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
-    left_ear="Malignance Earring",
-    right_ear="Regal Earring",
-    left_ring="Freke Ring",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back="Taranus's Cape",
-    })
-		
-    sets.midcast['Elemental Magic'].HighTierNuke.OccultAcumen = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
-        ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",
-        body="Wicce Coat +3",
-        hands="Amalric Gages +1",
-        legs="Wicce Chausses +3",
-        feet="Jhakri Pigaches +2",
-        neck={ name="Src. Stole +2", augments={'Path: A',}},
-        waist={ name="Acuity Belt +1", augments={'Path: A',}},
-        left_ear="Regal Earring",
-        right_ear="Malignance Earring",
-        left_ring="Freke Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back="Taranus's Cape",
-    })
 
     sets.midcast['Elemental Magic'].Proc = set_combine(sets.midcast['Elemental Magic'], {
         head=empty,
@@ -630,21 +584,11 @@ function init_gear_sets()
         back=empty,
     })
 
-    sets.midcast['Elemental Magic'].HighTierNuke.Proc = set_combine(sets.midcast['Elemental Magic'], {
-        head=empty,
-        body=empty,
-        hands=empty,
-        legs=empty,
-        feet=empty,
-        neck=empty,
-        waist=empty,
-        left_ear=empty,
-        right_ear=empty,
-        left_ring=empty,
-        right_ring=empty,
-        back=empty,
-    })
+
  
+    sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
+        body="Spaekona's Coat +3",})
+
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
 		head=empty,
         body="Twilight Cloak",
@@ -759,6 +703,7 @@ function init_gear_sets()
 -- (CTRL+F: Aspir Handling)
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
     head="Pixie Hairpin +1",
+    hands={ name="Merlinic Dastanas", augments={'"Mag.Atk.Bns."+1','"Drain" and "Aspir" potency +10','CHR+5','Mag. Acc.+4',}},
     feet={ name="Agwu's Pigaches", augments={'Path: A',}},
     neck="Erra Pendant",
     ring1="Evanescence Ring",
@@ -944,7 +889,7 @@ sets.midcast.Aspir = sets.midcast.Drain
     waist="Chaac Belt"} 
     -- Set for Conserve MP toggle, convert damage to MP body.
 	
-    --sets.AFBody = {body="Spaekona's Coat +2", right_ear="Regal Earring"}
+    --sets.AFBody = {body="Spaekona's Coat +3", right_ear="Regal Earring"}
  
     --- PDT set is designed to be used for MP total set, MDT can be used for whatever you like but in MDT mode
 	--- the player.mp arguments will likely stop working properly
@@ -1642,13 +1587,7 @@ end
  
 -- Custom spell mapping.
 function job_get_spell_map(spell, default_spell_map)
-    if spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
-        if lowTierNukes:contains(spell.english) then
-            return 'LowTierNuke'
-        else
-            return 'HighTierNuke'
-        end
-    end
+
 end
  
 -- Modify the default idle set after it was constructed.
