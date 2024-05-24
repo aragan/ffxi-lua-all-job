@@ -72,7 +72,7 @@ function user_setup()
         
         Will automatically set IdleMode to Idle when Pet becomes Engaged and you are Idle
     ]]
-    state.IdleMode:options("Idle", "MasterDT")
+    state.IdleMode:options("Idle", "MasterDT", "Sphere")
 
     --Various Cycles for the different types of PetModes
     state.PetStyleCycleTank = M {"NORMAL", "DD", "MAGIC", "SPAM"}
@@ -362,13 +362,16 @@ function init_gear_sets()
     left_ring="Warden's Ring",
     right_ring="Defending Ring",
     back="Moonlight Cape", }
-
+    
+    sets.idle.Sphere = set_combine(sets.idle, {
+        body="Annoint. Kalasiris",
+    })
     -------------------------------------Fastcast
     sets.precast.FC = {
         head={ name="Herculean Helm", augments={'Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: "Store TP"+11','Pet: CHR+2','Pet: "Mag.Atk.Bns."+8',}},
         body={ name="Taeon Tabard", augments={'Pet: Attack+25 Pet: Rng.Atk.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
         feet={ name="Regal Pumps +1", augments={'Path: A',}},
-        neck="Baetyl Pendant",
+        neck="Orunmila's Torque",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Prolix Ring",

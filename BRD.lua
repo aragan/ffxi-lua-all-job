@@ -106,7 +106,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.WeaponskillMode:options('Normal', 'PDL')
     state.CastingMode:options('Normal', 'AUGMENT')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh', 'Sphere')
 
     state.LullabyMode = M{['description']='Lullaby Instrument', 'Harp', 'Horn'}
 
@@ -234,7 +234,7 @@ function init_gear_sets()
     legs="Aya. Cosciales +2",
     feet="Fili Cothurnes +2",
     waist="Witful Belt",
-    neck="Baetyl Pendant",
+    neck="Orunmila's Torque",
     left_ear="Loquac. Earring",
     right_ear="Etiolation Earring",
     left_ring="Prolix Ring",
@@ -246,7 +246,6 @@ function init_gear_sets()
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     waist="Witful Belt",
@@ -629,7 +628,6 @@ sets.midcast.SongStringSkill = {
     sets.midcast.Cure = {
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    hands={ name="Chironic Gloves", augments={'"Cure" potency +7%','MND+9','Mag. Acc.+5','"Mag.Atk.Bns."+5',}},
     legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     neck="Nodens Gorget",
@@ -827,6 +825,9 @@ sets.idle.Regen = set_combine(sets.idle, {
     right_ear="Infused Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
+})
+sets.idle.Sphere = set_combine(sets.idle, {
+    body="Annoint. Kalasiris",
 })
     sets.idle.Weak = {       head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},

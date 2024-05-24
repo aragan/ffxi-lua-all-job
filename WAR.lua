@@ -78,7 +78,6 @@ end
 -- Setup vars that are user-independent.
 function job_setup()
     send_command('wait 2;input /lockstyleset 152')
-    include('Mote-TreasureHunter')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.Moving  = M(false, "moving")
@@ -122,6 +121,8 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.drain = M(false)
     state.Auto_Kite = M(false, 'Auto_Kite')
+    include('Mote-TreasureHunter')
+
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -1521,9 +1522,9 @@ end
  
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    --[[if state.TreasureMode.value == 'Fulltime' then
+    if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end]]
+    end
     if state.Buff.Berserk and not state.Buff.Retaliation then
     	meleeSet = set_combine(meleeSet, sets.buff.Berserk)
     end

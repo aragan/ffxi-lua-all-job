@@ -136,7 +136,7 @@ function user_setup()
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Blurred Knife +1",}
-    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'RANGED'}
+    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'Rostam'}
     state.Weapongun = M{['description']='Weapon Set', 'normal', 'DeathPenalty', 'Anarchy', 'Fomalhaut', 'Earp'}
 
     gear.RAbullet = "Decimating Bullet"
@@ -209,7 +209,7 @@ function init_gear_sets()
     sets.normal = {}
     sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
     sets.DAGGERS = {main="Tauret", sub="Gleti's Knife"}
-    sets.RANGED = {main="Kustawi +1"}
+    sets.Rostam = {main={ name="Rostam", augments={'Path: A',}}, sub="Tauret"}
 
     sets.normal = {}
     sets.DeathPenalty = {range="Death Penalty"}
@@ -322,6 +322,7 @@ sets.precast.JA['Super Jump'] = sets.precast.JA.Jump
         body="Oshosi Vest",
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +2",
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
     waist="Yemaya Belt",
     back="Tactical Mantle",
 }
@@ -408,6 +409,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         body="Ikenga's Vest",
 		left_ring="Sroda Ring", 
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Kentarch Belt +1",
 	})
 
@@ -448,7 +450,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     hands="Chasseur's Gants +3",
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Fotia Gorget",
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
     waist="Fotia Belt",
     right_ear="Ishvara Earring",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -494,7 +496,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-        neck="Baetyl Pendant",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear="Crematio Earring",
@@ -518,7 +520,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Baetyl Pendant",
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
     waist="Svelt. Gouriz +1",
     right_ear="Friomisi Earring",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -534,7 +536,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-    neck="Baetyl Pendant",
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
     waist="Svelt. Gouriz +1",
     right_ear="Friomisi Earring",
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -546,7 +548,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
         head={ name="Nyame Helm", augments={'Path: B',}},
         right_ear="Chas. Earring +1",
         left_ear="Digni. Earring",
-        neck="Fotia Gorget",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
     })
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
@@ -575,7 +577,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-        neck="Baetyl Pendant",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Skrymir Cord",
         left_ear="Friomisi Earring",
         right_ear="Crematio Earring",
@@ -591,7 +593,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Chass. Bottes +2",
-        neck="Baetyl Pendant",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Skrymir Cord",
         left_ear="Friomisi Earring",
         right_ear="Crematio Earring",
@@ -622,7 +624,7 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
         hands="Malignance Gloves",
         legs="Chas. Culottes +3",
         feet="Chass. Bottes +2",
-        neck="Sanctity Necklace",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Eschan Stone",
         left_ear="Crep. Earring",
         right_ear="Chas. Earring +1",
@@ -659,7 +661,7 @@ sets.midcast.RA.Acc = {
     hands="Malignance Gloves",
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
-    neck="Iskur Gorget",
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
     waist="Yemaya Belt",
     left_ear="Crep. Earring",
     right_ear="Telos Earring",

@@ -286,7 +286,8 @@ function init_gear_sets()
 		
 		sets.precast.JA.Spur = {main="Skullrender",
 		sub="Skullrender",
-		feet="Nukumi Ocreae +1",back="Artio's Mantle"
+		feet="Nukumi Ocreae +1",
+		back="Artio's Mantle"
 	}
 
         sets.precast.JA['Feral Howl'] = {
@@ -294,21 +295,19 @@ function init_gear_sets()
 			}
 
 		sets.precast.JA.Reward = {
-				main="Mdomo Axe +1",
+		main="Mdomo Axe +1",
     body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
     legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
     feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
     back="Artio's Mantle",
 }
 
-	
-	
 	sets.precast.JA.Charm = {
 				ammo="Tsar's Egg",
 				head={ name="Ankusa Helm +3", augments={'Enhances "Killer Instinct" effect',}},
 				body={ name="An. Jackcoat +3", augments={'Enhances "Feral Howl" effect',}},
 				hands={ name="Ankusa Gloves +3", augments={'Enhances "Beast Affinity" effect',}},
-				legs={ name="Ankusa Trousers +1", augments={'Enhances "Familiar" effect',}},
+				legs={ name="Ankusa Trousers +3", augments={'Enhances "Familiar" effect',}},
 				feet={ name="Ankusa Gaiters +3", augments={'Enhances "Beast Healer" effect',}},
 				neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 				waist="Chaac Belt",
@@ -316,9 +315,8 @@ function init_gear_sets()
 				right_ear={ name="Handler's Earring +1", augments={'Path: A',}},
 				left_ring="Thurandaut Ring",
 				right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-				back="Tantalic Cape",
-	
-			}
+				back="Artio's Mantle",}
+
 			sets.TreasureHunter = { 
 				ammo="Per. Lucky Egg",
 				head="White rarab cap +1", 
@@ -373,6 +371,7 @@ function init_gear_sets()
                 right_ear="Loquac. Earring",
                 left_ring="Thurandaut Ring",
                 right_ring="Prolix Ring",
+				neck="Orunmila's Torque",
 			}
 				
         sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
@@ -388,7 +387,6 @@ function init_gear_sets()
 				ammo="Sapience Orb",
                 hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
                 right_ear="Loquac. Earring",
-				neck="Diemer Gorget",
 				left_ear="Mendi. Earring",
 				right_ring="Prolix Ring",
 				})
@@ -817,12 +815,12 @@ function init_gear_sets()
 		
 	sets.midcast.Pet.MaccReady = set_combine(sets.midcast.Pet.WS, {
 		ammo="Voluspa Tathlum",
-		head="Gleti's Mask",
+		head="Nuk. Cabasset +2",
 		body="Nukumi Gausape +2",
 		hands="Nukumi Manoplas +2",
-		legs="Gleti's Breeches",
+		legs="Nukumi Quijotes +2",
 		feet="Gleti's Boots",
-		neck="Adad Amulet",
+		neck="Bst. Collar +2",
 		waist="Incarnation Sash",
 		left_ear="Enmerkar Earring",
 		right_ear="Nukumi Earring",
@@ -850,12 +848,12 @@ function init_gear_sets()
     back="Argocham. Mantle",
 			--MACC
     ammo="Voluspa Tathlum",
-    head="Gleti's Mask",
+    head="Nuk. Cabasset +2",
     body="Nukumi Gausape +2",
     hands="Nukumi Manoplas +2",
-    legs="Gleti's Breeches",
+    legs="Nukumi Quijotes +2",
     feet="Gleti's Boots",
-    neck="Adad Amulet",
+	neck="Bst. Collar +2",
     waist="Incarnation Sash",
     left_ear="Enmerkar Earring",
     right_ear="Nukumi Earring",

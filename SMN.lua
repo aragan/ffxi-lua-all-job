@@ -168,7 +168,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'Regen')
+    state.IdleMode:options('Normal', 'PDT', 'Regen', 'Sphere')
     state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     gear.perp_staff = {name=""}
@@ -225,7 +225,7 @@ function init_gear_sets()
         body="Inyanga Jubbah +2",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
 		feet="Regal Pumps +1",
-        neck="Baetyl Pendant",
+        neck="Orunmila's Torque",
 		waist="Witful Belt",
 		left_ear="Loquac. Earring",
         right_ear="Malignance Earring",
@@ -661,6 +661,10 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         right_ring="C. Palug Ring",
         back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
     }
+    
+    sets.idle.Sphere = set_combine(sets.idle, {
+        body="Annoint. Kalasiris",
+    })
 
     -- perp costs:
     -- spirits: 7

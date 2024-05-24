@@ -242,7 +242,7 @@ sets.precast.JA.Jump = {
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
         feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-        neck="Baetyl Pendant",
+        neck="Orunmila's Torque",
         waist="Plat. Mog. Belt",
         left_ear="Loquac. Earring",
         right_ear="Mendi. Earring",
@@ -284,7 +284,7 @@ sets.precast.JA.Jump = {
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
     hands="Gleti's Gauntlets",
     body="Pelt. Plackart +3",
-    right_ear="Peltast's Earring",
+    right_ear="Pel. Earring +1",
     left_ring="Sroda Ring", 
     })
 	sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS, {
@@ -316,7 +316,8 @@ sets.precast.JA.Jump = {
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
-        right_ear="Peltast's Earring",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
+        right_ear="Pel. Earring +1",
         left_ring="Sroda Ring", 
     })
 
@@ -327,7 +328,7 @@ sets.precast.JA.Jump = {
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Fotia Gorget",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
         waist="Fotia Belt",
         left_ear="Thrud Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -349,7 +350,7 @@ sets.precast.JA.Jump = {
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Gleti's Breeches",
         left_ear="Thrud Earring",
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ring="Sroda Ring", 
     })
 	sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {
@@ -359,10 +360,10 @@ sets.precast.JA.Jump = {
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         feet="Thereoid Greaves",
-        neck="Nefarious Collar +1",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ring="Regal Ring",
         right_ring="Niqmaddu Ring",
         back="Brigantia's Mantle",
@@ -381,7 +382,7 @@ sets.precast.JA.Jump = {
         body="Gleti's Cuirass",
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ring="Sroda Ring", 
     })
     sets.precast.WS['Geirskogul'] = set_combine(sets.precast.WS, {
@@ -410,7 +411,8 @@ sets.precast.JA.Jump = {
 	sets.precast.WS['Geirskogul'].PDL = set_combine(sets.precast.WS['Geirskogul'], {
         ammo="Crepuscular Pebble",
         hands="Gleti's Gauntlets",
-        right_ear="Peltast's Earring",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
+        right_ear="Pel. Earring +1",
         right_ring="Cornelia's Ring",
         left_ring="Sroda Ring", 
     })
@@ -421,9 +423,9 @@ sets.precast.JA.Jump = {
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Fotia Gorget",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Cornelia's Ring",
@@ -442,7 +444,7 @@ sets.precast.JA.Jump = {
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +3",
         feet="Gleti's Boots",
-    right_ear="Peltast's Earring",
+    right_ear="Pel. Earring +1",
     left_ring="Sroda Ring", 
     })
     sets.precast.WS['Thunder Thrust'] = set_combine(sets.precast.WS, {
@@ -454,7 +456,7 @@ sets.precast.JA.Jump = {
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
@@ -469,7 +471,7 @@ sets.precast.JA.Jump = {
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
-        right_ear="Peltast's Earring",
+        right_ear="Pel. Earring +1",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Cornelia's Ring",
@@ -513,7 +515,8 @@ sets.precast.JA.Jump = {
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS, {
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +3",
-        right_ear="Peltast's Earring",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
+        right_ear="Pel. Earring +1",
         left_ring="Sroda Ring", 
     })
     sets.precast.WS['Cataclysm'] = set_combine(sets.precast.WS, {
@@ -571,7 +574,7 @@ sets.precast.JA.Jump = {
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Fotia Gorget",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
         waist="Fotia Belt",
         right_ear="Thrud Earring",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -590,7 +593,8 @@ sets.precast.JA.Jump = {
     sets.precast.WS['Judgment'].PDL = set_combine(sets.precast.WS['Judgment'], {
         hands="Gleti's Gauntlets",
         body="Pelt. Plackart +3",
-        right_ear="Peltast's Earring",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
+        right_ear="Pel. Earring +1",
         left_ring="Sroda Ring", 
     })
 
@@ -825,7 +829,7 @@ sets.precast.JA.Jump = {
         hands="Flam. Manopolas +2",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Thereoid Greaves",
-        neck="Nefarious Collar +1",
+        neck={ name="Dgn. Collar +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Sherida Earring",
         right_ear="Brutal Earring",

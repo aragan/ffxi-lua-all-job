@@ -80,7 +80,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options( 'Duration', 'Normal', 'ConserveMP', 'SIRD', 'Enmity')
     state.WeaponskillMode:options('Normal', 'PDL')
-    state.IdleMode:options('Normal', 'PDT', 'Refresh')
+    state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
     state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -398,7 +398,7 @@ function init_gear_sets()
     -- Midcast Sets
     sets.midcast.FastRecast = {
         ammo="Staunch Tathlum +1",
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
         legs="Bunzi's Pants",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Rumination Sash",
@@ -409,7 +409,7 @@ function init_gear_sets()
     sets.midcast.SIRD = {
         ammo="Staunch Tathlum +1",
         sub="Culminus",
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
         feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -456,7 +456,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
         legs="Ebers Pant. +2",
         feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -522,7 +522,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
         legs="Ebers Pant. +2",
         feet="Theo. Duckbills +3",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -589,7 +589,7 @@ function init_gear_sets()
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-    hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+    hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
     legs="Ebers Pant. +2",
     feet="Theo. Duckbills +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1013,22 +1013,10 @@ function init_gear_sets()
     right_ring="Stikini Ring +1",
     back="Alaunus's Cape",}
 
-    sets.defense.MP = {       
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-        body="Ebers Bliaut +2",
-        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-        legs="Inyanga Shalwar +2",
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Nodens Gorget",
-        waist="Luminary Sash",
-        left_ear="Andoaa Earring",
-        right_ear="Halasz Earring",
-        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-        right_ring="Mephitas's Ring",
-        back="Alaunus's Cape",
-    }
-    
+
+    sets.idle.Sphere = set_combine(sets.idle, {
+        body="Annoint. Kalasiris",
+    })
     sets.idle.Town = {
     feet="Herald's Gaiters",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -1113,7 +1101,21 @@ function init_gear_sets()
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
     }
-
+    sets.defense.MP = {       
+        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Ebers Bliaut +2",
+        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+        legs="Inyanga Shalwar +2",
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Nodens Gorget",
+        waist="Luminary Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Halasz Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Mephitas's Ring",
+        back="Alaunus's Cape",
+    }
     sets.defense.MDT = {
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},

@@ -40,7 +40,7 @@ function user_setup()
 
     state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
     state.CastingMode:options('Normal', 'MB')
-    state.IdleMode:options('Normal', 'PDT', 'Refresh')
+    state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
 
     gear.default.weaponskill_waist = "Windbuffet Belt +1"
 
@@ -616,8 +616,9 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
     })
-
-
+    sets.idle.Sphere = set_combine(sets.idle, {
+        body="Annoint. Kalasiris",
+    })
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = set_combine(sets.idle, {
     main="Solstice",

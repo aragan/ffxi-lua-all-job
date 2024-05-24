@@ -90,6 +90,7 @@ function job_setup()
     --get_combat_weapon()
     update_melee_groups()
     send_command('wait 2;input /lockstyleset 172')
+    state.Moving  = M(false, "moving")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.BrachyuraEarring = M(true,false)
 
@@ -113,7 +114,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc','MaxAcc', 'CRIT' )
     state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'Fullhaste', 'SubtleBlow', 'Counter', 'Range')
     state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Acc', 'PDL')
-    state.IdleMode:options('Normal', 'Evasion')
+    state.IdleMode:options('Normal','PDT' ,'Regen', 'MDT', 'HP', 'Evasion', 'EnemyCritRate')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
@@ -197,6 +198,7 @@ function init_gear_sets()
     sets.precast.JA['Blade Bash'] = {hands="Saotome Kote +3"}
    
     sets.precast.FC = {
+        neck="Orunmila's Torque",
         ear1="Etiolation Earring",
         ear2="Loquacious Earring",
         hands="Leyline Gloves",
@@ -725,67 +727,6 @@ function init_gear_sets()
         }
     -- Sets to return to when not performing an action.
     
-    -- Resting sets
-    sets.resting = {
-        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
-        neck="Sanctity Necklace",
-        ring2="Paguroidea Ring",
-        ear2="Infused Earring",
-   	    body="Hizamaru Haramaki +2",
-    }
-    
-    sets.idle.Town = {        
-        head="Valorous Mask",
-        ear2="Infused Earring",
-        feet="Danzo Sune-Ate",
-
-
-    }
-    -- sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
-    --     body="Councilor's Garb"
-    -- })
-    
-    sets.idle.Field = {        
-    head="Valorous Mask",
-    body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Danzo Sune-Ate",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Flume Belt +1",
-    left_ear="Tuisto Earring",
-    right_ear="Infused Earring",
-    left_ring="Purity Ring",
-    right_ring="Defending Ring",
-    back="Moonlight Cape",
-
-    }
-
-    sets.idle.Regen =  {
-
-    }
-
-    sets.idle.Evasion = set_combine(sets.idle, {
-        ammo="Amar Cluster",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Svelt. Gouriz +1",
-        left_ear="Infused Earring",
-        right_ear="Eabani Earring",
-        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        right_ring="Vengeful Ring",
-        back="Moonlight Cape",
-     })
-    
-    sets.idle.Weak = set_combine(sets.idle.Field, {
-        head="Crepuscular Helm",
-    	body="Crepuscular Mail",
-    })
-    
     -- Defense sets
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
@@ -839,8 +780,65 @@ function init_gear_sets()
         back="Moonlight Cape",
     })
     
-    sets.Kiting = {feet="Danzo Sune-ate"}
+    --------------------------------------
+    -- Idle/resting/defense/etc sets
+    --------------------------------------
     
+    sets.resting = {
+        head={ name="Rao Kabuto +1", augments={'Pet: HP+125','Pet: Accuracy+20','Pet: Damage taken -4%',}},
+        neck="Sanctity Necklace",
+        ring2="Paguroidea Ring",
+        ear2="Infused Earring",
+   	    body="Hizamaru Haramaki +2",
+    }
+    
+    sets.idle.Town = {        
+        head="Valorous Mask",
+        ear2="Infused Earring",
+        feet="Danzo Sune-Ate",
+}
+    -- sets.idle.Town.Adoulin = set_combine(sets.idle.Town, {
+    --     body="Councilor's Garb"
+    -- })
+    
+    sets.idle = {        
+    head="Valorous Mask",
+    body="Adamantite Armor",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear="Infused Earring",
+    left_ring="Purity Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}
+
+    sets.idle.Regen = set_combine(sets.idle, { 
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.idle.EnemyCritRate = set_combine(sets.defense.PDT, { 
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+    })
+    sets.idle.MDT = set_combine(sets.defense.MDT, {})
+    sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
+    sets.idle.Evasion = set_combine(sets.defense.Evasion, {})
+    sets.idle.Weak = set_combine(sets.idle, {
+        head="Crepuscular Helm",
+    	body="Crepuscular Mail",
+    })
+
+    sets.Kiting = {feet="Danzo Sune-ate"}
+    sets.Adoulin = {body="Councilor's Garb"}
+    sets.MoveSpeed = {feet="Danzo Sune-ate"}
     sets.Reraise = {head="Crepuscular Helm",body="Crepuscular Mail"}
     
     -- Engaged sets
@@ -1194,10 +1192,13 @@ function customize_idle_set(idleSet)
     --if player.hpp < 90 then
         --idleSet = set_combine(idleSet, sets.idle.Regen)
     --end
-    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    if world.area:contains("Adoulin") then
+        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    --[[if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
-    end
+    end]]
 	return idleSet
 end
 
@@ -1565,6 +1566,48 @@ function update_am_type(spell)
         state.YoichiAM:set(false)
     end
 end
+
+mov = {counter=0}
+if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
+    mov.x = windower.ffxi.get_mob_by_index(player.index).x
+    mov.y = windower.ffxi.get_mob_by_index(player.index).y
+    mov.z = windower.ffxi.get_mob_by_index(player.index).z
+end
+
+moving = false
+windower.raw_register_event('prerender',function()
+    mov.counter = mov.counter + 1;
+    if mov.counter>15 then
+        local pl = windower.ffxi.get_mob_by_index(player.index)
+        if pl and pl.x and mov.x then
+            dist = math.sqrt( (pl.x-mov.x)^2 + (pl.y-mov.y)^2 + (pl.z-mov.z)^2 )
+            if dist > 1 and not moving then
+                state.Moving.value = true
+                send_command('gs c update')
+				if world.area:contains("Adoulin") then
+                send_command('gs equip sets.Adoulin')
+				else
+                send_command('gs equip sets.MoveSpeed')
+                end
+
+        moving = true
+
+            elseif dist < 1 and moving then
+                state.Moving.value = false
+                send_command('gs c update')
+                moving = false
+            end
+        end
+        if pl and pl.x then
+            mov.x = pl.x
+            mov.y = pl.y
+            mov.z = pl.z
+        end
+        mov.counter = 0
+    end
+end)
+
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book

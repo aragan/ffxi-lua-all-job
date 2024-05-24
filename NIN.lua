@@ -1589,9 +1589,7 @@ function customize_melee_set(meleeSet)
     if state.HybridMode.value == 'Proc' then
         meleeSet = set_combine(meleeSet, sets.NoDW)
     end
-    --[[if swordList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 152')
-    end]]
+
     meleeSet = set_combine(meleeSet, select_ammo())
 
     check_weaponset()
@@ -1744,22 +1742,7 @@ end
 
 
 function job_status_change(newStatus, oldStatus, eventArgs)
-    --[[if swordList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 138')
-    elseif GKList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 172')
-    elseif katanaList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 144')
-    elseif daggerList:contains(player.equipment.main) then
-        send_command('input /lockstyleset 157')
-    end]]
-    --[[if newStatus == "Idle" then
-        if gsList:contains(player.equipment.main) then
-            windower.chat.input('/lockstyleset 165')
-        else
-            windower.chat.input('/lockstyleset 152')
-        end
-    end]]
+
 end
 
 mov = {counter=0}

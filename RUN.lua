@@ -120,7 +120,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT','PDH', 'HP', 'Evasion', "Resist", 'Enmity')
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'SIRD') 
-    state.IdleMode:options('Normal', 'PDH', 'PDT', "EnemyCritRate", "Resist", 'Regen', 'Refresh')
+    state.IdleMode:options('Normal', 'PDH', 'PDT', 'EnemyCritRate', 'Resist', 'Regen', 'Refresh', 'Enmity')
     send_command('wait 6;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -221,7 +221,7 @@ function init_gear_sets()
         head="Rune. Bandeau +3",
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         body="Agwu's Robe",
-        neck="Baetyl Pendant",
+        neck="Orunmila's Torque",
         legs="Agwu's Slops",
         feet="Agwu's Pigaches",
         left_ear="Etiolation Earring",
@@ -454,98 +454,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 	-- Idle/resting/defense/etc sets
 	--------------------------------------
 
-    sets.idle = {   
-        ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
-        body="Adamantite Armor",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear="Genmei Earring",
-        right_ear="Infused Earring",
-        left_ring="Defending Ring",
-        right_ring="Fortified Ring",
-        back="Ogma's Cape",}
-
-    sets.idle.Town = {
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    left_ear="Infused Earring",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
-    
-    sets.Adoulin = {body="Councilor's Garb",}
-
-    sets.idle.Refresh = set_combine(sets.idle, {
-    ammo="Homiliary",
-    body="Agwu's Robe",
-    hands="Regal Gauntlets",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Erilaz Earring +2",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Fucho-no-Obi",
-    })
-
-    sets.idle.Regen = set_combine(sets.idle, {
-        hands="Regal Gauntlets",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        right_ear="Infused Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-    })
-    sets.idle.PDH = {
-        ammo="Staunch Tathlum +1",
-        main="Aettir",
-        sub="Refined Grip +1",
-        head="Erilaz Galea +2",
-        body="Erilaz Surcoat +3",
-        hands="Erilaz Gauntlets +2",
-        legs="Eri. Leg Guards +2",
-        feet="Erilaz Greaves +2",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Defending Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        back="Ogma's Cape",
-    }
-
-    sets.idle.PDT = {   
-        ammo="Staunch Tathlum +1",
-        main="Aettir",
-        sub="Refined Grip +1",
-        head="Nyame Helm",
-        body="Adamantite Armor",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Flume Belt +1",
-        left_ear="Tuisto Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Defending Ring",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        back="Ogma's Cape",}
-
-    sets.idle.Resist = set_combine(sets.idle.PDT, {
-        main="Malignance Sword",
-        sub="Chanter's Shield",
-        ammo="Staunch Tathlum +1",
-        hands="Erilaz Gauntlets +2",
-        legs="Rune. Trousers +3",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Engraved Belt",
-    })
-    sets.idle.EnemyCritRate = set_combine(sets.idle.PDH, {
-        ammo="Eluder's Sachet",
-        left_ring="Warden's Ring",
-        right_ring="Fortified Ring",
-        back="Reiki Cloak",
-     })
-
 	sets.defense.PDT = {   
     ammo="Staunch Tathlum +1",
     main="Aettir",
@@ -664,6 +572,102 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         feet="Turms Leggings +1",
         back="Ogma's Cape",
     }
+
+   --idle
+    
+    sets.idle = {   
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Adamantite Armor",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Genmei Earring",
+        right_ear="Infused Earring",
+        left_ring="Defending Ring",
+        right_ring="Fortified Ring",
+        back="Ogma's Cape",}
+
+    sets.idle.Town = {
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    left_ear="Infused Earring",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
+    
+    sets.Adoulin = {body="Councilor's Garb",}
+
+    sets.idle.Refresh = set_combine(sets.idle, {
+    ammo="Homiliary",
+    body="Agwu's Robe",
+    hands="Regal Gauntlets",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Erilaz Earring +2",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Fucho-no-Obi",
+    })
+
+    sets.idle.Regen = set_combine(sets.idle, {
+        hands="Regal Gauntlets",
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
+    sets.idle.PDH = {
+        ammo="Staunch Tathlum +1",
+        main="Aettir",
+        sub="Refined Grip +1",
+        head="Erilaz Galea +2",
+        body="Erilaz Surcoat +3",
+        hands="Erilaz Gauntlets +2",
+        legs="Eri. Leg Guards +2",
+        feet="Erilaz Greaves +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Ogma's Cape",
+    }
+
+    sets.idle.PDT = {   
+        ammo="Staunch Tathlum +1",
+        main="Aettir",
+        sub="Refined Grip +1",
+        head="Nyame Helm",
+        body="Adamantite Armor",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Flume Belt +1",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Defending Ring",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Ogma's Cape",}
+
+    sets.idle.Resist = set_combine(sets.idle.PDT, {
+        main="Malignance Sword",
+        sub="Chanter's Shield",
+        ammo="Staunch Tathlum +1",
+        hands="Erilaz Gauntlets +2",
+        legs="Rune. Trousers +3",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Engraved Belt",
+    })
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDH, {
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+     })
+     sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
+
 
 	--------------------------------------
 	-- Engaged sets

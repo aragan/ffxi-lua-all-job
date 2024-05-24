@@ -39,7 +39,7 @@ function user_setup()
     state.OffenseMode:options('None','Normal','TP', 'CRIT', 'Locked')
     state.HybridMode:options('Normal', 'DT')
     state.CastingMode:options('Normal', 'Spaekona', 'Proc')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate', 'Sphere')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.Enfeebling = M('None', 'Effect')
@@ -803,6 +803,9 @@ sets.midcast.Aspir = sets.midcast.Drain
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
+    sets.idle.Sphere = set_combine(sets.idle, {
+        body="Annoint. Kalasiris",
+    })
     sets.idle.DeathMode = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Pixie Hairpin +1",
@@ -1039,11 +1042,11 @@ sets.midcast.Aspir = sets.midcast.Drain
     sets.engaged.Locked = {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        hands={ name="Gazu Bracelets +1", augments={'Path: A',}},
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         neck="Combatant's Torque",
-        waist="Cornelia's Belt",
+        waist="Olseni Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Chirich Ring +1",

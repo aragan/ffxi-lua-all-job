@@ -96,7 +96,7 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'CRIT', 'Enspell', 'EnspellDBL', 'SubtleBlow')
 	state.HybridMode:options('Normal', 'PDT')
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.IdleMode:options('Normal', 'PDT', 'MDT','Regen', 'HP', 'EnemyCritRate', 'Evasion', 'Enmity')
+    state.IdleMode:options('Normal', 'PDT', 'MDT','Regen', 'HP', 'EnemyCritRate', 'Evasion', 'Enmity', 'Sphere')
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
 	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
@@ -206,7 +206,7 @@ function init_gear_sets()
 	sets.SIRD = {
 			ammo="Staunch Tathlum +1",
 			body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-			hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+			hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 			legs="Bunzi's Pants",
 			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Rumination Sash",
@@ -215,7 +215,7 @@ function init_gear_sets()
 	sets.midcast.SIRD = {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -556,7 +556,7 @@ sets.TreasureHunter = {
 	sets.midcast.Cure.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -567,7 +567,7 @@ sets.TreasureHunter = {
 	sets.midcast.Curaga.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -591,7 +591,7 @@ sets.TreasureHunter = {
 	sets.midcast.CureSelf.SIRD = set_combine(sets.midcast.Cure, {
 		ammo="Staunch Tathlum +1",
 		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs="Bunzi's Pants",
 		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Rumination Sash",
@@ -609,7 +609,7 @@ sets.TreasureHunter = {
 		sub="Ammurapi Shield",
 		head="Befouled Crown",
 		body="Telchine Chas.",
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		feet="Telchine Pigaches",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
@@ -656,7 +656,7 @@ sets.TreasureHunter = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
 		head="Befouled Crown",
-        hands={ name="Chironic Gloves", augments={'Accuracy+12','Spell interruption rate down -7%','CHR+1','Mag. Acc.+4',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
@@ -1047,6 +1047,9 @@ sets.TreasureHunter = {
 		left_ring="Warden's Ring",
 		right_ring="Fortified Ring",
 		back="Reiki Cloak",
+	})
+	sets.idle.Sphere = set_combine(sets.idle, {
+		body="Annoint. Kalasiris",
 	})
     -- Defense sets
     sets.defense.PDT = {
