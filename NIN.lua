@@ -1197,7 +1197,7 @@ sets.idle.Weak = sets.idle
     })
     sets.engaged.CRIT = {
         ammo="Yetshila +1",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Mummu Jacket +2",
         hands="Mummu Wrists +2",
         legs="Mummu Kecks +2",
@@ -1220,13 +1220,13 @@ sets.idle.Weak = sets.idle
 
 sets.engaged.DW = {
     ammo="Seki Shuriken",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head="Ryuo Somen +1", --9
+    body={ name="Tatena. Harama. +1", augments={'Path: A',}},
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-    feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
+    feet="Malignance Boots",
     neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
-    waist="Windbuffet Belt +1",
+    waist="Sailfi Belt +1",
     left_ear="Telos Earring",
     right_ear="Dedition Earring",
     right_ring="Gere Ring",
@@ -1258,7 +1258,7 @@ sets.engaged.DW.STP = set_combine(sets.engaged, {
 
 sets.engaged.DW.CRIT =  {
     ammo="Yetshila +1",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
     legs="Mummu Kecks +2",
@@ -1362,7 +1362,7 @@ sets.engaged.Hybrid = {
     hands="Malignance Gloves", --5/5
     legs="Malignance Tights", --7/7
     feet="Malignance Boots", --4/4
-    ring2="Defending Ring", --10/10
+    --ring2="Defending Ring", --10/10
 }
 
 sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
