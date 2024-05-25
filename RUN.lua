@@ -181,9 +181,9 @@ function init_gear_sets()
 	-- Precast sets to enhance JAs
     sets.precast.JA['Vallation'] = {body="Runeist coat +3", legs="Futhark Trousers +3"}
     sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
-    sets.precast.JA['Pflug'] = {feet="Runeist bottes"}
+    sets.precast.JA['Pflug'] = {feet="Runeist Bottes +2"}
     sets.precast.JA['Battuta'] = {head="Fu. Bandeau +3"}
-    sets.precast.JA['Liement'] = {body="Futhark Coat +1"}
+    sets.precast.JA['Liement'] = {}
     sets.precast.JA['Lunge'] = {
     head="Agwu's Cap",
     body="Agwu's Robe",

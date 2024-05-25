@@ -460,8 +460,8 @@ function init_gear_sets()
 	
 	sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'],{
         ammo="Pemphredo Tathlum",
-        head=empty,
-        body="Cohort Cloak +1",
+        head="Wicce Petasos +2",
+        body="Spaekona's Coat +3",
         hands="Amalric Gages +1",
         legs="Arch. Tonban +3",
         feet="Arch. Sabots +3",
@@ -759,7 +759,7 @@ sets.midcast.Aspir = sets.midcast.Drain
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {
     ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
+    head="Wicce Petasos +2",
     body="Shamash Robe",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -774,7 +774,7 @@ sets.midcast.Aspir = sets.midcast.Drain
 	}
     sets.idle.MDT = {
         ammo="Staunch Tathlum +1",
-        head="Nyame Helm",
+        head="Wicce Petasos +2",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
@@ -901,7 +901,7 @@ sets.midcast.Aspir = sets.midcast.Drain
         main="Malignance Pole",
         sub="Alber Strap",
         ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
+        head="Wicce Petasos +2",
         body="Adamantite Armor",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -919,7 +919,7 @@ sets.midcast.Aspir = sets.midcast.Drain
 	main="Malignance Pole",
     sub="Alber Strap",
     ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
+    head="Wicce Petasos +2",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
