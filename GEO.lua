@@ -76,7 +76,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
-    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +2", back="Nantosuelta's Cape"}
+    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +3", back="Nantosuelta's Cape"}
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
     sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +3"}
     sets.precast.JA['Sublimation'] = {waist="Embla Sash"}
@@ -131,24 +131,26 @@ function init_gear_sets()
 
     sets.precast.FC = {
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-        ear1="Malignance Earring",
-        ear2="Loquacious Earring",
         hands="Agwu's Gages",
         body="Shango Robe",
+        legs="Geomancy Pants +2",
+        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+3','"Fast Cast"+6','CHR+1','"Mag.Atk.Bns."+4',}},
         ring1="Prolix Ring",
         ring2="Kishar Ring",
-        back="Lifestream Cape",
+        ear1="Malignance Earring",
+        ear2="Loquacious Earring",
         neck="Orunmila's Torque",        
         waist="Witful Belt",
-        legs="Geomancy Pants +2",
-        feet={ name="Regal Pumps +1", augments={'Path: A',}},
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+
+
     }
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         --main="Tamaxchi",
-        --sub="Genbu's Shield",
-        --back="Pahtli Cape"
+        left_ear="Mendi. Earring",
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -163,7 +165,17 @@ function init_gear_sets()
         ring1="Mallquis Ring",
     })
 
-    
+    sets.ConserveMP = {  
+        head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+        body="Vedic Coat",
+        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+3','"Fast Cast"+6','CHR+1','"Mag.Atk.Bns."+4',}},
+        neck="Incanter's Torque",
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear="Mendi. Earring",
+        right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    back="Solemnity Cape",}
+
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
@@ -300,7 +312,7 @@ function init_gear_sets()
         main="Solstice",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Azimuth Hood +2",
-        body="Geo. Tunic +2",
+        body="Geo. Tunic +3",
         hands="Geo. Mitaines +3",
         legs="Geomancy Pants +2",
         feet="Bagua Sandals +3",
@@ -318,7 +330,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Azimuth Hood +2",
-        body="Geo. Tunic +2",
+        body="Geo. Tunic +3",
         hands="Geo. Mitaines +3",
         legs={ name="Bagua Pants +3", augments={'Enhances "Mending Halation" effect',}},
         feet="Azimuth Gaiters +2",
@@ -337,7 +349,7 @@ function init_gear_sets()
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Annoint. Kalasiris",
-        hands="Inyan. Dastanas +2",
+        hands="Telchine Gloves",
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Incanter's Torque",
@@ -495,7 +507,7 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring1="Evanescence Ring",
         ring2="Kishar Ring",
-        body="Geo. Tunic +2",
+        body="Geo. Tunic +3",
     })
     
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
@@ -514,7 +526,7 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc, {
         main="Daybreak",
         head="C. Palug Crown",
-        body="Geo. Tunic +2",
+        body="Geo. Tunic +3",
         hands="Geo. Mitaines +3",
         legs="Geomancy Pants +2",
         feet="Bagua Sandals +3",
@@ -574,7 +586,7 @@ function init_gear_sets()
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
         body="Shamash Robe",
-        hands="Geo. Mitaines +3",
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -588,9 +600,9 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head="Befouled Crown",
+        head="Azimuth Hood +2",
         body="Shamash Robe",
-        hands="Geo. Mitaines +3",
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -606,7 +618,7 @@ function init_gear_sets()
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
         body="Shamash Robe",
-        hands="Geo. Mitaines +3",
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         legs="Assid. Pants +1",
         feet="Geo. Sandals +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},

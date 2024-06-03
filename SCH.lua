@@ -600,7 +600,7 @@ function init_gear_sets()
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
 
-    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet={ name="Peda. Loafers +1", augments={'Enhances "Stormsurge" effect',}},})
+    sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet={ name="Peda. Loafers +3", augments={'Enhances "Stormsurge" effect',}},})
 
     sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {left_ear="Brachyura Earring",})
     sets.midcast.Protectra = sets.midcast.Protect
@@ -696,8 +696,26 @@ function init_gear_sets()
     
     sets.midcast.Aspir = sets.midcast.Drain
 
-    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {})
-
+    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
+        main={ name="Musa", augments={'Path: C',}},
+        sub="Enki Strap",
+        ammo="Pemphredo Tathlum",
+        head="Peda. M.Board +3", 
+        body={ name="Agwu's Robe", augments={'Path: A',}},
+        hands="Acad. Bracers +3",
+        legs={ name="Agwu's Slops", augments={'Path: A',}},
+        feet="Acad. Loafers +3",
+        neck={ name="Argute Stole +2", augments={'Path: A',}},
+        waist="Witful Belt",
+        left_ear="Regal Earring",
+        right_ear="Malignance Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back="Lugh's Cape",
+    })
+    sets.midcast.Stun.Alacrity = set_combine(sets.midcast.Stun, {
+        feet="Peda. Loafers +3"
+    })
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -854,7 +872,7 @@ function init_gear_sets()
         ammo="Homiliary",
         head="Befouled Crown",
         body="Arbatel Gown +3",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         legs="Assid. Pants +1",
         feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -932,7 +950,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
     body="Annoint. Kalasiris",
 })
     sets.idle.Town = set_combine(sets.idle, {
-        main="Mpaca's Staff",
+        main={ name="Musa", augments={'Path: C',}},
         body="Shamash Robe",
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
@@ -1053,8 +1071,8 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
     sets.buff['Perpetuance'] = {hands="Arbatel Bracers +2"}
     sets.buff['Penury'] = {legs="Arbatel Pants +1"}
     sets.buff['Parsimony'] = {legs="Arbatel Pants +1"}
-    sets.buff['Celerity'] = {feet="Peda. Loafers"}
-    sets.buff['Alacrity'] = {feet="Peda. Loafers"}
+    sets.buff['Celerity'] = {feet="Peda. Loafers +3"}
+    sets.buff['Alacrity'] = {feet="Peda. Loafers +3"}
     sets.buff['Klimaform'] = {feet="Arbatel Loafers +3"}
 
     sets.buff['Immanence'] = {

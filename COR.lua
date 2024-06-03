@@ -136,7 +136,7 @@ function user_setup()
     "Kustawi +1", "Zantetsuken", "Excalipoor II", "Warp Cudgel", "Qutrub Knife", "Wind Knife +1", "Firetongue", "Nihility",
         "Extinction", "Heartstopper +1", "Twashtar", "Aeneas", "Gleti's Knife", "Naegling", "Tauret", "Caduceus", "Loxotic Mace +1",
         "Debahocho +1", "Dolichenus", "Arendsi Fleuret", "Demers. Degen +1", "Ternion Dagger +1", "Blurred Knife +1",}
-    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'DAGGERS', 'Rostam'}
+    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'Tauret', 'Rostam', 'Kustawi'}
     state.Weapongun = M{['description']='Weapon Set', 'normal', 'DeathPenalty', 'Anarchy', 'Fomalhaut', 'Earp'}
 
     gear.RAbullet = "Decimating Bullet"
@@ -208,8 +208,9 @@ function init_gear_sets()
 
     sets.normal = {}
     sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
-    sets.DAGGERS = {main="Tauret", sub="Gleti's Knife"}
+    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Rostam = {main={ name="Rostam", augments={'Path: A',}}, sub="Tauret"}
+    sets.Kustawi = {main="Kustawi +1", sub="Gleti's Knife"}
 
     sets.normal = {}
     sets.DeathPenalty = {range="Death Penalty"}

@@ -936,10 +936,10 @@ function init_gear_sets()
 
         -- RESTING
     sets.resting = {	
-		head="Gleti's Mask",
-		body="Meg. Cuirie +2",
+		head="Crepuscular Helm",
+		body="Sacro Breastplate",
 		hands="Meg. Gloves +2",
-		legs="Gleti's Breeches",
+		legs="Meg. Chausses +2",
 		feet="Gleti's Boots",
 		neck="Empath Necklace",
 		waist="Isa Belt",

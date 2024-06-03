@@ -66,6 +66,7 @@ function job_setup()
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Moving  = M(false, "moving")
     state.BrachyuraEarring = M(true,false)
+    barStatus = S{'Barpoison','Barparalyze','Barvirus','Barsilence','Barpetrify','Barblind','Baramnesia','Barsleep','Barpoisonra','Barparalyzra','Barvira','Barsilencera','Barpetra','Barblindra','Baramnesra','Barsleepra'}
 
     send_command('wait 2;input /lockstyleset 178')
 end
@@ -86,6 +87,8 @@ function user_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.SrodaNecklace = M(false, 'SrodaNecklace')
+
     state.AutoEquipBurst = M(true)
     
     state.BarElement = M{['description']='BarElement', 'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
@@ -95,6 +98,7 @@ function user_setup()
     --send_command('bind f3 @input /ja "Sublimation" <me>')
     send_command('bind f7 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind !s gs c toggle SrodaNecklace')
     send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind !c gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -971,7 +975,7 @@ function init_gear_sets()
         ammo="Homiliary",
         head="Befouled Crown",
         body="Shamash Robe",
-        hands="Inyan. Dastanas +2",
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1002,7 +1006,7 @@ function init_gear_sets()
     ammo="Homiliary",
     head="Befouled Crown",
     body="Shamash Robe",
-    hands="Inyan. Dastanas +2",
+    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
     legs="Assid. Pants +1",
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1027,7 +1031,7 @@ function init_gear_sets()
     ammo="Homiliary",
     head="Befouled Crown",
     body="Shamash Robe",
-    hands="Inyan. Dastanas +2",
+    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
     legs="Assid. Pants +1",
     feet="Nyame Sollerets",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
@@ -1338,6 +1342,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.Obi)
     elseif state.MagicBurst.value then
             equip(sets.magic_burst)
+    end
+    if barStatus:contains(spell.name) then
+        if state.SrodaNecklace.value then
+            equip({neck="Sroda necklace"})
+        end
     end
 end
 function job_aftercast(spell, action, spellMap, eventArgs)
