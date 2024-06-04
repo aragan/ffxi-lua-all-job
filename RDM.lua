@@ -175,8 +175,8 @@ function init_gear_sets()
 
 	sets.Normal = {}
 	sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
-	sets.Crocea = {main="Crocea Mors", sub="Demers. Degen +1"}
-	sets.Club = {main="Daybreak", sub="Sacro Bulwark"}
+	sets.Crocea = {main="Crocea Mors", sub="Daybreak"}
+	sets.Club = {main="Maxentius", sub="Thibron"}
 	sets.DAGGERS = {main="Tauret", sub="Gleti's Knife",}
 
 	sets.Shield = {sub="Sacro Bulwark"}
@@ -790,7 +790,7 @@ sets.TreasureHunter = {
 		legs="Jhakri Slops +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
         waist="Sacro Cord",
-		left_ear="Regal Earring",
+		left_ear="Malignance Earring",
 		right_ear="Regal Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Freke Ring",
@@ -800,11 +800,11 @@ sets.TreasureHunter = {
 		head="C. Palug Crown",
 		body="Lethargy Sayon +3",
         hands="Amalric Gages +1",
-		legs="Ea Slops",
+		legs="Jhakri Slops +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
-		left_ear="Regal Earring",
+		left_ear="Malignance Earring",
 		right_ear="Regal Earring",
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Freke Ring",
@@ -2017,9 +2017,6 @@ function display_current_job_state(eventArgs)
     local msg = ''
     if state.MagicBurst.value then
         msg = ' Burst: On |'
-    end
-    if state.DeathMode.value then
-        msg = msg .. ' Death: On |'
     end
     if state.Kiting.value then
         msg = msg .. ' Kiting: On |'
