@@ -21,6 +21,7 @@ function job_setup()
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.BrachyuraEarring = M(true,false)
+    state.AutoEquipBurst = M(true)
     send_command('wait 2;input /lockstyleset 178')
 
 end
