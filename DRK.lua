@@ -13,6 +13,7 @@ function get_sets()
     include('organizer-lib')
 end
 organizer_items = {
+    "Maven's Scythe",
     "Airmid's Gorget",
     "Agwu's Claymore",
     "Reikiko",
@@ -248,13 +249,13 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
       
     -- Precast sets to enhance JAs
     sets.precast.JA['Last Resort'] = {back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}, 
-    feet={ name="Fallen's Sollerets", augments={'Enhances "Desperate Blows" effect',}},}
+    feet={ name="Fall. Sollerets +3", augments={'Enhances "Desperate Blows" effect',}},}
     sets.precast.JA['Nether Void'] = {Legs="Heath. Flanchard +2"}
     sets.precast.JA['Blood Weapon'] = {body="Fall. Cuirass +3"}
     sets.precast.JA['Arcane Circle'] = {feet="Ignominy Sollerets +3"}
     sets.precast.JA['Weapon Bash'] = {hands="Ignominy Gauntlets +3"}
     sets.precast.JA['Souleater'] = {head="Ig. Burgeonet +3"}
-    sets.precast.JA['Dark Seal'] = {head="Fall. Burgeonet +1"}
+    sets.precast.JA['Dark Seal'] = {head="Fall. Burgeonet +3"}
     sets.precast.JA['Diabolic Eye'] = {hands="Fall. Fin. Gaunt. +3"}
       
     
@@ -953,7 +954,19 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     back={ name="Niht Mantle", augments={'Attack+10','Dark magic skill +10','"Drain" and "Aspir" potency +18',}},
     }
     sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
-
+        ammo="Pemphredo Tathlum",
+        head="Fall. Burgeonet +3",
+        body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
+        hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+        legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+        feet="Rat. Sollerets +1",
+        neck="Erra Pendant",
+        waist="Eschan Stone",
+        left_ear="Malignance Earring",
+        right_ear="Digni. Earring",
+        left_ring="Kishar Ring",
+        right_ring="Stikini Ring +1",
+        back={ name="Niht Mantle", augments={'Attack+10','Dark magic skill +10','"Drain" and "Aspir" potency +18',}},
     })
     sets.midcast['Endark'] = set_combine(sets.midcast['Dark Magic'], {
         ammo="Pemphredo Tathlum",
@@ -1046,7 +1059,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
   
    sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Dark Magic'], {
     ammo="Pemphredo Tathlum",
-    head="Befouled Crown",
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     body="Ignominy Cuirass +3",
     hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},

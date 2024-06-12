@@ -132,7 +132,8 @@ function user_setup()
     send_command('bind @a gs c toggle NM')
     send_command('bind @s gs c cycle SleepMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
-
+    send_command('bind ^/ gs disable all')
+    send_command('bind ^; gs enable all')
 	send_command('wait 6;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -160,10 +161,10 @@ end
  
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-    --[[send_command('unbind f12')
+    send_command('unbind f12')
     send_command('unbind f11')
 	send_command('unbind f10')
-	send_command('unbind f8')]]
+	--send_command('unbind f8')
 
 end
 
@@ -996,10 +997,9 @@ sets.TreasureHunter = {
 	}
 
 	sets.idle.HP={
-		main="Naegling",
 		ammo="Staunch Tathlum +1",
 		head="Nyame Helm",
-		body="Nyame Mail",
+        body="Adamantite Armor",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
