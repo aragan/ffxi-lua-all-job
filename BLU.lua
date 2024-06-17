@@ -853,9 +853,9 @@ sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAc
 sets.midcast['Blue Magic']['White Wind'] = {
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
-    body="Pinga Tunic",
+    body="Pinga Tunic +1",
     hands={ name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}},
-    legs="Pinga Pants",
+    legs="Pinga Pants +1",
     feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
@@ -869,9 +869,9 @@ sets.midcast['Blue Magic']['White Wind'] = {
 sets.midcast['Blue Magic'].Healing = {
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
-    body="Pinga Tunic",
+    body="Pinga Tunic +1",
     hands={ name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}},
-    legs="Pinga Pants",
+    legs="Pinga Pants +1",
     feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
