@@ -72,6 +72,7 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
 
     include('Mote-TreasureHunter')
@@ -138,6 +139,7 @@ function user_setup()
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind !s gs c toggle SrodaBelt')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind !f11 gs c cycle MagicalDefenseMode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -1894,6 +1896,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
       equip(sets.self_healing)
       end
     end
+    if (spellMap == 'Cure' or spellMap == 'Regen') then
+        if state.SrodaBelt.value then
+            equip({waist="Sroda Belt"})
+        end
+    end
     if spell.english == 'Lunge' or spell.english == 'Swipe' then
         if (spell.element == world.day_element or spell.element == world.weather_element) then
             equip(sets.Obi)
@@ -2519,13 +2526,13 @@ function gearinfo(cmdParams, eventArgs)
     end
 end
 
---[[windower.register_event('hpp change',
+windower.register_event('hpp change',
 function(new_hpp,old_hpp)
     if new_hpp < 5 then
         equip(sets.Reraise)
     end
 end
-)]]
+)
 
 ------------------------------------------------------------------
 -- Reset events

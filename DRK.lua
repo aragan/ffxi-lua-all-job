@@ -925,10 +925,10 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     })
     sets.midcast['Dread Spikes'] = {
         ammo="Staunch Tathlum +1",
-        head="Ratri Sallet",
+        head="Ratri Sallet +1",
         body="Heath. Cuirass +2",
-        hands="Ratri Gadlings",
-        legs="Ratri Cuisses",
+        hands="Rat. Gadlings +1",
+        legs="Ratri Cuisses +1",
         feet="Rat. Sollerets +1",
         neck={ name="Unmoving Collar +1", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
@@ -1135,10 +1135,10 @@ sets.precast.WS['Red Lotus Blade'].None = {}
     }
 sets.defense['Dread Spikes'] = {
     ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Ratri Sallet",
+    head="Ratri Sallet +1",
     body="Heath. Cuirass +2",
-    hands="Ratri Gadlings",
-    legs="Ratri Cuisses",
+    hands="Rat. Gadlings +1",
+    legs="Ratri Cuisses +1",
     feet="Rat. Sollerets +1",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
@@ -1151,10 +1151,10 @@ sets.defense['Dread Spikes'] = {
 
 sets.defense.SEboost = {
     ammo="Eluder's Sachet",
-    head="Ratri Sallet",
-    body="Ratri Plate",
-    hands="Ratri Gadlings",
-    legs="Ratri Cuisses",
+    head="Ratri Sallet +1",
+    body="Ratri Plate +1",
+    hands="Rat. Gadlings +1",
+    legs="Ratri Cuisses +1",
     feet="Rat. Sollerets +1",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",

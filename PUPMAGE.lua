@@ -849,10 +849,10 @@ function init_gear_sets()
     
         main="Sakpata's Fists",
         
-        ammo="Automat. Oil +3",    head="Heyoka Cap",
+        ammo="Automat. Oil +3",    head="Heyoka Cap +1",
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
-    legs="Heyoka Subligar",
+    legs="Heyoka Subligar +1",
     feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Moonbow Belt +1",
@@ -871,10 +871,10 @@ function init_gear_sets()
     sets.engaged.MasterPet.Acc = {
         main="Sakpata's Fists",
         
-        ammo="Automat. Oil +3",    head="Heyoka Cap",
+        ammo="Automat. Oil +3",    head="Heyoka Cap +1",
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
-    legs="Heyoka Subligar",
+    legs="Heyoka Subligar +1",
     feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
@@ -893,7 +893,7 @@ function init_gear_sets()
     sets.engaged.MasterPet.TP = {
         main="Sakpata's Fists",
         ammo="Automat. Oil +3",
-        head="Heyoka Cap",
+        head="Heyoka Cap +1",
         hands="Mpaca's Gloves",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
@@ -1210,7 +1210,7 @@ function init_gear_sets()
         head={ name="Pitre Taj +3", augments={'Enhances "Optimization" effect',}},
         body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
         hands={ name="Taeon Gloves", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-        legs="Heyoka Subligar",
+        legs="Heyoka Subligar +1",
         feet="Mpaca's Boots",
         neck="Empath Necklace",
         waist="Isa Belt",

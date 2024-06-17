@@ -59,6 +59,7 @@ organizer_items = {
 function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Knockback = M(false, 'Knockback')
+    state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
 
     send_command('wait 2;input /lockstyleset 165')
@@ -124,6 +125,7 @@ function user_setup()
     send_command('wait 6;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind !s gs c toggle SrodaBelt')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
     send_command('bind f4 gs c cycle Runes')
@@ -381,6 +383,20 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ring="Evanescence Ring",
     back="Ogma's Cape",}
 
+    sets.SIRD = {    ammo="Staunch Tathlum +1",
+    head="Erilaz Galea +2",
+    body="Nyame Mail",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck="Moonlight Necklace",
+    waist="Audumbla Sash",
+    left_ear="Halasz Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    right_ring="Evanescence Ring",
+    back="Ogma's Cape",}
+
     sets.midcast['Enhancing Magic'] = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Nyame Mail",
@@ -401,8 +417,9 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head="Fu. Bandeau +3",
         body={ name="Herculean Vest", augments={'Phys. dmg. taken -1%','Accuracy+11 Attack+11','Phalanx +2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
+        feet={ name="Herculean Boots", augments={'Accuracy+8','Pet: Attack+28 Pet: Rng.Atk.+28','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},
     })
-    sets.midcast['Phalanx'].SIRD = sets.midcast.SIRD
+    sets.midcast['Phalanx'].SIRD = set_combine(sets.midcast['Phalanx'],sets.midcast.SIRD)
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Rune. Bandeau +3",
         neck="Sacro Gorget",
@@ -677,7 +694,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.engaged.DD = {     
         ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Ashera Harness",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
@@ -705,7 +722,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 })
     sets.engaged.PDT = {  ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Ayanmo Corazza +2",
+    body="Ashera Harness",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
@@ -852,6 +869,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.english == 'Lunge' or spell.english == 'Swipe' then
         if (spell.element == world.day_element or spell.element == world.weather_element) then
             equip(sets.Obi)
+        end
+    end
+    if (spellMap == 'Cure' or spellMap == 'Regen') then
+        if state.SrodaBelt.value then
+            equip({waist="Sroda Belt"})
         end
     end
 end

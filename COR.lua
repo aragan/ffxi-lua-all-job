@@ -320,7 +320,7 @@ sets.precast.JA['Super Jump'] = sets.precast.JA.Jump
     sets.precast.RA = {
         hands={ name="Lanun Gants +3", augments={'Enhances "Fold" effect',}},
         head="Chass. Tricorne +2",
-        body="Oshosi Vest",
+        body="Oshosi Vest +1",
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +2",
     neck={ name="Comm. Charm +2", augments={'Path: A',}},

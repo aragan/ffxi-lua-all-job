@@ -264,8 +264,8 @@ function init_gear_sets()
 	-- Ranged sets (snapshot)
 	
 	sets.precast.RA = {
-		head="Orion Beret +3",
-		body="Oshosi Vest",
+	head="Orion Beret +3",
+	body="Oshosi Vest +1",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Meg. Jam. +1",
@@ -274,14 +274,14 @@ function init_gear_sets()
 	back="Tactical Mantle",
 	}
 	sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
-		body="Oshosi Vest",
+		body="Oshosi Vest +1",
 		feet="Meg. Jam. +1",
 
 	}) --47/52
 	
 	sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
 		head="Orion Beret +3",
-		body="Oshosi Vest",
+		body="Oshosi Vest +1",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
     legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},
     feet="Arcadian Socks +3",
@@ -931,8 +931,8 @@ sets.engaged.DW.STP = set_combine(sets.engaged, {
 	sets.buff.Barrage = set_combine(sets.midcast.RA.Acc, {})
 	sets.DoubleShot = {
 	head="Oshosi Mask +1",
-    body="Oshosi Vest",
-    hands="Oshosi Gloves",
+    body="Oshosi Vest +1",
+    hands="Oshosi Gloves +1",
     legs="Osh. Trousers +1",
     feet="Osh. Leggings +1",
 }

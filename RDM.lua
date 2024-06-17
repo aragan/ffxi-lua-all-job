@@ -99,7 +99,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'MDT','Regen', 'HP', 'EnemyCritRate', 'Evasion', 'Enmity', 'Sphere')
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
-	state.CastingMode:options('Normal', 'Burst', 'Duration', 'SIRD')
+	state.CastingMode:options( 'Duration','Normal', 'Burst', 'SIRD')
 
 	state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'SWORDS', 'Crocea', 'DAGGERS', 'Club'}
 	state.Shield = M{['description']='Weapon Set', 'Normal', 'Shield'}
@@ -790,6 +790,7 @@ sets.TreasureHunter = {
         hands="Amalric Gages +1",
 		legs="Jhakri Slops +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+		neck="Sibyl Scarf",
         waist="Sacro Cord",
 		left_ear="Malignance Earring",
 		right_ear="Regal Earring",

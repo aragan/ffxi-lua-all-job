@@ -873,10 +873,10 @@ function init_gear_sets()
     ]]
     sets.engaged.MasterPet = {
         ammo="Automat. Oil +3",  
-      head="Heyoka Cap",
+      head="Heyoka Cap +1",
     body="Mpaca's Doublet",
     hands="Karagoz Guanti +2",
-    legs="Heyoka Subligar",
+    legs="Heyoka Subligar +1",
     feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Moonbow Belt +1",
@@ -913,7 +913,7 @@ function init_gear_sets()
     sets.engaged.MasterPet.TP = {
         
         ammo="Automat. Oil +3",
-        head="Heyoka Cap",
+        head="Heyoka Cap +1",
         hands="Karagoz Guanti +2",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
         feet="Mpaca's Boots",
@@ -1166,7 +1166,7 @@ function init_gear_sets()
     head="Kara. Cappello +2",
     body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
     hands="Mpaca's Gloves",
-    legs="Heyoka Subligar",
+    legs="Heyoka Subligar +1",
     feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash +1",
