@@ -328,6 +328,7 @@ function init_gear_sets()
     
     sets.precast.WS.PDL = set_combine(sets.precast.WS,{
         body="Bunzi's Robe",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         })
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = { range="Linos",
@@ -346,6 +347,7 @@ function init_gear_sets()
     }
     sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'],{
         body="Bunzi's Robe",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         })
     sets.precast.WS['Exenterator'] = {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -370,7 +372,7 @@ function init_gear_sets()
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Fotia Gorget",
+    neck={ name="Bard's Charm +2", augments={'Path: A',}},
         ear1="Ishvara Earring",
         ear2="Regal Earring",
         ring1="Sroda Ring", 
@@ -387,8 +389,8 @@ body="Bihu Jstcorps. +3",
 hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 legs={ name="Nyame Flanchard", augments={'Path: B',}},
 feet={ name="Nyame Sollerets", augments={'Path: B',}}, 
-   neck="Fotia Gorget",
-    ear2="Ishvara Earring",
+neck={ name="Bard's Charm +2", augments={'Path: A',}},
+ear2="Ishvara Earring",
     ear1="Moonshade Earring",
     ring1="Ilabrat Ring",
     ring2="Cornelia's Ring",
@@ -432,6 +434,7 @@ feet={ name="Nyame Sollerets", augments={'Path: B',}},
 
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'],{
 body="Bunzi's Robe",
+neck={ name="Bard's Charm +2", augments={'Path: A',}},
 })
 sets.precast.WS['Flash Nova'] = {
     head={ name="Nyame Helm", augments={'Path: B',}},
@@ -864,7 +867,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Volte Mittens",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         right_ear="Cessance Earring",
         left_ear="Telos Earring",
@@ -881,7 +884,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
         right_ear="Fili Earring +1",
@@ -904,7 +907,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +2",
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         left_ear="Telos Earring",
         right_ear="Cessance Earring",
@@ -918,7 +921,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Bunzi's Gloves",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
         right_ear="Balder Earring +1",
@@ -939,7 +942,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Volte Mittens",
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Battlecast Gaiters",
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
         right_ear="Balder Earring +1",
@@ -954,7 +957,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         hands="Aya. Manopolas +2",
         legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +2",
-        neck="Lissome Necklace",
+        neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist="Reiki Yotai",
         left_ear="Suppanomimi",
         right_ear="Cessance Earring",

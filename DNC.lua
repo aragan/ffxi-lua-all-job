@@ -202,13 +202,17 @@ function init_gear_sets()
     sets.precast.Waltz = {ammo="Yamarang",
     head="Mummu Bonnet +1",
     body="Gleti's Cuirass",
-    legs="Dashing Subligar",}
+    legs="Dashing Subligar",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+}
         
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {ammo="Yamarang",
     head="Mummu Bonnet +1",
     body="Gleti's Cuirass",
-    legs="Dashing Subligar",}
+    legs="Dashing Subligar",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+}
     
     sets.precast.Samba = {head="Maxixi Tiara +3",}
 
@@ -220,7 +224,7 @@ function init_gear_sets()
     hands="Maxixi Bangles +3",
     legs="Malignance Tights",
     feet="Horos T. Shoes +3",
-    neck="Subtlety Spec.",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Olseni Belt",
     left_ear="Mache Earring +1",
     right_ear="Mache Earring +1",
@@ -235,7 +239,7 @@ function init_gear_sets()
     hands="Maxixi Bangles +3",
     legs="Malignance Tights",
     feet="Horos T. Shoes +3",
-    neck="Subtlety Spec.",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Olseni Belt",
     left_ear="Mache Earring +1",
     right_ear="Mache Earring +1",
@@ -245,13 +249,14 @@ function init_gear_sets()
 }
      -- magic accuracy
 
-    sets.precast.Flourish1 = {    ammo="Pemphredo Tathlum",
+    sets.precast.Flourish1 = {  
+    ammo="Pemphredo Tathlum",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Sanctity Necklace",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Eschan Stone",
     left_ear="Digni. Earring",
     right_ear="Crep. Earring",
@@ -260,13 +265,14 @@ function init_gear_sets()
     back="Sacro Mantle",
 }
 
-    sets.precast.Flourish1['Violent Flourish'] = {    ammo="Pemphredo Tathlum",
+    sets.precast.Flourish1['Violent Flourish'] = {   
+    ammo="Pemphredo Tathlum",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Sanctity Necklace",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Eschan Stone",
     left_ear="Digni. Earring",
     right_ear="Crep. Earring",
@@ -282,7 +288,7 @@ function init_gear_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Horos T. Shoes +3",
-    neck="Subtlety Spec.",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Olseni Belt",
     left_ear="Mache Earring +1",
     right_ear="Mache Earring +1",
@@ -291,80 +297,11 @@ function init_gear_sets()
     back="Sacro Mantle",
 } 
 
-    sets.precast.Flourish2 = {    ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Crep. Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
-}
-
-    sets.precast.Flourish2['Reverse Flourish'] = {    ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Crep. Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
-}
-
-    sets.precast.Flourish3 = {    ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Crep. Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
-}
-
-    sets.precast.Flourish3['Striking Flourish'] = {    ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Crep. Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
-}
-
-    sets.precast.Flourish3['Climactic Flourish'] = {    ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Crep. Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
-}
+sets.precast.Flourish2 = {}
+sets.precast.Flourish2['Reverse Flourish'] = {hands="Macu. Bangles +1",    back="Toetapper Mantle"}
+sets.precast.Flourish3 = {}
+sets.precast.Flourish3['Striking Flourish'] = {body="Macu. Casaque +1"}
+sets.precast.Flourish3['Climactic Flourish'] = {head="Maculele Tiara +1",}
 
     -- Fast cast sets for spells
     
@@ -412,7 +349,14 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
-    
+
+sets.precast.WS.PDL = set_combine(sets.precast.WS, {
+ammo="Crepuscular Pebble",
+body="Gleti's Cuirass",
+neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+right_ear="Maculele Earring",
+})
+
     sets.precast.WS.Critical = {body="Meg. Cuirie +2"}
 
 
@@ -437,7 +381,12 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
-    sets.precast.WS['Exenterator'].Fodder = set_combine(sets.precast.WS['Exenterator'], {})
+    sets.precast.WS['Exenterator'].PDL = set_combine(sets.precast.WS['Exenterator'], {
+        ammo="Crepuscular Pebble",
+body="Gleti's Cuirass",
+neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+right_ear="Maculele Earring",
+    })
 
     sets.precast.WS['Pyrrhic Kleos'] = set_combine(sets.precast.WS, {
         ammo="Coiste Bodhar",
@@ -468,17 +417,17 @@ function init_gear_sets()
         hands="Gleti's Gauntlets",
         legs="Gleti's Breeches",
         feet="Gleti's Boots",
-        neck="Anu Torque",
+        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
         waist="Fotia Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Sherida Earring",
+        right_ear="Maculele Earring",
         left_ring="Regal Ring",
         right_ring="Gere Ring",
         back="Bleating Mantle",
     })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Aurgelmir Orb +1",
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Meg. Cuirie +2",
         hands="Mummu Wrists +2",
         legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
@@ -498,7 +447,11 @@ function init_gear_sets()
     feet="Nyame Sollerets",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
 
-    sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {})
+    sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {
+        ammo="Crepuscular Pebble",
+        body="Gleti's Cuirass",
+        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
+        right_ear="Maculele Earring",    })
 
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
@@ -508,7 +461,7 @@ function init_gear_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Rep. Plat. Medal",
+        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
         waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Odr Earring",
@@ -528,7 +481,7 @@ function init_gear_sets()
         body="Gleti's Cuirass",
         waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Sherida Earring",
+        right_ear="Maculele Earring",
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
         back="Sacro Mantle",
@@ -825,7 +778,7 @@ sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Clotharius Torque",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Windbuffet Belt +1",
     left_ear="Sherida Earring",
     right_ear="Balder Earring +1",
@@ -839,7 +792,7 @@ sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Lissome Necklace",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Crep. Earring",
@@ -854,7 +807,7 @@ sets.engaged.STP = {
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Ainia Collar",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
     right_ear="Balder Earring +1",
@@ -896,7 +849,7 @@ sets.engaged.CRIT = {
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
     legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Clotharius Torque",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist="Windbuffet Belt +1",
     left_ear="Sherida Earring",
     right_ear="Balder Earring +1",
@@ -910,7 +863,7 @@ sets.engaged.CRIT = {
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Lissome Necklace",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Telos Earring",
     right_ear="Crep. Earring",
@@ -925,7 +878,7 @@ sets.engaged.DW.STP = {
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
     right_ear="Balder Earring +1",
@@ -939,7 +892,7 @@ sets.engaged.DW.CRIT = {
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+4',}},
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
-    neck="Clotharius Torque",
+    neck={ name="Etoile Gorget +2", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Balder Earring +1",
@@ -1054,7 +1007,7 @@ sets.engaged.DW.CRIT = {
     sets.engaged.Hybrid = { ammo="Staunch Tathlum +1",--3
         body="Malignance Tabard",--9/9
         legs="Malignance Tights",--7
-        neck="Loricate Torque +1", --6/6
+        neck={ name="Etoile Gorget +2", augments={'Path: A',}},
         ring1="Moonlight Ring", --5/5
         ring2="Defending Ring", --10/10
     }--40% dt
