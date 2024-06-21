@@ -18,6 +18,7 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
+    include('Mote-TreasureHunter')
 
         organizer_items = {
             "Airmid's Gorget",
@@ -121,7 +122,6 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.drain = M(false)
     state.Auto_Kite = M(false, 'Auto_Kite')
-    include('Mote-TreasureHunter')
 
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {

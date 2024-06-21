@@ -322,7 +322,7 @@ function init_gear_sets()
 
     sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +2"}
     sets.buff['Chain Affinity'] = {head="Mavi Kavuk +2", feet="Assimilator's Charuqs"}
-    sets.buff.Convergence = {head="Luhlaza Keffiyeh"}
+    sets.buff.Convergence = {head="Luh. Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah"}
     sets.buff.Efflux = {legs="Hashishin Tayt +2",}
@@ -816,6 +816,22 @@ ear2="Mache Earring +1",
 ring2="Ilabrat Ring",})
 
 sets.midcast['Blue Magic'].MagicAccuracy = {
+    ammo="Pemphredo Tathlum",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
+    waist="Luminary Sash",
+    left_ear="Crep. Earring",
+    right_ear="Digni. Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},   
+}
+
+sets.midcast['Blue Magic']['Cruel Joke'] = {
     main="Naegling",
     sub="Sakpata's Sword",
     ammo="Pemphredo Tathlum",
@@ -832,12 +848,12 @@ sets.midcast['Blue Magic'].MagicAccuracy = {
     right_ring="Stikini Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},   
 }
-
 sets.midcast['Blue Magic'].MagicAccuracy.SIRD = set_combine(sets.SIRD, sets.midcast['Blue Magic'].MagicAccuracy)
     -- Breath Spells --
     
 sets.midcast['Blue Magic'].Breath = set_combine(sets.midcast['Blue Magic'].Magical, { 
     ammo="Mavi Tathlum",
+    head="Luh. Keffiyeh +3",
 })
 
     -- Other Types --
@@ -865,6 +881,7 @@ sets.midcast['Blue Magic']['White Wind'] = {
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",
 }
+sets.midcast['Blue Magic']['White Wind'].SIRD = set_combine(sets.SIRD ,sets.midcast['Blue Magic'].MagicAccuracy, {})
 
 sets.midcast['Blue Magic'].Healing = {
     ammo="Staunch Tathlum +1",
@@ -1653,11 +1670,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         end
     end
-    if state.CastingMode.value == 'SIRD' then
-        equip(sets.SIRD)
-    elseif state.CastingMode.value == 'ConserveMP' then
-        equip(sets.ConserveMP)
-    end
+
 end
 -- Run after the default midcast() is done.
 -- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
@@ -1691,7 +1704,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     end
 
-
+    if state.CastingMode.value == 'SIRD' then
+        equip(sets.SIRD)
+    elseif state.CastingMode.value == 'ConserveMP' then
+        equip(sets.ConserveMP)
+    end
     -- If in learning mode, keep on gear intended to help with that, regardless of action.
     if state.CastingMode.value == 'Learning' then
         equip(sets.Learning)

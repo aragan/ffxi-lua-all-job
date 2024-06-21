@@ -254,7 +254,7 @@ function init_gear_sets()
 		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.precast.WS.PDL = set_combine(sets.precast.WS, {
 		ammo="Crepuscular Pebble",
@@ -283,7 +283,7 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Rufescent Ring",
 		right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
 	sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS['Requiescat'], {
 		ammo="Crepuscular Pebble",
@@ -304,7 +304,7 @@ function init_gear_sets()
 		right_ear="Regal Earring",
 		left_ring="Archon Ring",
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
 
     sets.precast.WS['Savage Blade'] = {
@@ -320,7 +320,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
 		ammo="Crepuscular Pebble",
@@ -332,16 +332,16 @@ function init_gear_sets()
 		ammo="Pemphredo Tathlum",
 		head="Nyame Helm",
 		body="Nyame Mail",
-		hands="Jhakri Cuffs +2",
+		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
-		neck="Baetyl Pendant",
+		neck="Fotia Gorget",
 		waist="Orpheus's Sash",
 		left_ear="Malignance Earring",
 		right_ear="Regal Earring",
 		left_ring="Freke Ring",
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 		}
 
 
@@ -358,7 +358,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Freke Ring",
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
 		
 	sets.precast.WS['Death Blossom'] = {
@@ -374,7 +374,7 @@ function init_gear_sets()
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
-    back="Sucellos's Cape",
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.precast.WS['Death Blossom'].PDL = set_combine(sets.precast.WS['Death Blossom'], {
 		ammo="Crepuscular Pebble",
@@ -396,7 +396,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.precast.WS['Chant Du Cygne'].PDL = set_combine(sets.precast.WS['Chant Du Cygne'], {
 		ammo="Crepuscular Pebble",
@@ -418,7 +418,7 @@ function init_gear_sets()
 		left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 		left_ring="Rufescent Ring",
 		right_ring="Cornelia's Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	} 
 	sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {
 		ammo="Crepuscular Pebble",
@@ -438,7 +438,7 @@ function init_gear_sets()
         right_ear="Friomisi Earring",
         left_ring="Cornelia's Ring",
         right_ring="Archon Ring",
-		back="Sucellos's Cape",
+		back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
 	sets.precast.WS['Myrkr'] = {
 		ammo="Pemphredo Tathlum",
@@ -526,7 +526,7 @@ sets.TreasureHunter = {
         left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         right_ring="Kishar Ring",
     }
-	sets.Duration={
+	sets.Duration = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
 		head="Telchine Cap",
