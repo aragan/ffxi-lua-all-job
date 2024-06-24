@@ -8,7 +8,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-    
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
@@ -74,6 +74,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'PDL', 'Fodder')
     state.HybridMode:options('Normal', 'PDT', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
+    state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT', 'Regen', 'EnemyCritRate')
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
     update_combat_form()
@@ -104,6 +105,8 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    end
 end
 -- Called when this job file is unloaded (eg: job change)
 function file_unload()
@@ -519,30 +522,7 @@ function init_gear_sets()
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
     }
-    
 
-    -- Idle sets
-    sets.idle = {
-        ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
-        body="Adamantite Armor",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Moonbow Belt +1",
-        left_ear="Odnowa Earring",
-        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        left_ring="Chirich Ring +1",
-        right_ring="Defending Ring",
-        back="Moonlight Cape",
-
-    }
-
-    sets.idle.Town = {feet="Hermes' Sandals +1"}
-    
-    sets.idle.Weak = sets.idle
-    
     -- Defense sets
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
@@ -591,6 +571,58 @@ function init_gear_sets()
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         back="Moonlight Cape",
 }
+sets.defense.Evasion = {
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Vengeful Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}
+    -- Idle sets
+    sets.idle = {
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Adamantite Armor",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Moonbow Belt +1",
+        left_ear="Odnowa Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="Chirich Ring +1",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+
+    }
+
+    sets.idle.Town = {feet="Hermes' Sandals +1"}
+    
+    sets.idle.Weak = sets.idle
+    sets.idle.PDT = sets.defense.PDT
+    sets.idle.MDT = sets.defense.MDT
+    sets.idle.Evasion = sets.defense.Evasion
+    sets.idle.HP = sets.defense.HP
+    sets.idle.EnemyCritRate = set_combine(sets.idle.PDT, { 
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+    })
+    sets.idle.Regen = set_combine(sets.idle, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
+    })
     sets.MoveSpeed = {feet="Hermes' Sandals +1",}
     sets.Kiting = {feet="Hermes' Sandals +1",}
     sets.Adoulin = {body="Councilor's Garb",}
@@ -1072,7 +1104,16 @@ function job_state_change(stateField, newValue, oldValue)
     if state.Buff["Impetus"] then
         equip({body="Bhikku Cyclas +2"})
     end
+    if update_job_states then update_job_states() 
+    end
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.

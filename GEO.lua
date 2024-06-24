@@ -8,7 +8,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
@@ -42,7 +42,8 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
     state.CastingMode:options('Normal', 'MB')
     state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
-
+    state.PhysicalDefenseMode:options('PDT')
+    state.MagicalDefenseMode:options('MDT')
     gear.default.weaponskill_waist = "Windbuffet Belt +1"
 
     geo_sub_weapons = S{"", ""}
@@ -56,7 +57,8 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
     send_command('bind delete gs c toggle BrachyuraEarring')
-
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode"}) 
+    end
 end
 
 function file_unload()
@@ -1062,7 +1064,16 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.

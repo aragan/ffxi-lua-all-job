@@ -8,6 +8,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
+    include('Display.lua')
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
 	include('organizer-lib')
@@ -127,7 +128,8 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
-
+        if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","WeaponSet","PhysicalDefenseMode","TreasureMode"}) 
+        end
 end
 
 
@@ -1078,9 +1080,19 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
     check_weaponset()
 
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
+
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
     equip(sets[state.shield.current])

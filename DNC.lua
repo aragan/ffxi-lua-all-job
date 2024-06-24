@@ -39,6 +39,7 @@
 
 -- Initialization function for this job file.
 function get_sets()
+    include('Display.lua')
     mote_include_version = 2
     
     -- Load and initialize the include file.
@@ -98,9 +99,12 @@ function job_setup()
     state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
     state.SkillchainPending = M(false, 'Skillchain Pending')
     state.Moving  = M(false, "moving")
+    state.Auto_Kite = M(false, 'Auto_Kite')
+
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
     send_command('wait 6;input /lockstyleset 164')
+    send_command('lua l DNC-hud')
 
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -117,7 +121,6 @@ function job_setup()
         [11] = 1.490909,
         [12] = 1.70,
     }
-    state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
     DW_needed = 0
     DW = false
@@ -164,6 +167,8 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
+    if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    end
 end
 
 
@@ -1357,6 +1362,9 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
+
     check_weaponset()
 end
 function check_weaponset()
@@ -1562,6 +1570,8 @@ windower.register_event('zone change',
             enable("ring2")
             equip(sets.idle)
         end
+        if update_job_states then update_job_states() end
+
     end
 )
 

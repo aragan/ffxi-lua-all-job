@@ -13,7 +13,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
+    include('Display.lua')
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
 	include('organizer-lib')
@@ -96,6 +96,7 @@ function user_setup()
 	state.OffenseMode:options('Normal', 'Acc', 'DA', 'STP', 'Ranged')
     state.PhysicalDefenseMode:options('PDT', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
+    state.IdleMode:options('Normal', 'PDH', 'PDT', 'EnemyCritRate', 'Resist', 'Regen', 'Refresh', 'Enmity')
 
 	state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
@@ -178,6 +179,8 @@ function user_setup()
     DW_needed = 0
     DW = false
     moving = false
+	if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    end
 end
 
 
@@ -1031,9 +1034,19 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    if update_job_states then update_job_states() 
+    end
 
     check_weaponset()
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
+
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_midcast(spell, action, spellMap, eventArgs)
 	if spell.action_type == 'Ranged Attack' and state.Buff.Barrage then

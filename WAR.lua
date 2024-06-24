@@ -14,11 +14,11 @@
 --
 -- Initialization function for this job file.
 function get_sets()
+    include('Display.lua')
     mote_include_version = 2
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-    include('Mote-TreasureHunter')
 
         organizer_items = {
             "Airmid's Gorget",
@@ -83,6 +83,8 @@ function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.Moving  = M(false, "moving")
     state.BrachyuraEarring = M(true,false)
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
 
     --state.Buff.Souleater = buffactive.souleater or false
     state.Buff.Berserk = buffactive.berserk or false
@@ -117,11 +119,10 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
     state.CastingMode:options('Normal', 'sird', 'ConserveMP')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
-    state.RestingMode:options('Normal')
+    --state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'HP','Evasion', 'Enmity', 'MP', 'Reraise')
     state.MagicalDefenseMode:options('MDT')
-    state.drain = M(false)
-    state.Auto_Kite = M(false, 'Auto_Kite')
+    --state.drain = M(false)
 
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -153,6 +154,10 @@ function user_setup()
     send_command('bind ^- gs enable all')
     send_command('wait 6;input /lockstyleset 152')
     select_default_macro_book()
+    state.Auto_Kite = M(false, 'Auto_Kite')
+
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","MagicalDefenseMode"}) 
+    end
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -1965,6 +1970,10 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+
+    if update_job_states then update_job_states() 
+    end
+
     check_weaponset()
     job_handle_equipping_gear(player.status)
 
@@ -1975,6 +1984,13 @@ function sub_job_change(new,old)
         send_command('wait 6;input /lockstyleset 152')
     end
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 function select_default_macro_book()
     -- Default macro set/book

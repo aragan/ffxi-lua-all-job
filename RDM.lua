@@ -14,7 +14,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 	include('organizer-lib')
@@ -115,6 +115,7 @@ function user_setup()
 	select_default_macro_book()
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind ^f10 gs c set DefenseMode Physical')
+	send_command('bind ^f11 gs c set DefenseMode Magical')
 	send_command('bind f5 gs c cycle WeaponskillMode')
 	send_command('bind f11 gs c cycle Enfeeb')
 	send_command('bind f12 gs c cycle CastingMode')
@@ -130,7 +131,7 @@ function user_setup()
     send_command('bind f3 gs c cycle BarElement')
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind @a gs c toggle NM')
-    send_command('bind @s gs c cycle SleepMode')
+    send_command('bind !s gs c cycle SleepMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
     send_command('bind ^; gs enable all')
@@ -157,6 +158,8 @@ function user_setup()
     moving = false
 
     update_combat_form()
+	if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","Enfeeb","TreasureMode"}) 
+    end
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -1632,9 +1635,17 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+	if update_job_states then update_job_states() 
+    end
 	check_weaponset()
 end
 
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 function job_get_spell_map(spell, default_spell_map)
 end

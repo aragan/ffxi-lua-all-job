@@ -12,7 +12,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-     
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
@@ -41,7 +41,8 @@ function user_setup()
     state.CastingMode:options('Normal', 'SIRD', 'Spaekona', 'Proc')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate', 'Sphere')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
-	state.VorsealMode = M('Normal', 'Vorseal')
+    state.MagicalDefenseMode:options('MDT')
+	--state.VorsealMode = M('Normal', 'Vorseal')
 	state.Enfeebling = M('None', 'Effect')
 	--Vorseal mode is handled simply when zoning into an escha zone--
     state.Moving  = M(false, "moving")
@@ -93,6 +94,8 @@ function user_setup()
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","PhysicalDefenseMode","MagicalDefenseMode","Enfeebling"}) 
+    end
 end
  
 -- Called when this job file is unloaded (eg: job change)
@@ -1564,9 +1567,17 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+
+    if update_job_states then update_job_states() 
+    end
 end
 
- 
+ windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
  
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.

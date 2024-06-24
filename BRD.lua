@@ -27,6 +27,7 @@
 
 -- Initialization function for this job file.
 function get_sets()
+    include('Display.lua') 
     mote_include_version = 2
     
     -- Load and initialize the include file.
@@ -82,11 +83,13 @@ organizer_items = {
     "Reraise Earring",}
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+
     state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength', 'Marsyas'}
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
     state.BrachyuraEarring = M(true,false)
+    
     send_command('wait 6;input /lockstyleset 168')
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
@@ -177,6 +180,7 @@ function user_setup()
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
     send_command('wait 2;input /lockstyleset 168')
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
@@ -199,7 +203,10 @@ function user_setup()
     state.Auto_Kite = M(false, 'Auto_Kite')
     state.Moving  = M(false, "moving")
     moving = false
-
+	--add that at the end of user_setup
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    end
+    
 end
 
 
@@ -1314,8 +1321,18 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
+
     check_weaponset()
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 function update_offense_mode()
     if (player.sub_job == 'NIN' and player.sub_job_level > 9) or (player.sub_job == 'DNC' and player.sub_job_level > 19) then

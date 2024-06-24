@@ -45,7 +45,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
@@ -178,6 +178,8 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode"}) 
+    end
 end
 
 
@@ -1334,7 +1336,16 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    if update_job_states then update_job_states() 
+    end
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 -- Event handler for updates to player skill, since we can't rely on skill being
 -- correct at pet_aftercast for the creation of custom timers.

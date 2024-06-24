@@ -69,6 +69,7 @@
 
 -- Initialization function for this job file.
 function get_sets()
+    include('Display.lua')
     mote_include_version = 2
 
     -- Load and initialize the include file.
@@ -147,6 +148,7 @@ function job_setup()
    
     update_active_strategems()
     send_command('wait 2;input /lockstyleset 173')
+    send_command('lua l sch-hud')
 
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II'}
@@ -164,6 +166,8 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'DT')
     state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' , 'Sird', 'SubtleBlow', 'Proc')
     state.IdleMode:options('Normal', 'DT', 'Resist','BoostMB', 'vagary', 'Sphere')
+    state.PhysicalDefenseMode:options('PDT')
+    state.MagicalDefenseMode:options('MDT')
     state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
 
     send_command('wait 6;input /lockstyleset 173')
@@ -174,6 +178,8 @@ function user_setup()
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind @q gs c toggle AutoEquipBurst')
+    send_command('bind f11 gs c cycle CastingMode')
+    send_command('bind !f11 gs c set DefenseMode Magical')
     send_command('bind ^- gs c scholar light')
     send_command('bind ^= gs c scholar dark')
     send_command('bind ^[ gs c scholar power')
@@ -205,6 +211,8 @@ function user_setup()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     --moving = false
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","CastingMode","PhysicalDefenseMode","MagicalDefenseMode"}) 
+    end
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -223,6 +231,7 @@ function user_unload()
     send_command('unbind !;')
     send_command('unbind ^,')
     send_command('unbind !.')
+    send_command('unbind f11')
     -- send_command('unbind @c')
     send_command('unbind @h')
     send_command('unbind @g')
@@ -1415,8 +1424,15 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
 end
-
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------

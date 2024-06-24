@@ -14,6 +14,7 @@
 -- Macro #2 //console gs c toggle UseRune
 function get_sets()
     mote_include_version = 2
+    include('Display.lua')
     include('Mote-Include.lua')
     include('organizer-lib')
     organizer_items = {
@@ -158,6 +159,8 @@ function user_setup()
         }
     update_combat_form()
     determine_haste_group()
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    end
 end
 
 
@@ -1872,6 +1875,12 @@ function check_gear()
     end
 end
 
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 windower.register_event('zone change',
     function()
@@ -2011,6 +2020,9 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
+    end
+
+    if update_job_states then update_job_states() 
     end
 
     check_weaponset()

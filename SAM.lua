@@ -28,6 +28,7 @@
 function get_sets()
 	-- Load and initialize the include file.
     mote_include_version = 2
+    include('Display.lua')
 	include('Mote-Include.lua')
 	include('organizer-lib')
 end
@@ -113,7 +114,7 @@ function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Acc','MaxAcc', 'CRIT' )
     state.HybridMode:options('Normal', 'PDT', 'STP', 'triple', 'Fullhaste', 'SubtleBlow', 'Counter', 'Range')
-    state.WeaponskillMode:options('Normal', 'Mid', 'SC', 'Acc', 'PDL')
+    state.WeaponskillMode:options('Normal', 'SC', 'Acc', 'PDL')
     state.IdleMode:options('Normal','PDT' ,'Regen', 'MDT', 'HP', 'Evasion', 'EnemyCritRate')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Reraise')
@@ -146,6 +147,8 @@ function user_setup()
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('wait 6;input /lockstyleset 172')
     select_default_macro_book()
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    end
 end
 
 
@@ -392,22 +395,6 @@ function init_gear_sets()
         ear2="Thrud Earring",
         ear1="Lugra Earring +1", 
         left_ring="Regal Ring",
-        right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
-    })
-
-    sets.precast.WS['Tachi: Kaiten'].Mid = set_combine(sets.precast.WS['Tachi: Kaiten'], {
-        ammo="Knobkierrie",
-        body="Nyame Mail",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        ear2="Thrud Earring",
-        ear1="Lugra Earring +1", 
-        LEFT_ring="Sroda Ring", 
         right_ring="Cornelia's Ring",
         back="Smertrios's Mantle",
     })
@@ -1257,12 +1244,19 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
-
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 -------------------------------------------------------------------------------------------------------------------
 -- General hooks for other events.
 -------------------------------------------------------------------------------------------------------------------

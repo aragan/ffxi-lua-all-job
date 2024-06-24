@@ -21,7 +21,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-    
+    include('Display.lua')
     -- Load and initialize the include file.
     include('Mote-Include.lua')
 end
@@ -157,6 +157,9 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
+    if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    end
+    
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -1497,9 +1500,18 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
     check_weaponset()
 
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.

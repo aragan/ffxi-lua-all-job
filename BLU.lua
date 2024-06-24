@@ -16,6 +16,7 @@
 
 -- Initialization function for this job file.
 function get_sets()
+    include('Display.lua') 
     mote_include_version = 2
     
     -- Load and initialize the include file.
@@ -258,6 +259,9 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    end
+        
 end
 
 
@@ -325,7 +329,7 @@ function init_gear_sets()
     sets.buff.Convergence = {head="Luh. Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
     sets.buff.Enchainment = {body="Luhlaza Jubbah"}
-    sets.buff.Efflux = {legs="Hashishin Tayt +2",}
+    sets.buff.Efflux = {legs="Hashishin Tayt +3",}
 
     
     -- Precast Sets
@@ -680,7 +684,7 @@ sets.precast.WS['Shattersoul'] = {
         head="Luh. Keffiyeh +3",
         body="Assim. Jubbah +3",
         hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-        legs="Hashishin Tayt +2",
+        legs="Hashishin Tayt +3",
         feet="Luhlaza Charuqs +3",
         neck={ name="Mirage Stole +2", augments={'Path: A',}},
         right_ear="Hashi. Earring +1", 
@@ -705,7 +709,7 @@ sets.midcast['Blue Magic'].Physical = {
     head="Gleti's Mask",
     body="Hashishin Mintan +2",
     hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck="Rep. Plat. Medal",
     waist="Prosilio Belt +1",
@@ -721,7 +725,7 @@ sets.midcast['Blue Magic'].PhysicalAcc = {
     head="Gleti's Mask",
     body="Hashishin Mintan +2",
     hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Olseni Belt",
@@ -908,7 +912,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
     head="Luh. Keffiyeh +3",
     body="Assim. Jubbah +3",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     right_ear="Hashi. Earring +1", 
@@ -924,7 +928,7 @@ sets.midcast['Blue Magic'].Buff = {
     head="Luh. Keffiyeh +3",
     body="Assim. Jubbah +3",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     right_ear="Hashi. Earring +1", 
@@ -1042,7 +1046,7 @@ sets.Learning = {
     head="Luh. Keffiyeh +3",
     body="Assim. Jubbah +3",
     hands="Assim. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     right_ear="Hashi. Earring +1", 
@@ -1305,7 +1309,7 @@ sets.engaged.Learning = {
     head="Luh. Keffiyeh +3",
     body="Assim. Jubbah +3",
     hands="Assim. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     right_ear="Hashi. Earring +1", 
@@ -1392,7 +1396,7 @@ sets.engaged.DW.Learning =  set_combine(sets.engaged.DW, sets.Learning, {
     head="Luh. Keffiyeh +3",
     body="Assim. Jubbah +3",
     hands="Assim. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     right_ear="Hashi. Earring +1", 
@@ -1532,7 +1536,7 @@ sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybri
     head={ name="Luh. Keffiyeh +3", augments={'Enhances "Convergence" effect',}},
     body="Assim. Jubbah +3",
     hands="Assim. Bazu. +2",
-    legs="Hashishin Tayt +2",
+    legs="Hashishin Tayt +3",
     feet={ name="Luhlaza Charuqs +3", augments={'Enhances "Diffusion" effect',}},
     neck={ name="Mirage Stole +2", augments={'Path: A',}},
     waist="Flume Belt +1",
@@ -1928,6 +1932,9 @@ function job_state_change(stateField, newValue, oldValue)
         enable('ear1')
         state.BrachyuraEarring:set(false)
     end
+    if update_job_states then update_job_states() 
+    end
+
     check_weaponset()
 end
 function check_weaponset()
@@ -2093,6 +2100,13 @@ function check_moving()
         end
     end
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 function check_gear()
     if no_swap_gear:contains(player.equipment.left_ring) then
