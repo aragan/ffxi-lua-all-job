@@ -35,7 +35,7 @@
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
-
+    include('Display.lua')
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
 	include('organizer-lib')
@@ -112,6 +112,7 @@ item="Rolan. Daifuku",
 }
 function job_setup()
 	include('Mote-TreasureHunter')
+	send_command('lua l PetCharges')
 	state.TreasureMode:set('None')
 	state.Buff['Killer Instinct'] = buffactive['Killer Instinct'] or false
 	state.Buff.Doom = buffactive.doom or false
@@ -125,7 +126,6 @@ function job_setup()
     send_command('bind f6 gs c cycle WeaponSet')
 	send_command('bind f7 gs c cycle Weaponshield')
     send_command('bind !- gs c toggle RP')  
-
 	send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
 	send_command('wait 2;input /lockstyleset 147')
@@ -234,6 +234,10 @@ macc_ready_moves = S{'Sheep Song','Scream','Dream Flower','Roar','Gloeosuccus','
 abilities_to_check = S{'Feral Howl','Quickstep','Box Step','Stutter Step','Desperate Flourish','Violent Flourish',
 	'Animated Flourish','Provoke','Dia','Dia II','Flash','Bio','Bio II','Sleep','Sleep II',
 	'Drain','Aspir','Dispel','Steal','Mug','Stone'}
+
+	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","JugMode","TreasureMode"}) 
+    end
+
 end
 
 function file_unload()
@@ -2005,10 +2009,18 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-
+    if update_job_states then update_job_states() 
+    end
 	check_weaponset()
 
 end
+
+windower.register_event('zone change',
+    function()
+        --add that at the end of zone change
+        if update_job_states then update_job_states() end
+    end
+)
 
 function get_custom_wsmode(spell, spellMap, default_wsmode)
         if default_wsmode == 'Normal' then
