@@ -159,7 +159,7 @@ function user_setup()
         }
     update_combat_form()
     determine_haste_group()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","CastingMode","Runes","TreasureMode"}) 
     end
 end
 
@@ -1594,6 +1594,9 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -1920,6 +1923,9 @@ end
 function check_buff(buff_name, eventArgs)
     if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
+        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
+            equip(sets.TreasureHunter)
+        end
         eventArgs.handled = true
     end
 end
@@ -2021,7 +2027,12 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    elseif GKList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 172')
 
+    end
     if update_job_states then update_job_states() 
     end
 

@@ -94,7 +94,7 @@ function user_setup()
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","PhysicalDefenseMode","MagicalDefenseMode","Enfeebling"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","DeathMode","Enfeebling","HippoMode"}) 
     end
 end
  

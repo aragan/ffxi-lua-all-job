@@ -105,7 +105,7 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","HippoMode","TreasureMode"}) 
     end
 end
 -- Called when this job file is unloaded (eg: job change)

@@ -158,7 +158,7 @@ function user_setup()
     moving = false
 
     update_combat_form()
-	if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","Enfeeb","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","Enfeeb","WeaponSet","HippoMode","TreasureMode"}) 
     end
 end
  

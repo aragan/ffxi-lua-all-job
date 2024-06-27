@@ -209,7 +209,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT', 'STR')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP')
+    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP', 'Duration')
     state.IdleMode:options('Normal', 'PDT','MDT', 'Evasion','Regen', 'HP', 'EnemyCritRate', 'Enmity', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
@@ -259,7 +259,7 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","HippoMode","TreasureMode"}) 
     end
         
 end
@@ -978,7 +978,7 @@ sets.midcast['Enhancing Magic'] = {
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
 
-sets.midcast.EnhancingDuration = {
+sets.midcast.Duration = {
     ammo="Pemphredo Tathlum",
     head="Telchine Cap",
     body="Telchine Chas.",
@@ -1009,9 +1009,10 @@ sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
     main="Sakpata's Sword",
     ammo="Staunch Tathlum +1",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Telchine Chas.",
+    body={ name="Herculean Vest", augments={'Phys. dmg. taken -1%','Accuracy+11 Attack+11','Phalanx +2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
     hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+8','Pet: Attack+28 Pet: Rng.Atk.+28','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},
     neck="Incanter's Torque",
     waist="Olympus Sash",
     left_ear="Andoaa Earring",
@@ -1020,6 +1021,7 @@ sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
     right_ring="Stikini Ring +1",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 })
+sets.midcast.Phalanx.Duration = set_combine(sets.midcast.Duration, {})
 
 sets.midcast.Phalanx.SIRD = set_combine(sets.SIRD, sets.midcast.Phalanx) 
     
@@ -1189,7 +1191,7 @@ back="Shadow Mantle",}
 sets.idle.HP = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -1696,7 +1698,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     end
     if spell.skill == 'Enhancing Magic' and classes.NoSkillSpells:contains(spell.english) then
+        if state.CastingMode.value == 'Duration' then
+            equip(sets.midcast.Duration)
+        else
         equip(sets.midcast['Enhancing Magic'])
+        end
         if spellMap == 'Refresh' then
             equip(sets.midcast.Refresh)
         elseif spellMap == 'Aquaveil' then

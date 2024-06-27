@@ -110,7 +110,7 @@ function job_setup()
     elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
-    state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Enhance', 'Potency', 'TH'}
+    state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Enhance', 'TH'}
 
 end
 
@@ -165,7 +165,7 @@ function user_setup()
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind @q gs c cycle QDMode')
+    send_command('bind f4 gs c cycle QDMode')
     send_command('bind ^numlock input /ja "Triple Shot" <me>')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
@@ -188,7 +188,7 @@ function user_setup()
     determine_haste_group()
     update_combat_form()
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","RangedMode","PhysicalDefenseMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","RangedMode","WeaponSet","Weapongun","QDMode","TreasureMode"}) 
     end
 end
 

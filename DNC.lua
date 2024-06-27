@@ -167,7 +167,7 @@ function user_setup()
     --send_command('bind != gs c toggle CapacityMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","TreasureMode"}) 
     end
 end
 

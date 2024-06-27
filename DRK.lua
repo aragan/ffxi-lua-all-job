@@ -124,6 +124,7 @@ function job_setup()
     send_command('wait 2;input /lockstyleset 165')
     send_command('bind !` gs c toggle MagicBurst')
     include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
     state.MagicBurst = M(false, 'Magic Burst')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Buff.Souleater = buffactive.souleater or false
@@ -213,7 +214,7 @@ function user_setup()
 	--send_command('bind f12 gs c cycle IdleMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","shield","TreasureMode"}) 
     end
 end
   
@@ -1981,6 +1982,9 @@ end
   
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -2383,13 +2387,13 @@ function update_melee_groups()
 end
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    --[[if state.Buff[buff_name] then
+    if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end]]
+    end
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.

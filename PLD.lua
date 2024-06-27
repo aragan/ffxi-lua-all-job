@@ -160,7 +160,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.Auto_Kite = M(false, 'Auto_Kite')
 
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","SrodaBelt","HippoMode","Runes","TreasureMode"}) 
     end
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {

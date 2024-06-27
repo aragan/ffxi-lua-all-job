@@ -156,7 +156,7 @@ function user_setup()
     select_default_macro_book()
     state.Auto_Kite = M(false, 'Auto_Kite')
 
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","MagicalDefenseMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","shield","TreasureMode"}) 
     end
 end
  

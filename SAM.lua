@@ -147,7 +147,7 @@ function user_setup()
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('wait 6;input /lockstyleset 172')
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","TreasureMode"}) 
     end
 end
 

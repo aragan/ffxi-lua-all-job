@@ -178,7 +178,7 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode","HippoMode"}) 
     end
 end
 

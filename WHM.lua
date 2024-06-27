@@ -129,7 +129,7 @@ function user_setup()
         [12] = 1.70,
     }
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","PhysicalDefenseMode","MagicalDefenseMode","SrodaNecklace"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","SrodaNecklace","BarElement","BarStatus","HippoMode"}) 
     end
 end
 

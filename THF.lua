@@ -95,7 +95,7 @@ function user_setup()
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'Mod')
     state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT', 'Regen', 'EnemyCritRate')
-    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'HP')
+    state.PhysicalDefenseMode:options( 'PDT', 'Evasion', 'HP')
     state.MagicalDefenseMode:options('MDT')
     state.TreasureMode:options('None','Tag','SATA','Fulltime')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Aeneas', 'Naegling'}
@@ -157,7 +157,7 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
-    if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","Runes","HippoMode","TreasureMode"}) 
     end
     
 end

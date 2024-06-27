@@ -204,7 +204,7 @@ function user_setup()
     state.Moving  = M(false, "moving")
     moving = false
 	--add that at the end of user_setup
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","ExtraSongsMode","Etude","Carol","HippoMode","TreasureMode"}) 
     end
     
 end

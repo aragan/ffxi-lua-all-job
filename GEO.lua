@@ -57,7 +57,7 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
     send_command('bind delete gs c toggle BrachyuraEarring')
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","HippoMode"}) 
     end
 end
 
@@ -1150,8 +1150,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
-add_to_chat(159,'Author Aragan GEO.Lua File (from Asura)')
-add_to_chat(159,'For details, visit https://github.com/aragan/ffxi-lua-all-job')
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(5, 34)

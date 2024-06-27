@@ -235,7 +235,7 @@ abilities_to_check = S{'Feral Howl','Quickstep','Box Step','Stutter Step','Despe
 	'Animated Flourish','Provoke','Dia','Dia II','Flash','Bio','Bio II','Sleep','Sleep II',
 	'Drain','Aspir','Dispel','Steal','Mug','Stone'}
 
-	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","JugMode","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","Weaponshield","JugMode","TreasureMode"}) 
     end
 
 end

@@ -71,6 +71,7 @@
 function get_sets()
     include('Display.lua')
     mote_include_version = 2
+    send_command('lua l sch-hud')
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
@@ -114,7 +115,7 @@ function job_setup()
         "Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
     state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
-    state.HelixMode = M{['description']='Helix Mode', 'Potency', 'Duration'}
+    state.HelixMode = M{['description']='Helix Mode', 'Duration', 'Potency'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
     --state.RP = M(false, "Reinforcement Points Mode")
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -148,7 +149,6 @@ function job_setup()
    
     update_active_strategems()
     send_command('wait 2;input /lockstyleset 173')
-    send_command('lua l sch-hud')
 
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II'}
@@ -191,9 +191,9 @@ function user_setup()
     send_command('bind !] gs c scholar duration')
     send_command('bind !; gs c scholar cost')
     -- send_command('bind @c gs c toggle CP')
-    send_command('bind @h gs c cycle HelixMode')
+    send_command('bind f2 gs c cycle HelixMode')
     send_command('bind @r gs c cycle RegenMode')
-    send_command('bind @s gs c toggle StormSurge')
+    send_command('bind !s gs c toggle StormSurge')
     send_command('bind !w gs c toggle WeaponLock')
     --send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
@@ -211,7 +211,7 @@ function user_setup()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     --moving = false
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","Auto_Kite"},{"IdleMode","OffenseMode","CastingMode","PhysicalDefenseMode","MagicalDefenseMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HippoMode"}) 
     end
 end
 

@@ -59,6 +59,7 @@ function job_setup()
 
 
     include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.BrachyuraEarring = M(true,false)
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -128,7 +129,7 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
-        if init_job_states then init_job_states({"WeaponLock","Auto_Kite"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","WeaponSet","PhysicalDefenseMode","TreasureMode"}) 
+        if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","shield","TreasureMode"}) 
         end
 end
 
@@ -1110,6 +1111,9 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
@@ -1414,13 +1418,13 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)
-    --[[if state.Buff[buff_name] then
+    if state.Buff[buff_name] then
             equip(sets.buff[buff_name] or {})
         if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
             equip(sets.TreasureHunter)
         end
         eventArgs.handled = true
-    end]]
+    end
 end
 -- Check for various actions that we've specified in user code as being used with TH gear.
 -- This will only ever be called if TreasureMode is not 'None'.

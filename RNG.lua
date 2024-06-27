@@ -179,7 +179,7 @@ function user_setup()
     DW_needed = 0
     DW = false
     moving = false
-	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","RangedMode","WeaponskillMode","PhysicalDefenseMode","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","Weapongun","HippoMode","TreasureMode"}) 
     end
 end
 

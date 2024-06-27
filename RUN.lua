@@ -147,7 +147,7 @@ function user_setup()
     state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Aettir', 'Naegling', 'Lycurgos'}
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","HybridMode","WeaponskillMode","PhysicalDefenseMode","CastingMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","Runes","HippoMode","TreasureMode"}) 
     end
 end
 
