@@ -150,6 +150,7 @@ function user_setup()
 
     -- Additional local binds
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -158,8 +159,8 @@ function user_setup()
     send_command('bind !/ gs enable all')
     --send_command('bind ^= gs c cycle mainstep')
     send_command('bind != gs c cycle altstep')
-    send_command('bind ^- gs c toggle selectsteptarget')
-    send_command('bind !- gs c toggle usealtstep')
+    send_command('bind - gs c toggle selectsteptarget')
+    send_command('bind = gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
     send_command('bind delete gs c toggle BrachyuraEarring')
@@ -189,6 +190,14 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     
+    ---- WeaponSet ----
+
+    sets.Normal = {}
+    sets.Twashtar = {main={ name="Twashtar", augments={'Path: A',}}, main="Crepuscular Knife",}
+    sets.Aeneas = {main={ name="Aeneas", augments={'Path: A',}}, sub={ name="Ternion Dagger +1", augments={'Path: A',}},}
+    sets.Tauret = {main="Tauret", sub={ name="Gleti's Knife", augments={'Path: A',}},}
+
+
     -- Precast Sets
     
     -- Precast sets to enhance JAs
@@ -1093,10 +1102,6 @@ sets.engaged.DW.CRIT = {
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",} -- +65%
 
-    sets.Normal = {}
-    sets.Twashtar = {main={ name="Twashtar", augments={'Path: A',}}, sub={ name="Gleti's Knife", augments={'Path: A',}},}
-    sets.Aeneas = {main={ name="Aeneas", augments={'Path: A',}}, sub={ name="Ternion Dagger +1", augments={'Path: A',}},}
-    sets.Tauret = {main="Tauret", sub={ name="Gleti's Knife", augments={'Path: A',}},}
 
 end
 

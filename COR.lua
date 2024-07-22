@@ -172,7 +172,9 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     send_command('bind f7 gs c cycle Weapongun')
+    send_command('bind !f7 gs c cycleback Weapongun')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind !- gs c toggle RP')  
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('@wait 6;input /lockstyleset 151')
@@ -208,12 +210,13 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
+    ---- WeaponSet ----
 
     sets.normal = {}
-    sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
-    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
+    sets.SWORDS = {main="Naegling", smain="Crepuscular Knife",}
+    sets.Tauret = {main="Tauret", main="Crepuscular Knife",}
     sets.Rostam = {main={ name="Rostam", augments={'Path: A',}}, sub="Tauret"}
-    sets.Kustawi = {main="Kustawi +1", sub="Gleti's Knife"}
+    sets.Kustawi = {main="Kustawi +1", main="Crepuscular Knife",}
 
     sets.normal = {}
     sets.DeathPenalty = {range="Death Penalty"}
@@ -280,7 +283,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     
-    sets.precast.FC = {    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    sets.precast.FC = {    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     left_ear="Etiolation Earring",
@@ -761,7 +764,6 @@ sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
             back="Camulus's Mantle",
     })
     sets.idle.Town ={legs="Carmine Cuisses +1",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",}
     sets.idle.HP =  {
             head={ name="Nyame Helm", augments={'Path: B',}},

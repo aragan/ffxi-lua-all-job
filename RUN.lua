@@ -126,13 +126,14 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind !s gs c toggle SrodaBelt')
-    send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind delete gs c toggle BrachyuraEarring')
 
     state.Moving  = M(false, "moving")
@@ -610,7 +611,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         back="Ogma's Cape",}
 
     sets.idle.Town = {
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
     

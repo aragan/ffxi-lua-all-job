@@ -112,7 +112,8 @@ function user_setup()
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind !f4 gs c BarStatus')
     send_command('bind delete gs c toggle BrachyuraEarring')
-
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -1025,7 +1026,6 @@ function init_gear_sets()
     })
     sets.idle.Town = {
     feet="Herald's Gaiters",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",
     }
     

@@ -145,13 +145,13 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind !f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
-    send_command('bind f7 gs c cycleback WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^- gs enable all')
+    send_command('bind !/ gs enable all')
     send_command('wait 6;input /lockstyleset 152')
     select_default_macro_book()
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -1139,7 +1139,6 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         back="Moonlight Cape",
     }
         sets.idle.Town ={
-        body="Adamantite Armor",
         feet="Hermes' Sandals +1",
         left_ear="Infused Earring",}      
 

@@ -123,6 +123,7 @@ function user_setup()
     
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
     send_command('bind != gs c toggle CapacityMode')

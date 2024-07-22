@@ -86,7 +86,7 @@ function user_setup()
     send_command('bind @q gs c toggle AutoEquipBurst')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^; gs enable all')
+    send_command('bind !/ gs enable all')
     --send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f7 gs c cycle StaffMode')
@@ -941,8 +941,7 @@ sets.midcast.Aspir = sets.midcast.Drain
 
     sets.idle.Town = {
         feet="Herald's Gaiters",
-        left_ear="Infused Earring",
-        right_ring="Stikini Ring +1",}
+        left_ear="Infused Earring",}
 
     sets.Adoulin = {body="Councilor's Garb", feet="Herald's Gaiters"}
     sets.MoveSpeed = {feet="Herald's Gaiters"}

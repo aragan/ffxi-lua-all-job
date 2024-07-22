@@ -109,6 +109,7 @@ function user_setup()
     send_command('bind ^` input /ja "Flee" <me>')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !- gs c cycle targetmode')
     send_command('wait 6;input /lockstyleset 164')
@@ -118,6 +119,8 @@ function user_setup()
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c toggle UseRune')
     send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind ^/ gs disable all')
+    send_command('bind !/ gs enable all')
     select_default_macro_book()
     Panacea = T{
         'Bind',
@@ -170,6 +173,17 @@ end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
+
+    ---- WeaponSet ----
+
+    sets.Normal = {}
+    sets.Twashtar = {main="Twashtar", main="Crepuscular Knife",}
+    sets.Tauret = {main="Tauret", sub="Ternion Dagger +1"}
+    sets.Aeneas = {main="Aeneas", sub="Malevolence"}
+    sets.Naegling = {main="Naegling", main="Crepuscular Knife",}
+
+
+
     --------------------------------------
     -- Special sets (required by rules)
     --------------------------------------
@@ -1067,12 +1081,6 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-
-    sets.Normal = {}
-    sets.Twashtar = {main="Twashtar", sub="Gleti's Knife"}
-    sets.Tauret = {main="Tauret", sub="Ternion Dagger +1"}
-    sets.Aeneas = {main="Aeneas", sub="Malevolence"}
-    sets.Naegling = {main="Naegling", sub="Ternion Dagger +1"}
 
 
 

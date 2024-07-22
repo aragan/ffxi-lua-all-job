@@ -182,7 +182,7 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind ^- gs enable all')
+    send_command('bind !/ gs enable all')
     send_command('bind ^/ gs disable all')
     --send_command('bind f7 input //fillmode')
     send_command('bind f1 gs c cycle HippoMode')
@@ -193,6 +193,7 @@ function user_setup()
     send_command('bind f4 gs c cycle Threnody')
     send_command('bind !f4 gs c Threnody')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind @` gs c cycle LullabyMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
 
@@ -222,11 +223,13 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     
+    ---- WeaponSet ----
+
     --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
     sets.normal = {}
-    sets.Twashtar = {main="Twashtar", sub="Ternion Dagger +1"}
-    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
-    sets.Naegling = {main="Naegling", sub="Ternion Dagger +1"}
+    sets.Twashtar = {main="Twashtar", main="Crepuscular Knife",}
+    sets.Tauret = {main="Tauret", main="Crepuscular Knife",}
+    sets.Naegling = {main="Naegling", main="Crepuscular Knife",}
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}
@@ -804,8 +807,7 @@ sets.midcast.SongStringSkill = {
 
     sets.idle.Town = {    
     feet="Fili Cothurnes +2",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    left_ring="Stikini Ring +1",
+    left_ear="Infused Earring",
 }
 sets.idle.HP = {
     ammo="Staunch Tathlum +1",
