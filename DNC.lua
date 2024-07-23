@@ -193,7 +193,7 @@ function init_gear_sets()
     ---- WeaponSet ----
 
     sets.Normal = {}
-    sets.Twashtar = {main={ name="Twashtar", augments={'Path: A',}}, main="Crepuscular Knife",}
+    sets.Twashtar = {main={ name="Twashtar", augments={'Path: A',}}, sub="Crepuscular Knife",}
     sets.Aeneas = {main={ name="Aeneas", augments={'Path: A',}}, sub={ name="Ternion Dagger +1", augments={'Path: A',}},}
     sets.Tauret = {main="Tauret", sub={ name="Gleti's Knife", augments={'Path: A',}},}
 

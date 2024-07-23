@@ -227,9 +227,9 @@ function init_gear_sets()
 
     --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
     sets.normal = {}
-    sets.Twashtar = {main="Twashtar", main="Crepuscular Knife",}
-    sets.Tauret = {main="Tauret", main="Crepuscular Knife",}
-    sets.Naegling = {main="Naegling", main="Crepuscular Knife",}
+    sets.Twashtar = {main="Twashtar", sub="Crepuscular Knife",}
+    sets.Tauret = {main="Tauret", sub="Crepuscular Knife",}
+    sets.Naegling = {main="Naegling", sub="Crepuscular Knife",}
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}

@@ -213,10 +213,10 @@ function init_gear_sets()
     ---- WeaponSet ----
 
     sets.normal = {}
-    sets.SWORDS = {main="Naegling", smain="Crepuscular Knife",}
-    sets.Tauret = {main="Tauret", main="Crepuscular Knife",}
+    sets.SWORDS = {main="Naegling", sub="Crepuscular Knife",}
+    sets.Tauret = {main="Tauret", sub="Crepuscular Knife",}
     sets.Rostam = {main={ name="Rostam", augments={'Path: A',}}, sub="Tauret"}
-    sets.Kustawi = {main="Kustawi +1", main="Crepuscular Knife",}
+    sets.Kustawi = {main="Kustawi +1", sub="Crepuscular Knife",}
 
     sets.normal = {}
     sets.DeathPenalty = {range="Death Penalty"}
@@ -1126,7 +1126,6 @@ sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.STP.PDT = set_combine(sets.engaged.STP,{
     head="Malignance Chapeau",
@@ -1135,7 +1134,6 @@ sets.engaged.STP.PDT = set_combine(sets.engaged.STP,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
     head="Malignance Chapeau",
@@ -1172,7 +1170,6 @@ sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 
 sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
@@ -1183,7 +1180,6 @@ sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP,{
     feet="Malignance Boots",
     left_ear="Suppanomimi",
     waist="Reiki Yotai",
-    left_ring="Defending Ring",
 })
 
         sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)

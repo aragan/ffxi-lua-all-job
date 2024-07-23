@@ -177,10 +177,10 @@ function init_gear_sets()
     ---- WeaponSet ----
 
     sets.Normal = {}
-    sets.Twashtar = {main="Twashtar", main="Crepuscular Knife",}
+    sets.Twashtar = {main="Twashtar", sub="Crepuscular Knife",}
     sets.Tauret = {main="Tauret", sub="Ternion Dagger +1"}
     sets.Aeneas = {main="Aeneas", sub="Malevolence"}
-    sets.Naegling = {main="Naegling", main="Crepuscular Knife",}
+    sets.Naegling = {main="Naegling", sub="Crepuscular Knife",}
 
 
 

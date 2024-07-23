@@ -780,7 +780,6 @@ function init_gear_sets()
     }
     
     sets.idle.Town = {        
-        head="Valorous Mask",
         ear2="Infused Earring",
         feet="Danzo Sune-Ate",
 }
@@ -983,13 +982,15 @@ function init_gear_sets()
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
         feet="Mpaca's Boots",
-        right_ring="Defending Ring",
+        --right_ring="Defending Ring",
     }
     sets.engaged.PDT = set_combine(sets.engaged,sets.engaged.Hybrid)
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,sets.engaged.Hybrid)
     sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.MaxAcc,sets.engaged.Hybrid)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
-    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid, {        
+        right_ring="Niqmaddu Ring",
+    })
 
     sets.engaged.STP = {range=empty,
         ammo="Aurgelmir Orb +1",
