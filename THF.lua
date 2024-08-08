@@ -160,7 +160,7 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","Runes","HippoMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","Runes","HippoMode","TreasureMode"}) 
     end
     
 end

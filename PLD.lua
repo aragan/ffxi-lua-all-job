@@ -128,7 +128,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'EnemyCritRate', 'PD', 'PDH', 'MEVA', 'ReverenceGauntlets', 'Refresh', 'Resist', 'EnemyTPaccumulation')
     --state.RestingModes:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
-    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm')
+    state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Aminion')
     state.HybridMode:options('Normal', 'PDT', 'MDT', 'Turtle', 'ReverenceGauntlets')
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
@@ -1287,8 +1287,7 @@ sets.idle.PD = {
    right_ring="Moonlight Ring",
    back="Rudianos's Mantle",
 }
-
- sets.defense.ResistCharm ={
+ sets.defense.ResistCharm = {
    main="Burtgang",
    ammo="Staunch Tathlum +1",
    head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
@@ -1304,6 +1303,24 @@ sets.idle.PD = {
    right_ring="Wuji Ring",
    back="Solemnity Cape",
 }	
+
+sets.defense.Aminion = {
+    main="Reikiko",
+    sub="Aegis",
+    ammo="Staunch Tathlum +1",
+    head={ name="Sakpata's Helm", augments={'Path: A',}},
+    body="Adamantite Armor",
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+    feet={ name="Sakpata's Leggings", augments={'Path: A',}},
+    neck="Moonlight Necklace",
+    waist="Carrier's Sash",
+    ear1="Chev. Earring +1",
+    ear2="Sanare Earring",
+    ring1="Shadow Ring",
+    ring2="Apeile Ring +1",
+    back="Rudianos's Mantle",
+}
 
 sets.defense.Dagger = {    
    ammo="Eluder's Sachet",
