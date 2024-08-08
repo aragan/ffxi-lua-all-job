@@ -191,7 +191,11 @@ function job_setup()
         'Crashing Thunder','Droning Whirlwind','Gates of Hades','Harden Shell','Polar Roar',
         'Pyric Bulwark','Thunderbolt','Tourbillion','Uproot','Cruel Joke',
     }
-
+    -- Mote has capitalization errors in the default Absorb mappings, so we use our own
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
+    state.Storms =  M{['description']='storms', 'Sandstorm', 'Aurorastorm', 'Voidstorm', 'Firestorm', 'Rainstorm', 'Windstorm', 'Hailstorm', 'Thunderstorm'}
+    storms = S{"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Rainstorm", "Windstorm", "Hailstorm", "Thunderstorm"}
+    
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1",
     "Reraise Earring", "Reraise Gorget", "Airmid's Gorget","Wh. Rarab Cap +1",}
@@ -222,6 +226,9 @@ function user_setup()
 
     send_command('lua l azureSets')
     -- Additional local binds
+    send_command('bind f7 input //Sublimator')
+    send_command('bind f3 gs c cycle Storms')
+    send_command('bind f2 input //gs c Storms')
     send_command('bind ^` input /ja "Chain Affinity" <me>')
     send_command('bind !` input /ja "Efflux" <me>')
     send_command('bind @` input /ja "Burst Affinity" <me>')
@@ -233,7 +240,7 @@ function user_setup()
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
-    send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smouldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .6;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')  --//lamp
+    send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smoldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .4;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')  --//lamp
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;') -- //glowing 
     send_command('wait 6;input /lockstyleset 152')
     send_command('bind f4 input //fillmode')
@@ -1019,6 +1026,12 @@ sets.midcast.Protectra = sets.midcast.Protect
 sets.midcast.Shell = sets.midcast.Protect
 sets.midcast.Shellra = sets.midcast.Protect
 
+sets.midcast['Dark Magic'] = {
+    neck="Erra Pendant",
+    left_ear="Regal Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+}
 sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
     main="Sakpata's Sword",
     ammo="Staunch Tathlum +1",
@@ -2063,6 +2076,9 @@ end
 
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'storms' then
+        send_command('@input /ma "'..state.Storms.value..'" <stpc>')
+    end
 end
 
 function gearinfo(cmdParams, eventArgs)
@@ -2153,8 +2169,11 @@ windower.register_event('zone change',
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
+    set_macro_page(6, 40)
     if player.sub_job == 'DNC' then
         set_macro_page(6, 40)
+    elseif player.sub_job == "SCH" then
+        set_macro_page(8, 40)
     else
         set_macro_page(6, 40)
     end

@@ -21,7 +21,6 @@ organizer_items = {
 "Lycurgos",
 "Foreshock Sword",
 "Hepatizon Axe +1",
-    "Aettir",
     "Lentus Grip",
     "Mafic Cudgel",
     "Gyudon",
@@ -145,7 +144,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Aettir', 'Naegling', 'Lycurgos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Epeolatry', 'Naegling', 'Lycurgos'}
 
     select_default_macro_book()
     if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","Runes","HippoMode","TreasureMode"}) 
@@ -157,7 +156,7 @@ function init_gear_sets()
 
     --sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
     sets.Naegling = {main="Naegling", sub="Chanter's Shield"}
-    sets.Aettir = {main="Aettir", sub="Refined Grip +1",}
+    sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
     sets.Lycurgos = {main="Lycurgos", sub="Refined Grip +1",}
 
     sets.Enmity =    { 
@@ -476,7 +475,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
 	sets.defense.PDT = {   
     ammo="Staunch Tathlum +1",
-    main="Aettir",
+    main="Epeolatry",
     sub="Refined Grip +1",
     head="Nyame Helm",
     body="Adamantite Armor",
@@ -493,7 +492,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.defense.PDH = {
     ammo="Staunch Tathlum +1",
-    main="Aettir",
+    main="Epeolatry",
     sub="Refined Grip +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +3",
@@ -510,7 +509,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     }
     sets.defense.Enmity = { 
         ammo="Iron Gobbet",
-        main="Aettir",
+        main="Epeolatry",
         sub="Alber Strap",
         head="Halitus Helm",
         body={ name="Emet Harness +1", augments={'Path: A',}},
@@ -567,7 +566,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         waist="Engraved Belt",
     })
 	sets.defense.MDT = {
-    main="Aettir",
+    main="Epeolatry",
     sub="Refined Grip +1",
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
@@ -637,7 +636,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
     sets.idle.PDH = {
         ammo="Staunch Tathlum +1",
-        main="Aettir",
+        main="Epeolatry",
         sub="Refined Grip +1",
         head="Erilaz Galea +2",
         body="Erilaz Surcoat +3",
@@ -655,7 +654,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.idle.PDT = {   
         ammo="Staunch Tathlum +1",
-        main="Aettir",
+        main="Epeolatry",
         sub="Refined Grip +1",
         head="Nyame Helm",
         body="Adamantite Armor",

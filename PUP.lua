@@ -1455,17 +1455,8 @@ function init_gear_sets()
     -- Town Set
     sets.idle.Town = {
         main="Tauret",
-        body="Hizamaru Haramaki +2",
         ear2="Infused Earring",
-        ring2="Paguroidea Ring",
         feet="Hermes' Sandals +1",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Odnowa Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Chirich Ring +1",
-        back="Moonlight Cape",
     }
 
     -- Resting sets

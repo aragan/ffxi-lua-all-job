@@ -191,7 +191,7 @@ function user_setup()
     send_command('bind !] gs c scholar duration')
     send_command('bind !; gs c scholar cost')
     -- send_command('bind @c gs c toggle CP')
-    send_command('bind f2 gs c cycle HelixMode')
+    send_command('bind f5 gs c cycle HelixMode')
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind !s gs c toggle StormSurge')
     send_command('bind !w gs c toggle WeaponLock')
@@ -211,7 +211,7 @@ function user_setup()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     --moving = false
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HippoMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HelixMode","HippoMode"}) 
     end
 end
 
@@ -298,7 +298,7 @@ function init_gear_sets()
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
         }
 
-        sets.precast.FC.Grimoire = {head="Peda. M.Board +3", feet="Acad. Loafers +3"}
+    sets.precast.FC.Grimoire = {head="Peda. M.Board +3", feet="Acad. Loafers +3"}
 
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
        feet="Acad. Loafers +3", waist="Siegel Sash"})
@@ -960,8 +960,6 @@ sets.idle.Sphere = set_combine(sets.idle, {
 })
     sets.idle.Town = set_combine(sets.idle, {
         main={ name="Musa", augments={'Path: C',}},
-        body="Shamash Robe",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",
         feet="Herald's Gaiters"})
         

@@ -692,9 +692,10 @@ function init_gear_sets()
     --    legs="Bagua Pants", 
     --})
 
-    sets.idle.Town = set_combine(sets.idle, {
+    sets.idle.Town =  {
         feet="Geo. Sandals +2",
-    })
+        left_ear="Infused Earring",
+    }
 
     sets.idle.Weak = sets.idle
 

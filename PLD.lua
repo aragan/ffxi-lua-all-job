@@ -78,7 +78,7 @@ function job_setup()
     send_command('lua l PLD-HUD')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
-    send_command('wait 2;input /lockstyleset 150')
+    send_command('wait 2;input /lockstyleset 177')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Nexus Cape", "Airmid's Gorget",}
     
@@ -136,7 +136,7 @@ function user_setup()
     --state.BreathDefenseModes:options'Turtle'
     --send_command('bind ^f11 gs c cycle MagicalDefenseModes')
  	--send_command('bind ^= gs c activate MDT')
-    send_command('wait 6;input /lockstyleset 150')
+    send_command('wait 6;input /lockstyleset 177')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
@@ -268,7 +268,7 @@ back="Rudianos's Mantle",
    -- Fast cast sets for spells   2844HP FC+80/80
  sets.precast.FC = {   
    ammo="Sapience Orb",
-   head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+   head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
    body="Rev. Surcoat +3",
    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
    legs="Enif Cosciales",
@@ -524,7 +524,7 @@ sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PD
  --skill 401/402
  sets.midcast['Enhancing Magic'] ={    
    ammo="Staunch Tathlum +1",
-   head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+   head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
    body="Shab. Cuirass +1",
    hands="Regal Gauntlets",
    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -685,7 +685,7 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
    sets.midcast.Crusade = {
        main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
        sub={ name="Ajax +1", augments={'Path: A',}},
-       head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+       head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
        body="Shab. Cuirass +1",
        hands="Regal Gauntlets",
        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -700,7 +700,7 @@ sets.midcast.Cocoon = {
    main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
    sub={ name="Ajax +1", augments={'Path: A',}},
    ammo="Staunch Tathlum +1",
-   head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+   head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
    body="Shab. Cuirass +1",
    hands="Regal Gauntlets",
    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -787,7 +787,7 @@ sets.midcast.Cocoon.DT = {
    })
    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {
  sub="Srivatsa",
- head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+ head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
  legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
  neck="Incanter's Torque",
  waist="Olympus Sash",
@@ -796,7 +796,7 @@ sets.midcast.Cocoon.DT = {
  right_ring="Stikini Ring +1",
 })
    sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'] , {
-  head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+  head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
  legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
  neck="Incanter's Torque",
  waist="Olympus Sash",
@@ -1213,9 +1213,7 @@ sets.idle.PD = {
     back="Rudianos's Mantle",}
 
     sets.idle.Town ={
-    
     legs="Carmine Cuisses +1",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     left_ear="Infused Earring",}
     
    sets.idle.Weak = {head="Crepuscular Helm", body="Crepuscular Mail",}
@@ -2135,6 +2133,7 @@ end
 function customize_idle_set(idleSet)
     if state.HippoMode.value == "Hippo" then
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+        send_command('input /p Hippo. Socks +1 feet equipped for pull mobs')		
     elseif state.HippoMode.value == "normal" then
        equip({})
     end
@@ -2468,7 +2467,7 @@ end
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 150')
+        send_command('wait 6;input /lockstyleset 177')
     end
 end
 function display_current_job_state(eventArgs)

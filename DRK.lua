@@ -151,7 +151,7 @@ function job_setup()
     -- Offhand weapons used to activate DW mode
     swordList = S{"Naegling", "Sangarius +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
     sets.weaponList = {"Caladbolg", "Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Caladbolg', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Lycurgos', 'Naegling', 'Loxotic', 'TernionDagger'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Caladbolg', 'Lycurgos', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Naegling', 'Loxotic', 'TernionDagger'}
     state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
 
     get_combat_form()
@@ -209,6 +209,7 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind !- gs c toggle RP')  
     send_command('bind delete gs c toggle BrachyuraEarring')
 	--send_command('bind f12 gs c cycle IdleMode')
@@ -280,7 +281,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
 
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
         body={ name="Fall. Cuirass +3", augments={'Enhances "Blood Weapon" effect',}},
         hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
         legs={ name="Odyssean Cuisses", augments={'Attack+29','"Fast Cast"+5','CHR+10',}},
@@ -897,7 +898,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
       
     sets.midcast.Cure = {    ammo="Staunch Tathlum +1",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
-    body={ name="Jumalik Mail", augments={'HP+40','Enmity+2',}},
+    body="Jumalik Mail",
     hands="Macabre Gaunt. +1",
     legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
     feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
@@ -1062,7 +1063,7 @@ sets.precast.WS['Red Lotus Blade'].None = {}
   
    sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Dark Magic'], {
     ammo="Pemphredo Tathlum",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Ignominy Cuirass +3",
     hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
@@ -1243,14 +1244,6 @@ sets.defense.SEboost = {
             back="Moonlight Cape",
     }
       
-        sets.idle.Town = {
-            head="Crepuscular Helm",
-            body="Sacro Breastplate",
-            legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-            left_ear="Infused Earring",
-            left_ring="Stikini Ring +1",
-            right_ring="Stikini Ring +1",
-    }
     
         sets.Adoulin = {body="Councilor's Garb"}
         sets.Kiting = {legs="Carmine Cuisses +1"}
@@ -1307,7 +1300,10 @@ sets.defense.SEboost = {
     })
         sets.idle.Sphere = set_combine(sets.idle, {})
       
-
+        sets.idle.Town = {
+            legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+            left_ear="Infused Earring",
+    }
     --------------------------------------
     -- Engaged sets
     --------------------------------------

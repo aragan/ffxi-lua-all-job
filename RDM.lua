@@ -102,7 +102,7 @@ function user_setup()
 	state.CastingMode:options( 'Duration','Normal', 'Burst', 'SIRD')
 
 	state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'SWORDS', 'Crocea', 'DAGGERS', 'Club'}
-	state.Shield = M{['description']='Weapon Set', 'Normal', 'Shield'}
+	state.Shield = M{['description']='Weapon Set', 'Normal', 'Ammurapi', 'Bulwark'}
     state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
     state.EnSpell = M{['description']='EnSpell', 'Enfire', 'Enblizzard', 'Enaero', 'Enstone', 'Enthunder', 'Enwater'}
     state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
@@ -134,7 +134,7 @@ function user_setup()
     send_command('bind !s gs c cycle SleepMode')
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
-    send_command('bind ^; gs enable all')
+    send_command('bind !/ gs enable all')
 	send_command('wait 6;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -158,7 +158,7 @@ function user_setup()
     moving = false
 
     update_combat_form()
-	if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","Enfeeb","WeaponSet","HippoMode","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","Enfeeb","WeaponSet","Shield","HippoMode","TreasureMode"}) 
     end
 end
  
@@ -177,13 +177,17 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
+	    ---- WeaponSet ----
+
 	sets.Normal = {}
 	sets.SWORDS = {main="Naegling", sub="Demers. Degen +1"}
 	sets.Crocea = {main="Crocea Mors", sub="Daybreak"}
 	sets.Club = {main="Maxentius", sub="Thibron"}
 	sets.DAGGERS = {main="Tauret", sub="Gleti's Knife",}
 
-	sets.Shield = {sub="Sacro Bulwark"}
+	sets.Ammurapi = {sub="Ammurapi Shield"}
+	sets.Bulwark = {sub="Sacro Bulwark"}
+
 	sets.DefaultShield = {sub="Sacro Bulwark"}
 
     -- Precast Sets
@@ -701,8 +705,6 @@ sets.TreasureHunter = {
 	})
 	
     sets.midcast['Enfeebling Magic'] = {
-		main={ name="Contemplator +1", augments={'Path: A',}},
-		sub="Enki Strap",
 		ammo=empty,
 		range="Ullr",
         head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
@@ -720,8 +722,6 @@ sets.TreasureHunter = {
     }
 	
 	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
-		main={ name="Contemplator +1", augments={'Path: A',}},
-		sub="Enki Strap",
 		ammo=empty,
 		range="Ullr",
         head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
@@ -739,8 +739,6 @@ sets.TreasureHunter = {
 	})
 		
 	sets.midcast['Enfeebling Magic'].Skill = {
-		main={ name="Contemplator +1", augments={'Path: A',}},
-		sub="Enki Strap",
 		ammo=empty,
 		range="Ullr",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
@@ -775,8 +773,6 @@ sets.TreasureHunter = {
 	}
     
 	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {
-		main={ name="Contemplator +1", augments={'Path: A',}},
-		sub="Enki Strap",
 		--hands="Lethargy Gantherots +1"
 	})
 
@@ -950,7 +946,6 @@ sets.TreasureHunter = {
 		back="Moonlight Cape",}
 
         sets.idle.Town ={legs="Carmine Cuisses +1",
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Infused Earring",}
     
     sets.idle.Weak = {

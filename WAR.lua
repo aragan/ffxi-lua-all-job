@@ -114,8 +114,8 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     -- Options: Override default values
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT')
-    state.HybridMode:options('Normal', 'PDT', 'H2H', 'SubtleBlow', 'Counter', 'ressistwater')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT', 'SubtleBlow', 'Counter', 'H2H')
+    state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
     state.CastingMode:options('Normal', 'sird', 'ConserveMP')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
@@ -220,7 +220,8 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      --sets.precast.JA['Mighty Strikes'] = {hands="Fallen's Finger Gauntlets +1"}
      sets.precast.JA['Blood Rage'] = {body="Boii Lorica +3",}
      sets.precast.JA['Provoke'] = set_combine(sets.Enmity, { })
-     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3",feet="Agoge Calligae +3"}
+     sets.precast.JA['Berserk'] = { body="Pummeler's Lorica +3",feet="Agoge Calligae +3",
+     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
      sets.precast.JA['Mighty Strikes'] = {hands="Boii Mufflers +3"}
      sets.precast.JA['Retaliation'] = {}

@@ -146,7 +146,8 @@ function user_setup()
 		--send_command('lua l PetCharges')
 		--send_command('lua l mob')
         send_command('wait 6;input /lockstyleset 147')
-
+		send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smoldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .4;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')  --//lamp
+		send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;') -- //glowing 
 		state.WeaponSet = M{['description']='Weapon Set', 'normal', 'SWORDS', 'AXE', 'SCYTHE', 'DAGGERS', 'CLUB',}
 		state.Weaponshield = M{['description']='Weapon Set', 'normal', 'SACRO',}
 
@@ -170,7 +171,7 @@ function user_setup()
 
         -- Set up Jug Pet cycling and keybind Alt+F8
         -- INPUT PREFERRED JUG PETS HERE
-        state.JugMode = M{['description']='Jug Mode', 'GenerousArthur','BouncingBertha','WarlikePatrick',
+        state.JugMode = M{['description']='Jug Mode', 'Normal','GenerousArthur','BouncingBertha','WarlikePatrick',
 		'BlackbeardRandy','VivaciousVickie','FatsoFargann',
                 }
         send_command('bind f1 gs c cycle JugMode')
@@ -1228,7 +1229,7 @@ sets.defense.Petregen = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Ainia Collar",
+		neck="Anu Torque",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Dedition Earring",
 		right_ear="Sherida Earring",
@@ -1341,7 +1342,7 @@ sets.defense.Petregen = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Ainia Collar",
+		neck="Anu Torque",
 		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
@@ -1358,7 +1359,7 @@ sets.defense.Petregen = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Ainia Collar",
+		neck="Anu Torque",
 		waist="Reiki Yotai",
 		left_ear="Suppanomimi",
 		right_ear="Sherida Earring",
@@ -1404,7 +1405,7 @@ sets.defense.Petregen = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Ainia Collar",
+		neck="Anu Torque",
 		waist="Reiki Yotai",
 		left_ear="Eabani Earring",
 		right_ear="Sherida Earring",

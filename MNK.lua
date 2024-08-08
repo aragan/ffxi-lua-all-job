@@ -604,7 +604,9 @@ sets.defense.Evasion = {
 
     }
 
-    sets.idle.Town = {feet="Hermes' Sandals +1"}
+    sets.idle.Town = {feet="Hermes' Sandals +1",
+    left_ear="Infused Earring",
+}
     
     sets.idle.Weak = sets.idle
     sets.idle.PDT = sets.defense.PDT
