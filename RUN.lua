@@ -64,8 +64,7 @@ function job_setup()
     send_command('wait 2;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
-    rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
-        'Lux','Tenebrae'}
+    rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda','Lux','Tenebrae'}
 	-- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -1147,20 +1146,6 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-	-- Default macro set/book
-	if player.sub_job == 'WAR' then
-		set_macro_page(3, 19)
-	elseif player.sub_job == 'NIN' then
-		set_macro_page(3, 19)
-	elseif player.sub_job == 'SAM' then
-		set_macro_page(3, 19)
-	else
-		set_macro_page(3, 19)
-	end
-end
-
 function get_rune_obi_element()
     weather_rune = buffactive[elements.rune_of[world.weather_element] or '']
     day_rune = buffactive[elements.rune_of[world.day_element] or '']
@@ -1334,6 +1319,8 @@ function display_current_job_state(eventArgs)
     local r_msg = state.Runes.current
     local r_color = ''
     if state.Runes.current == 'Ignis' then r_color = 167
+        send_command("@input /echo <----- All Cumulative Magic Duration Effects Have Expired ----->")
+
     elseif state.Runes.current == 'Gelus' then r_color = 210
     elseif state.Runes.current == 'Flabra' then r_color = 204
     elseif state.Runes.current == 'Tellus' then r_color = 050
@@ -1448,6 +1435,22 @@ windower.raw_register_event('status change',function(new, old)
 end)
 
 
-
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+	-- Default macro set/book
+	if player.sub_job == 'WAR' then
+		set_macro_page(7, 19)
+    elseif player.sub_job == 'SCH' then
+        set_macro_page(6, 19) 
+    elseif player.sub_job == 'BLU' then
+        set_macro_page(1, 37)
+	elseif player.sub_job == 'NIN' then
+		set_macro_page(3, 19)
+	elseif player.sub_job == 'SAM' then
+		set_macro_page(3, 19)
+	else
+		set_macro_page(3, 19)
+	end
+end
 
 
