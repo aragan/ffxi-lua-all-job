@@ -20,7 +20,6 @@ function job_setup()
     indi_duration = 180
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    state.BrachyuraEarring = M(true,false)
     state.AutoEquipBurst = M(true)
     send_command('wait 2;input /lockstyleset 178')
 
@@ -56,7 +55,6 @@ function user_setup()
     send_command('bind ^- gs enable all')
     send_command('bind ^/ gs disable all')
     send_command('bind f4 input //fillmode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","HippoMode"}) 
     end
 end
@@ -923,12 +921,6 @@ function job_buff_change(buff, gain)
         classes.CustomIdleGroups:clear()
         handle_equipping_gear(player.status)
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "Bolster" then
         if gain then  			
             send_command('input /p "Bolster" [ON]')		
@@ -1058,13 +1050,7 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
+
     if update_job_states then update_job_states() 
     end
 end

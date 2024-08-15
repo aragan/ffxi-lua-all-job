@@ -35,7 +35,6 @@ function job_setup()
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    state.BrachyuraEarring = M(true,false)
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     blue_magic_maps = {}
@@ -239,7 +238,6 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smoldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .4;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')  --//lamp
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;') -- //glowing 
     send_command('wait 6;input /lockstyleset 152')
@@ -523,7 +521,7 @@ sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
     right_ear="Odr Earring",
     left_ring="Ilabrat Ring",
     right_ring="Epona's Ring",
-    back="Annealed Mantle",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 })
     --sets.precast.WS['Chant du Cygn'].PDL = set_combine(sets.precast.WS['Chant du Cygn'], {
     --ammo="Crepuscular Pebble",
@@ -1280,7 +1278,7 @@ sets.engaged = {
     left_ear="Telos Earring",
     left_ring="Petrov Ring",
     right_ring="Epona's Ring",
-    back="Annealed Mantle", 
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, 
 }
 sets.engaged.DPL = set_combine(sets.engaged, {
     neck="Clotharius Torque",
@@ -1301,7 +1299,7 @@ sets.engaged.Acc = {
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 sets.engaged.STP = set_combine(sets.engaged, {
     ammo="Aurgelmir Orb +1",
@@ -1309,7 +1307,7 @@ sets.engaged.STP = set_combine(sets.engaged, {
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     waist="Gerdr Belt",
-    back="Tactical Mantle",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
 sets.engaged.CRIT = {
@@ -1325,7 +1323,7 @@ sets.engaged.CRIT = {
     left_ear="Telos Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back="Annealed Mantle",}
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
     
 sets.engaged.Refresh = set_combine(sets.engaged, { 
         body="Shamash Robe",
@@ -1373,7 +1371,7 @@ sets.engaged.DW = {
     right_ear="Dedition Earring",
     left_ring="Petrov Ring",
     right_ring="Epona's Ring",
-    back="Annealed Mantle",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
 
 sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {
@@ -1411,7 +1409,7 @@ sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, {
     right_ear="Odr Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back="Annealed Mantle",})
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},})
 
 sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, { 
     body="Shamash Robe",
@@ -1776,12 +1774,6 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         state.Buff[buff] = gain
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1948,13 +1940,6 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
-    end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
     end
     if swordList:contains(player.equipment.main) then
         send_command('input /lockstyleset 152')

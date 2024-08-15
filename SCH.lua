@@ -123,7 +123,6 @@ function job_setup()
     state.StormSurge = M(false, 'Stormsurge')
     state.Moving  = M(false, "moving")
     state.AutoEquipBurst = M(true)
-    state.BrachyuraEarring = M(true,false)
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -204,7 +203,6 @@ function user_setup()
     send_command('bind f4 gs c cycle Storms')
     send_command('bind f3 gs c cycleback Storms')
     send_command('bind f2 input //gs c Storms')
-    send_command('bind delete gs c toggle BrachyuraEarring')
 
     select_default_macro_book()
     set_lockstyle()
@@ -1268,12 +1266,6 @@ function job_buff_change(buff, gain)
     if buff == "Sublimation: Activated" then
         handle_equipping_gear(player.status)
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "Tabula Rasa" then
         if gain then
             send_command('@input /p Tabula Rasa [ON]')
@@ -1414,13 +1406,6 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
-    end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
     end
     if update_job_states then update_job_states() 
     end

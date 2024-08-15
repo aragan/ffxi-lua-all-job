@@ -89,7 +89,6 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
-    state.BrachyuraEarring = M(true,false)
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep', 'Feather Step', 'Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Quickstep', 'Feather Step', 'Stutter Step', 'Box Step'}
@@ -163,7 +162,6 @@ function user_setup()
     send_command('bind = gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
-    send_command('bind delete gs c toggle BrachyuraEarring')
 
     --send_command('bind != gs c toggle CapacityMode')
 
@@ -415,7 +413,7 @@ right_ear="Maculele Earring",
         right_ear="Brutal Earring",
         left_ring="Gere Ring",
         right_ring="Regal Ring",
-        back="Bleating Mantle",
+        back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Pyrrhic Kleos'].SC = set_combine(sets.precast.WS.SC, {    head="Nyame Helm",
     body="Nyame Mail",
@@ -437,7 +435,7 @@ right_ear="Maculele Earring",
         right_ear="Maculele Earring",
         left_ring="Regal Ring",
         right_ring="Gere Ring",
-        back="Bleating Mantle",
+        back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {ammo="Aurgelmir Orb +1",
@@ -798,7 +796,7 @@ sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Bleating Mantle",}
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
 
     sets.engaged.Acc = {      ammo="Yamarang",
     head="Malignance Chapeau",
@@ -812,7 +810,7 @@ sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Bleating Mantle",}
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
 
 sets.engaged.STP = {    
     ammo="Coiste Bodhar",
@@ -827,7 +825,7 @@ sets.engaged.STP = {
     right_ear="Balder Earring +1",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Tactical Mantle",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 sets.engaged.CRIT = {  
     ammo="Staunch Tathlum +1",
@@ -842,7 +840,7 @@ sets.engaged.CRIT = {
     right_ear="Eabani Earring",
     left_ring="Mummu Ring",
     right_ring="Defending Ring",
-    back="Moonlight Cape",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
  }
  sets.engaged.SubtleBlow = set_combine(sets.engaged, {
  left_ear="Sherida Earring",    
@@ -863,7 +861,7 @@ sets.engaged.CRIT = {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Defending Ring",
-    back="Moonlight Cape",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
 
  ------------------------------------------------------------------------------------------------
@@ -887,7 +885,7 @@ sets.engaged.CRIT = {
     right_ear="Balder Earring +1",
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
-    back="Bleating Mantle",}
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
 
     sets.engaged.DW.Acc = {      ammo="Yamarang",
     head="Malignance Chapeau",
@@ -901,7 +899,7 @@ sets.engaged.CRIT = {
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Bleating Mantle",}
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
 
 sets.engaged.DW.STP = {    
     ammo="Coiste Bodhar",
@@ -916,7 +914,7 @@ sets.engaged.DW.STP = {
     right_ear="Balder Earring +1",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Tactical Mantle",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 sets.engaged.DW.CRIT = {  
     ammo="Coiste Bodhar",
@@ -930,7 +928,7 @@ sets.engaged.DW.CRIT = {
     right_ear="Balder Earring +1",
     left_ring="Epona's Ring",
     right_ring="Gere Ring",
-    back="Bleating Mantle",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
  }
  sets.engaged.DW.SubtleBlow = set_combine(sets.engaged, { 
     left_ear="Sherida Earring",    
@@ -950,7 +948,7 @@ sets.engaged.DW.CRIT = {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Defending Ring",
-    back="Moonlight Cape",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
     ------------------------------------------------------------------------------------------------
       ---------------------------------------- DW-HASTE ------------------------------------------
@@ -1277,12 +1275,6 @@ function job_buff_change(buff,gain)
     if buff == 'Saber Dance' or buff == 'Climactic Flourish' or buff == 'Fan Dance' then
         handle_equipping_gear(player.status)
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1426,13 +1418,6 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
-    end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
     end
     if update_job_states then update_job_states() 
     end

@@ -24,8 +24,6 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     send_command('wait 2;input /lockstyleset 174')
-    state.BrachyuraEarring = M(true,false)
-
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
@@ -90,7 +88,6 @@ function user_setup()
     --send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f7 gs c cycle StaffMode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
@@ -1425,12 +1422,6 @@ function job_buff_change(buff, gain)
         enable('feet','back')
         handle_equipping_gear(player.status)
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1559,14 +1550,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
-
     if update_job_states then update_job_states() 
     end
 end

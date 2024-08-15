@@ -55,7 +55,6 @@ function job_setup()
     state.FootworkWS = M(false, 'Footwork on WS')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Moving  = M(false, "moving")
-    state.BrachyuraEarring = M(true,false)
 
     include('Mote-TreasureHunter')
     send_command('wait 2;input /lockstyleset 160')
@@ -84,7 +83,6 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind f1 gs c cycle HippoMode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind f4 input //fillmode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
@@ -880,12 +878,7 @@ function job_buff_change(buff, gain)
             end
         end
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
+
     -- Set Footwork as combat form any time it's active and Hundred Fists is not.
     if buff == 'Footwork' and gain and not buffactive['hundred fists'] then
         state.CombatForm:set('Footwork')
@@ -1092,13 +1085,6 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
-    end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
     end
     if (buff == "Impetus" and gain) or buffactive.impetus then
         equip({body="Bhikku Cyclas +2"})

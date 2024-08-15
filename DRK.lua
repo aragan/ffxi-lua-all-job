@@ -132,7 +132,6 @@ function job_setup()
     -- Set the default to false if you'd rather SE always stay acitve
     state.SouleaterMode = M(true, 'Soul Eater Mode')
     state.LastResortMode = M(true,false)
-    state.BrachyuraEarring = M(true,false)
 
     -- Use Gavialis helm?
     use_gavialis = true
@@ -211,7 +210,6 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind !- gs c toggle RP')  
-    send_command('bind delete gs c toggle BrachyuraEarring')
 	--send_command('bind f12 gs c cycle IdleMode')
 
     select_default_macro_book()
@@ -1899,13 +1897,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
     if update_job_states then update_job_states() 
     end
 
@@ -2057,12 +2048,6 @@ function job_buff_change(buff, gain)
   
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
-    end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
     end
     if not buffactive['Scarlet Delirium'] then
         if player.status == 'Engaged' then

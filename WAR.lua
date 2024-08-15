@@ -82,7 +82,6 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.Moving  = M(false, "moving")
-    state.BrachyuraEarring = M(true,false)
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
 
@@ -149,7 +148,6 @@ function user_setup()
     send_command('bind != gs c toggle CapacityMode')
     send_command('bind ^` input /ja "Hasso" <me>')
     send_command('bind !` input /ja "Seigan" <me>')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     send_command('wait 6;input /lockstyleset 152')
@@ -1602,12 +1600,6 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         handle_equipping_gear(player.status)
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "Mighty Strikes" then
         if gain then  			
             send_command('input /p "Mighty Strikes" [ON]')		
@@ -1963,14 +1955,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
-
     if update_job_states then update_job_states() 
     end
 

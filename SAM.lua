@@ -91,10 +91,9 @@ function job_setup()
     send_command('wait 2;input /lockstyleset 172')
     state.Moving  = M(false, "moving")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
-    state.BrachyuraEarring = M(true,false)
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')
-    -- list of weaponskills that make better use of otomi helm in low acc situations
-    wsList = S{'Tachi: Shoha', 'Tachi: Jinpu', 'Tachi: Enpi'}
+    -- list of weaponskills that make better use of Gavialis Helm in WSDayBonus
+    wsList = S{'Tachi: Goten', 'Tachi: Jinpu', 'Tachi: Kagero', 'Tachi: Koki'}
     gear.RAarrow = {name="Eminent Arrow"}
     LugraWSList = S{'Tachi: Fudo', 'Tachi: Shoha', 'Namas Arrow', 'Impulse Drive', 'Stardiver'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -147,7 +146,6 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind ^; gs enable all')
     send_command('bind f5 gs c cycle WeaponskillMode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('wait 6;input /lockstyleset 172')
     select_default_macro_book()
     if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","TreasureMode"}) 
@@ -197,7 +195,7 @@ function init_gear_sets()
     sets.precast.JA.Meditate = {
         head="Wakido Kabuto +1",
         hands="Sakonji Kote +3",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     sets.precast.JA.Sekkanoki = {hands="Unkai Kote +2" }
     sets.precast.JA.Seigan = {head="Kasuga Kabuto +2"}
@@ -228,7 +226,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Purity Ring",
         right_ring="Ilabrat Ring",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 
     }
     sets.midcast.RA = { ammo=empty,
@@ -244,7 +242,7 @@ function init_gear_sets()
         right_ear="Telos Earring",
         left_ring="Purity Ring",
         right_ring="Ilabrat Ring",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     }	
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
@@ -272,7 +270,7 @@ function init_gear_sets()
     right_ear="Ishvara Earring",
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     sets.precast.WS.PDL = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
@@ -281,7 +279,7 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
     })
@@ -306,12 +304,12 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     sets.precast.WS['Namas Arrow'].PDL = set_combine(sets.precast.WS['Namas Arrow'], {
         feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring", 
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS['Namas Arrow'], {
     })
@@ -328,12 +326,12 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Apex Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     } )
     sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
     })
@@ -350,12 +348,12 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Empyreal Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Empyreal Arrow'].Acc = set_combine(sets.precast.WS['Apex Arrow'], {
     })
@@ -373,7 +371,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Fudo'].PDL = set_combine(sets.precast.WS['Tachi: Fudo'], {
         ammo="Crepuscular Pebble",
@@ -382,7 +380,7 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Fudo'].Acc = set_combine(sets.precast.WS['Tachi: Fudo'], {
 
@@ -401,7 +399,7 @@ function init_gear_sets()
         ear1="Lugra Earring +1", 
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Kaiten'].PDL = set_combine(sets.precast.WS['Tachi: Kaiten'], {
         ammo="Crepuscular Pebble",
@@ -412,7 +410,7 @@ function init_gear_sets()
         ear1="Lugra Earring +1", 
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
 
     sets.precast.WS['Tachi: Kaiten'].Acc = set_combine(sets.precast.WS['Tachi: Kaiten'], {
@@ -432,7 +430,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS['Impulse Drive'], {
         ammo="Crepuscular Pebble",
@@ -441,7 +439,7 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
     })
@@ -462,7 +460,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Shoha'].PDL = set_combine(sets.precast.WS['Tachi: Shoha'], {
         ammo="Crepuscular Pebble",
@@ -471,12 +469,12 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Shoha'].Acc = set_combine(sets.precast.WS['Tachi: Shoha'], {})
 
     sets.precast.WS['Stardiver'] = set_combine(sets.precast.WS['Tachi: Shoha'], {
-        neck="Samurai's Nodowa +2",
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
       
     })
     sets.precast.WS['Stardiver'].PDL = set_combine(sets.precast.WS['Stardiver'], {
@@ -486,7 +484,7 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
     left_ring="Sroda Ring", 
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'], {
 
@@ -505,7 +503,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Rana'].PDL = set_combine(sets.precast.WS['Tachi: Rana'], {
         ammo="Crepuscular Pebble",
@@ -514,7 +512,7 @@ function init_gear_sets()
     legs="Nyame Flanchard",
     feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Rana'].Acc = set_combine(sets.precast.WS, {
 
@@ -533,7 +531,7 @@ function init_gear_sets()
         right_ear="Crep. Earring",
         left_ring="Stikini Ring +1",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Ageha'].PDL = set_combine(sets.precast.WS['Tachi: Ageha'], {
         ammo="Crepuscular Pebble",
@@ -542,7 +540,7 @@ function init_gear_sets()
         legs="Nyame Flanchard",
         feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     
     sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {
@@ -558,18 +556,18 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
 
     sets.precast.WS['Tachi: Kasha'].PDL = set_combine(sets.precast.WS['Tachi: Kasha'], {
         ammo="Crepuscular Pebble",
-            body="Nyame Mail",
+        body="Nyame Mail",
       hands="Nyame Gauntlets",
       legs="Nyame Flanchard",
       feet="Kas. Sune-Ate +2",
         left_ring="Sroda Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
 
     sets.precast.WS['Tachi: Kasha'].Acc = sets.precast.WS['Tachi: Kasha']
@@ -588,7 +586,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
     })
     
@@ -605,7 +603,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS, {
@@ -621,7 +619,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })      
     sets.precast.WS['Tachi: Jinpu'].PDL = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         ammo="Crepuscular Pebble",
@@ -636,9 +634,13 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Tachi: Jinpu'].Acc = set_combine(sets.precast.WS['Tachi: Jinpu'], {
+        head={ name="Mpaca's Cap", augments={'Path: A',}},
+        neck="Sibyl Scarf",
+        ear1="Lugra Earring +1", 
+
     })
     sets.precast.WS['Tachi: Jinpu'].SC = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         head="Nyame Helm",
@@ -652,7 +654,7 @@ function init_gear_sets()
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Epaminondas's Ring",
         right_ring="Cornelia's Ring",
-        back="Smertrios's Mantle",
+        back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     
     sets.midcast['Blue Magic'] = set_combine(sets.precast.WS['Tachi: Ageha'], {
@@ -867,7 +869,7 @@ sets.idle.Town = {
     left_ear="Dedition Earring",
     right_ring="Chirich Ring +1",
     left_ring="Niqmaddu Ring",
-    back="Takaha Mantle",
+    back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     }
 
     sets.engaged.Acc = set_combine(sets.engaged.Mid, { range=empty,
@@ -883,7 +885,7 @@ sets.idle.Town = {
         right_ear="Kasuga Earring +1",
         left_ring="Niqmaddu Ring",
         right_ring="Chirich Ring +1",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
     sets.engaged.MaxAcc = set_combine(sets.engaged.Acc, { range=empty,
     ammo="Amar Cluster",
@@ -898,7 +900,7 @@ sets.idle.Town = {
     right_ear={ name="Kasuga Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Regal Ring",
     right_ring="Chirich Ring +1",
-    back="Takaha Mantle",
+    back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
 
     --[[sets.engaged.Fullhaste = set_combine(sets.engaged, {
@@ -914,7 +916,7 @@ sets.idle.Town = {
         left_ear="Dedition Earring",
         right_ring="Chirich Ring +1",
         left_ring="Niqmaddu Ring",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
          })]]
 
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
@@ -942,7 +944,7 @@ sets.idle.Town = {
         left_ring="Chirich Ring +1",
         right_ring="Niqmaddu Ring",
     })
-         sets.engaged.Range = {
+    sets.engaged.Range = {
             head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
             body="Nyame Mail",
             hands="Nyame Gauntlets",
@@ -954,8 +956,8 @@ sets.idle.Town = {
             right_ear="Telos Earring",
             left_ring="Purity Ring",
             right_ring="Ilabrat Ring",
-            back="Takaha Mantle",
-        }
+            back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    }
 
     sets.engaged.Counter = set_combine(sets.engaged, {
         ammo="Amar Cluster",
@@ -970,7 +972,7 @@ sets.idle.Town = {
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Defending Ring",
         right_ring="Hizamaru Ring",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 
     })
 
@@ -987,7 +989,7 @@ sets.idle.Town = {
     right_ear="Brutal Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Hetairoi Ring",
-    back="Smertrios's Mantle",
+    back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     
 
@@ -1001,7 +1003,6 @@ sets.idle.Town = {
         hands="Mpaca's Gloves",
         legs="Kasuga Haidate +2",
         feet="Mpaca's Boots",
-        right_ring="Defending Ring",
     }
     sets.engaged.PDT = set_combine(sets.engaged,sets.engaged.Hybrid)
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,sets.engaged.Hybrid)
@@ -1024,7 +1025,7 @@ sets.idle.Town = {
         right_ear="Kasuga Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Takaha Mantle",
+        back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     }
     sets.engaged.triple = {range=empty,
         ammo="Coiste Bodhar",
@@ -1263,13 +1264,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
     if update_job_states then update_job_states() 
     end
     check_weaponset()
@@ -1314,12 +1308,6 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
     	state.Buff[buff] = gain
         handle_equipping_gear(player.status)
-    end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
     end
     if not buffactive.hasso then
         if player.status == 'Engaged' then

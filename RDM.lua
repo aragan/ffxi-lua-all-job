@@ -67,10 +67,8 @@ function job_setup()
     state.Buff.Stymie = buffactive.Stymie or false
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	state.AutoEquipBurst = M(true)
-    state.BrachyuraEarring = M(true,false)
-
-    send_command('wait 2;input /lockstyleset 152')
 	state.WeaponLock = M(false, 'Weapon Lock')
+	send_command('wait 2;input /lockstyleset 152')
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
 	absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
@@ -132,7 +130,6 @@ function user_setup()
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind @a gs c toggle NM')
     send_command('bind !s gs c cycle SleepMode')
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
 	send_command('wait 6;input /lockstyleset 152')
@@ -1106,7 +1103,7 @@ sets.TreasureHunter = {
 		right_ear="Telos Earring",
 		left_ring="Petrov Ring",
 		right_ring="Chirich Ring +1",
-		back="Tactical Mantle",
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     }
 	sets.engaged.Acc = {
 		ammo="Aurgelmir Orb +1",
@@ -1121,7 +1118,7 @@ sets.TreasureHunter = {
 		right_ear="Telos Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Tactical Mantle",		}
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},		}
 		
 		sets.engaged.CRIT = {
 			ammo="Coiste Bodhar",
@@ -1136,7 +1133,7 @@ sets.TreasureHunter = {
 			right_ear="Brutal Earring",
 			left_ring="Hetairoi Ring",
 			right_ring="Petrov Ring",
-			back="Annealed Mantle",	} 
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},	} 
 
 		sets.engaged.Enspell = {
 		ammo="Coiste Bodhar",
@@ -1166,7 +1163,7 @@ sets.TreasureHunter = {
 			right_ear="Brutal Earring",
 			left_ring="Hetairoi Ring",
 			right_ring="Petrov Ring",
-			back="Annealed Mantle",
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		}
 
 		sets.engaged.SubtleBlow = set_combine(sets.engaged ,{
@@ -1195,7 +1192,7 @@ sets.TreasureHunter = {
 			right_ear="Telos Earring",
 			left_ring="Petrov Ring",
 			right_ring="Chirich Ring +1",
-			back="Tactical Mantle",
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		})
 	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc ,{
 		ammo="Aurgelmir Orb +1",
@@ -1209,7 +1206,7 @@ sets.TreasureHunter = {
 		right_ear="Telos Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Tactical Mantle",    })
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},    })
 
 	sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT ,{
 		ammo="Coiste Bodhar",
@@ -1224,7 +1221,7 @@ sets.TreasureHunter = {
 		right_ear="Brutal Earring",
 		left_ring="Hetairoi Ring",
 		right_ring="Petrov Ring",
-		back="Annealed Mantle",	})
+		back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},	})
 
 		sets.engaged.DW.Enspell = {   
 			ammo="Coiste Bodhar",
@@ -1255,7 +1252,7 @@ sets.TreasureHunter = {
 			right_ear="Eabani Earring",
 			left_ring="Hetairoi Ring",
 			right_ring="Petrov Ring",
-			back="Annealed Mantle",
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		}
 		sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.DW ,{
 			neck={ name="Bathy Choker +1", augments={'Path: A',}},
@@ -1321,7 +1318,7 @@ sets.TreasureHunter = {
 			waist="Orpheus's Sash",
 			left_ring="Hetairoi Ring",
 			left_ring="Defending Ring",
-			back="Annealed Mantle",
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		})
 	sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT , {
 				ammo="Staunch Tathlum +1",
@@ -1408,7 +1405,7 @@ sets.TreasureHunter = {
 			right_ear="Eabani Earring",
 			left_ring="Hetairoi Ring",
 			left_ring="Defending Ring",
-			back="Annealed Mantle",
+			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		})
 		sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.SubtleBlow ,{
 			ammo="Staunch Tathlum +1",
@@ -1623,13 +1620,6 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
-    end
 	if update_job_states then update_job_states() 
     end
 	check_weaponset()
@@ -1664,12 +1654,6 @@ function job_buff_change(buff, gain)
             send_command('input /p "Saboteur" [ON]')		
         else	
             send_command('input /p "Saboteur" [OFF]')
-        end
-    end
-	if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
         end
     end
 	if buff == "doom" then
