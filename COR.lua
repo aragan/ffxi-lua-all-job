@@ -97,7 +97,6 @@ function job_setup()
     state.Moving  = M(false, "moving")
     state.RP = M(false, "Reinforcement Points Mode")  
     state.CapacityMode = M(false, 'Capacity Point Mantle') 
-    state.BrachyuraEarring = M(true,false)
 
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
@@ -176,7 +175,6 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind !- gs c toggle RP')  
-    send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('@wait 6;input /lockstyleset 151')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -392,7 +390,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
     }
     sets.precast.WS['Evisceration'].PDL = sets.precast.WS['Evisceration'], {
         body="Ikenga's Vest",
@@ -420,21 +418,6 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         waist="Kentarch Belt +1",
 	})
 
-    sets.precast.WS['Aeolian Edge'] = {
-		head="Nyame Helm",
-        body="Lanun Frac +3",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-        feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
-        neck="Baetyl Pendant",
-        waist="Orpheus's Sash",
-        right_ear="Friomisi Earring",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Dingir Ring",
-        right_ring="Cornelia's Ring",
-        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-    }
-
     sets.precast.WS['Requiescat'] = {
         head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -447,7 +430,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Regal Ring",
         right_ring="Rufescent Ring",
-        back="Bleating Mantle",
+        back="Annealed Mantle",
 }
 
     sets.precast.WS['Last Stand'] = {
@@ -557,6 +540,72 @@ sets.precast.WS['Wildfire'].SC = set_combine(sets.precast.WS['Wildfire'],  {
         left_ear="Digni. Earring",
         neck={ name="Comm. Charm +2", augments={'Path: A',}},
     })
+
+
+-- Elemental Weapon Skill --elemental_ws--
+
+-- SANGUINE BLADE
+-- 50% MND / 50% STR Darkness Elemental
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+    head="Pixie Hairpin +1",
+    body="Lanun Frac +3",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck={ name="Comm. Charm +2", augments={'Path: A',}},
+    waist="Svelt. Gouriz +1",
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Dingir Ring",
+    right_ring="Archon Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+})
+
+sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Infernal Scythe"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Steal"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Drain"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+
+sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
+    head="Nyame Helm",
+    body="Lanun Frac +3",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Dingir Ring",
+    right_ring="Cornelia's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+})
+
+sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
+
     -- Midcast Sets
     sets.midcast.FastRecast = sets.precast.FC
 
@@ -1362,12 +1411,6 @@ function job_buff_change(buff,gain)
             handle_equipping_gear(player.status)
         end
     end
-    if buff == "Protect" then
-        if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
-        end
-    end
     if buff == "Charm" then
         if gain then  			
            send_command('input /p Charmd, please Sleep me.')		
@@ -1553,13 +1596,6 @@ function job_state_change(stateField, newValue, oldValue)
         disable('main','sub')
     else
         enable('main','sub')
-    end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
-    else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
     end
     if update_job_states then update_job_states() 
     end

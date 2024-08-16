@@ -347,9 +347,7 @@ function init_gear_sets()
     sets.Naegling2 = {main="Naegling", sub="Zantetsuken"}
     sets.Maxentius = {main="Maxentius", sub="Thibron"}
     sets.Nuking = {main="Maxentius", sub="Bunzi's Rod"}
-    sets.Learn = {
-        main="Iris", 
-        sub="Iris",}
+    sets.Learn = {main="Iris", sub="Iris",}
 
 
     -- Precast Sets
@@ -461,7 +459,7 @@ right_ear="Brutal Earring",
 left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 right_ring="Rufescent Ring",
-back="Bleating Mantle",
+back="Annealed Mantle",
 })
 sets.precast.WS['Requiescat'].PDL = set_combine(sets.precast.WS, {
     ammo="Crepuscular Pebble",
@@ -490,22 +488,6 @@ sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     left_ring="Sroda Ring", 
-})
-    
-sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
-    ammo="Pemphredo Tathlum",
-    head="Pixie Hairpin +1",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-    feet="Nyame Sollerets",
-    neck="Sibyl Scarf",
-    waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear="Hecate's Earring",
-    left_ring="Cornelia's Ring",
-    right_ring="Archon Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
 })
     
 sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
@@ -563,66 +545,6 @@ sets.precast.WS['Expiacion'].PDL = set_combine(sets.precast.WS['Expiacion'], {
     right_ear="Ishvara Earring",
 })
 
-sets.precast.WS['Aeolian Edge'] = {    ammo="Oshasha's Treatise",
-head="Nyame Helm",
-body="Nyame Mail",
-hands="Nyame Gauntlets",
-legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-feet="Nyame Sollerets",
-ear1="Moonshade Earring",
-ear2="Friomisi Earring",
-ring1={ name="Metamor. Ring +1", augments={'Path: A',}},
-ring2="Cornelia's Ring",
-neck="Sibyl Scarf",
-waist="Orpheus's Sash",
-back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-}
-sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS, {
-    ammo="Pemphredo Tathlum",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-    feet="Nyame Sollerets",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    left_ear="Friomisi Earring",
-    right_ear="Malignance Earring",
-    left_ring="Freke Ring",
-    right_ring="Cornelia's Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-})
-
-sets.precast.WS['Myrkr'] = {
-    ammo="Pemphredo Tathlum",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
-    feet="Nyame Sollerets",
-    neck="Baetyl Pendant",
-    waist="Orpheus's Sash",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Friomisi Earring",
-    left_ring="Cornelia's Ring",
-    right_ring="Freke Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-}
-sets.precast.WS['Cataclysm'] = {
-    ammo="Pemphredo Tathlum",
-    head="Pixie Hairpin +1",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Sibyl Scarf",
-    waist="Orpheus's Sash",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Friomisi Earring",
-    left_ring="Cornelia's Ring",
-    right_ring="Archon Ring",
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
-}
         
 sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
     ammo="Oshasha's Treatise",
@@ -647,16 +569,6 @@ sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Black Halo'], {
         left_ring="Sroda Ring", 
 })
 
-sets.precast.WS['Starburst'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Sunburst'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Earth Crusher'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Rock Crusher'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Seraph Strike'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Shining Strike'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Seraph Blade'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Burning Blade'] = sets.precast.WS['Myrkr']
-sets.precast.WS['Shining Blade'] = sets.precast.WS['Myrkr']
 sets.precast.WS['Vorpal Blade'] = sets.precast.WS['Chant du Cygne']
 sets.precast.WS['Vorpal Blade'].PDL = sets.precast.WS['Chant du Cygne'].PDL
 sets.precast.WS['Realmrazer'] = sets.precast.WS['Requiescat']
@@ -678,38 +590,103 @@ sets.precast.WS['Shattersoul'] = {
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 
-    
-    -- Midcast Sets
-    sets.SIRD = {
-        ammo="Staunch Tathlum +1",
-        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-        legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        left_ear="Halasz Earring",
-        right_ring="Evanescence Ring",
-        waist="Rumination Sash",
-    }
-    sets.midcast.FastRecast = sets.SIRD 
-    sets.midcast.Utsusemi = sets.SIRD
+-- Elemental Weapon Skill --elemental_ws--
 
-    sets.midcast.RA = {			range="Trollbane",
-    head="Malignance Chapeau",
-    body="Nisroch Jerkin",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    }
-    sets.midcast['Blue Magic'] = {  
-        head="Luh. Keffiyeh +3",
-        body="Assim. Jubbah +3",
-        hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-        legs="Hashishin Tayt +3",
-        feet="Luhlaza Charuqs +3",
-        neck={ name="Mirage Stole +2", augments={'Path: A',}},
-        right_ear="Hashi. Earring +1", 
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Cornflower Cape",
+-- SANGUINE BLADE
+-- 50% MND / 50% STR Darkness Elemental
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+    ammo="Pemphredo Tathlum",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+})
+
+sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Infernal Scythe"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Steal"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Drain"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+
+sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
+    ammo="Pemphredo Tathlum",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Freke Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Evasion+10','"Mag.Atk.Bns."+10','Evasion+15',}},
+})
+
+sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
+
+-- Midcast Sets
+sets.SIRD = {
+    ammo="Staunch Tathlum +1",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear="Halasz Earring",
+    right_ring="Evanescence Ring",
+    waist="Rumination Sash",
+}
+sets.midcast.FastRecast = sets.SIRD 
+sets.midcast.Utsusemi = sets.SIRD
+
+sets.midcast.RA = {			range="Trollbane",
+head="Malignance Chapeau",
+body="Nisroch Jerkin",
+hands="Malignance Gloves",
+legs="Malignance Tights",
+feet="Malignance Boots",
+}
+sets.midcast['Blue Magic'] = {  
+    head="Luh. Keffiyeh +3",
+    body="Assim. Jubbah +3",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs="Hashishin Tayt +3",
+    feet="Luhlaza Charuqs +3",
+    neck={ name="Mirage Stole +2", augments={'Path: A',}},
+    right_ear="Hashi. Earring +1", 
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Cornflower Cape",
 }
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {  
     ammo="Staunch Tathlum +1",

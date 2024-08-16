@@ -927,11 +927,12 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
 
 
 
-     -- Sword WS's
-     -- SANGUINE BLADE
-     -- 50% MND / 50% STR Darkness Elemental
+-- Elemental Weapon Skill --elemental_ws--
+
+-- SANGUINE BLADE
+-- 50% MND / 50% STR Darkness Elemental
     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
-        ammo="Knobkierrie",
+    ammo="Knobkierrie",
     head="Pixie Hairpin +1",
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -949,78 +950,47 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
     sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
     sets.precast.WS["Infernal Scythe"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
-
-    sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Sanguine Blade"],{
-        ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Gale Axe"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",
-        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-            ammo="Aurgelmir Orb +1",
-            head={ name="Nyame Helm", augments={'Path: B',}},
-            right_ring="Cornelia's Ring",
-            left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-                ammo="Aurgelmir Orb +1",
-                head={ name="Nyame Helm", augments={'Path: B',}},
-                right_ring="Cornelia's Ring",
-                left_ear={ name="Lugra Earring +1", augments={'Path: A',}},})
-    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-    sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Sanguine Blade"], {
-        ammo="Aurgelmir Orb +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        right_ring="Cornelia's Ring",})
-
+    sets.precast.WS["Energy Steal"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+    sets.precast.WS["Energy Drain"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
     sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+
+    sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Baetyl Pendant",
+        waist="Hachirin-no-Obi",
+        right_ear="Friomisi Earring",
+        left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        right_ring="Cornelia's Ring",
+        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},   
+        back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    })
+    sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
+    sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],{})
 
      -- Resting sets
     sets.resting = {
@@ -1430,7 +1400,26 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
         end
-        
+        if spell.type == 'WeaponSkill' then
+            if elemental_ws:contains(spell.name) then
+                -- Matching double weather (w/o day conflict).
+                if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                    equip({waist="Hachirin-no-Obi"})
+                -- Target distance under 1.7 yalms.
+                elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                    equip({waist="Orpheus's Sash"})
+                -- Matching day and weather.
+                elseif spell.element == world.day_element and spell.element == world.weather_element then
+                    equip({waist="Hachirin-no-Obi"})
+                -- Target distance under 8 yalms.
+                elseif spell.target.distance < (8 + spell.target.model_size) then
+                    equip({waist="Orpheus's Sash"})
+                -- Match day or weather.
+                elseif spell.element == world.day_element or spell.element == world.weather_element then
+                    equip({waist="Hachirin-no-Obi"})
+                end
+            end
+        end
         -- if player.tp > 2999 then
         --     equip(sets.BrutalLugra)
         -- else -- use Lugra + moonshade
@@ -1440,10 +1429,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         --         equip(sets.Brutal)
         --     end
         -- end
-        -- Use SOA neck piece for WS in rieves
-        --[[if buffactive['Reive Mark'] then
-            equip(sets.reive)
-        end]]
+
     end
 
 end

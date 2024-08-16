@@ -261,7 +261,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
 }
     sets.precast.WS.PDL = {
         ammo="Crepuscular Pebble",
@@ -281,7 +281,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
 }
     sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Resolution'], {
         ammo="Crepuscular Pebble",
@@ -300,7 +300,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Regal Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
 }
     sets.precast.WS['Dimidiation'].PDL = set_combine(sets.precast.WS['Dimidiation'], {
     ammo="Crepuscular Pebble",
@@ -320,7 +320,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Regal Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
 })
     sets.precast.WS['Ground Strike'].PDL = set_combine(sets.precast.WS['Ground Strike'], { 
         ammo="Crepuscular Pebble",
@@ -339,7 +339,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     right_ear="Thrud Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Cornelia's Ring",
-    back="Bleating Mantle",
+    back="Annealed Mantle",
     })
     sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
         ammo="Crepuscular Pebble",
@@ -858,6 +858,26 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip({left_ear="Ishvara Earring"})
 		end
 	end
+    if spell.type == 'WeaponSkill' then
+        if elemental_ws:contains(spell.name) then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
+    end
 end
 ------------------------------------------------------------------
 -- Action events

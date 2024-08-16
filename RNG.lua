@@ -379,7 +379,7 @@ function init_gear_sets()
     right_ear="Odr Earring",
     left_ring="Mummu Ring",
     right_ring="Regal Ring",
-	back="Bleating Mantle",
+	back="Annealed Mantle",
 }
 	sets.precast.WS["Flaming Arrow"] = sets.precast.WS.Wildfire
 	sets.precast.WS["Hot Shot"] = sets.precast.WS.Wildfire
@@ -429,21 +429,6 @@ function init_gear_sets()
 			left_ring="Sroda Ring", 
 		})
 
-	sets.precast.WS['Aeolian Edge'] = {
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-		feet={ name="Nyame Sollerets", augments={'Path: B',}},
-		neck="Sibyl Scarf",
-		waist="Orpheus's Sash",
-		right_ear="Ishvara Earring",
-		left_ear="Moonshade Earring",
-		left_ring="Cornelia's Ring",
-		right_ring="Ilabrat Ring",
-		back="Belenus's Cape",
-		}
-
 		sets.precast.WS.Evisceration  = {
 			head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 			body="Mummu Jacket +2",
@@ -456,12 +441,70 @@ function init_gear_sets()
 			right_ear="Amini Earring +1",
 			left_ring="Mummu Ring",
 			right_ring="Regal Ring",
-			back="Bleating Mantle",
+			back="Annealed Mantle",
 		}
 
+-- Elemental Weapon Skill --elemental_ws--
 
-	-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
+-- SANGUINE BLADE
+-- 50% MND / 50% STR Darkness Elemental
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+    head="Pixie Hairpin +1",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Archon Ring",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+})
 
+sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Infernal Scythe"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Steal"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Drain"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+
+sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+	neck="Sibyl Scarf",
+	waist="Orpheus's Sash",
+	right_ear="Ishvara Earring",
+	left_ear="Moonshade Earring",
+	left_ring="Cornelia's Ring",
+	right_ring="Ilabrat Ring",
+	back="Belenus's Cape",
+})
+
+sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 
 	--------------------------------------
 	-- Midcast sets
@@ -693,7 +736,7 @@ function init_gear_sets()
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-		neck="Subtlety Spec.",
+		neck="Scout's Gorget +2",
 		waist="Olseni Belt",
 		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
@@ -710,7 +753,7 @@ function init_gear_sets()
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-		neck="Subtlety Spec.",
+		neck="Scout's Gorget +2",
 		waist="Olseni Belt",
 		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
@@ -724,7 +767,7 @@ function init_gear_sets()
 		hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
 		legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
 		feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-		neck="Subtlety Spec.",
+		neck="Scout's Gorget +2",
 		waist="Olseni Belt",
 		left_ear="Telos Earring",
 		right_ear="Sherida Earring",
@@ -1021,6 +1064,26 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 			equip({waist="Hachirin-no-Obi"})
 		end
 	end
+	if spell.type == 'WeaponSkill' then
+        if elemental_ws:contains(spell.name) then
+            -- Matching double weather (w/o day conflict).
+            if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 1.7 yalms.
+            elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Matching day and weather.
+            elseif spell.element == world.day_element and spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            -- Target distance under 8 yalms.
+            elseif spell.target.distance < (8 + spell.target.model_size) then
+                equip({waist="Orpheus's Sash"})
+            -- Match day or weather.
+            elseif spell.element == world.day_element or spell.element == world.weather_element then
+                equip({waist="Hachirin-no-Obi"})
+            end
+        end
+    end
 end
 function job_aftercast(spell, action, spellMap, eventArgs)
     if spell.english == "Shadowbind" then

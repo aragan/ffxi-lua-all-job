@@ -51,6 +51,12 @@ elements.recast_staff_of = {['Light']='Arka II', ['Dark']='Xsaeta II', ['Fire']=
 elements.perpetuance_staff_of = {['Light']='Arka III', ['Dark']='Xsaeta III', ['Fire']='Atar III', ['Ice']='Vourukasha III',
     ['Wind']='Vayuvata III', ['Earth']='Vishrava III', ['Lightning']='Apamajas III', ['Water']='Haoma III', ['Thunder']='Apamajas III'}
 
+elemental_ws = S{"Aeolian Edge","Cyclone","Gust Slash","Energy Steal","Energy Drain","Burning Blade",
+    "Red Lotus Blade","Shining Blade","Seraph Blade","Sanguine Blade","Frostbite","Freezebite","Herculean Slash",
+    "Cloudsplitter","Primal Rend","Dark Harvest","Shadow of Death","Infernal Scythe","Thunder Thrust","Raiden Thrust",
+    "Blade: Teki","Blade: To","Blade: Chi","Blade: Ei","Blade: Yu","Tachi: Goten","Tachi: Kagero","Tachi: Jinpu",
+    "Tachi: Koki","Shining Strike","Seraph Strike","Flash Nova","Rock Crusher","Earth Crusher","Starburst","Sunburst",
+    "Cataclysm","Garland of Bliss","Omniscience","Flaming Arrow","Hot Shot","Wildfire","Trueflight","Leaden Salute"}
 
 -- Elements for skillchain names
 skillchain_elements = {}

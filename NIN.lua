@@ -801,25 +801,6 @@ sets.midcast.Absorb = {
     --range="Wingcutter +1",
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     })
-    sets.precast.WS['Cyclone'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
-    sets.precast.WS['Cyclone'].PDL = set_combine(sets.precast.WS['Aeolian Edge'].PDL,{})
-    sets.precast.WS['Gust Slash'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
-    sets.precast.WS['Gust Slash'].PDL = set_combine(sets.precast.WS['Aeolian Edge'].PDL,{})
-    sets.precast.WS['Burning Blade'] = set_combine(sets.precast.WS['Aeolian Edge'],{})
-    sets.precast.WS['Burning Blade'].PDL = set_combine(sets.precast.WS['Aeolian Edge'],{
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    })
-
-    sets.precast.WS['Shining Blade'] = set_combine(sets.precast.WS['Aeolian Edge'], {
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    })
-    sets.precast.WS['Shining Blade'].PDL = set_combine(sets.precast.WS['Aeolian Edge'], {
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-    })
-    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
-    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
-    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS['Aeolian Edge'], {})
 
     sets.precast.WS['Tachi: Jinpu'] = set_combine(sets.precast.WS['Aeolian Edge'], {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -936,6 +917,71 @@ sets.midcast.Absorb = {
        sets.precast.WS['Shoulder Tackle'].PDL = set_combine(sets.precast.WS['Blade: Shun'].PDL, sets.precast.WS)
        sets.precast.WS['Combo'] = set_combine(sets.precast.WS['Blade: Shun'], sets.precast.WS) 
        sets.precast.WS['Combo'].PDL = set_combine(sets.precast.WS['Blade: Shun'].PDL, sets.precast.WS) 
+
+-- Elemental Weapon Skill --elemental_ws--
+
+-- SANGUINE BLADE
+-- 50% MND / 50% STR Darkness Elemental
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Pixie Hairpin +1",
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Archon Ring",
+    right_ring="Cornelia's Ring",
+    back="Sacro Mantle",
+})
+
+sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Infernal Scythe"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Steal"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS["Energy Drain"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
+sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
+
+sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head={ name="Mochi. Hatsuburi +3", augments={'Enhances "Yonin" and "Innin" effect',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Baetyl Pendant",
+    waist="Orpheus's Sash",
+    left_ring="Cornelia's Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ear="Friomisi Earring",
+    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    back="Sacro Mantle",
+})
+
+sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
 
 
     -- Defense sets
@@ -1485,6 +1531,26 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if elemental_ws:contains(spell.name) and player.tp > 2900 then
             equip({ear1="Crematio Earring"})
         end
+        if spell.type == 'WeaponSkill' then
+            if elemental_ws:contains(spell.name) then
+                -- Matching double weather (w/o day conflict).
+                if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
+                    equip({waist="Hachirin-no-Obi"})
+                -- Target distance under 1.7 yalms.
+                elseif spell.target.distance < (1.7 + spell.target.model_size) then
+                    equip({waist="Orpheus's Sash"})
+                -- Matching day and weather.
+                elseif spell.element == world.day_element and spell.element == world.weather_element then
+                    equip({waist="Hachirin-no-Obi"})
+                -- Target distance under 8 yalms.
+                elseif spell.target.distance < (8 + spell.target.model_size) then
+                    equip({waist="Orpheus's Sash"})
+                -- Match day or weather.
+                elseif spell.element == world.day_element or spell.element == world.weather_element then
+                    equip({waist="Hachirin-no-Obi"})
+                end
+            end
+        end
         if is_sc_element_today(spell) then
             if state.OffenseMode.current == 'Normal' and wsList:contains(spell.english) then
                 equip(sets.WSDayBonus)
@@ -1499,7 +1565,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         elseif spell.english == 'Blade: Ten' then
             equip(sets.OdrMoon)
-            
         end
     end
 end
