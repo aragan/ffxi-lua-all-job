@@ -98,7 +98,7 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.IdleMode:options('Normal', 'PDH', 'PDT', 'EnemyCritRate', 'Resist', 'Regen', 'Refresh', 'Enmity')
 
-	state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
 
 	gear.default.weaponskill_neck = ""
 	gear.default.weaponskill_waist = ""
@@ -181,7 +181,7 @@ function user_setup()
     DW_needed = 0
     DW = false
     moving = false
-	if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","Weapongun","HippoMode","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock","HippoMode"},{"IdleMode","OffenseMode","RangedMode","WeaponskillMode","WeaponSet","Weapongun","TreasureMode"}) 
     end
 end
 
@@ -1149,10 +1149,8 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     
     return idleSet

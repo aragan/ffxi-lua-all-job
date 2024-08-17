@@ -74,7 +74,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PDT', 'Counter')
     state.PhysicalDefenseMode:options('PDT', 'HP')
     state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT', 'Regen', 'EnemyCritRate')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
 
     update_combat_form()
     update_melee_groups()
@@ -103,7 +103,7 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","HippoMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","HippoMode"},{"IdleMode","OffenseMode","WeaponskillMode","TreasureMode"}) 
     end
 end
 -- Called when this job file is unloaded (eg: job change)
@@ -1108,10 +1108,8 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
@@ -1225,7 +1223,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)

@@ -861,25 +861,26 @@ sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow, sets.eng
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2",
+        hands="Pel. Vambraces +2",
         left_ring="Moonlight Ring",
+        right_ring="Moonlight Ring",
         waist="Tempus Fugit +1",
     })
 	sets.engaged.STP.PDT = set_combine(sets.engaged.STP, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2",
+        hands="Pel. Vambraces +2",
         left_ring="Moonlight Ring",
-        right_ring="Defending Ring",
+        right_ring="Moonlight Ring",
         waist="Tempus Fugit +1",
 
     })
 	sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, {
         head="Hjarrandi Helm",
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2",
+        hands="Pel. Vambraces +2",
         left_ring="Moonlight Ring",
-        right_ring="Defending Ring",
+        right_ring="Moonlight Ring",
         waist="Tempus Fugit +1",
 
     })
@@ -1017,7 +1018,7 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 function job_aftercast(spell, action, spellMap, eventArgs)
 	if state.HybridMode.value == 'Reraise' or
-    (state.HybridMode.value == 'Physical' and state.PhysicalDefenseMode.value == 'Reraise') then
+    (state.HybridMode.value == 'DT' and state.PhysicalDefenseMode.value == 'Reraise') then
 		equip(sets.Reraise)
 	end
     check_weaponset()
@@ -1300,14 +1301,23 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called for custom player commands.
-function job_self_command(cmdParams, eventArgs)
+--[[function job_self_command(cmdParams, eventArgs)
     if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
         equip(sets.Reraise)
         send_command('input //gs equip sets.Reraise')
         eventArgs.handled = true
     end
     return
+end]]
+
+windower.register_event('hpp change', -- code add from Aragan Asura
+function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
 end
+)
+
 function customize_idle_set(idleSet)
     -- if state.CP.current == 'on' then
     --     equip(sets.CP)

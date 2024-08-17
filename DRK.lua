@@ -1892,7 +1892,7 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip({left_ear="Lugra Earring +1"})
 		end
 	end
-    if (state.HybridMode.current == 'PDT' and state.PhysicalDefenseMode.current == 'Reraise') then
+    if (state.HybridMode.current == 'DT' and state.PhysicalDefenseMode.current == 'Reraise') then
         equip(sets.Reraise)
     end
     if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
@@ -1994,7 +1994,7 @@ function job_self_command(cmdParams, eventArgs)
 
 end
 
-windower.register_event('hpp change',
+windower.register_event('hpp change', -- code add from Aragan Asura
 function(new_hpp,old_hpp)
     if new_hpp < 5 then
         equip(sets.Reraise)

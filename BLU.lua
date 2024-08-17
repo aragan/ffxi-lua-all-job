@@ -219,7 +219,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT','MDT', 'Evasion','Regen', 'HP', 'EnemyCritRate', 'Enmity', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
 
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Naegling2', 'Maxentius', 'Nuking', 'Learn'}
 
@@ -268,7 +268,7 @@ function user_setup()
     moving = false
     update_combat_form()
     determine_haste_group()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","HippoMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","TreasureMode"}) 
     end
         
 end
@@ -1893,10 +1893,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
     check_moving()
     determine_haste_group()
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         equip({feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
 end
 
@@ -1945,10 +1943,8 @@ function customize_melee_set(meleeSet)
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     --[[if state.IdleMode.current == 'PDT' then
         idleSet = set_combine(idleSet, sets.idle.PDT)

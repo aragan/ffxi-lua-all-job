@@ -117,7 +117,7 @@ end
 
 function user_setup()
     state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Srivatsa', 'Aegis', 'Priwen'} -- , 'Priwen' }
-    state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
+    state.HippoMode = M(false, "hippoMode")
     --state.TartarusMode = M{['description']='Tartarus Mode', 'normal', 'Tartarus'}
     --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
     -- Options: Override default values
@@ -166,7 +166,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.Auto_Kite = M(false, 'Auto_Kite')
 
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","SrodaBelt","HippoMode","Runes","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","SrodaBelt","Runes","TreasureMode"}) 
     end
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -1524,6 +1524,8 @@ sets.defense.Block = {
    sets.defense.MDT.Reraise = set_combine(sets.defense.MDT, sets.Reraise)
    sets.defense.Turtle.Reraise = set_combine(sets.defense.Turtle, sets.Reraise)
    sets.defense.Enmity.Reraise = set_combine(sets.defense.Enmity, sets.Reraise)
+   sets.defense.Enmitymax.Reraise = set_combine(sets.defense.Enmitymax, sets.Reraise)
+   sets.defense.Aminion.Reraise = set_combine(sets.defense.Aminion, sets.Reraise)
    sets.defense.HPBOOST.Reraise = set_combine(sets.defense.HPBOOST, sets.Reraise)
    sets.defense.Convert.Reraise = set_combine(sets.defense.Convert, sets.Reraise)
    sets.defense.Block.Reraise = set_combine(sets.defense.Block, sets.Reraise)
@@ -1537,6 +1539,8 @@ sets.defense.Block = {
    sets.defense.MDT.Doom = set_combine(sets.defense.MDT, sets.Doom)
    sets.defense.Turtle.Doom = set_combine(sets.defense.Turtle, sets.Doom)
    sets.defense.Enmity.Doom = set_combine(sets.defense.Enmity, sets.Doom)
+   sets.defense.Enmitymax.Doom = set_combine(sets.defense.Enmitymax, sets.Doom)
+   sets.defense.Aminion.Doom = set_combine(sets.defense.Aminion, sets.Doom)
    sets.defense.HPBOOST.Doom = set_combine(sets.defense.HPBOOST, sets.Doom)
    sets.defense.Convert.Doom = set_combine(sets.defense.Convert, sets.Doom)
    sets.defense.Block.Doom = set_combine(sets.defense.Block, sets.Doom)
@@ -2193,10 +2197,8 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
       equip({})
     end
 
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         equip({feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
 end
 
@@ -2208,11 +2210,9 @@ end
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-        send_command('input /p Hippo. Socks +1 feet equipped for pull mobs')		
-    elseif state.HippoMode.value == "normal" then
-       equip({})
+        send_command('input /p >>> Hippo. Socks +1 feet equipped for pull mobs <<< ')
     end
     if state.IdleMode.current == 'EnemyCritRate' then
         idleSet = set_combine(idleSet, sets.idle.EnemyCritRate )
@@ -2633,7 +2633,7 @@ function gearinfo(cmdParams, eventArgs)
     end
 end
 
-windower.register_event('hpp change',
+windower.register_event('hpp change', -- code add from Aragan Asura
 function(new_hpp,old_hpp)
     if new_hpp < 5 then
         equip(sets.Reraise)

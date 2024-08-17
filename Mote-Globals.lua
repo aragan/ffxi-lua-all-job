@@ -67,6 +67,12 @@ end
 
 -- Function to revert binds when unloading.
 function global_on_unload()
+	send_command('unbind f1')
+	send_command('unbind f2')
+	send_command('unbind f3')
+	send_command('unbind !s')
+
+
 	send_command('unbind f9')
 	send_command('unbind ^f9')
 	send_command('unbind !f9')

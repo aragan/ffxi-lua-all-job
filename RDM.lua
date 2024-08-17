@@ -101,7 +101,7 @@ function user_setup()
 
 	state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'SWORDS', 'Crocea', 'DAGGERS', 'Club'}
 	state.Shield = M{['description']='Weapon Set', 'Normal', 'Ammurapi', 'Bulwark'}
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
     state.EnSpell = M{['description']='EnSpell', 'Enfire', 'Enblizzard', 'Enaero', 'Enstone', 'Enthunder', 'Enwater'}
     state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
     state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
@@ -109,6 +109,7 @@ function user_setup()
     state.SleepMode = M{['description']='Sleep Mode', 'Normal', 'MaxDuration'}
     state.EnspellMode = M(false, 'Enspell Melee Mode')
 	state.NM = M(false, 'NM')
+    state.SrodaNecklace = M(false, 'SrodaNecklace')
 
 	select_default_macro_book()
 	send_command('bind f10 gs c cycle IdleMode')
@@ -130,6 +131,7 @@ function user_setup()
     send_command('bind f4 gs c cycle BarStatus')
     send_command('bind @a gs c toggle NM')
     send_command('bind !s gs c cycle SleepMode')
+	send_command('bind @s gs c toggle SrodaNecklace')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
 	send_command('wait 6;input /lockstyleset 152')
@@ -155,7 +157,7 @@ function user_setup()
     moving = false
 
     update_combat_form()
-	if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","Enfeeb","WeaponSet","Shield","HippoMode","TreasureMode"}) 
+	if init_job_states then init_job_states({"WeaponLock","MagicBurst","SrodaNecklace","NM","HippoMode"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","Enfeeb","WeaponSet","SleepMode","Shield","TreasureMode"}) 
     end
 end
  
@@ -587,8 +589,8 @@ sets.TreasureHunter = {
 		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
 		neck="Debilis Medallion",
-		left_ring="Haoma's Ring",
-		right_ring="Haoma's Ring",
+        left_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
 	}
     sets.midcast['Enhancing Magic'] = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
@@ -1252,8 +1254,6 @@ sets.TreasureHunter = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
 		}
 
 	sets.engaged.PDT = set_combine(sets.engaged , {
@@ -1263,8 +1263,6 @@ sets.TreasureHunter = {
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		left_ring="Defending Ring",
 	})
 	sets.engaged.Acc.PDT = set_combine(sets.engaged , {
 			ammo="Staunch Tathlum +1",
@@ -1273,8 +1271,6 @@ sets.TreasureHunter = {
 			hands="Malignance Gloves",
 			legs="Malignance Tights",
 			feet="Malignance Boots",
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
-			left_ring="Defending Ring",
 	})
 	sets.engaged.Enspell.PDT =  set_combine(sets.engaged.Enspell , {
 		ammo="Coiste Bodhar",
@@ -1283,10 +1279,8 @@ sets.TreasureHunter = {
 		ands="Aya. Manopolas +2",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
 		waist="Orpheus's Sash",
 		left_ring="Chirich Ring +1",
-		left_ring="Defending Ring",
 		})
 		sets.engaged.EnspellDBL.PDT = set_combine(sets.engaged.EnspellDBL , {
 			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -1295,10 +1289,8 @@ sets.TreasureHunter = {
 			hands="Aya. Manopolas +2",
 			legs="Malignance Tights",
 			feet={ name="Nyame Sollerets", augments={'Path: B',}},
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Orpheus's Sash",
 			left_ring="Hetairoi Ring",
-			left_ring="Defending Ring",
 			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		})
 	sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT , {
@@ -1308,8 +1300,6 @@ sets.TreasureHunter = {
 				hands="Malignance Gloves",
 				legs="Malignance Tights",
 				feet="Malignance Boots",
-				neck={ name="Loricate Torque +1", augments={'Path: A',}},
-				left_ring="Defending Ring",
 	})
 	sets.engaged.SubtleBlow.PDT = set_combine(sets.SubtleBlow ,{
 		ammo="Staunch Tathlum +1",
@@ -1330,10 +1320,8 @@ sets.TreasureHunter = {
 			hands="Malignance Gloves",
 			legs="Malignance Tights",
 			feet="Malignance Boots",
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Reiki Yotai",
 			left_ear="Suppanomimi",
-			left_ring="Defending Ring",
 		})
 		sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.Acc , {
 				ammo="Staunch Tathlum +1",
@@ -1342,10 +1330,8 @@ sets.TreasureHunter = {
 				hands="Malignance Gloves",
 				legs="Malignance Tights",
 				feet="Malignance Boots",
-				neck={ name="Loricate Torque +1", augments={'Path: A',}},
 				waist="Reiki Yotai",
 				left_ear="Suppanomimi",
-				left_ring="Defending Ring",
 		})
 		sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.CRIT , {
 				ammo="Staunch Tathlum +1",
@@ -1354,10 +1340,8 @@ sets.TreasureHunter = {
 				hands="Malignance Gloves",
 				legs="Malignance Tights",
 				feet="Malignance Boots",
-				neck={ name="Loricate Torque +1", augments={'Path: A',}},
 				waist="Reiki Yotai",
 				left_ear="Suppanomimi",
-				left_ring="Defending Ring",
 		})
 		sets.engaged.DW.Enspell.PDT =  set_combine(sets.engaged.Enspell , {
 			ammo="Coiste Bodhar",
@@ -1366,12 +1350,10 @@ sets.TreasureHunter = {
 			ands="Aya. Manopolas +2",
 			legs="Malignance Tights",
 			feet="Malignance Boots",
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Orpheus's Sash",
 			left_ear="Suppanomimi",
 			left_ear="Eabani Earring",
 			left_ring="Chirich Ring +1",
-			left_ring="Defending Ring",
 		})
 		sets.engaged.DW.EnspellDBL.PDT = set_combine(sets.engaged.EnspellDBL , {
 			ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -1380,12 +1362,10 @@ sets.TreasureHunter = {
 			hands="Aya. Manopolas +2",
 			legs="Malignance Tights",
 			feet={ name="Nyame Sollerets", augments={'Path: B',}},
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
 			waist="Orpheus's Sash",
 			left_ear="Suppanomimi",
 			right_ear="Eabani Earring",
 			left_ring="Hetairoi Ring",
-			left_ring="Defending Ring",
 			back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 		})
 		sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.SubtleBlow ,{
@@ -1596,6 +1576,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spell.english == "Refresh" or spell.english == "Refresh II" or spell.english == "Refresh III" then
 		equip(sets.midcast.Refresh)
 	end
+	if barStatus:contains(spell.name) then
+        if state.SrodaNecklace.value then
+            equip({neck="Sroda necklace"})
+        end
+    end
 end
 
 
@@ -1792,11 +1777,9 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-	if state.HippoMode.value == "Hippo" then
-        idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
-    end
+    if state.HippoMode.value == true then 
+		idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+	end
 	if state.Auto_Kite.value == true then
 		idleSet = set_combine(idleSet, sets.Kiting)
 	end

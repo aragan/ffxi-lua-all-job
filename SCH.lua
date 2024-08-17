@@ -123,6 +123,8 @@ function job_setup()
     state.StormSurge = M(false, 'Stormsurge')
     state.Moving  = M(false, "moving")
     state.AutoEquipBurst = M(true)
+    state.HippoMode = M(false, "hippoMode")
+
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
         [0] = 0,
@@ -167,7 +169,6 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT', 'Resist','BoostMB', 'vagary', 'Sphere')
     state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal', 'Hippo'}
 
     send_command('wait 6;input /lockstyleset 173')
 
@@ -208,8 +209,8 @@ function user_setup()
     set_lockstyle()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
-    --moving = false
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HelixMode","HippoMode"}) 
+    --hippoMode = false
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HelixMode"}) 
     end
 end
 
@@ -520,7 +521,7 @@ function init_gear_sets()
         neck="Debilis Medallion",
         waist="Gishdubar Sash",
         left_ring="Haoma's Ring",
-        right_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
         })
 
     sets.midcast['Enhancing Magic'] = {
@@ -1510,10 +1511,8 @@ function customize_idle_set(idleSet)
     else
         enable('neck')
     end]]
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     return idleSet
 end
@@ -1809,7 +1808,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if state.HippoMode.value == "Hippo" then
+	if state.HippoMode.value == true then
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)

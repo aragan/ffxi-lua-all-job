@@ -169,11 +169,10 @@ function user_setup()
 			[12] = 1.70,
 		}
 
-        -- Set up Jug Pet cycling and keybind Alt+F8
+        -- Set up Jug Pet cycling and keybind F1
         -- INPUT PREFERRED JUG PETS HERE
         state.JugMode = M{['description']='Jug Mode', 'Normal','GenerousArthur','BouncingBertha','WarlikePatrick',
-		'BlackbeardRandy','VivaciousVickie','FatsoFargann',
-                }
+		'BlackbeardRandy','VivaciousVickie','FatsoFargann',}
         send_command('bind f1 gs c cycle JugMode')
         send_command('bind !f1 gs c cycleback JugMode')
 
@@ -450,11 +449,10 @@ function init_gear_sets()
 		}
 
 	sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {
-			ring1="Haoma's Ring",
 			neck="Malison Medallion",
 			waist="Gishdubar Sash",
-			ring2="Haoma's Ring"
-		})
+			left_ring="Haoma's Ring",
+			right_ring="Menelaus's Ring",})
 
 	sets.midcast.Protect = {neck="Incanter's Torque",
     waist="Olympus Sash",
@@ -2005,6 +2003,11 @@ function job_pet_midcast(spell, action, spellMap, eventArgs)
               --  end
        -- end
 end
+-- Run after the default midcast() is done.
+-- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
+function job_post_midcast(spell, action, spellMap, eventArgs)
+
+end
 
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
 -- to the general aftercast() code in Mote-Include.
@@ -2029,6 +2032,11 @@ if spell.type == "Monster" and not spell.interrupted then
     if breath_ready_moves:contains(spell.english) and pet.status == 'Engaged' then
       equip(sets.midcast.Pet.BreathReady)
     end
+
+	if state.HybridMode.value == 'Reraise' or
+    (state.HybridMode.value == 'Hybrid' and state.PhysicalDefenseMode.value == 'Reraise') then
+		equip(sets.Reraise)
+	end
 
     eventArgs.handled = true
     end
@@ -2138,7 +2146,7 @@ function job_self_command(cmdParams, eventArgs)
 
 end
 
-windower.register_event('hpp change',
+windower.register_event('hpp change', -- code add from Aragan Asura
 function(new_hpp,old_hpp)
     if new_hpp < 5 then
         equip(sets.Reraise)

@@ -51,7 +51,7 @@ function user_setup()
 
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
     state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
 
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
@@ -91,7 +91,7 @@ function user_setup()
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","StaffMode","DeathMode","Enfeebling","HippoMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","StaffMode","DeathMode","Enfeebling"}) 
     end
 end
  
@@ -1385,7 +1385,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         moving = false
 	elseif buffactive['Mana Wall'] then
 		moving = false
@@ -1679,10 +1679,8 @@ function customize_idle_set(idleSet)
     else
         enable('neck')
     end]]
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     return idleSet
 end

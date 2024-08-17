@@ -891,6 +891,7 @@ sets.idle.Town = {
         right_ring="Fortified Ring",
         back="Reiki Cloak",
     })
+    sets.idle.PDT = set_combine(sets.defense.PDT, {})
     sets.idle.MDT = set_combine(sets.defense.MDT, {})
     sets.idle.Enmity = set_combine(sets.defense.Enmity, {})
     sets.idle.Evasion = set_combine(sets.defense.Evasion, {})
@@ -1264,7 +1265,7 @@ end
 function job_post_midcast(spell, action, spellMap, eventArgs)
 	-- Effectively lock these items in place.
 	if state.HybridMode.value == 'Reraise' or
-    (state.HybridMode.value == 'Physical' and state.PhysicalDefenseMode.value == 'Reraise') then
+    (state.HybridMode.value == 'PDT' and state.PhysicalDefenseMode.value == 'Reraise') then
 		equip(sets.Reraise)
 	end
     if state.Buff['Seigan'] then
@@ -1304,7 +1305,7 @@ function customize_idle_set(idleSet)
 	return idleSet
 end
 
-windower.register_event('hpp change',
+windower.register_event('hpp change', -- code add from Aragan Asura
 function(new_hpp,old_hpp)
     if new_hpp < 5 then
         equip(sets.Reraise)
@@ -1326,10 +1327,6 @@ function customize_melee_set(meleeSet)
     end
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
-    end
-    if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
-        meleeSet = set_combine(meleeSet, sets.Reraise)
-        send_command('input //gs equip sets.Reraise')
     end
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})

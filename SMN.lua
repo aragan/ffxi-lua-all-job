@@ -23,7 +23,7 @@
         Will not release the spirit if it was out before the command was issued.
         
     gs c pact [PactType]
-        Attempts to use the indicated pact type for the current avatar.
+        Attempts to use the indicated pact type for thegs c pact bp70 current avatar.
         PactType can be one of:
             cure
             curaga
@@ -50,7 +50,7 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-organizer_items = {"Prime Sword",
+organizer_items = {
 "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
@@ -89,45 +89,58 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     send_command('wait 2;input /lockstyleset 174')
-
+    elements.storm_of = {['Light']="Aurorastorm", ['Dark']="Voidstorm", ['Fire']="Firestorm", ['Earth']="Sandstorm",
+    ['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",}
     spirits = S{"LightSpirit", "DarkSpirit", "FireSpirit", "EarthSpirit", "WaterSpirit", "AirSpirit", "IceSpirit", "ThunderSpirit"}
     avatars = S{"Carbuncle", "Fenrir", "Diabolos", "Ifrit", "Titan", "Leviathan", "Garuda", "Shiva", "Ramuh", "Odin", "Alexander", "Cait Sith", "Siren"}
+    state.avatars = M{['description']='avatars', "Ifrit", "Ramuh", "Titan", "Siren", "Garuda", "Diabolos", "Carbuncle", "Fenrir", "Leviathan", "Shiva", "Odin", "Alexander", "Cait Sith"}
 
     magicalRagePacts = S{
-        'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen',
+        'Inferno','Earthen Fury','Flaming Crush','Tidal Wave','Aerial Blast','Diamond Dust','Judgment Bolt','Searing Light','Howling Moon','Ruinous Omen',
         'Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II',
         'Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV',
-        'Thunderspark','Burning Strike','Meteorite','Nether Blast','Flaming Crush',
+        'Thunderspark','Burning Strike','Meteorite','Nether Blast',
         'Meteor Strike','Heavenly Strike','Wind Blade','Geocrush','Grand Fall','Thunderstorm',
-        'Holy Mist','Lunar Bay','Night Terror','Level ? Holy'}
+        'Conflag Strike','Meteorite','Holy Mist','Lunar Bay','Impact','Night Terror','Nightmare','Level ? Holy',
+		'Sonic Buffet','Tornado II','Clarsach Call'}
+
+	hybridRagePacts = S{
+		'Flaming Crush'
+	}
 
 
     pacts = {}
     pacts.cure = {['Carbuncle']='Healing Ruby'}
     pacts.curaga = {['Carbuncle']='Healing Ruby II', ['Garuda']='Whispering Wind', ['Leviathan']='Spring Water'}
     pacts.buffoffense = {['Carbuncle']='Glittering Ruby', ['Ifrit']='Crimson Howl', ['Garuda']='Hastega', ['Ramuh']='Rolling Thunder',
-        ['Fenrir']='Ecliptic Growl'}
+        ['Fenrir']='Ecliptic Growl',['Siren']='Katabatic Blades'}
     pacts.buffdefense = {['Carbuncle']='Shining Ruby', ['Shiva']='Frost Armor', ['Garuda']='Aerial Armor', ['Titan']='Earthen Ward',
-        ['Ramuh']='Lightning Armor', ['Fenrir']='Ecliptic Howl', ['Diabolos']='Noctoshield', ['Cait Sith']='Reraise II'}
+        ['Ramuh']='Lightning Armor', ['Fenrir']='Ecliptic Howl', ['Diabolos']='Noctoshield', ['Cait Sith']='Reraise II',['Siren']="Wind's Blessing"}
     pacts.buffspecial = {['Ifrit']='Inferno Howl', ['Garuda']='Fleet Wind', ['Titan']='Earthen Armor', ['Diabolos']='Dream Shroud',
-        ['Carbuncle']='Soothing Ruby', ['Fenrir']='Heavenward Howl', ['Cait Sith']='Raise II'}
+        ['Carbuncle']='Soothing Ruby', ['Fenrir']='Heavenward Howl', ['Cait Sith']='Raise II',['Siren']='Chinook'}
     pacts.debuff1 = {['Shiva']='Diamond Storm', ['Ramuh']='Shock Squall', ['Leviathan']='Tidal Roar', ['Fenrir']='Lunar Cry',
-        ['Diabolos']='Pavor Nocturnus', ['Cait Sith']='Eerie Eye'}
+        ['Diabolos']='Pavor Nocturnus', ['Cait Sith']='Eerie Eye',['Siren']='Lunatic Voice'}
     pacts.debuff2 = {['Shiva']='Sleepga', ['Leviathan']='Slowga', ['Fenrir']='Lunar Roar', ['Diabolos']='Somnolence'}
-    pacts.sleep = {['Shiva']='Sleepga', ['Diabolos']='Nightmare', ['Cait Sith']='Mewing Lullaby'}
+    pacts.sleep = {['Shiva']='Sleepga', ['Diabolos']='Nightmare', ['Cait Sith']='Mewing Lullaby',['Siren']='Bitter Elegy'}
     pacts.nuke2 = {['Ifrit']='Fire II', ['Shiva']='Blizzard II', ['Garuda']='Aero II', ['Titan']='Stone II',
         ['Ramuh']='Thunder II', ['Leviathan']='Water II'}
     pacts.nuke4 = {['Ifrit']='Fire IV', ['Shiva']='Blizzard IV', ['Garuda']='Aero IV', ['Titan']='Stone IV',
         ['Ramuh']='Thunder IV', ['Leviathan']='Water IV'}
     pacts.bp70 = {['Ifrit']='Flaming Crush', ['Shiva']='Rush', ['Garuda']='Predator Claws', ['Titan']='Mountain Buster',
         ['Ramuh']='Chaotic Strike', ['Leviathan']='Spinning Dive', ['Carbuncle']='Meteorite', ['Fenrir']='Eclipse Bite',
-        ['Diabolos']='Nether Blast',['Cait Sith']='Regal Scratch'}
+        ['Diabolos']='Blindside',['Cait Sith']='Regal Scratch'}
     pacts.bp75 = {['Ifrit']='Meteor Strike', ['Shiva']='Heavenly Strike', ['Garuda']='Wind Blade', ['Titan']='Geocrush',
-        ['Ramuh']='Thunderstorm', ['Leviathan']='Grand Fall', ['Carbuncle']='Holy Mist', ['Fenrir']='Lunar Bay',
-        ['Diabolos']='Night Terror', ['Cait Sith']='Level ? Holy', ['Ramuh']='Volt Strike',}
+        ['Ramuh']='Thunderspark', ['Leviathan']='Grand Fall', ['Carbuncle']='Holy Mist', ['Fenrir']='Lunar Bay',
+        ['Diabolos']='Night Terror', ['Cait Sith']='Level ? Holy',['Siren']='Tornado II'}
     pacts.astralflow = {['Ifrit']='Inferno', ['Shiva']='Diamond Dust', ['Garuda']='Aerial Blast', ['Titan']='Earthen Fury',
         ['Ramuh']='Judgment Bolt', ['Leviathan']='Tidal Wave', ['Carbuncle']='Searing Light', ['Fenrir']='Howling Moon',
-        ['Diabolos']='Ruinous Omen', ['Cait Sith']="Altana's Favor"}
+        ['Diabolos']='Ruinous Omen', ['Cait Sith']="Altana's Favor",['Siren']='Clarsach Call'}
+	pacts.physdamage = {['Ifrit']='Flaming Crush', ['Shiva']='Rush', ['Garuda']='Predator Claws', ['Titan']='Mountain Buster',
+        ['Ramuh']='Volt Strike', ['Leviathan']='Spinning Dive', ['Carbuncle']='Meteorite', ['Fenrir']='Eclipse Bite',
+        ['Diabolos']='Nether Blast',['Cait Sith']='Regal Scratch',['Siren']='Hysteric Assault'}
+	pacts.magdamage = {['Ifrit']='Meteor Strike', ['Shiva']='Heavenly Strike', ['Garuda']='Wind Blade', ['Titan']='Geocrush',
+        ['Ramuh']='Thunderstorm', ['Leviathan']='Grand Fall', ['Carbuncle']='Holy Mist', ['Fenrir']='Impact',
+        ['Diabolos']='Night Terror', ['Cait Sith']='Level ? Holy',['Siren']='Tornado II'}
 
     -- Wards table for creating custom timers   
     wards = {}
@@ -168,17 +181,23 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'Regen', 'Sphere')
-    state.PhysicalDefenseMode:options('PDT', 'Regen', 'Mdt')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.IdleMode:options('Normal', 'PDT', 'Regen', 'Sphere', 'MagicalBloodPactRage', 'PhysicalBloodPactRage')
+    state.PhysicalDefenseMode:options('Normal','PDT', 'Regen', 'Mdt', 'MagicalBloodPactRage', 'PhysicalBloodPactRage')
+    state.HippoMode = M(false, "hippoMode")
     gear.perp_staff = {name=""}
     send_command('wait 6;input /lockstyleset 174')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind f3 gs c cycle avatars')
+    send_command('bind !f3 gs c cycleback avatars')
+    send_command('bind f2 input //gs c avatars')
+    send_command('bind f4 input /pet "Release" <me>')
+    send_command('bind f7 input //Sublimator')
+    send_command('bind f6 input //gs c siphon')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode","HippoMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","HippoMode"},{"IdleMode","OffenseMode","PhysicalDefenseMode","CastingMode","avatars"}) 
     end
 end
 
@@ -508,7 +527,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
 }
 
     sets.midcast.Pet.DebuffBloodPactWard = {
-        main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
     ammo="Sancus Sachet +1",
     head="Nyame Helm",
     body="Nyame Mail",
@@ -527,7 +546,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     sets.midcast.Pet.DebuffBloodPactWard.Acc = sets.midcast.Pet.DebuffBloodPactWard
     
     sets.midcast.Pet.PhysicalBloodPactRage = {
-        main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
@@ -549,7 +568,8 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         left_ear="Lugalbanda Earring",
     })
 
-    sets.midcast.Pet.MagicalBloodPactRage = {main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    sets.midcast.Pet.MagicalBloodPactRage = {
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
     sub="Elan Strap +1",
     ammo="Sancus Sachet +1",
     head="C. Palug Crown",
@@ -566,7 +586,6 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},}
 
     sets.midcast.Pet.MagicalBloodPactRage.Acc = set_combine(sets.midcast.Pet.MagicalBloodPactRage, {
-      
         right_ear="Beck. Earring +1",
         left_ear="Lugalbanda Earring",
     })
@@ -660,6 +679,43 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         body="Annoint. Kalasiris",
     })
 
+    sets.idle.PhysicalBloodPactRage = {
+        main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
+        body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+        hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+        legs={ name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}},
+        feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+        neck={ name="Smn. Collar +2", augments={'Path: A',}},
+        waist="Incarnation Sash",
+        left_ear="Lugalbanda Earring",
+        right_ear="Beck. Earring +1",
+        left_ring="Varar Ring +1",
+        right_ring="C. Palug Ring",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+    }
+    
+    sets.idle.MagicalBloodPactRage = {
+        main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+        sub="Elan Strap +1",
+        ammo="Sancus Sachet +1",
+        head="C. Palug Crown",
+        body="Con. Doublet +3",
+        hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+        legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
+        feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+        neck={ name="Smn. Collar +2", augments={'Path: A',}},
+        waist="Incarnation Sash",
+        left_ear="Lugalbanda Earring",
+        right_ear="Beck. Earring +1",
+        left_ring="Varar Ring +1",
+        right_ring="Varar Ring +1",
+        back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+    }
+
+
     -- perp costs:
     -- spirits: 7
     -- carby: 11 (5 with mitts)
@@ -730,6 +786,42 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         left_ring="Thurandaut Ring",
         right_ring="C. Palug Ring",
         back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
+sets.idle.PhysicalBloodPactRage.Avatar = {
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    sub="Elan Strap +1",
+    ammo="Sancus Sachet +1",
+    head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
+    body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+    hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+    legs={ name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}},
+    feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
+    left_ear="Lugalbanda Earring",
+    right_ear="Beck. Earring +1",
+    left_ring="Varar Ring +1",
+    right_ring="C. Palug Ring",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
+sets.idle.MagicalBloodPactRage.Avatar = {
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    sub="Elan Strap +1",
+    ammo="Sancus Sachet +1",
+    head="C. Palug Crown",
+    body="Con. Doublet +3",
+    hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+    legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
+    feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
+    left_ear="Lugalbanda Earring",
+    right_ear="Beck. Earring +1",
+    left_ring="Varar Ring +1",
+    right_ring="Varar Ring +1",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
 
     sets.idle.Spirit = {main="Gridarvor",sub="Achaq Grip",ammo="Seraphicaller",
@@ -817,6 +909,43 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
 }
 
+sets.defense.PhysicalBloodPactRage = {
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    sub="Elan Strap +1",
+    ammo="Sancus Sachet +1",
+    head={ name="Apogee Crown +1", augments={'MP+80','Pet: Attack+35','Blood Pact Dmg.+8',}},
+    body={ name="Glyphic Doublet +3", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+    hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+    legs={ name="Apogee Slacks +1", augments={'Pet: STR+20','Blood Pact Dmg.+14','Pet: "Dbl. Atk."+4',}},
+    feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
+    left_ear="Lugalbanda Earring",
+    right_ear="Beck. Earring +1",
+    left_ring="Varar Ring +1",
+    right_ring="C. Palug Ring",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
+sets.defense.MagicalBloodPactRage = {
+    main={ name="Grioavolr", augments={'Blood Pact Dmg.+9','Pet: Mag. Acc.+17',}},
+    sub="Elan Strap +1",
+    ammo="Sancus Sachet +1",
+    head="C. Palug Crown",
+    body="Con. Doublet +3",
+    hands={ name="Merlinic Dastanas", augments={'Pet: Attack+9 Pet: Rng.Atk.+9','Blood Pact Dmg.+10','Pet: CHR+1','Pet: "Mag.Atk.Bns."+2',}},
+    legs={ name="Enticer's Pants", augments={'MP+20','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Mag. Acc.+3',}},
+    feet={ name="Apogee Pumps +1", augments={'Pet: Attack+25','Pet: "Mag.Atk.Bns."+25','Blood Pact Dmg.+8',}},
+    neck={ name="Smn. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
+    left_ear="Lugalbanda Earring",
+    right_ear="Beck. Earring +1",
+    left_ring="Varar Ring +1",
+    right_ring="Varar Ring +1",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10',}},
+}
+
+
     sets.Kiting = {feet="Herald's Gaiters"}
     
     sets.latent_refresh = {waist="Fucho-no-obi"}
@@ -889,6 +1018,10 @@ end
 function job_precast(spell, action, spellMap, eventArgs)
     if state.Buff['Astral Conduit'] and pet_midaction() then
         eventArgs.useMidcastGear = true
+    end
+    if spell.action_type == 'Magic' then
+        if state.avatars.value == 'Ifrit' then
+        end
     end
 end
 function job_post_precast(spell, action, spellMap, eventArgs)
@@ -1107,10 +1240,8 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     return idleSet
 end
@@ -1154,6 +1285,9 @@ function job_self_command(cmdParams, eventArgs)
         wards.spell = ''
         eventArgs.handled = true
     end
+    if cmdParams[1]:lower() == 'avatars' then
+        send_command('@input /ma '..state.avatars.value..' <me>')
+    end
 end
 
 
@@ -1174,12 +1308,11 @@ function handle_petweather()
     end
     
     local element = pet.element
-    if element == 'Thunder' then
-        element = 'Lightning'
+    if element == '' then
+        element = ''
     end
     
-    if S{'Light','Dark','Lightning'}:contains(element) then
-        add_to_chat(122, 'You do not have access to '..elements.storm_of[element]..'.')
+    if S{}:contains(element) then
         return
     end 
     
@@ -1231,7 +1364,7 @@ function handle_siphoning()
                 (not pet.isvalid or world.weather_element ~= pet.element) then
                 -- We can't cast lightning/dark/light weather, so use a neutral element
                 if S{'Light','Dark','Lightning'}:contains(world.day_element) then
-                    stormElementToUse = 'Wind'
+                    stormElementToUse = world.day_element
                 else
                     stormElementToUse = world.day_element
                 end

@@ -167,7 +167,7 @@ function user_setup()
     state.UseCustomTimers = M(true, 'Use Custom Timers')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
 
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling', 'Xoanon'}
     --state.Moving = M(false, "moving")
@@ -202,7 +202,7 @@ function user_setup()
     state.Moving  = M(false, "moving")
     moving = false
 	--add that at the end of user_setup
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","ExtraSongsMode","Etude","Carol","HippoMode","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","ExtraSongsMode","Etude","Carol","Threnody","TreasureMode"}) 
     end
     
 end
@@ -676,8 +676,9 @@ sets.midcast.SongStringSkill = {
         
     sets.midcast.Cursna = {
         neck="Debilis Medallion",
-        left_ring="Ephedra Ring",
-        right_ring="Haoma's Ring",}
+        left_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
+    }
 
     sets.midcast.StatusRemoval = {
             head="Vanya Hood",
@@ -1404,10 +1405,8 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     if state.Auto_Kite.value == true then
 		idleSet = set_combine(idleSet, sets.Kiting)

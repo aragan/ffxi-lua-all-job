@@ -184,7 +184,7 @@ function user_setup()
     send_command('bind f1 gs c cycle HippoMode')
     --send_command('bind delete gs c toggle setftp')
 
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
 
         -- 'Out of Range' distance; WS will auto-cancel
@@ -1647,10 +1647,8 @@ function check_buff(buff_name, eventArgs)
     end]]
 end
 function customize_idle_set(idleSet)
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
@@ -1687,10 +1685,8 @@ if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)   
 
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         equip({feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
 end
 moving = false

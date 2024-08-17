@@ -82,7 +82,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'PDL')
     state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
     state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
-    state.HippoMode = M{['description']='Hippo Mode', 'normal','Hippo'}
+    state.HippoMode = M(false, "hippoMode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -128,7 +128,7 @@ function user_setup()
         [12] = 1.70,
     }
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst"},{"IdleMode","OffenseMode","CastingMode","SrodaNecklace","BarElement","BarStatus","HippoMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode","SrodaNecklace"},{"IdleMode","OffenseMode","CastingMode","BarElement","BarStatus","BoostSpell"}) 
     end
 end
 
@@ -1583,10 +1583,8 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
-    if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
-    elseif state.HippoMode.value == "normal" then
-       equip({})
     end
     return idleSet
 end
@@ -1663,7 +1661,7 @@ end
 moving = false
 windower.raw_register_event('prerender',function()
     mov.counter = mov.counter + 1;
-	if state.HippoMode.value == "Hippo" then
+    if state.HippoMode.value == true then 
 		moving = false
     elseif mov.counter>15 then
         local pl = windower.ffxi.get_mob_by_index(player.index)

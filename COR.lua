@@ -1138,7 +1138,6 @@ sets.engaged.Hybrid = {
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 }
    
 sets.engaged.PDT = set_combine(sets.engaged,{
@@ -1148,7 +1147,6 @@ sets.engaged.PDT = set_combine(sets.engaged,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,{
     head="Malignance Chapeau",
@@ -1165,7 +1163,6 @@ sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.Ranged.PDT = set_combine(sets.Ranged,{    
     head="Malignance Chapeau",
@@ -1190,7 +1187,6 @@ sets.engaged.DW.PDT = set_combine(sets.engaged.DW, {
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     head="Malignance Chapeau",
@@ -1199,7 +1195,6 @@ sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc,{
     legs="Chas. Culottes +3",
     feet="Malignance Boots",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
 })
 sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
     head="Malignance Chapeau",
@@ -1209,7 +1204,6 @@ sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT,{
     feet="Malignance Boots",
     left_ear="Suppanomimi",
     waist="Reiki Yotai",
-    left_ring="Defending Ring",
 })
 sets.engaged.DW.Ranged.PDT = set_combine(sets.engaged.DW.Ranged,{    
     head="Malignance Chapeau",
