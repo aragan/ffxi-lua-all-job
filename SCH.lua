@@ -113,7 +113,6 @@ end
 function job_setup()
     info.addendumNukes = S{"Stone IV", "Water IV", "Aero IV", "Fire IV", "Blizzard IV", "Thunder IV",
         "Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
-    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin'} 
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
     state.HelixMode = M{['description']='Helix Mode', 'Duration', 'Potency'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
@@ -124,6 +123,8 @@ function job_setup()
     state.Moving  = M(false, "moving")
     state.AutoEquipBurst = M(true)
     state.HippoMode = M(false, "hippoMode")
+
+    state.WeaponSet = M{['description']='Weapon Set', 'normal','Mpaca', 'Marin'} 
 
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -174,7 +175,7 @@ function user_setup()
 
     -- Additional local binds
     --send_command('bind f4 @input /ja "Sublimation" <me>')
-    send_command('bind f6 input //Sublimator')
+    send_command('bind f7 input //Sublimator')
     send_command('bind ^` input /ja Immanence <me>')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind @q gs c toggle AutoEquipBurst')
@@ -197,7 +198,8 @@ function user_setup()
     send_command('bind !w gs c toggle WeaponLock')
     --send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
-    send_command('bind f7 gs c cycle StaffMode')
+    send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
@@ -210,7 +212,7 @@ function user_setup()
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     --hippoMode = false
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","StaffMode","Storms","StormSurge","HelixMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","WeaponSet","Storms","StormSurge","HelixMode"}) 
     end
 end
 
@@ -259,6 +261,11 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Precast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
+
+    ---- WeaponSet ---- 
+    sets.normal = {}
+    sets.Marin = {main="Marin Staff +1",sub="Enki Strap"}
+    sets.Mpaca = {main="Mpaca's Staff",sub="Enki Strap"}
 
     -- Precast sets to enhance JAs
     sets.precast.JA['Tabula Rasa'] = {legs="Peda. Pants +3"}
@@ -515,7 +522,6 @@ function init_gear_sets()
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
         ammo="Pemphredo Tathlum",
         body={ name="Vanya Robe", augments={'HP+50','MP+50','"Refresh"+2',}},
-        hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
         neck="Debilis Medallion",
@@ -1273,6 +1279,10 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             send_command('timers create "Breakga Petrification" 33 down spells/00365.png') 
         end
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+    check_weaponset()
 end
 
 
@@ -1430,6 +1440,7 @@ function job_state_change(stateField, newValue, oldValue)
     end
     if update_job_states then update_job_states() 
     end
+    check_weaponset()
 end
 windower.register_event('zone change',
     function()
@@ -1443,13 +1454,6 @@ windower.register_event('zone change',
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
 
-    if state.StaffMode.value == "Marin" then
-        equip({main="Marin Staff +1",sub="Enki Strap"})
-    elseif state.StaffMode.value == "Mpaca" then
-        equip({main="Mpaca's Staff",sub="Enki Strap"})
-    elseif state.StaffMode.value == "normal" then
-        equip({})
-    end
 end
 
 -- Called by the 'update' self-command.
@@ -1484,6 +1488,8 @@ function customize_melee_set(meleeSet)
     else
         enable('neck')
     end]]  
+    check_weaponset()
+
     return meleeSet
 end
 function customize_idle_set(idleSet)
@@ -1515,6 +1521,10 @@ function customize_idle_set(idleSet)
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     end
     return idleSet
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
 end
 
 -- Function to display the current relevant user state when doing an update.

@@ -52,7 +52,7 @@ function user_setup()
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M(false, "hippoMode")
-    state.StaffMode = M{['description']='Staff Mode', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
+    state.WeaponSet = M{['description']='Weapon Set', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
 
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
 	Elemental_Debuffs = S {'Shock', 'Rasp', 'Choke', 'Frost', 'Burn', 'Drown'}
@@ -87,11 +87,12 @@ function user_setup()
     send_command('bind !/ gs enable all')
     --send_command('bind !- gs c toggle RP')  
     send_command('bind f1 gs c cycle HippoMode')
-    send_command('bind f7 gs c cycle StaffMode')
+    send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","StaffMode","DeathMode","Enfeebling"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","WeaponSet","DeathMode","Enfeebling"}) 
     end
 end
  
@@ -150,7 +151,14 @@ function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
-     
+    ---- WeaponSet ---- 
+    sets.normal = {}
+    sets.Marin = {main="Marin Staff +1",sub="Enki Strap"}
+    sets.Mpaca = {main="Mpaca's Staff",sub="Enki Strap"}
+    sets.Drepanum = {main="Drepanum",sub="Alber Strap"}
+    sets.Maliya = {main="Maliya Sickle +1",sub="Alber Strap"}
+
+
     ---- Precast Sets ----
      
     -- Precast sets to enhance JAs
@@ -1312,21 +1320,15 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             send_command('timers create "Breakga Petrification" 33 down spells/00365.png') 
         end
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+    check_weaponset()
 end
 
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
-    if state.StaffMode.value == "Marin" then
-        equip({main="Marin Staff +1",sub="Enki Strap"})
-    elseif state.StaffMode.value == "Mpaca" then
-        equip({main="Mpaca's Staff",sub="Enki Strap"})
-    elseif state.StaffMode.value == "Drepanum" then
-        equip({main="Drepanum",sub="Alber Strap"})
-    elseif state.StaffMode.value == "Maliya" then
-        equip({main="Maliya Sickle +1",sub="Alber Strap"})
-    elseif state.StaffMode.value == "normal" then
-        equip({})
-    end
+
 end
 
 function nuke(spell, action, spellMap, eventArgs)
@@ -1572,6 +1574,8 @@ function job_state_change(stateField, newValue, oldValue)
     end
     if update_job_states then update_job_states() 
     end
+
+    check_weaponset()
 end
 
  windower.register_event('zone change',
@@ -1695,8 +1699,16 @@ function customize_melee_set(meleeSet)
     else
         enable('neck')
     end]]
+
+    check_weaponset()
+
     return meleeSet
 end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+end
+
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
