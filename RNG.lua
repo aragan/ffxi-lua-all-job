@@ -680,7 +680,7 @@ sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 
 	sets.engaged.DD = {
@@ -698,7 +698,7 @@ sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 	sets.engaged.Shield = {
 		head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -712,7 +712,7 @@ sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 
 	sets.engaged.Ranged = {	
@@ -759,7 +759,7 @@ sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 		right_ear="Sherida Earring",
 		left_ring="Chirich Ring +1",
 		right_ring="Chirich Ring +1",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 	sets.engaged.Acc = {	
 		head="Malignance Chapeau",
@@ -822,7 +822,7 @@ sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
 		right_ear="Sherida Earring",
 		left_ring="Petrov Ring",
 		right_ring="Epona's Ring",
-		back="Annealed Mantle",
+		back="Tactical Mantle",
 	}
 
 	sets.engaged.DW.Acc = set_combine(sets.engaged.Acc,{

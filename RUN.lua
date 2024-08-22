@@ -44,14 +44,11 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
 
 -- Setup vars that are user-independent.
@@ -146,7 +143,7 @@ function user_setup()
     state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Epeolatry', 'Naegling', 'Lycurgos'}
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","HippoMode"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","Runes","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","HippoMode","SrodaBelt"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","Runes","TreasureMode"}) 
     end
 end
 
@@ -355,7 +352,8 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
-	
+    sets.SrodaBelt = {waist="Sroda Belt"}
+
     sets.midcast.FastRecast = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Nyame Mail",

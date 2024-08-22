@@ -102,7 +102,7 @@ function job_setup()
     state.Buff.Sengikori = buffactive.sengikori or false
     state.Buff['Third Eye'] = buffactive['Third Eye'] or false
     state.Buff['Meikyo Shisui'] = buffactive['Meikyo Shisui'] or false
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Masamune', 'Dojikiri', 'Polearm', 'TernionDagger', 'Club'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Masamune', 'Dojikiri', 'Amanomurakumo', 'Polearm', 'TernionDagger', 'Club'}
     get_combat_form()
     update_melee_groups()
 
@@ -177,6 +177,7 @@ function init_gear_sets()
     sets.Normal = {}
     sets.Masamune = {main="Masamune", sub="Utu Grip"}
     sets.Dojikiri = {main="Dojikiri Yasutsuna", sub="Utu Grip"}
+    sets.Amanomurakumo = {main="Amanomurakumo", sub="Utu Grip"}
     sets.Polearm = {main="Shining One", sub="Utu Grip"}
     sets.TernionDagger = {main="Ternion Dagger +1"}
     sets.Club = {main="Mafic Cudgel"}

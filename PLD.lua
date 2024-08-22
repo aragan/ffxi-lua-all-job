@@ -166,7 +166,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.Auto_Kite = M(false, 'Auto_Kite')
 
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","SrodaBelt","Runes","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode","SrodaBelt"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","Runes","TreasureMode"}) 
     end
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -872,7 +872,8 @@ sets.midcast.Raise.DT = {
    back="Rudianos's Mantle",
    }	
    sets.midcast.Stun = sets.midcast.Flash
- 
+   sets.SrodaBelt = {waist="Sroda Belt"}
+
  --Spell interupt down (pro shell raise)104/102
  sets.SIRD = {   ammo="Staunch Tathlum +1",
    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},

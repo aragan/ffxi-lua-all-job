@@ -22,7 +22,6 @@ end
 
 
 organizer_items = {
-	"Sacro Bulwark",
 	"Prime Sword",
     "Mafic Cudgel",
     "Gyudon",
@@ -46,14 +45,10 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
-    "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -69,6 +64,7 @@ function job_setup()
 	state.AutoEquipBurst = M(true)
 	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('wait 2;input /lockstyleset 152')
+	barStatus = S{'Barpoison','Barparalyze','Barvirus','Barsilence','Barpetrify','Barblind','Baramnesia','Barsleep','Barpoisonra','Barparalyzra','Barvira','Barsilencera','Barpetra','Barblindra','Baramnesra','Barsleepra'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
 	absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
@@ -194,16 +190,13 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Chainspell'] = {body="Vitivation Tabard +3"}
 	sets.precast.JA['Sublimation'] = {
-        waist="Embla Sash",
-    }
+    waist="Embla Sash",}
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {    legs="Dashing Subligar",
-}
+    sets.precast.Waltz = {legs="Dashing Subligar"}
         
     -- Don't need any special gear for Healing Waltz.
-    sets.precast.Waltz['Healing Waltz'] = {    legs="Dashing Subligar",
-}
+    sets.precast.Waltz['Healing Waltz'] = {legs="Dashing Subligar"}
 
     -- Fast cast sets for spells
     
@@ -211,13 +204,13 @@ function init_gear_sets()
     -- No other FC sets necessary.
 
 	sets.SIRD = {
-			ammo="Staunch Tathlum +1",
-			body={ name="Ros. Jaseran +1", augments={'Path: A',}},
-			hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
-			legs="Bunzi's Pants",
-			neck={ name="Loricate Torque +1", augments={'Path: A',}},
-			waist="Rumination Sash",
-			right_ring="Freke Ring",
+		ammo="Staunch Tathlum +1",
+		body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+		hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
+		legs="Bunzi's Pants",
+		neck={ name="Loricate Torque +1", augments={'Path: A',}},
+		waist="Rumination Sash",
+		right_ring="Freke Ring",
 	}
 	sets.midcast.SIRD = {
 		ammo="Staunch Tathlum +1",
@@ -237,11 +230,8 @@ function init_gear_sets()
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},	}
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
-
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
-     })
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",})
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {waist="Siegel Sash"})
-	
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
@@ -517,10 +507,10 @@ sets.TreasureHunter = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
 		head="Telchine Cap",
-		body="Telchine Chas.",
-		hands="Telchine Gloves",
+		body="Lethargy Sayon +3",
+		hands="Lethargy Gantherots +2",
 		legs="Telchine Braconi",
-		feet="Telchine Pigaches",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		right_ear="Leth. Earring +1",
 		back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
@@ -599,7 +589,7 @@ sets.TreasureHunter = {
 		body="Telchine Chas.",
         hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-		feet="Telchine Pigaches",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
@@ -615,7 +605,7 @@ sets.TreasureHunter = {
 		body="Telchine Chas.",
 		hands="Telchine Gloves",
 		legs="Telchine Braconi",
-		feet="Telchine Pigaches",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
@@ -627,11 +617,11 @@ sets.TreasureHunter = {
 	sets.midcast['Enhancing Magic'].Duration = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
-		head="Telchine Cap",
+		head="Leth. Chappel +2",   
 		body="Telchine Chas.",
-		hands="Telchine Gloves",
+		hands="Leth. Ganth. +2",
 		legs="Telchine Braconi",
-		feet="Telchine Pigaches",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
         waist="Embla Sash",
 		left_ear="Andoaa Earring",
@@ -644,8 +634,9 @@ sets.TreasureHunter = {
 		main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 		sub="Ammurapi Shield",
 		head="Befouled Crown",
-        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
+		hands="Leth. Ganth. +2",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet="Leth. Houseaux +2",
 		neck="Incanter's Torque",
 		waist="Olympus Sash",
 		left_ear="Andoaa Earring",
@@ -687,11 +678,11 @@ sets.TreasureHunter = {
     sets.midcast['Enfeebling Magic'] = {
 		ammo=empty,
 		range="Ullr",
-        head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		head="Leth. Chappel +2",   
 		body="Lethargy Sayon +3",
 		hands="Regal Cuffs",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
-		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Obstin. Sash",
 		left_ear="Regal Earring",
@@ -704,11 +695,11 @@ sets.TreasureHunter = {
 	sets.midcast['Enfeebling Magic'].Macc = set_combine(sets.midcast['Enfeebling Magic'], {
 		ammo=empty,
 		range="Ullr",
-        head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+		head="Leth. Chappel +2",   
 		body="Lethargy Sayon +3",
 		hands="Regal Cuffs",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
-		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
         left_ear="Regal Earring",
@@ -723,7 +714,7 @@ sets.TreasureHunter = {
 		range="Ullr",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +3",
-		hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+		hands="Leth. Ganth. +2",
 		legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
@@ -735,13 +726,11 @@ sets.TreasureHunter = {
 		back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast['Enfeebling Magic'].Potency = {
-		main={ name="Contemplator +1", augments={'Path: A',}},
-		sub="Enki Strap",
 		ammo="Regal Gem",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 		body="Lethargy Sayon +3",
-		hands="Regal Cuffs",
-		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		waist="Obstin. Sash",
@@ -753,8 +742,7 @@ sets.TreasureHunter = {
 	}
     
 	sets.Saboteur = set_combine(sets.midcast['Enfeebling Magic'].Potency, {
-		--hands="Lethargy Gantherots +1"
-	})
+		hands="Lethargy Gantherots +2"})
 
 	sets.midcast['Enfeebling Magic'].ParalyzeDuration = set_combine(sets.midcast['Enfeebling Magic'].Potency,{})
 	sets.Dia = set_combine(sets.midcast['Enfeebling Magic'].Potency,{
@@ -767,7 +755,7 @@ sets.TreasureHunter = {
 		head="C. Palug Crown",
 		body="Lethargy Sayon +3",
         hands="Amalric Gages +1",
-		legs="Jhakri Slops +2",
+		legs="Leth. Fuseau +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck="Sibyl Scarf",
         waist="Sacro Cord",
@@ -781,7 +769,7 @@ sets.TreasureHunter = {
 		head="C. Palug Crown",
 		body="Lethargy Sayon +3",
         hands="Amalric Gages +1",
-		legs="Jhakri Slops +2",
+		legs="Leth. Fuseau +2",
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
@@ -795,13 +783,13 @@ sets.TreasureHunter = {
 		head="Ea Hat +1",
 		body="Ea Houppelande",
         hands="Amalric Gages +1",
-		legs="Ea Slops",
+		legs="Leth. Fuseau +2",
 		feet="Bunzi's Sabots",
 		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Malignance Earring",
 		right_ear="Regal Earring",
-		left_ring="Mujin Band",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Freke Ring",
 		back="Argocham. Mantle",}
 		
@@ -810,22 +798,26 @@ sets.TreasureHunter = {
 		head="Ea Hat +1",
 		body="Ea Houppelande",
         hands="Amalric Gages +1",
-		legs="Ea Slops",
-		feet="Bunzi's Sabots",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
 		neck="Sibyl Scarf",
 		waist={ name="Acuity Belt +1", augments={'Path: A',}},
 		left_ear="Malignance Earring",
 		right_ear="Regal Earring",
-		left_ring="Mujin Band",
+		left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 		right_ring="Freke Ring",
 		back="Argocham. Mantle",
     }
 	
 	sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape",}
-	
+	sets.Srodanecklace = {neck="Sroda necklace"}
+
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
 		head=empty,
 		body="Twilight Cloak",
+		hands="Leth. Ganth. +2",
+		legs="Leth. Fuseau +2",
+		feet="Leth. Houseaux +2",
 		neck={ name="Dls. Torque +2", augments={'Path: A',}},
 		right_ear="Snotra Earring",
 		left_ring="Stikini Ring +1",
@@ -864,9 +856,9 @@ sets.TreasureHunter = {
     sets.midcast.Stun = {
 		ammo="Regal Gem",
 		body="Cohort Cloak +1",
-		hands="Jhakri Cuffs +2",
+		hands="Leth. Ganth. +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
-		feet="Jhakri Pigaches +2",
+		feet="Leth. Houseaux +2",
 		neck="Erra Pendant",
 		waist="Luminary Sash",
 		left_ear="Digni. Earring",
@@ -877,9 +869,9 @@ sets.TreasureHunter = {
 	}
 	sets.midcast['Stun'] = {
 		ammo="Regal Gem",
-		        head=empty;
+		head=empty;
         body="Cohort Cloak +1",
-		hands="Jhakri Cuffs +2",
+		hands="Leth. Ganth. +2",
 		legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
 		feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
 		neck="Erra Pendant",
@@ -895,6 +887,8 @@ sets.TreasureHunter = {
         
     sets.buff.ComposureOther = set_combine(sets.midcast['Enhancing Magic'], {
 		body="Lethargy Sayon +3",
+		hands="Lethargy Gantherots +2",
+		feet="Leth. Houseaux +2",
 	})
 
     -- Sets to return to when not performing an action.
@@ -1402,7 +1396,7 @@ sets.TreasureHunter = {
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-    sets.buff.Saboteur = {}
+    sets.buff.Saboteur = {hands="Leth. Ganth. +2"}
 
 end
 
@@ -1503,9 +1497,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 			equip(sets.midcast.Impact)
 		end
 	end
-	--[[if spell.skill == 'Enfeebling Magic' and buffactive['Saboteur'] then
-        equip(sets.Saboteur)]]
-	if spell.skill == 'Enfeebling Magic' and state.Enfeeb.Value == 'None' then
+	if spell.skill == 'Enfeebling Magic' and buffactive['Saboteur'] then
+        equip(sets.Saboteur)
+	elseif spell.skill == 'Enfeebling Magic' and state.Enfeeb.Value == 'None' then
 		equip(sets.midcast['Enfeebling Magic'])
 	elseif spell.skill == 'Enfeebling Magic' and state.Enfeeb.Value == 'Potency' then
 		equip(sets.midcast['Enfeebling Magic'].Potency)
@@ -1513,10 +1507,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.magic_burst)
 	elseif spell.skill == 'Elemental Magic' and (spell.element == world.weather_element or spell.element == world.day_element) then
         equip(sets.Obi)
-	
     end
-	
-	
+
 	if spell.english == "Dia III" then
 		equip(set_combine(sets.midcast['Enfeebling Magic'].Potency, sets.Dia))
 	end
@@ -1527,7 +1519,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 		equip(set_combine(sets.midcast['Enfeebling Magic'], sets.midcast['Enfeebling Magic'].ParalyzeDuration))
 	end
 
-	
 	if spell.skill == 'Healing Magic' and (spell.element == world.weather_element or spell.element == world.day_element) and spell.target.type == 'PLAYER' then
 		equip(set_combine(sets.midcast.Cure, sets.Obi))
 	end

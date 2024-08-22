@@ -215,7 +215,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT', 'STR')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP', 'Duration')
+    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP', 'Duration','DT')
     state.IdleMode:options('Normal', 'PDT','MDT', 'Evasion','Regen', 'HP', 'EnemyCritRate', 'Enmity', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
@@ -318,22 +318,19 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
-    "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
-    "Reraise Earring",}
+    "Rolan. Daifuku",}
+    
 -- Set up gear sets.
 function init_gear_sets()
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
 
-    sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +2"}
+    sets.buff['Burst Affinity'] = {legs="Assim. Shalwar +2", feet="Hashi. Basmak +2"}
     sets.buff['Chain Affinity'] = {head="Mavi Kavuk +2", feet="Assimilator's Charuqs"}
     sets.buff.Convergence = {head="Luh. Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
@@ -659,13 +656,25 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
 -- Midcast Sets
 sets.SIRD = {
     ammo="Staunch Tathlum +1",
+    sub="Culminus",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Assim. Shalwar +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Halasz Earring",
     right_ring="Evanescence Ring",
     waist="Rumination Sash",
 }
+
+sets.DT={
+    ammo="Staunch Tathlum +1",
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+    legs="Hashishin Tayt +3",
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+}
+
 sets.midcast.FastRecast = sets.SIRD 
 sets.midcast.Utsusemi = sets.SIRD
 
@@ -691,7 +700,7 @@ sets.midcast['Blue Magic'] = {
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {  
     ammo="Staunch Tathlum +1",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Assim. Shalwar +2",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Halasz Earring",
     right_ring="Evanescence Ring",
@@ -1124,14 +1133,13 @@ sets.defense.Enmity = {
     back="Reiki Cloak",
 }
 
-    
 sets.defense.MDT = { 
     ammo="Staunch Tathlum +1",
     head={ name="Gleti's Mask", augments={'Path: A',}},
     body={ name="Gleti's Cuirass", augments={'Path: A',}},
     hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
     legs={ name="Gleti's Breeches", augments={'Path: A',}},
-    feet="Gleti's Boots",
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1230,8 +1238,7 @@ sets.idle.Learning = set_combine(sets.idle, sets.Learning, {
 })
     
 sets.Kiting = {ammo="Staunch Tathlum +1",
-legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-}
+legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},}
 sets.Adoulin = {body="Councilor's Garb",}
 
     -- Engaged sets
@@ -1711,6 +1718,8 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.SIRD)
     elseif state.CastingMode.value == 'ConserveMP' then
         equip(sets.ConserveMP)
+    elseif state.CastingMode.value == 'DT' then
+        equip(sets.DT)
     end
     -- If in learning mode, keep on gear intended to help with that, regardless of action.
     if state.CastingMode.value == 'Learning' then

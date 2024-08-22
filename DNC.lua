@@ -710,11 +710,11 @@ sets.defense.Enmity = {
 
     sets.defense.MDT = {     
     ammo="Yamarang",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    head={ name="Gleti's Mask", augments={'Path: A',}},
+    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
     waist="Engraved Belt",
     left_ear="Etiolation Earring",

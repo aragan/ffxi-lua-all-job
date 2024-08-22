@@ -403,7 +403,6 @@ function init_gear_sets()
     left_ring="Ilabrat Ring",
     right_ring="Beithir Ring",
     back="Sacro Mantle",
-
     })
     sets.precast.WS['Shark Bite'].PDL = set_combine(sets.precast.WS['Shark Bite'], {
         ammo="Crepuscular Pebble",
@@ -711,13 +710,13 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
     }
 
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    head={ name="Gleti's Mask", augments={'Path: A',}},
+    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
     neck="Warder's Charm +1",
-    waist="Plat. Mog. Belt",
+    waist="Engraved Belt",
     left_ear="Eabani Earring",
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Shadow Ring",
@@ -741,7 +740,6 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
         right_ring="Defending Ring",
         left_ring="Moonlight Ring",
         back="Moonlight Cape",
-
 }
 sets.idle.PDT = sets.defense.PDT
 sets.idle.HP = {
@@ -1096,8 +1094,8 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
     right_ear="Skulk. Earring +1",
     left_ring="Gere Ring",
     right_ring="Hetairoi Ring",
-    back="Annealed Mantle",
-    }
+    back="Toutatis's Cape",
+}
     sets.engaged.Acc.Evasion = set_combine(sets.engaged.Evasion ,{ range=empty,
     right_ring="Defending Ring",
     })
@@ -1115,8 +1113,7 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
         right_ear="Skulk. Earring +1",
         left_ring="Gere Ring",
         right_ring="Defending Ring",
-        back="Annealed Mantle",
-        
+        back="Toutatis's Cape",
     }
     sets.engaged.Acc.PDT = set_combine(sets.engaged.PDT ,{   range=empty,
     body="Malignance Tabard",
@@ -1125,8 +1122,6 @@ sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, se
     waist="Gishdubar Sash",
     left_ring="Purity Ring",
     right_ring="Blenmot's Ring +1",}
-
-
 
 end
 

@@ -438,6 +438,7 @@ function init_gear_sets()
     
     -- Cure sets
     sets.Obi = {waist="Hachirin-no-Obi", back="Twilight Cape"}
+    sets.Srodanecklace = {neck="Sroda necklace"}
 
     sets.midcast.CureSolace = {main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
