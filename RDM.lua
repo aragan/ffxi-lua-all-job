@@ -93,7 +93,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'PDT', 'MDT','Regen', 'HP', 'EnemyCritRate', 'Evasion', 'Enmity', 'Sphere')
 	state.PhysicalDefenseMode:options('PDT')
     state.MagicalDefenseMode:options('MDT')
-	state.CastingMode:options( 'Duration','Normal', 'Burst', 'SIRD')
+	state.CastingMode:options( 'Duration','Normal', 'Burst', 'SIRD', 'DT')
 
 	state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'SWORDS', 'Crocea', 'DAGGERS', 'Club'}
 	state.Shield = M{['description']='Weapon Set', 'Normal', 'Ammurapi', 'Bulwark'}
@@ -221,6 +221,17 @@ function init_gear_sets()
 		waist="Rumination Sash",
 		right_ring="Freke Ring",
 }
+
+sets.DT = {
+    ammo="Staunch Tathlum +1",
+    body={ name="Bunzi's Robe", augments={'Path: A',}},
+    legs={ name="Bunzi's Pants", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+}
+
 	sets.precast.FC = {
 		head={ name="Merlinic Hood", augments={'Mag. Acc.+9','"Fast Cast"+6','INT+1',}},
 		hands="Leyline Gloves",
@@ -907,7 +918,7 @@ sets.TreasureHunter = {
     sets.idle.Normal = {
 		ammo="Homiliary",
 		head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-		body="Shamash Robe",
+		body="Lethargy Sayon +3",
 		hands="Nyame Gauntlets",
 		legs="Nyame Flanchard",
 		feet="Nyame Sollerets",
@@ -1567,6 +1578,13 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 	if spell.english == "Refresh" or spell.english == "Refresh II" or spell.english == "Refresh III" then
 		equip(sets.midcast.Refresh)
 	end
+
+	if state.CastingMode.value == 'SIRD' then
+        equip(sets.SIRD)
+    elseif state.CastingMode.value == 'DT' then
+        equip(sets.DT)
+    end
+
 	if barStatus:contains(spell.name) then
         if state.SrodaNecklace.value then
             equip({neck="Sroda necklace"})

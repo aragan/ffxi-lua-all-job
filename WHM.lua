@@ -80,7 +80,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'SubtleBlow' , 'PDT')
     state.CastingMode:options( 'Duration', 'Normal', 'ConserveMP', 'SIRD', 'Enmity')
     state.WeaponskillMode:options('Normal', 'PDL')
-    state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
+    state.IdleMode:options('Normal', 'PDT', 'PDT', 'MDT', 'DT', 'HP', 'Evasion', 'MP', 'Refresh', 'Sphere')
     state.PhysicalDefenseMode:options('PDT','DT','HP', 'Evasion', 'MP')
     state.HippoMode = M(false, "hippoMode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -971,78 +971,6 @@ function init_gear_sets()
 		right_ring="Inyanga Ring",
     }
     
-
-    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {
-        ammo="Homiliary",
-        head="Befouled Crown",
-        body="Shamash Robe",
-        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-        legs="Assid. Pants +1",
-        feet="Inyan. Crackows +2",
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Genmei Earring",
-        right_ear="Etiolation Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Inyanga Ring",
-        back="Alaunus's Cape",
-    }
-    
-    sets.idle.PDT = {
-        ammo="Homiliary",
-        head="Befouled Crown",
-        body="Shamash Robe",
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs="Assid. Pants +1",
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-        right_ear="Etiolation Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Alaunus's Cape",}
-    
-    sets.idle.Refresh = {
-    ammo="Homiliary",
-    head="Befouled Crown",
-    body="Shamash Robe",
-    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-    legs="Assid. Pants +1",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Alaunus's Cape",}
-
-
-    sets.idle.Sphere = set_combine(sets.idle, {
-        body="Annoint. Kalasiris",
-    })
-    sets.idle.Town = {
-    feet="Herald's Gaiters",
-    left_ear="Infused Earring",
-    }
-    
-    sets.idle.Weak = {
-    ammo="Homiliary",
-    head="Befouled Crown",
-    body="Shamash Robe",
-    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-    legs="Assid. Pants +1",
-    feet="Nyame Sollerets",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    waist="Carrier's Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Defending Ring",
-    right_ring="Inyanga Ring",
-    back="Alaunus's Cape",}
-    
     -- Defense sets
 
     sets.defense.PDT = {
@@ -1123,18 +1051,94 @@ function init_gear_sets()
     }
     sets.defense.MDT = {
     ammo="Staunch Tathlum +1",
-    head={ name="Nyame Helm", augments={'Path: B',}},
+    head={ name="Bunzi's Hat", augments={'Path: A',}},
     body="Shamash Robe",
-    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-    legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    hands={ name="Bunzi's Gloves", augments={'Path: A',}},
+    legs={ name="Bunzi's Pants", augments={'Path: A',}},
+    feet={ name="Bunzi's Sabots", augments={'Path: A',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Etiolation Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Shadow Ring",
+    back="Alaunus's Cape",}
+
+    -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
+    sets.idle = {
+        ammo="Homiliary",
+        head="Befouled Crown",
+        body="Shamash Robe",
+        hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+        legs="Assid. Pants +1",
+        feet="Inyan. Crackows +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Genmei Earring",
+        right_ear="Etiolation Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Inyanga Ring",
+        back="Alaunus's Cape",
+    }
+    
+    sets.idle.PDT = {
+        ammo="Homiliary",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Shamash Robe",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Assid. Pants +1", augments={'Path: A',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Etiolation Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Alaunus's Cape",}
+    
+    sets.idle.Refresh = {
+    ammo="Homiliary",
+    head="Befouled Crown",
+    body="Shamash Robe",
+    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+    legs="Assid. Pants +1",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Etiolation Earring",
     left_ring="Stikini Ring +1",
-    right_ring="Shadow Ring",
+    right_ring="Stikini Ring +1",
     back="Alaunus's Cape",}
+
+
+    sets.idle.Sphere = set_combine(sets.idle.PDT , {
+    body="Annoint. Kalasiris"})
+
+    sets.idle.MDT = set_combine(sets.defense.MDT , {})    
+    sets.idle.DT = set_combine(sets.defense.DT , {})
+    sets.idle.HP = set_combine(sets.defense.HP , {})
+    sets.idle.Evasion = set_combine(sets.defense.Evasion , {})
+    sets.idle.MP = set_combine(sets.defense.MP , {})
+    sets.idle.Town = {
+    feet="Herald's Gaiters",
+    left_ear="Infused Earring",}
+    
+    sets.idle.Weak = {
+    ammo="Homiliary",
+    head="Befouled Crown",
+    body="Shamash Robe",
+    hands={ name="Chironic Gloves", augments={'VIT+4','"Waltz" potency +2%','"Refresh"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+    legs="Assid. Pants +1",
+    feet="Nyame Sollerets",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Andoaa Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring="Inyanga Ring",
+    back="Alaunus's Cape",}
+
 
     sets.Kiting = {feet="Herald's Gaiters"}
     sets.MoveSpeed = {feet="Herald's Gaiters"}
