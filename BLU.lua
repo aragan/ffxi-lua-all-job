@@ -211,11 +211,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'STP', 'DPL', 'CRIT', 'Refresh', 'Learning')
+    state.OffenseMode:options('Normal', 'Acc', 'STP', 'SubtleBlow', 'CRIT', 'Refresh', 'Learning')
     state.HybridMode:options('Normal', 'DT', 'STR')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC')
-    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP', 'Duration','DT')
+    state.CastingMode:options('Normal', 'SIRD', 'ConserveMP', 'Duration', 'DT')
     state.IdleMode:options('Normal', 'PDT','MDT', 'Evasion','Regen', 'HP', 'EnemyCritRate', 'Enmity', 'Learning')
     state.PhysicalDefenseMode:options('PDT', 'Evasion', 'Enmity')
     state.MagicalDefenseMode:options('MDT')
@@ -654,26 +654,6 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
 
 
 -- Midcast Sets
-sets.SIRD = {
-    ammo="Staunch Tathlum +1",
-    sub="Culminus",
-    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs="Assim. Shalwar +2",
-    neck={ name="Loricate Torque +1", augments={'Path: A',}},
-    left_ear="Halasz Earring",
-    right_ring="Evanescence Ring",
-    waist="Rumination Sash",
-}
-
-sets.DT={
-    ammo="Staunch Tathlum +1",
-    body="Hashishin Mintan +2",
-    hands="Hashi. Bazu. +2",
-    legs="Hashishin Tayt +3",
-    waist="Plat. Mog. Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
-}
 
 sets.midcast.FastRecast = sets.SIRD 
 sets.midcast.Utsusemi = sets.SIRD
@@ -871,6 +851,25 @@ sets.ConserveMP = {
     ammo="Pemphredo Tathlum",
     body="Vedic Coat",
     waist="Austerity Belt +1",
+}
+sets.SIRD = {
+    ammo="Staunch Tathlum +1",
+    sub="Culminus",
+    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    legs="Assim. Shalwar +2",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    left_ear="Halasz Earring",
+    right_ring="Evanescence Ring",
+    waist="Rumination Sash",
+}
+sets.DT={
+    ammo="Staunch Tathlum +1",
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+    legs="Hashishin Tayt +3",
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
 }
 
 sets.midcast['Blue Magic'].Stun = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {})
@@ -1268,7 +1267,7 @@ sets.engaged.DPL = set_combine(sets.engaged, {
     neck="Clotharius Torque",
     right_ear="Mache Earring +1",
     waist="Windbuffet Belt +1",
-    })
+})
     
 sets.engaged.Acc = {
     ammo="Coiste Bodhar",
@@ -1309,6 +1308,12 @@ sets.engaged.CRIT = {
     right_ring="Hetairoi Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},}
     
+sets.engaged.SubtleBlow = set_combine(sets.engaged ,{
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
+
 sets.engaged.Refresh = set_combine(sets.engaged, { 
         body="Shamash Robe",
         left_ring="Stikini Ring +1",
@@ -1393,7 +1398,13 @@ sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, {
     right_ear="Odr Earring",
     left_ring="Epona's Ring",
     right_ring="Hetairoi Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},})
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+})
+sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.SubtleBlow,{
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 
 sets.engaged.DW.Refresh =  set_combine(sets.engaged.Refresh, { 
     body="Shamash Robe",
@@ -1491,7 +1502,12 @@ sets.engaged.DW.Refresh.MidHaste = set_combine(sets.engaged.DW.Refresh, {
     ear1="Suppanomimi", --4
     waist="Reiki Yotai", --7
 }) -- 22%
-
+sets.engaged.DW.SubtleBlow.MidHaste = set_combine(sets.engaged.DW.SubtleBlow,{
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
+    ear2="Eabani Earring", --5
+    ear1="Suppanomimi", --4
+    waist="Reiki Yotai", --7
+})
 
 --MAX-HASTE
 
@@ -1501,6 +1517,7 @@ sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.STP)
 sets.engaged.DW.CRIT.MaxHaste = set_combine(sets.engaged.DW.CRIT)
 sets.engaged.DW.Refresh.MaxHaste = set_combine(sets.engaged.DW.Refresh)
 sets.engaged.DW.Learning.MaxHaste = set_combine(sets.engaged.DW.Learning)
+sets.engaged.DW.SubtleBlow.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow, {})
 
 
 ------------------------------------------------------------------------------------------------
@@ -1517,30 +1534,15 @@ sets.engaged.Hybrid = {
     waist="Reiki Yotai",
 }
 
-sets.engaged.STR = {
-    ammo="Aurgelmir Orb +1",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands="Malignance Gloves",
-    legs="Jhakri Slops +2",
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck={ name="Mirage Stole +2", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Suppanomimi",
-    right_ear="Cessance Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
-    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-}
-sets.engaged.STR = set_combine(sets.engaged, sets.engaged.STR)
-sets.engaged.DW.STR = set_combine(sets.engaged, sets.engaged.STR)
-
-
 sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
 sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
 sets.engaged.Refresh.DT = set_combine(sets.engaged.Refresh, sets.engaged.Hybrid)
+sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow ,sets.engaged.Hybrid,{
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 sets.engaged.Learning.DT = set_combine(sets.engaged.Learning, sets.engaged.Hybrid, {
     ammo="Staunch Tathlum +1",
     head={ name="Luh. Keffiyeh +3", augments={'Enhances "Convergence" effect',}},
@@ -1563,28 +1565,40 @@ sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT = set_combine(sets.engaged.DW.Refresh, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT = set_combine(sets.engaged.DW.Learning, sets.engaged.Learning.DT, {})
-
+sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow ,sets.engaged.Hybrid,{
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 sets.engaged.DW.DT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.LowHaste = set_combine(sets.engaged.DW.Refresh.LowHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT.LowHaste = set_combine(sets.engaged.DW.Learning.LowHaste, sets.engaged.Learning.DT, {})
-
+sets.engaged.DW.SubtleBlow.DT.LowHaste = set_combine(sets.engaged.DW.SubtleBlow.LowHaste ,sets.engaged.Hybrid,{
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 sets.engaged.DW.DT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.MidHaste = set_combine(sets.engaged.DW.Acc.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.MidHaste = set_combine(sets.engaged.DW.CRIT.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.MidHaste = set_combine(sets.engaged.DW.Refresh.MidHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT.MidHaste = set_combine(sets.engaged.DW.Learning.MidHaste, sets.engaged.Learning.DT, {})
-
+sets.engaged.DW.SubtleBlow.DT.MidHaste = set_combine(sets.engaged.DW.SubtleBlow.MidHaste ,sets.engaged.Hybrid,{
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 sets.engaged.DW.DT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Refresh.DT.MaxHaste = set_combine(sets.engaged.DW.Refresh.MaxHaste, sets.engaged.Hybrid)
 sets.engaged.DW.Learning.DT.MaxHaste = set_combine(sets.engaged.DW.Learning.MaxHaste, sets.engaged.Hybrid, {})
-
+sets.engaged.DW.SubtleBlow.DT.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow.MaxHaste ,sets.engaged.Hybrid,{
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+})
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Special Sets ------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -1690,6 +1704,12 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
         if spellMap == 'Healing' and spell.target.type == 'SELF' then
             equip(sets.self_healing)
+        elseif state.CastingMode.value == 'SIRD' then
+            equip(sets.SIRD)
+        elseif state.CastingMode.value == 'ConserveMP' then
+            equip(sets.ConserveMP)
+        elseif state.CastingMode.value == 'DT' then
+            equip(sets.DT)
         end
         if spellMap == 'Magical' then
             if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
@@ -1697,9 +1717,22 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             end
         end
     end
+    if state.CastingMode.value == 'SIRD' then
+        equip(sets.SIRD)
+    elseif state.CastingMode.value == 'ConserveMP' then
+        equip(sets.ConserveMP)
+    elseif state.CastingMode.value == 'DT' then
+        equip(sets.DT)
+    end
     if spell.skill == 'Enhancing Magic' and classes.NoSkillSpells:contains(spell.english) then
         if state.CastingMode.value == 'Duration' then
             equip(sets.midcast.Duration)
+        elseif state.CastingMode.value == 'SIRD' then
+            equip(sets.SIRD)
+        elseif state.CastingMode.value == 'ConserveMP' then
+            equip(sets.ConserveMP)
+        elseif state.CastingMode.value == 'DT' then
+            equip(sets.DT)
         else
         equip(sets.midcast['Enhancing Magic'])
         end
@@ -1714,17 +1747,11 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         end
     end
 
-    if state.CastingMode.value == 'SIRD' then
-        equip(sets.SIRD)
-    elseif state.CastingMode.value == 'ConserveMP' then
-        equip(sets.ConserveMP)
-    elseif state.CastingMode.value == 'DT' then
-        equip(sets.DT)
-    end
+
     -- If in learning mode, keep on gear intended to help with that, regardless of action.
-    if state.CastingMode.value == 'Learning' then
+    --[[if state.CastingMode.value == 'Learning' then
         equip(sets.Learning)
-    end
+    end]]
     if state.Buff['Burst Affinity'] or (spellMap == 'Magical' or spellMap == 'MagicalLight' or spellMap == 'MagicalDark' or spellMap == 'Breath') then
         if state.MagicBurst.value then
         equip(sets.magic_burst)

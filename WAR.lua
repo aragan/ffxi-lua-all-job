@@ -1040,7 +1040,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         left_ear="Infused Earring",
         right_ear="Eabani Earring",
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
@@ -1102,7 +1102,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
         ear1="Tuisto Earring",
         ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         left_ring="Defending Ring",
         back="Moonlight Cape",
@@ -1120,7 +1120,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
          ear1="Tuisto Earring",
          ear2={ name="Odnowa Earring +1", augments={'Path: A',}},
          neck={ name="Loricate Torque +1", augments={'Path: A',}},
-         waist="Carrier's Sash",
+         waist="Engraved Belt",
          right_ring="Paguroidea Ring",
          left_ring="Defending Ring",
          back="Moonlight Cape",
@@ -1281,7 +1281,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.engaged.ressistwater = {
         head="Genmei Kabuto",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
+        waist="Engraved Belt",
     }
 
 

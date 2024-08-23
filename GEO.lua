@@ -362,7 +362,15 @@ function init_gear_sets()
     }
     
     sets.midcast.Curaga = sets.midcast.Cure
-
+    
+	sets.midcast.Cursna = {
+		legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+		feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        neck="Debilis Medallion",
+        waist="Gishdubar Sash",
+        left_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
+	}
     --sets.midcast.Protectra = sets.midcast['Enhancing Magic']
     --sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 

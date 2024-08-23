@@ -48,9 +48,6 @@ organizer_items = {
     "Crab Sushi",
     "Om. Sandwich",
     "Red Curry Bun",   
-    "Drepanum",
-    "Sword Strap",
-    "Mafic Cudgel",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -72,14 +69,11 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
 
 -- Setup vars that are user-independent.
@@ -994,7 +988,9 @@ sets.idle.Town = {
 
     sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
         body="Dagon Breast.",
+        hands="Volte Mittens",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
@@ -1003,16 +999,18 @@ sets.idle.Town = {
 
     sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {        
         body="Dagon Breast.",
+        hands="Volte Mittens",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
         right_ring="Niqmaddu Ring",
     })
     sets.engaged.MaxAcc.SubtleBlow = set_combine(sets.engaged.MaxAcc, {        
         body="Dagon Breast.",
+        hands="Volte Mittens",
         legs={ name="Mpaca's Hose", augments={'Path: A',}},
-        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
         left_ear="Digni. Earring",
         left_ring="Chirich Ring +1",
         right_ring="Niqmaddu Ring",
@@ -1081,8 +1079,15 @@ sets.idle.Town = {
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc,sets.engaged.Hybrid)
     sets.engaged.MaxAcc.PDT = set_combine(sets.engaged.MaxAcc,sets.engaged.Hybrid)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
-    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid, {        
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid, {  
+        head="Kasuga Kabuto +2",
+        body="Dagon Breast.",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Mpaca's Hose", augments={'Path: A',}},
+        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         right_ring="Niqmaddu Ring",
+        left_ring="Defending Ring",
     })
 
     sets.engaged.STP = {range=empty,

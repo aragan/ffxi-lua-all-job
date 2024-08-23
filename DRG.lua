@@ -16,9 +16,6 @@ function get_sets()
     organizer_items = {
         "Regis",
         "Airmid's Gorget",
-        "Prime Sword",
-        "Sword Strap",
-        "Mafic Cudgel",
         "Angon",
         "Gyudon",
         "Reraiser",
@@ -41,14 +38,11 @@ function get_sets()
         "Shinobi-Tabi",
         "Shihei",
         "Remedy",
-        "Wh. Rarab Cap +1",
         "Emporox's Ring",
         "Red Curry Bun",
         "Instant Reraise",
         "Black Curry Bun",
         "Rolan. Daifuku",
-        "Qutrub Knife",
-        "Wind Knife +1",
         "Reraise Earring",}
     
 end
@@ -637,11 +631,11 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
 
 	sets.defense.MDT = {
         ammo="Staunch Tathlum +1",
-        head={ name="Nyame Helm", augments={'Path: B',}},
-        body={ name="Nyame Mail", augments={'Path: B',}},
-        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
-        legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        head={ name="Gleti's Mask", augments={'Path: A',}},
+        body={ name="Gleti's Cuirass", augments={'Path: A',}},
+        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        legs={ name="Gleti's Breeches", augments={'Path: A',}},
+        feet={ name="Gleti's Boots", augments={'Path: A',}},
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Carrier's Sash",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -810,13 +804,13 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
         right_ring="Hetairoi Ring",
         back={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},    })
 
-        sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
+    sets.engaged.SubtleBlow = set_combine(sets.engaged, {        
             body="Dagon Breast.",
             hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
             left_ear={ name="Schere Earring", augments={'Path: A',}},
             left_ring="Chirich Ring +1",
             right_ring="Niqmaddu Ring",
-        })
+    })
 ---------------------------------------- DW-HASTE ------------------------------------------
 sets.DW =  {
     left_ear="Suppanomimi",  --5
@@ -835,6 +829,7 @@ sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.SubtleBlow, sets.DW)
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Hybrid Sets -------------------------------------------
 ------------------------------------------------------------------------------------------------
+
 sets.engaged.Hybrid = {
     head="Hjarrandi Helm",
     hands="Gleti's Gauntlets",
@@ -849,14 +844,40 @@ sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 --sets.engaged.DA.DT = set_combine(sets.engaged.DA, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
-sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
+sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid, {  
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Hjarrandi Helm",
+    body="Dagon Breast.",
+    hands="Pel. Vambraces +2",
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
+    neck="Anu Torque",
+    waist="Ioskeha Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+})
 
 sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
 sets.engaged.DW.Acc.DT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 --sets.engaged.DW.DA.DT = set_combine(sets.engaged.DW.DA, sets.engaged.Hybrid)
 sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
-sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid)
+sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid,{  
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Hjarrandi Helm",
+    body="Dagon Breast.",
+    hands="Pel. Vambraces +2",
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
+    neck="Anu Torque",
+    waist="Ioskeha Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Cessance Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+})
 
     sets.engaged.PDT = set_combine(sets.engaged, {
         head="Hjarrandi Helm",
@@ -886,7 +907,20 @@ sets.engaged.DW.SubtleBlow.DT = set_combine(sets.engaged.DW.SubtleBlow, sets.eng
     })
 
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.PDT)
-    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.PDT)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.PDT,{  
+        ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head="Hjarrandi Helm",
+        body="Dagon Breast.",
+        hands="Pel. Vambraces +2",
+        legs={ name="Gleti's Breeches", augments={'Path: A',}},
+        feet={ name="Gleti's Boots", augments={'Path: A',}},
+        neck="Anu Torque",
+        waist="Ioskeha Belt +1",
+        left_ear="Sherida Earring",
+        right_ear="Cessance Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Niqmaddu Ring",
+    })
 
     sets.engaged.Reraise = set_combine(sets.engaged, {		
     head="Crepuscular Helm",

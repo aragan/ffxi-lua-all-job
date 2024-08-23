@@ -192,7 +192,6 @@ function user_setup()
     moving = false
 
     determine_haste_group()
-    
     select_default_macro_book()
     update_combat_form()
 end
@@ -2712,6 +2711,7 @@ function select_default_macro_book()
         set_macro_page(2, 37)
 	elseif player.sub_job == 'BLU' then
         set_macro_page(1, 37)
+        send_command('input //blupldsets set pld')
     elseif player.sub_job == 'SCH' then
         set_macro_page(7, 37)
     else
