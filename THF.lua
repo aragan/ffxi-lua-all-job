@@ -28,7 +28,6 @@ end
     include('organizer-lib')
     organizer_items = {      
         "Airmid's Gorget", 
-        "Mafic Cudgel",
         "Gyudon",
         "Reraiser",
         "Hi-Reraiser",
@@ -50,14 +49,11 @@ end
         "Shinobi-Tabi",
         "Shihei",
         "Remedy",
-        "Wh. Rarab Cap +1",
         "Emporox's Ring",
         "Red Curry Bun",
         "Instant Reraise",
         "Black Curry Bun",
         "Rolan. Daifuku",
-        "Qutrub Knife",
-        "Wind Knife +1",
         "Reraise Earring",}
         -- for Rune Fencer sub, you need to create two macros. One cycles runes, and gives you descrptive text in the log.
 -- The other macro will use the actual rune you cycled to. 
@@ -94,7 +90,7 @@ function user_setup()
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'Mod')
     state.IdleMode:options('Normal', 'PDT', 'HP', 'Evasion', 'MDT', 'Regen', 'EnemyCritRate')
-    state.PhysicalDefenseMode:options( 'PDT', 'Evasion', 'HP')
+    state.PhysicalDefenseMode:options( 'PDT', 'Evasion', 'HP','Regain')
     state.MagicalDefenseMode:options('MDT')
     state.TreasureMode:options('None','Tag','SATA','Fulltime')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Aeneas', 'Naegling'}
@@ -178,7 +174,7 @@ function init_gear_sets()
     sets.Twashtar = {main="Twashtar", sub="Crepuscular Knife",}
     sets.Tauret = {main="Tauret", sub="Ternion Dagger +1"}
     sets.Aeneas = {main="Aeneas", sub="Malevolence"}
-    sets.Naegling = {main="Naegling", sub="Crepuscular Knife",}
+    sets.Naegling = {main="Naegling", sub="Centovente"}
 
 
 
@@ -259,7 +255,7 @@ function init_gear_sets()
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
         waist="Yemaya Belt",}
 
-        sets.precast.RA.Acc = {       
+    sets.precast.RA.Acc = {       
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
         waist="Yemaya Belt",}
 
@@ -293,7 +289,7 @@ function init_gear_sets()
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {range=empty,
-        ammo="C. Palug Stone",
+    ammo="C. Palug Stone",
     head="Nyame Helm",
     body="Gleti's Cuirass",
     hands={ name="Adhemar Wrist. +1", augments={'Accuracy+20','Attack+20','"Subtle Blow"+8',}},
@@ -360,7 +356,7 @@ function init_gear_sets()
 
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {range=empty,
-        ammo="Yetshila +1",
+    ammo="Yetshila +1",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -390,7 +386,7 @@ function init_gear_sets()
         body="Pillager's Vest +3",})
 
     sets.precast.WS["Shark Bite"] = set_combine(sets.precast.WS, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -421,7 +417,7 @@ function init_gear_sets()
         body="Pillager's Vest +3",})
 
     sets.precast.WS['Mandalic Stab'] = set_combine(sets.precast.WS, {range=empty,
-        ammo="Yetshila +1",
+    ammo="Yetshila +1",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -434,7 +430,6 @@ function init_gear_sets()
     left_ring="Regal Ring",
     right_ring="Cornelia's Ring",
     back="Sacro Mantle",
-
     })
     sets.precast.WS['Mandalic Stab'].PDL = set_combine(sets.precast.WS['Mandalic Stab'], {
         ammo="Crepuscular Pebble",
@@ -561,7 +556,7 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
 
 
 
-    sets.precast.WS["Empyreal Arrow"] = {
+sets.precast.WS["Empyreal Arrow"] = {
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -723,7 +718,21 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
     right_ring="Purity Ring",
     back="Engulfer Cape +1",}
 
-
+    sets.defense.Regain = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Gleti's Mask", augments={'Path: A',}},
+        body={ name="Gleti's Cuirass", augments={'Path: A',}},
+        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        legs={ name="Gleti's Breeches", augments={'Path: A',}},
+        feet={ name="Gleti's Boots", augments={'Path: A',}},
+        neck="Rep. Plat. Medal",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back="Moonlight Cape", 
+    }
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
 
     sets.idle = {range=empty,

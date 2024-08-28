@@ -16,13 +16,13 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-    include('Mote-TreasureHunter')
- 
+
 end
 
  
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
+
     send_command('wait 2;input /lockstyleset 174')
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -49,11 +49,13 @@ function user_setup()
     state.AutoEquipBurst = M(true)
     state.DeathMode = M(false, 'Death Mode')
 
+
     --state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M(false, "hippoMode")
     state.WeaponSet = M{['description']='Weapon Set', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
-
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
 	Elemental_Debuffs = S {'Shock', 'Rasp', 'Choke', 'Frost', 'Burn', 'Drown'}
     element_table = L{'Earth','Wind','Ice','Fire','Water','Lightning'}
@@ -92,7 +94,7 @@ function user_setup()
     send_command('bind f4 gs c toggle DeathMode')
 
     select_default_macro_book()
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","WeaponSet","DeathMode","Enfeebling"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode","WeaponSet","DeathMode","Enfeebling","TreasureMode"}) 
     end
 end
  
@@ -100,7 +102,7 @@ end
 function user_unload()
     send_command('unbind ^`')
     send_command('unbind @`')
-	--send_command('unbind f10')
+	send_command('unbind f11')
 	send_command('unbind ^`f11')
 	send_command('unbind @`f11')
 	send_command('unbind ^f11')
@@ -109,12 +111,6 @@ organizer_items = {
     "Grape Daifuku",
     "Moogle Amp.",
     "Pear Crepe",
-    "Prime Sword",
-    "Marin Staff +1",
-    "Drepanum",
-    "Lentus Grip",
-    "Mafic Cudgel",
-    "Maliya Sickle +1",
     "Gyudon",
     "Reraiser",
     "Hi-Reraiser",
@@ -136,14 +132,11 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
  
 -- Define sets and vars used by this job file.
@@ -1692,6 +1685,9 @@ end
 function customize_melee_set(meleeSet)
     if buffactive['Mana Wall'] then
         meleeSet = set_combine(meleeSet, sets.buff['Mana Wall'])
+    end
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
     --[[if state.RP.current == 'on' then
         equip(sets.RP)

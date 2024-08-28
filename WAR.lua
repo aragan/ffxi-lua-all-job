@@ -1289,7 +1289,10 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.Defensive)
     sets.engaged.STP.PDT = set_combine(sets.engaged.STP, sets.Defensive)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.Defensive)
-    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.Defensive)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.Defensive,{  
+        body="Dagon Breast.",
+        left_ring="Defending Ring",
+    })
 
     ------------------------------------------------------------------------------------------------
       ---------------------------------------- DW-HASTE ------------------------------------------
@@ -1323,7 +1326,10 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc, sets.Defensive)
      sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP, sets.Defensive)
      sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT, sets.Defensive)
-     sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.engaged.DW.SubtleBlow, sets.Defensive)
+     sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.engaged.DW.SubtleBlow, sets.Defensive,{  
+        body="Dagon Breast.",
+        left_ring="Defending Ring",
+    })
 
 
     ------------------------------------------------------------------------------------------------

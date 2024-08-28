@@ -57,7 +57,6 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
@@ -1412,7 +1411,7 @@ sets.engaged.CRIT = set_combine(sets.engaged, {
     legs={ name="Zoar Subligar +1", augments={'Path: A',}},
     feet="Thereoid Greaves",
     neck="Nefarious Collar +1",
-    waist="Ioskeha Belt +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Schere Earring",
     right_ear="Brutal Earring",
     left_ring="Hetairoi Ring",
@@ -1459,7 +1458,6 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Digni. Earring",
     right_ear="Telos Earring",
@@ -1486,7 +1484,6 @@ sets.engaged.SubtleBlow = set_combine(sets.engaged, {
     })
     sets.engaged.Haste.CRIT = set_combine(sets.engaged.CRIT, {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-        waist="Ioskeha Belt +1",
     })
     sets.engaged.Haste.PD = set_combine(sets.engaged.PD, {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},
@@ -1583,7 +1580,6 @@ sets.engaged.Hybrid = {
     hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
     legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
     feet={ name="Sakpata's Leggings", augments={'Path: A',}},
-    left_ring="Niqmaddu Ring",
 }
 
 sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
@@ -1591,7 +1587,10 @@ sets.engaged.MaxAcc.DT = set_combine(sets.engaged.MaxAcc, sets.engaged.Hybrid)
 sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 sets.engaged.DA.DT = set_combine(sets.engaged.DA, sets.engaged.Hybrid)
 sets.engaged.CRIT.DT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
-
+sets.engaged.SubtleBlow.DT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid, {
+    body="Dagon Breast.",
+    left_ring="Defending Ring",
+})
 sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
 sets.engaged.DW.MaxAcc.DT = set_combine(sets.engaged.DW.MaxAcc, sets.engaged.Hybrid)
 sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
@@ -1764,7 +1763,10 @@ sets.engaged.DW.CRIT.DT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     sets.engaged.Haste.Apocalypse.CRIT = set_combine(sets.engaged.CRIT, {
         ammo={ name="Coiste Bodhar", augments={'Path: A',}},})
     sets.engaged.Haste.Apocalypse.MaxAcc = set_combine(sets.engaged.MaxAcc, {})
-    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.Apocalypse.SubtleBlow, {})
+    sets.engaged.Haste.Apocalypse.SubtleBlow = set_combine(sets.engaged.Apocalypse.SubtleBlow, {
+        body="Dagon Breast.",
+        left_ring="Defending Ring",
+    })
 
 
 -- Apocalypse

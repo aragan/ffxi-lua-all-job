@@ -84,7 +84,7 @@ function user_setup()
 	state.IdleMode:options('Normal','Regen', 'HP', 'PDT', 'MDT', 'Evasion', 'EnemyCritRate')
 	state.HybridMode:options('Normal', 'DT', 'Reraise')
 	state.WeaponskillMode:options('Normal', 'SC', 'PDL')
-	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise')
+	state.PhysicalDefenseMode:options('PDT', 'HP', 'Reraise', 'Regain')
 	state.MagicalDefenseMode:options('MDT')
     
     war_sj = player.sub_job == 'WAR' or false
@@ -675,10 +675,26 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
         back="Moonlight Cape",
     }
 
-        sets.defense.Reraise = set_combine(sets.defense.PDT, {
-            head="Crepuscular Helm",
-            body="Crepuscular Mail",
-        })
+    sets.defense.Reraise = set_combine(sets.defense.PDT, {
+        head="Crepuscular Helm",
+        body="Crepuscular Mail",
+    })
+
+    sets.defense.Regain = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Gleti's Mask", augments={'Path: A',}},
+        body={ name="Gleti's Cuirass", augments={'Path: A',}},
+        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        legs={ name="Gleti's Breeches", augments={'Path: A',}},
+        feet={ name="Gleti's Boots", augments={'Path: A',}},
+        neck="Rep. Plat. Medal",
+        waist="Carrier's Sash",
+        left_ear="Eabani Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back="Moonlight Cape", 
+    }
 
 	-- Idle sets
 	sets.idle = {

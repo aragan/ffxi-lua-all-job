@@ -169,7 +169,7 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M(false, "hippoMode")
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling', 'Xoanon'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling', 'Aeneas', 'Xoanon'}
     --state.Moving = M(false, "moving")
 
 
@@ -224,9 +224,10 @@ function init_gear_sets()
 
     --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
     sets.normal = {}
-    sets.Twashtar = {main="Twashtar", sub="Crepuscular Knife",}
+    sets.Twashtar = {main="Twashtar", sub="Centovente"}
     sets.Tauret = {main="Tauret", sub="Crepuscular Knife",}
-    sets.Naegling = {main="Naegling", sub="Crepuscular Knife",}
+    sets.Naegling = {main="Naegling", sub="Centovente"}
+    sets.Aeneas = {main="Aeneas", sub="Centovente"}
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}
@@ -378,12 +379,12 @@ function init_gear_sets()
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Bard's Charm +2", augments={'Path: A',}},
-        ear1="Ishvara Earring",
-        ear2="Regal Earring",
-        ring1="Sroda Ring", 
-        ring2="Cornelia's Ring",
-        waist="Sailfi Belt +1",
-        back="Intarabus's Cape",
+    ear1="Ishvara Earring",
+    ear2="Regal Earring",
+    ring1="Sroda Ring", 
+    ring2="Cornelia's Ring",
+    waist="Sailfi Belt +1",
+    back="Intarabus's Cape",
 }
 sets.precast.WS['Mordant Rime'].PDL = set_combine(sets.precast.WS['Mordant Rime'],{
     body="Bunzi's Robe",})
@@ -395,11 +396,11 @@ legs={ name="Nyame Flanchard", augments={'Path: B',}},
 feet={ name="Nyame Sollerets", augments={'Path: B',}}, 
 neck={ name="Bard's Charm +2", augments={'Path: A',}},
 ear2="Ishvara Earring",
-    ear1="Moonshade Earring",
-    ring1="Ilabrat Ring",
-    ring2="Cornelia's Ring",
-    waist="Kentarch Belt +1",
-    back="Intarabus's Cape",
+ear1="Moonshade Earring",
+ring1="Ilabrat Ring",
+ring2="Cornelia's Ring",
+waist="Kentarch Belt +1",
+back="Intarabus's Cape",
 }
 sets.precast.WS['Rudras Storm'].PDL = set_combine(sets.precast.WS['Rudras Storm'],{
     body="Bunzi's Robe",
@@ -411,13 +412,13 @@ body="Bihu Jstcorps. +3",
 hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 legs={ name="Nyame Flanchard", augments={'Path: B',}},
 feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck="Rep. Plat. Medal",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    ring1="Sroda Ring", 
-    ring2="Cornelia's Ring",
-    waist="Sailfi Belt +1",
-    back="Intarabus's Cape",
+neck="Rep. Plat. Medal",
+ear1="Moonshade Earring",
+ear2="Ishvara Earring",
+ring1="Sroda Ring", 
+ring2="Cornelia's Ring",
+waist="Sailfi Belt +1",
+back="Intarabus's Cape",
 }
 
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'],{
