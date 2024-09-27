@@ -543,9 +543,16 @@ function init_gear_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 }
 
-    sets.precast.RA = { 
-    range="Trollbane", }
-    sets.midcast.RA = {
+sets.precast.RA = {ammo=empty,
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
+left_ear="Crep. Earring",
+right_ear="Telos Earring",
+}
+    sets.midcast.RA = {ammo=empty,
     range="Trollbane",  }
 
     -------------------------------------WS
@@ -1518,6 +1525,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 end

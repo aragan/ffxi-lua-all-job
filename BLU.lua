@@ -8,6 +8,20 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 
+--[[                                                                                                     
+88888888ba   88                               88b           d88                                       
+88      "8b  88                               888b         d888                                       
+88      ,8P  88                               88`8b       d8'88                                       
+88aaaaaa8P'  88  88       88   ,adPPYba,      88 `8b     d8' 88  ,adPPYYba,   ,adPPYb,d8   ,adPPYba,  
+88""""""8b,  88  88       88  a8P_____88      88  `8b   d8'  88  ""     `Y8  a8"    `Y88  a8P_____88  
+88      `8b  88  88       88  8PP"""""""      88   `8b d8'   88  ,adPPPPP88  8b       88  8PP"""""""  
+88      a8P  88  "8a,   ,a88  "8b,   ,aa      88    `888'    88  88,    ,88  "8a,   ,d88  "8b,   ,aa  
+88888888P"   88   `"YbbdP'Y8   `"Ybbd8"'      88     `8'     88  `"8bbdP"Y8   `"YbbdP"Y8   `"Ybbd8"'  
+                                                                              aa,    ,88              
+                                                                               "Y8bbdP"               
+																			   
+]]
+
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
@@ -23,7 +37,15 @@ function get_sets()
     include('Mote-Include.lua')
     include('organizer-lib')
 end
-
+--================================================--
+--                                                --
+--      |     |        ,---.     |                --
+--      |,---.|---.    `---.,---.|--- .   .,---.  --
+--      ||   ||   |        ||---'|    |   ||   |  --
+--  `---'`---'`---'    `---'`---'`---'`---'|---'  --
+--                                         |      --
+--                                                --
+--================================================--
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff['Burst Affinity'] = buffactive['Burst Affinity'] or false
@@ -209,6 +231,16 @@ end
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
 
+--====================================================--
+--	                                                  --
+--	.   .                   ,---.     |               --
+--	|   |,---.,---.,---.    `---.,---.|--- .   .,---. --
+--	|   |`---.|---'|            ||---'|    |   ||   | --
+--	`---'`---'`---'`        `---'`---'`---'`---'|---' --
+--	                                            |     --
+--                                                    --
+--====================================================--
+
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'SubtleBlow', 'CRIT', 'Refresh', 'Learning')
@@ -347,6 +379,14 @@ function init_gear_sets()
     sets.Learn = {main="Iris", sub="Iris",}
 
 
+--==================================================--
+--  ____                                       _    --
+-- |  _ \   _ __    ___    ___    __ _   ___  | |_  --
+-- | |_) | | '__|  / _ \  / __|  / _` | / __| | __| --
+-- |  __/  | |    |  __/ | (__  | (_| | \__ \ | |_  --
+-- |_|     |_|     \___|  \___|  \__,_| |___/  \__| --
+--                                                  --
+--==================================================--
     -- Precast Sets
     sets.Enmity = {
         ammo="Sapience Orb", --2
@@ -368,14 +408,16 @@ function init_gear_sets()
     sets.precast.JA['Provoke'] = sets.Enmity
     -- Precast sets to enhance JAs
     sets.precast.JA['Azure Lore'] = {hands="Mirage Bazubands +2"}
-    sets.precast.RA = {
-        range="Trollbane",
-        head="Malignance Chapeau",
-        body="Nisroch Jerkin",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
-        }
+    
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    }
 
     -- Waltz set (chr and vit)
 sets.precast.Waltz = {   body="Passion Jacket", 
@@ -416,6 +458,17 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
 sets.precast.Waltz['Healing Waltz'] = {}
 
     -- Fast cast sets for spells
+
+
+    --===============================================================================--		
+-- __        __                                               _      _   _   _   --
+-- \ \      / /   ___    __ _   _ __     ___    _ __    ___  | | __ (_) | | | |  --
+--  \ \ /\ / /   / _ \  / _` | | '_ \   / _ \  | '_ \  / __| | |/ / | | | | | |  --
+--   \ V  V /   |  __/ | (_| | | |_) | | (_) | | | | | \__ \ |   <  | | | | | |  --
+--    \_/\_/     \___|  \__,_| | .__/   \___/  |_| |_| |___/ |_|\_\ |_| |_| |_|  --
+--                             |_|                                               --
+--                                                                               --
+--===============================================================================--
 
 sets.precast.WS = {
     ammo="Oshasha's Treatise",
@@ -542,7 +595,10 @@ sets.precast.WS['Expiacion'].PDL = set_combine(sets.precast.WS['Expiacion'], {
     right_ear="Ishvara Earring",
 })
 
-        
+
+--[[Club Weaponskill]]
+
+
 sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
     ammo="Oshasha's Treatise",
     head="Nyame Helm",
@@ -654,6 +710,17 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
 
 
 -- Midcast Sets
+	
+--==================================================--
+--   __  __   _       _                        _    --
+--  |  \/  | (_)     | |                      | |   --
+--  | \  / |  _    __| |   ___    __ _   ___  | |_  --
+--  | |\/| | | |  / _` |  / __|  / _` | / __| | __| --
+--  | |  | | | | | (_| | | (__  | (_| | \__ \ | |_  --
+--  |_|  |_| |_|  \__,_|  \___|  \__,_| |___/  \__| --
+--                                                  --
+--==================================================--
+
 
 sets.midcast.FastRecast = sets.SIRD 
 sets.midcast.Utsusemi = sets.SIRD
@@ -688,7 +755,8 @@ sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {
 })
     
     -- Physical Spells --
-    
+    --[[PHYSICAL SPELLS]]
+
 sets.midcast['Blue Magic'].Physical = {
     ammo="Aurgelmir Orb +1",
     head="Gleti's Mask",
@@ -759,7 +827,8 @@ sets.midcast['Blue Magic'].PhysicalHP = set_combine(sets.midcast['Blue Magic'].P
 
 
     -- Magical Spells --
-    
+    --[[MAGICAL SPELLS]]
+
 sets.midcast['Blue Magic'].Magical = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Hashishin Kavuk +2",
@@ -1148,6 +1217,15 @@ sets.defense.MDT = {
     back="Moonlight Cape",
 }
     
+--=================================--
+--      ___       _   _            --
+--     |_ _|   __| | | |   ___     --
+--      | |   / _` | | |  / _ \    --
+--      | |  | (_| | | | |  __/    --
+--     |___|  \__,_| |_|  \___|    --
+--                                 --
+--=================================--
+
 -- Idle sets
 sets.idle = {     
     ammo="Staunch Tathlum +1",
@@ -1247,6 +1325,16 @@ sets.Adoulin = {body="Councilor's Garb",}
     -- If you create a set with both offense and defense modes, the offense mode should be first.
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
+
+--====================================================--
+--     _____   ____      ____           _             --
+--    |_   _| |  _ \    / ___|    ___  | |_   ___     --
+--      | |   | |_) |   \___ \   / _ \ | __| / __|    --
+--      | |   |  __/     ___) | |  __/ | |_  \__ \    --
+--      |_|   |_|       |____/   \___|  \__| |___/    --
+--                                                    --
+--====================================================--
+
     -- Normal melee group
 sets.engaged = {
     ammo="Coiste Bodhar",
@@ -1602,6 +1690,15 @@ sets.engaged.DW.SubtleBlow.DT.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow.
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Special Sets ------------------------------------------
 ------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------	
+---- _____    ____    _   _   _____    _____   _______   _____    ____    _   _              _      ----
+--  / ____|  / __ \  | \ | | |  __ \  |_   _| |__   __| |_   _|  / __ \  | \ | |     /\     | |       --
+-- | |      | |  | | |  \| | | |  | |   | |      | |      | |   | |  | | |  \| |    /  \    | |       --
+-- | |      | |  | | | . ` | | |  | |   | |      | |      | |   | |  | | | . ` |   / /\ \   | |       --
+-- | |____  | |__| | | |\  | | |__| |  _| |_     | |     _| |_  | |__| | | |\  |  / ____ \  | |____   --
+--  \_____|  \____/  |_| \_| |_____/  |_____|    |_|    |_____|  \____/  |_| \_| /_/    \_\ |______|  --
+----																								----
+--------------------------------------------------------------------------------------------------------
 
     sets.TreasureHunter = {ammo="Per. Lucky Egg",
     head="White rarab cap +1", 
@@ -1627,6 +1724,27 @@ sets.magic_burst = set_combine(sets.midcast['Blue Magic'].Magical, {
 
 
 end
+
+--======================================================================--
+--    __  __                                                     _      --
+--   |  \/  |   ___   __   __   ___   _ __ ___     ___   _ __   | |_    --
+--   | |\/| |  / _ \  \ \ / /  / _ \ | '_ ` _ \   / _ \ | '_ \  | __|   --
+--   | |  | | | (_) |  \ V /  |  __/ | | | | | | |  __/ | | | | | |_    --
+--   |_|  |_|  \___/    \_/    \___| |_| |_| |_|  \___| |_| |_|  \__|   --
+--                                                                      --
+--======================================================================--
+
+
+--=================================================================--
+--  _____                          _     _                         --
+-- |  ___|  _   _   _ __     ___  | |_  (_)   ___    _ __    ___   --
+-- | |_    | | | | | '_ \   / __| | __| | |  / _ \  | '_ \  / __|  --
+-- |  _|   | |_| | | | | | | (__  | |_  | | | (_) | | | | | \__ \  --
+-- |_|      \__,_| |_| |_|  \___|  \__| |_|  \___/  |_| |_| |___/  --
+--                                                                 --
+--=================================================================--
+
+
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
@@ -1660,6 +1778,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
             send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 end
@@ -2159,6 +2283,15 @@ windower.register_event('zone change',
         end
     end
 )
+
+--=-----------------------------=--
+--          __   __   __   __    --
+--    /|/| /  | /    /  | /  |   --
+--   ( / |(___|(    (___|(   |   --
+--   |   )|   )|   )|\   |   )   --
+--   |  / |  / |__/ | \  |__/    --
+--=-----------------------------=--
+
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

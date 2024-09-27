@@ -172,7 +172,7 @@ function init_gear_sets()
 
     sets.Normal = {}
     sets.Twashtar = {main="Twashtar", sub="Crepuscular Knife",}
-    sets.Tauret = {main="Tauret", sub="Ternion Dagger +1"}
+    sets.Tauret = {main="Tauret", sub={ name="Gleti's Knife", augments={'Path: A',}},}
     sets.Aeneas = {main="Aeneas", sub="Malevolence"}
     sets.Naegling = {main="Naegling", sub="Centovente"}
 
@@ -251,9 +251,15 @@ function init_gear_sets()
 
 
     -- Ranged snapshot gear
-    sets.precast.RA = {        range="Trollbane",  
-        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
-        waist="Yemaya Belt",}
+	sets.precast.RA = {ammo=empty,
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
+	}
 
     sets.precast.RA.Acc = {       
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        feet="Meg. Jam. +2",
@@ -1144,6 +1150,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 end

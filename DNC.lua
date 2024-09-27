@@ -211,7 +211,7 @@ function init_gear_sets()
     sets.precast.Waltz = {
         ammo="Yamarang",
         head="Mummu Bonnet +2",
-        body="Maxixi Casaque +1",
+        body="Maxixi Casaque +2",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Dashing Subligar",
         feet="Maxixi Toe Shoes +2",
@@ -328,12 +328,17 @@ sets.precast.Flourish3['Climactic Flourish'] = {head="Maculele Tiara +2"}
     }
 
     -- Ranged snapshot gear
-    sets.precast.RA = {        range="Trollbane",  
-        legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},      
-        feet="Meg. Jam. +2",
-        waist="Yemaya Belt",}
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    }
 
-        sets.precast.RA.Acc = {       
+    sets.precast.RA.Acc = {       
         legs={ name="Adhemar Kecks +1", augments={'AGI+12','"Rapid Shot"+13','Enmity-6',}},        
         feet="Meg. Jam. +2",
         waist="Yemaya Belt",}
@@ -343,11 +348,11 @@ sets.precast.Flourish3['Climactic Flourish'] = {head="Maculele Tiara +2"}
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {  
     ammo="Aurgelmir Orb +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",    
-    feet="Nyame Sollerets",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},    
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Rep. Plat. Medal",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -357,10 +362,10 @@ sets.precast.Flourish3['Climactic Flourish'] = {head="Maculele Tiara +2"}
     back="Sacro Mantle",
 }
     sets.precast.WS.SC = set_combine(sets.precast.WS, {head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
 
 sets.precast.WS.PDL = set_combine(sets.precast.WS, {
@@ -388,11 +393,11 @@ right_ear="Maculele Earring",
     left_ring="Ilabrat Ring",
     right_ring="Regal Ring",})
 
-    sets.precast.WS['Exenterator'].SC = set_combine(sets.precast.WS['Exenterator'], {    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    sets.precast.WS['Exenterator'].SC = set_combine(sets.precast.WS['Exenterator'], {head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
     sets.precast.WS['Exenterator'].PDL = set_combine(sets.precast.WS['Exenterator'], {
         ammo="Crepuscular Pebble",
@@ -416,11 +421,11 @@ right_ear="Maculele Earring",
         right_ring="Regal Ring",
         back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     })
-    sets.precast.WS['Pyrrhic Kleos'].SC = set_combine(sets.precast.WS.SC, {    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    sets.precast.WS['Pyrrhic Kleos'].SC = set_combine(sets.precast.WS.SC, {head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
 
     sets.precast.WS['Pyrrhic Kleos'].PDL = set_combine(sets.precast.WS.SC, {
@@ -453,11 +458,11 @@ right_ear="Maculele Earring",
         right_ring="Regal Ring",
     })
     sets.precast.WS['Evisceration'].SC = set_combine(sets.precast.WS['Evisceration'], {  
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
 
     sets.precast.WS['Evisceration'].PDL = set_combine(sets.precast.WS['Evisceration'], {
@@ -469,11 +474,11 @@ right_ear="Maculele Earring",
 
     sets.precast.WS["Rudra's Storm"] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Etoile Gorget +2", augments={'Path: A',}},
         waist={ name="Kentarch Belt +1", augments={'Path: A',}},
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -482,11 +487,11 @@ right_ear="Maculele Earring",
         right_ring="Cornelia's Ring",
         back="Sacro Mantle",
     })
-    sets.precast.WS["Rudra's Storm"].SC = set_combine(sets.precast.WS["Rudra's Storm"], {    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    sets.precast.WS["Rudra's Storm"].SC = set_combine(sets.precast.WS["Rudra's Storm"], {head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Warder's Charm +1", augments={'Path: A',}},})
 
     sets.precast.WS["Rudra's Storm"].PDL = set_combine(sets.precast.WS["Rudra's Storm"], {
@@ -538,11 +543,11 @@ sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
 
 sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     right_ear="Friomisi Earring",
@@ -668,11 +673,11 @@ sets.defense.Evasion = {
 
 sets.defense.PDT = {        
     ammo="Eluder's Sachet",
-    head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
@@ -686,11 +691,11 @@ sets.defense.HP = {
     main={ name="Twashtar", augments={'Path: A',}},
     sub={ name="Aeneas", augments={'Path: A',}},
     ammo="Eluder's Sachet",
-    head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
     left_ear="Tuisto Earring",
@@ -766,11 +771,11 @@ sets.defense.Enmity = {
 
 sets.idle.PDT = {        
     range="Trollbane",  
-    head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt +1",
     left_ear="Tuisto Earring",
@@ -817,11 +822,11 @@ sets.idle.HP = {
     main={ name="Twashtar", augments={'Path: A',}},
     sub={ name="Aeneas", augments={'Path: A',}},
     ammo="Eluder's Sachet",
-    head="Nyame Helm",
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body="Adamantite Armor",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
     left_ear="Tuisto Earring",
@@ -954,7 +959,7 @@ sets.engaged.CRIT = {
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     }
 
-    sets.engaged.DT =  {
+sets.engaged.DT =  {
         ammo="Staunch Tathlum +1",
         head={ name="Gleti's Mask", augments={'Path: A',}},
         body={ name="Gleti's Cuirass", augments={'Path: A',}},
@@ -968,7 +973,7 @@ sets.engaged.CRIT = {
         left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
         right_ring="Fortified Ring",
         back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-        }
+    }
        
 
  ------------------------------------------------------------------------------------------------
@@ -1037,7 +1042,7 @@ sets.engaged.DW.CRIT = {
     right_ring="Gere Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
  }
- sets.engaged.DW.SubtleBlow = set_combine(sets.engaged, { 
+ sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.SubtleBlow, { 
     left_ear="Sherida Earring",    
     left_ring="Chirich Ring +1",
  })
@@ -1118,25 +1123,25 @@ sets.engaged.DW.CRIT = {
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 24%
-    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.Acc, {
         head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 24%
-    sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.STP, {
         head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 24%
-    sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.CRIT.MidHaste = set_combine(sets.engaged.DW.CRIT, {
         head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     })-- 24%
-    sets.engaged.DW.SubtleBlow.MidHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.SubtleBlow.MidHaste = set_combine(sets.engaged.DW.SubtleBlow, {
         head="Maxixi Tiara +3", --8
         left_ear="Suppanomimi",  --5
         right_ear="Sherida Earring",
@@ -1152,17 +1157,24 @@ sets.engaged.DW.CRIT = {
     sets.engaged.DW.Regain.MaxHaste = set_combine(sets.engaged.DW.Regain)
 
 
-    sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW)
-
+    sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW, {
+        left_ear="Suppanomimi",  --5
+        right_ear="Eabani Earring", --4
+    })-- 5%
     sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.Acc, {
         left_ear="Suppanomimi",  --5
+        right_ear="Eabani Earring", --4
     })-- 5%
     sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.STP, {
         left_ear="Suppanomimi",  --5
     })-- 5%
     sets.engaged.DW.CRIT.HighHaste = set_combine(sets.engaged.DW.CRIT)
-    sets.engaged.DW.SubtleBlow.HighHaste = set_combine(sets.engaged.DW.SubtleBlow)
-    sets.engaged.DW.Regain.HighHaste = set_combine(sets.engaged.DW.Regain)
+    sets.engaged.DW.SubtleBlow.HighHaste = set_combine(sets.engaged.DW.SubtleBlow, {
+        left_ear="Suppanomimi",  --5
+        right_ear="Eabani Earring",    })-- 5%
+    sets.engaged.DW.Regain.HighHaste = set_combine(sets.engaged.DW.Regain, {
+        left_ear="Suppanomimi",  --5
+        right_ear="Eabani Earring",    })-- 5%
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -1182,7 +1194,8 @@ sets.engaged.DW.CRIT = {
     sets.engaged.Acc.PDT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
     sets.engaged.STP.PDT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
     sets.engaged.CRIT.PDT = set_combine(sets.engaged.CRIT, sets.engaged.Hybrid)
-    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid)
+    sets.engaged.SubtleBlow.PDT = set_combine(sets.engaged.SubtleBlow, sets.engaged.Hybrid,{ 
+    left_ring="Chirich Ring +1",})
     sets.engaged.Regain.PDT = set_combine(sets.engaged.Regain, sets.engaged.Hybrid,{
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
@@ -1194,7 +1207,8 @@ sets.engaged.DW.CRIT = {
     sets.engaged.DW.Acc.PDT = set_combine(sets.engaged.DW.Acc, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT = set_combine(sets.engaged.DW.CRIT, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
-    sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT = set_combine(sets.engaged.DW.SubtleBlow, sets.engaged.Hybrid,{ 
+    left_ring="Chirich Ring +1",})
     sets.engaged.DW.Regain.PDT = set_combine(sets.engaged.DW.Regain, sets.engaged.Hybrid,{
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
@@ -1206,7 +1220,8 @@ sets.engaged.DW.CRIT = {
     sets.engaged.DW.Acc.PDT.LowHaste = set_combine(sets.engaged.DW.Acc.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT.LowHaste = set_combine(sets.engaged.DW.CRIT.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.SubtleBlow.PDT.LowHaste = set_combine(sets.engaged.DW.SubtleBlow.LowHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT.LowHaste = set_combine(sets.engaged.DW.SubtleBlow.LowHaste, sets.engaged.Hybrid,{ 
+        left_ring="Chirich Ring +1",})
     sets.engaged.DW.Regain.PDT.LowHaste = set_combine(sets.engaged.DW.Regain.LowHaste, sets.engaged.Hybrid,{
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
@@ -1231,7 +1246,8 @@ sets.engaged.DW.CRIT = {
     sets.engaged.DW.Acc.PDT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.CRIT.PDT.MaxHaste = set_combine(sets.engaged.DW.CRIT.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.STP.PDT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.SubtleBlow.PDT.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow.MaxHaste, sets.engaged.Hybrid)
+    sets.engaged.DW.SubtleBlow.PDT.MaxHaste = set_combine(sets.engaged.DW.SubtleBlow.MaxHaste, sets.engaged.Hybrid,{ 
+        left_ring="Chirich Ring +1",})
     sets.engaged.DW.Regain.PDT.MaxHaste = set_combine(sets.engaged.DW.Regain.MaxHaste, sets.engaged.Hybrid,{
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
@@ -1240,30 +1256,6 @@ sets.engaged.DW.CRIT = {
         legs={ name="Gleti's Breeches", augments={'Path: A',}},
         feet={ name="Gleti's Boots", augments={'Path: A',}},})
     --SubtleBlow 55% set
-
-    sets.engaged.SubtleBlow = set_combine(sets.engaged, {  
-        right_ear="Sherida Earring",    
-        left_ring="Chirich Ring +1",
-    })
-    sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.Acc, {   
-        right_ear="Sherida Earring",    
-        left_ring="Chirich Ring +1",
-    })
-    sets.engaged.CRIT.SubtleBlow = set_combine(sets.engaged.CRIT, { 
-        right_ear="Sherida Earring",    
-        left_ring="Chirich Ring +1",
-    })
-    sets.engaged.STP.SubtleBlow = set_combine(sets.engaged.STP, {  
-        right_ear="Sherida Earring",    
-        left_ring="Chirich Ring +1",
-    })
-
-
-    sets.engaged.DW.SubtleBlow = set_combine(sets.engaged.DW, sets.engaged.SubtleBlow)
-    sets.engaged.DW.Acc.SubtleBlow = set_combine(sets.engaged.DW.Acc, sets.engaged.SubtleBlow)
-    sets.engaged.DW.CRIT.SubtleBlow = set_combine(sets.engaged.DW.CRIT, sets.engaged.SubtleBlow)
-    sets.engaged.DW.STP.SubtleBlow = set_combine(sets.engaged.DW.STP, sets.engaged.SubtleBlow)
-
 
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Special Sets ------------------------------------------
@@ -1312,6 +1304,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
     if spellMap == 'Utsusemi' then
@@ -1530,14 +1528,14 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_handle_equipping_gear(playerStatus, eventArgs)
-    --check_gear()
+    check_gear()
     update_combat_form()
     determine_haste_group()
     check_moving()
 end
 
 function job_update(cmdParams, eventArgs)
-
+    handle_equipping_gear(player.status)
 end
 function update_combat_form()
     if DW == true then
@@ -1656,7 +1654,22 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- User self-commands.
 -------------------------------------------------------------------------------------------------------------------
-
+function determine_haste_group()
+    classes.CustomMeleeGroups:clear()
+    if DW == true then
+        if DW_needed <= 1 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 1 and DW_needed <= 9 then
+            classes.CustomMeleeGroups:append('HighHaste')
+        elseif DW_needed > 9 and DW_needed <= 21 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 21 and DW_needed <= 39 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 39 then
+            classes.CustomMeleeGroups:append('')
+        end
+    end
+end
 -- Called for custom player commands.
 function job_self_command(cmdParams, eventArgs)
     if cmdParams[1] == 'step' then
@@ -1715,22 +1728,6 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
-function determine_haste_group()
-    classes.CustomMeleeGroups:clear()
-    if DW == true then
-        if DW_needed <= 1 then
-            classes.CustomMeleeGroups:append('MaxHaste')
-        elseif DW_needed > 1 and DW_needed <= 9 then
-            classes.CustomMeleeGroups:append('HighHaste')
-        elseif DW_needed > 9 and DW_needed <= 21 then
-            classes.CustomMeleeGroups:append('LowHaste')
-        elseif DW_needed > 21 and DW_needed <= 39 then
-            classes.CustomMeleeGroups:append('LowHaste')
-        elseif DW_needed > 39 then
-            classes.CustomMeleeGroups:append('')
-        end
-    end
-end
 function check_gear()
     if no_swap_gear:contains(player.equipment.left_ring) then
         disable("ring1")

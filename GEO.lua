@@ -165,6 +165,16 @@ function init_gear_sets()
         ring1="Mallquis Ring",
     })
 
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    }
+    
     sets.ConserveMP = {  
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Vedic Coat",

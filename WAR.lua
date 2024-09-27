@@ -223,7 +223,7 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
      sets.precast.JA['Warcry'] = { head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},}
      sets.precast.JA['Mighty Strikes'] = {hands="Boii Mufflers +3"}
      sets.precast.JA['Retaliation'] = {}
-     sets.precast.JA['Aggressor'] = {}
+     sets.precast.JA['Aggressor'] = {body="Agoge Lorica"}
      sets.precast.JA['Restraint'] = {hands="Boii Mufflers +3"}
      sets.precast.JA['Warrior\'s Charge'] = {}
      sets.precast.JA.Tomahawk = set_combine(sets.precast.JA, {ammo="Thr. Tomahawk",feet="Agoge Calligae +3"})
@@ -1376,7 +1376,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
-
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()
@@ -1593,11 +1598,6 @@ function job_buff_change(buff, gain)
             send_command('input /p "Mighty Strikes" [OFF]')
         end
     end
-    if buff == "Warcry" and buffactive['Warcry'] then
-            cancel_spell()
-            add_to_chat(123, spell.name..' Canceled: [active]')
-        
-    end
 	if buff == "Warcry" then
         if gain then  			
             send_command('input /p "Warcry" [ON]')		
@@ -1615,10 +1615,10 @@ function job_buff_change(buff, gain)
     end    
     if buff == "sleep" and gain and player.hp > 200 and player.status == "Engaged" then
         equip({neck="Vim Torque +1"})
-        disable('neck')
-    elseif not gain then 
-        enable('neck')
-        handle_equipping_gear(player.status)
+    else
+        if not midaction() then
+            status_change(player.status)
+        end
     end
     if buff == "Restraint" and not gain then
         if player.status == 'Engaged' then

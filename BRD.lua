@@ -125,37 +125,22 @@ function user_setup()
     state.Etude = M{['description']='Etude',  'Herculean Etude', 'Sage Etude', 'Sinewy Etude', 'Learned Etude',
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
-        Panacea = T{
-            'Bind',
-            'Bio',
-            'Dia',
-            'Accuracy Down',
-            'Attack Down',
-            'Evasion Down',
-            'Defense Down',
-            'Magic Evasion Down',
-            'Magic Def. Down',
-            'Magic Acc. Down',
-            'Magic Atk. Down',
-            'Max HP Down',
-            'Max MP Down',
-            'slow',
-            'weight'}
-            -- 'Out of Range' distance; WS will auto-cancel
-        range_mult = {
-                [0] = 0,
-                [2] = 1.70,
-                [3] = 1.490909,
-                [4] = 1.44,
-                [5] = 1.377778,
-                [6] = 1.30,
-                [7] = 1.20,
-                [8] = 1.30,
-                [9] = 1.377778,
-                [10] = 1.45,
-                [11] = 1.490909,
-                [12] = 1.70,
-            } 
+
+    -- 'Out of Range' distance; WS will auto-cancel
+    range_mult = {
+        [0] = 0,
+        [2] = 1.70,
+        [3] = 1.490909,
+        [4] = 1.44,
+        [5] = 1.377778,
+        [6] = 1.30,
+        [7] = 1.20,
+        [8] = 1.30,
+        [9] = 1.377778,
+        [10] = 1.45,
+        [11] = 1.490909,
+        [12] = 1.70,
+    } 
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
@@ -232,6 +217,15 @@ function init_gear_sets()
 
     sets.DefaultShield = {sub="Genmei Shield"}
 
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    }
     -- Precast Sets
 
     -- Fast cast sets for spells
@@ -1064,7 +1058,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
         end
     end
-
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
     if spell.type == 'BardSong' then
         if spell.name == 'Honor March' then
             equip({range="Marsyas"})

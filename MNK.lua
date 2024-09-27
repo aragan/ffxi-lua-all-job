@@ -180,15 +180,21 @@ function init_gear_sets()
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",
     body="Passion Jacket",
 
-   })   sets.precast.RA = { ammo=empty,
-   range="Trollbane",  
-
-
+   })  
+   
+   sets.precast.RA = {ammo=empty,
+   head={ name="Nyame Helm", augments={'Path: B',}},
+   body={ name="Nyame Mail", augments={'Path: B',}},
+   hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+   legs={ name="Nyame Flanchard", augments={'Path: B',}},
+   feet={ name="Nyame Sollerets", augments={'Path: B',}},
+   left_ear="Crep. Earring",
+   right_ear="Telos Earring",
    }
-       sets.midcast.RA = { ammo=empty,
-        range="Trollbane",  
 
-     }
+    sets.midcast.RA = { ammo=empty,
+        range="Trollbane",  
+    }
 
 
        
@@ -864,6 +870,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 end

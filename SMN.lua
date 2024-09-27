@@ -228,6 +228,16 @@ function init_gear_sets()
 
     sets.precast.BloodPactRage = sets.precast.BloodPactWard
 
+	sets.precast.RA = {ammo=empty,
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
+	}
+
     -- Fast cast sets for spells
     
     sets.precast.FC = {
@@ -292,7 +302,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-           sets.precast.WS['Black Halo'] = {
+    sets.precast.WS['Black Halo'] = {
             ammo="Crepuscular Pebble",
             head="Nyame Helm",
             body="Nyame Mail",

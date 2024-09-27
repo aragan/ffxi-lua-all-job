@@ -198,6 +198,16 @@ function init_gear_sets()
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {legs="Dashing Subligar"}
 
+	sets.precast.RA = {ammo=empty,
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
+	}
+
     -- Fast cast sets for spells
     
     -- 80% Fast Cast (including trait) for all spells, plus 5% quick cast
@@ -250,11 +260,11 @@ sets.DT = {
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
 		ammo="Aurgelmir Orb +1",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		left_ear="Ishvara Earring",
@@ -269,21 +279,21 @@ sets.DT = {
 		left_ring="Sroda Ring", 
 	})
 	sets.precast.WS.SC = set_combine(sets.precast.WS, {
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck={ name="Warder's Charm +1", augments={'Path: A',}},
 	})
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Requiescat'] = {
 		ammo="Regal Gem",
-		head="Nyame Helm",
-		body="Nyame Mail",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
 		hands="Bunzi's Gloves",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		left_ear="Malignance Earring",
@@ -300,11 +310,11 @@ sets.DT = {
 
     sets.precast.WS['Savage Blade'] = {
 		ammo="Aurgelmir Orb +1",
-		head="Nyame Helm",
-		body="Nyame Mail",
-		hands="Nyame Gauntlets",
-		legs="Nyame Flanchard",
-		feet="Nyame Sollerets",
+		head={ name="Nyame Helm", augments={'Path: B',}},
+		body={ name="Nyame Mail", augments={'Path: B',}},
+		hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
 		neck="Rep. Plat. Medal",
 		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 		right_ear="Sherida Earring",
@@ -321,11 +331,11 @@ sets.DT = {
 		
 	sets.precast.WS['Death Blossom'] = {
     ammo="Aurgelmir Orb +1",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     right_ear="Ishvara Earring",
@@ -395,11 +405,11 @@ sets.precast.WS['Black Halo'].PDL = set_combine(sets.precast.WS['Savage Blade'],
 
 sets.precast.WS['Shattersoul'] = {
 	ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Brutal Earring",
@@ -421,10 +431,10 @@ sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS['Shattersoul'],
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
     ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck="Sibyl Scarf",
         waist="Orpheus's Sash",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -443,11 +453,11 @@ sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
 
 sets.precast.WS["Burning Blade"] = set_combine(sets.precast.WS, {
 	ammo="Pemphredo Tathlum",
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck="Baetyl Pendant",
 	waist="Orpheus's Sash",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -920,9 +930,9 @@ sets.idle.Normal = {
 	ammo="Homiliary",
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body="Lethargy Sayon +3",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Loricate Torque +1", augments={'Path: A',}},
 	waist="Carrier's Sash",
 	left_ear="Etiolation Earring",
@@ -936,11 +946,11 @@ sets.idle.Town ={legs="Carmine Cuisses +1",
 
 sets.idle.Weak = {
 	ammo="Homiliary",
-	head="Nyame Helm",
+	head={ name="Nyame Helm", augments={'Path: B',}},
 	body="Shamash Robe",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Loricate Torque +1", augments={'Path: A',}},
 	waist="Carrier's Sash",
 	left_ear="Tuisto Earring",
@@ -951,11 +961,11 @@ sets.idle.Weak = {
 
 sets.idle.PDT = {
 	ammo="Homiliary",
-	head="Nyame Helm",
+	head={ name="Nyame Helm", augments={'Path: B',}},
 	body="Adamantite Armor",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Loricate Torque +1", augments={'Path: A',}},
 	waist="Carrier's Sash",
 	left_ear="Tuisto Earring",
@@ -983,11 +993,11 @@ sets.idle.MDT = {
 
 sets.idle.HP={
 	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
+	head={ name="Nyame Helm", augments={'Path: B',}},
 	body="Adamantite Armor",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 	waist="Plat. Mog. Belt",
 	left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -1003,7 +1013,7 @@ sets.idle.Enmity = {
 	body={ name="Emet Harness +1", augments={'Path: A',}},
 	hands="Merlinic Dastanas",
 	legs={ name="Zoar Subligar +1", augments={'Path: A',}},
-	feet="Nyame Sollerets",
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Unmoving Collar +1", augments={'Path: A',}},
 	waist="Flume Belt +1",
 	left_ear="Trux Earring",
@@ -1039,11 +1049,11 @@ sets.idle.Sphere = set_combine(sets.idle, {
 -- Defense sets
 sets.defense.PDT = {
 	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
+	head={ name="Nyame Helm", augments={'Path: B',}},
 	body="Adamantite Armor",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Loricate Torque +1", augments={'Path: A',}},
 	waist="Carrier's Sash",
 	left_ear="Tuisto Earring",
@@ -1058,7 +1068,7 @@ sets.defense.MDT = {
 	body="Malignance Tabard",
 	hands="Bunzi's Gloves",
 	legs="Malignance Tights",
-	feet="Nyame Sollerets",
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
 	neck={ name="Warder's Charm +1", augments={'Path: A',}},
 	waist="Carrier's Sash",
 	left_ear="Sanare Earring",
@@ -1445,6 +1455,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             cancel_spell()
             add_to_chat(123, spell.name..' Canceled: [Out of /eq]')
             return
+        end
+    end
+	if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 	if spell.english == 'Aeolian Edge' then

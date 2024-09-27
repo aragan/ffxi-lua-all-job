@@ -193,6 +193,16 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {}
     
+    sets.precast.RA = {ammo=empty,
+	head={ name="Nyame Helm", augments={'Path: B',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
+	}
+
     -- Weaponskill sets
 
     -- Default set for any weaponskill that isn't any more specifically defined

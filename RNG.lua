@@ -1015,6 +1015,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
+	if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
     if spell.action_type == 'Ranged Attack' or (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
 		check_ammo(spell, action, spellMap, eventArgs)
 	end

@@ -1288,7 +1288,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             eventArgs.handled = true
         end
     end
-
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
     if spellMap == 'Utsusemi' then
         if buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)'] then
             cancel_spell()

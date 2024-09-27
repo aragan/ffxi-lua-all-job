@@ -298,17 +298,16 @@ sets.DefaultShield = {sub="Blurred Shield +1"}
     
     sets.precast.RA = { ammo=empty,
         range="Trollbane",  
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
         waist="Yemaya Belt",
         left_ear="Crep. Earring",
         right_ear="Telos Earring",
         left_ring="Purity Ring",
         right_ring="Ilabrat Ring",
-
     }
     sets.midcast.RA = { ammo=empty,
         range="Trollbane",  
@@ -1868,6 +1867,12 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.name == 'Impact' then
 		equip(sets.precast.FC.Impact)
 	end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
 end
   
   

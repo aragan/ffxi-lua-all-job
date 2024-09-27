@@ -251,16 +251,17 @@ function init_gear_sets()
     -- Ranged
     --------------------------------------
 
-    sets.precast.RA = { 
-    ammo=empty,
-    range="Trollbane",  
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
     }
-    sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
-    })
+
+    sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {})
     sets.midcast.RA.TH = set_combine(sets.midcast.RA, set.TreasureHunter)
 
     -- Fast cast sets for spells
@@ -1492,7 +1493,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
-
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
     if spell.name == 'Spectral Jig' and buffactive.sneak then
         -- If sneak is active when using, cancel before completion
         -- send_command('cancel 71')

@@ -319,6 +319,17 @@ sets.precast.FC.Cure.DT = set_combine(sets.precast.FC,{
 })
 sets.precast.FC.Jettatura = set_combine(sets.Enmity,{
 })
+
+sets.precast.RA = {ammo=empty,
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
+left_ear="Crep. Earring",
+right_ear="Telos Earring",
+}
+
    -- Weaponskill sets
    -- Default set for any weaponskill that isn't any more specifically defined
 sets.precast.WS = {   
@@ -1932,6 +1943,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         elseif buffactive['Copy Image'] or buffactive['Copy Image (2)'] then
             send_command('cancel 66; cancel 444; cancel Copy Image; cancel Copy Image (2)')
+        end
+    end
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
         end
     end
 end

@@ -352,7 +352,17 @@ function init_gear_sets()
 				left_ring="Etana Ring",
 				right_ring="Varar Ring +1 +1",
 
-			}
+	}
+	
+    sets.precast.RA = {ammo=empty,
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    }
 
 	-- VIOLENT FLOURISH
 	sets.precast.Flourish1 = {}
@@ -1692,7 +1702,12 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
-
+    if spell.english == 'Warcry' then
+        if buffactive['Warcry'] then
+            cancel_spell()
+            add_to_chat(123, spell.name..' Canceled: Warcry its up [active]')
+        end
+    end
 	if spell.english == 'Reward' then
 		if state.RewardMode.value == 'Theta' then
 			equip(sets.precast.JA.Reward.Theta)
