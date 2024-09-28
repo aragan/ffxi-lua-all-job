@@ -57,6 +57,7 @@ function job_setup()
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.phalanxset = M(true,false)
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     blue_magic_maps = {}
@@ -276,6 +277,8 @@ function user_setup()
     send_command('bind f4 input //fillmode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
+    send_command('bind !p gs c toggle phalanxset')
+
     select_default_macro_book()
 
     -- 'Out of Range' distance; WS will auto-cancel
@@ -1911,6 +1914,11 @@ function job_buff_change(buff, gain)
     if state.Buff[buff] ~= nil then
         state.Buff[buff] = gain
     end
+    if buff == "phalanx" or "Phalanx II" then
+        if gain then
+            state.phalanxset:set(false)
+        end
+    end
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -2080,6 +2088,13 @@ function job_state_change(stateField, newValue, oldValue)
         send_command('input /lockstyleset 152')
     elseif clubList:contains(player.equipment.main) then
         send_command('input /lockstyleset 149')
+    end
+    if state.phalanxset .value == true then
+        --equip(sets.midcast.Phalanx)
+        send_command('gs equip sets.midcast.Phalanx')
+        send_command('input /p Phalanx set equiped [ON] PLZ GIVE ME PHALANX')		
+    else 
+        state.phalanxset:set(false)
     end
     if update_job_states then update_job_states() 
     end

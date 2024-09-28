@@ -58,14 +58,11 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
 
 -- Setup vars that are user-independent.
@@ -74,7 +71,8 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
-    
+    state.phalanxset = M(true,false)
+
     send_command('lua l PLD-HUD')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
@@ -156,6 +154,7 @@ function user_setup()
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
     send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind !p gs c toggle phalanxset')
 
      -- ctrl+/ gs disable all
     send_command('bind ^/ gs disable all')
@@ -166,7 +165,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.Auto_Kite = M(false, 'Auto_Kite')
 
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode","SrodaBelt"},{"IdleMode","ShieldMode","OffenseMode","WeaponskillMode","CastingMode","Runes","TreasureMode"}) 
+    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode","SrodaBelt"},{"IdleMode","ShieldMode","WeaponSet","OffenseMode","WeaponskillMode","CastingMode","Runes","TreasureMode"}) 
     end
     -- 'Out of Range' distance; WS will auto-cancel
     range_mult = {
@@ -2055,6 +2054,11 @@ function job_buff_change(buff,gain)
             state.BrachyuraEarring:set(false)
         end
     end
+    if buff == "phalanx" or "Phalanx II" then
+        if gain then
+            state.phalanxset:set(false)
+        end
+    end
     if buff == "terror" then
         if gain then
             send_command('input /p i am TERROR cant move.')		
@@ -2382,6 +2386,13 @@ function job_state_change(stateField, newValue, oldValue)
     else 
         enable('ear1')
         state.BrachyuraEarring:set(false)
+    end
+    if state.phalanxset .value == true then
+        --equip(sets.midcast.Phalanx)
+        send_command('gs equip sets.midcast.Phalanx')
+        send_command('input /p Phalanx set equiped [ON] PLZ GIVE ME PHALANX')		
+    else 
+        state.phalanxset:set(false)
     end
     if update_job_states then update_job_states() 
     end

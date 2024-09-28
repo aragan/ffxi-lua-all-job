@@ -57,6 +57,7 @@ function job_setup()
     state.Knockback = M(false, 'Knockback')
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
+    state.phalanxset = M(true,false)
 
     send_command('wait 2;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
@@ -130,6 +131,7 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind !p gs c toggle phalanxset')
 
     state.Moving  = M(false, "moving")
 
@@ -421,13 +423,13 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 }
 
     sets.midcast['Enhancing Magic'].SIRD = sets.midcast.SIRD
-    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
+    sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
         head="Fu. Bandeau +3",
         body={ name="Herculean Vest", augments={'Phys. dmg. taken -1%','Accuracy+11 Attack+11','Phalanx +2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
         feet={ name="Herculean Boots", augments={'Accuracy+8','Pet: Attack+28 Pet: Rng.Atk.+28','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},
     })
-    sets.midcast['Phalanx'].SIRD = set_combine(sets.midcast['Phalanx'],sets.midcast.SIRD)
+    sets.midcast.Phalanx.SIRD = set_combine(sets.midcast.Phalanx,sets.midcast.SIRD)
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Rune. Bandeau +3",
         neck="Sacro Gorget",
@@ -937,6 +939,11 @@ function job_buff_change(buff,gain)
             state.BrachyuraEarring:set(false)
         end
     end
+    if buff == "phalanx" or "Phalanx II" then
+        if gain then
+            state.phalanxset:set(false)
+        end
+    end
     if buff == "terror" then
         if gain then
             equip(sets.defense.PDT)
@@ -1215,6 +1222,13 @@ function job_state_change(stateField, newValue, oldValue)
     else 
         enable('ear1')
         state.BrachyuraEarring:set(false)
+    end
+    if state.phalanxset .value == true then
+        --equip(sets.midcast.Phalanx)
+        send_command('gs equip sets.midcast.Phalanx')
+        send_command('input /p Phalanx set equiped [ON] PLZ GIVE ME PHALANX')		
+    else 
+        state.phalanxset:set(false)
     end
     if update_job_states then update_job_states() 
     end
