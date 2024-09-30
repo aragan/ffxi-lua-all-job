@@ -72,14 +72,11 @@ organizer_items = {
     "Shinobi-Tabi",
     "Shihei",
     "Remedy",
-    "Wh. Rarab Cap +1",
     "Emporox's Ring",
     "Red Curry Bun",
     "Instant Reraise",
     "Black Curry Bun",
     "Rolan. Daifuku",
-    "Qutrub Knife",
-    "Wind Knife +1",
     "Reraise Earring",}
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
@@ -154,7 +151,7 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M(false, "hippoMode")
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'Tauret', 'Naegling', 'Aeneas', 'Xoanon'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'TwashtarCrepuscular', 'Tauret', 'Naegling', 'NaeglingCrepuscular', 'Aeneas', 'Xoanon'}
     --state.Moving = M(false, "moving")
 
 
@@ -210,14 +207,19 @@ function init_gear_sets()
     --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
     sets.normal = {}
     sets.Twashtar = {main="Twashtar", sub="Centovente"}
+    sets.TwashtarCrepuscular = {main="Twashtar", sub="Crepuscular Knife"}
     sets.Tauret = {main="Tauret", sub="Crepuscular Knife",}
     sets.Naegling = {main="Naegling", sub="Centovente"}
+    sets.NaeglingCrepuscular = {main="Naegling", sub="Crepuscular Knife"}
     sets.Aeneas = {main="Aeneas", sub="Centovente"}
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}
 
-    sets.precast.RA = {ammo=empty,
+    -- Precast Sets
+
+    sets.precast.RA = {
+        range="Trollbane",  
     head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -226,6 +228,15 @@ function init_gear_sets()
     left_ear="Crep. Earring",
     right_ear="Telos Earring",
     }
+    sets.midcast.RA = {
+        range="Trollbane",  
+        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
+	body={ name="Nyame Mail", augments={'Path: B',}},
+	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+	legs={ name="Nyame Flanchard", augments={'Path: B',}},
+	feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    }	
+
     -- Precast Sets
 
     -- Fast cast sets for spells
@@ -325,7 +336,7 @@ function init_gear_sets()
         ring1="Ilabrat Ring",
         ring2="Cornelia's Ring",
         waist="Kentarch Belt +1",
-        back="Intarabus's Cape",
+        back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     
     sets.precast.WS.PDL = set_combine(sets.precast.WS,{
@@ -378,7 +389,7 @@ function init_gear_sets()
     ring1="Sroda Ring", 
     ring2="Cornelia's Ring",
     waist="Sailfi Belt +1",
-    back="Intarabus's Cape",
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 sets.precast.WS['Mordant Rime'].PDL = set_combine(sets.precast.WS['Mordant Rime'],{
     body="Bunzi's Robe",})
@@ -394,7 +405,7 @@ ear1="Moonshade Earring",
 ring1="Ilabrat Ring",
 ring2="Cornelia's Ring",
 waist="Kentarch Belt +1",
-back="Intarabus's Cape",
+back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 sets.precast.WS['Rudras Storm'].PDL = set_combine(sets.precast.WS['Rudras Storm'],{
     body="Bunzi's Robe",
@@ -412,7 +423,7 @@ ear2="Ishvara Earring",
 ring1="Sroda Ring", 
 ring2="Cornelia's Ring",
 waist="Sailfi Belt +1",
-back="Intarabus's Cape",
+back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'],{
@@ -432,7 +443,7 @@ left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 right_ear="Friomisi Earring",
 left_ring="Cornelia's Ring",
 right_ring="Freke Ring",
-back={ name="Aurist's Cape +1", augments={'Path: A',}},}
+back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
 
 
 -- Elemental Weapon Skill --elemental_ws--
@@ -451,7 +462,7 @@ sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
     right_ear="Friomisi Earring",
     left_ring="Cornelia's Ring",
     right_ring="Archon Ring",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
 
 sets.precast.WS["Dark Harvest"] = set_combine(sets.precast.WS["Sanguine Blade"], {})
@@ -475,7 +486,7 @@ feet={ name="Nyame Sollerets", augments={'Path: B',}},
     ring2="Cornelia's Ring",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    back="Intarabus's Cape",
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 })
 sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
 sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
@@ -513,8 +524,7 @@ sets.precast.WS['Black Halo'] = {
     right_ear="Ishvara Earring",
     left_ring="Sroda Ring", 
     right_ring="Cornelia's Ring",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
-}
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
 
 
 sets.precast.WS['Shattersoul'] = {
@@ -529,16 +539,14 @@ sets.precast.WS['Shattersoul'] = {
     right_ear="Ishvara Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     left_ring="Rufescent Ring",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
-}
+    back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},}
 
 
     
     -- Midcast Sets
 
     -- General set for recast times.
-    sets.midcast.FastRecast = {   
-        }
+    sets.midcast.FastRecast = {}
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
     sets.midcast.Ballad = {}
@@ -709,15 +717,15 @@ sets.midcast.SongStringSkill = {
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
         hands="Inyan. Dastanas +2",
         legs={ name="Chironic Hose", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','MND+7','"Mag.Atk.Bns."+10',}},
-        feet={ name="Medium's Sabots", augments={'MP+25','MND+2','"Conserve MP"+3',}},
+        feet="Medium's Sabots",
         neck="Incanter's Torque",
         waist="Luminary Sash",
         left_ear="Crep. Earring",
         right_ear="Fili Earring +1",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
-            back="Aurist's Cape +1",
-            }
+        back="Aurist's Cape +1",
+        }
     
     sets.midcast.Dispelga = set_combine(sets.midcast['Enfeebling Magic'], {main="Daybreak", sub="Ammurapi Shield"})
     
@@ -888,7 +896,8 @@ sets.idle.Sphere = set_combine(sets.idle, {
         left_ear="Telos Earring",
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",    }
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+        }
 
     -- Sets with weapons defined.
     sets.engaged.Shield = {range="Linos",
@@ -905,8 +914,8 @@ sets.idle.Sphere = set_combine(sets.idle, {
         right_ear="Fili Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
-    }
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+        }
 
     sets.engaged.CRIT = set_combine(sets.engaged, {
         range="Linos",
@@ -915,7 +924,8 @@ sets.idle.Sphere = set_combine(sets.idle, {
         feet="Aya. Gambieras +2",
         neck="Nefarious Collar +1",
         right_ring="Hetairoi Ring",
-        back="Annealed Mantle",    })
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},  
+      })
     sets.engaged.Acc = set_combine(sets.engaged, {        range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ashera Harness",
@@ -928,7 +938,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
     sets.engaged.PD = set_combine(sets.engaged, {range="Linos",
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -942,7 +952,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         right_ear="Balder Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Defending Ring",
-        back="Moonlight Cape",
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
 
     ---------------------------------------- DW-HASTE ------------------------------------------
@@ -963,7 +973,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         right_ear="Balder Earring +1",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back="Annealed Mantle",    
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},    
     })
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.Acc ,{
@@ -978,7 +988,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         right_ear="Cessance Earring",
         left_ring="Chirich Ring +1",
         right_ring="Chirich Ring +1",
-        back={ name="Aurist's Cape +1", augments={'Path: A',}},
+        back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     })
     sets.engaged.DW.CRIT = set_combine(sets.engaged.CRIT, {
     range="Linos",
@@ -989,7 +999,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
     waist="Reiki Yotai",
     left_ear="Suppanomimi",
     right_ring="Hetairoi Ring",
-    back="Annealed Mantle",    
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},   
     })
 ------------------------------------------------------------------------------------------------
 ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -1345,7 +1355,7 @@ function update_offense_mode()
 end
 function job_handle_equipping_gear(playerStatus, eventArgs)
     update_combat_form()
-    check_moving()
+    --check_moving()
     check_weaponset()
 end
 function update_combat_form()
@@ -1366,7 +1376,7 @@ end
 
 -- Called by the 'update' self-command.
 function job_update(cmdParams, eventArgs)
-    check_moving()
+    --check_moving()
     check_weaponset()
 
 end
