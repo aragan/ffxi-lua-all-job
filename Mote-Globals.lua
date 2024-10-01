@@ -37,7 +37,6 @@ function define_global_sets()
 	gear.default.fastcast_staff = ""
 	gear.default.recast_staff = ""
 	sets.WSDayBonus = {head="Gavialis Helm"}
-
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -62,7 +61,6 @@ function global_on_load()
 
 	send_command('bind ^- gs c toggle selectnpctargets')
 	send_command('bind !- gs c cycle pctargetmode')
-
 end
 
 -- Function to revert binds when unloading.
@@ -88,17 +86,19 @@ function global_on_unload()
 	send_command('unbind !f12')
 	send_command('unbind ^-')
 	send_command('unbind ^=')
+	send_command('unbind -')
+	send_command('unbind =')
+	send_command('unbind !P')
+	send_command('unbind ^P')
+
 	send_command('lua u AutoCOR')
 	send_command('lua u PLD-HUD')
 	send_command('lua u DNC-hud')
 	send_command('lua u sch-hud')
 
 	send_command('input //parse reset')
-	--send_command('input //gs org')
-
-
+	send_command('input //gs org')
 end
-send_command('input //gs org')
 
 -------------------------------------------------------------------------------------------------------------------
 -- Global event-handling functions.
@@ -146,3 +146,5 @@ function is_sc_element_today(spell)
     end
 
 end
+
+

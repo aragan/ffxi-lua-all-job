@@ -277,7 +277,7 @@ function user_setup()
     send_command('bind f4 input //fillmode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
-    send_command('bind !p gs c toggle phalanxset')
+    send_command('bind ^p gs c toggle phalanxset')
 
     select_default_macro_book()
 

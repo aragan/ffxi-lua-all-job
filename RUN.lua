@@ -131,7 +131,7 @@ function user_setup()
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind delete gs c toggle BrachyuraEarring')
-    send_command('bind !p gs c toggle phalanxset')
+    send_command('bind ^p gs c toggle phalanxset')
 
     state.Moving  = M(false, "moving")
 
