@@ -23,7 +23,9 @@
     
     To use a Terpander rather than Daurdabla, set the info.ExtraSongInstrument variable to
     'Terpander', and info.ExtraSongs to 1.
---]]
+---]]
+
+--use addon singer OR AutoBuffBard addon
 
 -- Initialization function for this job file.
 function get_sets()
@@ -81,7 +83,7 @@ organizer_items = {
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 
-    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength', 'Marsyas'}
+    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
@@ -142,6 +144,8 @@ function user_setup()
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
 
+    info.SongHorn = 'Gjallarhorn'
+
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
 
@@ -180,7 +184,7 @@ function user_setup()
     update_combat_form()
 	DW_needed = 0
     DW = false
-    state.Auto_Kite = M(false, 'Auto_Kite')
+    --state.Auto_Kite = M(false, 'Auto_Kite')
     state.Moving  = M(false, "moving")
     moving = false
 	--add that at the end of user_setup
@@ -219,7 +223,7 @@ function init_gear_sets()
     -- Precast Sets
 
     sets.precast.RA = {
-        range="Trollbane",  
+    range="Trollbane",  
     head={ name="Nyame Helm", augments={'Path: B',}},
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -229,9 +233,9 @@ function init_gear_sets()
     right_ear="Telos Earring",
     }
     sets.midcast.RA = {
-        range="Trollbane",  
-        head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
-	body={ name="Nyame Mail", augments={'Path: B',}},
+    range="Trollbane",  
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body={ name="Nyame Mail", augments={'Path: B',}},
 	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 	legs={ name="Nyame Flanchard", augments={'Path: B',}},
 	feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -305,7 +309,8 @@ function init_gear_sets()
 }
 
     sets.precast.FC.DaurdablaDummy = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
-        
+    sets.precast.FC.Gjallarhorn = set_combine(sets.precast.FC.BardSong, {range=info.SongHorn})
+
     
     -- Precast sets to enhance JAs
     
@@ -646,9 +651,9 @@ sets.midcast.SongStringSkill = {
 
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
     sets.midcast.DaurdablaDummy = set_combine(sets.midcast.SongEffect, {range=info.ExtraSongInstrument})
-
     sets.midcast.DaurdablaDummy.AUGMENT = set_combine(sets.midcast.SongEffect.AUGMENT, {range=info.ExtraSongInstrument})
 
+    sets.midcast.Gjallarhorn = set_combine(sets.midcast.SongEffect, {range=info.SongHorn})
 
     -- Other general spells and classes.
     sets.midcast.Cure = {
@@ -757,8 +762,7 @@ sets.midcast.SongStringSkill = {
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Stikini Ring +1",
         right_ring="Defending Ring",
-        back="Moonlight Cape",
-    }
+        back="Intarabus's Cape",    }
     sets.defense.Evasion = {
         head={ name="Nyame Helm", augments={'Path: B',}},
         body={ name="Nyame Mail", augments={'Path: B',}},
@@ -802,7 +806,7 @@ sets.midcast.SongStringSkill = {
         right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="Stikini Ring +1",
         right_ring="Defending Ring",
-        back="Moonlight Cape",
+        back="Intarabus's Cape",
     }
 
     sets.idle.PDT = {        head={ name="Nyame Helm", augments={'Path: B',}},
@@ -816,7 +820,7 @@ sets.midcast.SongStringSkill = {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
     right_ring="Defending Ring",
-    back="Moonlight Cape",
+    back="Intarabus's Cape",
     }
 
     sets.idle.Town = {    
@@ -866,8 +870,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring="Stikini Ring +1",
     right_ring="Defending Ring",
-    back="Moonlight Cape",
-    }
+    back="Intarabus's Cape",    }
 
 
     sets.Kiting = {feet="Fili Cothurnes +2"}
@@ -1078,6 +1081,9 @@ function job_precast(spell, action, spellMap, eventArgs)
         if spell.name == 'Honor March' then
             equip({range="Marsyas"})
         end
+        if spell.name == "Aria of Passion" then
+            equip({range="Loughnashade"})
+        end
         if string.find(spell.name,'Lullaby') then
             if buffactive.Troubadour then
                 equip({range="Marsyas"})
@@ -1140,6 +1146,9 @@ function job_midcast(spell, action, spellMap, eventArgs)
             if spell.name == 'Honor March' then
                 equip({range="Marsyas"})
             end
+            if spell.name == "Aria of Passion" then
+                equip({range="Loughnashade"})
+            end
             if string.find(spell.name,'Lullaby') then
                 if buffactive.Troubadour then
                     equip({range="Marsyas"})
@@ -1158,15 +1167,10 @@ function job_midcast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
-    if spell.type == 'BardSong' then
-        if state.ExtraSongsMode.value == 'FullLength' then
-            equip({range="Gjallarhorn"})
-        elseif state.ExtraSongsMode.value == 'Marsyas' then
-            equip({range="Marsyas"})
-        end
+
 
         --state.ExtraSongsMode:reset()
-    end
+    
     if not spell.interrupted then
         if spell.name == 'Utsusemi: Ichi' then
             overwrite = true
@@ -1380,7 +1384,7 @@ function job_update(cmdParams, eventArgs)
     check_weaponset()
 
 end
-function check_moving()
+--[[function check_moving()
     if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
         if state.Auto_Kite.value == false and moving then
             state.Auto_Kite:set(true)
@@ -1392,7 +1396,7 @@ function check_moving()
 
         end
     end
-end
+end]]
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
@@ -1418,9 +1422,9 @@ function customize_idle_set(idleSet)
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     end
-    if state.Auto_Kite.value == true then
+    --[[if state.Auto_Kite.value == true then
 		idleSet = set_combine(idleSet, sets.Kiting)
-	end
+	end]]
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
@@ -1462,6 +1466,8 @@ function get_song_class(spell)
         end
     elseif state.ExtraSongsMode.value == 'Dummy' then
         return 'DaurdablaDummy'
+    elseif state.ExtraSongsMode.value == 'FullLength' then
+        return 'Gjallarhorn'
     else
         return 'SongEffect'
     end
