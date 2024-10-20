@@ -223,7 +223,7 @@ function init_gear_sets()
         right_ring="Ilabrat Ring",
         back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     }
-    sets.midcast.RA = { ammo=empty,
+    sets.midcast.RA = { 
         range="Trollbane",  
         head={ name="Sakonji Kabuto +3", augments={'Enhances "Ikishoten" effect',}},
 	body={ name="Nyame Mail", augments={'Path: B',}},
@@ -272,7 +272,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         left_ring="Sroda Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -302,7 +302,7 @@ function init_gear_sets()
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     }
     sets.precast.WS['Namas Arrow'].PDL = set_combine(sets.precast.WS['Namas Arrow'], {
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         left_ring="Sroda Ring", 
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -324,7 +324,7 @@ function init_gear_sets()
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Apex Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -346,7 +346,7 @@ function init_gear_sets()
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
     sets.precast.WS['Empyreal Arrow'].PDL = set_combine(sets.precast.WS['Apex Arrow'], {
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -373,7 +373,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -399,7 +399,7 @@ function init_gear_sets()
 	body={ name="Nyame Mail", augments={'Path: B',}},
 	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 	legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         ear1="Lugra Earring +1", 
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
@@ -428,7 +428,7 @@ function init_gear_sets()
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -458,7 +458,7 @@ function init_gear_sets()
             body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -472,7 +472,7 @@ function init_gear_sets()
             body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
     left_ring="Sroda Ring", 
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -498,7 +498,7 @@ function init_gear_sets()
             body={ name="Nyame Mail", augments={'Path: B',}},
     hands={ name="Nyame Gauntlets", augments={'Path: B',}},
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
-    feet="Kas. Sune-Ate +2",
+    feet="Kas. Sune-Ate +3",
         left_ring="Sroda Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -512,7 +512,7 @@ function init_gear_sets()
         body="Kasuga Domaru +2",
         hands="Flam. Manopolas +2",
         legs="Kasuga Haidate +2",
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Eschan Stone",
         left_ear="Digni. Earring",
@@ -526,7 +526,7 @@ function init_gear_sets()
 	body={ name="Nyame Mail", augments={'Path: B',}},
 	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
 	legs={ name="Nyame Flanchard", augments={'Path: B',}},
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         left_ring="Sroda Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -552,7 +552,7 @@ function init_gear_sets()
         body={ name="Nyame Mail", augments={'Path: B',}},
       hands={ name="Nyame Gauntlets", augments={'Path: B',}},
       legs={ name="Nyame Flanchard", augments={'Path: B',}},
-      feet="Kas. Sune-Ate +2",
+      feet="Kas. Sune-Ate +3",
         left_ring="Sroda Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     })
@@ -613,7 +613,7 @@ function init_gear_sets()
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Orpheus's Sash",
         right_ear="Friomisi Earring",
@@ -876,6 +876,7 @@ sets.idle.Town = {
 --     body="Councilor's Garb"
 -- })
     sets.idle.Regen = set_combine(sets.idle, { 
+    range="Trollbane", 
         neck={ name="Bathy Choker +1", augments={'Path: A',}},
         right_ear="Infused Earring",
         left_ring="Chirich Ring +1",
@@ -1105,7 +1106,7 @@ sets.idle.Town = {
         body="Kasuga Domaru +2",
         hands="Wakido Kote +3",
         legs="Kasuga Haidate +2",
-        feet="Kas. Sune-Ate +2",
+        feet="Kas. Sune-Ate +3",
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Gerdr Belt",
         left_ear="Dedition Earring",
@@ -1140,7 +1141,7 @@ sets.idle.Town = {
     body="Crepuscular Mail",})
     
     sets.buff.Sekkanoki = {hands="unkai kote +2"}
-    sets.buff.Sengikori = {feet="Kas. Sune-Ate +2",}
+    sets.buff.Sengikori = {feet="Kas. Sune-Ate +3",}
     sets.buff['Meikyo Shisui'] = {feet="Sakonji Sune-ate +3"}
     
     sets.thirdeye = {head="Kasuga Kabuto +2", legs="Sakonji Haidate +3"}
@@ -1319,7 +1320,7 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-    --[[if player.hpp < 5 then --if u hp 10% or down click f12 to change to sets.Reraise this code add from Aragan Asura
+    --[[if player.hpp < 5 then --code add from Aragan Asura
         idleSet = set_combine(idleSet, sets.Reraise)
         send_command('input //gs equip sets.Reraise')
     end]]

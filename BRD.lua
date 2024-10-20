@@ -311,7 +311,11 @@ function init_gear_sets()
     sets.precast.FC.DaurdablaDummy = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
     sets.precast.FC.Gjallarhorn = set_combine(sets.precast.FC.BardSong, {range=info.SongHorn})
 
-    
+
+    --dummy songs
+   
+    sets.precast["Shining Fantasia"] = sets.midcast.DaurdablaDummy
+    sets.precast["Herb Pastoral"] =  sets.midcast.DaurdablaDummy
     -- Precast sets to enhance JAs
     
     sets.precast.JA.Nightingale = {feet="Bihu Slippers +3"}
@@ -654,6 +658,14 @@ sets.midcast.SongStringSkill = {
     sets.midcast.DaurdablaDummy.AUGMENT = set_combine(sets.midcast.SongEffect.AUGMENT, {range=info.ExtraSongInstrument})
 
     sets.midcast.Gjallarhorn = set_combine(sets.midcast.SongEffect, {range=info.SongHorn})
+
+    --dummy songs
+    sets.midcast["Army's Paeon"] = sets.midcast.DaurdablaDummy
+    sets.midcast["Valor Minuet"] = sets.midcast.DaurdablaDummy
+    sets.midcast["Knight's Minne"] = sets.midcast.DaurdablaDummy
+    sets.midcast["Sheepfoe Mambo"] = sets.midcast.DaurdablaDummy
+    sets.midcast["Shining Fantasia"] = sets.midcast.DaurdablaDummy
+    sets.midcast["Herb Pastoral"] = sets.midcast.DaurdablaDummy
 
     -- Other general spells and classes.
     sets.midcast.Cure = {

@@ -133,7 +133,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc', 'STP', 'CRIT', 'SubtleBlow', 'Regain', 'DT')
     state.HybridMode:options('Normal', 'PDT')
     state.WeaponskillMode:options('Normal', 'SC', 'PDL')
-    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'DT', 'Enmity', 'HP')
+    state.PhysicalDefenseMode:options('Evasion', 'PDT', 'DT', 'Enmity', 'HP', 'Regain')
     state.MagicalDefenseMode:options('MDT')
     state.IdleMode:options('Normal', 'PDT', 'DT','Regen', 'HP', 'Evasion', 'Enmity', 'EnemyCritRate')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar','Centovente', 'Tauret', 'Aeneas'}
@@ -214,7 +214,7 @@ function init_gear_sets()
         body="Maxixi Casaque +2",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Dashing Subligar",
-        feet="Maxixi Toe Shoes +2",
+        feet="Maxixi Toe Shoes +3",
         neck={ name="Etoile Gorget +2", augments={'Path: A',}},
         waist="Plat. Mog. Belt",
         left_ear="Tuisto Earring",
@@ -229,7 +229,7 @@ function init_gear_sets()
     
     sets.precast.Samba = {head="Maxixi Tiara +3",back="Senuna's Mantle"}
 
-    sets.precast.Jig = {feet="Maxixi Toe Shoes +2",}
+    sets.precast.Jig = {feet="Maxixi Toe Shoes +3",}
 
     sets.precast.Step = {    ammo="C. Palug Stone",
     head="Maxixi Tiara +3",
@@ -704,6 +704,21 @@ sets.defense.HP = {
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonlight Cape",
 }
+sets.defense.Regain = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Gleti's Mask", augments={'Path: A',}},
+    body={ name="Gleti's Cuirass", augments={'Path: A',}},
+    hands="Regal Gloves",
+    legs={ name="Gleti's Breeches", augments={'Path: A',}},
+    feet={ name="Gleti's Boots", augments={'Path: A',}},
+    neck="Rep. Plat. Medal",
+    waist="Engraved Belt",
+    left_ear="Eabani Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    }
 
 sets.defense.Enmity = {
     ammo="Iron Gobbet",
@@ -947,7 +962,7 @@ sets.engaged.CRIT = {
     ammo="Staunch Tathlum +1",
     head={ name="Gleti's Mask", augments={'Path: A',}},
     body={ name="Gleti's Cuirass", augments={'Path: A',}},
-    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    hands="Regal Gloves",
     legs={ name="Gleti's Breeches", augments={'Path: A',}},
     feet={ name="Gleti's Boots", augments={'Path: A',}},
     neck="Rep. Plat. Medal",
@@ -1051,7 +1066,7 @@ sets.engaged.DW.CRIT = {
     ammo="Staunch Tathlum +1",
     head={ name="Gleti's Mask", augments={'Path: A',}},
     body={ name="Gleti's Cuirass", augments={'Path: A',}},
-    hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+    hands="Regal Gloves",
     legs={ name="Gleti's Breeches", augments={'Path: A',}},
     feet={ name="Gleti's Boots", augments={'Path: A',}},
     neck="Rep. Plat. Medal",
@@ -1200,7 +1215,7 @@ sets.engaged.DW.CRIT = {
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
         body={ name="Gleti's Cuirass", augments={'Path: A',}},
-        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        hands="Regal Gloves",
         legs={ name="Gleti's Breeches", augments={'Path: A',}},
         feet={ name="Gleti's Boots", augments={'Path: A',}},})
     sets.engaged.DW.PDT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
@@ -1213,7 +1228,7 @@ sets.engaged.DW.CRIT = {
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
         body={ name="Gleti's Cuirass", augments={'Path: A',}},
-        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        hands="Regal Gloves",
         legs={ name="Gleti's Breeches", augments={'Path: A',}},
         feet={ name="Gleti's Boots", augments={'Path: A',}},})
     sets.engaged.DW.PDT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
@@ -1226,7 +1241,7 @@ sets.engaged.DW.CRIT = {
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
         body={ name="Gleti's Cuirass", augments={'Path: A',}},
-        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        hands="Regal Gloves",
         legs={ name="Gleti's Breeches", augments={'Path: A',}},
         feet={ name="Gleti's Boots", augments={'Path: A',}},})
 
@@ -1252,7 +1267,7 @@ sets.engaged.DW.CRIT = {
         neck="Rep. Plat. Medal",
         head={ name="Gleti's Mask", augments={'Path: A',}},
         body={ name="Gleti's Cuirass", augments={'Path: A',}},
-        hands={ name="Gleti's Gauntlets", augments={'Path: A',}},
+        hands="Regal Gloves",
         legs={ name="Gleti's Breeches", augments={'Path: A',}},
         feet={ name="Gleti's Boots", augments={'Path: A',}},})
     --SubtleBlow 55% set
