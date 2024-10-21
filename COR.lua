@@ -94,7 +94,7 @@ function job_setup()
     state.Moving  = M(false, "moving")
     state.RP = M(false, "Reinforcement Points Mode")  
     state.CapacityMode = M(false, 'Capacity Point Mantle') 
-    state.phalanxset = M(true,false)
+    state.phalanxset = M(false,true)
 
     -- Whether a warning has been given for low ammo
     state.warned = M(false)

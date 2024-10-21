@@ -71,7 +71,7 @@ function job_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
-    state.phalanxset = M(true,false)
+    state.phalanxset = M(false,true)
 
     send_command('lua l PLD-HUD')
     include('Mote-TreasureHunter')
@@ -154,7 +154,7 @@ function user_setup()
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
     send_command('bind delete gs c toggle BrachyuraEarring')
-    send_command('bind !p gs c toggle phalanxset')
+    send_command('bind ^p gs c toggle phalanxset')
 
      -- ctrl+/ gs disable all
     send_command('bind ^/ gs disable all')
@@ -300,13 +300,13 @@ back="Rudianos's Mantle",
    back="Moonlight Cape",
 }
  sets.precast.FC.DT = set_combine(sets.precast.FC, {})
-   sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
+ sets.precast.FC.Phalanx = set_combine(sets.precast.FC, {waist="Siegel Sash",})
  sets.precast.FC.Enlight = sets.precast.FC
  sets.precast.FC['Enlight II'] = sets.precast.FC
  sets.precast.FC.Protect = sets.precast.FC
  sets.precast.FC.Shell = sets.precast.FC
  sets.precast.FC.Crusade = sets.precast.FC
-   sets.precast.FC.Cure = set_combine(sets.precast.FC,{
+ sets.precast.FC.Cure = set_combine(sets.precast.FC,{
    right_ear="Mendi. Earring",
    left_ring="Moonlight Ring",
    waist="Acerbic Sash +1",

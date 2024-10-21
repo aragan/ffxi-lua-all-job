@@ -82,7 +82,7 @@ function job_setup()
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.Proc = M(false, 'Proc')
     state.unProc = M(false, 'unProc')
-    state.phalanxset = M(true,false)
+    state.phalanxset = M(false,true)
 
 
     swordList = S{'Naegling'}

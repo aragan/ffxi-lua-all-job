@@ -57,7 +57,7 @@ function job_setup()
     state.Knockback = M(false, 'Knockback')
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
-    state.phalanxset = M(true,false)
+    state.phalanxset = M(false,true)
 
     send_command('wait 2;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
@@ -240,7 +240,7 @@ function init_gear_sets()
         left_ring="Prolix Ring",
         right_ring="Kishar Ring",}
 
-        sets.precast.FC.Cure = set_combine(sets.precast.FC,{
+    sets.precast.FC.Cure = set_combine(sets.precast.FC,{
         legs="Doyen Pants",
         })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {

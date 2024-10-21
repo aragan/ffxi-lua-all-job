@@ -92,6 +92,7 @@ function global_on_unload()
 	send_command('unbind ^P')
 
 	send_command('lua u AutoCOR')
+	send_command('lua u Singer')
 	send_command('lua u PLD-HUD')
 	send_command('lua u DNC-hud')
 	send_command('lua u sch-hud')

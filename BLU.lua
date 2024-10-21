@@ -57,7 +57,7 @@ function job_setup()
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
-    state.phalanxset = M(true,false)
+    state.phalanxset = M(false,true)
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     blue_magic_maps = {}
@@ -2094,7 +2094,7 @@ function job_state_change(stateField, newValue, oldValue)
         send_command('gs equip sets.midcast.Phalanx')
         send_command('input /p Phalanx set equiped [ON] PLZ GIVE ME PHALANX')		
     else 
-        state.phalanxset:set(false)
+        state.phalanxset:reset()
     end
     if update_job_states then update_job_states() 
     end

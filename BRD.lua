@@ -82,12 +82,11 @@ organizer_items = {
     "Reraise Earring",}
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-
+	send_command('lua l Singer')
     state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
-    
     send_command('wait 6;input /lockstyleset 168')
     -- For tracking current recast timers via the Timers plugin.
     custom_timers = {}
@@ -314,8 +313,10 @@ function init_gear_sets()
 
     --dummy songs
    
-    sets.precast["Shining Fantasia"] = sets.midcast.DaurdablaDummy
-    sets.precast["Herb Pastoral"] =  sets.midcast.DaurdablaDummy
+    sets.precast["Army's Paeon"] = sets.FC.DaurdablaDummy
+    sets.precast["Valor Minuet"] = sets.FC.DaurdablaDummy
+    sets.precast["Shining Fantasia"] = sets.FC.DaurdablaDummy
+    sets.precast["Herb Pastoral"] =  sets.FC.DaurdablaDummy
     -- Precast sets to enhance JAs
     
     sets.precast.JA.Nightingale = {feet="Bihu Slippers +3"}
