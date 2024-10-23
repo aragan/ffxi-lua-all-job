@@ -83,7 +83,7 @@ organizer_items = {
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 	send_command('lua l Singer')
-    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength'}
+    state.ExtraSongsMode = M{['description']='Extra Songs', 'None', 'Dummy', 'FullLength', 'Marsyas'}
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.Buff['Pianissimo'] = buffactive['pianissimo'] or false
@@ -142,8 +142,9 @@ function user_setup()
     
     -- Adjust this if using the Terpander (new +song instrument)
     info.ExtraSongInstrument = 'Daurdabla'
-
     info.SongHorn = 'Gjallarhorn'
+    info.SongMarsyas = 'Marsyas'
+
 
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
@@ -309,14 +310,10 @@ function init_gear_sets()
 
     sets.precast.FC.DaurdablaDummy = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
     sets.precast.FC.Gjallarhorn = set_combine(sets.precast.FC.BardSong, {range=info.SongHorn})
+    sets.precast.FC.Marsyas = set_combine(sets.precast.FC.BardSong, {range=info.SongMarsyas})
 
 
-    --dummy songs
-   
-    sets.precast["Army's Paeon"] = sets.FC.DaurdablaDummy
-    sets.precast["Valor Minuet"] = sets.FC.DaurdablaDummy
-    sets.precast["Shining Fantasia"] = sets.FC.DaurdablaDummy
-    sets.precast["Herb Pastoral"] =  sets.FC.DaurdablaDummy
+    
     -- Precast sets to enhance JAs
     
     sets.precast.JA.Nightingale = {feet="Bihu Slippers +3"}
@@ -559,7 +556,8 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.FastRecast = {}
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-    sets.midcast.Ballad = {}
+    sets.midcast.Ballad = {    	legs="Fili Rhingrave +2",--legs="Fili Rhingrave +3",
+}
     sets.midcast.Lullaby = {}
     sets.midcast.Madrigal = {head="Fili Calot +2", back="Intarabus's Cape",}
     sets.midcast.March = {hands="Fili Manchettes +2",}
@@ -567,12 +565,31 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {}
     sets.midcast.Carol = {}
-    sets.midcast["Sentinel's Scherzo"] = {}
-    sets.midcast['Magic Finale'] = {}
+    sets.midcast["Sentinel's Scherzo"] = {    	feet="Fili Cothurnes +2",--feet="Fili Cothurnes +3",
+}
+    sets.midcast['Magic Finale'] = {    	neck="Sanctity Necklace",
+    waist="Luminary Sash",
+    legs="Fili Rhingrave +2",--legs="Fili Rhingrave +3",
+}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
     
-
+    sets.AUGMENT = {
+        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    head="Fili Calot +2",
+    body="Fili Hongreline +2",
+    hands="Fili Manchettes +2",
+    legs="Fili Rhingrave +2",
+    feet="Fili Cothurnes +2",
+    neck="Mnbw. Whistle +1",
+    ear1="Odnowa Earring +1",
+    ear2="Etiolation Earring",
+    ring1="Moonlight Ring",
+    ring2="Defending Ring",
+    waist="Flume Belt +1",
+    back="Intarabus's Cape",
+    }
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEffect = {
         main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
@@ -584,10 +601,10 @@ sets.precast.WS['Shattersoul'] = {
     feet="Brioso Slippers +3",
     neck="Mnbw. Whistle +1",
     ear1="Odnowa Earring +1",
-    ear2="Etiolation Earring",
-    ring1="Moonlight Ring",
-    ring2="Defending Ring",
-    waist="Flume Belt +1",
+    ear2="Loquac. Earring",
+    ring1="Stikini Ring +1",
+    ring2="Stikini Ring +1",
+    waist="Witful Belt",
     back="Intarabus's Cape",
 }
 sets.midcast.SongEffect.AUGMENT = {
@@ -659,6 +676,7 @@ sets.midcast.SongStringSkill = {
     sets.midcast.DaurdablaDummy.AUGMENT = set_combine(sets.midcast.SongEffect.AUGMENT, {range=info.ExtraSongInstrument})
 
     sets.midcast.Gjallarhorn = set_combine(sets.midcast.SongEffect, {range=info.SongHorn})
+    sets.midcast.Marsyas = set_combine(sets.midcast.SongEffect, {range=info.SongMarsyas})
 
     --dummy songs
     sets.midcast["Army's Paeon"] = sets.midcast.DaurdablaDummy
@@ -1481,6 +1499,8 @@ function get_song_class(spell)
         return 'DaurdablaDummy'
     elseif state.ExtraSongsMode.value == 'FullLength' then
         return 'Gjallarhorn'
+    elseif state.ExtraSongsMode.value == 'Marsyas' then
+        return 'Marsyas'
     else
         return 'SongEffect'
     end

@@ -211,7 +211,7 @@ function init_gear_sets()
     sets.precast.Waltz = {
         ammo="Yamarang",
         head="Mummu Bonnet +2",
-        body="Maxixi Casaque +2",
+        body="Maxixi Casaque +3",
         hands={ name="Nyame Gauntlets", augments={'Path: B',}},
         legs="Dashing Subligar",
         feet="Maxixi Toe Shoes +3",
