@@ -676,14 +676,48 @@ if longrangeWS:contains(spell.english) and spell.target.distance > 10+target_dis
 
 ----------
 function customize_melee_set(meleeSet)
-    if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Berserker's Torque When You Are Asleep
-        meleeSet = set_combine(meleeSet,{neck="Berserker's Torque"})
+    if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
+        meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
     end
     return meleeSet
 end
 
-------------
+-----------
+  elseif gain and (buff=='sleep') then
+             equip({neck="Vim Torque +1"})
+        end
+    end
+---------
 
+ if buffactive["sleep"] then
+             equip({neck="Vim Torque +1"})
+        end
+    end
+
+if gain and (buff=="doom" or buff=="curse") then
+------------
+--in gear sets area:
+
+sets.buff = {}
+sets.buff.doom = {neck="Nicander's Necklace",
+                   ring1="Eshmun's Ring",
+                   ring2="Eshmun's Ring",
+                   legs="Shabti Cuisses +1",
+                   waist="Gishdubar Sash"}
+sets.buff.curse = set_combine(sets.buff.doom)
+sets.buff.terror = set_combine(sets.engaged.DT)
+sets.buff.sleep = {neck="Vim Torque +1"}
+sets.buff.anything = {--[[whatever]]}
+
+---not in gear area
+function job_buff_change(buff, gain)
+    buff = buff:lower()
+    if gain and sets.buff[buff] then
+      equip(sets.buff[buff])
+    end
+end
+
+------------
 -- Auto toggle Magic burst set.
 function user_setup()
 
@@ -735,4 +769,103 @@ if player and player.index and windower.ffxi.get_mob_by_index(player.index) then
             end
         end
     end)
+end
+
+-----------
+
+send_command('wait 105;input //gs c reset Aja_Duration Timer')
+
+elseif spell.english == 'Impact' then
+				send_command('timers create "Impact ' ..tostring(spell.target.name).. ' " 180 down spells/00502.png')
+        elseif Elemental_Debuffs:contains(spell.english) then
+			if spell.english == 'Burn' then
+				send_command('timers create "Burn ' ..tostring(spell.target.name).. ' " 180 down spells/00235.png')
+
+
+	elseif command == "reset Aja_Duration Timer" then
+		send_command("@input /echo <----- ".. Aja_Table[1] ..": Cumulative Magic Effect Has Worn Off ----->")
+		table.remove(Aja_Table,1)
+		Aja_Table_ind = Aja_Table_ind - 1
+		if Aja_Table[1] == nil then
+			Aja_Duration_Boost = false
+			send_command("@input /echo <----- All Cumulative Magic Duration Effects Have Expired ----->")
+		end
+
+
+
+--------------------
+
+-- Stratagems tell in pt chat <t> <recast=Stratagems>
+input /p 2 STEP SC start 1 Liquefaction 2 Fusion  >> mb 2 TIME FIRE
+input /ja "Immanence" <me>;
+wait 1;
+/P Liquefaction Scholar SC Opening <t> <call14>
+input /ma "Stone" <t>;
+wait 5;
+input /ja "Immanence" <me>;
+wait 1;
+input /p Liquefaction Scholar SC Closing 1 <t> <recast=Stratagems>
+input /ma "Fire" <t>;
+wait 6;
+input /ja "Immanence" <me>;
+wait 1;
+input /p Fusion Scholar SC Closing 2 <t> <recast=Stratagems>
+input /ma "Ionohelix" <t>;
+wait 5;
+input /ma "Fire V" <t>;
+
+
+
+    --[[if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 138')
+    elseif GKList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 172')
+    elseif katanaList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 144')
+    elseif daggerList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 157')
+    end]]
+    --[[if newStatus == "Idle" then
+        if gsList:contains(player.equipment.main) then
+            windower.chat.input('/lockstyleset 165')
+        else
+            windower.chat.input('/lockstyleset 152')
+        end
+    end]]
+
+
+
+    --[[if swordList:contains(player.equipment.main) then
+        send_command('input /lockstyleset 152')
+    end]]
+
+
+function user_job_lockstyle()
+	if player.equipment.main == nil or player.equipment.main == 'empty' then
+		windower.chat.input('/lockstyleset 001')
+	elseif res.items[item_name_to_id(player.equipment.main)].skill == 3 then --Sword in main hand.
+		if player.equipment.sub == nil or player.equipment.sub == 'empty' then --Sword/Nothing.
+				windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].shield_size then --Sword/Shield
+				windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 3 then --Sword/Sword.
+			windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 2 then --Sword/Dagger.
+			windower.chat.input('/lockstyleset 001')
+		else
+			windower.chat.input('/lockstyleset 001') --Catchall just in case something's weird.
+		end
+	elseif res.items[item_name_to_id(player.equipment.main)].skill == 2 then --Dagger in main hand.
+		if player.equipment.sub == nil or player.equipment.sub == 'empty' then --Dagger/Nothing.
+			windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].shield_size then --Dagger/Shield
+			windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 3 then --Dagger/Sword.
+			windower.chat.input('/lockstyleset 001')
+		elseif res.items[item_name_to_id(player.equipment.sub)].skill == 2 then --Dagger/Dagger.
+			windower.chat.input('/lockstyleset 001')
+		else
+			windower.chat.input('/lockstyleset 001') --Catchall just in case something's weird.
+		end
+	end
 end

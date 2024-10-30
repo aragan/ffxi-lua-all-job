@@ -1,0 +1,8 @@
+-- CODE AUTO RERAISE --Aragan (Asura)  [Author Primary] THIS CODE
+sets.Reraise = {head="Crepuscular Helm", body="Crepuscular Mail"}
+ 
+windower.register_event('hpp change',function(new_hpp,old_hpp)
+    if new_hpp < 5 then
+        equip(sets.Reraise)
+    end
+)
