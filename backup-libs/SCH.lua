@@ -277,13 +277,23 @@ function init_gear_sets()
     hands="Regal Cuffs",
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    waist="Plat. Mog. Belt",
+    waist="Embla Sash",
     neck="Unmoving Collar +1",
     ear1="Eabani Earring",
     ear2="Etiolation Earring",
     ring1="Gelatinous Ring +1",
     ring2="Eihwaz Ring",
     back="Moonlight Cape",    
+}
+
+sets.precast.RA = {ammo=empty,
+head={ name="Nyame Helm", augments={'Path: B',}},
+body={ name="Nyame Mail", augments={'Path: B',}},
+hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+legs={ name="Nyame Flanchard", augments={'Path: B',}},
+feet={ name="Nyame Sollerets", augments={'Path: B',}},
+left_ear="Crep. Earring",
+right_ear="Telos Earring",
 }
 
     -- Fast cast sets for spells
@@ -515,8 +525,8 @@ function init_gear_sets()
         hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Debilis Medallion",
-        left_ring="Ephedra Ring",
-        right_ring="Haoma's Ring",
+        left_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
         }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
