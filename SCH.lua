@@ -75,6 +75,8 @@ function get_sets()
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('SCH_soloSC.lua')
+    include('common_info.skillchain.lua')
     include('organizer-lib')
     organizer_items = {
         "Gyudon",
@@ -277,7 +279,7 @@ function init_gear_sets()
     hands="Regal Cuffs",
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    waist="Plat. Mog. Belt",
+    waist="Embla Sash",
     neck="Unmoving Collar +1",
     ear1="Eabani Earring",
     ear2="Etiolation Earring",
@@ -525,8 +527,8 @@ right_ear="Telos Earring",
         hands={ name="Fanatic Gloves", augments={'MP+50','Healing magic skill +8','"Conserve MP"+5','"Fast Cast"+5',}},
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck="Debilis Medallion",
-        left_ring="Ephedra Ring",
-        right_ring="Haoma's Ring",
+        left_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
         }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
@@ -1620,6 +1622,14 @@ end
 -- Called for direct player commands.
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'soloSC' then
+        if not cmdParams[2] or not cmdParams[3] then
+          errlog('missing required parameters for function soloSkillchain')
+          return
+        else
+          soloSkillchain(cmdParams[2],cmdParams[3],cmdParams[4],cmdParams[5])
+        end
+    end
     if cmdParams[1]:lower() == 'scholar' then
         handle_strategems(cmdParams)
         eventArgs.handled = true
@@ -1859,7 +1869,16 @@ windower.raw_register_event('prerender',function()
         mov.counter = 0
     end
 end)
- 
+
+function getNbStratagems()
+    -- returns recast in seconds.
+    local allRecasts = windower.ffxi.get_ability_recasts()
+    local stratsRecast = allRecasts[231]
+    local maxStrategems = math.floor((player.main_job_level + 10) / 20)
+    local fullRechargeTime = 4*60 -- change 60 with 45 if you have unlocked the job point gift on stratagem recast
+    local currentCharges = math.floor(maxStrategems - maxStrategems * stratsRecast / fullRechargeTime)
+    return currentCharges
+end
 
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

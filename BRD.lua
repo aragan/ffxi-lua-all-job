@@ -158,7 +158,8 @@ function user_setup()
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'TwashtarCrepuscular', 'Tauret', 'Naegling', 'NaeglingCrepuscular', 'Aeneas', 'Xoanon'}
     --state.Moving = M(false, "moving")
 
-
+    --keyboard buttons bind
+    --use //listbinds    .. to show command keys
     -- Additional local binds
     send_command('bind f7 gs c cycle ExtraSongsMode')
     send_command('bind !` input /ma "Chocobo Mazurka" <me>')
@@ -922,7 +923,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ashera Harness",
         hands="Volte Mittens",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet="Battlecast Gaiters",
         neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -940,7 +941,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ashera Harness",
         hands="Bunzi's Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet={ name="Nyame Sollerets", augments={'Path: B',}},
         neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -978,7 +979,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ashera Harness",
         hands="Bunzi's Gloves",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet="Battlecast Gaiters",
         neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist="Reiki Yotai",
@@ -999,7 +1000,7 @@ sets.idle.Sphere = set_combine(sets.idle, {
         head={ name="Blistering Sallet +1", augments={'Path: A',}},
         body="Ashera Harness",
         hands="Volte Mittens",
-        legs={ name="Zoar Subligar +1", augments={'Path: A',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
         feet="Battlecast Gaiters",
         neck={ name="Bard's Charm +2", augments={'Path: A',}},
         waist="Reiki Yotai",
@@ -1041,8 +1042,8 @@ sets.idle.Sphere = set_combine(sets.idle, {
 
 sets.engaged.Hybrid = {
     hands="Bunzi's Gloves",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     ring1="Moonlight Ring", --5/5
     ring2="Moonlight Ring", --5/5
     }
@@ -1734,12 +1735,13 @@ windower.raw_register_event('prerender',function()
     end
 end)
 
+
+windower.raw_register_event('zone change',reset_timers)
+windower.raw_register_event('logout',reset_timers)
+
+
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     set_macro_page(1, 32)
 end
-
-
-windower.raw_register_event('zone change',reset_timers)
-windower.raw_register_event('logout',reset_timers)
 
