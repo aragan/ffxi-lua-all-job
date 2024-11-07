@@ -96,7 +96,8 @@ function global_on_unload()
 	send_command('lua u PLD-HUD')
 	send_command('lua u DNC-hud')
 	send_command('lua u sch-hud')
-
+    send_command('lua u AutoRUN')
+    send_command('lua u runewidget')
 	send_command('input //parse reset')
 	send_command('input //gs org')
 end

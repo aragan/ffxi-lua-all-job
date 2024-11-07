@@ -2050,22 +2050,29 @@ function job_state_change(stateField, newValue, oldValue)
         local msg = ''
         if newValue == 'Ignis' then
             msg = msg .. 'Increasing resistence against ICE and deals FIRE damage.'
+            add_to_chat(167, msg)
         elseif newValue == 'Gelus' then
             msg = msg .. 'Increasing resistence against WIND and deals ICE damage.'
+            add_to_chat(210, msg)
         elseif newValue == 'Flabra' then
             msg = msg .. 'Increasing resistence against EARTH and deals WIND damage.'
+            add_to_chat(215, msg)
         elseif newValue == 'Tellus' then
             msg = msg .. 'Increasing resistence against LIGHTNING and deals EARTH damage.'
+            add_to_chat(206, msg)
         elseif newValue == 'Sulpor' then
             msg = msg .. 'Increasing resistence against WATER and deals LIGHTNING damage.'
+            add_to_chat(050, msg)
         elseif newValue == 'Unda' then
             msg = msg .. 'Increasing resistence against FIRE and deals WATER damage.'
+            add_to_chat(207, msg)
         elseif newValue == 'Lux' then
             msg = msg .. 'Increasing resistence against DARK and deals LIGHT damage.'
+            add_to_chat(001, msg)
         elseif newValue == 'Tenebrae' then
             msg = msg .. 'Increasing resistence against LIGHT and deals DARK damage.'
+            add_to_chat(160, msg)
         end
-        add_to_chat(123, msg)
    -- elseif stateField == 'moving' then
    --     if state.Moving.value then
    --         local res = require('resources')
@@ -2273,14 +2280,15 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
     -- Default macro set/book
-    set_macro_page(8, 27)
-    --[[if player.sub_job == 'DNC' then
-        set_macro_page(8, 27)
+    if player.sub_job == 'DNC' then
+        set_macro_page(1, 27)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(8, 27)
+        set_macro_page(3, 27)
     elseif player.sub_job == 'RUN' then
         set_macro_page(8, 27)
+        send_command('lua l AutoRUN')
+        send_command('lua l runewidget')
     else
         set_macro_page(8, 27)
-    end]]
+    end
 end
