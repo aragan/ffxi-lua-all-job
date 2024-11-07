@@ -485,8 +485,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
 	sets.defense.PDT = {   
     ammo="Staunch Tathlum +1",
-    main="Epeolatry",
-    sub="Refined Grip +1",
     head="Nyame Helm",
     body="Adamantite Armor",
     hands="Nyame Gauntlets",
@@ -502,8 +500,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.defense.PDH = {
     ammo="Staunch Tathlum +1",
-    main="Epeolatry",
-    sub="Refined Grip +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +3",
     hands="Erilaz Gauntlets +2",
@@ -519,7 +515,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     }
     sets.defense.Enmity = { 
         ammo="Iron Gobbet",
-        main="Epeolatry",
         sub="Alber Strap",
         head="Halitus Helm",
         body={ name="Emet Harness +1", augments={'Path: A',}},
@@ -568,16 +563,14 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         main="Malignance Sword",
         sub="Chanter's Shield",
         ammo="Staunch Tathlum +1",
-        head={ name="Founder's Corona", augments={'DEX+10','Accuracy+15','Mag. Acc.+15','Magic dmg. taken -5%',}},
-        body={ name="Sakpata's Plate", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Runeist Coat +3",
         hands="Erilaz Gauntlets +2",
         legs="Rune. Trousers +3",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
         waist="Engraved Belt",
     })
 	sets.defense.MDT = {
-    main="Epeolatry",
-    sub="Refined Grip +1",
     ammo="Staunch Tathlum +1",
     head={ name="Nyame Helm", augments={'Path: B',}},
     body="Runeist Coat +3",
@@ -646,8 +639,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     })
     sets.idle.PDH = {
         ammo="Staunch Tathlum +1",
-        main="Epeolatry",
-        sub="Refined Grip +1",
         head="Erilaz Galea +2",
         body="Erilaz Surcoat +3",
         hands="Erilaz Gauntlets +2",
@@ -664,8 +655,6 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 
     sets.idle.PDT = {   
         ammo="Staunch Tathlum +1",
-        main="Epeolatry",
-        sub="Refined Grip +1",
         head="Nyame Helm",
         body="Adamantite Armor",
         hands="Nyame Gauntlets",
@@ -970,13 +959,6 @@ function job_buff_change(buff,gain)
             enable('ring1','ring2','waist','neck')
             send_command('input /p Doom removed.')
             handle_equipping_gear(player.status)
-        end
-    end
-    if buff == "Charm" then
-        if gain then  			
-           send_command('input /p Charmd, please Sleep me.')		
-        else	
-           send_command('input /p '..player.name..' is no longer Charmed, please wake me up!')
         end
     end
     if buff == "petrification" then

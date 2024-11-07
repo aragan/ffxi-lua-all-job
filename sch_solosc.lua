@@ -115,7 +115,14 @@ Usage example :
 => will do 1 SC Fusion, and cast Fire V for magic burst
 /console gs c soloSC 1 Fusion true true
 => will do 1 SC Fusion and cast Fire V for magic burst, with no information displayed in party chat
---]]
+
+/console gs c soloSC 1 Induration true
+/console gs c soloSC 1 Scission true
+/console gs c soloSC 2 Fusion true
+/console gs c soloSC 1 Fragmentation true
+
+Scission
+  --]]
 function soloSkillchain(nbSC,elementEnd,MB,STFU)
 --**************************************************
 -- CONSTANTS
@@ -459,7 +466,7 @@ function getSpellsForSC(nbSC,elementSCFinale)
   dataSC[el].open.SC = 'Scission'
   dataSC[el].open.castTime = castTime.tier1
   dataSC[el].close = {}
-  dataSC[el].close.magic = 'Geohelix'
+  dataSC[el].close.magic = 'Water'
   dataSC[el].close.castTime = castTime.tier1
   
   el = 'Detonation'
@@ -479,7 +486,7 @@ function getSpellsForSC(nbSC,elementSCFinale)
   dataSC[el].open.SC = 'Reverberation'
   dataSC[el].open.castTime = castTime.tier1
   dataSC[el].close = {}
-  dataSC[el].close.magic = 'Cryohelix'
+  dataSC[el].close.magic = 'Blizzard'
   dataSC[el].close.castTime = castTime.tier1
   
   el = 'Impaction'

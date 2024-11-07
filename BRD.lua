@@ -155,7 +155,7 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M(false, "hippoMode")
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'TwashtarCrepuscular', 'Tauret', 'Naegling', 'NaeglingCrepuscular', 'Aeneas', 'Xoanon'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'TwashtarCrepuscular', 'Tauret', 'Naegling', 'NaeglingCrepuscular','Carnwenhan', 'Aeneas', 'Xoanon'}
     --state.Moving = M(false, "moving")
 
     --keyboard buttons bind
@@ -209,13 +209,13 @@ function init_gear_sets()
     
     ---- WeaponSet ----
 
-    --sets.Carnwenhan = {main="Carnwenhan", sub="Gleti's Knife"}
     sets.normal = {}
     sets.Twashtar = {main="Twashtar", sub="Centovente"}
     sets.TwashtarCrepuscular = {main="Twashtar", sub="Crepuscular Knife"}
     sets.Tauret = {main="Tauret", sub="Crepuscular Knife",}
     sets.Naegling = {main="Naegling", sub="Centovente"}
     sets.NaeglingCrepuscular = {main="Naegling", sub="Crepuscular Knife"}
+    sets.Carnwenhan = {main="Carnwenhan", sub="Crepuscular Knife"}
     sets.Aeneas = {main="Aeneas", sub="Centovente"}
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
@@ -293,7 +293,7 @@ function init_gear_sets()
 })
 
     sets.precast.FC.BardSong = {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+        main="Carnwenhan",
         sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
         head="Fili Calot +2",
         body="Inyanga Jubbah +2",
@@ -576,7 +576,7 @@ sets.precast.WS['Shattersoul'] = {
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
     
     sets.AUGMENT = {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    main="Carnwenhan",
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head="Fili Calot +2",
     body="Fili Hongreline +2",
@@ -593,7 +593,7 @@ sets.precast.WS['Shattersoul'] = {
     }
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEffect = {
-        main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+    main="Carnwenhan",
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     head="Fili Calot +2",
     body="Fili Hongreline +2",
@@ -609,7 +609,7 @@ sets.precast.WS['Shattersoul'] = {
     back="Intarabus's Cape",
 }
 sets.midcast.SongEffect.AUGMENT = {
-    main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
+main="Carnwenhan",
 sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
 head="Fili Calot +2",
 body="Fili Hongreline +2",
