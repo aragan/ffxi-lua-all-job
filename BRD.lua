@@ -1400,11 +1400,6 @@ function update_combat_form()
     elseif DW == false then
         state.CombatForm:reset()
     end
-    if player.equipment.sub:endswith('Shield') then
-        state.CombatForm:reset()
-    end
-    check_weaponset()
-
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
