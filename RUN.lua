@@ -4,7 +4,18 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+--[[ addon help AutoRUN and addon runewidget
 
+for runes use 3 in 1 click in macro:
+
+console gs c rune
+/wait 5
+console gs c rune
+/wait 5
+console gs c rune
+/wait 5
+
+]]
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -1294,20 +1305,20 @@ function update_timers(spell)
     local entry = {rune=spell.name, index=entry_index, expires=expires_time}
 
     rune_timers:append(entry)
-    local cmd_queue = create_timer(entry).. ';wait 0.05;'
+    --local cmd_queue = create_timer(entry).. ';wait 0.05;'
     
-    cmd_queue = cmd_queue .. trim()
+    --cmd_queue = cmd_queue .. trim()
 
-    add_to_chat(123,'cmd_queue='..cmd_queue)
+    --add_to_chat(123,'cmd_queue='..cmd_queue)
 
-    send_command(cmd_queue)
+    --send_command(cmd_queue)
 end
 
 -- Get the command string to create a custom timer for the provided entry.
 function create_timer(entry)
     local timer_name = '"Rune: ' .. entry.rune .. '-' .. tostring(entry.index) .. '"'
     local duration = entry.expires - os.time()
-    return 'timers c ' .. timer_name .. ' ' .. tostring(duration) .. ' down'
+    --return 'timers c ' .. timer_name .. ' ' .. tostring(duration) .. ' down'
 end
 
 -- Get the command string to delete a custom timer for the provided entry.
