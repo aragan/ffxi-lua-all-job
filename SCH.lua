@@ -67,6 +67,98 @@
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
 
+--info.skillchain.tier1 =
+
+--{'Transfixion','Compression','Liquefaction','Scission',
+--'Reverberation','Detonation','Induration','Impaction'}
+
+--info.skillchain.tier2 = {'Gravitation','Distortion','Fusion','Fragmentation'}
+--info.skillchain.tier3 = {'Dark','Light'}
+
+--[[
+use for auto solo skillchain 
+SCH_soloSC.lua and addon schskillchain
+
+SCH_soloSC.lua command :
+
+Usage example : 
+/console gs c soloSC 1 Fusion
+=> will do 1 skillchain, ending with Fusion : Fire, Thunder. Equivalent to /console gs c soloSC 1 Fusion false false
+/console gs c soloSC 3 Fragmentation
+=> will do 3 skillchains, ending with Fragmentation : Stone, Water, Blizzard, Water
+/console gs c soloSC max Fusion
+=> will spend all stratagems to perform skillchains, ending with Fusion
+/console gs c soloSC 1 Fusion true
+=> will do 1 SC Fusion, and cast Fire V for magic burst
+/console gs c soloSC 1 Fusion true true
+=> will do 1 SC Fusion and cast Fire V for magic burst, with no information displayed in party chat
+
+/console gs c soloSC 1 Induration true
+/console gs c soloSC 1 Scission true
+/console gs c soloSC 2 Fusion true
+/console gs c soloSC 1 Fragmentation true
+
+
+NOTE: for sortie NM Triboulex use this command for 2step fusion open close close2 ;
+for macro 
+/console gs c soloSC 2 Fusion true
+
+in chat command:  //gs c soloSC 2 Fusion true
+--------------
+
+addon schskillchain command :
+
+# schskillchain(ssc)
+- usage example
+
+  Open Liquefacrion(溶解)
+
+        //ssc fire open
+
+  Close Liquefacrion(溶解) (settable the first letter of parameter)
+
+        //ssc f c
+
+  Close Liquefacrion(溶解) and Magic Burst Pyrohelix II (火門の計II)
+
+        //ssc f c mb h2 
+
+  Open and Close Fragmentation(分解) (Closing Spell Helix) and Magic Burst Thunder V (サンダーV)
+
+        //ssc t2 a h mb 5
+
+  Open and Close Fragmentation T1 and Magic Burst Thunder V
+
+          //ssc t2 a h mb 5
+  
+  Perform a 6 step skillchain. (For things like Vagary and Omen)
+  
+		//ssc 6step
+		
+for macro solo skillchain and Magic Burst 
+fusion
+/console input //ssc f2 a mb 5
+Fragmentation close with helix
+/console input //ssc t2 a h mb 5
+Induration
+/console input //ssc b a mb 4
+Scission 
+/console input //ssc s a mb 5
+Scission close with helix
+/console input //ssc s a h mb 5
+Gravitation
+/console input //ssc s2 a
+for more info go README.txt for addons
+Distortion
+/console input //ssc b2 a
+]]
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
+
+
 -- Initialization function for this job file.
 function get_sets()
     include('Display.lua')
@@ -175,6 +267,7 @@ function user_setup()
 
     send_command('wait 6;input /lockstyleset 173')
 
+    --use //listbinds    .. to show command keys
     -- Additional local binds
     --send_command('bind f4 @input /ja "Sublimation" <me>')
     send_command('bind f7 input //Sublimator')

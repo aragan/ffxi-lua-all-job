@@ -25,7 +25,7 @@
     'Terpander', and info.ExtraSongs to 1.
 ---]]
 
---use addon singer OR AutoBuffBard addon
+--use addon singer and AutoBuffBard addon -- AutoBuffBard save more song setup command like : //abb bumba ccsv 
 
 -- Initialization function for this job file.
 function get_sets()
