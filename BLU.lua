@@ -85,7 +85,6 @@ function job_setup()
                            ["Plenilune Embrace"]="Plenilune Embrace ",
                            ["Diamondhide"]="Diamondhide",
                            --["Diamondhide "]="Diamondhide",
-                           --["Diamondhide "]="Diamondhide",
                            --["Magic Barrier"]="Magic Barrier",
                            --["Refueling"]="Refueling",
                            ["Diffusion"]="Diffusion",
@@ -93,18 +92,6 @@ function job_setup()
                            ["Carcharian Verve"]="Carcharian Verve",
                            ["Unbridled Learning"]="Unbridled Learning",
                            ["Mighty Guard"]="Mighty Guard",
-
-                           --["Aquaveil"]="Aquaveil",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Aquaveil"]="Aquaveil",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Aquaveil"]="Aquaveil",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Aquaveil"]="Aquaveil",
-                           --["Stoneskin"]="Stoneskin",
-                           --["Stoneskin"]="Stoneskin",
 
     }
     include('common_info.status.lua') 
@@ -411,7 +398,7 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
-    sets.buff['Burst Affinity'] = {legs="Assim. Shalwar +2", feet="Hashi. Basmak +2"}
+    sets.buff['Burst Affinity'] = {legs="Assim. Shalwar +3", feet="Hashi. Basmak +2"}
     sets.buff['Chain Affinity'] = {head="Mavi Kavuk +2", feet="Assimilator's Charuqs"}
     sets.buff.Convergence = {head="Luh. Keffiyeh +3"}
     sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
@@ -795,7 +782,7 @@ sets.midcast['Blue Magic'] = {
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.midcast['Blue Magic'], {  
     ammo="Staunch Tathlum +1",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs="Assim. Shalwar +2",
+    legs="Assim. Shalwar +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Halasz Earring",
     right_ring="Evanescence Ring",
@@ -973,7 +960,7 @@ sets.SIRD = {
     ammo="Staunch Tathlum +1",
     sub="Culminus",
     hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
-    legs="Assim. Shalwar +2",
+    legs="Assim. Shalwar +3",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     left_ear="Halasz Earring",
     right_ring="Evanescence Ring",
