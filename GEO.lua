@@ -4,6 +4,94 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+--[[
+-- work with addon AutoGEO and Gearinfo for more info on screen
+
+-- for easy use geo spells add in macro 
+
+usage ;
+
+for indi spells
+/console gs c indi 
+
+for indi2 with entrust ja spells
+/console gs c indi2
+
+for geo spells
+/console gs c indi 
+
+binds
+
+    send_command('bind f2 gs c cycle Indi2')
+    send_command('bind f3 gs c cycle Indi')
+    send_command('bind f4 gs c cycle geo')
+    send_command('bind !f2 input //gs c Indi2')
+    send_command('bind !f3 input //gs c Indi')
+    send_command('bind !f4 input //gs c geo')
+---
+
+ Geomancer ALL spells
+Geo Acumen
+Geo AGI
+Geo Attunement
+Geo Barrier
+Geo CHR
+Geo DEX
+Geo Fade
+Geo Fend
+Geo Focus
+Geo Frailty
+Geo Fury
+Geo Gravity
+Geo Haste
+Geo INT
+Geo Languor
+Geo Malaise
+Geo MND
+Geo Paralysis
+Geo Poison
+Geo Precision
+Geo Refresh
+Geo Regen
+Geo Slip
+Geo Slow
+Geo STR
+Geo Torpor
+Geo Vex
+Geo VIT
+Geo Voidance
+Geo Wilt
+Indi Acumen
+Indi AGI
+Indi Attunement
+Indi Barrier
+Indi CHR
+Indi DEX
+Indi Fade
+Indi Fend
+Indi Focus
+Indi Frailty
+Indi Fury
+Indi Gravity
+Indi Haste
+Indi INT
+Indi Languor
+Indi Malaise
+Indi MND
+Indi Paralysis
+Indi Poison
+Indi Precision
+Indi Refresh
+Indi Regen
+Indi Slip
+Indi Slow
+Indi STR
+Indi Torpor
+Indi Vex
+Indi VIT
+Indi Voidance
+Indi Wilt
+]]
 
 -- Initialization function for this job file.
 function get_sets()
@@ -12,76 +100,10 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-end
+    send_command('lua l AutoGEO')
 
--- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
-function job_setup()
-    indi_timer = ''
-    indi_duration = 180
-    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
-    state.CapacityMode = M(false, 'Capacity Point Mantle')
-    state.AutoEquipBurst = M(true)
-    send_command('wait 2;input /lockstyleset 178')
-
-end
-
--------------------------------------------------------------------------------------------------------------------
--- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
--------------------------------------------------------------------------------------------------------------------
-
--- Setup vars that are user-dependent.  Can override this function in a sidecar file.
-function user_setup()
-    state.Buff.Poison = buffactive['Poison'] or false
-    state.WeaponLock = M(false, 'Weapon Lock')
-    state.MagicBurst = M(false, 'Magic Burst')
-    state.Moving  = M(false, "moving")
-    state.HippoMode = M(false, "hippoMode")
-
-    state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
-    state.CastingMode:options('Normal', 'MB')
-    state.IdleMode:options('Normal', 'PDT', 'Refresh', 'Sphere')
-    state.PhysicalDefenseMode:options('PDT')
-    state.MagicalDefenseMode:options('MDT')
-    gear.default.weaponskill_waist = "Windbuffet Belt +1"
-
-    geo_sub_weapons = S{"", ""}
-
-    select_default_macro_book()
-    --send_command('bind != gs c toggle CapacityMode')
-    send_command('bind !w gs c toggle WeaponLock')
-    send_command('wait 6;input /lockstyleset 178')
-    send_command('bind f1 gs c cycle HippoMode')
-    send_command('bind ^- gs enable all')
-    send_command('bind ^/ gs disable all')
-    send_command('bind f4 input //fillmode')
-    if init_job_states then init_job_states({"WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","CastingMode"}) 
-    end
-end
-
-function file_unload()
-end
-
--- Define sets and vars used by this job file.
-function init_gear_sets()
-
-    lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder',
-        'Stone II', 'Water II', 'Aero II', 'Fire II', 'Blizzard II', 'Thunder II',
-        'Stone III', 'Water III', 'Aero III', 'Fire III', 'Blizzard III', 'Thunder III',
-        'Stonega', 'Waterga', 'Aeroga', 'Firaga', 'Blizzaga', 'Thundaga', 
-        'Stonera', 'Watera', 'Aerora', 'Fira', 'Blizzara', 'Thundara',
-        'Stonega II', 'Waterga II', 'Aeroga II', 'Firaga II', 'Blizzaga II', 'Thundaga II'}
-    --------------------------------------
-    -- Precast sets
-    --------------------------------------
-
-    -- Precast sets to enhance JAs
-    sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
-    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +3", back="Nantosuelta's Cape"}
-    sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
-    sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +3"}
-    sets.precast.JA['Sublimation'] = {waist="Embla Sash"}
-    --sets.CapacityMantle  = { back="Mecistopins Mantle" }
     organizer_items = {
+        "Airmid's Gorget",
         "Sarama's Hide",
         "Hidhaegg's Scale",
         "Sovereign's Hide",
@@ -123,9 +145,130 @@ function init_gear_sets()
         "Instant Reraise",
         "Black Curry Bun",
         "Rolan. Daifuku",
-        "Qutrub Knife",
-        "Wind Knife +1",
         "Reraise Earring",}
+end
+
+-- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
+function job_setup()
+    indi_timer = ''
+    indi_duration = 180
+    absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-ACC', 'Absorb-TP'}
+    state.CP = M(false, 'Capacity Point Mantle')
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.AutoEquipBurst = M(true)
+    include('Mote-TreasureHunter')
+    state.TreasureMode:set('None')
+    send_command('wait 2;input /lockstyleset 198')
+    state.indi =  M{['description']='indi', 'Indi Acumen', 'Indi Fury', 'Indi Refresh', 'Indi Haste', 'Indi INT', 'Indi Wilt', 'Indi Precision', 'Indi Languor', 'Indi Torpor', 'Indi Voidance', 'Indi Focus',
+    'Indi Fend', 'Indi Fade', 'Indi Barrier', 'Indi Attunement'}
+    state.Indi2 =  M{['description']='indi2', 'Indi INT', 'Indi Haste', 'Indi Acumen', 'Indi Fury', 'Indi Refresh', 'Indi Wilt', 'Indi Precision', 'Indi Languor', 'Indi Torpor', 'Indi Voidance', 'Indi Focus',
+    'Indi Fend', 'Indi Fade', 'Indi Barrier', 'Indi Attunement'}
+    state.geo =  M{['description']='geo', 'Geo Malaise', 'Geo Frailty', 'Geo Wilt', 'Geo Precision', 'Geo Languor', 'Geo Torpor', 'Geo Voidance', 'Geo Focus',
+    'Geo Fend', 'Geo Fade', 'Geo Barrier', 'Geo Attunement'}
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Setup vars that are user-dependent.  Can override this function in a sidecar file.
+function user_setup()
+    state.Buff.Poison = buffactive['Poison'] or false
+    state.WeaponLock = M(false, 'Weapon Lock')
+    state.MagicBurst = M(false, 'Magic Burst')
+    state.Moving  = M(false, "moving")
+    state.HippoMode = M(false, "hippoMode")
+
+    state.OffenseMode:options('None', 'Normal', 'Melee', 'Shield')
+    state.CastingMode:options('Normal','SIRD', 'ConserveMP')
+    state.IdleMode:options('Normal', 'PDT','HP', 'Regen', 'Evasion', 'EnemyCritRate', 'Refresh')
+    state.PhysicalDefenseMode:options('PDT')
+    state.MagicalDefenseMode:options('MDT')
+
+    gear.default.weaponskill_waist = "Windbuffet Belt +1"
+
+    geo_sub_weapons = S{"", ""}
+
+    select_default_macro_book()
+
+        --keyboard buttons bind
+    --use //listbinds    .. to show command keys
+    -- Additional local binds
+    send_command('bind @c gs c toggle cp')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind !w gs c toggle WeaponLock')
+    send_command('bind f11 gs c cycle CastingMode')
+    send_command('bind !f11 gs c set DefenseMode Magical')
+    send_command('bind f1 gs c cycle HippoMode')
+    send_command('bind ^= gs c cycle treasuremode')
+	send_command('bind f7 gs c cycle ShieldMode')
+    send_command('bind !f7 gs c cycleback ShieldMode')
+    send_command('bind f4 input //fillmode')
+    send_command('bind f6 gs c cycle WeaponSet')
+    send_command('bind !f6 gs c cycleback WeaponSet')
+    send_command('bind !/ gs enable all')
+    send_command('bind ^/ gs disable all')
+    send_command('bind f2 gs c cycle Indi2')
+    send_command('bind f3 gs c cycle Indi')
+    send_command('bind f4 gs c cycle geo')
+    send_command('bind !f2 input //gs c Indi2')
+    send_command('bind !f3 input //gs c Indi')
+    send_command('bind !f4 input //gs c geo')
+
+    send_command('wait 6;input /lockstyleset 198')
+
+   
+    state.ShieldMode = M{['description']='ShieldMode', 'Normal','Genmei','Ammurapi'}
+    state.WeaponSet = M{['description']='WeaponSet', 'Normal' , 'Idris', 'Maxentius','Bunzi','MalignancePole','Xoanon','TernionDagger'}
+
+    if init_job_states then init_job_states({"RP","CP","WeaponLock","MagicBurst","HippoMode"},{"IdleMode","OffenseMode","WeaponSet","ShieldMode","CastingMode","indi","geo","TreasureMode"}) 
+    end
+end
+
+function file_unload()
+end
+
+-- Define sets and vars used by this job file.
+function init_gear_sets()
+
+    ---- WeaponSet ----
+
+    sets.Normal = {}
+    sets.Idris = {main="Idris", sub="Ammurapi Shield"}
+    sets.Maxentius = {main="Maxentius", sub="Ammurapi Shield"}
+    sets.Bunzi = {main="Bunzi's Rod", sub="Ammurapi Shield"}
+    sets.TernionDagger  = {main="Ternion Dagger +1", sub="Ammurapi Shield"}
+    sets.MalignancePole  = {main="Malignance Pole", sub="Alber Strap"}
+    sets.Xoanon  = {main="Xoanon", sub="Alber Strap"}
+
+    sets.Normal = {}
+    sets.Genmei = {sub="Genmei Shield"}
+    sets.Ammurapi = {sub="Ammurapi Shield"}
+
+ -- neck JSE Necks Reinforcement Points Mode add u neck here 
+    sets.RP = {}
+ -- Capacity Points Mode back
+    sets.CapacityMantle = {}
+
+    sets.DefaultShield = {sub="Ammurapi Shield"}
+
+    lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder',
+        'Stone II', 'Water II', 'Aero II', 'Fire II', 'Blizzard II', 'Thunder II',
+        'Stone III', 'Water III', 'Aero III', 'Fire III', 'Blizzard III', 'Thunder III',
+        'Stonega', 'Waterga', 'Aeroga', 'Firaga', 'Blizzaga', 'Thundaga', 
+        'Stonera', 'Watera', 'Aerora', 'Fira', 'Blizzara', 'Thundara',
+        'Stonega II', 'Waterga II', 'Aeroga II', 'Firaga II', 'Blizzaga II', 'Thundaga II'}
+    --------------------------------------
+    -- Precast sets
+    --------------------------------------
+
+    -- Precast sets to enhance JAs
+    sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
+    sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +3", back="Nantosuelta's Cape"}
+    sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
+    sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +3"}
+    sets.precast.JA['Sublimation'] = {waist="Embla Sash"}
+
 
     -- Fast cast sets for spells
 
@@ -142,13 +285,10 @@ function init_gear_sets()
         neck="Orunmila's Torque",        
         waist="Witful Belt",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-
-
     }
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        --main="Tamaxchi",
         left_ear="Mendi. Earring",
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     })
@@ -159,11 +299,10 @@ function init_gear_sets()
         legs="Doyen Pants",
         neck="Nodens Gorget",
         waist="Siegel Sash",})
-    sets.precast.JA['Concentric Pulse'] = sets.midcast.HightTierNuke
+    sets.precast.JA['Concentric Pulse'] = sets.midcast['Elemental Magic']
 
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {
-        ring1="Mallquis Ring",
-    })
+        ring1="Mallquis Ring",})
 
     sets.precast.RA = {ammo=empty,
     head={ name="Nyame Helm", augments={'Path: B',}},
@@ -174,8 +313,18 @@ function init_gear_sets()
     left_ear="Crep. Earring",
     right_ear="Telos Earring",
     }
-    
-    sets.ConserveMP = {  
+    sets.midcast.SIRD={
+        main="Idris",
+        sub="Culminus",
+        ammo="Staunch Tathlum +1",
+        head={ name="Agwu's Cap", augments={'Path: A',}},
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        legs="Geomancy Pants +2",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        left_ring="Freke Ring",
+    }
+    sets.midcast.ConserveMP = {  
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Vedic Coat",
         legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -202,7 +351,6 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-
 
     sets.precast.WS['Flash Nova'] = {
         ammo="Pemphredo Tathlum",
@@ -314,12 +462,10 @@ function init_gear_sets()
     --------------------------------------
 
     -- Base fast recast for spells
-    sets.midcast.FastRecast = {
-
-    }
+    sets.midcast.FastRecast = {}
 
     sets.midcast.Geomancy = {
-        main="Solstice",
+        main="Idris",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Azimuth Hood +2",
         body="Geo. Tunic +3",
@@ -336,8 +482,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {
-        main="Solstice",
-        sub="Ammurapi Shield",
+        main="Idris",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Azimuth Hood +2",
         body="Geo. Tunic +3",
@@ -354,8 +499,6 @@ function init_gear_sets()
     })
 
     sets.midcast.Cure = {
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
-        sub="Sors Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
         body="Annoint. Kalasiris",
@@ -385,11 +528,9 @@ function init_gear_sets()
     --sets.midcast.Shellra = sets.midcast['Enhancing Magic']
 
     sets.midcast['Elemental Magic'] = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Agwu's Cap",
-        body="Agwu's Robe",
+        body="Azimuth Coat +2",
         hands="Agwu's Gages",
         legs="Agwu's Slops",
         feet="Bagua Sandals +3",
@@ -409,8 +550,6 @@ function init_gear_sets()
         waist="Shinjutsu-no-Obi +1",
         })
     sets.midcast.HighTierNuke = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Agwu's Cap",
         body="Agwu's Robe",
@@ -427,8 +566,6 @@ function init_gear_sets()
     }
     
     sets.midcast.HighTierNuke.MB = set_combine(sets.midcast.HighTierNuke, {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
 		ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
         body="Agwu's Robe",
@@ -446,8 +583,7 @@ function init_gear_sets()
     --sets.midcast['Elemental Magic'].Mindmelter = set_combine(sets.midcast.HighTierNuke, {
     --    main="Mindmelter"
     --})
-    sets.magic_burst = {       main="Bunzi's Rod",
-    sub="Ammurapi Shield", 
+    sets.magic_burst = {     
 		ammo="Pemphredo Tathlum",
         head="Ea Hat +1",
         body="Agwu's Robe",
@@ -465,8 +601,6 @@ function init_gear_sets()
 
 
     sets.midcast.LowTierNuke = set_combine(sets.midcast.HighTierNuke, {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Agwu's Cap",
         body="Agwu's Robe",
@@ -483,8 +617,6 @@ function init_gear_sets()
     })
     
     sets.midcast.LowTierNuke.MB = set_combine(sets.midcast.LowTierNuke, {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Agwu's Cap",
         body="Agwu's Robe",
@@ -501,8 +633,6 @@ function init_gear_sets()
     })
 
     sets.midcast.Macc = { 
-        main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
-        sub="Ammurapi Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Ea Hat +1",
         body="Ea Houppelande",
@@ -542,7 +672,6 @@ function init_gear_sets()
     sets.midcast.Stun = sets.midcast.Macc
     
     sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast.Macc, {
-        main="Daybreak",
         head="C. Palug Crown",
         body="Geo. Tunic +3",
         hands="Geo. Mitaines +3",
@@ -557,14 +686,11 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     })
     sets.midcast.ElementalEnfeeble = set_combine(sets.midcast.Macc, {
-        main="Daybreak",
         waist="Luminary Sash",
         ring1="Kishar Ring",
     })
 
     sets.midcast['Enhancing Magic'] = {
-    main={ name="Gada", augments={'Indi. eff. dur. +1','VIT+1','"Mag.Atk.Bns."+19',}},
-    sub="Ammurapi Shield",
     ammo="Pemphredo Tathlum",
     head="Telchine Cap",
     body="Telchine Chas.",
@@ -587,7 +713,6 @@ function init_gear_sets()
 
     -- Resting sets
     sets.resting = {        
-        main="Daybreak",
         head="Befouled Crown",
         body="Shamash Robe",
 		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -598,10 +723,57 @@ function init_gear_sets()
 		right_ring="Stikini Ring +1",
     }
 
+
+    -- Defense sets
+
+    sets.defense.PDT = {
+        range="Dunna",
+        head="Nyame Helm",
+        body="Shamash Robe",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Etiolation Earring",
+        right_ear="Infused Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+    }
+
+    sets.defense.MDT = {
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Warder's Charm +1", augments={'Path: A',}},
+        waist="Carrier's Sash",
+        left_ear="Sanare Earring",
+        right_ear="Eabani Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+    }
+    sets.defense.Evasion = {
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        waist="Svelt. Gouriz +1",
+        left_ear="Infused Earring",
+        right_ear="Eabani Earring",
+        left_ring="Vengeful Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
+    }
+
     -- Idle sets
     sets.idle = {
-        main="Daybreak",
-        sub="Genmei Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
         body="Shamash Robe",
@@ -614,10 +786,10 @@ function init_gear_sets()
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+
     }
     sets.idle.PDT = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Azimuth Hood +2",
         body="Shamash Robe",
@@ -630,10 +802,17 @@ function init_gear_sets()
         right_ear="Infused Earring",
         left_ring="Stikini Ring +1",
         right_ring="Defending Ring",
+        back="Moonlight Cape",
+
+    })
+
+    sets.idle.Regen = set_combine(sets.idle, {
+        neck={ name="Bathy Choker +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Chirich Ring +1",
     })
     sets.idle.Refresh = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield",
         range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
         head="Befouled Crown",
         body="Shamash Robe",
@@ -647,12 +826,35 @@ function init_gear_sets()
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
     })
+    sets.idle.HP = {
+        ammo="Staunch Tathlum +1",
+        head="Nyame Helm",
+        body="Adamantite Armor",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+        waist="Plat. Mog. Belt",
+        left_ear="Tuisto Earring",
+        right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        back="Moonlight Cape",
+    }
+    sets.idle.EnemyCritRate = set_combine(sets.idle.HP, { 
+        ammo="Eluder's Sachet",
+        left_ring="Warden's Ring",
+        right_ring="Fortified Ring",
+        back="Reiki Cloak",
+    })
+    sets.idle.MDT = sets.defense.MDT
+    sets.idle.Evasion = sets.defense.Evasion
     sets.idle.Sphere = set_combine(sets.idle, {
         body="Annoint. Kalasiris",
     })
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = set_combine(sets.idle, {
-    main="Solstice",
+    main="Idris",
     sub="Genmei Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Azimuth Hood +2",
@@ -670,7 +872,7 @@ function init_gear_sets()
     })
 
     sets.idle.PDT.Pet = set_combine(sets.idle.Pet, {
-    main="Solstice",
+    main="Idris",
     sub="Genmei Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Azimuth Hood +2",
@@ -713,42 +915,6 @@ function init_gear_sets()
     }
 
     sets.idle.Weak = sets.idle
-
-    -- Defense sets
-
-    sets.defense.PDT = {
-        range="Dunna",
-        sub="Genmei Shield",
-        head="Nyame Helm",
-        body="Shamash Robe",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Etiolation Earring",
-        right_ear="Infused Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Moonlight Cape",
-    }
-
-    sets.defense.MDT = {
-        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        sub="Genmei Shield",
-        head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck={ name="Warder's Charm +1", augments={'Path: A',}},
-        waist="Carrier's Sash",
-        left_ear="Sanare Earring",
-        right_ear="Eabani Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
-        back="Moonlight Cape",
-    }
 
     sets.Kiting = {feet="Geo. Sandals +2",}
     sets.Adoulin = {body="Councilor's Garb",}
@@ -795,8 +961,6 @@ function init_gear_sets()
         back={ name="Aurist's Cape +1", augments={'Path: A',}},    })
        
         sets.engaged.Shield = set_combine(sets.engaged, { 
-            main="Maxentius",
-            sub="Genmei Shield",
             head="Nyame Helm",
             body="Nyame Mail",
             hands="Nyame Gauntlets",
@@ -842,7 +1006,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
 	if spell.type:lower() == 'weaponskill' then
         -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
-        if state.CapacityMode.value then
+        if state.CP.value then
             equip(sets.CapacityMantle)
         end
     end
@@ -895,6 +1059,10 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     elseif not player.indi then
         classes.CustomIdleGroups:clear()
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+    check_weaponset()
 end
 
 -- Auto toggle Magic burst set.
@@ -1090,6 +1258,8 @@ function job_state_change(stateField, newValue, oldValue)
 
     if update_job_states then update_job_states() 
     end
+
+    check_weaponset()
 end
 
 windower.register_event('zone change',
@@ -1131,20 +1301,39 @@ function customize_idle_set(idleSet)
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     end
-    if state.CapacityMode.value then
+    if state.CP.value then
         idleSet = set_combine(idleSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     if state.OffenseMode.value == 'Melee' then
         idleSet = set_combine(sets.idle, sets.idle.Melee)
     end
+    check_weaponset()
+
     return idleSet
 end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if state.CapacityMode.value then
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.CP.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
+    check_weaponset()
+
     return meleeSet
 end
 -- Called by the 'update' self-command.
@@ -1153,8 +1342,30 @@ function job_update(cmdParams, eventArgs)
     if player.indi then
         classes.CustomIdleGroups:append('Indi')
     end
-end
+    check_weaponset()
 
+end
+----------------------------------------------------------------------------------------------------------
+
+-- Called for direct player commands.
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+    if cmdParams[1]:lower() == 'indi' then
+        send_command('@input /ma "'..state.indi.value..'" <me>')
+    elseif cmdParams[1]:lower() == 'geo' then
+        send_command('@input /ma "'..state.geo.value..'" <st>')
+    elseif cmdParams[1]:lower() == 'indi2' then
+        send_command('@input /ja "Entrust" <me>')
+        send_command('@@input /ma "'..state.Indi2.value..'" <st>')
+    end
+end
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if not midaction() then
+            job_update()
+        end
+    end
+end
 -- Function to display the current relevant user state when doing an update.
 function display_current_job_state(eventArgs)
     
@@ -1168,7 +1379,28 @@ function display_current_job_state(eventArgs)
         ..string.char(31,002)..msg)
     eventArgs.handled = true
 end
+function update_offense_mode()
+    if (player.sub_job == 'NIN' and player.sub_job_level > 9) or (player.sub_job == 'DNC' and player.sub_job_level > 19) then
+        state.CombatForm:set('DW')
+    else
+        state.CombatForm:reset()
+    end
+    check_weaponset()
 
+end
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    equip(sets[state.ShieldMode.current])
+    --[[if (player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC') then
+        if player.equipment.main ~= 'Xoanon' then
+          equip(sets.DefaultShield)
+        end
+    elseif player.sub_job == 'NIN' and player.sub_job_level < 10 or player.sub_job == 'DNC' and player.sub_job_level < 20 then
+        if player.equipment.main ~= 'Xoanon' then
+          equip(sets.DefaultShield)
+        end
+    end]]
+end
 -------------------------------------------------------------------------------------------------------------------
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
@@ -1431,6 +1663,6 @@ end)
 function sub_job_change(new,old)
     if user_setup then
         user_setup()
-        send_command('wait 6;input /lockstyleset 178')
+        send_command('wait 6;input /lockstyleset 198')
     end
 end
