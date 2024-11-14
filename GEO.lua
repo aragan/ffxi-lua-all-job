@@ -160,7 +160,7 @@ function job_setup()
     state.TreasureMode:set('None')
     send_command('wait 2;input /lockstyleset 198')
     state.indi =  M{['description']='indi', 'Indi Acumen', 'Indi Fury', 'Indi Refresh', 'Indi Haste', 'Indi INT', 'Indi Wilt', 'Indi Precision', 'Indi Languor', 'Indi Torpor', 'Indi Voidance', 'Indi Focus',
-    'Indi Fend', 'Indi Fade', 'Indi Barrier', 'Indi Attunement'}
+    'Indi Fend', 'Indi Fade', 'Indi Barrier','Indi Regen', 'Indi Attunement'}
     state.Indi2 =  M{['description']='indi2', 'Indi INT', 'Indi Haste', 'Indi Acumen', 'Indi Fury', 'Indi Refresh', 'Indi Wilt', 'Indi Precision', 'Indi Languor', 'Indi Torpor', 'Indi Voidance', 'Indi Focus',
     'Indi Fend', 'Indi Fade', 'Indi Barrier', 'Indi Attunement'}
     state.geo =  M{['description']='geo', 'Geo Malaise', 'Geo Frailty', 'Geo Wilt', 'Geo Precision', 'Geo Languor', 'Geo Torpor', 'Geo Voidance', 'Geo Focus',
@@ -263,7 +263,7 @@ function init_gear_sets()
     --------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA.Bolster = {body="Bagua Tunic +1"}
+    sets.precast.JA.Bolster = {body="Bagua Tunic +3"}
     sets.precast.JA['Life Cycle'] = {head="Azimuth Hood +2", body="Geo. Tunic +3", back="Nantosuelta's Cape"}
     sets.precast.JA['Full Circle'] = {hands="Bagua Mitaines"}
     sets.precast.JA['Radial Arcana'] = {legs="Bagua Pants +3"}
