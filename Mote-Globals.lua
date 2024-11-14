@@ -50,14 +50,14 @@ function global_on_load()
 	send_command('bind ^f9 gs c cycle HybridMode')
 	send_command('bind !f9 gs c cycle RangedMode')
 	send_command('bind @f9 gs c cycle WeaponskillMode')
-	send_command('bind f10 gs c set DefenseMode Physical')
-	send_command('bind ^f10 gs c cycle PhysicalDefenseMode')
+	send_command('bind f10 gs c set DefenseMode Physical;gs c cycle PhysicalDefenseMode') --Turns your physical defense set on.
+    send_command('bind ^f10 gs c cycle PhysicalDefenseMode') --Changes your physical defense set.
 	send_command('bind !f10 gs c toggle Kiting')
 	send_command('bind f11 gs c set DefenseMode Magical')
 	send_command('bind ^f11 gs c cycle CastingMode')
 	send_command('bind ^f12 gs c update user')
-	send_command('bind f12 gs c cycle IdleMode')
-	send_command('bind !f12 gs c reset DefenseMode')
+	send_command('bind f12 gs c cycle IdleMode;gs c reset DefenseMode')
+	send_command('bind !f12 gs c reset DefenseMode;gs c reset IdleMode')
 
 	send_command('bind ^- gs c toggle selectnpctargets')
 	send_command('bind !- gs c cycle pctargetmode')
