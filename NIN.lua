@@ -80,6 +80,7 @@ function job_setup()
     select_ammo()
     LugraWSList = S{'Blade: Ku', 'Blade: Jin'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
+    state.RP = M(false, "Reinforcement Points Mode")
     state.Proc = M(false, 'Proc')
     state.unProc = M(false, 'unProc')
     state.phalanxset = M(false,true)
@@ -124,7 +125,8 @@ function user_setup()
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ gs c toggle UseWarp')
-    send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('bind @f9 gs c cycle HasteMode')
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
@@ -192,7 +194,10 @@ function init_gear_sets()
     sets.CLUB = {main="Mafic Cudgel",sub="Kunimitsu",}
     sets.H2H = {main="Karambit"}
 
-
+     -- neck JSE Necks Reinforcement Points Mode add u neck here 
+    sets.RP = {}
+    -- Capacity Points Mode back
+   sets.CapacityMantle = {}
     --------------------------------------
     -- Job Abilties
     --------------------------------------
@@ -237,7 +242,6 @@ function init_gear_sets()
     --------------------------------------
     sets.TreasureHunter = {ammo="Per. Lucky Egg", head="Wh. Rarab Cap +1",
     waist="Chaac Belt"}
-    sets.CapacityMantle = {}
     sets.WSDayBonus     = {head="Gavialis Helm"}
     -- sets.WSBack         = { back="Trepidity Mantle" }
     sets.OdrLugra    = { ear2="Odr Earring", ear1="Lugra Earring +1" }
@@ -1660,7 +1664,12 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
-    --local res = require('resources')
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end    --local res = require('resources')
     --local info = windower.ffxi.get_info()
     --local zone = res.zones[info.zone].name
     --if zone:match('Adoulin') then
@@ -1676,6 +1685,12 @@ function customize_melee_set(meleeSet)
     end
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     if state.HybridMode.value == 'Proc' then
         meleeSet = set_combine(meleeSet, sets.NoDW)

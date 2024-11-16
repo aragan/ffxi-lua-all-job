@@ -154,6 +154,8 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.HippoMode = M(false, "hippoMode")
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Twashtar', 'TwashtarCrepuscular', 'Tauret', 'Naegling', 'NaeglingCrepuscular','Carnwenhan', 'Aeneas', 'Xoanon'}
     --state.Moving = M(false, "moving")
@@ -220,6 +222,11 @@ function init_gear_sets()
     sets.Xoanon = {main="Xoanon", sub="Alber Strap"}
 
     sets.DefaultShield = {sub="Genmei Shield"}
+
+ -- neck JSE Necks Reinf
+ sets.RP = {}
+ -- Capacity Points Mode
+ sets.CapacityMantle = {}
 
     -- Precast Sets
 
@@ -1145,6 +1152,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip({left_ear="Ishvara Earring"})
 		end
 	end
+    -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
+    if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
     if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
@@ -1428,7 +1439,15 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
-
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     check_weaponset()
 
     return meleeSet
@@ -1436,9 +1455,7 @@ end
 function check_buff(buff_name, eventArgs)
     if state.Buff[buff_name] then
         equip(sets.buff[buff_name] or {})
-        if state.TreasureMode.value == 'SATA' or state.TreasureMode.value == 'Fulltime' then
-            equip(sets.TreasureHunter)
-        end
+
         eventArgs.handled = true
     end
 end
@@ -1448,6 +1465,12 @@ end
 function customize_idle_set(idleSet)
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     --[[if state.Auto_Kite.value == true then
 		idleSet = set_combine(idleSet, sets.Kiting)
