@@ -1127,7 +1127,7 @@ sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.SIRD, sets.midcast['Enha
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash"})
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 
-sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {left_ear="Brachyura Earring",})
+sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
 sets.midcast.Protectra = sets.midcast.Protect
 sets.midcast.Shell = sets.midcast.Protect
 sets.midcast.Shellra = sets.midcast.Protect

@@ -74,7 +74,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.SrodaBelt = M(false, 'SrodaBelt')
-    state.BrachyuraEarring = M(true,false)
+    state.ShelteredRing = M(true,false)
     state.phalanxset = M(false,true)
     state.RP = M(false, "Reinforcement Points Mode")  
     state.CapacityMode = M(false, 'Capacity Point Mantle') 
@@ -170,7 +170,7 @@ function user_setup()
     send_command('bind f4 gs c cycle Runes')
     send_command('bind f3 gs c cycleback Runes')
     send_command('bind f2 input //gs c rune')
-    send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind delete gs c toggle ShelteredRing')
     send_command('bind ^p gs c toggle phalanxset')
     send_command('bind @c gs c toggle CapacityMode')
     send_command('bind @x gs c toggle RP')  
@@ -2080,8 +2080,8 @@ end
 function job_buff_change(buff,gain)
     if buff == "Protect" then
         if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
+            enable('ring2')
+            state.ShelteredRing:set(false)
         end
     end
     if buff == "phalanx" or "Phalanx II" then
@@ -2425,12 +2425,12 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
+    if state.ShelteredRing .value == true then
+        equip({ring2="Sheltered Ring"})
+        disable('ring2')
     else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
+        enable('ring2')
+        state.ShelteredRing:set(false)
     end
     if state.phalanxset .value == true then
         --equip(sets.midcast.Phalanx)

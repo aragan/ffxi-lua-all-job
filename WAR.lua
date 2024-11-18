@@ -357,10 +357,9 @@ sets.TreasureHunter = {
         body="Shab. Cuirass +1",
         neck="Incanter's Torque",
         waist="Olympus Sash",
-        left_ear="Brachyura Earring",
+        ring2="Sheltered Ring",
         right_ear="Andoaa Earring",
         left_ring="Stikini Ring +1",
-        right_ring="Stikini Ring +1",
         back="Moonlight Cape",
 	}
     sets.midcast.Phalanx = {

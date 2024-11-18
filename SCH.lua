@@ -715,7 +715,7 @@ right_ear="Telos Earring",
 
     sets.midcast.Stormsurge = set_combine(sets.midcast.Storm, {feet={ name="Peda. Loafers +3", augments={'Enhances "Stormsurge" effect',}},})
 
-    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {left_ear="Brachyura Earring",})
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell

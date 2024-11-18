@@ -75,7 +75,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Knockback = M(false, 'Knockback')
     state.SrodaBelt = M(false, 'SrodaBelt')
-    state.BrachyuraEarring = M(true,false)
+    state.ShelteredRing = M(true,false)
     state.phalanxset = M(false,true)
     state.RP = M(false, "Reinforcement Points Mode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -160,7 +160,7 @@ function user_setup()
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
-    send_command('bind delete gs c toggle BrachyuraEarring')
+    send_command('bind delete gs c toggle ShelteredRing')
     send_command('bind ^p gs c toggle phalanxset')
     send_command('bind @x gs c toggle RP')  
     send_command('bind @c gs c toggle CapacityMode')
@@ -466,6 +466,10 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},
         feet={ name="Herculean Boots", augments={'Accuracy+8','Pet: Attack+28 Pet: Rng.Atk.+28','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},
     })
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
+sets.midcast.Protectra = sets.midcast.Protect
+sets.midcast.Shell = sets.midcast.Protect
+sets.midcast.Shellra = sets.midcast.Protect
     sets.midcast.Phalanx.SIRD = set_combine(sets.midcast.Phalanx,sets.midcast.SIRD)
     sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'], {
         head="Rune. Bandeau +3",
@@ -968,8 +972,8 @@ end
 function job_buff_change(buff,gain)
     if buff == "Protect" then
         if gain then
-            enable('ear1')
-            state.BrachyuraEarring:set(false)
+            enable('ring2')
+            state.ShelteredRing:set(false)
         end
     end
     if buff == "phalanx" or "Phalanx II" then
@@ -1301,12 +1305,12 @@ function job_state_change(stateField, newValue, oldValue)
         --equip({ring1="Warp Ring"})
         send_command('input //gs equip sets.Warp;@wait 10.0;input /item "Warp Ring" <me>;')
     end
-    if state.BrachyuraEarring .value == true then
-        equip({left_ear="Brachyura Earring"})
-        disable('ear1')
+    if state.ShelteredRing .value == true then
+        equip({ring2="Sheltered Ring"})
+        disable('ring2')
     else 
-        enable('ear1')
-        state.BrachyuraEarring:set(false)
+        enable('ring2')
+        state.ShelteredRing:set(false)
     end
     if state.phalanxset .value == true then
         --equip(sets.midcast.Phalanx)

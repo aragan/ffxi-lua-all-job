@@ -628,6 +628,7 @@ sets.midcast.Cursna = {
 	left_ring="Haoma's Ring",
 	right_ring="Menelaus's Ring",
 }
+
 sets.midcast['Enhancing Magic'] = {
 	main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
 	sub="Ammurapi Shield",
@@ -691,7 +692,10 @@ sets.midcast['Enhancing Magic'].Skill = {
 	right_ring="Stikini Ring +1",
 	back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 }
-
+sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
+sets.midcast.Protectra = sets.midcast.Protect
+sets.midcast.Shell = sets.midcast.Protect
+sets.midcast.Shellra = sets.midcast.Shell
 sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Skill, {})
 sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'].Duration, {})
 sets.midcast['Enhancing Magic'].GainSpell = set_combine(sets.midcast['Enhancing Magic'].SelfDuration, {hands="Vitiation gloves +3"})
