@@ -4,6 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 -- Initialization function for this job file.
 function get_sets()
@@ -51,6 +56,7 @@ organizer_items = {
 function job_setup()
     state.Buff.Footwork = buffactive.Footwork or false
     state.Buff.Impetus = buffactive.Impetus or false
+    state.RP = M(false, "Reinforcement Points Mode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.FootworkWS = M(false, 'Footwork on WS')
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -58,6 +64,14 @@ function job_setup()
 
     include('Mote-TreasureHunter')
     send_command('wait 2;input /lockstyleset 160')
+
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     info.impetus_hit_count = 0
     windower.raw_register_event('action', on_action_for_impetus)
 end
@@ -78,7 +92,11 @@ function user_setup()
 
     update_combat_form()
     update_melee_groups()
-    --send_command('bind != gs c toggle CapacityMode')
+
+        --use //listbinds    .. to show command keys
+    -- Additional local binds
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('wait 6;input /lockstyleset 160')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
@@ -117,6 +135,11 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     
+     -- neck JSE Necks Reinforcement Points Mode add u neck here 
+    sets.RP = {}
+     -- Capacity Points Mode back
+    sets.CapacityMantle = {}
+
     -- Precast Sets
     
     -- Precast sets to enhance JAs on use
@@ -164,7 +187,6 @@ function init_gear_sets()
 
     sets.precast.Step = {waist="Chaac Belt"}
     sets.precast.Flourish1 = {waist="Chaac Belt"}
-    sets.CapacityMantle  = { }
 
 
     -- Fast cast sets for spells
@@ -1126,11 +1148,23 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     return idleSet
 end
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     if (buff == "Impetus" and gain) or buffactive.impetus then
         equip({body="Bhikku Cyclas +2"})

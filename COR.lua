@@ -5,7 +5,11 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 -- Haste/DW Detection Requires Gearinfo Addon
-
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
@@ -104,7 +108,14 @@ function job_setup()
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Wh. Rarab Cap +1",
     "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch", "Cumulus Masque +1", "Airmid's Gorget",}
-    elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
+
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     state.QDMode = M{['description']='Quick Draw Mode', 'STP', 'Enhance', 'TH'}
@@ -158,6 +169,9 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
+
+    --keyboard buttons bind
+    --use //listbinds    .. to show command keys
     -- Additional local binds
     send_command('bind ^` input /ja "Double-up" <me>')
     send_command('bind !` input /ja "Bolter\'s Roll" <me>')
@@ -172,7 +186,8 @@ function user_setup()
     send_command('bind !f7 gs c cycleback Weapongun')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
-    send_command('bind !- gs c toggle RP') 
+    send_command('bind @c gs c toggle CapacityMode')
+    send_command('bind @x gs c toggle RP')  
     send_command('bind ^p gs c toggle phalanxset') 
     send_command('@wait 6;input /lockstyleset 151')
 
@@ -224,6 +239,12 @@ function init_gear_sets()
     sets.DefaultShield = {sub="Nusku Shield"}
     sets.FullTP = {ear1="Crematio Earring"}
 
+
+     -- neck JSE Necks Reinforcement Points Mode add u neck here 
+     sets.RP = {}
+     -- Capacity Points Mode back
+    sets.CapacityMantle = {}
+    
     -- Precast Sets
 
     -- Precast sets to enhance JAs
@@ -1275,7 +1296,6 @@ sets.buff.Doom = {    neck="Nicander's Necklace",
    waist="Gishdubar Sash",
    left_ring="Purity Ring",
    right_ring="Blenmot's Ring +1",}
-   sets.RP = {neck="Comm. Charm +2"}
 
 end
 
@@ -1622,7 +1642,7 @@ function job_state_change(stateField, newValue, oldValue)
         send_command('gs equip sets.midcast.Phalanx')
         send_command('input /p Phalanx set equiped [ON] PLZ GIVE ME PHALANX')		
     else 
-        state.phalanxset:set(false)
+        state.phalanxset:reset()
     end
     if update_job_states then update_job_states() 
     end

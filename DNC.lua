@@ -4,6 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -85,6 +90,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.RP = M(false, "Reinforcement Points Mode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     state.MainStep = M{['description']='Main Step', 'Box Step', 'Quickstep', 'Feather Step', 'Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Quickstep', 'Feather Step', 'Stutter Step', 'Box Step'}
@@ -95,7 +101,13 @@ function job_setup()
     state.SkillchainPending = M(false, 'Skillchain Pending')
     state.Moving  = M(false, "moving")
     state.Auto_Kite = M(false, 'Auto_Kite')
-
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
     send_command('wait 6;input /lockstyleset 164')
@@ -143,6 +155,8 @@ function user_setup()
     gear.AugQuiahuiz = {}
     send_command('wait 2;input /lockstyleset 164')
 
+    --keyboard buttons bind
+    --use //listbinds    .. to show command keys
     -- Additional local binds
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
@@ -158,8 +172,8 @@ function user_setup()
     send_command('bind = gs c toggle usealtstep')
     send_command('bind ^` input /ja "Chocobo Jig" <me>')
     send_command('bind !` input /ja "Chocobo Jig II" <me>')
-
-    --send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
 
     select_default_macro_book()
     if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet",'MainStep','AltStep',"TreasureMode"}) 
@@ -192,12 +206,16 @@ function init_gear_sets()
     sets.Aeneas = {main={ name="Aeneas", augments={'Path: A',}}, sub="Centovente"}
     sets.Tauret = {main="Tauret", sub={ name="Gleti's Knife", augments={'Path: A',}},}
 
-
+     -- neck JSE Necks Reinf
+     sets.RP = {}
+     -- Capacity Points Mode
+     sets.CapacityMantle = {}
+     
     -- Precast Sets
     
     -- Precast sets to enhance JAs
 
-    sets.precast.JA['No Foot Rise'] = {}
+    sets.precast.JA['No Foot Rise'] = {body={ name="Horos Casaque +1", augments={'Enhances "No Foot Rise" effect',}}}
 
     sets.precast.JA['Trance'] = {}
 
@@ -1585,7 +1603,12 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
-
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     return idleSet
 end
 
@@ -1596,6 +1619,12 @@ function customize_melee_set(meleeSet)
         end
         if state.CapacityMode.value then
             meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+        end
+        if state.RP.current == 'on' then
+            equip(sets.RP)
+            disable('neck')
+        else
+            enable('neck')
         end
         if state.ClosedPosition.value == true then
             meleeSet = set_combine(meleeSet, sets.buff['Closed Position'])

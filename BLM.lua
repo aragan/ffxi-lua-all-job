@@ -4,6 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
@@ -22,13 +27,13 @@ end
  
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
-
     send_command('wait 2;input /lockstyleset 174')
 end
 -------------------------------------------------------------------------------------------------------------------
 -- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
 -------------------------------------------------------------------------------------------------------------------
- 
+ -- ucan use addon automb or autoburst for mage job
+
 -- Setup vars that are user-dependent.  Setup which sets you want to contain which sets of gear. 
 -- By default my sets are: Normal is bursting gear, Occult_Acumen is Conserve MP/MP return body, FreeNuke_Effect self explanatory.
 -- If you're new to gearswap, the F9~12 keys and CTRL keys in combination is how you activate this stuff.
@@ -50,7 +55,8 @@ function user_setup()
     state.DeathMode = M(false, 'Death Mode')
 
 
-    --state.RP = M(false, "Reinforcement Points Mode")
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
+    state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M(false, "hippoMode")
     state.WeaponSet = M{['description']='Weapon Set', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
@@ -87,7 +93,8 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
-    --send_command('bind !- gs c toggle RP')  
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('bind f1 gs c cycle HippoMode')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
@@ -108,6 +115,7 @@ function user_unload()
 	send_command('unbind ^f11')
 end
 organizer_items = {
+    "Airmid's Gorget",
     "Grape Daifuku",
     "Moogle Amp.",
     "Pear Crepe",
@@ -151,7 +159,11 @@ function init_gear_sets()
     sets.Drepanum = {main="Drepanum",sub="Alber Strap"}
     sets.Maliya = {main="Maliya Sickle +1",sub="Alber Strap"}
 
-
+     -- neck JSE Necks Reinf
+     sets.RP = {}
+     -- Capacity Points Mode
+     sets.CapacityMantle = {}
+     
     ---- Precast Sets ----
      
     -- Precast sets to enhance JAs
@@ -1116,7 +1128,6 @@ waist="Gishdubar Sash",
 left_ring="Purity Ring",
 right_ring="Blenmot's Ring +1",}
 
-    --sets.RP = {neck="Src. Stole +2"}
 
 end
 -------------------------------------------------------------------------------------------------------------------
@@ -1670,12 +1681,15 @@ function customize_idle_set(idleSet)
     if state.DeathMode.value then
         idleSet = sets.idle.DeathMode
     end
-    --[[if state.RP.current == 'on' then
+    if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end]]
+    end
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     end
@@ -1689,12 +1703,15 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
-    --[[if state.RP.current == 'on' then
+    if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
         equip(sets.RP)
         disable('neck')
     else
         enable('neck')
-    end]]
+    end
 
     check_weaponset()
 

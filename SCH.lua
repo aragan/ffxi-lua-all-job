@@ -281,7 +281,6 @@ function user_setup()
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind !s gs c toggle StormSurge')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind !- gs c toggle RP')  
     send_command('bind ^numpad0 input /Myrkr')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
@@ -353,9 +352,9 @@ function init_gear_sets()
     sets.Mpaca = {main="Mpaca's Staff",sub="Enki Strap"}
 
 -- neck JSE Necks Reinforcement Points Mode add u neck here 
-    sets.RP = {neck={ name="Unmoving Collar +1", augments={'Path: A',}},}
+    sets.RP = {}
 -- Capacity Points Mode back
-    sets.CP = {back="Solemnity Cape",}
+    sets.CP = {}
 
     -- Precast sets to enhance JAs
     sets.precast.JA['Tabula Rasa'] = {legs="Peda. Pants +3"}

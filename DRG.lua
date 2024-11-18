@@ -4,6 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 -- Initialization function for this job file.
 function get_sets()
@@ -53,6 +58,7 @@ function job_setup()
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
     state.WeaponLock = M(false, 'Weapon Lock')
+    state.RP = M(false, "Reinforcement Points Mode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 2;input /lockstyleset 152')
     -- list of weaponskills that make better use of Gavialis helm
@@ -63,7 +69,13 @@ function job_setup()
     wyv_breath_spells = S{'Dia', 'Poison', 'Blaze Spikes', 'Protect', 'Sprout Smack', 'Head Butt', 'Cocoon',
         'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
     wyv_elem_breath = S{'Flame Breath', 'Frost Breath', 'Sand Breath', 'Hydro Breath', 'Gust Breath', 'Lightning Breath'}
-
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
 	state.Buff = {}
 	-- JA IDs for actions that always have TH: Provoke, Animated Flourish
 	info.default_ja_ids = S{35, 204}
@@ -96,6 +108,8 @@ function user_setup()
     send_command('bind f7 gs c cycle shield')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('wait 6;input /lockstyleset 152')
 	select_default_macro_book()
 
@@ -149,6 +163,11 @@ sets.Club = {main="Mafic Cudgel", sub="Demers. Degen +1",}
 
 sets.Normal = {}
 sets.shield = {sub="Regis"}
+
+-- neck JSE Necks Reinf
+sets.RP = {}
+-- Capacity Points Mode
+sets.CapacityMantle = {}
 
     -- Precast Sets
 	-- Precast sets to enhance JAs
@@ -1019,6 +1038,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 		end
 	end
     if spell.type == 'WeaponSkill' then
+        if state.CapacityMode.value then
+            equip(sets.CapacityMantle)
+        end
+    end
+    if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
             if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
@@ -1039,12 +1063,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
     end
 end
-    --[[if spell.type == 'WeaponSkill' then
-        if state.CapacityMode.value then
-            equip(sets.CapacityMantle)
 
-        end
-    end]]
 
 
 
@@ -1154,6 +1173,10 @@ function customize_idle_set(idleSet)
      if world.area:contains("Adoulin") then
          idleSet = set_combine(idleSet, {body="Councilor's Garb"})
      end
+     if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
     return idleSet
 end
 
@@ -1165,6 +1188,10 @@ function customize_melee_set(meleeSet)
     if state.CapacityMode.value then
         meleeSet = set_combine(meleeSet, sets.CapacityMantle)
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
     end

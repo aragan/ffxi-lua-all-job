@@ -7,6 +7,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 --[[                                                                                                     
 88888888ba   88                               88b           d88                                       
@@ -250,7 +255,13 @@ function job_setup()
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     state.Storms =  M{['description']='storms', 'Sandstorm', 'Aurorastorm', 'Voidstorm', 'Firestorm', 'Rainstorm', 'Windstorm', 'Hailstorm', 'Thunderstorm'}
     storms = S{"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Rainstorm", "Windstorm", "Hailstorm", "Thunderstorm"}
-    
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1",
     "Reraise Earring", "Reraise Gorget", "Airmid's Gorget","Wh. Rarab Cap +1",}
@@ -287,9 +298,13 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.HippoMode = M(false, "hippoMode")
     state.Moving  = M(false, "moving")
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Naegling2', 'Maxentius', 'Nuking', 'Learn'}
 
+    	--use //listbinds    .. to show command keys
+    -- Additional local binds
     send_command('lua l azureSets')
     -- Additional local binds
     send_command('bind f7 input //Sublimator')
@@ -414,6 +429,10 @@ function init_gear_sets()
     sets.Nuking = {main="Maxentius", sub="Bunzi's Rod"}
     sets.Learn = {main="Iris", sub="Iris",}
 
+ -- neck JSE Necks Reinf
+ sets.RP = {}
+ -- Capacity Points Mode
+ sets.CapacityMantle = {}
 
 --==================================================--
 --  ____                                       _    --
@@ -1850,6 +1869,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip({left_ear="Ishvara Earring"})
 		end
 	end
+    -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
+    if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
     if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
@@ -2163,7 +2186,15 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
-
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     check_weaponset()
 
     return meleeSet
@@ -2181,6 +2212,12 @@ function customize_idle_set(idleSet)
     end]]
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     --if player.mpp < 51 then
         --set_combine(idleSet, sets.latent_refresh)

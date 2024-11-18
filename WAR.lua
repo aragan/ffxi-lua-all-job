@@ -4,6 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 --[[     
  === Notes ===
@@ -90,6 +95,13 @@ function job_setup()
     state.Buff.Berserk = buffactive.berserk or false
     state.Buff.Retaliation = buffactive.retaliation or false
     
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     wsList = S{ 'Savage Blade', 'Impulse Drive', 'Torcleaver', 'Ukko\'s Fury', 'Upheaval'}
     swordList = S{"Naegling", "Sangarius +1", "Perun +1", "Tanmogayi +1", "Loxotic Mace +1", "Reikiko", "Firetongue", "Demers. Degen +1", "Zantetsuken", "Excalipoor II"}
     gsList = S{'Macbain', 'Nandaka', 'Agwu\'s Claymore'}
@@ -102,7 +114,7 @@ function job_setup()
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Thr. Tomahawk",}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Loxotic', 'Shining','Chango', 'AgwuClaymore', 'Drepanum', 'TernionDagger','IkengaAxe'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Naegling', 'Loxotic', 'Shining','Chango', 'AgwuClaymore', 'Drepanum', 'Malevolence','IkengaAxe'}
     state.Shield = M{['description']='Weapon Set', 'Normal', 'Shield'}
     get_combat_form()
     get_combat_weapon()
@@ -184,7 +196,7 @@ sets.AgwuClaymore = {main="Agwu's Claymore", sub="Utu Grip"}
 sets.Shining = {main="Shining One", sub="Utu Grip"}
 sets.Naegling = {main="Naegling", sub="Demers. Degen +1",}
 sets.Loxotic = {main="Loxotic Mace +1", sub="Demers. Degen +1",}
-sets.TernionDagger = {main="Ternion Dagger +1", sub="Demers. Degen +1",}
+sets.Malevolence = {main="Malevolence", sub="Malevolence",}
 sets.Drepanum = {main="Drepanum", sub="Utu Grip",}
 sets.IkengaAxe = {main="Ikenga's Axe", sub="Demers. Degen +1",}
 

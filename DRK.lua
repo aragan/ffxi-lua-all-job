@@ -4,6 +4,14 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
+
+
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
@@ -135,21 +143,27 @@ function job_setup()
     -- Use Gavialis helm?
     use_gavialis = true
 
-
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     -- Weaponskills you want Gavialis helm used with (only considered if use_gavialis = true)
     wsList = S{}
     -- Greatswords you use. 
     gsList = S{'Ragnarok','Caladbolg','Nandaka','Foreshock Sword','Agwu\'s Claymore'}
     scytheList = S{'Apocalypse', 'Anguta'}
-    remaWeapons = S{'Caladbolg', 'Apocalypse','Ragnarok','Nandaka', 'Anguta'}
+    remaWeapons = S{'Caladbolg', 'Liberator', 'Apocalypse','Ragnarok','Nandaka', 'Anguta'}
   
     shields = S{'Blurred Shield +1'}
     -- Mote has capitalization errors in the default Absorb mappings, so we use our own
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     -- Offhand weapons used to activate DW mode
     swordList = S{"Naegling", "Sangarius +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
-    sets.weaponList = {"Caladbolg", "Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Caladbolg', 'Lycurgos', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Naegling', 'Loxotic', 'TernionDagger'}
+    sets.weaponList = {"Caladbolg", "Liberator", "Apocalypse", "Nandaka", "Blurred Shield +1", "Naegling", "Sangarius +1", "Usonmunku", "Perun +1", "Tanmogayi", "Loxotic Mace +1"}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Caladbolg', 'Lycurgos', 'Liberator', 'Anguta', 'Apocalypse', 'AgwuClaymore', 'Naegling', 'Loxotic', 'TernionDagger'}
     state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
 
     get_combat_form()
@@ -232,6 +246,7 @@ function init_gear_sets()
 --Weaponsets
 sets.Normal = {}
 sets.Caladbolg = {main="Caladbolg", sub="Utu Grip"}
+sets.Liberator = {main="Liberator", sub="Utu Grip"}
 sets.Anguta = {main="Anguta", sub="Utu Grip"}
 sets.Apocalypse = {main="Apocalypse", sub="Utu Grip"}
 sets.AgwuClaymore = {main="Agwu's Claymore", sub="Utu Grip"}
@@ -837,7 +852,7 @@ sets.precast.WS['Spinning Slash'].PDL = set_combine(sets.precast.WS['Spinning Sc
     right_ring="Sroda Ring",
 })
  
--- Elemental Weapon Skill --elemental_ws--
+-- Elemental Weapon Skill --elemental_ws-- get from Mote-Mappings
 
 -- SANGUINE BLADE
 -- 50% MND / 50% STR Darkness Elemental

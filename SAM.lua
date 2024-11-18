@@ -4,6 +4,12 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
+
 --Ionis Zones
 --Anahera Blade (4 hit): 52
 --Tsurumaru (4 hit): 49
@@ -85,10 +91,18 @@ function job_setup()
     send_command('wait 2;input /lockstyleset 172')
     state.Moving  = M(false, "moving")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
+    state.RP = M(false, "Reinforcement Points Mode")
     state.YoichiAM = M(false, 'Cancel Yoichi AM Mode')
     -- list of weaponskills that make better use of Gavialis Helm in WSDayBonus
     wsList = S{'Tachi: Goten', 'Tachi: Jinpu', 'Tachi: Kagero', 'Tachi: Koki'}
     gear.RAarrow = {name="Eminent Arrow"}
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     LugraWSList = S{'Tachi: Fudo', 'Tachi: Shoha', 'Namas Arrow', 'Impulse Drive', 'Stardiver'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
@@ -133,7 +147,8 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^[ input /lockstyle on')
     send_command('bind ![ input /lockstyle off')
-    send_command('bind != gs c toggle CapacityMode')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
@@ -176,6 +191,11 @@ function init_gear_sets()
     sets.TernionDagger = {main="Ternion Dagger +1"}
     sets.Club = {main="Mafic Cudgel"}
 
+         -- neck JSE Necks Reinf
+ sets.RP = {}
+ -- Capacity Points Mode
+ sets.CapacityMantle = {}
+ 
     sets.TreasureHunter = { 
         ammo="Per. Lucky Egg",
         head="White rarab cap +1", 
@@ -1317,6 +1337,12 @@ function customize_idle_set(idleSet)
     --if player.hpp < 90 then
         --idleSet = set_combine(idleSet, sets.idle.Regen)
     --end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
@@ -1352,6 +1378,12 @@ function customize_melee_set(meleeSet)
     end
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     check_weaponset()
 

@@ -4,6 +4,19 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
+
+-- use addon curepleas or healbot or addon trust for help  u 
+--use f2 f3 f3 for switch barstatus barelement boostspell
+--this makw whm  easy and help u 
+--add macro 
+-- /console gs c barelement
+-- /console gs c barstatus
+-- /console gs c boostspell
 
 -- Initialization function for this job file.
 function get_sets()
@@ -65,8 +78,16 @@ function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Moving  = M(false, "moving")
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.CP = M(false, "Capacity Points Mode")
     barStatus = S{'Barpoison','Barparalyze','Barvirus','Barsilence','Barpetrify','Barblind','Baramnesia','Barsleep','Barpoisonra','Barparalyzra','Barvira','Barsilencera','Barpetra','Barblindra','Baramnesra','Barsleepra'}
-
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     send_command('wait 2;input /lockstyleset 178')
 end
 
@@ -94,12 +115,15 @@ function user_setup()
     state.BarStatus = M{['description']='BarStatus', 'Baramnesra', 'Barvira', 'Barparalyzra', 'Barsilencera', 'Barpetra', 'Barpoisonra', 'Barblindra', 'Barsleepra'}
     state.BoostSpell = M{['description']='BoostSpell', 'Boost-STR', 'Boost-INT', 'Boost-AGI', 'Boost-VIT', 'Boost-DEX', 'Boost-MND', 'Boost-CHR'}
 
+    --use //listbinds    .. to show command keys
+    -- Additional local binds
     --send_command('bind f3 @input /ja "Sublimation" <me>')
     send_command('bind f7 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind !s gs c toggle SrodaNecklace')
     send_command('bind @q gs c toggle AutoEquipBurst')
-    send_command('bind !c gs c toggle CapacityMode')
+    send_command('bind @c gs c toggle CP')
+    send_command('bind @x gs c toggle RP')  
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('wait 6;input /lockstyleset 178')
@@ -138,10 +162,14 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
+    -- neck JSE Necks Reinforcement Points Mode add u neck here 
+    sets.RP = {}
+    -- Capacity Points Mode back
+    sets.CP = {}
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.CapacityMantle  = { }
+
 
     sets.precast.FC = {
     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
@@ -430,6 +458,22 @@ function init_gear_sets()
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         left_ring="Mephitas's Ring +1",
     }
+    sets.SIRDT = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Ros. Jaseran +1", augments={'Path: A',}},
+        hands={ name="Chironic Gloves", augments={'Mag. Acc.+11','Spell interruption rate down -10%','MND+8',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet="Theo. Duckbills +3",
+        neck={ name="Loricate Torque +1", augments={'Path: A',}},
+        waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Halasz Earring",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        right_ring="Defending Ring",
+        back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MP+20','"Cure" potency +10%','Phys. dmg. taken-10%',}},
+    }
+
     sets.ConserveMP = {     main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},
     sub="Sors Shield",
     ammo="Pemphredo Tathlum",
@@ -683,7 +727,7 @@ function init_gear_sets()
         waist="Gishdubar Sash",
         right_ear="Ebers Earring",
         left_ring="Haoma's Ring",
-        right_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
         back="Alaunus's Cape",
     }
 
@@ -697,7 +741,7 @@ function init_gear_sets()
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
         neck={ name="Clr. Torque +2", augments={'Path: A',}},
         left_ring="Haoma's Ring",
-        right_ring="Haoma's Ring",
+        right_ring="Menelaus's Ring",
         back="Alaunus's Cape",    }
         sets.midcast.StatusRemoval.SIRD = set_combine(sets.midcast.StatusRemoval,sets.SIRD) 
 
@@ -1153,6 +1197,7 @@ function init_gear_sets()
     sets.Kiting = {feet="Herald's Gaiters"}
     sets.MoveSpeed = {feet="Herald's Gaiters"}
     sets.Adoulin = {body="Councilor's Garb",}
+    sets.raise = sets.SIRDT
 
     sets.latent_refresh = {waist="Fucho-no-obi",}
 
@@ -1347,6 +1392,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
 end
 function job_post_midcast(spell, action, spellMap, eventArgs)
+    RaiseSpells = S{'Raise','Raise II','Raise III','Arise','Reraise','Reraise II','Reraise III','Reraise IV'}
+	if RaiseSpells:contains(spell.english) then
+		equip(sets.raise)
+	end
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
     if (spell.skill == 'Elemental Magic' or spell.skill == 'Divine Magic') and (state.MagicBurst.value or AEBurst) then
         equip(sets.magic_burst)
@@ -1597,6 +1646,18 @@ end
 function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.CP.current == 'on' then
+        equip(sets.CP)
+        disable('back')
+    else
+         enable('back')
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})

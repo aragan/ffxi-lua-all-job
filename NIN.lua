@@ -8,6 +8,12 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 -- Haste/DW Detection Requires Gearinfo Addon
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
+
 -- for Rune Fencer sub, you need to create two macros. One cycles runes, and gives you descrptive text in the log.
 -- The other macro will use the actual rune you cycled to. 
 -- Macro #1 //console gs c cycle Runes
@@ -75,7 +81,13 @@ function job_setup()
     state.Moving  = M(false, "moving")
     send_command('wait 2;input /lockstyleset 144')
     run_sj = player.sub_job == 'RUN' or false
-    elemental_ws = S{"Aeolian Edge", "Blade: Teki", "Blade: To", "Blade: Chi", "Blade: Ei", "Blade: Yu"}
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
 
     select_ammo()
     LugraWSList = S{'Blade: Ku', 'Blade: Jin'}
@@ -119,7 +131,8 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Heishi', 'Tauret', 'Naegling', 'Hachimonji', 'Zanmato', 'CLUB', 'H2H'}
 
-    
+        --use //listbinds    .. to show command keys
+    -- Additional local binds
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind f6 gs c cycle WeaponSet')
     send_command('bind !f6 gs c cycleback WeaponSet')
@@ -1669,7 +1682,8 @@ function customize_idle_set(idleSet)
         disable('neck')
     else
         enable('neck')
-    end    --local res = require('resources')
+    end   
+     --local res = require('resources')
     --local info = windower.ffxi.get_info()
     --local zone = res.zones[info.zone].name
     --if zone:match('Adoulin') then

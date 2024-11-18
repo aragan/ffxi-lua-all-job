@@ -4,7 +4,11 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
-
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
@@ -72,7 +76,9 @@ function job_setup()
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
     state.phalanxset = M(false,true)
-
+    state.RP = M(false, "Reinforcement Points Mode")  
+    state.CapacityMode = M(false, 'Capacity Point Mantle') 
+    
     send_command('lua l PLD-HUD')
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
@@ -80,6 +86,13 @@ function job_setup()
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Nexus Cape", "Airmid's Gorget",}
     
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     rune_enchantments = S{'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda',
         'Lux','Tenebrae'}
 
@@ -114,7 +127,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.ShieldMode = M{['description']='Shield Mode', 'normal','Ochain','Duban', 'Srivatsa', 'Aegis', 'Priwen'} -- , 'Priwen' }
+    state.ShieldMode = M{['description']='Shield Mode', 'Normal','Ochain','Duban', 'Srivatsa', 'Aegis', 'Priwen'} -- , 'Priwen' }
     state.HippoMode = M(false, "hippoMode")
     --state.TartarusMode = M{['description']='Tartarus Mode', 'normal', 'Tartarus'}
     --areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
@@ -128,8 +141,12 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'PD', 'PDH', 'Convert', 'Block', 'HPBOOST', 'Enmity' ,'Enmitymax')
     state.MagicalDefenseMode:options('MDT', 'Turtle', 'Evasion', 'ResistCharm', 'Aminion')
     state.HybridMode:options('Normal', 'PDT', 'MDT', 'Turtle', 'ReverenceGauntlets')
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Burtgang', 'MalignanceSword', 'Naegling', 'Reikiko', 'Caladbolg','Malevolence', 'Malignance Pole'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Burtgang', 'MalignanceSword', 'Naegling', 'Reikiko','Malevolence', 'Caladbolg', 'MalignancePole'}
     swordList = S{"Naegling", "Sangarius +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
+
+
+        --use //listbinds    .. to show command keys
+    -- Additional local binds
 
     --state.BreathDefenseModes:options('Turtle')
     --state.HybridDefenseMode:options('PDT', 'MDT', 'Reraise')
@@ -155,13 +172,15 @@ function user_setup()
     send_command('bind f2 input //gs c rune')
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^p gs c toggle phalanxset')
-
+    send_command('bind @c gs c toggle CapacityMode')
+    send_command('bind @x gs c toggle RP')  
      -- ctrl+/ gs disable all
     send_command('bind ^/ gs disable all')
      --Alt+; disable head body hands legs feet rring ammo
     send_command('bind ^; gs disable head body hands legs feet rring ammo')
      --Alt+/ enable all
     send_command('bind !/ gs enable all')
+
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -206,8 +225,15 @@ function init_gear_sets()
     sets.Naegling = {main="Naegling", sub="Zantetsuken"}
     sets.Reikiko = {main="Reikiko", sub="Zantetsuken"}
     sets.Caladbolg = {main="Caladbolg", sub="Utu Grip",}
-    sets.Malevolence = {main="Malevolence", sub="Malevolence",}
     sets.MalignancePole = {main="Malignance Pole", sub="Utu Grip",}
+    sets.Malevolence = {main="Malevolence", sub="Malevolence",}
+
+
+     -- neck JSE Necks Reinf
+ sets.RP = {}
+ -- Capacity Points Mode
+ sets.CapacityMantle = {}
+
 
   -- Precast sets to enhance JAs
    sets.precast.JA['Invincible'] = set_combine(sets.precast.JA['Provoke'], {legs="Cab. Breeches +3"})
@@ -1959,6 +1985,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             equip({left_ear="Ishvara Earring"})
         end
     end
+    -- CP mantle must be worn when a mob dies, so make sure it's equipped for WS.
+    if state.CapacityMode.value then
+        equip(sets.CapacityMantle)
+    end
     if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
@@ -2204,6 +2234,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
     determine_haste_group()
     check_moving()
     update_combat_form()
+    check_weaponset()
     if state.ShieldMode.value == "Duban" then
 	   equip({sub="Duban"})
     elseif state.ShieldMode.value == "Ochain" then
@@ -2214,7 +2245,7 @@ function job_handle_equipping_gear(playerStatus, eventArgs)
         equip({sub="Priwen"})
     elseif state.ShieldMode.value == "Srivatsa" then
 	    equip({sub="Srivatsa"})
-    elseif state.ShieldMode.value == "normal" then
+    elseif state.ShieldMode.value == "Normal" then
       equip({})
     end
 
@@ -2256,7 +2287,15 @@ function customize_idle_set(idleSet)
     if state.Buff.Doom then
         idleSet = set_combine(idleSet, sets.buff.Doom)
     end
-
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
@@ -2280,6 +2319,12 @@ function customize_melee_set(meleeSet)
     end
     if state.HybridMode.current == 'ReverenceGauntlets' then
         meleeSet = set_combine(meleeSet, sets.engaged.ReverenceGauntlets)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     --[[if state.TartarusMode.value == "Tartarus" then
         meleeSet = set_combine(meleeSet, {body="Tartarus Platemail"})

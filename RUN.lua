@@ -4,6 +4,12 @@
 --	  Aragan (Asura) --------------- [Author Primary]                          -- 
 --                                                                             --
 ---------------------------------------------------------------------------------
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
+
 --[[ addon help AutoRUN and addon runewidget
 
 for runes use 3 in 1 click in macro:
@@ -71,6 +77,8 @@ function job_setup()
     state.SrodaBelt = M(false, 'SrodaBelt')
     state.BrachyuraEarring = M(true,false)
     state.phalanxset = M(false,true)
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
 
     send_command('wait 2;input /lockstyleset 165')
 	include('Mote-TreasureHunter')
@@ -101,7 +109,13 @@ function job_setup()
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1",}
-
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
     rayke_duration = 47
     gambit_duration = 96
     -- Table of entries
@@ -131,6 +145,9 @@ function user_setup()
     state.MagicalDefenseMode:options('MDT')
     state.CastingMode:options('Normal', 'SIRD') 
     state.IdleMode:options('Normal', 'PDH', 'PDT', 'EnemyCritRate', 'Resist', 'Regen', 'Refresh', 'Enmity')
+   
+    	--use //listbinds    .. to show command keys
+    -- Additional local binds
     send_command('wait 6;input /lockstyleset 165')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !w gs c toggle WeaponLock')
@@ -145,6 +162,8 @@ function user_setup()
     send_command('bind !f6 gs c cycleback WeaponSet')
     send_command('bind delete gs c toggle BrachyuraEarring')
     send_command('bind ^p gs c toggle phalanxset')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
 
     state.Moving  = M(false, "moving")
 
@@ -169,6 +188,11 @@ function init_gear_sets()
     sets.Naegling = {main="Naegling", sub="Chanter's Shield"}
     sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
     sets.Lycurgos = {main="Lycurgos", sub="Refined Grip +1",}
+
+    -- neck JSE Necks Reinf
+ sets.RP = {}
+ -- Capacity Points Mode
+ sets.CapacityMantle = {}
 
     sets.Enmity =    { 
     ammo="Iron Gobbet",
@@ -876,6 +900,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 		end
 	end
     if spell.type == 'WeaponSkill' then
+        if state.CapacityMode.value then
+            equip(sets.CapacityMantle)
+        end
+    end
+    if spell.type == 'WeaponSkill' then
         if elemental_ws:contains(spell.name) then
             -- Matching double weather (w/o day conflict).
             if spell.element == world.weather_element and (get_weather_intensity() == 2 and spell.element ~= elements.weak_to[world.day_element]) then
@@ -1118,7 +1147,15 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
-
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
     return idleSet
 end
 
@@ -1131,6 +1168,12 @@ function customize_melee_set(meleeSet)
         else
             meleeSet = set_combine(meleeSet, sets.engaged.Aftermath)
         end
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
     end
     if state.Knockback.value == true then
         meleeSet = set_combine(meleeSet, sets.defense.Knockback)

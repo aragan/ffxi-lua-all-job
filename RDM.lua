@@ -5,7 +5,11 @@
 --                                                                             --
 ---------------------------------------------------------------------------------
 -- Haste/DW Detection Requires Gearinfo Addon
-
+-- IMPORTANT: This include requires supporting include files:
+-- from my web :
+-- Mote-include
+-- Mote-Mappings
+-- Mote-Globals
 
 -------------------------------------------------------------------------------------------------------------------
 -- Setup functions for this job.  Generally should not be modified.
@@ -60,10 +64,20 @@ function job_setup()
 	state.Buff.Composure = buffactive.Composure or false
     state.Buff.Saboteur = buffactive.Saboteur or false
     state.Buff.Stymie = buffactive.Stymie or false
+	state.RP = M(false, "Reinforcement Points Mode")
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	state.AutoEquipBurst = M(true)
 	state.WeaponLock = M(false, 'Weapon Lock')
 	send_command('wait 2;input /lockstyleset 152')
+
+	
+    elemental_ws = S{"Flash Nova", "Sanguine Blade","Seraph Blade","Burning Blade","Red Lotus Blade"
+    , "Shining Strike", "Aeolian Edge", "Gust Slash", "Cyclone","Energy Steal","Energy Drain"
+    , "Leaden Salute", "Wildfire", "Hot Shot", "Flaming Arrow", "Trueflight", "Blade: Teki", "Blade: To"
+    , "Blade: Chi", "Blade: Ei", "Blade: Yu", "Frostbite", "Freezebite", "Herculean Slash", "Cloudsplitter"
+    , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
+    , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
+    , "Sunburst", "Omniscience", "Garland of Bliss"}
 	barStatus = S{'Barpoison','Barparalyze','Barvirus','Barsilence','Barpetrify','Barblind','Baramnesia','Barsleep','Barpoisonra','Barparalyzra','Barvira','Barsilencera','Barpetra','Barblindra','Baramnesra','Barsleepra'}
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
     "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring", "Cumulus Masque +1", "Reraise Earring", "Reraise Gorget", "Airmid's Gorget",}
@@ -108,6 +122,9 @@ function user_setup()
     state.SrodaNecklace = M(false, 'SrodaNecklace')
 
 	select_default_macro_book()
+
+	--use //listbinds    .. to show command keys
+    -- Additional local binds
 	send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind ^f10 gs c set DefenseMode Physical')
 	send_command('bind ^f11 gs c set DefenseMode Magical')
@@ -130,6 +147,8 @@ function user_setup()
 	send_command('bind @s gs c toggle SrodaNecklace')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
+	send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
 	send_command('wait 6;input /lockstyleset 152')
     state.Auto_Kite = M(false, 'Auto_Kite')
 
@@ -184,6 +203,11 @@ function init_gear_sets()
 	sets.Bulwark = {sub="Sacro Bulwark"}
 
 	sets.DefaultShield = {sub="Sacro Bulwark"}
+
+	-- neck JSE Necks Reinforcement Points Mode add u neck here 
+	sets.RP = {}
+	-- Capacity Points Mode back
+   sets.CapacityMantle = {}
 
     -- Precast Sets
     
@@ -1794,6 +1818,12 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
+	if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
     check_weaponset()
 
 	return meleeSet
@@ -1807,6 +1837,12 @@ function customize_idle_set(idleSet)
 	if state.Auto_Kite.value == true then
 		idleSet = set_combine(idleSet, sets.Kiting)
 	end
+	if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
     --[[if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
         elseif state.IdleMode.value == 'PDT' then
