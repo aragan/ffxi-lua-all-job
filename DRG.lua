@@ -64,7 +64,7 @@ function job_setup()
     -- list of weaponskills that make better use of Gavialis helm
     wsList = S{'Stardiver'}
     swordList = S{"Naegling", "Sangarius +1", "Malevolence", "Demers. Degen +1", "Reikiko", "Perun +1", "Tanmogayi", "Loxotic Mace +1", "Ternion Dagger +1", "Zantetsuken"}
-    shields = S{'Regis'}
+    Shields = S{'Regis'}
     absorbs = S{'Absorb-STR', 'Absorb-DEX', 'Absorb-VIT', 'Absorb-AGI', 'Absorb-INT', 'Absorb-MND', 'Absorb-CHR', 'Absorb-Attri', 'Absorb-MaxAcc', 'Absorb-TP'}
     wyv_breath_spells = S{'Dia', 'Poison', 'Blaze Spikes', 'Protect', 'Sprout Smack', 'Head Butt', 'Cocoon',
         'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
@@ -81,8 +81,8 @@ function job_setup()
 	info.default_ja_ids = S{35, 204}
 	-- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
 	info.default_u_ja_ids = S{201, 202, 203, 205, 207}
-    state.WeaponSet = M{['description']='Weapon Set', 'Normal', 'Trishula', 'Shining', 'Naegling', 'TernionDagger', 'Staff', 'Club'}
-    state.shield = M{['description']='Weapon Set', 'Normal', 'shield'}
+    state.Weaponset = M{['description']='Weapon Set', 'Normal', 'Trishula', 'Shining', 'Naegling', 'TernionDagger', 'Staff', 'Club'}
+    state.Shield = M{['description']='Weapon Set', 'Normal', 'Shield'}
     get_combat_form()
     update_melee_groups()
 end
@@ -99,15 +99,14 @@ function user_setup()
     
     war_sj = player.sub_job == 'WAR' or false
 
-    --send_command('bind != gs c toggle CapacityMode')
 	send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f5 gs c cycle WeaponskillMode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     send_command('bind !w gs c toggle WeaponLock')
-    send_command('bind f7 gs c cycle shield')
-    send_command('bind f6 gs c cycle WeaponSet')
-    send_command('bind !f6 gs c cycleback WeaponSet')
+    send_command('bind f7 gs c cycle Shield')
+    send_command('bind f6 gs c cycle Weaponset')
+    send_command('bind !f6 gs c cycleback Weaponset')
     send_command('bind @x gs c toggle RP')  
     send_command('bind @c gs c toggle CapacityMode')
     send_command('wait 6;input /lockstyleset 152')
@@ -134,7 +133,7 @@ function user_setup()
             [11] = 1.490909,
             [12] = 1.70,
         }
-        if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","WeaponSet","shield","TreasureMode"}) 
+        if init_job_states then init_job_states({"WeaponLock"},{"IdleMode","OffenseMode","WeaponskillMode","Weaponset","Shield","TreasureMode"}) 
         end
 end
 
@@ -162,7 +161,7 @@ sets.Staff = {main="Malignance Pole", sub="Utu Grip",}
 sets.Club = {main="Mafic Cudgel", sub="Demers. Degen +1",}
 
 sets.Normal = {}
-sets.shield = {sub="Regis"}
+sets.Shield = {sub="Regis"}
 
 -- neck JSE Necks Reinf
 sets.RP = {}
@@ -172,7 +171,6 @@ sets.CapacityMantle = {}
     -- Precast Sets
 	-- Precast sets to enhance JAs
 sets.precast.JA.Angon = {ammo="Angon",hands="Pteroslaver Finger Gauntlets +3"}
---sets.CapacityMantle = {back="Mecistopins Mantle"}
     --sets.Berserker = {neck="Berserker's Torque"}
 sets.WSDayBonus = {head="Gavialis Helm"}
 
@@ -1104,7 +1102,7 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     (state.HybridMode.value == 'DT' and state.PhysicalDefenseMode.value == 'Reraise') then
 		equip(sets.Reraise)
 	end
-    check_weaponset()
+    check_Weaponset()
 
 end
 
@@ -1150,7 +1148,7 @@ function job_state_change(stateField, newValue, oldValue)
     end
     if update_job_states then update_job_states() 
     end
-    check_weaponset()
+    check_Weaponset()
 
 end
 
@@ -1161,9 +1159,9 @@ windower.register_event('zone change',
     end
 )
 
-function check_weaponset()
-    equip(sets[state.WeaponSet.current])
-    equip(sets[state.shield.current])
+function check_Weaponset()
+    equip(sets[state.Weaponset.current])
+    equip(sets[state.Shield.current])
 end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)   
@@ -1177,6 +1175,8 @@ function customize_idle_set(idleSet)
         equip(sets.RP)
         disable('neck')
     else
+        enable('neck')
+    end
     return idleSet
 end
 
@@ -1192,10 +1192,12 @@ function customize_melee_set(meleeSet)
         equip(sets.RP)
         disable('neck')
     else
+        enable('neck')
+    end
     if state.Buff.Sleep and player.hp > 120 and player.status == "Engaged" then -- Equip Vim Torque When You Are Asleep
         meleeSet = set_combine(meleeSet,{neck="Vim Torque +1"})
     end
-    check_weaponset()
+    check_Weaponset()
 
 	return meleeSet
 

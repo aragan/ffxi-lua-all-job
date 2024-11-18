@@ -118,6 +118,8 @@ function user_setup()
     --use //listbinds    .. to show command keys
     -- Additional local binds
     --send_command('bind f3 @input /ja "Sublimation" <me>')
+    send_command('bind ^f11 gs c set DefenseMode Magical')
+	send_command('bind f11 gs c cycle CastingMode')
     send_command('bind f7 input //Sublimator')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind !s gs c toggle SrodaNecklace')

@@ -86,6 +86,7 @@ function user_setup()
     send_command('bind f3 input //Sublimator')
 	--send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
+    send_command('bind !f11 gs c set DefenseMode Magical')
 	send_command('bind ^f11 gs c cycle Enfeebling')
     send_command('bind !w gs c toggle WeaponLock')
     send_command('bind !` gs c toggle MagicBurst')
@@ -163,7 +164,7 @@ function init_gear_sets()
      sets.RP = {}
      -- Capacity Points Mode
      sets.CapacityMantle = {}
-     
+
     ---- Precast Sets ----
      
     -- Precast sets to enhance JAs

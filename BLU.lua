@@ -327,7 +327,8 @@ function user_setup()
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     send_command('bind ^p gs c toggle phalanxset')
-
+	send_command('bind ^f11 gs c set DefenseMode Magical')
+	send_command('bind f11 gs c cycle CastingMode')
     select_default_macro_book()
 
     -- 'Out of Range' distance; WS will auto-cancel
