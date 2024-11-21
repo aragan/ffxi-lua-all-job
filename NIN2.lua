@@ -89,7 +89,7 @@ function job_setup()
     state.Proc = M(false, 'Proc')
     state.unProc = M(false, 'unProc')
 
-    gear.RegularAmmo = 'Seki Shuriken'
+    gear.RegularAmmo = ''
     gear.SangeAmmo = 'Happo Shuriken'
 
     wsList = S{'Blade: Hi', 'Blade: Kamu', 'Blade: Ten'}
@@ -1349,9 +1349,7 @@ function job_buff_change(buff, gain)
 end
 
 function job_status_change(newStatus, oldStatus, eventArgs)
-    if newStatus == 'Engaged' then
-        update_combat_form()
-    end
+
 end
 
 mov = {counter=0}
@@ -1510,11 +1508,9 @@ function job_state_change(stateField, newValue, oldValue)
         gear.Back = newValue
     elseif stateField == 'Proc' then
         --send_command('@input /console gs enable all')
-        equip(sets.Proc)
         --send_command('@input /console gs disable all')
     elseif stateField == 'unProc' then
-        send_command('@input /console gs enable all')
-        equip(sets.unProc)
+
     elseif stateField == 'Runes' then
         local msg = ''
         if newValue == 'Ignis' then
@@ -1662,11 +1658,7 @@ end
 -- end
 
 function update_combat_form()
-    if state.Buff.Innin then
-        state.CombatForm:set('Innin')
-    else
-        state.CombatForm:reset()
-    end
+
 end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()

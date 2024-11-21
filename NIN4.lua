@@ -89,6 +89,12 @@ function job_setup()
     state.Proc = M(false, 'Proc')
     state.unProc = M(false, 'unProc')
 
+            --Abyssea Red Proc Sets--
+            sets.RedProc = {}
+            sets.RedProc.index = { 'MainSet', 'Staff', 'Dagger', 'Sword','GreatSword', 'Scythe', 'Polearm', 'Katana', 'GreatKatana', 'Club' } --'GreatSword' goes after Sword once I get an All Classes one
+            RedProc_ind = 1
+
+                
     gear.RegularAmmo = ''
     gear.SangeAmmo = 'Happo Shuriken'
 
@@ -112,11 +118,12 @@ end
 function user_setup()
     -- Options: Override default values
     state.OffenseMode:options('Normal', 'Sword', 'GK', 'Club', 'Staff', 'Dagger', 'Katana', 'Scythe', 'GS', 'Polearm')
-    state.HybridMode:options('Normal', 'PDT', 'Proc')
+    state.HybridMode:options('Normal', 'PDT')
     state.RangedMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'PDL', 'SC', 'vagary')
     state.PhysicalDefenseMode:options('PDT', 'TreasureHunter', 'Evasion')
     state.MagicalDefenseMode:options('MDT')
+
 
 	select_default_macro_book()
 
@@ -127,6 +134,8 @@ function user_setup()
     send_command('bind @f9 gs c cycle HasteMode')
     send_command('bind @[ gs c cycle Runes')
     send_command('bind ^] gs c toggle UseRune')
+    send_command('bind f9 gs c toggle MainSet set') --change f9 to whatever you want, ^f9 = CTRL+F9, !f9 = ALT+F9
+    send_command('bind !f9 gs c toggle RedProc set')
     -- send_command('bind !- gs equip sets.crafting')
 
 end
@@ -154,7 +163,25 @@ end
 -- To stick paralyze (Jubaku) lower resistence with Huton: Ni
 
 function init_gear_sets()
-    
+
+                --sets.RedProc.MainSet = {main="Kiikanemitsu", sub="Claymore Grip"} skilling up Great Katana
+                sets.RedProc.MainSet = {main="Heishi Shorinken",
+                sub="Kunimitsu",}
+                --starting with Staff since equipping a 2 hander after dual wielding my main set forces the offhand to unequip; if you set Dagger first, for example, then your offhand remains strong and you kill stuff too fast
+                sets.RedProc.Staff = {main="Profane Staff", sub=empty,}
+                sets.RedProc.Dagger = {main="Qutrub Knife",}
+                sets.RedProc.Sword = {main="Fermion Sword",}
+                sets.RedProc.Scythe = {main="Maven's Scythe", sub=empty,}
+                sets.RedProc.Polearm = {main="Sha Wujing's La. +1", sub=empty,}
+                sets.RedProc.Katana = {main="Debahocho +1",}
+                sets.RedProc.GreatKatana = {main="Zanmato +1", sub=empty,}
+                sets.RedProc.Club = {main="Caduceus",}
+                sets.RedProc.GreatSword = {main="Irradiance Blade",sub=empty,} 
+                --All Classes Great Sword from master trial
+                --custom en
+         
+
+
     --------------------------------------
     -- Job Abilties
     --------------------------------------
@@ -501,14 +528,11 @@ function init_gear_sets()
     sets.Daggers = {
 
     }
-    sets.Proc = set_combine(sets.engaged, {
-            main={ name="Heishi Shorinken", augments={'Path: A',}},
-            sub="Kunimitsu",
-            ammo="Per. Lucky Egg", 
-            head="Wh. Rarab Cap +1",
-            waist="Chaac Belt",
-        })
+    sets.Proc = {
+        -- main="Knife",
+        sub=empty,
       
+    }
     sets.unProc = set_combine(sets.engaged, {
 
     })
@@ -1053,10 +1077,11 @@ function init_gear_sets()
     sets.precast.WS['Tachi: Jinpu'].PDL = set_combine(sets.precast.WS['Tachi: Jinpu'], {
         --range="Wingcutter +1",
         neck={ name="Warder's Charm +1", augments={'Path: A',}},
+
     })
     sets.precast.WS['Tachi: Jinpu'].SC = set_combine(sets.precast.WS['Tachi: Jinpu'], {
+
     })
-    sets.precast.WS['Tachi: Jinpu'].vagary = sets.precast.WS.vagary
     sets.precast.WS['Tachi: Kagero'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
     sets.precast.WS['Tachi: Kagero'].PDL = set_combine(sets.precast.WS['Tachi: Jinpu'].PDL, {})
     sets.precast.WS['Tachi: Goten'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
@@ -1146,6 +1171,16 @@ function init_gear_sets()
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks that are called to process player actions at specific points in time.
 -------------------------------------------------------------------------------------------------------------------
+function ChangeGear(GearSet)
+ 
+    equipSet = GearSet
+    equip(GearSet)
+end
+ 
+function msg(str)
+    send_command('@input /echo <----- ' .. str .. ' ----->')
+end
+
 function job_pretarget(spell, action, spellMap, eventArgs)
     if state.Buff[spell.english] ~= nil then
         state.Buff[spell.english] = true
@@ -1258,6 +1293,22 @@ end
 -- Customization hooks for idle and melee sets, after they've been automatically constructed.
 -------------------------------------------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------------------------------------------
+-- User code that supplements self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+-- Called for direct player commands.
+function job_self_command(cmdParams, eventArgs)
+    if command == 'toggle RedProc set' then
+        RedProc_ind = RedProc_ind + 1
+        if RedProc_ind > #sets.RedProc.index then RedProc_ind = 1 end
+        ChangeGear(sets.RedProc[sets.RedProc.index[RedProc_ind]])
+    elseif command == 'toggle MainSet set' then
+    RedProc_ind = 1 end
+    send_command('@input /echo <----- RedProc Set changed to ' .. sets.RedProc.index[RedProc_ind] .. ' ----->')
+    ChangeGear(sets.RedProc[sets.RedProc.index[RedProc_ind]])
+end
+
 -- Called before the Include starts constructing melee/idle/resting sets.
 -- Can customize state or custom melee class values at this point.
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -1301,9 +1352,9 @@ function customize_melee_set(meleeSet)
     if state.Buff.Migawari and state.HybridMode.value == 'PDT' then
         meleeSet = set_combine(meleeSet, sets.buff.Migawari)
     end
-    if state.HybridMode.value == 'Proc' then
+    --[[if state.HybridMode.value == 'Proc' then
         meleeSet = set_combine(meleeSet, sets.NoDW)
-    end
+    end]]
     meleeSet = set_combine(meleeSet, select_ammo())
     return meleeSet
 end
@@ -1510,13 +1561,6 @@ end
 function job_state_change(stateField, newValue, oldValue)
     if stateField == 'Capacity Point Mantle' then
         gear.Back = newValue
-    elseif stateField == 'Proc' then
-        --send_command('@input /console gs enable all')
-        equip(sets.Proc)
-        --send_command('@input /console gs disable all')
-    elseif stateField == 'unProc' then
-        send_command('@input /console gs enable all')
-        equip(sets.unProc)
     elseif stateField == 'Runes' then
         local msg = ''
         if newValue == 'Ignis' then

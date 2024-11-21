@@ -604,7 +604,7 @@ sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
    neck="Enhancing Torque",
    waist="Olympus Sash",
    right_ear="Andoaa Earring",
-   right_ring="Stikini Ring +1",
+   left_ring="Stikini Ring +1",
    back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
    sets.midcast['Enhancing Magic'].DT = set_combine(sets.SIRD, {    
@@ -863,9 +863,8 @@ sets.midcast.Cocoon.DT = {
  legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
  neck="Incanter's Torque",
  waist="Olympus Sash",
- left_ear="Brachyura Earring",
+ ring2="Sheltered Ring",
  right_ear="Andoaa Earring",
- right_ring="Stikini Ring +1",
 })
    sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'] , {
   head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
@@ -874,7 +873,6 @@ sets.midcast.Cocoon.DT = {
  waist="Olympus Sash",
  left_ear="Brachyura Earring",
  right_ear="Andoaa Earring",
- right_ring="Stikini Ring +1",
 })
  sets.midcast.Raise = {       
 ammo="Staunch Tathlum +1",

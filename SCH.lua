@@ -249,7 +249,7 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc', 'DT')
-    state.CastingMode:options('Normal', 'magicburst', 'Enmity', 'ConserveMP' , 'Sird', 'SubtleBlow', 'Proc')
+    state.CastingMode:options('Normal','Seidr', 'magicburst', 'Enmity', 'ConserveMP' , 'Sird', 'SubtleBlow', 'Proc')
     state.IdleMode:options('Normal', 'DT', 'Resist','BoostHP','BoostMB', 'Evasion', 'EnemyCritRate','vagary','Sphere')
     state.PhysicalDefenseMode:options('PDT','BoostHP', 'Evasion', 'Resist')
     state.MagicalDefenseMode:options('MDT')
@@ -362,7 +362,7 @@ function init_gear_sets()
     sets.precast.JA['Sublimation'] = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head={ name="Peda. M.Board +3", augments={'Enh. "Altruism" and "Focalization"',}},
-    body={ name="Nyame Mail", augments={'Path: B',}},
+    body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
     hands="Regal Cuffs",
     legs={ name="Nyame Flanchard", augments={'Path: B',}},
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -537,7 +537,10 @@ right_ear="Telos Earring",
     ------------------------------------------------------------------------------------------------
 
     sets.midcast.FastRecast = {}--sets.precast.FC
-
+    sets.ConserveMP = {
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        }
     sets.midcast.Cure = {
         main={ name="Musa", augments={'Path: C',}},
         ammo="Pemphredo Tathlum",
@@ -635,7 +638,7 @@ right_ear="Telos Earring",
         ammo="Pemphredo Tathlum",
         head="Telchine Cap",
         hands="Telchine Gloves",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
         neck="Incanter's Torque",
@@ -651,7 +654,7 @@ right_ear="Telos Earring",
         main={ name="Musa", augments={'Path: C',}},
         sub="Enki Strap",
         head="Telchine Cap",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -662,7 +665,7 @@ right_ear="Telos Earring",
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
         main={ name="Musa", augments={'Path: C',}},
         head="Arbatel Bonnet +2",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -673,7 +676,7 @@ right_ear="Telos Earring",
     sets.midcast.RegenDuration = set_combine(sets.midcast['Enhancing Magic'], {
         main={ name="Musa", augments={'Path: C',}},
         head="Arbatel Bonnet +2",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -685,7 +688,7 @@ right_ear="Telos Earring",
 
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
         head="Telchine Cap",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -694,7 +697,7 @@ right_ear="Telos Earring",
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
         head="Telchine Cap",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -704,7 +707,7 @@ right_ear="Telos Earring",
 
     sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
         head="Telchine Cap",
-        body="Telchine Chas.",
+        body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
         legs="Telchine Braconi",
         feet="Telchine Pigaches",
@@ -846,10 +849,18 @@ right_ear="Telos Earring",
         back="Lugh's Cape",
         }
 
-    sets.midcast['Elemental Magic'].Enmity= set_combine(sets.midcast['Elemental Magic'], {
+    sets.midcast['Elemental Magic'].Enmity = set_combine(sets.midcast['Elemental Magic'], {})
+    sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'], {
+        body="Seidr Cotehardie",
     })
 
-    sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {})
+    sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {
+        ammo="Pemphredo Tathlum",
+        body="Seidr Cotehardie",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        waist="Shinjutsu-no-Obi +1",
+
+    })
     sets.midcast['Elemental Magic'].magicburst = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
         head="Agwu's Cap",
@@ -1266,7 +1277,7 @@ sets.MoveSpeed = {feet="Herald's Gaiters"}
 
     sets.buff.FullSublimation = {
        --head="Acad. Mortar. +3", --4
-       --body="Peda. Gown +3", --5
+       body="Peda. Gown +3", --5
        --ear1="Savant's Earring", --1
        waist="Embla Sash", --5
        }

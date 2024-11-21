@@ -41,7 +41,7 @@ end
 function user_setup()
     state.OffenseMode:options('None','Normal','TP', 'CRIT', 'Locked')
     state.HybridMode:options('Normal', 'DT')
-    state.CastingMode:options('Normal', 'SIRD', 'Spaekona', 'Proc')
+    state.CastingMode:options('Normal', 'SIRD', 'Spaekona', 'ConserveMP', 'Proc')
     state.IdleMode:options('Normal', 'PDT', 'MDT', 'DT', 'HB', 'MB', 'Evasion', 'EnemyCritRate', 'Sphere')
     state.PhysicalDefenseMode:options('PDT', 'MDT')
     state.MagicalDefenseMode:options('MDT')
@@ -658,6 +658,11 @@ function init_gear_sets()
  
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
         body="Spaekona's Coat +3",})
+    sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {
+            body="Spaekona's Coat +3",
+            waist="Shinjutsu-no-Obi +1",
+            left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        })
 
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
 		head=empty,

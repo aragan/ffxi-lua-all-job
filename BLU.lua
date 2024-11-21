@@ -320,6 +320,7 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` gs c toggle MagicBurst')
     send_command('bind f5 gs c cycle WeaponskillMode')
+    send_command('alias destroy setkey down down;')
     send_command('alias lamp input /targetnpc;wait .1; input //tradenpc 1 "Smoldering Lamp";wait 1.4;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;wait .1;setkey right down;wait .4;setkey right up;wait .1;setkey numpadenter down;wait .1;setkey numpadenter up;')  --//lamp
     send_command('alias glowing input /targetnpc;wait .1; input //tradenpc 1 "Glowing Lamp";wait 1.8;setkey up down;wait .1;setkey up up;wait .1;setkey numpadenter down;wait 0.1;setkey numpadenter up;') -- //glowing 
     send_command('wait 6;input /lockstyleset 152')
@@ -1068,7 +1069,11 @@ sets.midcast['Blue Magic'].Buff.SIRD = set_combine(sets.SIRD, sets.midcast['Blue
 sets.midcast['Blue Magic']['Occultation'] = set_combine(sets.midcast['Blue Magic'].Buff, {
     hands="Hashi. Bazu. +2",
 }) -- 1 shadow per 50 skill
-sets.midcast['Blue Magic'].Refresh = set_combine(sets.midcast['Blue Magic'].Buff, {waist="Gishdubar Sash"})
+sets.midcast['Blue Magic'].Refresh = set_combine(sets.midcast['Blue Magic'].Buff, {
+    waist="Gishdubar Sash",
+    feet="Inspirited Boots",
+    back="Grapevine Cape",
+})
 
 sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, {
     head=empty;
@@ -1284,7 +1289,7 @@ sets.defense.MDT = {
 -- Idle sets
 sets.idle = {     
     ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
+    head={ name="Rawhide Mask", augments={'HP+50','Accuracy+15','Evasion+20',}},
     body="Shamash Robe",
     hands="Malignance Gloves",
     legs="Malignance Tights",
