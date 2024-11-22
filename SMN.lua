@@ -88,6 +88,8 @@ function job_setup()
     state.Buff["Astral Conduit"] = buffactive["Astral Conduit"] or false
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
+    state.RP = M(false, "Reinforcement Points Mode")
+    state.CapacityMode = M(false, 'Capacity Point Mantle')
     send_command('wait 2;input /lockstyleset 174')
     elements.storm_of = {['Light']="Aurorastorm", ['Dark']="Voidstorm", ['Fire']="Firestorm", ['Earth']="Sandstorm",
     ['Water']="Rainstorm", ['Wind']="Windstorm", ['Ice']="Hailstorm", ['Lightning']="Thunderstorm",}
@@ -194,6 +196,8 @@ function user_setup()
     send_command('bind f4 input /pet "Release" <me>')
     send_command('bind f7 input //Sublimator')
     send_command('bind f6 input //gs c siphon')
+    send_command('bind @x gs c toggle RP')  
+    send_command('bind @c gs c toggle CapacityMode')
     send_command('bind ^/ gs disable all')
     send_command('bind !/ gs enable all')
     select_default_macro_book()
@@ -207,7 +211,12 @@ function init_gear_sets()
     --------------------------------------
     -- Precast Sets
     --------------------------------------
-    
+
+    	-- neck JSE Necks Reinforcement Points Mode add u neck here 
+	sets.RP = {}
+	-- Capacity Points Mode back
+   sets.CapacityMantle = {}
+
     -- Precast sets to enhance JAs
     sets.precast.JA['Astral Flow'] = {head="Glyphic Horn +1"}
     
@@ -217,7 +226,9 @@ function init_gear_sets()
         legs="Marduk's Shalwar +1",feet="Caller's Pigaches +2"}
 
     sets.precast.JA['Mana Cede'] = {hands="Caller's Bracers +2"}
-
+    sets.precast.JA['Sublimation'] = {
+        waist="Embla Sash",
+    }
     -- Pact delay reduction gear
     sets.precast.BloodPactWard = {
     ammo="Sancus Sachet +1",
@@ -258,15 +269,18 @@ function init_gear_sets()
 }
 sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
 
+sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+
+sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+    legs="Doyen Pants",
+    head="Umuthi Hat",
+    waist="Siegel Sash",})
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     legs="Doyen Pants",
     left_ear="Mendi. Earring",
     waist="Acerbic Sash +1",
 })
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
-    legs="Doyen Pants",
-    waist="Siegel Sash",
-})
+
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
        
@@ -436,6 +450,8 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], { left_ear="Brachyura Earring"})
     sets.midcast.Shellra = sets.midcast.Shell
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",
         neck="Nodens Gorget",
         waist="Siegel Sash",
         })
@@ -1220,7 +1236,23 @@ function job_get_spell_map(spell)
         end
     end
 end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.CapacityMode.value then
+        meleeSet = set_combine(meleeSet, sets.CapacityMantle)
+    end
+	if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
+    check_weaponset()
 
+	return meleeSet
+end
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if pet.isvalid then
@@ -1253,6 +1285,15 @@ function customize_idle_set(idleSet)
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
     end
+    if state.CapacityMode.value then
+        idleSet = set_combine(idleSet, sets.CapacityMantle)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
     return idleSet
 end
 

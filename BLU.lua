@@ -1079,22 +1079,6 @@ sets.midcast['Enfeebling Magic'] = set_combine(sets.midcast['Blue Magic'].MagicA
     head=empty;
     body="Cohort Cloak +1",
 })
-sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
-    ammo="Pemphredo Tathlum",
-    head="Telchine Cap",
-    body="Telchine Chas.",
-    hands="Regal Cuffs",
-    legs="Telchine Braconi",
-    feet="Telchine Pigaches",
-    neck="Incanter's Torque",
-    waist="Olympus Sash",
-    left_ear="Mendi. Earring",
-    right_ear="Andoaa Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-})
-
 sets.midcast['Enhancing Magic'] = {
     ammo="Pemphredo Tathlum",
     head="Telchine Cap",
@@ -1110,6 +1094,21 @@ sets.midcast['Enhancing Magic'] = {
     right_ring="Stikini Ring +1",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 }
+sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
+    ammo="Pemphredo Tathlum",
+    head="Telchine Cap",
+    body="Telchine Chas.",
+    hands="Regal Cuffs",
+    legs="Telchine Braconi",
+    feet="Telchine Pigaches",
+    neck="Incanter's Torque",
+    waist="Olympus Sash",
+    left_ear="Mendi. Earring",
+    right_ear="Andoaa Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+})
 
 sets.midcast.Duration = {
     ammo="Pemphredo Tathlum",
@@ -1131,7 +1130,11 @@ sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.SIRD, sets.midcast['Enha
 
     
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash"})
-sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+    neck="Stone Gorget",
+    legs="Haven Hose",
+    left_ear="Earthcry Earring",
+    waist="Siegel Sash"})
 
 sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring",})
 sets.midcast.Protectra = sets.midcast.Protect
@@ -1154,8 +1157,8 @@ sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
     feet={ name="Herculean Boots", augments={'Accuracy+8','Pet: Attack+28 Pet: Rng.Atk.+28','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},
     neck="Incanter's Torque",
     waist="Olympus Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Loquac. Earring",
+    left_ear="Mendi. Earring",
+    right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},

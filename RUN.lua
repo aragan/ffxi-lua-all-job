@@ -485,15 +485,17 @@ sets.midcast.Shellra = sets.midcast.Protect
     head="Erilaz Galea +2",
     body="Nyame Mail",
     hands="Regal Gauntlets",
-    legs="Futhark Trousers +3",
+    --legs="Futhark Trousers +3",
     feet="Nyame Sollerets",
-    neck="Incanter's Torque",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    legs="Haven Hose",
+    neck="Stone Gorget",
+    waist="Siegel Sash",
+    left_ear="Earthcry Earring",
     right_ear="Andoaa Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Ogma's Cape",})
-    sets.midcast['Stoneskin'].SIRD = sets.midcast.SIRD
+    sets.midcast['Stoneskin'].SIRD = set_combine(sets.midcast['Stoneskin'],sets.midcast.SIRD)
 
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
         head="Erilaz Galea +2",

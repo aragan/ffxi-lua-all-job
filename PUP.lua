@@ -177,12 +177,14 @@ function user_setup()
     send_command("bind home gs c toggle setftp")
     send_command("bind PAGEUP gs c toggle autodeploy")
     send_command("bind PAGEDOWN gs c hide keybinds")
-    send_command("bind end gs c toggle CP") 
+    send_command("bind @c gs c toggle CP") 
+    send_command('bind @x gs c toggle RP')  
     send_command("bind = gs c clear")
     send_command('wait 6;input /lockstyleset 160')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind f1 gs c cycle HippoMode')
     --send_command('bind delete gs c toggle setftp')
+	state.RP = M(false, "Reinforcement Points Mode")
 
     state.HippoMode = M(false, "hippoMode")
 	state.WeaponskillMode:options('Normal', 'PDL', 'SC')
@@ -349,6 +351,10 @@ function init_gear_sets()
     --[[
         Will be activated when Pet is not active, otherwise refer to sets.idle.Pet
     ]]
+
+    -- neck JSE Necks Reinforcement Points Mode add u neck here 
+	sets.RP = {}
+
     sets.idle = {       
     head="Malignance Chapeau",
     body="Adamantite Armor",
@@ -382,9 +388,10 @@ function init_gear_sets()
         legs="Doyen Pants",
         left_ear="Mendi. Earring",
     })
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
         legs="Doyen Pants",
-        waist="Siegel Sash"})
+        waist="Siegel Sash",})
 
     -------------------------------------Midcast
     sets.midcast = {} --Can be left empty
@@ -410,7 +417,11 @@ function init_gear_sets()
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},
     }
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
-		waist="Siegel Sash",})
+        neck="Stone Gorget",
+	    legs="Haven Hose",
+        left_ear="Earthcry Earring",
+        waist="Siegel Sash",
+    })
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash"})
 
     sets.midcast['Enfeebling Magic'] = {
@@ -1659,6 +1670,20 @@ function check_buff(buff_name, eventArgs)
         eventArgs.handled = true
     end]]
 end
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end
+    check_weaponset()
+
+    return meleeSet
+end
 function customize_idle_set(idleSet)
     if state.HippoMode.value == true then 
         idleSet = set_combine(idleSet, {feet="Hippo. Socks +1"})
@@ -1666,6 +1691,12 @@ function customize_idle_set(idleSet)
     if world.area:contains("Adoulin") then
         idleSet = set_combine(idleSet, {body="Councilor's Garb"})
     end
+    if state.RP.current == 'on' then
+        equip(sets.RP)
+        disable('neck')
+    else
+        enable('neck')
+    end 
     return idleSet
 end
 function sub_job_change(new,old)

@@ -1038,7 +1038,6 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
         ring1="Evanescence Ring", -- 10
         ring2="Kishar Ring",
         back="Chuparrosa Mantle",
-
     })
      -- Drain spells 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
@@ -1064,7 +1063,22 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
         right_ring="Evanescence Ring",
     })
     sets.midcast.Aspir.Acc = sets.midcast.Drain.Acc
-      
+    
+    sets.midcast.Phalanx = {
+        ammo="Staunch Tathlum +1",
+        head={ name="Odyssean Helm", augments={'INT+5','"Cure" potency +8%','Phalanx +4','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},
+        body="Shab. Cuirass +1",
+        hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+    } 
+
     sets.midcast['Elemental Magic'] = {
         ammo="Pemphredo Tathlum",
         head="Nyame Helm",
@@ -1132,6 +1146,12 @@ sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
 }
+sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+    neck="Stone Gorget",
+    legs="Haven Hose",
+    left_ear="Earthcry Earring",
+    waist="Siegel Sash",
+})
 
     --------------------------------------
     -- Defense sets

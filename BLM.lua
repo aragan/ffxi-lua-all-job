@@ -198,6 +198,7 @@ function init_gear_sets()
     right_ring="Prolix Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 	}
+    sets.precast.FC.Cure = set_combine(sets.precast.FC, {legs="Doyen Pants",})
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
@@ -222,6 +223,10 @@ function init_gear_sets()
     }
 		
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+        legs="Doyen Pants",
+        head="Umuthi Hat",
+        waist="Siegel Sash",})
     sets.precast.FC['Enfeebling Magic'] = sets.precast.FC
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {})
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {
@@ -457,8 +462,14 @@ function init_gear_sets()
     sets.midcast.Aquaveil.SIRD = set_combine(sets.midcast['Enhancing Magic'],sets.SIRD) 
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",
+        waist="Siegel Sash",
         neck="Nodens Gorget",})
     sets.midcast.Stoneskin.SIRD = set_combine(sets.midcast['Enhancing Magic'],sets.SIRD, {
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",
+        waist="Siegel Sash",
         neck="Nodens Gorget",})
 
     sets.midcast['Enfeebling Magic'] = {
@@ -657,11 +668,14 @@ function init_gear_sets()
 
  
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
-        body="Spaekona's Coat +3",})
+        body="Spaekona's Coat +3",
+    
+    })
     sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {
-            body="Spaekona's Coat +3",
-            waist="Shinjutsu-no-Obi +1",
-            left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        ammo="Pemphredo Tathlum",
+        body="Spaekona's Coat +3",
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         })
 
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {

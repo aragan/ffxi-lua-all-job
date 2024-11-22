@@ -295,6 +295,9 @@ function init_gear_sets()
         right_ring="Kishar Ring",
         neck="Orunmila's Torque",        
     }
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+        waist="Siegel Sash",
+    })
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {    neck="Magoraga Beads",
         body="Passion Jacket",
         feet="Hattori Kyahan +2",
@@ -336,12 +339,24 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     sets.midcast['Enhancing Magic'] = {
         neck="Incanter's Torque",
         waist="Olympus Sash",
-        left_ear="Brachyura Earring",
-        right_ear="Andoaa Earring",
+        left_ear="Mendi. Earring",
         left_ring="Stikini Ring +1",
         right_ring="Stikini Ring +1",
         back="Moonlight Cape",
 	}
+
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
+    sets.midcast.Protectra = sets.midcast.Protect
+    sets.midcast.Shell = sets.midcast.Protect
+    sets.midcast.Shellra = sets.midcast.Shell
+
+
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+        neck="Stone Gorget",
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",
+        waist="Siegel Sash"})
+        
     sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {
         body={ name="Herculean Vest", augments={'Phys. dmg. taken -1%','Accuracy+11 Attack+11','Phalanx +2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+11','Pet: Phys. dmg. taken -5%','Phalanx +4',}},

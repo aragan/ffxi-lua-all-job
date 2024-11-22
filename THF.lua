@@ -969,7 +969,7 @@ sets.idle.Regen = set_combine(sets.idle, {
     ammo="Aurgelmir Orb +1",
     head="Skulker's Bonnet +2",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, -- 6
-    hands={ name="Floral Gauntlets", augments={'Rng.Acc.+11','Accuracy+5','"Triple Atk."+2',}}, --5
+    hands="Floral Gauntlets", --5
     legs="Samnuha Tights",
     feet={ name="Herculean Boots", augments={'Attack+5','"Triple Atk."+4','AGI+4','Accuracy+1',}},
     neck="Anu Torque",
@@ -981,21 +981,21 @@ sets.idle.Regen = set_combine(sets.idle, {
     } -- 27%
     sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.Acc, {
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-        hands={ name="Floral Gauntlets", augments={'Rng.Acc.+11','Accuracy+5','"Triple Atk."+2',}}, --5
+        hands="Floral Gauntlets", --5
         left_ear="Suppanomimi", --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     }) -- 27%
     sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.STP, {
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-        hands={ name="Floral Gauntlets", augments={'Rng.Acc.+11','Accuracy+5','"Triple Atk."+2',}}, --5
+        hands="Floral Gauntlets", --5
         left_ear="Suppanomimi", --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7
     }) -- 27%
     sets.engaged.DW.CRIT.LowHaste = set_combine(sets.engaged.DW.CRIT, {
         body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --6
-        hands={ name="Floral Gauntlets", augments={'Rng.Acc.+11','Accuracy+5','"Triple Atk."+2',}}, --5
+        hands="Floral Gauntlets", --5
         left_ear="Suppanomimi", --5
         right_ear="Eabani Earring", --4
         waist="Reiki Yotai", --7

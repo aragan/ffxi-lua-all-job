@@ -46,6 +46,8 @@ end
 
 -- Function to bind GearSwap binds when loading a GS script.
 function global_on_load()
+	--send_command('lua r AutoWS')
+
 	send_command('bind f9 gs c cycle OffenseMode')
 	send_command('bind ^f9 gs c cycle HybridMode')
 	send_command('bind !f9 gs c cycle RangedMode')
@@ -58,6 +60,13 @@ function global_on_load()
 	send_command('bind ^f12 gs c update user')
 	send_command('bind f12 gs c cycle IdleMode;gs c reset DefenseMode')
 	send_command('bind !f12 gs c reset DefenseMode;gs c reset IdleMode')
+	
+	send_command('bind pageup input //ata on;input //lua r AutoWS;input //aws on;input //lua load Gaze_check')
+	send_command('bind pagedown input //ata off;input //aws off;input //lua unload Gaze_check')
+	--send_command('lua r AutoWS')
+	
+	send_command('input //parse reset')
+	send_command('input //gs org')
 
 	send_command('bind ^- gs c toggle selectnpctargets')
 	send_command('bind !- gs c cycle pctargetmode')
@@ -98,8 +107,8 @@ function global_on_unload()
 	send_command('lua u sch-hud')
     send_command('lua u AutoRUN')
     send_command('lua u runewidget')
-	send_command('input //parse reset')
-	send_command('input //gs org')
+
+
 end
 
 -------------------------------------------------------------------------------------------------------------------

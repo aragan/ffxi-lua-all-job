@@ -276,7 +276,11 @@ sets.DT = {
 		
 	sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",})
-    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+        legs="Doyen Pants",
+        head="Umuthi Hat",
+        waist="Siegel Sash",})
 	sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 	sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
 
@@ -702,10 +706,14 @@ sets.midcast['Enhancing Magic'].GainSpell = set_combine(sets.midcast['Enhancing 
 	
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'].Duration, {})
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+	legs="Haven Hose",
+	left_ear="Earthcry Earring",
 	waist="Siegel Sash",
 	neck="Nodens Gorget",
 })
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'].Duration, {
+	legs="Haven Hose",
+	left_ear="Earthcry Earring",
 	waist="Siegel Sash",
 	neck="Nodens Gorget",
 })

@@ -287,7 +287,7 @@ function init_gear_sets()
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body={ name="Chironic Doublet", augments={'"Mag.Atk.Bns."+5','"Cure" potency +10%','MND+4','Mag. Acc.+1',}},
-    legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    legs="Doyen Pants",
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     waist="Witful Belt",
     neck="Baetyl Pendant",
@@ -297,8 +297,6 @@ function init_gear_sets()
     right_ring="Kishar Ring",
     back="Fi Follet Cape +1",
 })
-
-    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC, {})
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -314,6 +312,10 @@ function init_gear_sets()
     right_ring="Prolix Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 })
+sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+    legs="Doyen Pants",
+    head="Umuthi Hat",
+    waist="Siegel Sash",})
 
     sets.precast.FC.BardSong = {
         main="Carnwenhan",
@@ -726,13 +728,32 @@ sets.midcast.SongStringSkill = {
 }
         
     sets.midcast.Curaga = sets.midcast.Cure
+
+    sets.midcast['Enhancing Magic'] = {
+        sub="Ammurapi Shield",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Mendi. Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Stikini Ring +1",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},
+        }
+
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {head="Inyanga Tiara +2"})
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash", back="Grapevine Cape"})
     sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell
-    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {         
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {   
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",      
      neck="Nodens Gorget",
      waist="Siegel Sash",
     })
@@ -754,21 +775,7 @@ sets.midcast.SongStringSkill = {
             ring2="Stikini Ring +1",
             }
 
-    sets.midcast['Enhancing Magic'] = {
-            sub="Ammurapi Shield",
-            head="Telchine Cap",
-            body="Telchine Chas.",
-            hands="Telchine Gloves",
-            legs="Telchine Braconi",
-            feet="Telchine Pigaches",
-            neck="Incanter's Torque",
-            waist="Olympus Sash",
-            left_ear="Andoaa Earring",
-            right_ear="Mendi. Earring",
-            left_ring="Stikini Ring +1",
-            right_ring="Stikini Ring +1",
-            back={ name="Fi Follet Cape +1", augments={'Path: A',}},
-            }
+
         
     sets.midcast['Enfeebling Magic'] = {
         main="Arendsi Fleuret",

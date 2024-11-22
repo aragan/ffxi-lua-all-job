@@ -381,18 +381,30 @@ function init_gear_sets()
 
         sets.precast.FC = {
 				ammo="Sapience Orb",
-                hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+                hands="Leyline Gloves",
                 left_ear="Etiolation Earring",
                 right_ear="Loquac. Earring",
                 left_ring="Thurandaut Ring",
                 right_ring="Prolix Ring",
 				neck="Orunmila's Torque",
 			}
-				
+			sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+				hands="Leyline Gloves",
+				legs="Aya. Cosciales +2",
+				feet="Fili Cothurnes +2",
+				neck="Baetyl Pendant",
+				waist="Siegel Sash",
+				left_ear="Etiolation Earring",
+		        right_ring="Sheltered Ring",
+				left_ring="Kishar Ring",
+				right_ring="Prolix Ring",
+			})
+		sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+				waist="Siegel Sash",})
         sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
 			    ammo="Sapience Orb",
 				neck="Magoraga Beads",
-                hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+                hands="Leyline Gloves", 
                 left_ear="Etiolation Earring",
                 right_ear="Loquac. Earring",
                 left_ring="Thurandaut Ring",
@@ -400,7 +412,7 @@ function init_gear_sets()
 				
 		sets.precast.FC.Cure = set_combine(sets.precast.FC, {
 				ammo="Sapience Orb",
-                hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+                hands="Leyline Gloves",
                 right_ear="Loquac. Earring",
 				left_ear="Mendi. Earring",
 				right_ring="Prolix Ring",
@@ -410,7 +422,7 @@ function init_gear_sets()
         -- MIDCAST SETS
         sets.midcast.FastRecast = {
 			ammo="Sapience Orb",
-                hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+			hands="Leyline Gloves",
                 left_ear="Etiolation Earring",
                 right_ear="Loquac. Earring",
                 left_ring="Thurandaut Ring",
@@ -431,16 +443,30 @@ function init_gear_sets()
 		}
 
 	sets.midcast.Curaga = sets.midcast.Cure
-
-	sets.midcast.Stoneskin = {
-		neck="Incanter's Torque",
-		waist="Olympus Sash",
-		left_ear="Andoaa Earring",
+	sets.midcast['Enhancing Magic'] = {
+        body="Shab. Cuirass +1",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        ring2="Sheltered Ring",
+        right_ear="Andoaa Earring",
+        left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+        back="Moonlight Cape",
+	}
+	sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'],{
+		neck="Stone Gorget",
+		legs="Haven Hose",
+		left_ear="Earthcry Earring",
+		waist="Siegel Sash",
 		left_ring="Stikini Ring +1",
 		right_ring="Stikini Ring +1",
+	})
 
-		}
-	
+	sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
+    sets.midcast.Protectra = sets.midcast.Protect
+    sets.midcast.Shell = sets.midcast.Protect
+    sets.midcast.Shellra = sets.midcast.Shell
+
 	sets.midcast.Refresh = {    neck="Incanter's Torque",
     waist="Olympus Sash",
     left_ear="Andoaa Earring",

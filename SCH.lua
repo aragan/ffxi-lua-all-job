@@ -408,13 +408,18 @@ right_ear="Telos Earring",
     sets.precast.FC.Grimoire.EnhancingDuration = set_combine(sets.precast.FC, {
        feet="Acad. Loafers +3", waist="Siegel Sash"})
 
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+       sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+       sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+           legs="Doyen Pants",
+           head="Umuthi Hat",
+           waist="Siegel Sash",})
     sets.precast.FC.EnhancingDuration = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
+        legs="Doyen Pants",
         ear1="Mendi. Earring", --5
         ring1="Lebeche Ring", --(2)
         })
@@ -699,10 +704,11 @@ right_ear="Telos Earring",
         head="Telchine Cap",
         body={ name="Peda. Gown +3", augments={'Enhances "Enlightenment" effect',}},
         hands="Telchine Gloves",
-        legs="Telchine Braconi",
+        legs="Haven Hose",
+        left_ear="Earthcry Earring",
         feet="Telchine Pigaches",
         neck="Nodens Gorget",
-        waist="Embla Sash",
+        waist="Siegel Sash"
         })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
@@ -859,7 +865,6 @@ right_ear="Telos Earring",
         body="Seidr Cotehardie",
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         waist="Shinjutsu-no-Obi +1",
-
     })
     sets.midcast['Elemental Magic'].magicburst = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},

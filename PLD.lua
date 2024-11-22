@@ -332,6 +332,14 @@ back="Rudianos's Mantle",
  sets.precast.FC.Protect = sets.precast.FC
  sets.precast.FC.Shell = sets.precast.FC
  sets.precast.FC.Crusade = sets.precast.FC
+
+ sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
+    waist="Siegel Sash",
+})
+sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+waist="Siegel Sash",
+})
+
  sets.precast.FC.Cure = set_combine(sets.precast.FC,{
    right_ear="Mendi. Earring",
    left_ring="Moonlight Ring",
@@ -502,9 +510,6 @@ sets.precast.WS['Shattersoul'].PDL = set_combine(sets.precast.WS["Requiescat"].P
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS['Requiescat'], {})
 sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS['Requiescat'].PDL, {})
 
-
-
-
 -- Elemental Weapon Skill --elemental_ws--
 
 -- SANGUINE BLADE
@@ -603,15 +608,22 @@ sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
    neck="Enhancing Torque",
    waist="Olympus Sash",
+   left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
    right_ear="Andoaa Earring",
    left_ring="Stikini Ring +1",
+   right_ring="Stikini Ring +1",
    back={ name="Weard Mantle", augments={'VIT+1','Enmity+3','Phalanx +5',}},
 }
    sets.midcast['Enhancing Magic'].DT = set_combine(sets.SIRD, {    
-   left_ear="Andoaa Earring",
+   right_ear="Andoaa Earring",
    right_ring="Stikini Ring +1",
 })
-
+sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+	legs="Haven Hose",
+	left_ear="Earthcry Earring",
+	waist="Siegel Sash",
+    neck="Stone Gorget",
+})
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
 sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="Gishdubar Sash",})
  sets.midcast.MAB = {
@@ -769,35 +781,22 @@ sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'], {waist="G
        back="Moonlight Cape",
 }
 sets.midcast.Cocoon = {  
-   main={ name="Colada", augments={'Enh. Mag. eff. dur. +3','Mag. Acc.+20','DMG:+6',}},
-   sub={ name="Ajax +1", augments={'Path: A',}},
-   ammo="Staunch Tathlum +1",
-   head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-   body="Shab. Cuirass +1",
-   hands="Regal Gauntlets",
-   legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-   feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   neck="Enhancing Torque",
-   waist="Olympus Sash",
-   right_ear="Andoaa Earring",
-   right_ring="Stikini Ring +1",
-   back="Moonlight Cape",
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
+    feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
+    neck="Moonlight Necklace",
+    waist="Audumbla Sash",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
 }
-sets.midcast.Cocoon.DT = {    
-   ammo="Staunch Tathlum +1",
-   head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-   body={ name="Sakpata's Plate", augments={'Path: A',}},
-   hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-   legs={ name="Founder's Hose", augments={'MND+5','Mag. Acc.+5','Attack+3','Breath dmg. taken -2%',}},
-   feet={ name="Odyssean Greaves", augments={'"Mag.Atk.Bns."+23','Magic dmg. taken -5%','INT+9',}},
-   neck="Moonlight Necklace",
-   waist="Audumbla Sash",
-   left_ear="Tuisto Earring",
-   right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-   left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-   right_ring="Defending Ring",
-   back="Moonlight Cape",
-}
+sets.midcast.Cocoon.DT = sets.midcast.Cocoon
+
 -- Cure1=120; Cure2=266; Cure3=600; Cure4=1123; cure potency caps at 50/50% received caps at 32/30%. sans signet 
    sets.midcast.Cure = {
        ammo="Staunch Tathlum +1",
@@ -871,8 +870,9 @@ sets.midcast.Cocoon.DT = {
  legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
  neck="Incanter's Torque",
  waist="Olympus Sash",
- left_ear="Brachyura Earring",
  right_ear="Andoaa Earring",
+ ring2="Sheltered Ring",
+
 })
  sets.midcast.Raise = {       
 ammo="Staunch Tathlum +1",
@@ -2816,8 +2816,6 @@ function select_default_macro_book()
     if player.sub_job == 'DNC' then
         set_macro_page(5, 37)
     elseif player.sub_job == 'NIN' then
-        set_macro_page(5, 37)
-    elseif player.sub_job == 'DNC' then
         set_macro_page(5, 37)
     elseif player.sub_job == 'RDM' then
         set_macro_page(3, 37)

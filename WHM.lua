@@ -789,9 +789,10 @@ function init_gear_sets()
         legs="Telchine Braconi",
         feet="Theo. Duckbills +3",
         neck="Nodens Gorget",
+		legs="Haven Hose",
         waist="Siegel Sash",
+		right_ear="Earthcry Earring",
         left_ear="Andoaa Earring",
-        right_ear="Gifted Earring",
         right_ring="Stikini Ring",
         left_ring="Stikini Ring",
         back={ name="Fi Follet Cape +1", augments={'Path: A',}},}

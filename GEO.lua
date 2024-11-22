@@ -290,14 +290,13 @@ function init_gear_sets()
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         left_ear="Mendi. Earring",
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+        legs="Doyen Pants",
     })
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
         head="Umuthi Hat",
         legs="Doyen Pants",
-        neck="Nodens Gorget",
         waist="Siegel Sash",})
     sets.precast.JA['Concentric Pulse'] = sets.midcast['Elemental Magic']
 
@@ -647,8 +646,31 @@ function init_gear_sets()
         right_ring="Stikini Ring +1",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},
     }
-    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
-    })
+    sets.midcast['Enhancing Magic'] = {
+        ammo="Pemphredo Tathlum",
+        head="Telchine Cap",
+        body="Telchine Chas.",
+        hands="Telchine Gloves",
+        legs="Telchine Braconi",
+        feet="Telchine Pigaches",
+        neck="Incanter's Torque",
+        waist="Olympus Sash",
+        left_ear="Andoaa Earring",
+        right_ear="Mendi. Earring",
+        right_ring="Stikini Ring",
+        left_ring="Stikini Ring",
+        back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
+
+        sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
+            head="Telchine Cap",
+            hands="Telchine Gloves",
+            legs="Haven Hose",
+            left_ear="Earthcry Earring",
+            feet="Telchine Pigaches",
+            neck="Nodens Gorget",
+            waist="Siegel Sash"
+            })
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {})
     sets.midcast.Absorb = set_combine(sets.midcast.Macc, {
         neck="Erra Pendant",
         ear1="Malignance Earring",
@@ -689,21 +711,6 @@ function init_gear_sets()
         waist="Luminary Sash",
         ring1="Kishar Ring",
     })
-
-    sets.midcast['Enhancing Magic'] = {
-    ammo="Pemphredo Tathlum",
-    head="Telchine Cap",
-    body="Telchine Chas.",
-    hands="Telchine Gloves",
-    legs="Telchine Braconi",
-    feet="Telchine Pigaches",
-    neck="Incanter's Torque",
-    waist="Olympus Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Gifted Earring",
-    right_ring="Stikini Ring",
-    left_ring="Stikini Ring",
-    back={ name="Fi Follet Cape +1", augments={'Path: A',}},}
 
     sets.Obi = {waist="Hachirin-no-Obi",}
 
