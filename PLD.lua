@@ -1181,8 +1181,8 @@ sets.TreasureHunter = {
   
    sets.resting = {
        ammo="Homiliary",
-       head="Chev. Armet +3",
-       body="Rev. Surcoat +3",
+       head="Jumalik Helm",
+       body="Jumalik Mail",
        hands="Regal Gauntlets",
        legs={ name="Souv. Diechlings +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
        feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -1225,7 +1225,8 @@ sets.TreasureHunter = {
 }
    sets.idle.Refresh ={
        ammo="Homiliary",
-       body={ name="Jumalik Mail", augments={'HP+50','Attack+15','Enmity+9','"Refresh"+2',}},
+       head="Jumalik Helm",
+       body="Jumalik Mail",
        hands="Regal Gauntlets",
        left_ring="Stikini Ring +1",
        right_ring="Stikini Ring +1",
