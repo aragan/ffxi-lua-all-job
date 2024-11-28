@@ -21,7 +21,6 @@ function get_sets()
     -- Load and initialize the include file.
     include('Mote-Include.lua')
     include('organizer-lib')
-
 end
 
  
@@ -67,7 +66,7 @@ function user_setup()
     state.RP = M(false, "Reinforcement Points Mode")
     send_command('wait 6;input /lockstyleset 174')
     state.HippoMode = M(false, "hippoMode")
-    state.WeaponSet = M{['description']='Weapon Set', 'normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'club'} 
+    state.WeaponSet = M{['description']='Weapon Set', 'Normal','Mpaca', 'Marin', 'Drepanum', 'Maliya', 'Club','TernionDagger'} 
     include('Mote-TreasureHunter')
     state.TreasureMode:set('None')
 	Elemental_Aja = S{'Stoneja', 'Waterja', 'Aeroja', 'Firaja', 'Blizzaja', 'Thundaja', 'Comet'}
@@ -91,6 +90,8 @@ function user_setup()
         [11] = 1.490909,
         [12] = 1.70,
     }
+        --use //listbinds    .. to show command keys
+    -- Additional local binds
     send_command('bind f3 input //Sublimator')
 	--send_command('bind f10 gs c cycle IdleMode')
 	send_command('bind f11 gs c cycle CastingMode')
@@ -162,11 +163,13 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
     ---- WeaponSet ---- 
-    sets.normal = {}
+    sets.Normal = {}
     sets.Marin = {main="Marin Staff +1",sub="Enki Strap"}
     sets.Mpaca = {main="Mpaca's Staff",sub="Enki Strap"}
     sets.Drepanum = {main="Drepanum",sub="Alber Strap"}
     sets.Maliya = {main="Maliya Sickle +1",sub="Alber Strap"}
+    sets.Club = {main="Maxentius",sub="Ammurapi Shield",}
+    sets.TernionDagger = {main="Ternion Dagger +1",sub="Ammurapi Shield",}
 
      -- neck JSE Necks Reinf
      sets.RP = {}
@@ -206,7 +209,11 @@ function init_gear_sets()
     right_ring="Prolix Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},
 	}
-    sets.precast.FC.Cure = set_combine(sets.precast.FC, {legs="Doyen Pants",})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC, {
+        legs="Doyen Pants",
+        waist="Plat. Mog. Belt",
+        back="Moonlight Cape",
+       })
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield"})
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2="Stikini Ring +1"})
@@ -249,7 +256,7 @@ function init_gear_sets()
 
     -- Sets for WS, Feel free to add one for Vidohunir if you have Laevateinn
 
-   sets.precast.WS = {
+    sets.precast.WS = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -264,7 +271,7 @@ function init_gear_sets()
         right_ring="Cornelia's Ring",
         back={ name="Aurist's Cape +1", augments={'Path: A',}},}
         
-        sets.precast.WS['Myrkr'] = {
+    sets.precast.WS['Myrkr'] = {
             ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
             head="Pixie Hairpin +1",
             body={ name="Ros. Jaseran +1", augments={'Path: A',}},
@@ -279,7 +286,7 @@ function init_gear_sets()
             right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
             back={ name="Aurist's Cape +1", augments={'Path: A',}},
         }
-        sets.precast.WS['Spinning Scythe'] = {
+    sets.precast.WS['Spinning Scythe'] = {
             ammo="Oshasha's Treatise",
             head="Nyame Helm",
             body="Nyame Mail",
@@ -293,7 +300,8 @@ function init_gear_sets()
             left_ring="Rufescent Ring",
             right_ring="Cornelia's Ring",
             back={ name="Aurist's Cape +1", augments={'Path: A',}},}
-        sets.precast.WS['Cataclysm'] = {
+
+    sets.precast.WS['Cataclysm'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
@@ -308,7 +316,7 @@ function init_gear_sets()
             right_ring="Archon Ring",
             back="Taranus's Cape",}
        
-            sets.precast.WS['Infernal Scythe'] = {
+    sets.precast.WS['Infernal Scythe'] = {
             ammo="Pemphredo Tathlum",
             head="Pixie Hairpin +1",
             body="Nyame Mail",
@@ -323,7 +331,7 @@ function init_gear_sets()
             right_ring="Archon Ring",
             back="Taranus's Cape",}
         
-            sets.precast.WS['Cross Reaper']	= {
+    sets.precast.WS['Cross Reaper']	= {
                 ammo="Oshasha's Treatise",
                 head="Nyame Helm",
                 body="Nyame Mail",
@@ -338,7 +346,7 @@ function init_gear_sets()
                 right_ring="Cornelia's Ring",
                 back={ name="Aurist's Cape +1", augments={'Path: A',}},
             }
-     sets.precast.WS['Black Halo'] = {
+    sets.precast.WS['Black Halo'] = {
         ammo="Oshasha's Treatise",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -362,6 +370,34 @@ function init_gear_sets()
     sets.precast.WS['Shining Strike'] = sets.precast.WS['Cataclysm']
     sets.precast.WS['Vidohunir'] = sets.precast.WS['Cataclysm']
     sets.precast.WS['Dark Harvest'] = sets.precast.WS['Cataclysm']
+
+    
+    sets.precast.WS["Shadow of Death"] = set_combine(sets.precast.WS["Cataclysm"], {})
+
+    
+    
+    sets.precast.WS["Aeolian Edge"] = {
+        ammo="Pemphredo Tathlum",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck="Sibyl Scarf",
+        waist="Orpheus's Sash",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Regal Earring",
+        left_ring="Cornelia's Ring",
+        right_ring="Freke Ring",
+        back="Taranus's Cape",
+    }
+    sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
+    sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Aeolian Edge"],{})
 
     sets.precast.WS['Shattersoul'] = {
         ammo="Oshasha's Treatise",
@@ -609,7 +645,7 @@ function init_gear_sets()
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Taranus's Cape",
 	}
-    sets.magic_burst = {
+    sets.magicburst = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Ea Hat +1",
         body="Wicce Coat +3",
@@ -624,7 +660,16 @@ function init_gear_sets()
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back="Taranus's Cape",
     }
-
+    sets.magicburst.Spaekona = set_combine(sets.midcast.magicburst, {
+        body="Spaekona's Coat +3",
+    })
+    sets.magicburst.ConserveMP = set_combine(sets.midcast.magicburst, {
+        ammo="Pemphredo Tathlum",
+        body="Spaekona's Coat +3",
+        hands="Wicce Gloves +2",
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+        })
 
     sets.midcast['Elemental Magic'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
     ammo="Pemphredo Tathlum",
@@ -673,8 +718,6 @@ function init_gear_sets()
         back=empty,
     })
 
-
- 
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
         body="Spaekona's Coat +3",
     
@@ -682,6 +725,7 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].ConserveMP = set_combine(sets.midcast['Elemental Magic'], {
         ammo="Pemphredo Tathlum",
         body="Spaekona's Coat +3",
+        hands="Wicce Gloves +2",
         waist="Shinjutsu-no-Obi +1",
         left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
         })
@@ -715,7 +759,7 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
     })
-    sets.midcast['Comet'].magic_burst = set_combine(sets.midcast['Elemental Magic'], {
+    sets.midcast['Comet'].magicburst = set_combine(sets.midcast['Elemental Magic'], {
 		ammo="Pemphredo Tathlum",
 		head="Pixie Hairpin +1",
         body="Wicce Coat +3",
@@ -730,6 +774,17 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
     })
+    sets.midcast['Comet'].Spaekona = set_combine(sets.midcast['Comet'], {
+        body="Spaekona's Coat +3",
+    })
+    sets.midcast['Comet'].ConserveMP = set_combine(sets.midcast['Comet'], {
+        ammo="Pemphredo Tathlum",
+        body="Spaekona's Coat +3",
+        hands="Wicce Gloves +2",
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    })
+
 	sets.midcast['Comet'].FreeNuke = set_combine(sets.midcast['Elemental Magic'], {
     ammo="Pemphredo Tathlum",
     head="Jhakri Coronal +2",
@@ -762,7 +817,7 @@ function init_gear_sets()
 		right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
 		back="Taranus's Cape",
     }
-    sets.midcast['Death'].magic_burst = {
+    sets.midcast['Death'].magicburst = {
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
 		head="Pixie Hairpin +1",
         body="Wicce Coat +3",
@@ -1060,7 +1115,6 @@ sets.midcast.Aspir = sets.midcast.Drain
 		back="Taranus's Cape",
 	}
     
-	
 	sets.midcast.Cure = {
 	ammo="Sapience Orb",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
@@ -1068,14 +1122,24 @@ sets.midcast.Aspir = sets.midcast.Drain
     legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},
     neck="Incanter's Torque",
-    waist="Austerity Belt +1",
-    left_ear="Malignance Earring",
-    right_ear="Mendi. Earring",
+    waist="Plat. Mog. Belt",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear="Mendi. Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Moonlight Cape",
     }
-	
-	sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {waist="Gishdubar Sash"})
+    sets.midcast.Cure.ConserveMP = set_combine(sets.midcast.Cure, {
+        ammo="Pemphredo Tathlum",
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    })
+
+	sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {
+        ammo="Pemphredo Tathlum",
+        waist="Shinjutsu-no-Obi +1",
+        left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    })
     
 	-- Engaged sets
  
@@ -1258,7 +1322,15 @@ end
 
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.skill == 'Elemental Magic' and (state.MagicBurst.value or AEBurst) then
-        equip(sets.magic_burst)
+        if state.CastingMode.value == 'ConserveMP' then
+            equip(sets.magicburst.ConserveMP)
+        elseif state.CastingMode.value == 'ConserveMP' then
+                equip(sets.magicburst.Spaekona)
+        elseif state.CastingMode.value == 'SIRD' then
+                equip(sets.magicburst.SIRD)
+        else
+            equip(sets.magicburst)
+        end
         if spell.english == "Impact" then
             equip(sets.midcast.Impact)
         elseif spell.english == "Death" then

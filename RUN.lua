@@ -75,7 +75,7 @@ function job_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.Knockback = M(false, 'Knockback')
     state.SrodaBelt = M(false, 'SrodaBelt')
-    state.ShelteredRing = M(true,false)
+    state.ShelteredRing = M(false,true)
     state.phalanxset = M(false,true)
     state.RP = M(false, "Reinforcement Points Mode")
     state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -116,7 +116,7 @@ function job_setup()
     , "Primal Rend", "Dark Harvest", "Shadow of Death", "Infernal Scythe", "Thunder Thrust", "Raiden Thrust"
     , "Tachi: Goten", "Tachi: Kagero", "Tachi: Jinpu", "Tachi: Koki", "Rock Crusher", "Earth Crusher", "Starburst"
     , "Sunburst", "Omniscience", "Garland of Bliss"}
-    rayke_duration = 47
+    rayke_duration = 49
     gambit_duration = 96
     -- Table of entries
     rune_timers = T{}
@@ -174,7 +174,7 @@ function user_setup()
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
     state.HippoMode = M(false, "hippoMode")
 
-    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Epeolatry', 'Naegling', 'Lycurgos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'normal', 'Epeolatry', 'Lycurgos', 'Naegling','MalignanceSword','Reikiko','Loxotic','Dolichenus'}
 
     select_default_macro_book()
     if init_job_states then init_job_states({"WeaponLock","HippoMode","SrodaBelt"},{"IdleMode","OffenseMode","WeaponskillMode","CastingMode","WeaponSet","Runes","TreasureMode"}) 
@@ -184,11 +184,14 @@ end
 
 function init_gear_sets()
 
-    --sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
-    sets.Naegling = {main="Naegling", sub="Chanter's Shield"}
     sets.Epeolatry = {main="Epeolatry", sub="Refined Grip +1",}
     sets.Lycurgos = {main="Lycurgos", sub="Refined Grip +1",}
-
+    sets.Naegling = {main="Naegling", sub="Regis"}
+    sets.MalignanceSword = {main="Malignance Sword", sub="Regis"}
+    sets.Reikiko = {main="Reikiko", sub="Regis"}
+    sets.Loxotic = {main="Loxotic Mace +1", sub="Regis"}
+    sets.Dolichenus = {main="Dolichenus", sub="Regis"}
+    
     -- neck JSE Necks Reinf
  sets.RP = {}
  -- Capacity Points Mode
@@ -292,8 +295,8 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     sets.precast.FC['Utsusemi: Ni'] = set_combine(sets.precast.FC['Utsusemi: Ichi'], {})
 
 
-	-- Weaponskill sets
-    sets.precast.WS = {
+-- Weaponskill sets
+sets.precast.WS = {
     ammo="Knobkierrie",
     head="Nyame Helm",
     body="Nyame Mail",
@@ -350,7 +353,7 @@ sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
     sets.precast.WS['Dimidiation'].PDL = set_combine(sets.precast.WS['Dimidiation'], {
     ammo="Crepuscular Pebble",
     left_ring="Sroda Ring",})
-    sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {hands="Umuthi Gloves"})
+    sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {})
     sets.precast.WS['Herculean Slash'].PDL = set_combine(sets.precast.WS['Herculean Slash'], {})
     sets.precast.WS['Ground Strike'] = set_combine(sets.precast.WS, { 
            ammo="Knobkierrie",
@@ -396,7 +399,97 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         left_ring="Sroda Ring",
     })
 
+	sets.precast.WS["Shockwave"] = set_combine(sets.precast.WS['Savage Blade'], {})
+    sets.precast.WS["Power Slash"] = set_combine(sets.precast.WS['Savage Blade'], {})
+	sets.precast.WS["Black Halo"] = set_combine(sets.precast.WS["Savage Blade"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
+    sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {
+        left_ring="Sroda Ring",})
+    sets.precast.WS['Mistral Axe'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
+    sets.precast.WS['Calamity'] = set_combine(sets.precast.WS['Savage Blade'], {
+        left_ring="Sroda Ring",})
+    sets.precast.WS['Calamity'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
+	
 
+	sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
+	sets.precast.WS['Shoulder Tackle'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['One Inch Punch'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
+	sets.precast.WS['Combo'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
+	sets.precast.WS['Backhand Blow'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['Combo'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS) 
+	sets.precast.WS['Combo'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS['Resolution'], sets.precast.WS)
+	sets.precast.WS["Raging Axe"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Ruinator"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Exenterator"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Viper Bite"] = set_combine(sets.precast.WS["Resolution"], {ammo="Aurgelmir Orb +1",})
+	sets.precast.WS["Realmrazer"] = set_combine(sets.precast.WS["Resolution"], {left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},})
+	sets.precast.WS["Penta Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Double Thrust"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Bora Axe"] = set_combine(sets.precast.WS, {})
+	sets.precast.WS["Decimation"] = set_combine(sets.precast.WS["Resolution"], {})
+	sets.precast.WS["Decimation"].PDL= set_combine(sets.precast.WS["Decimation"], {})
+
+
+    sets.precast.WS["True Strike"] = set_combine(sets.precast.WS["Resolution"], {})
+    sets.precast.WS["True Strike"].PDL= set_combine(sets.precast.WS["True Strike"], {
+    })
+    sets.precast.WS['Fell Cleave'] = set_combine(sets.precast.WS, {})
+    sets.precast.WS["Fell Cleave"].PDL= set_combine(sets.precast.WS["Fell Cleave"], {
+    })
+    sets.precast.WS['Armor Break'] = set_combine(sets.precast.WS, {
+		ammo="Pemphredo Tathlum",
+		head="Erilaz Galea +2",
+		body="Erilaz Surcoat +3",
+		hands="Erilaz Gauntlets +2",
+		legs="Eri. Leg Guards +2",
+		feet="Erilaz Greaves +2",
+		neck="Erra Pendant",
+		waist="Luminary Sash",
+		left_ear="Crep. Earring",
+		right_ear="Digni. Earring",
+		left_ring="Stikini Ring +1",
+		right_ring="Stikini Ring +1",
+		back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
+	})
+    sets.precast.WS["Shield Break"] = set_combine(sets.precast.WS["Armor Break"], {})
+    sets.precast.WS["Weapon Break"] = set_combine(sets.precast.WS["Armor Break"], {})
+	sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Armor Break"],{})
+
+-- Elemental Weapon Skill --elemental_ws--
+
+    sets.precast.WS["Burning Blade"] = set_combine(sets.precast.JA['Lunge'], {})
+    sets.precast.WS["Red Lotus Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Shining Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Seraph Blade"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Cloudsplitter"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Primal Rend"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Aeolian Edge"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Cyclone"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Gust Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Shining Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Seraph Strike"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Flash Nova"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Thunder Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Raiden Thrust"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Frostbite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Freezebite"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
+    sets.precast.WS["Herculean Slash"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Earth Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Rock Crusher"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Starburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Sunburst"] = set_combine(sets.precast.WS["Burning Blade"],{})
+    sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS["Burning Blade"],{})
+
+	
+	sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.JA['Lunge'], {
+		head="Pixie Hairpin +1",   
+		right_ring="Archon Ring",	   
+	})
+	sets.precast.WS.Cataclysm = sets.precast.WS["Sanguine Blade"]
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
@@ -433,7 +526,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
     sets.SIRD = {    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Nyame Mail",
-    hands={ name="Rawhide Gloves", augments={'Mag. Acc.+15','INT+7','MND+7',}},
+    hands="Regal Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
     neck="Moonlight Necklace",
@@ -602,7 +695,7 @@ sets.midcast.Shellra = sets.midcast.Protect
     }
     sets.defense.Resist = set_combine(sets.defense.MDT, {
         main="Malignance Sword",
-        sub="Chanter's Shield",
+        sub="Regis",
         ammo="Staunch Tathlum +1",
         head={ name="Nyame Helm", augments={'Path: B',}},
         body="Runeist Coat +3",
@@ -711,7 +804,7 @@ sets.midcast.Shellra = sets.midcast.Protect
 
     sets.idle.Resist = set_combine(sets.idle.PDT, {
         main="Malignance Sword",
-        sub="Chanter's Shield",
+        sub="Regis",
         ammo="Staunch Tathlum +1",
         hands="Erilaz Gauntlets +2",
         legs="Rune. Trousers +3",

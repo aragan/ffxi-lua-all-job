@@ -196,7 +196,6 @@ function init_gear_sets()
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
         head="Umuthi Hat",
-        neck="Nodens Gorget",
         waist="Siegel Sash",})
 
     sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pant. +2",})
@@ -770,6 +769,7 @@ function init_gear_sets()
     neck="Incanter's Torque",
     waist="Olympus Sash",
     left_ear="Andoaa Earring",
+    right_ear="Mendi. Earring",
     right_ring="Stikini Ring",
     left_ring="Stikini Ring",
     back={ name="Fi Follet Cape +1", augments={'Path: A',}},

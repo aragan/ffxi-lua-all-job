@@ -64,7 +64,8 @@ function global_on_load()
 	send_command('bind pageup input //ata on;input //lua r AutoWS;input //aws on;input //lua load Gaze_check')
 	send_command('bind pagedown input //ata off;input //aws off;input //lua unload Gaze_check')
 	--send_command('lua r AutoWS')
-	
+	send_command('lua l runewidget')--Turns addon off if job non /run. ;gs c input rw show
+
 	send_command('input //parse reset')
 	send_command('input //gs org')
 
@@ -78,6 +79,7 @@ function global_on_unload()
 	send_command('unbind f2')
 	send_command('unbind f3')
 	send_command('unbind !s')
+	send_command('unbind !r')
 
 
 	send_command('unbind f9')
@@ -106,7 +108,7 @@ function global_on_unload()
 	send_command('lua u DNC-hud')
 	send_command('lua u sch-hud')
     send_command('lua u AutoRUN')
-    send_command('lua u runewidget')
+    --send_command('lua u runewidget')
 
 
 end

@@ -108,6 +108,7 @@ function user_setup()
     gear.default.weaponskill_waist = ""
     gear.AugQuiahuiz = {}
 
+        --use //listbinds    .. to show command keys
     -- Additional local binds
     send_command('bind ^` input /ja "Flee" <me>')
     send_command('bind @w gs c toggle WeaponLock')

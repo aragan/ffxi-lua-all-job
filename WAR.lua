@@ -808,10 +808,10 @@ sets.TreasureHunter = {
          ammo="Knobkierrie",
          neck="Fotia Gorget",
      })
-     sets.precast.WS.Torcleaver.SC= set_combine(sets.precast.WS.Mid, {
+     sets.precast.WS.Torcleaver.SC= set_combine(sets.precast.WS.Torcleaver, {
         neck="Fotia Gorget",
      })
-     sets.precast.WS.Torcleaver.PDL= set_combine(sets.precast.WS.Torcleaver.Mid, sets.precast.WS.PDL)
+     sets.precast.WS.Torcleaver.PDL= set_combine(sets.precast.WS.Torcleaver, sets.precast.WS.PDL)
 
 
     sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {
@@ -891,11 +891,11 @@ sets.TreasureHunter = {
     })
     sets.precast.WS['Mistral Axe'] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ring="Sroda Ring",})
-    sets.precast.WS['Mistral Axe'].SC= set_combine(sets.precast.WS['Savage Blade'].Mid, {})
+    sets.precast.WS['Mistral Axe'].SC= set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Mistral Axe'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
     sets.precast.WS['Calamity'] = set_combine(sets.precast.WS['Savage Blade'], {
         left_ring="Sroda Ring",})
-    sets.precast.WS['Calamity'].SC= set_combine(sets.precast.WS['Savage Blade'].Mid, {})
+    sets.precast.WS['Calamity'].SC= set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Calamity'].PDL= set_combine(sets.precast.WS['Savage Blade'].PDL, {})
     sets.precast.WS['Judgment'] = set_combine(sets.precast.WS['Savage Blade'], {})
     sets.precast.WS['Judgment'].SC= set_combine(sets.precast.WS['Judgment'], {
